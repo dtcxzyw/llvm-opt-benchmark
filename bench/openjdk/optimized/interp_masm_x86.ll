@@ -105,7 +105,7 @@ define hidden void @_ZN25InterpreterMacroAssembler13jump_to_entryEPh(ptr noundef
 declare void @_ZN14MacroAssembler4jumpE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25InterpreterMacroAssembler16profile_obj_typeE8RegisterRK7Address(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
@@ -285,7 +285,7 @@ define hidden void @_ZN25InterpreterMacroAssembler16profile_obj_typeE8RegisterRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN25InterpreterMacroAssembler18_interp_verify_oopE8Register8TosStatePKci(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, i32 %1, i32 noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN25InterpreterMacroAssembler18_interp_verify_oopE8Register8TosStatePKci(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, i32 %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -2802,7 +2802,7 @@ define hidden void @_ZN25InterpreterMacroAssembler21jump_from_interpretedE8Regis
 declare void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN25InterpreterMacroAssembler15dispatch_prologE8TosStatei(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN25InterpreterMacroAssembler15dispatch_prologE8TosStatei(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -3025,7 +3025,7 @@ define hidden void @_ZN25InterpreterMacroAssembler13dispatch_baseE8TosStatePPhbb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN25InterpreterMacroAssembler10verify_FPUEi8TosState(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN25InterpreterMacroAssembler10verify_FPUEi8TosState(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -4645,7 +4645,7 @@ declare void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnu
 declare noundef i32 @_ZN18InterpreterRuntime9bcp_to_diEP6MethodPh(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN25InterpreterMacroAssembler26verify_method_data_pointerEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN25InterpreterMacroAssembler26verify_method_data_pointerEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -5851,7 +5851,7 @@ define hidden void @_ZN25InterpreterMacroAssembler30record_klass_in_profile_help
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helperE8RegisterS0_S0_iR5LabeliPF8ByteSizejES5_(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helperE8RegisterS0_S0_iR5LabeliPF8ByteSizejES5_(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %class.Address, align 8
   %11 = alloca %class.Address, align 8
   %12 = alloca %class.Address, align 8
@@ -7496,13 +7496,13 @@ declare void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull align 8 deref
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

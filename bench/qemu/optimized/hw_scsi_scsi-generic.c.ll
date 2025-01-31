@@ -239,12 +239,12 @@ return:                                           ; preds = %trace_scsi_generic_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @blk_ioctl(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @scsi_generic_read_device_inquiry(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local void @scsi_generic_read_device_inquiry(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %cmd.i5 = alloca [6 x i8], align 1
   %buf.i6 = alloca [250 x i8], align 16
@@ -517,7 +517,7 @@ if.end:                                           ; preds = %if.else, %scsi_gene
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_free_request(ptr nocapture noundef readonly %req) #0 {
+define internal void @scsi_free_request(ptr noundef readonly captures(none) %req) #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %req, i64 408
   %0 = load ptr, ptr %buf, align 8
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @scsi_send_command(ptr noundef %req, ptr nocapture noundef readonly %cmd) #0 {
+define internal i32 @scsi_send_command(ptr noundef %req, ptr noundef readonly captures(none) %cmd) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds nuw i8, ptr %req, i64 8
@@ -806,7 +806,7 @@ if.end10:                                         ; preds = %if.then9, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal ptr @scsi_get_buf(ptr nocapture noundef readonly %req) #3 {
+define internal ptr @scsi_get_buf(ptr noundef readonly captures(none) %req) #3 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %req, i64 408
   %0 = load ptr, ptr %buf, align 8
@@ -814,7 +814,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_generic_save_request(ptr noundef %f, ptr nocapture noundef readonly %req) #0 {
+define internal void @scsi_generic_save_request(ptr noundef %f, ptr noundef readonly captures(none) %req) #0 {
 entry:
   %buflen = getelementptr inbounds nuw i8, ptr %req, i64 416
   %buflen.val = load i32, ptr %buflen, align 4
@@ -852,7 +852,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_generic_load_request(ptr noundef %f, ptr nocapture noundef initializes((416, 420)) %req) #0 {
+define internal void @scsi_generic_load_request(ptr noundef %f, ptr noundef captures(none) initializes((416, 420)) %req) #0 {
 entry:
   %buflen = getelementptr inbounds nuw i8, ptr %req, i64 416
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #14
@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -918,7 +918,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #5
 declare i64 @llvm.bswap.i64(i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -1164,7 +1164,7 @@ done:                                             ; preds = %trace_scsi_generic_
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @blk_aio_ioctl(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1474,7 +1474,7 @@ done:                                             ; preds = %if.end.split, %lor.
 declare i24 @scsi_parse_sense_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_generic_emulate_block_limits(ptr nocapture noundef %r, ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc i32 @scsi_generic_emulate_block_limits(ptr noundef captures(none) %r, ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %bl = alloca %struct.SCSIBlockLimits, align 4
@@ -1552,7 +1552,7 @@ if.end:                                           ; preds = %calculate_max_trans
 declare zeroext i1 @blk_is_writable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_handle_inquiry_reply(ptr nocapture noundef readonly %r, ptr nocapture noundef %s, i32 noundef range(i32 1, 0) %len) unnamed_addr #0 {
+define internal fastcc i32 @scsi_handle_inquiry_reply(ptr noundef readonly captures(none) %r, ptr noundef captures(none) %s, i32 noundef range(i32 1, 0) %len) unnamed_addr #0 {
 entry:
   %buf40 = alloca [16 x i8], align 16
   %scsi_version = getelementptr inbounds nuw i8, ptr %s, i64 592
@@ -1935,7 +1935,7 @@ declare i32 @qemu_get_be32(ptr noundef) local_unnamed_addr #2
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_generic_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @scsi_generic_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE_CLASS) #14
@@ -2085,7 +2085,7 @@ return:                                           ; preds = %if.end32, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @scsi_new_request(ptr noundef %d, i32 noundef %tag, i32 noundef %lun, ptr nocapture readnone %buf, ptr noundef %hba_private) #0 {
+define internal ptr @scsi_new_request(ptr noundef %d, i32 noundef %tag, i32 noundef %lun, ptr readnone captures(none) %buf, ptr noundef %hba_private) #0 {
 entry:
   %call = tail call ptr @scsi_req_alloc(ptr noundef nonnull @scsi_generic_req_ops, ptr noundef %d, i32 noundef %tag, i32 noundef %lun, ptr noundef %hba_private) #14
   ret ptr %call
@@ -2260,16 +2260,16 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i8 @llvm.umin.i8(i8, i8) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

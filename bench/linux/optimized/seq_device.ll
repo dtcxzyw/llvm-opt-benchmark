@@ -134,7 +134,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_device_dev_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @snd_seq_device_dev_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull @autoload_work) #6
@@ -154,7 +154,7 @@ define internal noundef i32 @snd_seq_device_dev_free(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -179,7 +179,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_device_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @snd_seq_device_dev_disconnect(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -291,7 +291,7 @@ define internal range(i32 -2147483648, 1) i32 @alsa_seq_device_init() #2 section
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @autoload_drivers(ptr nocapture readnone %0) #0 align 16 {
+define internal void @autoload_drivers(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @snd_seq_in_init, i32 1, ptr nonnull elementtype(i32) @snd_seq_in_init) #6, !srcloc !12
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -309,7 +309,7 @@ define internal void @autoload_drivers(ptr nocapture readnone %0) #0 align 16 {
 declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @request_seq_drv(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @request_seq_drv(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -338,7 +338,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -120
@@ -362,7 +362,7 @@ define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
@@ -401,7 +401,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @seq_dev_proc_init() unname
 declare dso_local ptr @snd_info_create_module_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_seq_device_info(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @snd_seq_device_info(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @bus_for_each_dev(ptr noundef nonnull @snd_seq_bus_type, ptr noundef null, ptr noundef %1, ptr noundef nonnull @print_dev_info) #6
   ret void
 }
@@ -410,7 +410,7 @@ define internal void @snd_seq_device_info(ptr nocapture readnone %0, ptr noundef
 declare dso_local i32 @snd_info_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @print_dev_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @print_dev_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %0, i64 -120
   %5 = load ptr, ptr %4, align 8

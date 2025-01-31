@@ -71,7 +71,7 @@ if.end3:                                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_put_event(i8 noundef zeroext %event) local_unnamed_addr #0 {
@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_put_array(ptr nocapture noundef %buf, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @replay_put_array(ptr noundef captures(none) %buf, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -286,7 +286,7 @@ if.end3:                                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i8 @replay_get_byte() local_unnamed_addr #0 {
@@ -315,7 +315,7 @@ if.end2:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @replay_get_word() local_unnamed_addr #0 {
@@ -479,7 +479,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_get_array(ptr nocapture noundef %buf, ptr nocapture noundef %size) local_unnamed_addr #0 {
+define dso_local void @replay_get_array(ptr noundef captures(none) %buf, ptr noundef captures(none) %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -505,10 +505,10 @@ if.end4:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_get_array_alloc(ptr nocapture noundef writeonly %buf, ptr nocapture noundef %size) local_unnamed_addr #0 {
+define dso_local void @replay_get_array_alloc(ptr noundef writeonly captures(none) %buf, ptr noundef captures(none) %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -570,7 +570,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
 
@@ -579,7 +579,7 @@ declare void @qemu_system_vmstop_request_prepare() local_unnamed_addr #4
 declare void @qemu_system_vmstop_request(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_fetch_data_kind() local_unnamed_addr #0 {

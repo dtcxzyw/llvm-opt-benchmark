@@ -801,7 +801,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -973,7 +973,7 @@ _ZNSt6vectorIN3gmx8MtsLevelESaIS1_EED2Ev.exit:    ; preds = %46, %47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrI9t_simtempSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1038,7 +1038,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10t_inputrecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(856) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10t_inputrecD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(856) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_Z13done_inputrecP10t_inputrec(ptr noundef nonnull %0)
           to label %2 unwind label %60
 
@@ -1273,7 +1273,7 @@ _ZNSt6vectorIN3gmx8MtsLevelESaIS1_EED2Ev.exit:    ; preds = %_ZNSt10unique_ptrI8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13done_inputrecP10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z13done_inputrecP10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %4 = load ptr, ptr %3, align 8
@@ -1707,7 +1707,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
   %4 = tail call noundef i32 @_Z29tcouple_min_integration_steps19TemperatureCoupling(i32 noundef %3)
@@ -1835,7 +1835,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21ir_optimal_nstpcouplePK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i32 @_Z21ir_optimal_nstpcouplePK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %3 = load i32, ptr %2, align 4
   %4 = tail call noundef i32 @_Z29pcouple_min_integration_steps16PressureCoupling(i32 noundef %3)
@@ -1901,7 +1901,7 @@ define noundef i32 @_Z21ir_optimal_nstpcouplePK10t_inputrec(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z19ir_coulomb_switchedPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z19ir_coulomb_switchedPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %3 = load i32, ptr %2, align 4
   %switch.tableidx = add i32 %3, -7
@@ -1928,7 +1928,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1967,7 +1967,7 @@ _Z19ir_coulomb_switchedPK10t_inputrec.exit.thread: ; preds = %switch.hole_check,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z34ir_coulomb_might_be_zero_at_cutoffPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z34ir_coulomb_might_be_zero_at_cutoffPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2011,7 +2011,7 @@ _Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit.thread: ; preds = %switch.ho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z15ir_vdw_switchedPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z15ir_vdw_switchedPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %.off = add i32 %3, -1
@@ -2032,7 +2032,7 @@ define noundef zeroext i1 @_Z15ir_vdw_switchedPK10t_inputrec(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2057,7 +2057,7 @@ _Z15ir_vdw_switchedPK10t_inputrec.exit.thread:    ; preds = %_Z15ir_vdw_switched
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z30ir_vdw_might_be_zero_at_cutoffPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z30ir_vdw_might_be_zero_at_cutoffPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2084,7 +2084,7 @@ _Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit.thread: ; preds = %_Z24ir_vdw_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
   br label %.preheader
 
@@ -4245,7 +4245,7 @@ declare noundef ptr @_Z17enumValueToString20PressureCouplingType(i32 noundef) lo
 declare noundef ptr @_Z17enumValueToString15RefCoordScaling(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare void @_Z7pr_rvecP8_IO_FILEiPKcPKfib(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
@@ -4285,7 +4285,7 @@ declare void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef, i32 noundef, ptr nounde
 declare noundef ptr @_ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare noundef ptr @_ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE(i32 noundef) local_unnamed_addr #4
 
@@ -4318,12 +4318,12 @@ declare noundef ptr @_Z17enumValueToString32LambdaWeightWillReachEquilibrium(i32
 declare noundef ptr @_Z17enumValueToString18SimulatedTempering(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare noundef ptr @_Z17enumValueToString18SimulatedAnnealing(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z12cmp_inputrecP8_IO_FILEPK10t_inputrecS3_ff(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -6443,7 +6443,7 @@ define linkonce_odr void @_Z7cmpEnumI18SimulatedAnnealingEvP8_IO_FILEPKcT_S5_(pt
 declare void @_Z8cmp_ivecP8_IO_FILEPKciPKiS4_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12comp_pull_ABP8_IO_FILERK13pull_params_tff(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, float noundef %2, float noundef %3) local_unnamed_addr #1 {
+define void @_Z12comp_pull_ABP8_IO_FILERK13pull_params_tff(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, float noundef %2, float noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -6475,7 +6475,7 @@ define void @_Z12comp_pull_ABP8_IO_FILERK13pull_params_tff(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z14inputrecDeformPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z14inputrecDeformPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %3 = load float, ptr %2, align 4
   %4 = fcmp une float %3, 0.000000e+00
@@ -6517,7 +6517,7 @@ define noundef zeroext i1 @_Z14inputrecDeformPK10t_inputrec(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z18inputrecDynamicBoxPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z18inputrecDynamicBoxPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -6571,7 +6571,7 @@ _Z14inputrecDeformPK10t_inputrec.exit:            ; preds = %28, %25, %22, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z22shouldPreserveBoxShapeRK23PressureCouplingOptionsPA3_Kf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z22shouldPreserveBoxShapeRK23PressureCouplingOptionsPA3_Kf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %10, label %4
@@ -6593,7 +6593,7 @@ define noundef zeroext i1 @_Z22shouldPreserveBoxShapeRK23PressureCouplingOptions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z17inputrecNeedMutotPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z17inputrecNeedMutotPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
@@ -6623,7 +6623,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %1, %_ZL8usingPmeRK2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z18inputrecExclForcesPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z18inputrecExclForcesPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %.val = load i32, ptr %2, align 4
   %switch.tableidx = add i32 %.val, -3
@@ -6660,7 +6660,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:       ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2
@@ -6685,7 +6685,7 @@ define noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2
@@ -6710,7 +6710,7 @@ define noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2
@@ -6735,7 +6735,7 @@ define noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z19inputrecPbcXY2WallsPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z19inputrecPbcXY2WallsPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -6753,7 +6753,7 @@ define noundef zeroext i1 @_Z19inputrecPbcXY2WallsPK10t_inputrec(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z19inputrecFrozenAtomsPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z19inputrecFrozenAtomsPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6788,7 +6788,7 @@ define noundef zeroext i1 @_Z19inputrecFrozenAtomsPK10t_inputrec(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z31haveConstantEnsembleTemperatureRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @_Z31haveConstantEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %or.cond3.i = icmp ult i32 %3, 3
@@ -6804,7 +6804,7 @@ _ZL37assertValidEnsembleTemperatureSetting26EnsembleTemperatureSetting.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #1 {
+define noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -6821,7 +6821,7 @@ define noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z23haveEnsembleTemperatureRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @_Z23haveEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %or.cond3.i = icmp ult i32 %3, 3
@@ -6838,7 +6838,7 @@ _ZL37assertValidEnsembleTemperatureSetting26EnsembleTemperatureSetting.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z36integratorHasConservedEnergyQuantityPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z36integratorHasConservedEnergyQuantityPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %26 [
@@ -6895,7 +6895,7 @@ define noundef zeroext i1 @_Z36integratorHasConservedEnergyQuantityPK10t_inputre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z33integratorHasReferenceTemperatureRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z33integratorHasReferenceTemperatureRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -6919,7 +6919,7 @@ switch.edge:                                      ; preds = %4, %switch.lookup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -6947,7 +6947,7 @@ define noundef zeroext i1 @_Z20doSimulatedAnnealingRK10t_inputrec(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20inputrec2nboundeddimPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i32 @_Z20inputrec2nboundeddimPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -6971,7 +6971,7 @@ _Z19inputrecPbcXY2WallsPK10t_inputrec.exit.thread: ; preds = %1, %_Z19inputrecPb
 declare noundef i32 @_Z16numPbcDimensions7PbcType(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1, 4) i32 @_Z8ndof_comPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 4) i32 @_Z8ndof_comPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -7042,7 +7042,7 @@ define noundef range(i32 1, 4) i32 @_Z8ndof_comPK10t_inputrec(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #14 {
+define noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %8 [
@@ -7103,7 +7103,7 @@ define noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z28haveEwaldSurfaceContributionRK10t_inputrec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) local_unnamed_addr #12 {
+define noundef zeroext i1 @_Z28haveEwaldSurfaceContributionRK10t_inputrec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %.val = load i32, ptr %2, align 4
   switch i32 %.val, label %10 [
@@ -7133,7 +7133,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %1, %1, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0, i32 noundef %1) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -7165,7 +7165,7 @@ define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z26fepLambdasChangeAtSameRateRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z26fepLambdasChangeAtSameRateRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -7620,22 +7620,22 @@ __cxx_global_var_init.exit:                       ; preds = %69
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

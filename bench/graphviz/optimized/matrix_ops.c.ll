@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @power_iteration(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define zeroext i1 @power_iteration(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   %7 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 8)
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 8)
@@ -532,7 +532,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 declare i32 @rand() local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @vectors_inner_product(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define double @vectors_inner_product(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -558,7 +558,7 @@ define double @vectors_inner_product(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @scadd(ptr nocapture noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 {
+define void @scadd(ptr noundef captures(none) %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %5 = add nsw i32 %1, 1
   %.not7 = icmp eq i32 %5, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -582,7 +582,7 @@ define void @scadd(ptr nocapture noundef %0, i32 noundef %1, double noundef %2, 
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define double @norm(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define double @norm(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %.lr.ph.preheader.i, label %vectors_inner_product.exit
 
@@ -608,7 +608,7 @@ vectors_inner_product.exit:                       ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @vectors_scalar_mult(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -632,7 +632,7 @@ define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @copy_vector(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define void @copy_vector(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -655,7 +655,7 @@ define void @copy_vector(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
+define void @right_mult_with_vector_d(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #6 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge19
 
@@ -706,10 +706,10 @@ define void @right_mult_with_vector_d(ptr nocapture noundef readonly %0, i32 nou
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define void @mult_dense_mat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = mul nsw i32 %4, %2
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
@@ -815,7 +815,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define void @mult_dense_mat_d(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = mul nsw i32 %4, %2
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
@@ -917,7 +917,7 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #1 {
+define void @mult_sparse_dense_mat_transpose(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #1 {
   %6 = mul nsw i32 %3, %2
   %7 = sext i32 %6 to i64
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 40)
@@ -1017,7 +1017,7 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
 declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @orthog1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @orthog1(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %._crit_edge26, label %.lr.ph
 
@@ -1053,7 +1053,7 @@ define void @orthog1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init_vec_orth1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @init_vec_orth1(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1108,7 +1108,7 @@ orthog1.exit:                                     ; preds = %.lr.ph25.i, %._crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define void @right_mult_with_vector(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge23
 
@@ -1159,7 +1159,7 @@ define void @right_mult_with_vector(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_f(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define void @right_mult_with_vector_f(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.us.preheader, label %._crit_edge20
 
@@ -1198,7 +1198,7 @@ define void @right_mult_with_vector_f(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_subtraction(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @vectors_subtraction(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1224,7 +1224,7 @@ define void @vectors_subtraction(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_addition(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @vectors_addition(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1250,7 +1250,7 @@ define void @vectors_addition(i32 noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @max_abs(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define double @max_abs(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1278,7 +1278,7 @@ define double @max_abs(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 declare double @llvm.maxnum.f64(double, double) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_transpose(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
+define void @right_mult_with_vector_transpose(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #6 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge19
 
@@ -1326,7 +1326,7 @@ define void @right_mult_with_vector_transpose(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @orthog1f(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %._crit_edge26, label %.lr.ph
 
@@ -1362,7 +1362,7 @@ define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @right_mult_with_vector_ff(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph45.preheader, label %._crit_edge46
 
@@ -1434,7 +1434,7 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_subtractionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @vectors_subtractionf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1460,7 +1460,7 @@ define void @vectors_subtractionf(i32 noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_additionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @vectors_additionf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1486,7 +1486,7 @@ define void @vectors_additionf(i32 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_mult_additionf(i32 noundef %0, ptr nocapture noundef %1, float noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 {
+define void @vectors_mult_additionf(i32 noundef %0, ptr noundef captures(none) %1, float noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1511,7 +1511,7 @@ define void @vectors_mult_additionf(i32 noundef %0, ptr nocapture noundef %1, fl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @copy_vectorf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define void @copy_vectorf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1534,7 +1534,7 @@ define void @copy_vectorf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @vectors_inner_productf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define double @vectors_inner_productf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1562,7 +1562,7 @@ define double @vectors_inner_productf(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @set_vector_val(i32 noundef %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define void @set_vector_val(i32 noundef %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1583,7 +1583,7 @@ define void @set_vector_val(i32 noundef %0, double noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @set_vector_valf(i32 noundef %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define void @set_vector_valf(i32 noundef %0, float noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1604,7 +1604,7 @@ define void @set_vector_valf(i32 noundef %0, float noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @max_absf(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define double @max_absf(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1639,7 +1639,7 @@ declare float @llvm.fabs.f32(float) #7
 declare float @llvm.maxnum.f32(float, float) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @square_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @square_vec(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1662,7 +1662,7 @@ define void @square_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @invert_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @invert_vec(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1692,7 +1692,7 @@ define void @invert_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @sqrt_vecf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define void @sqrt_vecf(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1726,7 +1726,7 @@ define void @sqrt_vecf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr no
 declare float @sqrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @invert_sqrt_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @invert_sqrt_vec(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1757,7 +1757,7 @@ define void @invert_sqrt_vec(i32 noundef %0, ptr nocapture noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #12 {
@@ -1775,13 +1775,13 @@ declare void @exit(i32 noundef) local_unnamed_addr #14
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

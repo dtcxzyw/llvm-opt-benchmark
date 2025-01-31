@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ELrightend = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @voronoi(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @edgeinit() #2
   tail call void @siteinit() #2
   tail call void @PQinitialize() #2

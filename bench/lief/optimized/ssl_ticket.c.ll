@@ -7,16 +7,16 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_ticket_init(ptr nocapture noundef writeonly initializes((0, 232)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_ticket_init(ptr noundef writeonly captures(none) initializes((0, 232)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 232, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i8, ptr %7, align 8
   %9 = sub i8 1, %8
@@ -206,7 +206,7 @@ declare ptr @mbedtls_cipher_info_from_type(i32 noundef) local_unnamed_addr #3
 declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -422,7 +422,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
 ssl_ticket_select_key.exit:                       ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = add nuw nsw i64 %24, 16
-  %32 = call i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef nonnull %30, ptr noundef nonnull %6, i64 noundef 12, ptr noundef %2, i64 noundef 18, ptr noundef nonnull %8, i64 noundef %31, ptr noundef nonnull %8, i64 noundef %24, ptr noundef nonnull %5, i64 noundef 16) #7
+  %32 = call i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef nonnull %30, ptr noundef nonnull %6, i64 noundef 12, ptr noundef nonnull %2, i64 noundef 18, ptr noundef nonnull %8, i64 noundef %31, ptr noundef nonnull %8, i64 noundef %24, ptr noundef nonnull %5, i64 noundef 16) #7
   %.not43 = icmp eq i32 %32, 0
   br i1 %.not43, label %35, label %33
 
@@ -483,13 +483,13 @@ declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

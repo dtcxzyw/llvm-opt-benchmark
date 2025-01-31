@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr nocapture noundef readonly %shape, ptr noundef writeonly %bounds) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly captures(none) %shape, ptr noundef writeonly %bounds) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %bounds, null
   br i1 %tobool.not, label %return, label %if.end
@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %cond.end14
 declare double @cos(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.GeoHashRadius) align 8 %agg.result, ptr nocapture noundef initializes((32, 64)) %shape) local_unnamed_addr #3 {
+define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias writable writeonly sret(%struct.GeoHashRadius) align 8 captures(none) %agg.result, ptr noundef captures(none) initializes((32, 64)) %shape) local_unnamed_addr #3 {
 entry:
   %long_range = alloca %struct.GeoHashRange, align 8
   %lat_range = alloca %struct.GeoHashRange, align 8
@@ -434,7 +434,7 @@ declare void @geohashNeighbors(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @geohashDecode(double, double, double, double, i64, i8, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i64 @geohashAlign52Bits(i64 %hash.coerce0, i8 %hash.coerce1) local_unnamed_addr #7 {
@@ -509,7 +509,7 @@ declare double @sin(double noundef) local_unnamed_addr #2
 declare double @asin(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly initializes((0, 8)) %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr noundef writeonly captures(none) initializes((0, 8)) %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i = fmul double %x2, 0x3F91DF46A2529D39
@@ -553,7 +553,7 @@ geohashGetDistance.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly initializes((0, 8)) %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr noundef writeonly captures(none) initializes((0, 8)) %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i.i = fmul double %x2, 0x3F91DF46A2529D39
@@ -597,7 +597,7 @@ geohashGetDistanceIfInRadius.exit:                ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double noundef %width_m, double noundef %height_m, double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double noundef %width_m, double noundef %height_m, double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, ptr noundef writeonly captures(none) %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i = fmul double %y1, 0x3F91DF46A2529D39
   %mul.i1.i = fmul double %y2, 0x3F91DF46A2529D39

@@ -70,7 +70,7 @@ define hidden void @jCreaCompress(ptr noundef initializes((8, 16)) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @jIMemMgr(ptr noundef) local_unnamed_addr #2
 
@@ -91,7 +91,7 @@ define hidden void @jAbrtCompress(ptr noundef %0) local_unnamed_addr #0 {
 declare void @jAbort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @jSuppressTables(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @jSuppressTables(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %6
 
@@ -291,7 +291,7 @@ define hidden void @jFinCompress(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jWrtMarker(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @jWrtMarker(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -336,7 +336,7 @@ define hidden void @jWrtMarker(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   %27 = add i32 %.01825, -1
   %28 = load i8, ptr %.026, align 1
   %29 = zext i8 %28 to i32
-  tail call void %26(ptr noundef %0, i32 noundef %29) #4
+  tail call void %26(ptr noundef nonnull %0, i32 noundef %29) #4
   %30 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !11

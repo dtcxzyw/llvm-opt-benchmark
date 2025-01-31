@@ -1256,13 +1256,13 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i: ; preds = %110, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SerialFullGC18FollowStackClosure7do_voidEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SerialFullGC18FollowStackClosure7do_voidEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12SerialFullGC12follow_stackEv()
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SerialFullGC17FollowRootClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SerialFullGC17FollowRootClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN12SerialFullGC11follow_rootIP7oopDescEEvPT_.exit, label %5
@@ -1321,7 +1321,7 @@ _ZN12SerialFullGC11follow_rootIP7oopDescEEvPT_.exit: ; preds = %2, %5, %29, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SerialFullGC17FollowRootClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SerialFullGC17FollowRootClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN12SerialFullGC11follow_rootI9narrowOopEEvPT_.exit, label %5
@@ -3000,7 +3000,7 @@ declare noundef zeroext i1 @_ZN17SerialStringDedup22is_candidate_from_markEP7oop
 declare void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18MarkAndPushClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18MarkAndPushClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN18MarkAndPushClosure11do_oop_workIP7oopDescEEvPT_.exit, label %5
@@ -3076,7 +3076,7 @@ _ZN18MarkAndPushClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %2, %5, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18MarkAndPushClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18MarkAndPushClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN18MarkAndPushClosure11do_oop_workI9narrowOopEEvPT_.exit, label %5
@@ -3265,7 +3265,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 declare void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN12SerialFullGC14IsAliveClosure11do_object_bEP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN12SerialFullGC14IsAliveClosure11do_object_bEP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = load volatile i64, ptr %1, align 8
   %4 = and i64 %3, 3
   %5 = icmp eq i64 %4, 3
@@ -3273,7 +3273,7 @@ define hidden noundef zeroext i1 @_ZN12SerialFullGC14IsAliveClosure11do_object_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SerialFullGC16KeepAliveClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SerialFullGC16KeepAliveClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN12SerialFullGC16KeepAliveClosure11do_oop_workIP7oopDescEEvPT_.exit, label %5
@@ -3349,7 +3349,7 @@ _ZN12SerialFullGC16KeepAliveClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SerialFullGC16KeepAliveClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SerialFullGC16KeepAliveClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN12SerialFullGC16KeepAliveClosure11do_oop_workI9narrowOopEEvPT_.exit, label %5
@@ -3464,7 +3464,7 @@ define hidden void @_ZN12SerialFullGC10initializeEv() local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN11StringDedup8RequestsC1Ev(ptr noundef nonnull align 8 dereferenceable(25)) unnamed_addr #1
 
@@ -5205,7 +5205,7 @@ declare void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapWordImp
 declare void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN6Method15record_gc_epochEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
@@ -9490,7 +9490,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosure9narrowOopEEvPT_PT0_.exit: ; preds
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop18MarkAndPushClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop18MarkAndPushClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -10294,7 +10294,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosureP7oopDescEEvPT_PT0_.exit: ; preds 
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc18MarkAndPushClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc18MarkAndPushClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -11102,7 +11102,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosure9narrowOopEEvPT_PT0_.exit: ; preds
   br label %175
 
 175:                                              ; preds = %.sink.split, %170, %._crit_edge45
-  tail call void @_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop18MarkAndPushClosureEEvP7oopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2)
+  tail call void @_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop18MarkAndPushClosureEEvP7oopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   ret void
 }
 
@@ -11525,7 +11525,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosureP7oopDescEEvPT_PT0_.exit: ; preds 
   br label %168
 
 168:                                              ; preds = %.sink.split, %163, %._crit_edge45
-  tail call void @_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc18MarkAndPushClosureEEvS2_PT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2)
+  tail call void @_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc18MarkAndPushClosureEEvS2_PT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   ret void
 }
 
@@ -12295,8 +12295,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
-  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
+  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   ret void
 }
 
@@ -12307,8 +12307,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
-  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
+  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   ret void
 }
 
@@ -13316,7 +13316,7 @@ _ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop18MarkAndPushClosureEEvP7oopDescPT
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %21, i1 noundef zeroext false) #16
-  tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef %0)
+  tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef nonnull %0)
   ret void
 }
 
@@ -13350,7 +13350,7 @@ _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc18MarkAndPushClosureEEvS2_PT0_.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %21, i1 noundef zeroext false) #16
-  tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7oopDesc18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef %0)
+  tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7oopDesc18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef nonnull %0)
   ret void
 }
 
@@ -13857,10 +13857,10 @@ define internal void @_GLOBAL__sub_I_serialFullGC.cpp() #12 section ".text.start
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

@@ -41,7 +41,7 @@ entry:
 declare void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt19ResourceOutListener6notifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt19ResourceOutListener6notifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   %d_slv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_slv, align 8

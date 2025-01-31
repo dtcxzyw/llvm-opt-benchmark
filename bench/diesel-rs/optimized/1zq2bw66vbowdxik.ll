@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.19fac61c77b15ff8d2d74d1eb9669630.23 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"dsl" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type17h51d564390edda4abE(ptr nocapture writeonly sret({ { i64, [28 x i64] }, { { i64, ptr }, i64 } }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type17h51d564390edda4abE(ptr writeonly sret({ { i64, [28 x i64] }, { { i64, ptr }, i64 } }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { i64, [28 x i64] }, align 8
@@ -279,7 +279,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { { i64, [3 x i64] }, { {} } }, align 8
@@ -1217,7 +1217,7 @@ default.unreachable:                              ; preds = %168, %.thread227
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull readonly align 8 captures(none) %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32 }, { ptr, ptr } }, align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = alloca { { { i32, i32 }, { ptr, ptr } }, { ptr, ptr }, i64, i64, i64 }, align 8
@@ -1365,7 +1365,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer11into_errors17h4b839146d4b0490fE(ptr nocapture writeonly sret({ { i64, ptr }, i64 }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer11into_errors17h4b839146d4b0490fE(ptr writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) initializes((0, 24)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -1463,7 +1463,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7builder17haf16d50ff25656a8E"(ptr nocapture writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7builder17haf16d50ff25656a8E"(ptr writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %.sroa.0 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
@@ -1502,7 +1502,7 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder122_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7default17he0088eb7a2ea7b6dE"(ptr nocapture writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder122_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7default17he0088eb7a2ea7b6dE"(ptr writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %4 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
@@ -1549,7 +1549,7 @@ declare void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0180d3786f5fdc
 declare { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h60cd69a3992e783aE"(ptr align 8, ptr align 1, i64, ptr align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference82_$LT$impl$u20$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$8inferrer17h94283985a7df7b37E"(ptr sret({ ptr, { i64, { { { i64, ptr }, i64 } } } }) align 8, ptr align 8) unnamed_addr #0
@@ -1801,10 +1801,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

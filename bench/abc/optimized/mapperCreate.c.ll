@@ -31,21 +31,21 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [58 x i8] c"The supergate library is not specified. Use \22read_super\22.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_ManReadInputNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_ManReadInputNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_ManReadOutputNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_ManReadOutputNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_ManReadBufNum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Map_ManReadBufNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @Map_NodeVecReadSize(ptr noundef %3) #20
@@ -55,21 +55,21 @@ define i32 @Map_ManReadBufNum(ptr nocapture noundef readonly %0) local_unnamed_a
 declare i32 @Map_NodeVecReadSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_ManReadInputs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_ManReadInputs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_ManReadOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_ManReadOutputs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Map_ManReadBufs(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @Map_ManReadBufs(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Map_NodeVecReadArray(ptr noundef %3) #20
@@ -79,7 +79,7 @@ define ptr @Map_ManReadBufs(ptr nocapture noundef readonly %0) local_unnamed_add
 declare ptr @Map_NodeVecReadArray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Map_ManReadBufDriver(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @Map_ManReadBufDriver(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Map_NodeVecReadArray(ptr noundef %4) #20
@@ -92,28 +92,28 @@ define ptr @Map_ManReadBufDriver(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_ManReadConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_ManReadConst1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_ManReadInputArrivals(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_ManReadInputArrivals(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_ManReadOutputRequireds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_ManReadOutputRequireds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Map_ManReadGenLib(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @Map_ManReadGenLib(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -122,139 +122,139 @@ define ptr @Map_ManReadGenLib(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_ManReadVerbose(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_ManReadVerbose(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @Map_ManReadAreaFinal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_ManReadAreaFinal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @Map_ManReadRequiredGlo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_ManReadRequiredGlo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetOutputNames(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetOutputNames(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetAreaRecovery(ptr nocapture noundef writeonly initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetAreaRecovery(ptr noundef writeonly captures(none) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetDelayTarget(ptr nocapture noundef writeonly initializes((144, 148)) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetDelayTarget(ptr noundef writeonly captures(none) initializes((144, 148)) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetInputArrivals(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetInputArrivals(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetOutputRequireds(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetOutputRequireds(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetObeyFanoutLimits(ptr nocapture noundef writeonly initializes((140, 144)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetObeyFanoutLimits(ptr noundef writeonly captures(none) initializes((140, 144)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetNumIterations(ptr nocapture noundef writeonly initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetNumIterations(ptr noundef writeonly captures(none) initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_ManReadFanoutViolations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_ManReadFanoutViolations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1828
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetFanoutViolations(ptr nocapture noundef writeonly initializes((1828, 1832)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetFanoutViolations(ptr noundef writeonly captures(none) initializes((1828, 1832)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1828
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetChoiceNodeNum(ptr nocapture noundef writeonly initializes((1808, 1812)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetChoiceNodeNum(ptr noundef writeonly captures(none) initializes((1808, 1812)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetChoiceNum(ptr nocapture noundef writeonly initializes((1812, 1816)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetChoiceNum(ptr noundef writeonly captures(none) initializes((1812, 1816)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1812
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetVerbose(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetVerbose(ptr noundef writeonly captures(none) initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetSwitching(ptr nocapture noundef writeonly initializes((152, 156)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetSwitching(ptr noundef writeonly captures(none) initializes((152, 156)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetSkipFanout(ptr nocapture noundef writeonly initializes((156, 160)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetSkipFanout(ptr noundef writeonly captures(none) initializes((156, 160)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetUseProfile(ptr nocapture noundef writeonly initializes((160, 164)) %0) local_unnamed_addr #4 {
+define void @Map_ManSetUseProfile(ptr noundef writeonly captures(none) initializes((160, 164)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadMan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_NodeReadMan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadData(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Map_NodeReadData(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %.in.v = select i1 %.not, i64 168, i64 176
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -263,7 +263,7 @@ define ptr @Map_NodeReadData(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_NodeReadNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_NodeReadNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -282,14 +282,14 @@ define range(i32 0, 65536) i32 @Map_NodeReadLevel(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadCuts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_NodeReadCuts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadCutBest(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Map_NodeReadCutBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %4
@@ -298,21 +298,21 @@ define ptr @Map_NodeReadCutBest(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadOne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_NodeReadOne(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_NodeReadTwo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_NodeReadTwo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetData(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @Map_NodeSetData(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq i32 %1, 0
   %. = select i1 %.not, i64 168, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
@@ -321,21 +321,21 @@ define void @Map_NodeSetData(ptr nocapture noundef writeonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetNextE(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetNextE(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetRepr(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetRepr(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetSwitching(ptr nocapture noundef writeonly initializes((56, 60)) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetSwitching(ptr noundef writeonly captures(none) initializes((56, 60)) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store float %1, ptr %3, align 8
   ret void
@@ -420,7 +420,7 @@ define range(i32 0, 2) i32 @Map_NodeIsAnd(ptr noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Map_NodeComparePhase(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Map_NodeComparePhase(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -432,7 +432,7 @@ define range(i32 0, 2) i32 @Map_NodeComparePhase(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_CutReadSuperBest(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Map_CutReadSuperBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %.idx = mul nsw i64 %3, 40
   %4 = getelementptr i8, ptr %0, i64 96
@@ -442,21 +442,21 @@ define ptr @Map_CutReadSuperBest(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_CutReadSuper0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_CutReadSuper0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_CutReadSuper1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_CutReadSuper1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -128, 128) i32 @Map_CutReadLeavesNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @Map_CutReadLeavesNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i8, ptr %2, align 4
   %4 = sext i8 %3 to i32
@@ -470,7 +470,7 @@ define nonnull ptr @Map_CutReadLeaves(ptr noundef readnone %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_CutReadPhaseBest(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Map_CutReadPhaseBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %.idx = mul nsw i64 %3, 40
   %4 = getelementptr i8, ptr %0, i64 92
@@ -480,41 +480,41 @@ define i32 @Map_CutReadPhaseBest(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_CutReadPhase0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_CutReadPhase0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_CutReadPhase1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_CutReadPhase1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_CutReadNext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_CutReadNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_SuperReadFormula(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_SuperReadFormula(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_SuperReadRoot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_SuperReadRoot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_SuperReadNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_SuperReadNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -526,7 +526,7 @@ define nonnull ptr @Map_SuperReadFanins(ptr noundef readnone %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @Map_SuperReadFaninNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 8) i32 @Map_SuperReadFaninNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 2
@@ -535,14 +535,14 @@ define range(i32 0, 8) i32 @Map_SuperReadFaninNum(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_SuperReadNext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_SuperReadNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @Map_SuperReadNumPhases(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @Map_SuperReadNumPhases(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 28
@@ -556,7 +556,7 @@ define nonnull ptr @Map_SuperReadPhases(ptr noundef readnone %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @Map_SuperReadFanoutLimit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @Map_SuperReadFanoutLimit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 8
@@ -565,21 +565,21 @@ define range(i32 0, 16) i32 @Map_SuperReadFanoutLimit(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Map_SuperLibReadGenLib(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_SuperLibReadGenLib(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @Map_SuperLibReadAreaInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_SuperLibReadAreaInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { <2 x float>, float } @Map_SuperLibReadDelayInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define { <2 x float>, float } @Map_SuperLibReadDelayInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.01.0.copyload = load <2 x float>, ptr %2, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -590,7 +590,7 @@ define { <2 x float>, float } @Map_SuperLibReadDelayInv(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_SuperLibReadVarsMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Map_SuperLibReadVarsMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -819,13 +819,13 @@ Map_NodeCreate.exit40:                            ; preds = %87, %89
 declare ptr @Abc_FrameReadLibSuper(...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @Extra_Truth4VarN(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1034,7 +1034,7 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare ptr @Map_NodeVecAlloc(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Map_ManFree(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Map_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @Map_NodeVecFree(ptr noundef %3) #20
@@ -1165,12 +1165,12 @@ define void @Map_ManFree(ptr nocapture noundef %0) local_unnamed_addr #1 {
 declare void @Map_NodeVecFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @Extra_MmFixedStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Map_ManCreateNodeDelays(ptr nocapture noundef initializes((72, 80)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Map_ManCreateNodeDelays(ptr noundef captures(none) initializes((72, 80)) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1236,7 +1236,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @Map_ManPrintTimeStats(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @Map_ManPrintTimeStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1820
@@ -1361,7 +1361,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #20
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #20
   call void @free(ptr noundef %9) #20
   br label %16
 
@@ -1394,13 +1394,13 @@ define void @Map_ManPrintStatsToFile(ptr noundef %0, float noundef %1, float nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #2
 
@@ -1640,7 +1640,7 @@ define noundef ptr @Map_NodeBuf(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Map_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((80, 88)) %2) local_unnamed_addr #13 {
+define void @Map_NodeSetChoice(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef initializes((80, 88)) %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1658,10 +1658,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
@@ -1673,16 +1673,16 @@ declare void @llvm.va_start.p0(ptr) #16
 declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

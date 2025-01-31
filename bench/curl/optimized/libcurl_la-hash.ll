@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_hash_init(ptr nocapture noundef writeonly initializes((0, 36), (40, 48)) %h, i32 noundef %slots, ptr noundef %hfunc, ptr noundef %comparator, ptr noundef %dtor) local_unnamed_addr #0 {
+define hidden void @Curl_hash_init(ptr noundef writeonly captures(none) initializes((0, 36), (40, 48)) %h, i32 noundef %slots, ptr noundef %hfunc, ptr noundef %comparator, ptr noundef %dtor) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %h, align 8
   %hash_func = getelementptr inbounds nuw i8, ptr %h, i64 8
@@ -140,7 +140,7 @@ return:                                           ; preds = %for.end26, %if.then
 declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @hash_element_dtor(ptr nocapture noundef readonly %user, ptr noundef initializes((32, 40)) %element) #1 {
+define internal void @hash_element_dtor(ptr noundef readonly captures(none) %user, ptr noundef initializes((32, 40)) %element) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %element, i64 24
   %0 = load ptr, ptr %ptr, align 8
@@ -220,7 +220,7 @@ return:                                           ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_hash_pick(ptr nocapture noundef readonly %h, ptr noundef %key, i64 noundef %key_len) local_unnamed_addr #1 {
+define hidden ptr @Curl_hash_pick(ptr noundef readonly captures(none) %h, ptr noundef %key, i64 noundef %key_len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -494,7 +494,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef readonly %k1, i64 noundef %key1_len, ptr nocapture noundef readonly %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
+define hidden range(i64 0, 2) i64 @Curl_str_key_compare(ptr noundef readonly captures(none) %k1, i64 noundef %key1_len, ptr noundef readonly captures(none) %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i64 %key1_len, %key2_len
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -513,7 +513,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_hash_start_iterate(ptr noundef %hash, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %iter) local_unnamed_addr #0 {
+define hidden void @Curl_hash_start_iterate(ptr noundef %hash, ptr noundef writeonly captures(none) initializes((0, 12), (16, 24)) %iter) local_unnamed_addr #0 {
 entry:
   store ptr %hash, ptr %iter, align 8
   %slot_index = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @Curl_hash_next_element(ptr nocapture noundef %iter) local_unnamed_addr #5 {
+define hidden ptr @Curl_hash_next_element(ptr noundef captures(none) %iter) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %1 = load ptr, ptr %0, align 8
@@ -588,10 +588,10 @@ return:                                           ; preds = %for.inc, %if.then8,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

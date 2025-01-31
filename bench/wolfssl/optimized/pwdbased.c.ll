@@ -172,7 +172,7 @@ declare i32 @wc_HashUpdate(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 declare i32 @wc_HashFinal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -391,14 +391,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF(ptr noundef %output, ptr nocapture noundef readonly %passwd, i32 noundef %passLen, ptr nocapture noundef readonly %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF(ptr noundef %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_PKCS12_PBKDF_ex(ptr noundef %output, ptr noundef %passwd, i32 noundef %passLen, ptr noundef %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %output, ptr nocapture noundef readonly %passwd, i32 noundef %passLen, ptr nocapture noundef readonly %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr nocapture readnone %heap) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %hash.i = alloca [1 x %union.wc_HashAlg], align 16
   %staticBuffer = alloca [1024 x i8], align 16
@@ -700,7 +700,7 @@ return:                                           ; preds = %while.end, %if.then
 declare i32 @wc_HashGetBlockSize(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -728,10 +728,10 @@ declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4

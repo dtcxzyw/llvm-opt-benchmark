@@ -107,7 +107,7 @@ declare i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) 
 declare i32 @ossl_ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #1 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr readnone captures(none) %ctx) #1 {
 entry:
   %p2.i = alloca [4 x i64], align 16
   %p4.i = alloca [4 x i64], align 16
@@ -324,7 +324,7 @@ declare i32 @ossl_ec_GFp_simple_make_affine(ptr noundef, ptr noundef, ptr nounde
 declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %group, ptr nocapture noundef %r, ptr noundef %scalar, i64 noundef %num, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %scalars, ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %group, ptr noundef captures(none) %r, ptr noundef %scalar, i64 noundef %num, ptr noundef readonly captures(none) %points, ptr noundef readonly captures(none) %scalars, ptr noundef %ctx) #1 {
 entry:
   %p_str = alloca [33 x i8], align 16
   %t = alloca %union.anon, align 32
@@ -1263,7 +1263,7 @@ for.cond:                                         ; preds = %for.end74
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %k.062 = phi i32 [ 0, %for.cond.preheader ], [ %inc80, %for.cond ]
-  %call39 = call i32 @EC_POINT_copy(ptr noundef %call28, ptr noundef %call29) #7
+  %call39 = call i32 @EC_POINT_copy(ptr noundef %call28, ptr noundef nonnull %call29) #7
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %for.body45
 
@@ -1320,7 +1320,7 @@ for.inc72:                                        ; preds = %for.cond65
   br i1 %exitcond66.not, label %for.end74, label %for.body45, !llvm.loop !21
 
 for.end74:                                        ; preds = %for.inc72
-  %call75 = call i32 @EC_POINT_add(ptr noundef nonnull %group, ptr noundef %call29, ptr noundef %call29, ptr noundef nonnull %call, ptr noundef nonnull %ctx.addr.0) #7
+  %call75 = call i32 @EC_POINT_add(ptr noundef nonnull %group, ptr noundef nonnull %call29, ptr noundef nonnull %call29, ptr noundef nonnull %call, ptr noundef nonnull %ctx.addr.0) #7
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %err, label %for.cond
 
@@ -1443,7 +1443,7 @@ declare ptr @ossl_ecdsa_simple_sign_sig(ptr noundef, i32 noundef, ptr noundef, p
 declare i32 @ossl_ecdsa_simple_verify_sig(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %x, ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readonly captures(none) %group, ptr noundef %r, ptr noundef %x, ptr noundef %ctx) #1 {
 entry:
   %table = alloca [15 x [4 x i64]], align 16
   %out = alloca [4 x i64], align 16
@@ -1580,10 +1580,10 @@ declare i32 @bn_set_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @bn_copy_words(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
@@ -1598,7 +1598,7 @@ declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
 declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr nocapture noundef nonnull readonly %generator) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef nonnull readonly captures(none) %generator) unnamed_addr #1 {
 entry:
   %X = getelementptr inbounds nuw i8, ptr %generator, i64 16
   %0 = load ptr, ptr %X, align 8
@@ -1737,10 +1737,10 @@ declare void @ecp_nistz256_ord_mul_mont(ptr noundef, ptr noundef, ptr noundef) l
 declare void @ecp_nistz256_ord_sqr_mont(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

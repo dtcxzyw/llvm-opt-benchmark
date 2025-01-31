@@ -1139,7 +1139,7 @@ declare void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dere
 declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_131TestPresetOutputVerbosityHelperERN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEPKN4Json5ValueEP11cmJSONState(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_131TestPresetOutputVerbosityHelperERN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1389,7 +1389,7 @@ declare noundef zeroext i1 @_ZN27cmCMakePresetsGraphInternal18PresetStringHelper
 declare noundef zeroext i1 @_ZN27cmCMakePresetsGraphInternal23PresetOptionalIntHelperERSt8optionalIiEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_132TestPresetOutputTruncationHelperERSt8optionalIN12cmCTestTypes14TruncationModeEEPKN4Json5ValueEP11cmJSONState(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_132TestPresetOutputTruncationHelperERSt8optionalIN12cmCTestTypes14TruncationModeEEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2714,7 +2714,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_133TestPresetExecutionShowOnlyHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEPKN4Json5ValueEP11cmJSONState(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_133TestPresetExecutionShowOnlyHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null
@@ -2782,7 +2782,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129TestPresetExecutionModeHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptions8ModeEnumEPKN4Json5ValueEP11cmJSONState(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129TestPresetExecutionModeHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptions8ModeEnumEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3044,7 +3044,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138TestPresetExecutionNoTestsActionHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEPKN4Json5ValueEP11cmJSONState(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_138TestPresetExecutionNoTestsActionHelperERN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5368,7 +5368,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5560,7 +5560,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
@@ -27437,16 +27437,16 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZN19cmJSONHelperBu
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

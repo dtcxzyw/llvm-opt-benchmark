@@ -75,7 +75,7 @@ define noalias noundef ptr @cli_events_new(i32 noundef %0) local_unnamed_addr #0
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @cli_events_free(ptr noundef %0) local_unnamed_addr #3 {
@@ -121,7 +121,7 @@ define void @cli_event_error_oom(ptr noundef %0, i32 noundef %1) local_unnamed_a
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @cli_event_define(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.cli_event, ptr %6, i64 %7
@@ -824,7 +824,7 @@ cli_event_error_str.exit:                         ; preds = %36, %35, %28, %14, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @cli_event_time_nested_start(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
@@ -1286,7 +1286,7 @@ cli_event_error_str.exit:                         ; preds = %67, %66, %59, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
+define void @cli_event_data(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %cli_event_error_str.exit, label %6
@@ -1457,7 +1457,7 @@ cli_event_error_str.exit:                         ; preds = %87, %79, %76, %60, 
 declare ptr @cli_safer_realloc_or_free(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define void @cli_event_fastdata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
@@ -1562,7 +1562,7 @@ define void @cli_event_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_get(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define void @cli_event_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -1655,7 +1655,7 @@ evtype.exit:                                      ; preds = %4, %switch.lookup
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ev_debug(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @ev_debug(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #4 {
   %trunc = trunc nuw i32 %0 to i8
   switch i8 %trunc, label %20 [
     i8 1, label %4
@@ -1912,7 +1912,7 @@ ev_diff.exit.thread:                              ; preds = %32, %57, %ev_diff.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #8 {
   %trunc = trunc nuw i32 %0 to i8
   switch i8 %trunc, label %19 [
     i8 3, label %5
@@ -2037,10 +2037,10 @@ declare ptr @cli_safer_realloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @cli_str2hex(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -78,7 +78,7 @@ if.end28:                                         ; preds = %if.else, %if.then19
 
 for.body:                                         ; preds = %if.end28, %for.inc
   %i.031 = phi i32 [ %inc, %for.inc ], [ 1, %if.end28 ]
-  %call30 = tail call i32 @BN_sqr(ptr noundef %call7, ptr noundef %call7, ptr noundef %ctx) #5
+  %call30 = tail call i32 @BN_sqr(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %ctx) #5
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
@@ -88,7 +88,7 @@ if.end33:                                         ; preds = %for.body
   br i1 %tobool35.not, label %for.inc, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
-  %call37 = tail call i32 @BN_mul(ptr noundef %cond, ptr noundef %cond, ptr noundef %call7, ptr noundef %ctx) #5
+  %call37 = tail call i32 @BN_mul(ptr noundef %cond, ptr noundef %cond, ptr noundef nonnull %call7, ptr noundef %ctx) #5
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %err, label %for.inc
 
@@ -1378,7 +1378,7 @@ if.else177:                                       ; preds = %if.end134
   br i1 %tobool180.not, label %err, label %if.end183
 
 if.end183:                                        ; preds = %if.else177, %for.end
-  %call184 = call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %am, ptr noundef %a.addr.0, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call184 = call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %am, ptr noundef nonnull %a.addr.0, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
   %tobool185.not = icmp eq i32 %call184, 0
   br i1 %tobool185.not, label %err, label %if.end187
 
@@ -1836,7 +1836,7 @@ declare void @RSAZ_512_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @bn_scatter5(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1845,7 +1845,7 @@ declare i32 @bn_mul_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @bn_mul_mont_gather5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @bn_get_bits(ptr nocapture noundef readonly %a, i32 noundef %bitpos) unnamed_addr #3 {
+define internal fastcc i64 @bn_get_bits(ptr noundef readonly captures(none) %a, i32 noundef %bitpos) unnamed_addr #3 {
 entry:
   %div = sdiv i32 %bitpos, 64
   %rem = srem i32 %bitpos, 64

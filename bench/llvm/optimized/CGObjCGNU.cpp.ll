@@ -931,7 +931,7 @@ _ZN12_GLOBAL__N_111CGObjCObjFWC2ERN5clang7CodeGen13CodeGenModuleE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
@@ -2683,7 +2683,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU11GetSelectorERN5clang7C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::Address") align 8 captures(none) initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = load ptr, ptr %1, align 8
@@ -2754,7 +2754,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU11GetSelectorERN5clang7C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep9GetEHTypeEN5clang8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1520) %0, i64 %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep9GetEHTypeEN5clang8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1520) %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -3268,7 +3268,7 @@ _ZN5clang7CodeGen19ConstantInitBuilderD2Ev.exit:  ; preds = %279, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, i32 } @_ZN12_GLOBAL__N_114CGObjCGNUstep219getCatchAllTypeInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0) unnamed_addr #0 align 2 {
+define internal { ptr, i32 } @_ZN12_GLOBAL__N_114CGObjCGNUstep219getCatchAllTypeInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -3281,7 +3281,7 @@ define internal { ptr, i32 } @_ZN12_GLOBAL__N_114CGObjCGNUstep219getCatchAllType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep222GenerateConstantStringEPKN5clang13StringLiteralE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::ConstantAddress") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1664) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep222GenerateConstantStringEPKN5clang13StringLiteralE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::ConstantAddress") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1664) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
@@ -6528,7 +6528,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU19GenerateMessageSendERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPN4llvm5ValueERKNS2_11CallArgListEPKNS1_17ObjCInterfaceDeclEPKNS1_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(1496) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU19GenerateMessageSendERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPN4llvm5ValueERKNS2_11CallArgListEPKNS1_17ObjCInterfaceDeclEPKNS1_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 captures(none) %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(1496) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
@@ -7828,7 +7828,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %668, %_ZN4llvm11Sma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24GenerateMessageSendSuperERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPKNS1_17ObjCInterfaceDeclEbPN4llvm5ValueEbRKNS2_11CallArgListEPKNS1_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %3, i64 %4, i64 %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef nonnull align 8 dereferenceable(1496) %10, ptr noundef %11) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24GenerateMessageSendSuperERN5clang7CodeGen15CodeGenFunctionENS2_15ReturnValueSlotENS1_8QualTypeENS1_8SelectorEPKNS1_17ObjCInterfaceDeclEbPN4llvm5ValueEbRKNS2_11CallArgListEPKNS1_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 captures(none) %3, i64 %4, i64 %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef nonnull align 8 dereferenceable(1496) %10, ptr noundef %11) unnamed_addr #0 align 2 {
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = alloca %"class.llvm::TypeSize", align 8
   %15 = alloca %"class.llvm::TypeSize", align 8
@@ -8586,7 +8586,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep219GenerateProtocol
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep216GenerateProtocolEPKN5clang16ObjCProtocolDeclE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep216GenerateProtocolEPKN5clang16ObjCProtocolDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -8600,7 +8600,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU17GetOrEmitProtocolEPKN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU14GenerateMethodEPKN5clang14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU14GenerateMethodEPKN5clang14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1, ptr readnone captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -8798,7 +8798,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14ObjCMethodDeclEPNS_8FunctionENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep228GenerateDirectMethodPrologueERN5clang7CodeGen15CodeGenFunctionEPN4llvm8FunctionEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep228GenerateDirectMethodPrologueERN5clang7CodeGen15CodeGenFunctionEPN4llvm8FunctionEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [5 x ptr], align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -9218,7 +9218,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit91: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU22GetPropertyGetFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU22GetPropertyGetFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1016
@@ -9257,7 +9257,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU22GetPropertySetFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU22GetPropertySetFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -9296,7 +9296,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep31GetOptimizedPropertySetFunctionEbb(ptr nocapture noundef nonnull align 8 dereferenceable(1520) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep31GetOptimizedPropertySetFunctionEbb(ptr noundef nonnull align 8 captures(none) dereferenceable(1520) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   br i1 %1, label %4, label %35
 
 4:                                                ; preds = %3
@@ -9402,7 +9402,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU20GetGetStructFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU20GetGetStructFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -9441,7 +9441,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU20GetSetStructFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU20GetSetStructFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1136
@@ -9480,7 +9480,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep29GetCppAtomicObjectSetFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1520) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep29GetCppAtomicObjectSetFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1520) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
@@ -9519,7 +9519,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep29GetCppAtomicObjectGetFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1520) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_113CGObjCGNUstep29GetCppAtomicObjectGetFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1520) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1456
@@ -9682,7 +9682,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit.thread._crit_edge: ; preds = %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU27EnumerationMutationFunctionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #0 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU27EnumerationMutationFunctionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -9905,7 +9905,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit22: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU13EmitThrowStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_15ObjCAtThrowStmtEb(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU13EmitThrowStmtERN5clang7CodeGen15CodeGenFunctionERKNS1_15ObjCAtThrowStmtEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -10077,7 +10077,7 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i, %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16EmitObjCWeakReadERN5clang7CodeGen15CodeGenFunctionENS2_7AddressE(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16EmitObjCWeakReadERN5clang7CodeGen15CodeGenFunctionENS2_7AddressE(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -10157,7 +10157,7 @@ _ZN12_GLOBAL__N_19CGObjCGNU11EnforceTypeERN5clang7CodeGen11CGBuilderTyEPN4llvm5V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU18EmitObjCWeakAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressE(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU18EmitObjCWeakAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressE(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 8
@@ -10257,7 +10257,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU20EmitObjCGlobalAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressEb(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, i1 zeroext %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU20EmitObjCGlobalAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, i1 zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca [2 x ptr], align 8
@@ -10357,7 +10357,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU18EmitObjCIvarAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressES7_(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU18EmitObjCIvarAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressES7_(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca [3 x ptr], align 8
@@ -10458,7 +10458,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24EmitObjCStrongCastAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressE(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24EmitObjCStrongCastAssignERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueENS2_7AddressE(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 8
@@ -10632,7 +10632,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %22, %_ZNK5clang4Typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep214EmitIvarOffsetERN5clang7CodeGen15CodeGenFunctionEPKNS1_17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture readnone %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep214EmitIvarOffsetERN5clang7CodeGen15CodeGenFunctionEPKNS1_17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr readnone captures(none) %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -10705,7 +10705,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep214EmitIvarOffsetER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24EmitGCMemmoveCollectableERN5clang7CodeGen15CodeGenFunctionENS2_7AddressES5_PN4llvm5ValueE(ptr nocapture noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU24EmitGCMemmoveCollectableERN5clang7CodeGen15CodeGenFunctionENS2_7AddressES5_PN4llvm5ValueE(ptr noundef nonnull align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca [3 x ptr], align 8
@@ -10824,14 +10824,14 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18BuildGCBlockLayoutERN5clang7CodeGen13CodeGenModuleERKNS2_11CGBlockInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 1 %2) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18BuildGCBlockLayoutERN5clang7CodeGen13CodeGenModuleERKNS2_11CGBlockInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 1 captures(none) %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18BuildRCBlockLayoutERN5clang7CodeGen13CodeGenModuleERKNS2_11CGBlockInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 1 %2) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18BuildRCBlockLayoutERN5clang7CodeGen13CodeGenModuleERKNS2_11CGBlockInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 1 captures(none) %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
@@ -10844,14 +10844,14 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen13CGObjCRuntime19getRCBlockLay
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16BuildByrefLayoutERN5clang7CodeGen13CodeGenModuleENS1_8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16BuildByrefLayoutERN5clang7CodeGen13CodeGenModuleENS1_8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep228GenerateCategoryProtocolListEPKN5clang16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep228GenerateCategoryProtocolListEPKN5clang16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.1119", align 8
   %4 = alloca %"class.llvm::SmallVector.896", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -10931,7 +10931,7 @@ _ZNSt6vectorIPKN5clang16ObjCProtocolDeclESaIS3_EED2Ev.exit: ; preds = %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU22PushPropertyListHeaderERN5clang7CodeGen21ConstantStructBuilderEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::ConstantArrayBuilder") align 8 initializes((0, 35), (40, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU22PushPropertyListHeaderERN5clang7CodeGen21ConstantStructBuilderEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::ConstantArrayBuilder") align 8 captures(none) initializes((0, 35), (40, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -11251,12 +11251,12 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit18: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep216GenerateIvarListEN4llvm8ArrayRefIPNS1_8ConstantEEES5_S5_S5_NS2_IN5clang10Qualifiers12ObjCLifetimeEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, i64 %4, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 %5, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 %6, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.359") align 8 %7) unnamed_addr #6 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep216GenerateIvarListEN4llvm8ArrayRefIPNS1_8ConstantEEES5_S5_S5_NS2_IN5clang10Qualifiers12ObjCLifetimeEEE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i64 %4, ptr noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 captures(none) %5, ptr noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 captures(none) %6, ptr noundef readnone byval(%"class.llvm::ArrayRef.359") align 8 captures(none) %7) unnamed_addr #6 align 2 {
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep221GenerateEmptyProtocolEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep221GenerateEmptyProtocolEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
 _ZN12_GLOBAL__N_19CGObjCGNU17SymbolForProtocolB5cxx11EN4llvm5TwineE.exit:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -11603,7 +11603,7 @@ _ZN5clang7CodeGen19ConstantInitBuilderD2Ev.exit:  ; preds = %_ZNSt6vectorIN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep216GetTypedSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep216GetTypedSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 440
   %7 = load ptr, ptr %6, align 8
@@ -11612,7 +11612,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep216GetTypedSelector
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep225GetIVarOffsetVariableNameB5cxx11EPKN5clang17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CGObjCGNUstep225GetIVarOffsetVariableNameB5cxx11EPKN5clang17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11678,7 +11678,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep213GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep213GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -11706,7 +11706,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep213GetClassNamedERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr nonnull readnone align 8 captures(none) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -11912,7 +11912,7 @@ _ZN12_GLOBAL__N_19CGObjCGNU11EnforceTypeERN5clang7CodeGen11CGBuilderTyEPN4llvm5V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep214LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep214LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 16
   %8 = alloca %"class.llvm::Twine", align 8
@@ -11994,7 +11994,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep219GetConstantSelectorEN5clang8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep219GetConstantSelectorEN5clang8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit40:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.clang::Selector", align 8
@@ -16780,7 +16780,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5clang7CodeGen13CGObjCRuntime19getCa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateConstantStringEPKN5clang13StringLiteralE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::ConstantAddress") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateConstantStringEPKN5clang13StringLiteralE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::CodeGen::ConstantAddress") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1184) %1, ptr noundef %2) unnamed_addr #0 align 2 {
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -19138,7 +19138,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU28GenerateDirectMethodPrologueERN5clang7CodeGen15CodeGenFunctionEPN4llvm8FunctionEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU28GenerateDirectMethodPrologueERN5clang7CodeGen15CodeGenFunctionEPN4llvm8FunctionEPKNS1_14ObjCMethodDeclEPKNS1_17ObjCContainerDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -19445,7 +19445,7 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit:     ; preds = %4, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU28GenerateCategoryProtocolListEPKN5clang16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU28GenerateCategoryProtocolListEPKN5clang16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.1119", align 8
   %4 = alloca %"class.llvm::SmallVector.1124", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19744,7 +19744,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16GenerateIvarListEN4llvm8ArrayRefIPNS1_8ConstantEEES5_S5_S5_NS2_IN5clang10Qualifiers12ObjCLifetimeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.358") align 8 %5, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 %6, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.359") align 8 %7) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16GenerateIvarListEN4llvm8ArrayRefIPNS1_8ConstantEEES5_S5_S5_NS2_IN5clang10Qualifiers12ObjCLifetimeEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.358") align 8 captures(none) %5, ptr noundef readnone byval(%"class.llvm::ArrayRef.358") align 8 captures(none) %6, ptr noundef readnone byval(%"class.llvm::ArrayRef.359") align 8 captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca [3 x ptr], align 8
   %11 = alloca %"class.clang::CodeGen::ConstantInitBuilder", align 8
@@ -20371,7 +20371,7 @@ _ZN5clang7CodeGen19ConstantInitBuilderD2Ev.exit:  ; preds = %_ZNSt6vectorIN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU26GenerateProtocolMethodListEN4llvm8ArrayRefIPKN5clang14ObjCMethodDeclEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU26GenerateProtocolMethodListEN4llvm8ArrayRefIPKN5clang14ObjCMethodDeclEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
@@ -20662,7 +20662,7 @@ _ZN5clang7CodeGen19ConstantInitBuilderD2Ev.exit:  ; preds = %_ZNSt6vectorIN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16GetTypedSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU16GetTypedSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::Selector", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -20795,7 +20795,7 @@ thread-pre-split:                                 ; preds = %_ZSteqIcEN9__gnu_cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNU25GetIVarOffsetVariableNameB5cxx11EPKN5clang17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNU25GetIVarOffsetVariableNameB5cxx11EPKN5clang17ObjCInterfaceDeclEPKNS1_12ObjCIvarDeclE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20839,7 +20839,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU13GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU13GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20899,7 +20899,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU13GetClassNamedERN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113CGObjCGNUstep14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -20984,7 +20984,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_19CGObjCGNU19GetConstantSelectorEN5clang8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, i64 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
+define internal noalias noundef nonnull ptr @_ZN12_GLOBAL__N_19CGObjCGNU19GetConstantSelectorEN5clang8SelectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, i64 %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #6 align 2 {
   unreachable
 }
 
@@ -21034,7 +21034,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef,
 declare noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(240), i64) local_unnamed_addr #3
 
@@ -21285,13 +21285,13 @@ _ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit17: ; preds = %_ZNSt6vectorIPN4ll
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCGNUD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCGNUD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU9GetEHTypeEN5clang8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, i64 %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU9GetEHTypeEN5clang8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21614,17 +21614,17 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit:     ; preds = %91, %91, %_ZNK5clan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU31GetOptimizedPropertySetFunctionEbb(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1, i1 zeroext %2) unnamed_addr #4 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU31GetOptimizedPropertySetFunctionEbb(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1, i1 zeroext %2) unnamed_addr #4 align 2 {
   ret { ptr, ptr } zeroinitializer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU29GetCppAtomicObjectSetFunctionEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU29GetCppAtomicObjectSetFunctionEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret { ptr, ptr } zeroinitializer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU29GetCppAtomicObjectGetFunctionEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal { ptr, ptr } @_ZN12_GLOBAL__N_19CGObjCGNU29GetCppAtomicObjectGetFunctionEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret { ptr, ptr } zeroinitializer
 }
 
@@ -21633,7 +21633,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i64 @_ZNK5clang10ASTContext20getObjCInterfaceTypeEPKNS_17ObjCInterfaceDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -21701,7 +21701,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %1, i64 %2) local_unnamed_addr #0 comdat align 2 {
@@ -23097,7 +23097,7 @@ declare noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase11finishArra
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPNS_8ConstantEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -23143,7 +23143,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE18uninitialized_copyIKS2_S2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18ExportUniqueStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU18ExportUniqueStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -25024,7 +25024,7 @@ _ZN4llvm17StringMapIteratorIPNS_8ConstantEEC2EPPNS_18StringMapEntryBaseEb.exit: 
 declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCGNU12EmitClassRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19CGObjCGNU12EmitClassRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -25123,7 +25123,7 @@ declare void @_ZNK5clang10ASTContext22getObjCEncodingForTypeENS_8QualTypeERNSt7_
 declare noundef i64 @_ZN5clang7CodeGen13CGObjCRuntime21ComputeIvarBaseOffsetERNS0_13CodeGenModuleEPKNS_22ObjCImplementationDeclEPKNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(3600), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU12MakeBitFieldEN4llvm8ArrayRefIbEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU12MakeBitFieldEN4llvm8ArrayRefIbEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::SmallVector.1136", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantInitBuilder", align 8
@@ -26804,7 +26804,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateClassStructureEPN4llvm8ConstantES3_jPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1184) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 17, 19) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19CGObjCGNU22GenerateClassStructureEPN4llvm8ConstantES3_jPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1184) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 17, 19) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) unnamed_addr #0 align 2 {
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %17 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
@@ -27893,7 +27893,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14ObjCMethodDeclELb1EE18uninitialized
 declare noundef ptr @_ZNK5clang10ASTContext38getObjCPropertyImplDeclForPropertyDeclEPKNS_16ObjCPropertyDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKN5clang16ObjCProtocolDeclEEZN12_GLOBAL__N_19CGObjCGNU20GeneratePropertyListEPKNS0_4DeclEPKNS0_17ObjCContainerDeclEbbE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPKN5clang16ObjCProtocolDeclEEZN12_GLOBAL__N_19CGObjCGNU20GeneratePropertyListEPKNS0_4DeclEPKNS0_17ObjCContainerDeclEbbE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
@@ -28144,7 +28144,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_16ObjCPropertyDeclEEppEv.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN5clang16ObjCProtocolDeclEEZN12_GLOBAL__N_19CGObjCGNU20GeneratePropertyListEPKNS0_4DeclEPKNS0_17ObjCContainerDeclEbbE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN5clang16ObjCProtocolDeclEEZN12_GLOBAL__N_19CGObjCGNU20GeneratePropertyListEPKNS0_4DeclEPKNS0_17ObjCContainerDeclEbbE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_19CGObjCGNU20GeneratePropertyListEPKN5clang4DeclEPKNS3_17ObjCContainerDeclEbbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -28804,7 +28804,7 @@ declare void @_ZN4llvm8LoadInstC1EPNS_4TypeEPNS_5ValueERKNS_5TwineEbNS_5AlignENS
 declare noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_19CGObjCGNU12PushPropertyERN5clang7CodeGen20ConstantArrayBuilderEPKNS1_16ObjCPropertyDeclEPKNS1_4DeclEbbENKUlPKNS1_14ObjCMethodDeclEE_clESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_19CGObjCGNU12PushPropertyERN5clang7CodeGen20ConstantArrayBuilderEPKNS1_16ObjCPropertyDeclEPKNS1_4DeclEbbENKUlPKNS1_14ObjCMethodDeclEE_clESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29270,7 +29270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CGObjCGNUstep211sectionNameILNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_114CGObjCGNUstep218ModuleInitFunctionEvENKUlN4llvm9StringRefENS1_8ArrayRefIPNS1_8ConstantEEES2_E_clES2_S6_S2_(ptr %.0.val, ptr nocapture readonly %.8.val, ptr %0, i64 %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_114CGObjCGNUstep218ModuleInitFunctionEvENKUlN4llvm9StringRefENS1_8ArrayRefIPNS1_8ConstantEEES2_E_clES2_S6_S2_(ptr %.0.val, ptr readonly captures(none) %.8.val, ptr %0, i64 %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantStructBuilder", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
@@ -29359,7 +29359,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep211GetClassVarEN4llvm9StringRefEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep211GetClassVarEN4llvm9StringRefEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29993,7 +29993,7 @@ declare noundef ptr @_ZN4llvm10StructType6createERNS_11LLVMContextENS_9StringRef
 declare void @_ZN4llvm10StructType7setBodyENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZZN12_GLOBAL__N_114CGObjCGNUstep216GetSectionBoundsEN4llvm9StringRefEENKUlS2_S2_E_clES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZZN12_GLOBAL__N_114CGObjCGNUstep216GetSectionBoundsEN4llvm9StringRefEENKUlS2_S2_E_clES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31337,7 +31337,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14ObjCMethodDeclELb1EE9push_backES4_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep220GenerateProtocolListEN4llvm8ArrayRefIPNS1_8ConstantEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep220GenerateProtocolListEN4llvm8ArrayRefIPNS1_8ConstantEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.clang::CodeGen::ConstantInitBuilder", align 8
   %6 = alloca %"class.clang::CodeGen::ConstantStructBuilder", align 8
@@ -32948,7 +32948,7 @@ declare void @_ZN5clang7CodeGen13CGObjCRuntime24EmitValueForIvarAtOffsetERNS0_15
 declare noundef ptr @_ZN5clang12ObjCIvarDecl22getContainingInterfaceEv(ptr noundef nonnull align 8 dereferenceable(89)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_114CGObjCGNUstep212PushPropertyERN5clang7CodeGen20ConstantArrayBuilderEPKNS1_16ObjCPropertyDeclEPKNS1_4DeclEbbENKUlPKNS1_14ObjCMethodDeclEE_clESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_114CGObjCGNUstep212PushPropertyERN5clang7CodeGen20ConstantArrayBuilderEPKNS1_16ObjCPropertyDeclEPKNS1_4DeclEbbENKUlPKNS1_14ObjCMethodDeclEE_clESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -33025,7 +33025,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit5: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep213GetTypeStringEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114CGObjCGNUstep213GetTypeStringEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -33124,7 +33124,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %32,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CGObjCGNUstep228GetSymbolNameForTypeEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CGObjCGNUstep228GetSymbolNameForTypeEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -33214,7 +33214,7 @@ define internal void @_ZN12_GLOBAL__N_19CGObjCGCCD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGCC9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGCC9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1264) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr nonnull readnone align 8 captures(none) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca [2 x ptr], align 16
@@ -33300,7 +33300,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGCC14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCGCC14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1264) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 16
   %8 = alloca %"class.llvm::Twine", align 8
@@ -33395,7 +33395,7 @@ define internal void @_ZN12_GLOBAL__N_111CGObjCObjFWD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW13GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW13GetClassNamedERN5clang7CodeGen15CodeGenFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33454,7 +33454,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW13GetClassNamedERN5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW9LookupIMPERN5clang7CodeGen15CodeGenFunctionERPN4llvm5ValueES7_PNS5_6MDNodeERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca [2 x ptr], align 16
@@ -33590,7 +33590,7 @@ _ZN12_GLOBAL__N_119LazyRuntimeFunctioncvN4llvm14FunctionCalleeEEv.exit25: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_111CGObjCObjFW14LookupIMPSuperERN5clang7CodeGen15CodeGenFunctionENS2_7AddressEPN4llvm5ValueERNS2_13CGObjCRuntime15MessageSendInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 16
   %8 = alloca %"class.llvm::Twine", align 8
@@ -33734,16 +33734,16 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctlz.i8(i8, i1 immarg) #19

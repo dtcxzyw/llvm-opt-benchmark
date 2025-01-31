@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { [2 x i64] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CRYPTO_ccm128_init(ptr nocapture noundef writeonly initializes((0, 16), (32, 56)) %ctx, i32 noundef %M, i32 noundef %L, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
+define void @CRYPTO_ccm128_init(ptr noundef writeonly captures(none) initializes((0, 16), (32, 56)) %ctx, i32 noundef %M, i32 noundef %L, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
   %conv = add i32 %L, 7
@@ -30,10 +30,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @CRYPTO_ccm128_setiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_setiv(ptr noundef captures(none) %ctx, ptr noundef readonly captures(none) %nonce, i64 noundef %nlen, i64 noundef %mlen) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %ctx, align 8
   %1 = and i8 %0, 7
@@ -98,10 +98,10 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_ccm128_aad(ptr noundef %ctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) local_unnamed_addr #4 {
+define void @CRYPTO_ccm128_aad(ptr noundef %ctx, ptr noundef readonly captures(none) %aad, i64 noundef %alen) local_unnamed_addr #4 {
 entry:
   %block1 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %block1, align 8
@@ -259,7 +259,7 @@ do.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr noundef readonly captures(none) %inp, ptr noundef writeonly captures(none) %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.0, align 8
   %0 = load i8, ptr %ctx, align 8
@@ -454,7 +454,7 @@ return:                                           ; preds = %if.end27, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr noundef readonly captures(none) %inp, ptr noundef writeonly captures(none) %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.1, align 8
   %0 = load i8, ptr %ctx, align 8
@@ -624,7 +624,7 @@ return:                                           ; preds = %for.end, %for.end98
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr noundef readonly captures(none) %stream) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.2, align 8
   %0 = load i8, ptr %ctx, align 8
@@ -806,7 +806,7 @@ return:                                           ; preds = %if.end27, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr noundef readonly captures(none) %stream) local_unnamed_addr #4 {
 entry:
   %scratch = alloca %union.anon.3, align 8
   %0 = load i8, ptr %ctx, align 8
@@ -965,7 +965,7 @@ return:                                           ; preds = %for.end, %for.end86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, 17) i64 @CRYPTO_ccm128_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #2 {
+define range(i64 0, 17) i64 @CRYPTO_ccm128_tag(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %tag, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %ctx, align 8
   %1 = lshr i8 %0, 2

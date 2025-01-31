@@ -80,7 +80,7 @@ define internal void @flex128_finalize() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -27, 1) i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef %1) #1 {
+define internal range(i32 -27, 1) i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr noundef captures(none) %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
   br i1 %3, label %switch.hole_check, label %._crit_edge
@@ -109,7 +109,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca [9 x i8], align 1
   switch i16 %0, label %20 [
     i16 8, label %6
@@ -218,7 +218,7 @@ flex_pack_integer.exit:                           ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %switch.tableidx = add i16 %0, -4
   %6 = icmp ult i16 %switch.tableidx, 12
   br i1 %6, label %switch.hole_check, label %7
@@ -373,7 +373,7 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 

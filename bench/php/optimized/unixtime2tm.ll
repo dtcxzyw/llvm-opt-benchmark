@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._timelib_abbr_info = type { i64, ptr, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @timelib_unixtime2date(i64 noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @timelib_unixtime2date(i64 noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = sdiv i64 %0, 86400
   %6 = add nsw i64 %5, 719468
   %7 = srem i64 %0, 86400
@@ -56,7 +56,7 @@ define hidden void @timelib_unixtime2date(i64 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initializes((0, 48), (56, 60), (80, 84), (192, 200), (220, 232)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden void @timelib_unixtime2gmt(ptr noundef writeonly captures(none) initializes((0, 48), (56, 60), (80, 84), (192, 200), (220, 232)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sdiv i64 %1, 86400
@@ -137,7 +137,7 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0, 48), (208, 212), (220, 232)) %0) local_unnamed_addr #2 {
+define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializes((0, 48), (208, 212), (220, 232)) %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
@@ -588,7 +588,7 @@ declare void @timelib_time_tz_abbr_update(ptr noundef, ptr noundef) local_unname
 declare void @timelib_time_offset_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone_from_offset(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden void @timelib_set_timezone_from_offset(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -617,7 +617,7 @@ define hidden void @timelib_set_timezone_from_offset(ptr nocapture noundef initi
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone_from_abbr(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr nocapture noundef readonly byval(%struct._timelib_abbr_info) align 8 %1) local_unnamed_addr #2 {
+define hidden void @timelib_set_timezone_from_abbr(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef readonly byval(%struct._timelib_abbr_info) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -652,7 +652,7 @@ define hidden void @timelib_set_timezone_from_abbr(ptr nocapture noundef initial
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_set_timezone(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @timelib_set_timezone(ptr noundef captures(none) initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @timelib_get_time_zone_info(i64 noundef %4, ptr noundef %1) #4

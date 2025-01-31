@@ -36,7 +36,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef double @_Z10pj_authlatdPd(double noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden noundef double @_Z10pj_authlatdPd(double noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = fadd double %0, %0
   %4 = load double, ptr %1, align 8
   %5 = tail call double @sin(double noundef %3) #6

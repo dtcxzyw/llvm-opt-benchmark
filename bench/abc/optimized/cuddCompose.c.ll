@@ -567,7 +567,7 @@ define internal fastcc ptr @cuddAddPermuteRecur(ptr noundef %0, ptr noundef nonn
 declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -638,7 +638,7 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddPermute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -977,7 +977,7 @@ Abc_Clock.exit:                                   ; preds = %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1067,7 +1067,7 @@ define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr nocapture noundef
 declare void @cuddCacheFlush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -1135,7 +1135,7 @@ define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -1706,7 +1706,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addNonSimCompose(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Cudd_addNonSimCompose(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -1939,7 +1939,7 @@ declare ptr @Cudd_addTimes(ptr noundef, ptr noundef, ptr noundef) #1
 declare ptr @Cudd_addXnor(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %4, %8
@@ -2160,13 +2160,13 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw ptr, ptr %99, i64 %127
   store ptr null, ptr %129, align 8
-  %130 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0153, ptr noundef nonnull %99, ptr noundef %.0155, ptr noundef %.0158, i32 noundef %5)
+  %130 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef nonnull %0, ptr noundef %.0153, ptr noundef nonnull %99, ptr noundef %.0155, ptr noundef %.0158, i32 noundef %5)
   tail call void @free(ptr noundef nonnull %99) #7
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %._crit_edge
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
   tail call void @free(ptr noundef nonnull %104) #7
   br label %164
 
@@ -2178,14 +2178,14 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %138 = load i32, ptr %137, align 4
   %139 = add i32 %138, 1
   store i32 %139, ptr %137, align 4
-  %140 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0154, ptr noundef nonnull %104, ptr noundef %.0156, ptr noundef %.0158, i32 noundef %5)
+  %140 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef nonnull %0, ptr noundef %.0154, ptr noundef nonnull %104, ptr noundef %.0156, ptr noundef %.0158, i32 noundef %5)
   tail call void @free(ptr noundef nonnull %104) #7
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %133
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %130) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %130) #7
   br label %164
 
 143:                                              ; preds = %133
@@ -2196,16 +2196,16 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
   %150 = getelementptr inbounds nuw ptr, ptr %2, i64 %127
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call ptr @cuddAddIteRecur(ptr noundef %0, ptr noundef %151, ptr noundef nonnull %130, ptr noundef nonnull %140) #7
+  %152 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %151, ptr noundef nonnull %130, ptr noundef nonnull %140) #7
   %153 = icmp eq ptr %152, null
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %143
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %130) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %140) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %130) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %140) #7
   br label %164
 
 155:                                              ; preds = %143
@@ -2216,12 +2216,12 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %160 = load i32, ptr %159, align 4
   %161 = add i32 %160, 1
   store i32 %161, ptr %159, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %130) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %140) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %130) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %140) #7
   %162 = load i32, ptr %159, align 4
   %163 = add i32 %162, -1
   store i32 %163, ptr %159, align 4
-  tail call void @cuddCacheInsert(ptr noundef %0, i64 noundef 70, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %152) #7
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 70, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %152) #7
   br label %164
 
 164:                                              ; preds = %60, %13, %6, %10, %155, %154, %142, %132, %107, %101, %74
@@ -2470,10 +2470,10 @@ declare ptr @cuddAddExistAbstractRecur(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

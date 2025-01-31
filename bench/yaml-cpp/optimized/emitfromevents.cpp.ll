@@ -72,19 +72,19 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4YAML14EmitFromEvents15OnDocumentStartERKNS_4MarkE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define void @_ZN4YAML14EmitFromEvents15OnDocumentStartERKNS_4MarkE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4YAML14EmitFromEvents13OnDocumentEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN4YAML14EmitFromEvents13OnDocumentEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents6OnNullERKNS_4MarkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, i64 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEvents6OnNullERKNS_4MarkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0, i64 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -187,7 +187,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents9BeginNodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN4YAML14EmitFromEvents9BeginNodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -258,7 +258,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents9EmitPropsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEvents9EmitPropsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"struct.YAML::_Tag", align 8
@@ -372,7 +372,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents7OnAliasERKNS_4MarkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, i64 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEvents7OnAliasERKNS_4MarkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0, i64 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"struct.YAML::_Alias", align 8
@@ -497,7 +497,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
+define void @_ZN4YAML14EmitFromEvents8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -572,7 +572,7 @@ _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %entry, %_ZNSt5stack
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
+define void @_ZN4YAML14EmitFromEvents15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i32, align 4
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -689,7 +689,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.e
 declare void @_ZN4YAML7Emitter29RestoreGlobalModifiedSettingsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents13OnSequenceEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEvents13OnSequenceEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_emitter, align 8
@@ -726,7 +726,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3popEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
+define void @_ZN4YAML14EmitFromEvents10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i32, align 4
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -841,7 +841,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE4pushEOS3_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEvents8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEvents8OnMapEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_emitter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_emitter, align 8
@@ -1056,7 +1056,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1389,7 +1389,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
@@ -1398,10 +1398,10 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

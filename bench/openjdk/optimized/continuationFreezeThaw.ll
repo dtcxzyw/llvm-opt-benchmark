@@ -522,7 +522,7 @@ $_ZTV6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE = comdat any
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm4481094EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.18 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm4481094ES1_EELNS_11BarrierTypeE1ELm4481094EE18oop_access_barrierEP7oopDesclS7_], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -7) i32 @_ZN12Continuation12prepare_thawEP10JavaThreadb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZN12Continuation12prepare_thawEP10JavaThreadb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -875,7 +875,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZL10is_pinned0P10J
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase26freeze_fast_existing_chunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase26freeze_fast_existing_chunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1105,7 +1105,7 @@ define hidden void @_ZN10FreezeBase26freeze_fast_existing_chunkEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase16freeze_fast_copyEP17stackChunkOopDesci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase16freeze_fast_copyEP17stackChunkOopDesci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1188,7 +1188,7 @@ define hidden void @_ZN10FreezeBase16freeze_fast_copyEP17stackChunkOopDesci(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10FreezeBase21freeze_fast_new_chunkEP17stackChunkOopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10FreezeBase21freeze_fast_new_chunkEP17stackChunkOopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1364,7 +1364,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase11freeze_slo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase18freeze_start_frameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase18freeze_start_frameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.frame) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.frame, align 8
@@ -1485,7 +1485,7 @@ _ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit: ; preds = %_ZN19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = tail call noundef zeroext i1 @_ZN10FreezeBase14stack_overflowEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br i1 %7, label %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread, label %8
 
@@ -1634,7 +1634,7 @@ _ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread: ; preds = %_ZN18Co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase13finish_freezeERK5frameS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase13finish_freezeERK5frameS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1784,10 +1784,10 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %96,
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame(ptr dead_on_unwind noalias writable writeonly sret(%class.frame) align 8 captures(none) initializes((0, 56)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2098,7 +2098,7 @@ _ZN19ContinuationWrapper11SafepointOpD2Ev.exit:   ; preds = %36, %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_freeze_compiled_frameER5frameS1_ib(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_freeze_compiled_frameER5frameS1_ib(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.frame, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -2337,7 +2337,7 @@ _ZN10FreezeBase5patchERK5frameRS0_S2_b.exit:      ; preds = %_ZN10FreezeBase8pat
 declare noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase32recurse_freeze_interpreted_frameER5frameS1_ib(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase32recurse_freeze_interpreted_frameER5frameS1_ib(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.frame, align 8
   %.sroa.3 = alloca [20 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2621,7 +2621,7 @@ _ZN10FreezeBase5patchERK5frameRS0_S2_b.exit:      ; preds = %_ZN10FreezeBase8pat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase25recurse_freeze_stub_frameER5frameS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase25recurse_freeze_stub_frameER5frameS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.RegisterMap, align 8
   %5 = alloca %class.frame, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2837,7 +2837,7 @@ _ZNK5frame7oop_mapEv.exit24.thread26:             ; preds = %60, %64, %_ZNK5fram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 1, 6) i32 @_ZN10FreezeBase15finalize_freezeERK5frameRS0_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 6) i32 @_ZN10FreezeBase15finalize_freezeERK5frameRS0_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.StackChunkFrameStream, align 8
   %6 = alloca %class.StackChunkFrameStream, align 8
   %7 = alloca %class.frame, align 8
@@ -3338,7 +3338,7 @@ _ZN5frameC2EPlS0_S0_PhP8CodeBlobPK15ImmutableOopMapb.exit: ; preds = %_ZN5frame5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10FreezeBase5patchERK5frameRS0_S2_b(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10FreezeBase5patchERK5frameRS0_S2_b(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
   br i1 %4, label %6, label %11
 
 6:                                                ; preds = %5
@@ -3429,7 +3429,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZN10FreezeBase8pat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10FreezeBase38adjust_interpreted_frame_unextended_spER5frame(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN10FreezeBase38adjust_interpreted_frame_unextended_spER5frame(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -3460,7 +3460,7 @@ declare void @_ZN17stackChunkOopDesc40relativize_derived_pointers_concurrentlyEv
 declare void @_ZN17stackChunkOopDesc11do_barriersILNS_11BarrierTypeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -3518,7 +3518,7 @@ _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit: ; preds = %1, %_ZN10Ha
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8ThawBase36remove_top_compiled_frame_from_chunkEP17stackChunkOopDescRi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8ThawBase36remove_top_compiled_frame_from_chunkEP17stackChunkOopDescRi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
   %6 = sext i32 %5 to i64
@@ -3642,7 +3642,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8ThawBase15copy_from_chunkEPlS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN8ThawBase15copy_from_chunkEPlS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = shl i32 %3, 3
   %6 = sext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %1, i64 %6, i1 false)
@@ -3650,7 +3650,7 @@ define hidden void @_ZN8ThawBase15copy_from_chunkEPlS0_i(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN8ThawBase12patch_returnEPlb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef writeonly initializes((-8, 0)) %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN8ThawBase12patch_returnEPlb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef writeonly captures(none) initializes((-8, 0)) %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %_ZN17ContinuationEntry10_return_pcE.val = load ptr, ptr @_ZN17ContinuationEntry10_return_pcE, align 8
   %_ZN12StubRoutines19_cont_returnBarrierE.val = load ptr, ptr @_ZN12StubRoutines19_cont_returnBarrierE, align 8
   %4 = select i1 %2, ptr %_ZN17ContinuationEntry10_return_pcE.val, ptr %_ZN12StubRoutines19_cont_returnBarrierE.val
@@ -3822,7 +3822,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %9, %_ZNK5frame20is_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ThawBase11finish_thawER5frame(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ThawBase11finish_thawER5frame(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4729,7 +4729,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ThawBase13finalize_thawER5framei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ThawBase13finalize_thawER5framei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4812,7 +4812,7 @@ define hidden void @_ZN8ThawBase13finalize_thawER5framei(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ThawBase17clear_bitmap_bitsEPhS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ThawBase17clear_bitmap_bitsEPhS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.BitMapView, align 8
   %5 = load i8, ptr @UseCompressedOops, align 1
   %6 = trunc i8 %5 to i1
@@ -5738,7 +5738,7 @@ _ZN5frameC2EPlS0_S0_PhP8CodeBlobPK15ImmutableOopMapb.exit: ; preds = %_ZNK5frame
 declare void @_ZN17stackChunkOopDesc16fix_thawed_frameI11RegisterMapEEvRK5framePKT_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ThawBase17push_return_frameER5frame(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ThawBase17push_return_frameER5frame(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK5frame6raw_pcEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -9386,7 +9386,7 @@ _ZL15freeze_internalI6ConfigIL8oop_kind0E19CardTableBarrierSetEEiP10JavaThreadPl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %63
 
@@ -19871,16 +19871,16 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.thread: ; preds = %
 declare void @_ZN17stackChunkOopDesc12do_barriers0ILNS_11BarrierTypeE1EL11ChunkFrames1E11RegisterMapEEvRK21StackChunkFrameStreamIXT0_EEPKT1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15

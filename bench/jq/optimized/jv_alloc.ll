@@ -134,7 +134,7 @@ define noalias noundef ptr @jv_mem_calloc_unguarded(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @jv_mem_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @jv_mem_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -148,25 +148,25 @@ define noalias ptr @jv_mem_strdup(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias ptr @jv_mem_strdup_unguarded(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define noalias ptr @jv_mem_strdup_unguarded(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #15
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @jv_mem_free(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @jv_mem_free(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @jv_mem_realloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @jv_mem_realloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -180,13 +180,13 @@ define noalias noundef ptr @jv_mem_realloc(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @tsd_fini_thread(ptr nocapture noundef %0) #9 {
+define internal void @tsd_fini_thread(ptr noundef captures(none) %0) #9 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
@@ -260,7 +260,7 @@ tsd_init_nomem_handler.exit:                      ; preds = %0, %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

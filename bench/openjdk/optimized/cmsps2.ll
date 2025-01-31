@@ -223,7 +223,7 @@ define hidden i32 @cmsGetPostScriptColorResource(ptr noundef %0, i32 noundef %1,
   %63 = load double, ptr %34, align 8
   %64 = load double, ptr %57, align 8
   %65 = load double, ptr %58, align 8
-  %66 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %32, double noundef %63, double noundef %64, double noundef %65) #9
+  %66 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %32, double noundef %63, double noundef %64, double noundef %65) #9
   br label %67
 
 67:                                               ; preds = %62, %59
@@ -238,7 +238,7 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
   br label %GenerateCSA.exit
 
 .thread.i:                                        ; preds = %67, %51
-  %69 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.8) #9
+  %69 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8) #9
   call void @cmsDeleteTransform(ptr noundef nonnull %44) #9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33)
@@ -615,11 +615,11 @@ GammaTableEquals.exit.i.i.i42.i:                  ; preds = %226
   br i1 %.not21.i.i.i44.i, label %238, label %GammaTableEquals.exit.thread.i.i.i39.i
 
 238:                                              ; preds = %GammaTableEquals.exit.i.i.i42.i
-  %239 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.24) #9
+  %239 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24) #9
   br label %240
 
 GammaTableEquals.exit.thread.i.i.i39.i:           ; preds = %GammaTableEquals.exit.i.i.i42.i, %226, %225
-  call fastcc void @Emit1Gamma(ptr noundef %5, ptr noundef nonnull %223)
+  call fastcc void @Emit1Gamma(ptr noundef nonnull %5, ptr noundef nonnull %223)
   br label %240
 
 240:                                              ; preds = %GammaTableEquals.exit.thread.i.i.i39.i, %238
@@ -628,7 +628,7 @@ GammaTableEquals.exit.thread.i.i.i39.i:           ; preds = %GammaTableEquals.ex
   br i1 %exitcond.not.i.i.i40.i, label %EmitNGamma.exit.i.i41.i, label %.lr.ph.i.i.i36.i, !llvm.loop !10
 
 EmitNGamma.exit.i.i41.i:                          ; preds = %240, %.lr.ph.i.i.i36.i, %217
-  %241 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
+  %241 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   %242 = getelementptr inbounds nuw i8, ptr %.val.i34.i, i64 56
   %243 = load ptr, ptr %242, align 8
   br label %244
@@ -1097,13 +1097,13 @@ EmitPQRStage.exit.i.i:                            ; preds = %434, %432, %419
 
 .lr.ph.i24.i:                                     ; preds = %455, %.lr.ph.i24.i
   %.04754.i.i = phi i32 [ %459, %.lr.ph.i24.i ], [ 1, %455 ]
-  %458 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.24) #9
+  %458 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24) #9
   %459 = add nuw nsw i32 %.04754.i.i, 1
   %exitcond.not.i25.i = icmp eq i32 %459, %382
   br i1 %exitcond.not.i25.i, label %._crit_edge.i21.i, label %.lr.ph.i24.i, !llvm.loop !16
 
 ._crit_edge.i21.i:                                ; preds = %.lr.ph.i24.i, %455
-  %460 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.16) #9
+  %460 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #9
   %461 = icmp ult i32 %3, 4
   br i1 %461, label %switch.lookup25, label %EmitIntent.exit.i.i
 
@@ -1115,15 +1115,15 @@ switch.lookup25:                                  ; preds = %._crit_edge.i21.i
 
 EmitIntent.exit.i.i:                              ; preds = %._crit_edge.i21.i, %switch.lookup25
   %.0.i.i22.i = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.47, %._crit_edge.i21.i ]
-  %463 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i22.i) #9
-  %464 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.8) #9
+  %463 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i22.i) #9
+  %464 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8) #9
   %465 = load i32, ptr %8, align 4
   %466 = and i32 %465, 16777216
   %.not52.i.i = icmp eq i32 %466, 0
   br i1 %.not52.i.i, label %467, label %WriteOutputLUT.exit.i
 
 467:                                              ; preds = %EmitIntent.exit.i.i
-  %468 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.101) #9
+  %468 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.101) #9
   br label %WriteOutputLUT.exit.i
 
 WriteOutputLUT.exit.thread.i:                     ; preds = %396, %389, %371
@@ -1264,7 +1264,7 @@ declare i32 @cmsDetectBlackPoint(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare ptr @_cmsStageGetPtrToCurveSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EmitCIEBasedA(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @EmitCIEBasedA(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.10) #9
   %5 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.11) #9
   %6 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.12) #9
@@ -1493,7 +1493,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @OutputValueSampler(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 0, 2) i32 @OutputValueSampler(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1683,13 +1683,13 @@ declare i32 @cmsMLUgetASCII(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @ctime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @cmsCreateMultiprofileTransformTHR(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1698,19 +1698,19 @@ declare ptr @cmsPipelineGetPtrToFirstStage(ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsReadMediaWhitePoint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture) local_unnamed_addr #6
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

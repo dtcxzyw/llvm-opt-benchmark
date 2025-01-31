@@ -63,7 +63,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_msi_prep
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_pci_msi_prepare382, ptr @apic_read.__UNIQUE_ID___addressable___SCK__apic_call_read361], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @pci_dev_has_default_msi_parent_domain(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @pci_dev_has_default_msi_parent_domain(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -86,10 +86,10 @@ define dso_local zeroext i1 @pci_dev_has_default_msi_parent_domain(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local ptr @native_create_pci_msi_domain() local_unnamed_addr #2 section ".init.text" align 16 {
@@ -121,7 +121,7 @@ define dso_local void @x86_create_pci_msi_domain() local_unnamed_addr #3 section
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_msi_prepare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2, ptr noundef %3) #4 align 16 {
+define dso_local noundef i32 @pci_msi_prepare(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef %3) #4 align 16 {
   tail call void @init_irq_alloc_info(ptr noundef %3, ptr noundef null) #8
   %5 = getelementptr i8, ptr %1, i64 1505
   %6 = load i40, ptr %5, align 1
@@ -187,7 +187,7 @@ define dso_local i32 @dmar_alloc_hwirq(i32 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dmar_free_hwirq(i32 noundef %0) local_unnamed_addr #4 align 16 {
@@ -199,12 +199,12 @@ define dso_local void @dmar_free_hwirq(i32 noundef %0) local_unnamed_addr #4 ali
 declare dso_local void @irq_domain_free_irqs(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @arch_restore_msi_irqs(ptr nocapture noundef readnone %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef zeroext i1 @arch_restore_msi_irqs(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 align 16 {
   ret i1 true
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr nocapture readnone %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef %3) #4 align 16 {
+define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -450,7 +450,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @x86_msi_prepare(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr noundef %3) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @x86_msi_prepare(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @init_irq_alloc_info(ptr noundef %3, ptr noundef null) #8
@@ -515,7 +515,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare dso_local ptr @__irq_domain_alloc_fwnode(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dmar_msi_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly %4) #4 align 16 {
+define internal noundef i32 @dmar_msi_init(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 %3, ptr noundef readonly captures(none) %4) #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
@@ -547,7 +547,7 @@ define internal void @dmar_msi_compose_msg(ptr noundef %0, ptr noundef %1) #4 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dmar_msi_write_msg(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define internal void @dmar_msi_write_msg(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   tail call void @dmar_msi_write(i32 noundef %4, ptr noundef %1) #8

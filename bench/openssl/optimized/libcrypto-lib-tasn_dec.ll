@@ -837,7 +837,7 @@ return:                                           ; preds = %if.then289, %if.els
 declare void @ASN1_item_ex_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_template_ex_d2i(ptr noundef %val, ptr nocapture noundef %in, i64 noundef %inlen, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_template_ex_d2i(ptr noundef %val, ptr noundef captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
 entry:
   %len = alloca i64, align 8
   %p = alloca ptr, align 8
@@ -958,7 +958,7 @@ return:                                           ; preds = %if.then23, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr nocapture noundef %in, i64 noundef %inlen, ptr noundef nonnull %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef captures(none) %in, i64 noundef %inlen, ptr noundef nonnull %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %cont.addr.i = alloca ptr, align 8
   %inf.addr.i = alloca i8, align 1
@@ -1525,7 +1525,7 @@ return:                                           ; preds = %err, %if.then108, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr nocapture noundef nonnull %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr noundef nonnull captures(none) %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag = alloca i32, align 4
   %pclass = alloca i32, align 4
@@ -1749,7 +1749,7 @@ declare i32 @ossl_asn1_enc_save(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture noundef readonly %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef nonnull %val, ptr noundef captures(none) %in, i64 noundef %len, ptr noundef readonly captures(none) %tt, i8 noundef signext %opt, ptr noundef %ctx, i32 noundef %depth, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #1 {
 entry:
   %len.addr = alloca i64, align 8
   %tval = alloca ptr, align 8
@@ -2000,10 +2000,10 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_collect(ptr noundef nonnull %buf, ptr nocapture noundef nonnull %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef range(i32 0, 6) %depth) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @asn1_collect(ptr noundef nonnull %buf, ptr noundef nonnull captures(none) %in, i64 noundef %len, i8 noundef signext %inf, i32 noundef range(i32 0, 6) %depth) unnamed_addr #1 {
 entry:
   %p = alloca ptr, align 8
   %plen = alloca i64, align 8
@@ -2144,7 +2144,7 @@ declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
 
@@ -2169,10 +2169,10 @@ declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -273,10 +273,10 @@ declare void @_ZN3zmq14dish_session_tC1EPNS_11io_thread_tEbPNS_13socket_base_tER
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #2
 
@@ -381,7 +381,7 @@ declare void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_engine = getelementptr inbounds nuw i8, ptr %this, i64 1552
   %0 = load ptr, ptr %_engine, align 8
@@ -612,7 +612,7 @@ declare noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull
 declare void @_ZN3zmq6pipe_t14set_event_sinkEPNS_13i_pipe_eventsE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t8pull_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1624) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t8pull_msgEPNS_5msg_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1624) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
@@ -645,7 +645,7 @@ declare noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull 
 declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %0 = and i8 %call, 2
@@ -705,7 +705,7 @@ declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenc
 declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t12read_zap_msgEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t12read_zap_msgEPNS_5msg_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
 entry:
   %_zap_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %0 = load ptr, ptr %_zap_pipe, align 8
@@ -728,7 +728,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
 entry:
   %_zap_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1488
   %0 = load ptr, ptr %_zap_pipe, align 8
@@ -779,13 +779,13 @@ return:                                           ; preds = %if.then12, %if.end8
 declare void @_ZN3zmq6pipe_t5flushEv(ptr noundef nonnull align 8 dereferenceable(328)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3zmq14session_base_t5resetEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN3zmq14session_base_t5resetEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
@@ -801,7 +801,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t8rollbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t8rollbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
@@ -1279,7 +1279,7 @@ _ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE.exit: ; preds = %_ZNKSt3se
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #13 align 2 {
+define void @_ZN3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #13 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 313) #22
@@ -1290,14 +1290,14 @@ entry:
 }
 
 ; Function Attrs: cold uwtable
-define void @_ZThn1464_N3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr nocapture noundef readnone %this, ptr nocapture readnone %0) unnamed_addr #14 align 2 {
+define void @_ZThn1464_N3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr noundef readnone captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr nonnull align 8 poison, ptr poison)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1624) %this) local_unnamed_addr #15 align 2 {
+define noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1624) %this) local_unnamed_addr #15 align 2 {
 entry:
   %_socket = getelementptr inbounds nuw i8, ptr %this, i64 1560
   %0 = load ptr, ptr %_socket, align 8
@@ -1824,7 +1824,7 @@ return:                                           ; preds = %entry, %cleanup
 declare void @_ZNK3zmq8object_t13find_endpointEPKc(ptr sret(%"struct.zmq::endpoint_t") align 8, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare noundef i32 @_ZN3zmq8pipepairEPPNS_8object_tEPPNS_6pipe_tEPKiPKb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2495,7 +2495,7 @@ if.end38:                                         ; preds = %if.then36, %if.end3
 declare void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t11timer_eventEi(ptr nocapture noundef nonnull align 8 dereferenceable(1624) initializes((1576, 1577)) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t11timer_eventEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1624) initializes((1576, 1577)) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
 entry:
   %cmp.not = icmp eq i32 %id_, 32
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2532,7 +2532,7 @@ do.end9:                                          ; preds = %do.end, %if.then5
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr nocapture noundef initializes((128, 129)) %this, i32 noundef %id_) unnamed_addr #12 align 2 {
+define void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr noundef captures(none) initializes((128, 129)) %this, i32 noundef %id_) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq14session_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1624) %0, i32 noundef %id_)
@@ -2663,7 +2663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq19hello_msg_session_t8pull_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1632) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq19hello_msg_session_t8pull_msgEPNS_5msg_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1632) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_new_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1624
   %0 = load i8, ptr %_new_pipe, align 8
@@ -2724,7 +2724,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare noundef i32 @_ZN3zmq5msg_t11init_bufferEPKvm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq19hello_msg_session_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1632) initializes((1624, 1625)) %this) unnamed_addr #18 align 2 {
+define void @_ZN3zmq19hello_msg_session_t5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1632) initializes((1624, 1625)) %this) unnamed_addr #18 align 2 {
 entry:
   %_new_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1624
   store i8 1, ptr %_new_pipe, align 8

@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_prandom_seed
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_prandom_bytes_state151, ptr @__UNIQUE_ID___addressable_prandom_seed_full_state152, ptr @__UNIQUE_ID___addressable_prandom_u32_state150], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @prandom_u32_state(ptr nocapture noundef %0) #0 align 16 {
+define dso_local i32 @prandom_u32_state(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load i32, ptr %0, align 4
   %3 = shl i32 %2, 18
   %4 = and i32 %3, -524288
@@ -59,7 +59,7 @@ define dso_local i32 @prandom_u32_state(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 align 16 {
+define dso_local void @prandom_bytes_state(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp ugt i64 %2, 3
   br i1 %4, label %5, label %.loopexit3
 
@@ -175,10 +175,10 @@ define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
@@ -479,7 +479,7 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #5

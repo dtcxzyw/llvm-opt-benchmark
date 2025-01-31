@@ -1652,7 +1652,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11proto_model27remove_aux_decls_not_in_setER10ptr_vectorI9func_declERK13obj_hashtableIS1_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %decls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %s) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11proto_model27remove_aux_decls_not_in_setER10ptr_vectorI9func_declERK13obj_hashtableIS1_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %decls, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %s) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %decls, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2473,7 +2473,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN11proto_model11get_factoryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, i32 noundef %fid) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN11proto_model11get_factoryEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, i32 noundef %fid) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.i = icmp eq i32 %fid, -1
   br i1 %cmp.i, label %_ZNK14plugin_managerI13value_factoryE10get_pluginEi.exit, label %if.end.i
@@ -2502,7 +2502,7 @@ _ZNK14plugin_managerI13value_factoryE10get_pluginEi.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11proto_model15freeze_universeEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef %s) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11proto_model15freeze_universeEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef %s) local_unnamed_addr #3 align 2 {
 entry:
   %m_user_sort_factory = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_user_sort_factory, align 8
@@ -2513,7 +2513,7 @@ entry:
 declare void @_ZN17user_sort_factory15freeze_universeEP4sort(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZNK11proto_model18get_known_universeEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef %s) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZNK11proto_model18get_known_universeEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef %s) local_unnamed_addr #3 align 2 {
 entry:
   %m_user_sort_factory = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_user_sort_factory, align 8
@@ -2622,7 +2622,7 @@ for.end:                                          ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK11proto_model27get_num_uninterpreted_sortsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK11proto_model27get_num_uninterpreted_sortsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this) unnamed_addr #7 align 2 {
 entry:
   %m_user_sort_factory = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_user_sort_factory, align 8
@@ -2642,7 +2642,7 @@ _ZNK14simple_factoryIjE13get_num_sortsEv.exit:    ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11proto_model22get_uninterpreted_sortEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZNK11proto_model22get_uninterpreted_sortEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, i32 noundef %idx) unnamed_addr #7 align 2 {
 entry:
   %m_user_sort_factory = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_user_sort_factory, align 8
@@ -2655,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11proto_model9is_finiteEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef readonly %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11proto_model9is_finiteEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef readonly %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -2741,7 +2741,7 @@ land.end:                                         ; preds = %if.then.i.i.i, %for
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN11proto_model14get_some_valueEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef %s) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN11proto_model14get_some_valueEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef %s) unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -2794,7 +2794,7 @@ return:                                           ; preds = %_ZN11proto_model11g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11proto_model15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v2) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11proto_model15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v2) unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -2846,7 +2846,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN11proto_model15get_fresh_valueEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef %s) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN11proto_model15get_fresh_valueEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef %s) unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -2899,7 +2899,7 @@ return:                                           ; preds = %_ZN11proto_model11g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11proto_model14register_valueEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11proto_model14register_valueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %n)
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -2953,7 +2953,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
 declare noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11proto_model8compressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11proto_model8compressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_func_decls = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_func_decls, align 8
@@ -3542,7 +3542,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declSt4pairIjP4exprEE13obj_map_entryE8obj_ha
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
@@ -3864,7 +3864,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3919,7 +3919,7 @@ declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 de
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) local_unnamed_addr #3 comdat align 2 {
@@ -4754,10 +4754,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

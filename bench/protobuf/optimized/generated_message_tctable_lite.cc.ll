@@ -505,7 +505,7 @@ return:                                           ; preds = %entry, %_ZN6google8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE(ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, ptr noundef %table) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -762,7 +762,7 @@ _ZN6google8protobuf8internalL8FindNameEPKcmm.exit: ; preds = %for.body.i.i, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noalias noundef ptr @_ZN6google8protobuf8internal8TcParser5ErrorEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr nocapture noundef %msg, ptr nocapture readnone %ptr, ptr nocapture readnone %ctx, i64 %.coerce, ptr nocapture noundef readonly %table, i64 noundef %hasbits) #8 align 2 {
+define noalias noundef ptr @_ZN6google8protobuf8internal8TcParser5ErrorEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef captures(none) %msg, ptr readnone captures(none) %ptr, ptr readnone captures(none) %ctx, i64 %.coerce, ptr noundef readonly captures(none) %table, i64 noundef %hasbits) #8 align 2 {
 entry:
   %0 = load i16, ptr %table, align 8
   %tobool.i.not = icmp eq i16 %0, 0
@@ -974,7 +974,7 @@ if.then9.i:                                       ; preds = %if.end47.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal8TcParser13TestMiniParseEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noalias nocapture writeonly sret(%"struct.google::protobuf::internal::TcParser::TestMiniParseResult") align 8 initializes((0, 32)) %agg.result, ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, i64 %data.coerce, ptr noundef %table, i64 noundef %hasbits) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal8TcParser13TestMiniParseEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noalias writeonly sret(%"struct.google::protobuf::internal::TcParser::TestMiniParseResult") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, i64 %data.coerce, ptr noundef %table, i64 noundef %hasbits) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %0 = load i8, ptr %ptr, align 1
@@ -1183,7 +1183,7 @@ _ZN6google8protobuf8internal8TcParser9MiniParseILb1EEEPKcPNS0_11MessageLiteES5_P
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal8TcParser10MpFallbackEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, i64 %data.coerce, ptr noundef %table, i64 noundef %hasbits) #3 align 2 {
@@ -2459,7 +2459,7 @@ _ZN6google8protobuf8internal12ParseContext17ParseGroupInlinedIZNS1_8TcParser27Si
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noalias noundef nonnull ptr @_ZN6google8protobuf8internal8TcParser8FastMlS1EPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr nocapture noundef readnone %msg, ptr nocapture noundef readnone %ptr, ptr nocapture noundef readnone %ctx, i64 %data.coerce, ptr nocapture noundef readnone %table, i64 noundef %hasbits) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @_ZN6google8protobuf8internal8TcParser8FastMlS1EPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef readnone captures(none) %msg, ptr noundef readnone captures(none) %ptr, ptr noundef readnone captures(none) %ctx, i64 %data.coerce, ptr noundef readnone captures(none) %table, i64 noundef %hasbits) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -2479,7 +2479,7 @@ lpad.i:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noalias noundef nonnull ptr @_ZN6google8protobuf8internal8TcParser8FastMlS2EPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr nocapture noundef readnone %msg, ptr nocapture noundef readnone %ptr, ptr nocapture noundef readnone %ctx, i64 %data.coerce, ptr nocapture noundef readnone %table, i64 noundef %hasbits) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @_ZN6google8protobuf8internal8TcParser8FastMlS2EPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef readnone captures(none) %msg, ptr noundef readnone captures(none) %ptr, ptr noundef readnone captures(none) %ctx, i64 %data.coerce, ptr noundef readnone captures(none) %table, i64 noundef %hasbits) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
@@ -8291,7 +8291,7 @@ if.end.i:                                         ; preds = %if.end14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal8TcParser14AddUnknownEnumEPNS0_11MessageLiteEPKNS1_16TcParseTableBaseEji(ptr noundef %msg, ptr nocapture noundef readonly %table, i32 noundef %tag, i32 noundef %enum_value) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal8TcParser14AddUnknownEnumEPNS0_11MessageLiteEPKNS1_16TcParseTableBaseEji(ptr noundef %msg, ptr noundef readonly captures(none) %table, i32 noundef %tag, i32 noundef %enum_value) local_unnamed_addr #3 align 2 {
 entry:
   %fallback.i = getelementptr inbounds nuw i8, ptr %table, i64 40
   %0 = load ptr, ptr %fallback.i, align 8
@@ -9457,7 +9457,7 @@ if.end.i.i:                                       ; preds = %if.end32.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8protobuf8internal8TcParser18GetUnknownFieldOpsEPKNS1_16TcParseTableBaseE(ptr nocapture noundef readonly %table) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8protobuf8internal8TcParser18GetUnknownFieldOpsEPKNS1_16TcParseTableBaseE(ptr noundef readonly captures(none) %table) local_unnamed_addr #3 align 2 {
 entry:
   %fallback = getelementptr inbounds nuw i8, ptr %table, i64 40
   %0 = load ptr, ptr %fallback, align 8
@@ -14684,7 +14684,7 @@ parse_loop.i:                                     ; preds = %if.end27.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal8TcParser11ChangeOneofEPKNS1_16TcParseTableBaseERKNS3_10FieldEntryEjPNS1_12ParseContextEPNS0_11MessageLiteE(ptr noundef %table, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %entry1, i32 noundef %field_num, ptr nocapture readnone %ctx, ptr noundef %msg) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal8TcParser11ChangeOneofEPKNS1_16TcParseTableBaseERKNS3_10FieldEntryEjPNS1_12ParseContextEPNS0_11MessageLiteE(ptr noundef %table, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %entry1, i32 noundef %field_num, ptr readnone captures(none) %ctx, ptr noundef %msg) local_unnamed_addr #3 align 2 {
 entry:
   %has_idx = getelementptr inbounds nuw i8, ptr %entry1, i64 4
   %0 = load i32, ptr %has_idx, align 4
@@ -15000,13 +15000,13 @@ return:                                           ; preds = %entry, %if.then, %_
 declare noundef zeroext i1 @_ZN10utf8_range19IsStructurallyValidESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal8TcParser12MpVerifyUtf8ERKN4absl12lts_202308024CordEPKNS1_16TcParseTableBaseERKNS8_10FieldEntryEt(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %wire_bytes, ptr nocapture noundef readnone %table, ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %entry1, i16 noundef zeroext %xform_val) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal8TcParser12MpVerifyUtf8ERKN4absl12lts_202308024CordEPKNS1_16TcParseTableBaseERKNS8_10FieldEntryEt(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %wire_bytes, ptr noundef readnone captures(none) %table, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %entry1, i16 noundef zeroext %xform_val) local_unnamed_addr #12 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal8TcParser22WriteMapEntryAsUnknownEPNS0_11MessageLiteEPKNS1_16TcParseTableBaseEjPNS1_8NodeBaseENS1_10MapAuxInfoE(ptr noundef %msg, ptr nocapture noundef readonly %table, i32 noundef %tag, ptr noundef %node, i64 %map_info.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal8TcParser22WriteMapEntryAsUnknownEPNS0_11MessageLiteEPKNS1_16TcParseTableBaseEjPNS1_8NodeBaseENS1_10MapAuxInfoE(ptr noundef %msg, ptr noundef readonly captures(none) %table, i32 noundef %tag, ptr noundef %node, i64 %map_info.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i = alloca ptr, align 8
   %size.i.i = alloca i32, align 4
@@ -15239,7 +15239,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal8TcParser14DestroyMapNodeEPNS1_8NodeBaseENS1_10MapAuxInfoERNS1_14UntypedMapBaseE(ptr noundef %node, i64 %map_info.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %map) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal8TcParser14DestroyMapNodeEPNS1_8NodeBaseENS1_10MapAuxInfoERNS1_14UntypedMapBaseE(ptr noundef %node, i64 %map_info.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %map) local_unnamed_addr #3 align 2 {
 entry:
   %map_info.sroa.410.0.extract.shift = lshr i64 %map_info.coerce, 32
   %0 = and i64 %map_info.coerce, 56
@@ -15292,7 +15292,7 @@ _ZN6google8protobuf8internal14UntypedMapBase11DeallocNodeEPNS1_8NodeBaseENS1_16M
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal8TcParser16ParseOneMapEntryEPNS1_8NodeBaseEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBase8FieldAuxEPKS9_RKNS9_10FieldEntryEPNS0_5ArenaE(ptr noundef %node, ptr noundef %ptr, ptr noundef %ctx, ptr nocapture noundef readonly %aux, ptr noundef %table, ptr noundef nonnull align 4 dereferenceable(12) %entry1, ptr nocapture readnone %arena) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal8TcParser16ParseOneMapEntryEPNS1_8NodeBaseEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBase8FieldAuxEPKS9_RKNS9_10FieldEntryEPNS0_5ArenaE(ptr noundef %node, ptr noundef %ptr, ptr noundef %ctx, ptr noundef readonly captures(none) %aux, ptr noundef %table, ptr noundef nonnull align 4 dereferenceable(12) %entry1, ptr readnone captures(none) %arena) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %aux, align 8
   %map_info.sroa.0.0.extract.trunc = trunc i64 %0 to i8
@@ -16259,7 +16259,7 @@ declare noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStrin
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsItTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 2 dereferenceable(2)) local_unnamed_addr #0
 
@@ -22698,7 +22698,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIjE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43343,10 +43343,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
@@ -43361,7 +43361,7 @@ declare i32 @llvm.umax.i32(i32, i32) #22
 declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22

@@ -652,7 +652,7 @@ declare void @_ZN12ZNMethodDataC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN12ZNMethodData4swapEP18GrowableArrayCHeapI19ZNMethodDataBarrierL8MEMFLAGS5EEPS0_IPP7oopDescLS2_5EEb(ptr noundef nonnull align 8 dereferenceable(153), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8ZNMethod16lock_for_nmethodEP7nmethod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8ZNMethod16lock_for_nmethodEP7nmethod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr i8, ptr %0, i64 112
   %.val = load ptr, ptr %2, align 8
   %3 = tail call noundef ptr @_ZN12ZNMethodData4lockEv(ptr noundef nonnull align 8 dereferenceable(153) %.val) #11
@@ -662,7 +662,7 @@ define hidden noundef ptr @_ZN8ZNMethod16lock_for_nmethodEP7nmethod(ptr nocaptur
 declare noundef ptr @_ZN12ZNMethodData4lockEv(ptr noundef nonnull align 8 dereferenceable(153)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8ZNMethod19ic_lock_for_nmethodEP7nmethod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8ZNMethod19ic_lock_for_nmethodEP7nmethod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr i8, ptr %0, i64 112
   %.val = load ptr, ptr %2, align 8
   %3 = tail call noundef ptr @_ZN12ZNMethodData7ic_lockEv(ptr noundef nonnull align 8 dereferenceable(153) %.val) #11
@@ -1141,11 +1141,11 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %1, %_ZN14ZReentrant
   br i1 %.not.i7, label %_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit: ; preds = %.lr.ph.i, %_ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit
-  tail call void @_ZN13ZNMethodTable16register_nmethodEP7nmethod(ptr noundef %0) #11
+  tail call void @_ZN13ZNMethodTable16register_nmethodEP7nmethod(ptr noundef nonnull %0) #11
   %23 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
-  tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef %0) #11
+  tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef nonnull %0) #11
   br i1 %.not.i, label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit, label %26
 
 26:                                               ; preds = %_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit
@@ -1167,7 +1167,7 @@ _ZN7ZLockerI14ZReentrantLockED2Ev.exit:           ; preds = %_ZN8ZNMethod22nmeth
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #11
   %3 = getelementptr i8, ptr %0, i64 112
   %.val = load ptr, ptr %3, align 8
@@ -1888,7 +1888,7 @@ _ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMark
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef ptr @_ZNK5ZPage10generationEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #1
 
@@ -2232,7 +2232,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #1
 

@@ -823,7 +823,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Sele
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK4pkpy8Compiler10name_scopeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK4pkpy8Compiler10name_scopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -3100,7 +3100,7 @@ declare void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32)
 declare void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat {
@@ -10810,7 +10810,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit14:   ; preds = %_ZN4pkpy14unique_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler12exprLiteral0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler12exprLiteral0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -11386,7 +11386,7 @@ _ZN4pkpy14unique_ptr_128INS_10LambdaExprEED2Ev.exit39: ; preds = %185, %_ZN4pkpy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler8exprNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler8exprNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pkpy::Str", align 8
   %3 = alloca %"class.pkpy::unique_ptr_128", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -11701,7 +11701,7 @@ _ZN4pkpy14unique_ptr_128INS_11LiteralExprEED2Ev.exit9: ; preds = %_ZN4pkpy14uniq
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler11exprFStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler11exprFStringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -11844,7 +11844,7 @@ _ZN4pkpy14unique_ptr_128INS_11FStringExprEED2Ev.exit: ; preds = %_ZN4pkpy5stackI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler8exprLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler8exprLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -11983,7 +11983,7 @@ _ZN4pkpy14unique_ptr_128INS_8LongExprEED2Ev.exit: ; preds = %_ZN4pkpy5stackINS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler8exprImagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler8exprImagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -12127,7 +12127,7 @@ _ZN4pkpy14unique_ptr_128INS_8ImagExprEED2Ev.exit: ; preds = %_ZN4pkpy5stackINS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler9exprBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler9exprBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pkpy::unique_ptr_128", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -13262,7 +13262,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit58:   ; preds = %72, %116, %119, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8Compiler5matchEh(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy8Compiler5matchEh(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %5 = load i32, ptr %4, align 4
@@ -13415,7 +13415,7 @@ _ZN4pkpy7SStreamD2Ev.exit7:                       ; preds = %27, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8Compiler19match_newlines_replEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy8Compiler19match_newlines_replEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -13426,7 +13426,7 @@ define noundef zeroext i1 @_ZN4pkpy8Compiler19match_newlines_replEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8Compiler14match_newlinesEb(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4pkpy8Compiler14match_newlinesEb(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %5 = load i32, ptr %4, align 4
@@ -13634,7 +13634,7 @@ _ZN4pkpy2TKEPKc.exit33:                           ; preds = %77, %75
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8Compiler14match_end_stmtEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy8Compiler14match_end_stmtEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #5 align 2 {
   br label %2
 
 2:                                                ; preds = %17, %1
@@ -14908,7 +14908,7 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %278, %_ZSt7destroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8Compiler13is_expressionEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy8Compiler13is_expressionEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %5 = load i32, ptr %4, align 4
@@ -15034,7 +15034,7 @@ _ZSt7destroyIPN4pkpy14unique_ptr_128INS0_4ExprEEEEvT_S5_.exit: ; preds = %_ZSt7d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler9EXPR_VARSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pkpy::unique_ptr_128") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler9EXPR_VARSEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.pkpy::unique_ptr_128") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pkpy::small_vector.95", align 8
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -15937,7 +15937,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZN4pkpy10LambdaExp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler15_compile_f_argsESt10shared_ptrINS_8FuncDeclEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler15_compile_f_argsESt10shared_ptrINS_8FuncDeclEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = alloca %"struct.pkpy::Str", align 8
@@ -16949,7 +16949,7 @@ define linkonce_odr void @_ZN4pkpy14unique_ptr_128INS_10LambdaExprEED2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler12consume_compENS_14unique_ptr_128INS_8CompExprEEENS1_INS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler12consume_compENS_14unique_ptr_128INS_8CompExprEEENS1_INS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pkpy::unique_ptr_128", align 8
   %5 = alloca %"class.pkpy::unique_ptr_128", align 8
   %6 = load ptr, ptr %1, align 8
@@ -23634,7 +23634,7 @@ _ZN4pkpy12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler13compile_classERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler13compile_classERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"struct.pkpy::Str", align 8
   br label %5
@@ -24103,7 +24103,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit55:   ; preds = %195, %194, %110
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler16compile_functionERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler16compile_functionERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"class.std::shared_ptr.54", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
@@ -25560,7 +25560,7 @@ _ZNSt6vectorIN4pkpy14unique_ptr_128INS0_4ExprEEESaIS3_EE8pop_backEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler15_add_decoratorsERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4pkpy8Compiler15_add_decoratorsERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !noalias !313
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -26079,7 +26079,7 @@ declare void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(3
 declare noundef i32 @_ZN4pkpy15CodeEmitContext13add_func_declESt10shared_ptrINS_8FuncDeclEE(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN4pkpy8Compiler9to_objectERKSt7variantIJSt9monostateldNS_3StrEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28369,7 +28369,7 @@ _ZN4pkpy5TokenD2Ev.exit95:                        ; preds = %.body, %.body, %.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { i64, ptr } @_ZN4pkpy17TokenDeserializer11read_stringEc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
+define { i64, ptr } @_ZN4pkpy17TokenDeserializer11read_stringEc(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %.not3 = icmp eq i8 %4, %1
@@ -28452,7 +28452,7 @@ _ZN4pkpy7SStreamD2Ev.exit5:                       ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN4pkpy17TokenDeserializer9read_uintEc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZN4pkpy17TokenDeserializer9read_uintEc(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %.not4 = icmp eq i8 %3, %1
@@ -28481,7 +28481,7 @@ define noundef i64 @_ZN4pkpy17TokenDeserializer9read_uintEc(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4pkpy17TokenDeserializer10read_countEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN4pkpy17TokenDeserializer10read_countEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28612,7 +28612,7 @@ _ZN4pkpy17TokenDeserializer9read_uintEc.exit:     ; preds = %.lr.ph.i, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN4pkpy17TokenDeserializer10read_floatEc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN4pkpy17TokenDeserializer10read_floatEc(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28719,7 +28719,7 @@ _ZN4pkpy17TokenDeserializer11read_stringEc.exit:  ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy17TokenDeserializer20read_string_from_hexEc(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i8 noundef signext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy17TokenDeserializer20read_string_from_hexEc(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef signext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28985,7 +28985,7 @@ _ZN4pkpy17TokenDeserializer11read_stringEc.exit:  ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pkpy8Compiler7compileEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.10") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -29890,7 +29890,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Sele
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -30344,7 +30344,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZN4pkpy14pool64_deallocEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev() local_unnamed_addr #0
 
@@ -31159,7 +31159,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEl(ptr noundef nonnull align 8 dereferenceable(20), i64 noundef) local_unnamed_addr #0
 
@@ -31188,7 +31188,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJSt9monostateldN4pkpy3StrEEEaSEOS7_EUlOT_T0_E_JRSt7variantIJS4_ldS6_EEEEDcOSB_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #5 comdat {
@@ -31919,7 +31919,7 @@ _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #23
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -32520,7 +32520,7 @@ _ZNSt10shared_ptrIN4pkpy10SourceDataEED2Ev.exit:  ; preds = %_ZNSt6vectorIN4pkpy
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN4pkpy15CodeEmitContextESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(232) %2) local_unnamed_addr #5 comdat align 2 {
@@ -34532,7 +34532,7 @@ define linkonce_odr void @_ZN4pkpy3Py_IlED0Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN4pkpy3StrES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -36712,10 +36712,10 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #30
@@ -36727,7 +36727,7 @@ declare i64 @llvm.smax.i64(i64, i64) #27
 declare i64 @llvm.smin.i64(i64, i64) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

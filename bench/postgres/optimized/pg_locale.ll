@@ -252,46 +252,46 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale_monetary(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale_monetary(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i1 @check_locale(i32 noundef 4, ptr noundef %4, ptr noundef null)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_locale_monetary(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define dso_local void @assign_locale_monetary(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   store i1 false, ptr @CurrentLocaleConvValid, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale_numeric(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale_numeric(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i1 @check_locale(i32 noundef 1, ptr noundef %4, ptr noundef null)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_locale_numeric(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define dso_local void @assign_locale_numeric(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   store i1 false, ptr @CurrentLocaleConvValid, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale_time(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i1 @check_locale(i32 noundef 2, ptr noundef %4, ptr noundef null)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_locale_time(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define dso_local void @assign_locale_time(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   store i1 false, ptr @CurrentLCTimeValid, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale_messages(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale_messages(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -311,7 +311,7 @@ define dso_local zeroext i1 @check_locale_messages(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_locale_messages(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_locale_messages(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @setlocale(i32 noundef 5, ptr noundef %0) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %pg_perm_setlocale.exit, label %5
@@ -571,7 +571,7 @@ struct_lconv_is_valid.exit.thread:                ; preds = %111
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @free_struct_lconv(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc void @free_struct_lconv(ptr noundef readonly captures(none) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -605,13 +605,13 @@ define internal fastcc void @free_struct_lconv(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
@@ -623,11 +623,11 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @pg_get_encoding_from_locale(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @db_encoding_convert(i32 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @db_encoding_convert(i32 noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
   %5 = trunc i64 %4 to i32
-  %6 = tail call ptr @pg_any_to_server(ptr noundef %3, i32 noundef %5, i32 noundef %0) #22
+  %6 = tail call ptr @pg_any_to_server(ptr noundef nonnull %3, i32 noundef %5, i32 noundef %0) #22
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %17, label %9
@@ -659,7 +659,7 @@ define internal fastcc void @db_encoding_convert(i32 noundef %0, ptr nocapture n
 declare void @pg_re_throw() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cache_locale_time() local_unnamed_addr #0 {
@@ -777,7 +777,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   %54 = getelementptr [8 x ptr], ptr @localized_abbrev_days, i64 0, i64 %indvars.iv
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.25374) #26
   %56 = trunc i64 %55 to i32
-  %57 = call ptr @pg_any_to_server(ptr noundef %.25374, i32 noundef %56, i32 noundef %spec.store.select) #22
+  %57 = call ptr @pg_any_to_server(ptr noundef nonnull %.25374, i32 noundef %56, i32 noundef %spec.store.select) #22
   %58 = load ptr, ptr %54, align 8
   %59 = load ptr, ptr @TopMemoryContext, align 8
   %60 = call ptr @MemoryContextStrdup(ptr noundef %59, ptr noundef %57) #22
@@ -802,7 +802,7 @@ cache_single_string.exit:                         ; preds = %62, %63
   %65 = getelementptr [8 x ptr], ptr @localized_full_days, i64 0, i64 %indvars.iv
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #26
   %67 = trunc i64 %66 to i32
-  %68 = call ptr @pg_any_to_server(ptr noundef %64, i32 noundef %67, i32 noundef %spec.store.select) #22
+  %68 = call ptr @pg_any_to_server(ptr noundef nonnull %64, i32 noundef %67, i32 noundef %spec.store.select) #22
   %69 = load ptr, ptr %65, align 8
   %70 = load ptr, ptr @TopMemoryContext, align 8
   %71 = call ptr @MemoryContextStrdup(ptr noundef %70, ptr noundef %68) #22
@@ -839,7 +839,7 @@ cache_single_string.exit61:                       ; preds = %73, %74
   %78 = getelementptr [13 x ptr], ptr @localized_abbrev_months, i64 0, i64 %indvars.iv82
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.35476) #26
   %80 = trunc i64 %79 to i32
-  %81 = call ptr @pg_any_to_server(ptr noundef %.35476, i32 noundef %80, i32 noundef %spec.store.select) #22
+  %81 = call ptr @pg_any_to_server(ptr noundef nonnull %.35476, i32 noundef %80, i32 noundef %spec.store.select) #22
   %82 = load ptr, ptr %78, align 8
   %83 = load ptr, ptr @TopMemoryContext, align 8
   %84 = call ptr @MemoryContextStrdup(ptr noundef %83, ptr noundef %81) #22
@@ -864,7 +864,7 @@ cache_single_string.exit64:                       ; preds = %86, %87
   %89 = getelementptr [13 x ptr], ptr @localized_full_months, i64 0, i64 %indvars.iv82
   %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #26
   %91 = trunc i64 %90 to i32
-  %92 = call ptr @pg_any_to_server(ptr noundef %88, i32 noundef %91, i32 noundef %spec.store.select) #22
+  %92 = call ptr @pg_any_to_server(ptr noundef nonnull %88, i32 noundef %91, i32 noundef %spec.store.select) #22
   %93 = load ptr, ptr %89, align 8
   %94 = load ptr, ptr @TopMemoryContext, align 8
   %95 = call ptr @MemoryContextStrdup(ptr noundef %94, ptr noundef %92) #22
@@ -991,7 +991,7 @@ sub_0:                                            ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lookup_collation_cache(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -1201,7 +1201,7 @@ sub_0:                                            ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @make_icu_collator(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @make_icu_collator(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1287,7 +1287,7 @@ define internal fastcc ptr @pg_ucol_open(ptr noundef %0) unnamed_addr #0 {
 declare ptr @ucol_getRules_70(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @icu_to_uchar(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @icu_to_uchar(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   tail call fastcc void @init_icu_converter()
@@ -1341,7 +1341,7 @@ uchar_convert.exit:                               ; preds = %uchar_length.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
@@ -1480,31 +1480,31 @@ lookup_collation_cache.exit:                      ; preds = %18, %23
   br i1 %56, label %58, label %61
 
 58:                                               ; preds = %48
-  %59 = call ptr @newlocale(i32 noundef 9, ptr noundef %51, ptr noundef null) #22
+  %59 = call ptr @newlocale(i32 noundef 9, ptr noundef nonnull %51, ptr noundef null) #22
   %.not66 = icmp eq ptr %59, null
   br i1 %.not66, label %60, label %67
 
 60:                                               ; preds = %58
-  call fastcc void @report_newlocale_failure(ptr noundef %51)
+  call fastcc void @report_newlocale_failure(ptr noundef nonnull %51)
   unreachable
 
 61:                                               ; preds = %48
-  %62 = call ptr @newlocale(i32 noundef 8, ptr noundef %51, ptr noundef null) #22
+  %62 = call ptr @newlocale(i32 noundef 8, ptr noundef nonnull %51, ptr noundef null) #22
   %.not64 = icmp eq ptr %62, null
   br i1 %.not64, label %63, label %64
 
 63:                                               ; preds = %61
-  call fastcc void @report_newlocale_failure(ptr noundef %51)
+  call fastcc void @report_newlocale_failure(ptr noundef nonnull %51)
   unreachable
 
 64:                                               ; preds = %61
   store i32 0, ptr %57, align 4
-  %65 = call ptr @newlocale(i32 noundef 1, ptr noundef %54, ptr noundef nonnull %62) #22
+  %65 = call ptr @newlocale(i32 noundef 1, ptr noundef nonnull %54, ptr noundef nonnull %62) #22
   %.not65 = icmp eq ptr %65, null
   br i1 %.not65, label %66, label %67
 
 66:                                               ; preds = %64
-  call fastcc void @report_newlocale_failure(ptr noundef %54)
+  call fastcc void @report_newlocale_failure(ptr noundef nonnull %54)
   unreachable
 
 67:                                               ; preds = %64, %58
@@ -1572,7 +1572,7 @@ lookup_collation_cache.exit:                      ; preds = %18, %23
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %104) #22
-  %106 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28, ptr noundef %86, ptr noundef nonnull %94) #22
+  %106 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28, ptr noundef nonnull %86, ptr noundef nonnull %94) #22
   %107 = getelementptr inbounds nuw i8, ptr %41, i64 68
   %108 = load i32, ptr %107, align 4
   %109 = call ptr @get_namespace_name(i32 noundef %108) #22
@@ -1740,7 +1740,7 @@ pg_strcoll_libc.exit:                             ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -2053,7 +2053,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strxfrm_libc(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc void @pg_strxfrm_libc(ptr noundef readonly captures(none) %0) unnamed_addr #15 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   tail call void @llvm.assume(i1 %2)
   %3 = load i8, ptr %0, align 8
@@ -2064,7 +2064,7 @@ define internal fastcc void @pg_strxfrm_libc(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [1024 x i8], align 16
@@ -2174,7 +2174,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strnxfrm_libc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 {
+define internal fastcc void @pg_strnxfrm_libc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 {
   %4 = alloca [1024 x i8], align 16
   %5 = add i64 %1, 1
   %6 = icmp ugt i64 %5, 1024
@@ -2255,7 +2255,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [1024 x i8], align 16
@@ -2463,7 +2463,7 @@ define internal fastcc void @init_icu_converter() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @icu_from_uchar(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @icu_from_uchar(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call fastcc void @init_icu_converter()
   store i32 0, ptr %4, align 4
@@ -2758,7 +2758,7 @@ declare i64 @mbstowcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare zeroext i1 @pg_verifymbstr(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 declare ptr @pg_any_to_server(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -2770,7 +2770,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare i32 @strcoll_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 declare i32 @ucol_strcollUTF8_70(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2807,13 +2807,13 @@ declare i32 @llvm.smax.i32(i32, i32) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

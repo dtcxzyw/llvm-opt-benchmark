@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.AlterObjectTypeCommandTag = private unnamed_addr constant [51 x i32] [i32 2, i32 0, i32 0, i32 42, i32 3, i32 34, i32 4, i32 6, i32 7, i32 0, i32 0, i32 9, i32 9, i32 10, i32 11, i32 12, i32 30, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 20, i32 19, i32 21, i32 0, i32 22, i32 23, i32 24, i32 0, i32 0, i32 25, i32 26, i32 27, i32 28, i32 29, i32 32, i32 31, i32 34, i32 34, i32 35, i32 0, i32 41, i32 36, i32 37, i32 38, i32 39, i32 42, i32 0, i32 44], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @CommandIsReadOnly(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @CommandIsReadOnly(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %11 [
@@ -1031,7 +1031,7 @@ declare void @check_stack_depth() local_unnamed_addr #2
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 193) i32 @CreateCommandTag(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 193) i32 @CreateCommandTag(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -1745,7 +1745,7 @@ declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #2
 declare void @BeginTransactionBlock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @SetPGVariable(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -1819,7 +1819,7 @@ declare i32 @AlterDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) local_u
 declare { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @AlterDatabaseSet(ptr noundef) local_unnamed_addr #2
 
@@ -2871,7 +2871,7 @@ declare void @free_parsestate(ptr noundef) local_unnamed_addr #2
 declare void @CommandCounterIncrement() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ProcessUtilityForAlterTable(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ProcessUtilityForAlterTable(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @EventTriggerAlterTableEnd() #10
   %3 = tail call noundef ptr @palloc0(i64 noundef 136) #10
   store i32 314, ptr %3, align 4
@@ -2928,7 +2928,7 @@ declare void @EventTriggerAlterTableStart(ptr noundef) local_unnamed_addr #2
 declare void @EventTriggerAlterTableRelid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @UtilityReturnsTuples(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @UtilityReturnsTuples(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %30 [
     i32 197, label %3
@@ -3063,7 +3063,7 @@ declare ptr @ExplainResultDesc(ptr noundef) local_unnamed_addr #2
 declare ptr @GetPGVariableResultDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @UtilityContainsQuery(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @UtilityContainsQuery(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -3128,7 +3128,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 4) i32 @GetCommandLogLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 4) i32 @GetCommandLogLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1

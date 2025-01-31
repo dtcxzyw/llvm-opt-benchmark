@@ -24,13 +24,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qemu_spice_migrate_info_stub(ptr nocapture readnone %h, i32 %p, i32 %t, ptr nocapture readnone %s) #0 {
+define internal noundef i32 @qemu_spice_migrate_info_stub(ptr readnone captures(none) %h, i32 %p, i32 %t, ptr readnone captures(none) %s) #0 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qemu_spice_set_passwd_stub(ptr nocapture readnone %passwd, i1 zeroext %fail_if_connected, i1 zeroext %disconnect_if_connected) #0 {
+define internal noundef i32 @qemu_spice_set_passwd_stub(ptr readnone captures(none) %passwd, i1 zeroext %fail_if_connected, i1 zeroext %disconnect_if_connected) #0 {
 entry:
   ret i32 -1
 }

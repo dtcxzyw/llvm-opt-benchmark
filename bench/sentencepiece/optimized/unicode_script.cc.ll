@@ -112657,7 +112657,7 @@ _ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_unicode_script.cc() #11 section ".text.startup" {

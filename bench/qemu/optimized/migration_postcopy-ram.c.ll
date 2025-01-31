@@ -275,7 +275,7 @@ declare void @qemu_sem_wait(ptr noundef) local_unnamed_addr #1
 declare void @qemu_sem_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fill_destination_postcopy_migration_info(ptr nocapture noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local void @fill_destination_postcopy_migration_info(ptr noundef writeonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migration_incoming_get_current() #16
   %blocktime_ctx = getelementptr inbounds nuw i8, ptr %call, i64 704
@@ -332,7 +332,7 @@ return:                                           ; preds = %entry, %get_vcpu_bl
 declare ptr @migration_incoming_get_current() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @postcopy_ram_supported_by_host(ptr nocapture noundef %mis, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @postcopy_ram_supported_by_host(ptr noundef captures(none) %mis, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %pnd.i = alloca %struct.PostcopyNotifyData, align 8
   %reg_struct = alloca %struct.uffdio_register, align 8
@@ -398,7 +398,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @__func__.test_ramblock_postcopiable, ptr noundef nonnull @.str.28, ptr noundef %call.i34, i64 noundef %call1.i, i64 noundef %call2.i) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @__func__.test_ramblock_postcopiable, ptr noundef nonnull @.str.28, ptr noundef %call.i34, i64 noundef %call1.i, i64 noundef %call2.i) #16
   br label %if.then78
 
 if.end.i:                                         ; preds = %for.body
@@ -414,7 +414,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i, label %if.then8.i, label %while.end33
 
 if.then8.i:                                       ; preds = %if.then3.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.test_ramblock_postcopiable, ptr noundef nonnull @.str.29) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.test_ramblock_postcopiable, ptr noundef nonnull @.str.29) #16
   br label %if.then78
 
 while.end33:                                      ; preds = %if.then3.i, %if.end.i
@@ -433,7 +433,7 @@ if.then37:                                        ; preds = %for.end
   %call38 = tail call ptr @__errno_location() #18
   %5 = load i32, ptr %call38, align 4
   %call39 = call ptr @strerror(i32 noundef %5) #16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.3, ptr noundef %call39) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.3, ptr noundef %call39) #16
   br label %if.then78
 
 if.end40:                                         ; preds = %for.end
@@ -445,7 +445,7 @@ out.thread43:                                     ; preds = %if.end40
   %call44 = tail call ptr @__errno_location() #18
   %6 = load i32, ptr %call44, align 4
   %call45 = call ptr @strerror(i32 noundef %6) #16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.4, ptr noundef %call45) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.4, ptr noundef %call45) #16
   br label %if.then74
 
 do.body47:                                        ; preds = %if.end40
@@ -472,7 +472,7 @@ if.then56:                                        ; preds = %do.end52
   %call57 = tail call ptr @__errno_location() #18
   %8 = load i32, ptr %call57, align 4
   %call58 = call ptr @strerror(i32 noundef %8) #16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 454, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.6, ptr noundef %call58) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 454, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.6, ptr noundef %call58) #16
   br label %out
 
 if.end59:                                         ; preds = %do.end52
@@ -487,7 +487,7 @@ if.then64:                                        ; preds = %if.end59
   %call65 = tail call ptr @__errno_location() #18
   %9 = load i32, ptr %call65, align 4
   %call66 = call ptr @strerror(i32 noundef %9) #16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.7, ptr noundef %call66) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.7, ptr noundef %call66) #16
   br label %out
 
 if.end67:                                         ; preds = %if.end59
@@ -499,7 +499,7 @@ if.end67:                                         ; preds = %if.end59
 
 if.then69:                                        ; preds = %if.end67
   %and71 = xor i64 %and, 28
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 470, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.8, i64 noundef %and71) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 470, ptr noundef nonnull @__func__.postcopy_ram_supported_by_host, ptr noundef nonnull @.str.8, i64 noundef %and71) #16
   br label %out
 
 out:                                              ; preds = %if.end67, %if.then69, %if.then64, %if.then56
@@ -538,7 +538,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ufd_check_and_apply(i32 noundef range(i32 0, -1) %ufd, ptr nocapture noundef %mis, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ufd_check_and_apply(i32 noundef range(i32 0, -1) %ufd, ptr noundef captures(none) %mis, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %api_struct.i13 = alloca %struct.uffdio_api, align 8
   %api_struct.i = alloca %struct.uffdio_api, align 8
@@ -718,7 +718,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_init(ptr nocapture noundef readnone %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_init(ptr noundef readnone captures(none) %mis) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @foreach_not_ignored_block(ptr noundef nonnull @init_range, ptr noundef null) #16
   %tobool.not = icmp ne i32 %call, 0
@@ -729,7 +729,7 @@ entry:
 declare i32 @foreach_not_ignored_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @init_range(ptr noundef %rb, ptr nocapture readnone %opaque) #0 {
+define internal range(i32 -1, 1) i32 @init_range(ptr noundef %rb, ptr readnone captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qemu_ram_get_idstr(ptr noundef %rb) #16
@@ -1166,7 +1166,7 @@ declare i32 @qemu_file_shutdown(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_thread_join(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_fault_thread_notify(ptr nocapture noundef readonly %mis) local_unnamed_addr #0 {
+define dso_local void @postcopy_fault_thread_notify(ptr noundef readonly captures(none) %mis) local_unnamed_addr #0 {
 entry:
   %tmp64 = alloca i64, align 8
   store i64 1, ptr %tmp64, align 8
@@ -1190,7 +1190,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @cleanup_range(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -1, 1) i32 @cleanup_range(ptr noundef %rb, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %range_struct = alloca %struct.uffdio_range, align 8
@@ -1277,7 +1277,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @nhp_range(ptr noundef %rb, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @nhp_range(ptr noundef %rb, ptr readnone captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qemu_ram_get_idstr(ptr noundef %rb) #16
@@ -1331,7 +1331,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @postcopy_wake_shared(ptr nocapture noundef readonly %pcfd, i64 noundef %client_addr, ptr noundef %rb) local_unnamed_addr #0 {
+define dso_local i32 @postcopy_wake_shared(ptr noundef readonly captures(none) %pcfd, i64 noundef %client_addr, ptr noundef %rb) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %range = alloca %struct.uffdio_range, align 8
@@ -1398,7 +1398,7 @@ declare i64 @qemu_ram_pagesize(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_ram_get_idstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @postcopy_request_shared_page(ptr nocapture noundef readonly %pcfd, ptr noundef %rb, i64 noundef %client_addr, i64 noundef %rb_offset) local_unnamed_addr #0 {
+define dso_local i32 @postcopy_request_shared_page(ptr noundef readonly captures(none) %pcfd, ptr noundef %rb, i64 noundef %client_addr, i64 noundef %rb_offset) local_unnamed_addr #0 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2574,7 +2574,7 @@ trace_postcopy_ram_fault_thread_exit.exit:        ; preds = %while.end163, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @ram_block_enable_notify(ptr noundef %rb, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -1, 1) i32 @ram_block_enable_notify(ptr noundef %rb, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %reg_struct = alloca %struct.uffdio_register, align 8
   %call = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #16
@@ -3282,7 +3282,7 @@ return:                                           ; preds = %for.body.i, %for.co
 declare zeroext i1 @qemu_ram_is_uf_zeroable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @postcopy_temp_page_reset(ptr nocapture noundef writeonly initializes((8, 21)) %tmp_page) local_unnamed_addr #6 {
+define dso_local void @postcopy_temp_page_reset(ptr noundef writeonly captures(none) initializes((8, 21)) %tmp_page) local_unnamed_addr #6 {
 entry:
   %target_pages = getelementptr inbounds nuw i8, ptr %tmp_page, i64 16
   store i32 0, ptr %target_pages, align 8
@@ -3294,10 +3294,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @postcopy_discard_send_init(ptr nocapture noundef readnone %ms, ptr noundef %name) local_unnamed_addr #8 {
+define dso_local void @postcopy_discard_send_init(ptr noundef readnone captures(none) %ms, ptr noundef %name) local_unnamed_addr #8 {
 entry:
   store ptr %name, ptr @pds, align 8
   store i16 0, ptr getelementptr inbounds nuw (i8, ptr @pds, i64 8), align 8
@@ -3307,7 +3307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_discard_send_range(ptr nocapture noundef readonly %ms, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local void @postcopy_discard_send_range(ptr noundef readonly captures(none) %ms, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_target_page_size() #16
@@ -3381,7 +3381,7 @@ if.end:                                           ; preds = %if.then, %trace_pos
 declare void @qemu_savevm_send_postcopy_ram_discard(ptr noundef, ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_discard_send_finish(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
+define dso_local void @postcopy_discard_send_finish(ptr noundef readonly captures(none) %ms) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i16, ptr getelementptr inbounds nuw (i8, ptr @pds, i64 8), align 8
@@ -3464,7 +3464,7 @@ entry:
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_unregister_shared_ufd(ptr nocapture noundef readonly %pcfd) local_unnamed_addr #0 {
+define dso_local void @postcopy_unregister_shared_ufd(ptr noundef readonly captures(none) %pcfd) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migration_incoming_get_current() #16
   %postcopy_remote_fds = getelementptr inbounds nuw i8, ptr %call, i64 552
@@ -3701,13 +3701,13 @@ declare zeroext i1 @migrate_postcopy_blocktime() local_unnamed_addr #1
 declare i64 @ram_pagesize_summary() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @migration_exit_cb(ptr noundef %n, ptr nocapture readnone %data) #0 {
+define internal void @migration_exit_cb(ptr noundef %n, ptr readnone captures(none) %data) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -48
   %0 = load ptr, ptr %add.ptr, align 8
@@ -3739,7 +3739,7 @@ declare i64 @qemu_ram_get_offset(ptr noundef) local_unnamed_addr #1
 declare i32 @ram_discard_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3835,7 +3835,7 @@ trace_postcopy_pause_fault_thread_continued.exit: ; preds = %trace_postcopy_paus
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @qemu_ram_block_from_host(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -3957,10 +3957,10 @@ declare ptr @qemu_file_new_output(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

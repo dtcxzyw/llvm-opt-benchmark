@@ -476,7 +476,7 @@ $_ZNSt6vectorISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree2
 @_ZN6hermes3sem15FunctionContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes3sem15FunctionContextD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem8KeywordsC2ERNS_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %this, ptr noundef nonnull align 8 dereferenceable(656) %astContext) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem8KeywordsC2ERNS_7ContextE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((0, 112)) %this, ptr noundef nonnull align 8 dereferenceable(656) %astContext) unnamed_addr #0 align 2 {
 entry:
   %stringTable_.i = getelementptr inbounds nuw i8, ptr %astContext, i64 72
   %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i, ptr nonnull @.str, i64 9)
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidatorC2ERNS_7ContextERNS0_10SemContextEb(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((0, 36), (40, 162), (164, 168)) %this, ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, i1 noundef zeroext %compile) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidatorC2ERNS_7ContextERNS0_10SemContextEb(ptr noundef nonnull align 8 captures(none) dereferenceable(168) initializes((0, 36), (40, 162), (164, 168)) %this, ptr noundef nonnull align 8 dereferenceable(656) %astContext, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, i1 noundef zeroext %compile) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %compile to i8
   store ptr %astContext, ptr %this, align 8
@@ -948,7 +948,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE13vi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes3sem17SemanticValidator21scanDirectivePrologueERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %body) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes3sem17SemanticValidator21scanDirectivePrologueERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %body) local_unnamed_addr #1 align 2 {
 entry:
   %__begin2.sroa.0.0.in23 = getelementptr inbounds nuw i8, ptr %body, i64 8
   %__begin2.sroa.0.024 = load ptr, ptr %__begin2.sroa.0.0.in23, align 8
@@ -1053,7 +1053,7 @@ for.end:                                          ; preds = %for.inc, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator23setDirectiveDerivedInfoEPNS_6ESTree16FunctionLikeNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef writeonly initializes((56, 64)) %node) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator23setDirectiveDerivedInfoEPNS_6ESTree16FunctionLikeNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef writeonly captures(none) initializes((56, 64)) %node) local_unnamed_addr #2 align 2 {
 entry:
   %funcCtx_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %funcCtx_.i, align 8
@@ -1072,7 +1072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree22VariableDeclaratorNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %varDecl, ptr nocapture noundef readonly %parent) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree22VariableDeclaratorNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %varDecl, ptr noundef readonly captures(none) %parent) local_unnamed_addr #0 align 2 {
 entry:
   %_kind = getelementptr inbounds nuw i8, ptr %parent, i64 48
   %0 = load ptr, ptr %_kind, align 8
@@ -1346,7 +1346,7 @@ return:                                           ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree16MetaPropertyNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %metaProp) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree16MetaPropertyNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %metaProp) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp33 = alloca %"class.llvh::Twine", align 8
@@ -1487,10 +1487,10 @@ return:                                           ; preds = %if.then28, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree14IdentifierNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %identifier) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree14IdentifierNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %identifier) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %_name = getelementptr inbounds nuw i8, ptr %identifier, i64 48
@@ -3022,7 +3022,7 @@ return:                                           ; preds = %if.then.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator22recursionDepthExceededEPNS_6ESTree4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator22recursionDepthExceededEPNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3267,7 +3267,7 @@ if.end:                                           ; preds = %if.end7.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6hermes3sem17SemanticValidator8isLValueEPKNS_6ESTree4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %node) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6hermes3sem17SemanticValidator8isLValueEPKNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %node) local_unnamed_addr #4 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -3526,7 +3526,7 @@ if.end.i.i.i:                                     ; preds = %if.end13.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree17RegExpLiteralNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %regexp) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree17RegExpLiteralNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %regexp) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.208", align 8
   %regexpError = alloca %"class.llvh::StringRef", align 8
@@ -3661,7 +3661,7 @@ if.end13:                                         ; preds = %if.then.i.i.i, %if.
 declare void @_ZN6hermes14CompiledRegExp10tryCompileEN4llvh9StringRefES2_PS2_(ptr sret(%"class.llvh::Optional") align 8, ptr, i64, ptr, i64, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator19validateCatchClauseEPKNS_6ESTree4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr noundef readonly %catchClause) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator19validateCatchClauseEPKNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly %catchClause) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp15 = alloca %"class.llvh::Twine", align 8
@@ -3752,7 +3752,7 @@ if.end18:                                         ; preds = %land.lhs.true9.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6hermes3sem17SemanticValidator22isValidDeclarationNameEPKNS_6ESTree14IdentifierNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %idNode) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6hermes3sem17SemanticValidator22isValidDeclarationNameEPKNS_6ESTree14IdentifierNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %idNode) local_unnamed_addr #4 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %idNode, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -4178,7 +4178,7 @@ if.end17:                                         ; preds = %land.lhs.true.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem12BlockContext26ensureScopedNamesAreUniqueENS1_14IsFunctionBodyEPNS_6ESTree14IdentifierNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %isFunctionBody, ptr noundef readonly %catchParam) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem12BlockContext26ensureScopedNamesAreUniqueENS1_14IsFunctionBodyEPNS_6ESTree14IdentifierNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef %isFunctionBody, ptr noundef readonly %catchParam) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp13.i311 = alloca %"class.llvh::Twine", align 8
   %ref.tmp14.i312 = alloca %"class.llvh::Twine", align 8
@@ -5888,7 +5888,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE13vi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree17SpreadElementNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %S, ptr nocapture noundef readonly %parent) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree17SpreadElementNodeEPNS2_4NodeE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %S, ptr noundef readonly captures(none) %parent) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent, i64 16
@@ -6449,7 +6449,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree18CoverEmptyArgsNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %CEA) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree18CoverEmptyArgsNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %CEA) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6468,7 +6468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree22CoverTrailingCommaNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %CTC) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree22CoverTrailingCommaNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %CTC) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6487,7 +6487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree20CoverInitializerNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %CI) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree20CoverInitializerNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %CI) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6504,7 +6504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree20CoverRestElementNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %R) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree20CoverRestElementNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %R) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6523,7 +6523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree24CoverTypedIdentifierNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %CTI) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator5visitEPNS_6ESTree24CoverTypedIdentifierNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %CTI) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6684,7 +6684,7 @@ for.body47.lr.ph:                                 ; preds = %sw.bb33
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.body47
   %__begin339.sroa.0.082 = phi ptr [ %__begin339.sroa.0.080, %for.body47.lr.ph ], [ %__begin339.sroa.0.0, %for.body47 ]
   store i8 1, ptr %isFormalParams_51, align 8
-  %call.i53 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin339.sroa.0.082, ptr noundef %node)
+  %call.i53 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin339.sroa.0.082, ptr noundef nonnull %node)
   store i8 %10, ptr %isFormalParams_51, align 8
   %Next.i.i.i56 = getelementptr inbounds nuw i8, ptr %__begin339.sroa.0.082, i64 8
   %__begin339.sroa.0.0 = load ptr, ptr %Next.i.i.i56, align 8
@@ -6723,7 +6723,7 @@ if.end.i126:                                      ; preds = %for.end55
 _ZN6hermes3sem17SemanticValidator9visitBodyEPNS_6ESTree4NodeEPNS2_16FunctionLikeNodeE.exit128: ; preds = %for.body.i120, %if.then.i115, %if.end.i126
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %13 = load ptr, ptr %_returnType, align 8
-  %call.i57 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %13, ptr noundef %node)
+  %call.i57 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %13, ptr noundef nonnull %node)
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %entry
@@ -6745,7 +6745,7 @@ for.body71.lr.ph:                                 ; preds = %sw.bb57
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.body71
   %__begin363.sroa.0.079 = phi ptr [ %__begin363.sroa.0.077, %for.body71.lr.ph ], [ %__begin363.sroa.0.0, %for.body71 ]
   store i8 1, ptr %isFormalParams_75, align 8
-  %call.i64 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin363.sroa.0.079, ptr noundef %node)
+  %call.i64 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin363.sroa.0.079, ptr noundef nonnull %node)
   store i8 %15, ptr %isFormalParams_75, align 8
   %Next.i.i.i67 = getelementptr inbounds nuw i8, ptr %__begin363.sroa.0.079, i64 8
   %__begin363.sroa.0.0 = load ptr, ptr %Next.i.i.i67, align 8
@@ -6784,7 +6784,7 @@ if.end.i144:                                      ; preds = %for.end79
 _ZN6hermes3sem17SemanticValidator9visitBodyEPNS_6ESTree4NodeEPNS2_16FunctionLikeNodeE.exit146: ; preds = %for.body.i138, %if.then.i133, %if.end.i144
   %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %18 = load ptr, ptr %_rendersType, align 8
-  %call.i68 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %18, ptr noundef %node)
+  %call.i68 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %18, ptr noundef nonnull %node)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -6829,7 +6829,7 @@ return:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator27tryOverrideSourceVisibilityENS_16SourceVisibilityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i32 noundef %newSourceVisibility) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator27tryOverrideSourceVisibilityENS_16SourceVisibilityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, i32 noundef %newSourceVisibility) local_unnamed_addr #7 align 2 {
 entry:
   %funcCtx_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %funcCtx_.i, align 8
@@ -6847,7 +6847,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem17SemanticValidator26reportRedeclaredIdentifierERKNS_6ESTree14IdentifierNodeES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 dereferenceable(65) %id1, ptr noundef nonnull readonly align 8 dereferenceable(65) %id2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem17SemanticValidator26reportRedeclaredIdentifierERKNS_6ESTree14IdentifierNodeES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull readonly align 8 dereferenceable(65) %id1, ptr noundef nonnull readonly align 8 dereferenceable(65) %id2) local_unnamed_addr #0 align 2 {
 _ZN4llvhplERKNS_5TwineES2_.exit60:
   %ref.tmp13 = alloca %"class.llvh::Twine", align 8
   %ref.tmp14 = alloca %"class.llvh::Twine", align 8
@@ -6909,7 +6909,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit60:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %validator, ptr noundef %curFunction, ptr noundef %nextScopeNode) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef %validator, ptr noundef %curFunction, ptr noundef %nextScopeNode) unnamed_addr #0 align 2 {
 entry:
   %nextScopeNode.addr = alloca ptr, align 8
   store ptr %nextScopeNode, ptr %nextScopeNode.addr, align 8
@@ -7123,7 +7123,7 @@ if.end21:                                         ; preds = %_ZN6hermes3sem16ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes3sem12BlockContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN6hermes3sem12BlockContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   %previousScopedDecls_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %previousScopedDecls_, align 8
@@ -7140,7 +7140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem12BlockContext12stopHoistingEPNS_6ESTree14IdentifierNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %id) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem12BlockContext12stopHoistingEPNS_6ESTree14IdentifierNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 align 2 {
 entry:
   %curFunction_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %curFunction_, align 8
@@ -7518,7 +7518,7 @@ if.end:                                           ; preds = %if.then, %_ZN6herme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem15FunctionContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem15FunctionContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) unnamed_addr #0 align 2 {
 entry:
   %functionScope_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN6hermes3sem12BlockContext26ensureScopedNamesAreUniqueENS1_14IsFunctionBodyEPNS_6ESTree14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_, i32 noundef 1, ptr noundef null)
@@ -7587,7 +7587,7 @@ _ZN4llvh9MapVectorIPKN6hermes12UniqueStringENS_11SmallVectorIPNS1_6ESTree23Funct
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3sem15FunctionContext16finalizeHoistingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3sem15FunctionContext16finalizeHoistingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
 entry:
   %node = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %node, align 8
@@ -8494,7 +8494,7 @@ declare i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr, i64) local_unnamed_addr #5
 declare noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Key, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #0 comdat align 2 {
@@ -8679,7 +8679,7 @@ declare void @_ZN6hermes18SourceErrorManager15enableBufferingEv(ptr noundef nonn
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt4pairIPN6hermes12UniqueStringES3_ES0_IKS4_NS1_14CompiledRegExpEESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE22_M_emplace_hint_uniqueIJS4_S6_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(192) %__args1) local_unnamed_addr #0 comdat align 2 {
@@ -9136,7 +9136,7 @@ declare void @_ZN6hermes14CompiledRegExpD1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN6hermes3sem12FunctionInfoESaIS2_EE16_M_push_back_auxIJEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #0 comdat align 2 {
@@ -16856,13 +16856,13 @@ _ZNSt12_Vector_baseISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6E
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

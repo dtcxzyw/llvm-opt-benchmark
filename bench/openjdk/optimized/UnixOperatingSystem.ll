@@ -98,7 +98,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -219,7 +219,7 @@ define hidden double @get_cpu_load(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store double 0.000000e+00, ptr %1, align 8
@@ -329,7 +329,7 @@ define hidden double @get_process_load() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getCommittedVirtualMemorySize0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getCommittedVirtualMemorySize0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.8, ptr noundef nonnull %3)
   %.not.i = icmp ne i32 %4, 1
@@ -351,7 +351,7 @@ read_vmem_usage.exit.thread:                      ; preds = %2
 declare void @throw_internal_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define double @Java_com_sun_management_internal_OperatingSystemImpl_getCpuLoad0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define double @Java_com_sun_management_internal_OperatingSystemImpl_getCpuLoad0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = tail call i32 @perfInit()
   %5 = icmp eq i32 %4, 0
@@ -381,7 +381,7 @@ get_cpu_load.exit:                                ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define double @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuLoad0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define double @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuLoad0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = tail call i32 @perfInit()
   %5 = icmp eq i32 %4, 0
@@ -403,7 +403,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCp
 }
 
 ; Function Attrs: nounwind uwtable
-define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpuLoad0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpuLoad0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = tail call i32 @perfInit()
   %6 = icmp eq i32 %5, 0
@@ -438,7 +438,7 @@ get_cpu_load.exit:                                ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostConfiguredCpuCount0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostConfiguredCpuCount0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @perfInit()
   %4 = icmp eq i32 %3, 0
   %5 = load i32, ptr @counters, align 8
@@ -447,7 +447,7 @@ define i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostConfigur
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpuTicks0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpuTicks0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @perfInit()
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %18
@@ -479,7 +479,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, -2147483648) i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostOnlineCpuCount0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 1, -2147483648) i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostOnlineCpuCount0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 84) #9
   %4 = trunc i64 %3 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
@@ -487,18 +487,18 @@ define range(i32 1, -2147483648) i32 @Java_com_sun_management_internal_Operating
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal i32 @read_statdata(ptr readnone captures(none) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [2048 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -553,7 +553,7 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -571,10 +571,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [73 x i8] c"sizeof(struct dirent) + NAME_MAX >= offsetof(struct dirent, d_name) + sz\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @qemu_v9fs_synth_mkdir(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @qemu_v9fs_synth_mkdir(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr noundef writeonly captures(none) %result) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @synth_fs, align 4
   br i1 %.b, label %if.end, label %return
@@ -188,10 +188,10 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -22, 1) i32 @qemu_v9fs_synth_add_file(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr noundef %read, ptr noundef %write, ptr noundef %arg) local_unnamed_addr #0 {
@@ -288,7 +288,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_init(ptr noundef %ctx, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @synth_init(ptr noundef %ctx, ptr readnone captures(none) %errp) #0 {
 if.end.i:
   %node = alloca ptr, align 8
   %dir = alloca ptr, align 8
@@ -440,7 +440,7 @@ if.end41:                                         ; preds = %if.end37, %v9fs_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_lstat(ptr nocapture readnone %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
+define internal noundef i32 @synth_lstat(ptr readnone captures(none) %fs_ctx, ptr noundef readonly captures(none) %fs_path, ptr noundef writeonly captures(none) initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i64 @synth_readlink(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %buf, i64 %bufsz) #6 {
+define internal noundef i64 @synth_readlink(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %buf, i64 %bufsz) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 38, ptr %call, align 4
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_chmod(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %credp) #6 {
+define internal noundef i32 @synth_chmod(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %credp) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -493,7 +493,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_chown(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %credp) #6 {
+define internal noundef i32 @synth_chown(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %credp) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -501,7 +501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_mknod(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %buf, ptr nocapture readnone %credp) #6 {
+define internal noundef i32 @synth_mknod(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %buf, ptr readnone captures(none) %credp) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -509,7 +509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_utimensat(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %buf) #6 {
+define internal noundef i32 @synth_utimensat(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %buf) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_remove(ptr nocapture readnone %ctx, ptr nocapture readnone %path) #6 {
+define internal noundef i32 @synth_remove(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_symlink(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %oldpath, ptr nocapture readnone %newpath, ptr nocapture readnone %buf, ptr nocapture readnone %credp) #6 {
+define internal noundef i32 @synth_symlink(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %oldpath, ptr readnone captures(none) %newpath, ptr readnone captures(none) %buf, ptr readnone captures(none) %credp) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_link(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %oldpath, ptr nocapture readnone %newpath, ptr nocapture readnone %buf) #6 {
+define internal noundef i32 @synth_link(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %oldpath, ptr readnone captures(none) %newpath, ptr readnone captures(none) %buf) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -541,7 +541,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_close(ptr nocapture readnone %ctx, ptr nocapture noundef %fs) #0 {
+define internal noundef i32 @synth_close(ptr readnone captures(none) %ctx, ptr noundef captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -556,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_closedir(ptr nocapture readnone %ctx, ptr nocapture noundef %fs) #0 {
+define internal noundef i32 @synth_closedir(ptr readnone captures(none) %ctx, ptr noundef captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -571,7 +571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_opendir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
+define internal noundef i32 @synth_opendir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs_path, ptr noundef writeonly captures(none) initializes((0, 8)) %fs) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -588,7 +588,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_open(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, i32 %flags, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
+define internal noundef i32 @synth_open(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs_path, i32 %flags, ptr noundef writeonly captures(none) initializes((0, 8)) %fs) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -605,7 +605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_open2(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %dir_path, ptr nocapture readnone %name, i32 %flags, ptr nocapture readnone %credp, ptr nocapture readnone %fs) #6 {
+define internal noundef i32 @synth_open2(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %dir_path, ptr readnone captures(none) %name, i32 %flags, ptr readnone captures(none) %credp, ptr readnone captures(none) %fs) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 38, ptr %call, align 4
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @synth_rewinddir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #7 {
+define internal void @synth_rewinddir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #7 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   store i64 0, ptr %0, align 8
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @synth_telldir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #8 {
+define internal i64 @synth_telldir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #8 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %1 = load i64, ptr %0, align 8
@@ -629,7 +629,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @synth_readdir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #0 {
+define internal ptr @synth_readdir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -742,7 +742,7 @@ if.end:                                           ; preds = %rcu_read_unlock.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @synth_seekdir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, i64 noundef %off) #7 {
+define internal void @synth_seekdir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs, i64 noundef %off) #7 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   store i64 %off, ptr %0, align 8
@@ -750,7 +750,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @synth_preadv(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @synth_preadv(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs, ptr noundef readonly captures(none) %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -814,7 +814,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @synth_pwritev(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @synth_pwritev(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs, ptr noundef readonly captures(none) %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -878,7 +878,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_mkdir(ptr nocapture readnone %fs_ctx, ptr nocapture readnone %path, ptr nocapture readnone %buf, ptr nocapture readnone %credp) #6 {
+define internal noundef i32 @synth_mkdir(ptr readnone captures(none) %fs_ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %buf, ptr readnone captures(none) %credp) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_fstat(ptr nocapture readnone %fs_ctx, i32 %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef writeonly initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
+define internal noundef i32 @synth_fstat(ptr readnone captures(none) %fs_ctx, i32 %fid_type, ptr noundef readonly captures(none) %fs, ptr noundef writeonly captures(none) initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -923,7 +923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_rename(ptr nocapture readnone %ctx, ptr nocapture readnone %oldpath, ptr nocapture readnone %newpath) #6 {
+define internal noundef i32 @synth_rename(ptr readnone captures(none) %ctx, ptr readnone captures(none) %oldpath, ptr readnone captures(none) %newpath) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -931,7 +931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_truncate(ptr nocapture readnone %ctx, ptr nocapture readnone %path, i64 %offset) #6 {
+define internal noundef i32 @synth_truncate(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, i64 %offset) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 38, ptr %call, align 4
@@ -939,7 +939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_fsync(ptr nocapture readnone %ctx, i32 %fid_type, ptr nocapture readnone %fs, i32 %datasync) #6 {
+define internal noundef i32 @synth_fsync(ptr readnone captures(none) %ctx, i32 %fid_type, ptr readnone captures(none) %fs, i32 %datasync) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 38, ptr %call, align 4
@@ -947,7 +947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_statfs(ptr nocapture readnone %s, ptr nocapture readnone %fs_path, ptr nocapture noundef writeonly initializes((0, 24), (40, 48), (64, 72)) %stbuf) #9 {
+define internal noundef i32 @synth_statfs(ptr readnone captures(none) %s, ptr readnone captures(none) %fs_path, ptr noundef writeonly captures(none) initializes((0, 24), (40, 48), (64, 72)) %stbuf) #9 {
 entry:
   store i64 43981, ptr %stbuf, align 8
   %f_bsize = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i64 @synth_lgetxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr nocapture readnone %value, i64 %size) #6 {
+define internal noundef i64 @synth_lgetxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %name, ptr readnone captures(none) %value, i64 %size) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 95, ptr %call, align 4
@@ -972,7 +972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i64 @synth_llistxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %value, i64 %size) #6 {
+define internal noundef i64 @synth_llistxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %value, i64 %size) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 95, ptr %call, align 4
@@ -980,7 +980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_lsetxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr nocapture readnone %value, i64 %size, i32 %flags) #6 {
+define internal noundef i32 @synth_lsetxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %name, ptr readnone captures(none) %value, i64 %size, i32 %flags) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 95, ptr %call, align 4
@@ -988,7 +988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_lremovexattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name) #6 {
+define internal noundef i32 @synth_lremovexattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr readnone captures(none) %name) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 95, ptr %call, align 4
@@ -996,7 +996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @synth_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr nocapture noundef readonly %name, ptr nocapture noundef %target) #0 {
+define internal range(i32 -1, 1) i32 @synth_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly %dir_path, ptr noundef readonly captures(none) %name, ptr noundef captures(none) %target) #0 {
 entry:
   %node = alloca ptr, align 8
   %0 = load i8, ptr %name, align 1
@@ -1148,7 +1148,7 @@ return:                                           ; preds = %out, %if.then18, %i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_renameat(ptr nocapture readnone %ctx, ptr nocapture readnone %olddir, ptr nocapture readnone %old_name, ptr nocapture readnone %newdir, ptr nocapture readnone %new_name) #6 {
+define internal noundef i32 @synth_renameat(ptr readnone captures(none) %ctx, ptr readnone captures(none) %olddir, ptr readnone captures(none) %old_name, ptr readnone captures(none) %newdir, ptr readnone captures(none) %new_name) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -1156,7 +1156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_unlinkat(ptr nocapture readnone %ctx, ptr nocapture readnone %dir, ptr nocapture readnone %name, i32 %flags) #6 {
+define internal noundef i32 @synth_unlinkat(ptr readnone captures(none) %ctx, ptr readnone captures(none) %dir, ptr readnone captures(none) %name, i32 %flags) #6 {
 entry:
   %call = tail call ptr @__errno_location() #21
   store i32 1, ptr %call, align 4
@@ -1175,13 +1175,13 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @v9fs_synth_qtest_write(ptr nocapture readnone %buf, i32 %len, i64 %offset, ptr nocapture readnone %arg) #11 {
+define internal noundef i64 @v9fs_synth_qtest_write(ptr readnone captures(none) %buf, i32 %len, i64 %offset, ptr readnone captures(none) %arg) #11 {
 entry:
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 2) i64 @v9fs_synth_qtest_flush_write(ptr nocapture noundef readonly %buf, i32 %len, i64 %offset, ptr nocapture readnone %arg) #12 {
+define internal range(i64 -1, 2) i64 @v9fs_synth_qtest_flush_write(ptr noundef readonly captures(none) %buf, i32 %len, i64 %offset, ptr readnone captures(none) %arg) #12 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -1205,13 +1205,13 @@ declare ptr @get_ptr_rcu_reader() local_unnamed_addr #3
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: allocsize(1)
 declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

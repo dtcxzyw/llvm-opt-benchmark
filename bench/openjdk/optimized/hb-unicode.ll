@@ -89,7 +89,7 @@ define hidden noundef nonnull ptr @hb_unicode_funcs_get_empty() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_unicode_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @hb_unicode_funcs_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -123,45 +123,45 @@ _ZL19hb_object_referenceI18hb_unicode_funcs_tEPT_S2_.exit: ; preds = %1, %2, %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL30hb_unicode_combining_class_nilP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @_ZL30hb_unicode_combining_class_nilP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL30hb_unicode_eastasian_width_nilP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @_ZL30hb_unicode_eastasian_width_nilP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL31hb_unicode_general_category_nilP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @_ZL31hb_unicode_general_category_nilP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i32 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL24hb_unicode_mirroring_nilP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @_ZL24hb_unicode_mirroring_nilP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2) #3 {
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL21hb_unicode_script_nilP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @_ZL21hb_unicode_script_nilP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i32 1517976186
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL22hb_unicode_compose_nilP18hb_unicode_funcs_tjjPjPv(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @_ZL22hb_unicode_compose_nilP18hb_unicode_funcs_tjjPjPv(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL24hb_unicode_decompose_nilP18hb_unicode_funcs_tjPjS1_Pv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @_ZL24hb_unicode_decompose_nilP18hb_unicode_funcs_tjPjS1_Pv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL38hb_unicode_decompose_compatibility_nilP18hb_unicode_funcs_tjPjPv(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 {
+define internal noundef i32 @_ZL38hb_unicode_decompose_compatibility_nilP18hb_unicode_funcs_tjPjPv(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 {
   ret i32 0
 }
 
@@ -305,7 +305,7 @@ common.ret42:                                     ; preds = %1, %5, %2, %61
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_unicode_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -417,7 +417,7 @@ _ZL23hb_object_get_user_dataIK18hb_unicode_funcs_tEPvPT_P18hb_user_data_key_t.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_unicode_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @hb_unicode_funcs_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -426,7 +426,7 @@ define hidden range(i32 0, 2) i32 @hb_unicode_funcs_is_immutable(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @hb_unicode_funcs_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden nonnull ptr @hb_unicode_funcs_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -435,7 +435,7 @@ define hidden nonnull ptr @hb_unicode_funcs_get_parent(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_combining_class_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -506,7 +506,7 @@ define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -577,7 +577,7 @@ define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_general_category_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -648,7 +648,7 @@ define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_mirroring_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -719,7 +719,7 @@ define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_script_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -790,7 +790,7 @@ define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_compose_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -861,7 +861,7 @@ define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_decompose_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -932,7 +932,7 @@ define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -1171,7 +1171,7 @@ _ZL34_hb_emoji_is_Extended_Pictographicj.exit:    ; preds = %1, %3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
@@ -1482,7 +1482,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

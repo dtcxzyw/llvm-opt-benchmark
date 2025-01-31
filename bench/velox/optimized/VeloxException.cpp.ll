@@ -157,7 +157,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN8facebook5velox14VeloxExceptionC1ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_ = unnamed_addr alias void (ptr, ptr, i64, ptr, i64, ptr, ptr, i1, i32, ptr), ptr @_ZN8facebook5velox14VeloxExceptionC2ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16toVeloxExceptionERKNSt15__exception_ptr13exception_ptrE(ptr noalias sret(%"class.std::__exception_ptr::exception_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %exceptionPtr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox16toVeloxExceptionERKNSt15__exception_ptr13exception_ptrE(ptr noalias sret(%"class.std::__exception_ptr::exception_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %exceptionPtr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i = alloca %"class.std::basic_string_view", align 8
   %agg.tmp410 = alloca %"class.std::basic_string_view", align 8
@@ -232,7 +232,7 @@ catch:                                            ; preds = %catch.fallthrough
   store i64 16, ptr %agg.tmp3.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox10error_code16kInvalidArgumentE, ptr %11, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 %call.i.i, ptr %call, i64 4, ptr nonnull @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp410)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 %call.i.i, ptr nonnull %call, i64 4, ptr nonnull @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp410)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %catch
@@ -841,7 +841,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %file, i64 noundef %line, ptr noundef %function, i64 %failingExpression.coerce0, ptr %failingExpression.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %message, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %errorSource, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %errorCode, i1 noundef zeroext %isRetriable, i32 noundef %exceptionType, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %exceptionName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %file, i64 noundef %line, ptr noundef %function, i64 %failingExpression.coerce0, ptr %failingExpression.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %message, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %errorSource, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %errorCode, i1 noundef zeroext %isRetriable, i32 noundef %exceptionType, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %exceptionName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1023,7 +1023,7 @@ _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox14VeloxExceptionC2ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %e, i64 %message.coerce0, ptr %message.coerce1, i64 %errorSource.coerce0, ptr %errorSource.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %errorCode, i1 noundef zeroext %isRetriable, i32 noundef %exceptionType, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %exceptionName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox14VeloxExceptionC2ERKNSt15__exception_ptr13exception_ptrESt17basic_string_viewIcSt11char_traitsIcEES9_S9_bNS1_4TypeES9_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %e, i64 %message.coerce0, ptr %message.coerce1, i64 %errorSource.coerce0, ptr %errorSource.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %errorCode, i1 noundef zeroext %isRetriable, i32 noundef %exceptionType, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %exceptionName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1428,7 +1428,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -1545,7 +1545,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonn
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox14VeloxUserErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2082,7 +2082,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
@@ -2192,7 +2192,7 @@ delete.end:                                       ; preds = %_ZN8facebook5velox7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
@@ -2229,13 +2229,13 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

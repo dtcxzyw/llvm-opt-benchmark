@@ -68,7 +68,7 @@ declare i32 @Msat_ClauseCreate(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare void @Msat_ClauseVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @Msat_SolverProgressEstimate(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = sitofp i32 %3 to double
@@ -124,7 +124,7 @@ define double @Msat_SolverProgressEstimate(ptr nocapture noundef readonly %0) lo
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverPrintStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Msat_SolverPrintStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -158,7 +158,7 @@ define void @Msat_SolverPrintStats(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #1
 
@@ -371,7 +371,7 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #1
 
@@ -393,10 +393,10 @@ declare i32 @Msat_SolverSearch(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

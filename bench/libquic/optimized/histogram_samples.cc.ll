@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
   %local_meta_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -61,13 +61,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base16HistogramSamplesD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base16HistogramSamplesD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4base16HistogramSamplesD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base16HistogramSamplesD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #13
   unreachable
@@ -139,7 +139,7 @@ _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4base16HistogramSamples11IncreaseSumEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %diff) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base16HistogramSamples11IncreaseSumEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %diff) local_unnamed_addr #6 align 2 {
 entry:
   %meta_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %meta_, align 8
@@ -215,7 +215,7 @@ declare noundef zeroext i1 @_ZN4base14PickleIterator9ReadInt64EPl(ptr noundef no
 declare noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4base12_GLOBAL__N_125SampleCountPickleIteratorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define internal void @_ZN4base12_GLOBAL__N_125SampleCountPickleIteratorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -401,7 +401,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4base16HistogramSamples22IncreaseRedundantCountEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %diff) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base16HistogramSamples22IncreaseRedundantCountEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef %diff) local_unnamed_addr #6 align 2 {
 entry:
   %meta_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %meta_, align 8
@@ -411,20 +411,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base19SampleCountIteratorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base19SampleCountIteratorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4base19SampleCountIteratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base19SampleCountIteratorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base19SampleCountIterator14GetBucketIndexEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %index) unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base19SampleCountIterator14GetBucketIndexEPm(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %index) unnamed_addr #2 align 2 {
 entry:
   ret i1 false
 }
@@ -439,7 +439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator4DoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this) unnamed_addr #9 align 2 {
+define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this) unnamed_addr #9 align 2 {
 entry:
   %is_done_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i8, ptr %is_done_, align 4
@@ -478,7 +478,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef writeonly initializes((0, 4)) %min, ptr nocapture noundef writeonly initializes((0, 4)) %max, ptr nocapture noundef writeonly initializes((0, 4)) %count) unnamed_addr #1 align 2 {
+define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, ptr noundef writeonly captures(none) initializes((0, 4)) %min, ptr noundef writeonly captures(none) initializes((0, 4)) %max, ptr noundef writeonly captures(none) initializes((0, 4)) %count) unnamed_addr #1 align 2 {
 entry:
   %min_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %min_, align 8
@@ -500,13 +500,13 @@ declare void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef nonnull a
 declare void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

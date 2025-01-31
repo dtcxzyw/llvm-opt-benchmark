@@ -19,7 +19,7 @@ define void @Java_java_lang_ClassLoader_registerNatives(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_ClassLoader_defineClass1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define ptr @Java_java_lang_ClassLoader_defineClass1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [128 x i8], align 16
   %11 = alloca [1024 x i8], align 16
   %12 = icmp eq ptr %4, null
@@ -178,10 +178,10 @@ declare void @fixClassname(ptr noundef) local_unnamed_addr #1
 declare ptr @JVM_DefineClassWithSource(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_ClassLoader_defineClass2(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define ptr @Java_java_lang_ClassLoader_defineClass2(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [128 x i8], align 16
   %11 = alloca [1024 x i8], align 16
   %12 = load ptr, ptr %0, align 8
@@ -298,7 +298,7 @@ getUTF.exit48:                                    ; preds = %40, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_ClassLoader_defineClass0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i8 noundef zeroext %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define ptr @Java_java_lang_ClassLoader_defineClass0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i8 noundef zeroext %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = alloca [128 x i8], align 16
   %14 = icmp eq ptr %5, null
   br i1 %14, label %15, label %16
@@ -398,7 +398,7 @@ getUTF.exit.thread:                               ; preds = %42
 declare ptr @JVM_LookupDefineClass(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_ClassLoader_findBootstrapClass(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_lang_ClassLoader_findBootstrapClass(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %5 = icmp eq ptr %2, null
   br i1 %5, label %29, label %6

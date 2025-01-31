@@ -174,7 +174,7 @@ $_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1
 @_ZN7lodepng5StateD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7lodepng5StateD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z17lodepng_load_filePPhPmPKc(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outsize, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define noundef range(i32 0, 84) i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outsize, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.115)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -226,7 +226,7 @@ return:                                           ; preds = %entry, %if.end.i11,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 80) i32 @_Z17lodepng_save_filePKhmPKc(ptr nocapture noundef %buffer, i64 noundef %buffersize, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define noundef range(i32 0, 80) i32 @_Z17lodepng_save_filePKhmPKc(ptr noundef captures(none) %buffer, i64 noundef %buffersize, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.1)
   %tobool.not = icmp eq ptr %call, null
@@ -243,16 +243,16 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr nocapture noundef %lengths, ptr nocapture noundef readonly %frequencies, i64 noundef %numcodes, i32 noundef %maxbitlen) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef captures(none) %lengths, ptr noundef readonly captures(none) %frequencies, i64 noundef %numcodes, i32 noundef %maxbitlen) local_unnamed_addr #2 {
 entry:
   %lists = alloca %struct.BPMLists, align 8
   %cmp = icmp eq i64 %numcodes, 0
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL14bpmnode_createP8BPMListsijP7BPMNode(ptr nocapture noundef nonnull %lists, i32 noundef %weight, i32 noundef %index, ptr noundef %tail) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL14bpmnode_createP8BPMListsijP7BPMNode(ptr noundef nonnull captures(none) %lists, i32 noundef %weight, i32 noundef %index, ptr noundef %tail) unnamed_addr #3 {
 entry:
   %nextfree = getelementptr inbounds nuw i8, ptr %lists, i64 20
   %0 = load i32, ptr %nextfree, align 4
@@ -807,7 +807,7 @@ if.end47:                                         ; preds = %for.inc43, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr nocapture noundef nonnull %lists, ptr nocapture noundef nonnull readonly %leaves, i64 noundef range(i64 2, 0) %numpresent, i32 noundef range(i32 -2147483648, 2147483647) %c, i32 noundef %num) unnamed_addr #4 {
+define internal fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr noundef nonnull captures(none) %lists, ptr noundef nonnull readonly captures(none) %leaves, i64 noundef range(i64 2, 0) %numpresent, i32 noundef range(i32 -2147483648, 2147483647) %c, i32 noundef %num) unnamed_addr #4 {
 entry:
   %chains1 = getelementptr inbounds nuw i8, ptr %lists, i64 48
   %0 = load ptr, ptr %chains1, align 8
@@ -945,7 +945,7 @@ if.end64:                                         ; preds = %if.end64.sink.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z15lodepng_inflatePPhPmPKhmPK25LodePNGDecompressSettings(ptr nocapture noundef %out, ptr nocapture noundef %outsize, ptr nocapture noundef readonly %in, i64 noundef %insize, ptr nocapture noundef readonly %settings) local_unnamed_addr #2 {
+define noundef i32 @_Z15lodepng_inflatePPhPmPKhmPK25LodePNGDecompressSettings(ptr noundef captures(none) %out, ptr noundef captures(none) %outsize, ptr noundef readonly captures(none) %in, i64 noundef %insize, ptr noundef readonly captures(none) %settings) local_unnamed_addr #2 {
 entry:
   %v = alloca %struct.ucvector, align 8
   %0 = load ptr, ptr %out, align 8
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL16lodepng_inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr nocapture noundef nonnull %out, ptr nocapture noundef readonly %in, i64 noundef %insize, ptr nocapture noundef readonly %settings) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZL16lodepng_inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %insize, ptr noundef readonly captures(none) %settings) unnamed_addr #2 {
 entry:
   %tree_cl.i.i = alloca %struct.HuffmanTree, align 8
   %tree_ll.i = alloca %struct.HuffmanTree, align 8
@@ -2296,7 +2296,7 @@ return:                                           ; preds = %land.lhs.true18, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 91) i32 @_Z15lodepng_deflatePPhPmPKhmPK23LodePNGCompressSettings(ptr nocapture noundef %out, ptr nocapture noundef %outsize, ptr noundef %in, i64 noundef %insize, ptr nocapture noundef readonly %settings) local_unnamed_addr #2 {
+define noundef range(i32 0, 91) i32 @_Z15lodepng_deflatePPhPmPKhmPK23LodePNGCompressSettings(ptr noundef captures(none) %out, ptr noundef captures(none) %outsize, ptr noundef %in, i64 noundef %insize, ptr noundef readonly captures(none) %settings) local_unnamed_addr #2 {
 entry:
   %lz77_encoded.i51.i = alloca %struct.uivector, align 8
   %tree_ll.i52.i = alloca %struct.HuffmanTree, align 8
@@ -3832,7 +3832,7 @@ _ZL16lodepng_deflatevP8ucvectorPKhmPK23LodePNGCompressSettings.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23lodepng_zlib_decompressPPhPmPKhmPK25LodePNGDecompressSettings(ptr nocapture noundef %out, ptr nocapture noundef %outsize, ptr noundef %in, i64 noundef %insize, ptr noundef %settings) local_unnamed_addr #5 {
+define noundef i32 @_Z23lodepng_zlib_decompressPPhPmPKhmPK25LodePNGDecompressSettings(ptr noundef captures(none) %out, ptr noundef captures(none) %outsize, ptr noundef %in, i64 noundef %insize, ptr noundef %settings) local_unnamed_addr #5 {
 entry:
   %v = alloca %struct.ucvector, align 8
   %0 = load ptr, ptr %out, align 8
@@ -4001,7 +4001,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 112) i32 @_Z21lodepng_zlib_compressPPhPmPKhmPK23LodePNGCompressSettings(ptr nocapture noundef initializes((0, 8)) %out, ptr nocapture noundef initializes((0, 8)) %outsize, ptr noundef %in, i64 noundef %insize, ptr noundef %settings) local_unnamed_addr #5 {
+define noundef range(i32 0, 112) i32 @_Z21lodepng_zlib_compressPPhPmPKhmPK23LodePNGCompressSettings(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef captures(none) initializes((0, 8)) %outsize, ptr noundef %in, i64 noundef %insize, ptr noundef %settings) local_unnamed_addr #5 {
 entry:
   %deflatedata = alloca ptr, align 8
   %deflatesize = alloca i64, align 8
@@ -4136,7 +4136,7 @@ if.end21:                                         ; preds = %if.then, %_ZL7defla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z30lodepng_compress_settings_initP23LodePNGCompressSettings(ptr nocapture noundef writeonly initializes((0, 48)) %settings) local_unnamed_addr #6 {
+define void @_Z30lodepng_compress_settings_initP23LodePNGCompressSettings(ptr noundef writeonly captures(none) initializes((0, 48)) %settings) local_unnamed_addr #6 {
 entry:
   store i32 2, ptr %settings, align 8
   %use_lz77 = getelementptr inbounds nuw i8, ptr %settings, i64 4
@@ -4155,14 +4155,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z32lodepng_decompress_settings_initP25LodePNGDecompressSettings(ptr nocapture noundef writeonly initializes((0, 40)) %settings) local_unnamed_addr #6 {
+define void @_Z32lodepng_decompress_settings_initP25LodePNGDecompressSettings(ptr noundef writeonly captures(none) initializes((0, 40)) %settings) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %settings, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z13lodepng_crc32PKhm(ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #7 {
+define noundef i32 @_Z13lodepng_crc32PKhm(ptr noundef readonly captures(none) %data, i64 noundef %length) local_unnamed_addr #7 {
 entry:
   %cmp18 = icmp ugt i64 %length, 7
   br i1 %cmp18, label %while.body, label %while.cond41.preheader
@@ -4267,7 +4267,7 @@ while.end50:                                      ; preds = %while.body42, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z20lodepng_chunk_lengthPKh(ptr nocapture noundef readonly %chunk) local_unnamed_addr #7 {
+define noundef i32 @_Z20lodepng_chunk_lengthPKh(ptr noundef readonly captures(none) %chunk) local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %chunk, align 1
   %conv.i = zext i8 %0 to i32
@@ -4290,7 +4290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z18lodepng_chunk_typePcPKh(ptr nocapture noundef writeonly %type, ptr nocapture noundef readonly %chunk) local_unnamed_addr #8 {
+define void @_Z18lodepng_chunk_typePcPKh(ptr noundef writeonly captures(none) %type, ptr noundef readonly captures(none) %chunk) local_unnamed_addr #8 {
 entry:
   %invariant.gep = getelementptr inbounds nuw i8, ptr %chunk, i64 4
   br label %for.body
@@ -4312,7 +4312,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 2) i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr nocapture noundef readonly %chunk, ptr noundef %type) local_unnamed_addr #7 {
+define noundef zeroext range(i8 0, 2) i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef readonly captures(none) %chunk, ptr noundef %type) local_unnamed_addr #7 {
 entry:
   br label %while.cond.i
 
@@ -4376,7 +4376,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 2) i8 @_Z23lodepng_chunk_ancillaryPKh(ptr nocapture noundef readonly %chunk) local_unnamed_addr #7 {
+define noundef zeroext range(i8 0, 2) i8 @_Z23lodepng_chunk_ancillaryPKh(ptr noundef readonly captures(none) %chunk) local_unnamed_addr #7 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %chunk, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -4386,7 +4386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 2) i8 @_Z21lodepng_chunk_privatePKh(ptr nocapture noundef readonly %chunk) local_unnamed_addr #7 {
+define noundef zeroext range(i8 0, 2) i8 @_Z21lodepng_chunk_privatePKh(ptr noundef readonly captures(none) %chunk) local_unnamed_addr #7 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %chunk, i64 6
   %0 = load i8, ptr %arrayidx, align 1
@@ -4396,7 +4396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 2) i8 @_Z24lodepng_chunk_safetocopyPKh(ptr nocapture noundef readonly %chunk) local_unnamed_addr #7 {
+define noundef zeroext range(i8 0, 2) i8 @_Z24lodepng_chunk_safetocopyPKh(ptr noundef readonly captures(none) %chunk) local_unnamed_addr #7 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %chunk, i64 7
   %0 = load i8, ptr %arrayidx, align 1
@@ -4420,7 +4420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z23lodepng_chunk_check_crcPKh(ptr nocapture noundef readonly %chunk) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z23lodepng_chunk_check_crcPKh(ptr noundef readonly captures(none) %chunk) local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %chunk, align 1
   %conv.i.i = zext i8 %0 to i32
@@ -4567,7 +4567,7 @@ _Z13lodepng_crc32PKhm.exit:                       ; preds = %while.body42.i, %wh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z26lodepng_chunk_generate_crcPh(ptr nocapture noundef %chunk) local_unnamed_addr #8 {
+define void @_Z26lodepng_chunk_generate_crcPh(ptr noundef captures(none) %chunk) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %chunk, align 1
   %conv.i.i = zext i8 %0 to i32
@@ -5201,7 +5201,7 @@ return:                                           ; preds = %_Z24lodepng_chunk_n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr nocapture noundef %out, ptr nocapture noundef %outsize, ptr nocapture noundef readonly %chunk) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr noundef captures(none) %out, ptr noundef captures(none) %outsize, ptr noundef readonly captures(none) %chunk) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %chunk, align 1
   %conv.i.i = zext i8 %0 to i64
@@ -5257,7 +5257,7 @@ return:                                           ; preds = %for.body, %if.end5,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_createPPhPmmPKcPKh(ptr nocapture noundef %out, ptr nocapture noundef %outsize, i64 noundef %length, ptr nocapture noundef readonly %type, ptr nocapture noundef readonly %data) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z20lodepng_chunk_createPPhPmmPKcPKh(ptr noundef captures(none) %out, ptr noundef captures(none) %outsize, i64 noundef %length, ptr noundef readonly captures(none) %type, ptr noundef readonly captures(none) %data) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %out, align 8
   %1 = load i64, ptr %outsize, align 8
@@ -5326,7 +5326,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr nocapture noundef writeonly initializes((0, 40)) %info) local_unnamed_addr #6 {
+define void @_Z23lodepng_color_mode_initP16LodePNGColorMode(ptr noundef writeonly captures(none) initializes((0, 40)) %info) local_unnamed_addr #6 {
 entry:
   %key_defined = getelementptr inbounds nuw i8, ptr %info, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined, i8 0, i64 16, i1 false)
@@ -5339,7 +5339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z26lodepng_color_mode_cleanupP16LodePNGColorMode(ptr nocapture noundef initializes((16, 24)) %info) local_unnamed_addr #11 {
+define void @_Z26lodepng_color_mode_cleanupP16LodePNGColorMode(ptr noundef captures(none) initializes((16, 24)) %info) local_unnamed_addr #11 {
 entry:
   %palette.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette.i, align 8
@@ -5356,7 +5356,7 @@ _Z21lodepng_palette_clearP16LodePNGColorMode.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr nocapture noundef initializes((16, 24)) %info) local_unnamed_addr #11 {
+define void @_Z21lodepng_palette_clearP16LodePNGColorMode(ptr noundef captures(none) initializes((16, 24)) %info) local_unnamed_addr #11 {
 entry:
   %palette = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette, align 8
@@ -5373,7 +5373,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 84) i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr nocapture noundef initializes((0, 8), (16, 40)) %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #11 {
+define noundef range(i32 0, 84) i32 @_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_(ptr noundef captures(none) initializes((0, 8), (16, 40)) %dest, ptr noundef readonly captures(none) %source) local_unnamed_addr #11 {
 entry:
   %palette.i.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
   %0 = load ptr, ptr %palette.i.i, align 8
@@ -5421,7 +5421,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr noalias nocapture writeonly sret(%struct.LodePNGColorMode) align 8 initializes((0, 40)) %agg.result, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #6 {
+define void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr noalias writeonly sret(%struct.LodePNGColorMode) align 8 captures(none) initializes((0, 40)) %agg.result, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #6 {
 entry:
   %key_defined.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_defined.i, i8 0, i64 16, i1 false)
@@ -5434,7 +5434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 109) i32 @_Z19lodepng_palette_addP16LodePNGColorModehhhh(ptr nocapture noundef %info, i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, i8 noundef zeroext %a) local_unnamed_addr #12 {
+define noundef range(i32 0, 109) i32 @_Z19lodepng_palette_addP16LodePNGColorModehhhh(ptr noundef captures(none) %info, i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, i8 noundef zeroext %a) local_unnamed_addr #12 {
 entry:
   %palette = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %palette, align 8
@@ -5514,7 +5514,7 @@ return:                                           ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z15lodepng_get_bppPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define noundef i32 @_Z15lodepng_get_bppPK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %info, align 8
   %bitdepth = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -5535,7 +5535,7 @@ _ZL19lodepng_get_bpp_lct16LodePNGColorTypej.exit: ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 5) i32 @_Z20lodepng_get_channelsPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define noundef range(i32 0, 5) i32 @_Z20lodepng_get_channelsPK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %info, align 8
   %1 = icmp ult i32 %0, 7
@@ -5553,7 +5553,7 @@ _ZL19getNumColorChannels16LodePNGColorType.exit:  ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z25lodepng_is_greyscale_typePK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z25lodepng_is_greyscale_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %info, align 8
   %1 = and i32 %0, -5
@@ -5563,7 +5563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z21lodepng_is_alpha_typePK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z21lodepng_is_alpha_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %info, align 8
   %and = lshr i32 %0, 2
@@ -5572,7 +5572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z23lodepng_is_palette_typePK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z23lodepng_is_palette_typePK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp = icmp eq i32 %0, 3
@@ -5581,7 +5581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z25lodepng_has_palette_alphaPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @_Z25lodepng_has_palette_alphaPK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #10 {
 entry:
   %palettesize = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i64, ptr %palettesize, align 8
@@ -5613,7 +5613,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z22lodepng_can_have_alphaPK16LodePNGColorMode(ptr nocapture noundef readonly %info) local_unnamed_addr #10 {
+define noundef range(i32 0, 2) i32 @_Z22lodepng_can_have_alphaPK16LodePNGColorMode(ptr noundef readonly captures(none) %info) local_unnamed_addr #10 {
 entry:
   %key_defined = getelementptr inbounds nuw i8, ptr %info, i64 24
   %0 = load i32, ptr %key_defined, align 8
@@ -5657,7 +5657,7 @@ lor.end:                                          ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %color) local_unnamed_addr #7 {
+define noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %color) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %color, align 8
   %bitdepth = getelementptr inbounds nuw i8, ptr %color, i64 4
@@ -5689,7 +5689,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %entry, %swit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z16lodepng_add_textP11LodePNGInfoPKcS2_(ptr nocapture noundef %info, ptr noundef %key, ptr noundef %str) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z16lodepng_add_textP11LodePNGInfoPKcS2_(ptr noundef captures(none) %info, ptr noundef %key, ptr noundef %str) local_unnamed_addr #2 {
 entry:
   br label %while.cond.i
 
@@ -5709,7 +5709,7 @@ _ZL14lodepng_strlenPKc.exit:                      ; preds = %while.cond.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr nocapture noundef %info, ptr noundef %key, ptr nocapture noundef readonly %str, i64 noundef %size) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef captures(none) %info, ptr noundef %key, ptr noundef readonly captures(none) %str, i64 noundef %size) unnamed_addr #2 {
 entry:
   %text_keys = getelementptr inbounds nuw i8, ptr %info, i64 80
   %0 = load ptr, ptr %text_keys, align 8
@@ -5827,7 +5827,7 @@ return:                                           ; preds = %if.end9, %if.end.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr nocapture noundef readonly %info) local_unnamed_addr #2 {
+define void @_Z18lodepng_clear_textP11LodePNGInfo(ptr noundef readonly captures(none) %info) local_unnamed_addr #2 {
 entry:
   %text_num.i = getelementptr inbounds nuw i8, ptr %info, i64 72
   %0 = load i64, ptr %text_num.i, align 8
@@ -5867,14 +5867,14 @@ _ZL19LodePNGText_cleanupP11LodePNGInfo.exit:      ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z19lodepng_clear_itextP11LodePNGInfo(ptr nocapture noundef readonly %info) local_unnamed_addr #2 {
+define void @_Z19lodepng_clear_itextP11LodePNGInfo(ptr noundef readonly captures(none) %info) local_unnamed_addr #2 {
 entry:
   tail call fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef %info)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr nocapture noundef readonly %info) unnamed_addr #2 {
+define internal fastcc void @_ZL20LodePNGIText_cleanupP11LodePNGInfo(ptr noundef readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %itext_num = getelementptr inbounds nuw i8, ptr %info, i64 96
   %0 = load i64, ptr %itext_num, align 8
@@ -5932,7 +5932,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_(ptr nocapture noundef %info, ptr noundef %key, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %str) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_(ptr noundef captures(none) %info, ptr noundef %key, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %str) local_unnamed_addr #2 {
 entry:
   br label %while.cond.i
 
@@ -5952,7 +5952,7 @@ _ZL14lodepng_strlenPKc.exit:                      ; preds = %while.cond.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr nocapture noundef %info, ptr noundef %key, ptr noundef %langtag, ptr noundef %transkey, ptr nocapture noundef readonly %str, i64 noundef %size) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef captures(none) %info, ptr noundef %key, ptr noundef %langtag, ptr noundef %transkey, ptr noundef readonly captures(none) %str, i64 noundef %size) unnamed_addr #2 {
 entry:
   %itext_keys = getelementptr inbounds nuw i8, ptr %info, i64 104
   %0 = load ptr, ptr %itext_keys, align 8
@@ -6158,7 +6158,7 @@ return:                                           ; preds = %if.end21, %if.end25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr nocapture noundef initializes((232, 236)) %info, ptr noundef %name, ptr nocapture noundef readonly %profile, i32 noundef %profile_size) local_unnamed_addr #2 {
+define noundef range(i32 0, 101) i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr noundef captures(none) initializes((232, 236)) %info, ptr noundef %name, ptr noundef readonly captures(none) %profile, i32 noundef %profile_size) local_unnamed_addr #2 {
 entry:
   %iccp_name = getelementptr inbounds nuw i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
@@ -6233,7 +6233,7 @@ _ZL18lodepng_assign_iccP11LodePNGInfoPKcPKhj.exit: ; preds = %if.end, %_ZL12allo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr nocapture noundef initializes((232, 236), (256, 260)) %info) local_unnamed_addr #11 {
+define void @_Z17lodepng_clear_iccP11LodePNGInfo(ptr noundef captures(none) initializes((232, 236), (256, 260)) %info) local_unnamed_addr #11 {
 entry:
   %iccp_name = getelementptr inbounds nuw i8, ptr %info, i64 240
   %0 = load ptr, ptr %iccp_name, align 8
@@ -6251,7 +6251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z17lodepng_info_initP11LodePNGInfo(ptr nocapture noundef writeonly initializes((0, 12), (16, 140), (164, 168), (180, 184), (188, 192), (224, 228), (232, 236), (240, 256), (260, 328)) %info) local_unnamed_addr #6 {
+define void @_Z17lodepng_info_initP11LodePNGInfo(ptr noundef writeonly captures(none) initializes((0, 12), (16, 140), (164, 168), (180, 184), (188, 192), (224, 228), (232, 236), (240, 256), (260, 328)) %info) local_unnamed_addr #6 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %info, i64 16
   %key_defined.i = getelementptr inbounds nuw i8, ptr %info, i64 40
@@ -6286,7 +6286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr nocapture noundef initializes((32, 40)) %info) local_unnamed_addr #2 {
+define void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef captures(none) initializes((32, 40)) %info) local_unnamed_addr #2 {
 entry:
   %palette.i.i = getelementptr inbounds nuw i8, ptr %info, i64 24
   %0 = load ptr, ptr %palette.i.i, align 8
@@ -6363,7 +6363,7 @@ _ZL28LodePNGUnknownChunks_cleanupP11LodePNGInfo.exit: ; preds = %for.body.i5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 101) i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr nocapture noundef initializes((32, 40)) %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define noundef range(i32 0, 101) i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef captures(none) initializes((32, 40)) %dest, ptr noundef readonly captures(none) %source) local_unnamed_addr #2 {
 entry:
   tail call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef %dest)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %dest, ptr noundef nonnull readonly align 1 dereferenceable(328) %source, i64 328, i1 false), !alias.scope !156
@@ -6444,7 +6444,7 @@ _Z16lodepng_add_textP11LodePNGInfoPKcS2_.exit.i:  ; preds = %while.cond.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %a.addr.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %call1.i.i = tail call fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %dest, ptr noundef %7, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i)
+  %call1.i.i = tail call fastcc noundef range(i32 0, 84) i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef nonnull %dest, ptr noundef %7, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i)
   %tobool.not.i24 = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i24, label %for.cond.i, label %return
 
@@ -6496,7 +6496,7 @@ _Z17lodepng_add_itextP11LodePNGInfoPKcS2_S2_S2_.exit.i: ; preds = %while.cond.i.
   %sub.ptr.lhs.cast.i.i.i34 = ptrtoint ptr %a.addr.0.i.i.i31 to i64
   %sub.ptr.rhs.cast.i.i.i35 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i.i34, %sub.ptr.rhs.cast.i.i.i35
-  %call1.i.i37 = tail call fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef %dest, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i36)
+  %call1.i.i37 = tail call fastcc noundef range(i32 0, 84) i32 @_ZL23lodepng_add_itext_sizedP11LodePNGInfoPKcS2_S2_S2_m(ptr noundef nonnull %dest, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i36)
   %tobool.not.i38 = icmp eq i32 %call1.i.i37, 0
   br i1 %tobool.not.i38, label %for.cond.i40, label %return
 
@@ -6629,7 +6629,7 @@ return:                                           ; preds = %_Z16lodepng_add_tex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 108) i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %out, ptr nocapture noundef readonly %in, ptr nocapture noundef readonly %mode_out, ptr nocapture noundef readonly %mode_in, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
+define noundef range(i32 0, 108) i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %out, ptr noundef readonly captures(none) %in, ptr noundef readonly captures(none) %mode_out, ptr noundef readonly captures(none) %mode_in, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
 entry:
   %tree = alloca %struct.ColorTree, align 8
   %r = alloca i16, align 2
@@ -7861,7 +7861,7 @@ return:                                           ; preds = %for.body.preheader.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -7952,7 +7952,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull writeonly %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull writeonly %a, ptr nocapture noundef readonly %in, i64 noundef %i, ptr nocapture noundef readonly %mode) unnamed_addr #13 {
+define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef nonnull writeonly captures(none) %r, ptr noundef nonnull writeonly captures(none) %g, ptr noundef nonnull writeonly captures(none) %b, ptr noundef nonnull writeonly captures(none) %a, ptr noundef readonly captures(none) %in, i64 noundef %i, ptr noundef readonly captures(none) %mode) unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %mode, align 8
   switch i32 %0, label %if.end176 [
@@ -8152,7 +8152,7 @@ if.end176:                                        ; preds = %if.end176.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(ptr noalias nocapture noundef writeonly %buffer, i64 noundef range(i64 0, -8589934590) %numpixels, ptr noalias nocapture noundef readonly %in, ptr nocapture noundef readonly %mode) unnamed_addr #3 {
+define internal fastcc void @_ZL18getPixelColorsRGB8PhmPKhPK16LodePNGColorMode(ptr noalias noundef writeonly captures(none) %buffer, i64 noundef range(i64 0, -8589934590) %numpixels, ptr noalias noundef readonly captures(none) %in, ptr noundef readonly captures(none) %mode) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %mode, align 8
   switch i32 %0, label %if.end177 [
@@ -8486,7 +8486,7 @@ if.end177:                                        ; preds = %for.body155, %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull writeonly %a, ptr nocapture noundef readonly %in, i64 noundef %i, ptr nocapture noundef readonly %mode) unnamed_addr #14 {
+define internal fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef nonnull captures(none) %r, ptr noundef nonnull captures(none) %g, ptr noundef nonnull writeonly captures(none) %b, ptr noundef nonnull writeonly captures(none) %a, ptr noundef readonly captures(none) %in, i64 noundef %i, ptr noundef readonly captures(none) %mode) unnamed_addr #14 {
 entry:
   %0 = load i32, ptr %mode, align 8
   switch i32 %0, label %if.end227 [
@@ -8864,7 +8864,7 @@ if.end227:                                        ; preds = %if.end227.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr nocapture noundef nonnull readonly %tree) unnamed_addr #2 {
+define internal fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef nonnull readonly captures(none) %tree) unnamed_addr #2 {
 entry:
   br label %for.body
 
@@ -8891,7 +8891,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr nocapture noundef writeonly %r_out, ptr nocapture noundef writeonly %g_out, ptr nocapture noundef writeonly %b_out, i32 noundef %r_in, i32 noundef %g_in, i32 noundef %b_in, ptr nocapture noundef readonly %mode_out, ptr nocapture noundef readonly %mode_in) local_unnamed_addr #14 {
+define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNGColorModeS2_(ptr noundef writeonly captures(none) %r_out, ptr noundef writeonly captures(none) %g_out, ptr noundef writeonly captures(none) %b_out, i32 noundef %r_in, i32 noundef %g_in, i32 noundef %b_in, ptr noundef readonly captures(none) %mode_out, ptr noundef readonly captures(none) %mode_in) local_unnamed_addr #14 {
 entry:
   %bitdepth = getelementptr inbounds nuw i8, ptr %mode_in, i64 4
   %0 = load i32, ptr %bitdepth, align 4
@@ -9050,7 +9050,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z24lodepng_color_stats_initP17LodePNGColorStats(ptr nocapture noundef writeonly initializes((0, 14), (16, 24), (1048, 1052), (1056, 1072)) %stats) local_unnamed_addr #6 {
+define void @_Z24lodepng_color_stats_initP17LodePNGColorStats(ptr noundef writeonly captures(none) initializes((0, 14), (16, 24), (1048, 1052), (1056, 1072)) %stats) local_unnamed_addr #6 {
 entry:
   %alpha = getelementptr inbounds nuw i8, ptr %stats, i64 16
   store i32 0, ptr %alpha, align 8
@@ -9069,7 +9069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGColorStatsPKhjjPK16LodePNGColorMode(ptr noundef %stats, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %mode_in) local_unnamed_addr #2 {
+define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGColorStatsPKhjjPK16LodePNGColorMode(ptr noundef %stats, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %mode_in) local_unnamed_addr #2 {
 entry:
   %tree = alloca %struct.ColorTree, align 8
   %r = alloca i16, align 2
@@ -9874,7 +9874,7 @@ cleanup:                                          ; preds = %if.then.i, %for.inc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef writeonly %w, ptr noundef writeonly %h, ptr nocapture noundef %state, ptr noundef readonly %in, i64 noundef %insize) local_unnamed_addr #2 {
+define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef writeonly %w, ptr noundef writeonly %h, ptr noundef captures(none) %state, ptr noundef readonly %in, i64 noundef %insize) local_unnamed_addr #2 {
 entry:
   %info_png = getelementptr inbounds nuw i8, ptr %state, i64 208
   %cmp = icmp eq i64 %insize, 0
@@ -10612,7 +10612,7 @@ return:                                           ; preds = %if.then118, %if.els
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr nocapture noundef initializes((16, 24)) %color, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr noundef captures(none) initializes((16, 24)) %color, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #12 {
 entry:
   %div.lhs.trunc = trunc nuw nsw i64 %chunkLength to i32
   %div22 = udiv i32 %div.lhs.trunc, 3
@@ -10726,7 +10726,7 @@ return:                                           ; preds = %for.body, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 43) i32 @_ZL14readChunk_tRNSP16LodePNGColorModePKhm(ptr nocapture noundef %color, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #15 {
+define internal fastcc noundef range(i32 0, 43) i32 @_ZL14readChunk_tRNSP16LodePNGColorModePKhm(ptr noundef captures(none) %color, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %color, align 8
   switch i32 %0, label %return [
@@ -10834,7 +10834,7 @@ return:                                           ; preds = %for.body, %return.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11LodePNGInfoPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11LodePNGInfoPKhm(ptr noundef captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
@@ -10938,7 +10938,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodePNGInfoPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodePNGInfoPKhm(ptr noundef captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #2 {
 entry:
   %cmp31.not = icmp eq i64 %chunkLength, 0
   br i1 %cmp31.not, label %while.end29, label %land.rhs.preheader
@@ -11023,7 +11023,7 @@ while.end29:                                      ; preds = %entry, %_ZL14lodepn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
+define internal fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef captures(none) %info, ptr noundef readonly captures(none) %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
 entry:
   %v.i = alloca %struct.ucvector, align 8
   %zlibsettings = alloca %struct.LodePNGDecompressSettings, align 8
@@ -11149,7 +11149,7 @@ while.end:                                        ; preds = %_ZL15zlib_decompres
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
+define internal fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef captures(none) %info, ptr noundef readonly captures(none) %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
 entry:
   %zlibsettings = alloca %struct.LodePNGDecompressSettings, align 8
   %str = alloca ptr, align 8
@@ -11342,7 +11342,7 @@ while.end:                                        ; preds = %for.end71, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 74) i32 @_ZL14readChunk_tIMEP11LodePNGInfoPKhm(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 74) i32 @_ZL14readChunk_tIMEP11LodePNGInfoPKhm(ptr noundef writeonly captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
 entry:
   %cmp.not = icmp eq i64 %chunkLength, 7
   br i1 %cmp.not, label %if.end, label %return
@@ -11392,7 +11392,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 75) i32 @_ZL14readChunk_pHYsP11LodePNGInfoPKhm(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 75) i32 @_ZL14readChunk_pHYsP11LodePNGInfoPKhm(ptr noundef writeonly captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
 entry:
   %cmp.not = icmp eq i64 %chunkLength, 9
   br i1 %cmp.not, label %if.end, label %return
@@ -11452,7 +11452,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 98) i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef writeonly captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
 entry:
   %cmp.not = icmp eq i64 %chunkLength, 32
   br i1 %cmp.not, label %if.end, label %return
@@ -11627,7 +11627,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef initializes((232, 236)) %info, ptr nocapture noundef readonly %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
+define internal fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef initializes((232, 236)) %info, ptr noundef readonly captures(none) %decoder, ptr noundef %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #5 {
 entry:
   %v.i = alloca %struct.ucvector, align 8
   %size = alloca i64, align 8
@@ -11793,7 +11793,7 @@ return:                                           ; preds = %19, %if.then3.i, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr nocapture noundef %info, ptr nocapture noundef readonly %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr noundef captures(none) %info, ptr noundef readonly captures(none) %data, i64 noundef range(i64 0, 2147483648) %chunkLength) unnamed_addr #13 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
@@ -11993,7 +11993,7 @@ return:                                           ; preds = %if.end13, %if.end88
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %state, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
+define noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %state, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
 entry:
   %passw.i.i.i = alloca [7 x i32], align 16
   %passh.i.i.i = alloca [7 x i32], align 16
@@ -13847,7 +13847,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %state = alloca %struct.LodePNGState, align 8
   %color_convert.i.i = getelementptr inbounds nuw i8, ptr %state, i64 52
@@ -13941,7 +13941,7 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z18lodepng_state_initP12LodePNGState(ptr nocapture noundef writeonly initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %state) local_unnamed_addr #6 {
+define void @_Z18lodepng_state_initP12LodePNGState(ptr noundef writeonly captures(none) initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %state) local_unnamed_addr #6 {
 entry:
   %color_convert.i = getelementptr inbounds nuw i8, ptr %state, i64 52
   store i32 1, ptr %color_convert.i, align 4
@@ -14022,7 +14022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z21lodepng_state_cleanupP12LodePNGState(ptr nocapture noundef initializes((184, 192), (240, 248)) %state) local_unnamed_addr #2 {
+define void @_Z21lodepng_state_cleanupP12LodePNGState(ptr noundef captures(none) initializes((184, 192), (240, 248)) %state) local_unnamed_addr #2 {
 entry:
   %palette.i.i = getelementptr inbounds nuw i8, ptr %state, i64 176
   %0 = load ptr, ptr %palette.i.i, align 8
@@ -14041,21 +14041,21 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_decode32PPhPjS1_PKhm(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_decode32PPhPjS1_PKhm(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr noundef %out, ptr noundef %w, ptr noundef %h, ptr noundef %in, i64 noundef %insize, i32 noundef 6, i32 noundef 8)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_decode24PPhPjS1_PKhm(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_decode24PPhPjS1_PKhm(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr noundef %out, ptr noundef %w, ptr noundef %h, ptr noundef %in, i64 noundef %insize, i32 noundef 2, i32 noundef 8)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr nocapture noundef readonly %filename, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef readonly captures(none) %filename, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %buffer = alloca ptr, align 8
   %buffersize = alloca i64, align 8
@@ -14080,7 +14080,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_decode32_filePPhPjS1_PKc(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr nocapture noundef readonly %filename) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_decode32_filePPhPjS1_PKc(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef readonly captures(none) %filename) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -14109,7 +14109,7 @@ _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_decode24_filePPhPjS1_PKc(ptr nocapture noundef initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr nocapture noundef readonly %filename) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_decode24_filePPhPjS1_PKc(ptr noundef captures(none) initializes((0, 8)) %out, ptr noundef initializes((0, 4)) %w, ptr noundef initializes((0, 4)) %h, ptr noundef readonly captures(none) %filename) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -14138,7 +14138,7 @@ _Z19lodepng_decode_filePPhPjS1_PKc16LodePNGColorTypej.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z29lodepng_decoder_settings_initP22LodePNGDecoderSettings(ptr nocapture noundef writeonly initializes((0, 80)) %settings) local_unnamed_addr #6 {
+define void @_Z29lodepng_decoder_settings_initP22LodePNGDecoderSettings(ptr noundef writeonly captures(none) initializes((0, 80)) %settings) local_unnamed_addr #6 {
 entry:
   %color_convert = getelementptr inbounds nuw i8, ptr %settings, i64 52
   store i32 1, ptr %color_convert, align 4
@@ -14155,7 +14155,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z29lodepng_encoder_settings_initP22LodePNGEncoderSettings(ptr nocapture noundef writeonly initializes((0, 60), (64, 84)) %settings) local_unnamed_addr #6 {
+define void @_Z29lodepng_encoder_settings_initP22LodePNGEncoderSettings(ptr noundef writeonly captures(none) initializes((0, 60), (64, 84)) %settings) local_unnamed_addr #6 {
 entry:
   store i32 2, ptr %settings, align 8
   %use_lz77.i = getelementptr inbounds nuw i8, ptr %settings, i64 4
@@ -14184,7 +14184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr nocapture noundef initializes((184, 192), (240, 248)) %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef captures(none) initializes((184, 192), (240, 248)) %dest, ptr noundef readonly captures(none) %source) local_unnamed_addr #2 {
 entry:
   %palette.i.i.i = getelementptr inbounds nuw i8, ptr %dest, i64 176
   %0 = load ptr, ptr %palette.i.i.i, align 8
@@ -14283,10 +14283,10 @@ if.end11:                                         ; preds = %_Z23lodepng_color_m
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, ptr noundef initializes((536, 540)) %state) local_unnamed_addr #5 {
+define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, ptr noundef initializes((536, 540)) %state) local_unnamed_addr #5 {
 entry:
   %data = alloca ptr, align 8
   %datasize = alloca i64, align 8
@@ -15406,7 +15406,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16LodePNGColorModePKS_PK17LodePNGColorStats(ptr nocapture noundef nonnull initializes((24, 28)) %mode_out, ptr nocapture noundef readonly %mode_in, ptr nocapture noundef nonnull readonly %stats) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 109) i32 @_ZL17auto_choose_colorP16LodePNGColorModePKS_PK17LodePNGColorStats(ptr noundef nonnull captures(none) initializes((24, 28)) %mode_out, ptr noundef readonly captures(none) %mode_in, ptr noundef nonnull readonly captures(none) %stats) unnamed_addr #2 {
 entry:
   %numpixels1 = getelementptr inbounds nuw i8, ptr %stats, i64 1056
   %0 = load i64, ptr %numpixels1, align 8
@@ -15672,7 +15672,7 @@ if.end98:                                         ; preds = %if.then.i70, %for.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 89) i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull %outsize, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef nonnull readonly %info_png, ptr nocapture noundef readonly %settings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 89) i32 @_ZL19preProcessScanlinesPPhPmPKhjjPK11LodePNGInfoPK22LodePNGEncoderSettings(ptr noundef nonnull captures(none) %out, ptr noundef nonnull captures(none) %outsize, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr noundef nonnull readonly captures(none) %info_png, ptr noundef readonly captures(none) %settings) unnamed_addr #5 {
 entry:
   %passw.i = alloca [7 x i32], align 16
   %passh.i = alloca [7 x i32], align 16
@@ -16207,7 +16207,7 @@ if.end116:                                        ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL14writeSignatureP8ucvector(ptr nocapture noundef nonnull %out) unnamed_addr #11 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL14writeSignatureP8ucvector(ptr noundef nonnull captures(none) %out) unnamed_addr #11 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size, align 8
@@ -16243,7 +16243,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IHDRP8ucvectorjj16LodePNGColorTypejj(ptr nocapture noundef nonnull %out, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth, i32 noundef %interlace_method) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IHDRP8ucvectorjj16LodePNGColorTypejj(ptr noundef nonnull captures(none) %out, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth, i32 noundef %interlace_method) unnamed_addr #2 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
@@ -16340,7 +16340,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr nocapture noundef nonnull %out, ptr noundef nonnull %data, i64 noundef %datasize) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL16addUnknownChunksP8ucvectorPhm(ptr noundef nonnull captures(none) %out, ptr noundef nonnull %data, i64 noundef %datasize) unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %out, i64 8
   %sub.ptr.rhs.cast = ptrtoint ptr %data to i64
@@ -16492,7 +16492,7 @@ return:                                           ; preds = %_Z18lodepng_chunk_n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iCCPP8ucvectorPK11LodePNGInfoP23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info, ptr noundef %zlibsettings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iCCPP8ucvectorPK11LodePNGInfoP23LodePNGCompressSettings(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info, ptr noundef %zlibsettings) unnamed_addr #5 {
 entry:
   %compressed = alloca ptr, align 8
   %compressedsize = alloca i64, align 8
@@ -16630,7 +16630,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, i32 %info.228.val) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, i32 %info.228.val) unnamed_addr #2 {
 entry:
   %conv = trunc i32 %info.228.val to i8
   %size.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
@@ -16687,7 +16687,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_gAMAP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_gAMAP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
@@ -16758,7 +16758,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
@@ -16948,7 +16948,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
@@ -17284,7 +17284,7 @@ return:                                           ; preds = %if.then.i.i.i142, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_PLTEP8ucvectorPK16LodePNGColorMode(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %palettesize = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i64, ptr %palettesize, align 8
@@ -17388,7 +17388,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvectorPK16LodePNGColorMode(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tRNSP8ucvectorPK16LodePNGColorMode(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %info, align 8
   switch i32 %0, label %return [
@@ -17648,7 +17648,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %color = getelementptr inbounds nuw i8, ptr %info, i64 16
   %0 = load i32, ptr %color, align 8
@@ -17854,7 +17854,7 @@ return:                                           ; preds = %if.then.i.i.i65, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvectorPK11LodePNGInfo(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %info) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvectorPK11LodePNGInfo(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %info) unnamed_addr #2 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
@@ -17947,7 +17947,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_IDATP8ucvectorPKhmP23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, ptr noundef %data, i64 noundef %datasize, ptr noundef %zlibsettings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_IDATP8ucvectorPKhmP23LodePNGCompressSettings(ptr noundef nonnull captures(none) %out, ptr noundef %data, i64 noundef %datasize, ptr noundef %zlibsettings) unnamed_addr #5 {
 entry:
   %zlib = alloca ptr, align 8
   %zlibsize = alloca i64, align 8
@@ -18044,7 +18044,7 @@ if.end:                                           ; preds = %if.then.i, %_ZL14lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tIMEP8ucvectorPK11LodePNGTime(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %time) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tIMEP8ucvectorPK11LodePNGTime(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %time) unnamed_addr #2 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i, align 8
@@ -18132,7 +18132,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_zTXtP8ucvectorPKcS2_P23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, ptr noundef %keyword, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_zTXtP8ucvectorPKcS2_P23LodePNGCompressSettings(ptr noundef nonnull captures(none) %out, ptr noundef %keyword, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
 entry:
   %compressed = alloca ptr, align 8
   %compressedsize = alloca i64, align 8
@@ -18275,7 +18275,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 90) i32 @_ZL13addChunk_tEXtP8ucvectorPKcS2_(ptr nocapture noundef nonnull %out, ptr noundef %keyword, ptr noundef %textstring) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 90) i32 @_ZL13addChunk_tEXtP8ucvectorPKcS2_(ptr noundef nonnull captures(none) %out, ptr noundef %keyword, ptr noundef %textstring) unnamed_addr #2 {
 entry:
   br label %while.cond.i
 
@@ -18387,7 +18387,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iTXtP8ucvectorjPKcS2_S2_S2_P23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, i32 noundef %compress, ptr noundef %keyword, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iTXtP8ucvectorjPKcS2_S2_S2_P23LodePNGCompressSettings(ptr noundef nonnull captures(none) %out, i32 noundef %compress, ptr noundef %keyword, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
 entry:
   %compressed = alloca ptr, align 8
   %compressedsize = alloca i64, align 8
@@ -18604,7 +18604,7 @@ return:                                           ; preds = %_ZL14lodepng_strlen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IENDP8ucvector(ptr nocapture noundef nonnull %out) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IENDP8ucvector(ptr noundef nonnull captures(none) %out) unnamed_addr #2 {
 entry:
   %size.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %size.i.i, align 8
@@ -18654,7 +18654,7 @@ _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %state = alloca %struct.LodePNGState, align 8
   %color_convert.i.i = getelementptr inbounds nuw i8, ptr %state, i64 52
@@ -18749,21 +18749,21 @@ _Z21lodepng_state_cleanupP12LodePNGState.exit:    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_encode32PPhPmPKhjj(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_encode32PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef %out, ptr noundef %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef 6, i32 noundef 8)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16lodepng_encode24PPhPmPKhjj(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
+define noundef i32 @_Z16lodepng_encode24PPhPmPKhjj(ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_Z21lodepng_encode_memoryPPhPmPKhjj16LodePNGColorTypej(ptr noundef %out, ptr noundef %outsize, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef 2, i32 noundef 8)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr nocapture noundef readonly %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr noundef readonly captures(none) %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %buffer = alloca ptr, align 8
   %buffersize = alloca i64, align 8
@@ -18790,7 +18790,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr nocapture noundef readonly %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr noundef readonly captures(none) %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -18821,7 +18821,7 @@ _Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr nocapture noundef readonly %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
+define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr noundef readonly captures(none) %filename, ptr noundef %image, i32 noundef %w, i32 noundef %h) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -19031,7 +19031,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 80) i32 @_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #2 {
+define noundef range(i32 0, 80) i32 @_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -19201,7 +19201,7 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEERKS2_RK25LodePNGDecompressSettings(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(40) %settings) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEERKS2_RK25LodePNGDecompressSettings(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(40) %settings) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %in, i64 8
@@ -19263,7 +19263,7 @@ if.end:                                           ; preds = %if.then, %_ZL13zlib
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 112) i32 @_ZN7lodepng8compressERSt6vectorIhSaIhEERKS2_RK23LodePNGCompressSettings(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(48) %settings) local_unnamed_addr #5 {
+define noundef range(i32 0, 112) i32 @_ZN7lodepng8compressERSt6vectorIhSaIhEERKS2_RK23LodePNGCompressSettings(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(48) %settings) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -19322,7 +19322,7 @@ _ZN7lodepng8compressERSt6vectorIhSaIhEEPKhmRK23LodePNGCompressSettings.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7lodepng5StateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(544) initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %this) unnamed_addr #6 align 2 {
+define void @_ZN7lodepng5StateC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(544) initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %this) unnamed_addr #6 align 2 {
 entry:
   %color_convert.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
@@ -19403,7 +19403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7lodepng5StateC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(544) initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %other) unnamed_addr #2 align 2 {
+define void @_ZN7lodepng5StateC2ERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(544) initializes((0, 140), (144, 164), (168, 220), (224, 348), (372, 376), (388, 392), (396, 400), (432, 436), (440, 444), (448, 464), (468, 540)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %other) unnamed_addr #2 align 2 {
 entry:
   %color_convert.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 1, ptr %color_convert.i.i, align 4
@@ -19485,7 +19485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7lodepng5StateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(544) initializes((184, 192), (240, 248)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7lodepng5StateD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(544) initializes((184, 192), (240, 248)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %palette.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %palette.i.i.i, align 8
@@ -19506,7 +19506,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %ent
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(544) ptr @_ZN7lodepng5StateaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(544) initializes((184, 192), (240, 248)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %other) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(544) ptr @_ZN7lodepng5StateaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(544) initializes((184, 192), (240, 248)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %other) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_Z18lodepng_state_copyP12LodePNGStatePKS_(ptr noundef nonnull %this, ptr noundef nonnull %other)
   ret ptr %this
@@ -19582,7 +19582,7 @@ if.end:                                           ; preds = %invoke.cont9, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %w, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %h, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RKS2_16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %w, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %h, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %in, i64 8
@@ -19655,7 +19655,7 @@ if.end:                                           ; preds = %_Z20lodepng_get_raw
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %w, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %h, ptr noundef nonnull align 8 dereferenceable(544) %state, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %w, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %h, ptr noundef nonnull align 8 dereferenceable(544) %state, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %in, i64 8
@@ -19753,7 +19753,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -19852,7 +19852,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jjRNS_5StateE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, ptr noundef nonnull align 8 dereferenceable(544) %state) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6encodeERSt6vectorIhSaIhEERKS2_jjRNS_5StateE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, ptr noundef nonnull align 8 dereferenceable(544) %state) local_unnamed_addr #5 {
 entry:
   %buffer.i = alloca ptr, align 8
   %buffersize.i = alloca i64, align 8
@@ -20007,7 +20007,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit5:                   ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEjj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
+define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIhSaIhEEjj16LodePNGColorTypej(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i32 noundef %w, i32 noundef %h, i32 noundef %colortype, i32 noundef %bitdepth) local_unnamed_addr #5 {
 entry:
   %0 = icmp ult i32 %colortype, 7
   br i1 %0, label %switch.lookup, label %_ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit
@@ -20053,22 +20053,22 @@ return:                                           ; preds = %_ZL24lodepng_get_ra
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL23generateFixedLitLenTreeP11HuffmanTree(ptr nocapture noundef nonnull %tree) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL23generateFixedLitLenTreeP11HuffmanTree(ptr noundef nonnull captures(none) %tree) unnamed_addr #2 {
 entry:
   %call.i = tail call noalias noundef dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #30
   %tobool.not = icmp eq ptr %call.i, null
@@ -20143,7 +20143,7 @@ return:                                           ; preds = %entry, %_ZL27Huffma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr nocapture noundef nonnull initializes((8, 16)) %tree, ptr nocapture noundef nonnull readonly %bitlen, i64 noundef range(i64 19, 289) %numcodes, i32 noundef range(i32 7, 16) %maxbitlen) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef nonnull captures(none) initializes((8, 16)) %tree, ptr noundef nonnull readonly captures(none) %bitlen, i64 noundef range(i64 19, 289) %numcodes, i32 noundef range(i32 7, 16) %maxbitlen) unnamed_addr #2 {
 entry:
   %mul = shl nuw nsw i64 %numcodes, 2
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %mul) #30
@@ -20180,7 +20180,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr nocapture noundef nonnull initializes((0, 8)) %tree) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull captures(none) initializes((0, 8)) %tree) unnamed_addr #2 {
 entry:
   %numcodes = getelementptr inbounds nuw i8, ptr %tree, i64 20
   %0 = load i32, ptr %numcodes, align 4
@@ -20616,7 +20616,7 @@ if.end80:                                         ; preds = %if.else.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr nocapture noundef nonnull %writer, i32 noundef %value, i64 noundef range(i64 0, 4294967296) %nbits) unnamed_addr #2 {
+define internal fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull captures(none) %writer, i32 noundef %value, i64 noundef range(i64 0, 4294967296) %nbits) unnamed_addr #2 {
 entry:
   %trunc = trunc nuw i64 %nbits to i32
   switch i32 %trunc, label %for.body.lr.ph [
@@ -20763,7 +20763,7 @@ if.end62:                                         ; preds = %if.end42, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 91) i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %hash, ptr noundef %in, i64 noundef %inpos, i64 noundef %insize, i32 noundef %windowsize, i32 noundef %minmatch, i32 noundef %nicematch, i32 noundef %lazymatching) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 91) i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef nonnull captures(none) %out, ptr noundef nonnull readonly captures(none) %hash, ptr noundef %in, i64 noundef %inpos, i64 noundef %insize, i32 noundef %windowsize, i32 noundef %minmatch, i32 noundef %nicematch, i32 noundef %lazymatching) unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %windowsize, 8191
   %div141 = lshr i32 %windowsize, 3
@@ -21522,7 +21522,7 @@ return:                                           ; preds = %if.end159, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr nocapture noundef nonnull %writer, ptr nocapture noundef nonnull readonly %lz77_encoded, ptr nocapture noundef nonnull readonly %tree_ll, ptr nocapture noundef nonnull readonly %tree_d) unnamed_addr #2 {
+define internal fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull captures(none) %writer, ptr noundef nonnull readonly captures(none) %lz77_encoded, ptr noundef nonnull readonly captures(none) %tree_ll, ptr noundef nonnull readonly captures(none) %tree_d) unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %lz77_encoded, i64 8
   %0 = load i64, ptr %size, align 8
@@ -21747,7 +21747,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr nocapture noundef nonnull %writer, i32 noundef %value, i64 noundef range(i64 0, 4294967296) %nbits) unnamed_addr #2 {
+define internal fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr noundef nonnull captures(none) %writer, i32 noundef %value, i64 noundef range(i64 0, 4294967296) %nbits) unnamed_addr #2 {
 entry:
   %cmp.not14 = icmp eq i64 %nbits, 0
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
@@ -21831,7 +21831,7 @@ for.end:                                          ; preds = %if.end8, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 84) i32 @_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj(ptr nocapture noundef nonnull %tree, ptr nocapture noundef readonly %frequencies, i64 noundef range(i64 2, 258) %mincodes, i64 noundef range(i64 19, 287) %numcodes, i32 noundef range(i32 7, 16) %maxbitlen) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 84) i32 @_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj(ptr noundef nonnull captures(none) %tree, ptr noundef readonly captures(none) %frequencies, i64 noundef range(i64 2, 258) %mincodes, i64 noundef range(i64 19, 287) %numcodes, i32 noundef range(i32 7, 16) %maxbitlen) unnamed_addr #2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %frequencies, i64 -4
   br label %while.cond
@@ -21874,10 +21874,10 @@ return:                                           ; preds = %if.end, %if.then8, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 1, 0) %bpp) unnamed_addr #14 {
+define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr noundef %out, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 1, 0) %bpp) unnamed_addr #14 {
 entry:
   %add = add i32 %bpp, 7
   %div12 = lshr i32 %add, 3
@@ -23057,7 +23057,7 @@ return:                                           ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef range(i64 0, 4294967289) %olinebits, i64 noundef range(i64 0, 4294967296) %ilinebits, i32 noundef %h) unnamed_addr #8 {
+define internal fastcc void @_ZL14addPaddingBitsPhPKhmmj(ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef range(i64 0, 4294967289) %olinebits, i64 noundef range(i64 0, 4294967296) %ilinebits, i32 noundef %h) unnamed_addr #8 {
 entry:
   %sub = sub nsw i64 %olinebits, %ilinebits
   %cmp.not31 = icmp eq i32 %h, 0
@@ -23234,7 +23234,7 @@ for.end12:                                        ; preds = %for.cond4.for.inc10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr nocapture noundef writeonly %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.0.val, i32 %color.4.val, ptr nocapture noundef readonly %settings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 89) i32 @_ZL6filterPhPKhjjPK16LodePNGColorModePK22LodePNGEncoderSettings(ptr noundef writeonly captures(none) %out, ptr noundef %in, i32 noundef %w, i32 noundef %h, i32 %color.0.val, i32 %color.4.val, ptr noundef readonly captures(none) %settings) unnamed_addr #5 {
 entry:
   %attempt = alloca [5 x ptr], align 16
   %attempt137 = alloca [5 x ptr], align 16
@@ -23774,7 +23774,7 @@ return:                                           ; preds = %for.body356, %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %scanline, ptr noundef readonly %prevline, i64 noundef %length, i64 noundef range(i64 0, 536870912) %bytewidth, i8 noundef zeroext %filterType) unnamed_addr #8 {
+define internal fastcc void @_ZL14filterScanlinePhPKhS1_mmh(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %scanline, ptr noundef readonly %prevline, i64 noundef %length, i64 noundef range(i64 0, 536870912) %bytewidth, i8 noundef zeroext %filterType) unnamed_addr #8 {
 entry:
   switch i8 %filterType, label %sw.epilog [
     i8 0, label %for.cond.preheader
@@ -24038,7 +24038,7 @@ sw.epilog:                                        ; preds = %for.body122, %for.b
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
@@ -24050,7 +24050,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #23
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -24238,10 +24238,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #26

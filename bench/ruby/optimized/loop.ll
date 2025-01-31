@@ -58,7 +58,7 @@ declare void @rb_random_base_init(ptr noundef) local_unnamed_addr #1
 declare void @rb_random_mark(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -68,7 +68,7 @@ define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @loop_init(ptr nocapture noundef initializes((8, 12)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @loop_init(ptr noundef captures(none) initializes((8, 12)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 1024)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -90,7 +90,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %3, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @loop_init_int32(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) #0 {
+define internal void @loop_init_int32(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call nonnull dereferenceable(4) ptr @ruby_xrealloc2(ptr noundef %4, i64 noundef 1, i64 noundef 4) #11
@@ -102,7 +102,7 @@ define internal void @loop_init_int32(ptr nocapture noundef initializes((8, 12))
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @loop_get_int32(ptr nocapture noundef %0) #3 {
+define internal i32 @loop_get_int32(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -140,7 +140,7 @@ define internal i32 @loop_get_int32(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @loop_get_bytes(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #4 {
+define internal void @loop_get_bytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #4 {
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -230,7 +230,7 @@ default.unreachable28:                            ; preds = %loop_get_int32.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal double @loop_get_real(ptr nocapture noundef %0, i32 %1) #5 {
+define internal double @loop_get_real(ptr noundef captures(none) %0, i32 %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -273,7 +273,7 @@ loop_get_int32.exit:                              ; preds = %8, %15, %16
 declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #8

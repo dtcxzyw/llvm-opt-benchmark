@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableSC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) initializes((0, 8), (2256, 2280)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableSC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2396) initializes((0, 8), (2256, 2280)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -127,7 +127,7 @@ _ZN11TransTableS12SetConstantsEv.exit:            ; preds = %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableS12SetConstantsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2396) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN11TransTableS12SetConstantsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0) local_unnamed_addr #4 align 2 {
   store i32 15, ptr @_ZL12TTlowestRank, align 16
   br label %2
 
@@ -157,7 +157,7 @@ define void @_ZN11TransTableS12SetConstantsEv(ptr nocapture noundef nonnull read
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2396) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableSD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   tail call void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
@@ -197,7 +197,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableS15ReturnAllMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) unnamed_addr #5 align 2 {
+define void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -315,7 +315,7 @@ define void @_ZN11TransTableSD0Ev(ptr noundef nonnull align 8 dereferenceable(23
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   br label %4
 
@@ -438,17 +438,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN11TransTableS16SetMemoryDefaultEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define void @_ZN11TransTableS16SetMemoryDefaultEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11TransTableS16SetMemoryMaximumEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) initializes((360, 368)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define void @_ZN11TransTableS16SetMemoryMaximumEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2396) initializes((360, 368)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = mul nsw i32 %1, 1000000
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -457,7 +457,7 @@ define void @_ZN11TransTableS16SetMemoryMaximumEi(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableS6MakeTTEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) unnamed_addr #5 align 2 {
+define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -776,10 +776,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableS6InitTTEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) initializes((352, 360), (368, 376), (396, 405), (408, 412), (1336, 1352), (1800, 1808)) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN11TransTableS6InitTTEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) initializes((352, 360), (368, 376), (396, 405), (408, 412), (1336, 1352), (1800, 1808)) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 170000, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -839,7 +839,7 @@ define void @_ZN11TransTableS6InitTTEv(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableS4WipeEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %3 = load i32, ptr %2, align 4
   %.not40 = icmp slt i32 %3, 1
@@ -967,7 +967,7 @@ define void @_ZN11TransTableS4WipeEv(ptr nocapture noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableS11ResetMemoryE13TTresetReason(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0, i32 %1) unnamed_addr #5 align 2 {
+define void @_ZN11TransTableS11ResetMemoryE13TTresetReason(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, i32 %1) unnamed_addr #5 align 2 {
   tail call void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 170000, ptr %3, align 4
@@ -1063,7 +1063,7 @@ _ZN11TransTableS6InitTTEv.exit:                   ; preds = %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK11TransTableS11MemoryInUseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2396) %0) unnamed_addr #15 align 2 {
+define noundef double @_ZNK11TransTableS11MemoryInUseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2396) %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1074,7 +1074,7 @@ define noundef double @_ZNK11TransTableS11MemoryInUseEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN11TransTableS6LookupEiiPKtPKiiRb(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) unnamed_addr #14 align 2 {
+define noundef ptr @_ZN11TransTableS6LookupEiiPKtPKiiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) unnamed_addr #14 align 2 {
   %8 = alloca [4 x i32], align 16
   %9 = load i32, ptr %4, align 4
   %10 = zext i32 %9 to i64
@@ -1231,7 +1231,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) local_unnamed_addr #16 align 2 {
+define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #16 align 2 {
   br i1 %3, label %8, label %19
 
 8:                                                ; preds = %7
@@ -1461,7 +1461,7 @@ _ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %92, %107, %123, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2396) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #14 align 2 {
   %.not37 = icmp eq ptr %3, null
   br i1 %.not37, label %.loopexit30, label %.lr.ph
 
@@ -1540,7 +1540,7 @@ define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11TransTableS3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #7 align 2 {
+define void @_ZN11TransTableS3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #7 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [14 x i64], ptr %8, i64 0, i64 %9
@@ -1563,7 +1563,7 @@ define void @_ZN11TransTableS3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #16 align 2 {
+define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #16 align 2 {
   %9 = alloca [4 x i32], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i8], align 1
@@ -1794,7 +1794,7 @@ define void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenc
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZN11TransTableS10AddNodeSetEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) local_unnamed_addr #17 align 2 {
+define void @_ZN11TransTableS10AddNodeSetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1870,7 +1870,7 @@ define void @_ZN11TransTableS10AddNodeSetEv(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZN11TransTableS9AddLenSetEii(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 align 2 {
+define void @_ZN11TransTableS9AddLenSetEii(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %5 = sext i32 %1 to i64
   %6 = sext i32 %2 to i64
@@ -1950,7 +1950,7 @@ define void @_ZN11TransTableS9AddLenSetEii(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmallERb(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, i8 noundef signext %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %8) local_unnamed_addr #16 align 2 {
+define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmallERb(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5, i8 noundef signext %6, ptr noundef captures(none) %7, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %8) local_unnamed_addr #16 align 2 {
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.preheader
@@ -2311,7 +2311,7 @@ _ZN11TransTableS10AddNodeSetEv.exit110:           ; preds = %181, %196, %198, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned initializes((2, 4)) %5) local_unnamed_addr #19 align 2 {
+define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned initializes((2, 4)) %5) local_unnamed_addr #19 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i32
@@ -2343,7 +2343,7 @@ define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11TransTableS14PrintNodeStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2396) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11TransTableS14PrintNodeStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2396) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6)
@@ -2457,7 +2457,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11TransTableS15PrintResetStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2396) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #7 align 2 {
+define void @_ZNK11TransTableS15PrintResetStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2396) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #7 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
@@ -2705,7 +2705,7 @@ define internal void @_GLOBAL__sub_I_TransTableS.cpp() #22 section ".text.startu
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

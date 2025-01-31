@@ -806,7 +806,7 @@ if.end:                                           ; preds = %do.body.i.i36, %do.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr nocapture noundef readnone %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %repl, ptr nocapture noundef writeonly %source, ptr nocapture noundef %parsed) local_unnamed_addr #2 {
+define dso_local void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef readnone captures(none) %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %repl, ptr noundef writeonly captures(none) %source, ptr noundef captures(none) %parsed) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %repl, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -946,7 +946,7 @@ _ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit52: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr nocapture noundef readnone %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %repl, ptr noundef %utf8_buffer, ptr nocapture noundef writeonly %source, ptr nocapture noundef %parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12ReplacementsItEEPNS_12CanonOutputTIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef readnone captures(none) %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %repl, ptr noundef %utf8_buffer, ptr noundef writeonly captures(none) %source, ptr noundef captures(none) %parsed) local_unnamed_addr #0 {
 entry:
   %i.i.i302 = alloca i32, align 4
   %code_point.i.i303 = alloca i32, align 4
@@ -1748,7 +1748,7 @@ if.end115:                                        ; preds = %if.then112, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %value, ptr noundef writeonly captures(none) %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
 entry:
   switch i32 %radix, label %return [
     i32 10, label %if.end4
@@ -1772,10 +1772,10 @@ return:                                           ; preds = %if.end4, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %value, ptr nocapture noundef writeonly %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %value, ptr noundef writeonly captures(none) %buffer, i64 noundef %size_in_chars, i32 noundef %radix) local_unnamed_addr #3 {
 entry:
   %temp = alloca [13 x i8], align 1
   %cmp.not = icmp eq i32 %radix, 10
@@ -2512,10 +2512,10 @@ if.end39:                                         ; preds = %if.end39.sink.split
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

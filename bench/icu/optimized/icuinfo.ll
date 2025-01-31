@@ -40,12 +40,12 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare double @uprv_getUTCtime_75() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11cmd_versionaR10UErrorCode(i8 noundef signext %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 {
+define dso_local void @_Z11cmd_versionaR10UErrorCode(i8 noundef signext %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 {
 entry:
   %.b.i = load i1, ptr @_ZL10icuInitted, align 1
   br i1 %.b.i, label %_ZL7do_initv.exit, label %if.then.i
@@ -69,7 +69,7 @@ _ZL7do_initv.exit:                                ; preds = %entry, %if.then.i
 declare void @udbg_writeIcuInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 
@@ -252,15 +252,15 @@ declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare void @u_setDataDirectory_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @u_init_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

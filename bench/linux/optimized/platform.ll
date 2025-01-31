@@ -142,7 +142,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_platform_fin
 @llvm.compiler.used = appending global [31 x ptr] [ptr @__UNIQUE_ID___addressable___platform_create_bundle395, ptr @__UNIQUE_ID___addressable___platform_driver_probe394, ptr @__UNIQUE_ID___addressable___platform_driver_register392, ptr @__UNIQUE_ID___addressable___platform_register_drivers396, ptr @__UNIQUE_ID___addressable_devm_platform_get_and_ioremap_resource364, ptr @__UNIQUE_ID___addressable_devm_platform_get_irqs_affinity374, ptr @__UNIQUE_ID___addressable_devm_platform_ioremap_resource365, ptr @__UNIQUE_ID___addressable_devm_platform_ioremap_resource_byname366, ptr @__UNIQUE_ID___addressable_platform_add_devices382, ptr @__UNIQUE_ID___addressable_platform_bus361, ptr @__UNIQUE_ID___addressable_platform_bus_type398, ptr @__UNIQUE_ID___addressable_platform_device_add387, ptr @__UNIQUE_ID___addressable_platform_device_add_data386, ptr @__UNIQUE_ID___addressable_platform_device_add_resources385, ptr @__UNIQUE_ID___addressable_platform_device_alloc384, ptr @__UNIQUE_ID___addressable_platform_device_del388, ptr @__UNIQUE_ID___addressable_platform_device_put383, ptr @__UNIQUE_ID___addressable_platform_device_register389, ptr @__UNIQUE_ID___addressable_platform_device_register_full391, ptr @__UNIQUE_ID___addressable_platform_device_unregister390, ptr @__UNIQUE_ID___addressable_platform_driver_unregister393, ptr @__UNIQUE_ID___addressable_platform_find_device_by_driver399, ptr @__UNIQUE_ID___addressable_platform_get_irq372, ptr @__UNIQUE_ID___addressable_platform_get_irq_byname380, ptr @__UNIQUE_ID___addressable_platform_get_irq_byname_optional381, ptr @__UNIQUE_ID___addressable_platform_get_irq_optional371, ptr @__UNIQUE_ID___addressable_platform_get_mem_or_io363, ptr @__UNIQUE_ID___addressable_platform_get_resource362, ptr @__UNIQUE_ID___addressable_platform_get_resource_byname375, ptr @__UNIQUE_ID___addressable_platform_irq_count373, ptr @__UNIQUE_ID___addressable_platform_unregister_drivers397], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @platform_get_resource(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @platform_get_resource(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -180,7 +180,7 @@ define dso_local ptr @platform_get_resource(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @platform_get_mem_or_io(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @platform_get_mem_or_io(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -307,7 +307,7 @@ define dso_local ptr @devm_platform_ioremap_resource(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_platform_ioremap_resource_byname(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local ptr @devm_platform_ioremap_resource_byname(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -352,7 +352,7 @@ define dso_local ptr @devm_platform_ioremap_resource_byname(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @platform_get_resource_byname(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define dso_local ptr @platform_get_resource_byname(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -566,7 +566,7 @@ define dso_local i32 @platform_irq_count(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #1 align 16 {
+define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #1 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %68, label %7
 
@@ -693,7 +693,7 @@ declare dso_local i32 @irq_calc_affinity_vectors(i32 noundef, i32 noundef, ptr n
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_platform_get_irqs_affinity_release(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @devm_platform_get_irqs_affinity_release(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
@@ -783,7 +783,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @devres_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @platform_get_irq_byname(ptr noundef %0, ptr noundef %1) #1 align 16 {
@@ -882,7 +882,7 @@ define dso_local i32 @platform_get_irq_byname_optional(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local i32 @platform_add_devices(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %.loopexit6
 
@@ -1127,7 +1127,7 @@ define dso_local void @platform_device_put(ptr noundef %0) #1 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @platform_device_alloc(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local ptr @platform_device_alloc(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = tail call i64 @strlen(ptr noundef %0) #15
   %4 = add i64 %3, 809
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #17
@@ -1173,10 +1173,10 @@ define dso_local ptr @platform_device_alloc(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #2
@@ -1201,7 +1201,7 @@ define internal void @platform_device_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_resources(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_resources(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %10, label %5
 
@@ -1231,7 +1231,7 @@ define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_resources(pt
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_data(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -1501,7 +1501,7 @@ define dso_local void @platform_device_del(ptr noundef %0) #1 align 16 {
 declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @platform_device_register_full(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local ptr @platform_device_register_full(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1729,7 +1729,7 @@ define dso_local i32 @__platform_driver_probe(ptr noundef %0, ptr noundef %1, pt
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @platform_probe_fail(ptr nocapture readnone %0) #8 align 16 {
+define internal noundef i32 @platform_probe_fail(ptr readnone captures(none) %0) #8 align 16 {
   ret i32 -6
 }
 
@@ -1737,7 +1737,7 @@ define internal noundef i32 @platform_probe_fail(ptr nocapture readnone %0) #8 a
 declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @is_bound_to_driver(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #9 align 16 {
+define internal range(i32 0, 2) i32 @is_bound_to_driver(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -1931,7 +1931,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -1981,7 +1981,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @platform_unregister_drivers(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local void @platform_unregister_drivers(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -2595,7 +2595,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i16 @platform_dev_attrs_visible(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 %2) #9 align 16 {
+define internal zeroext i16 @platform_dev_attrs_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #9 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_numa_node
   br i1 %4, label %5, label %9
 
@@ -2616,7 +2616,7 @@ define internal zeroext i16 @platform_dev_attrs_visible(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @numa_node_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @numa_node_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %5) #15
@@ -2628,7 +2628,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @numa_node_show(ptr nocap
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = tail call i32 @acpi_device_modalias(ptr noundef %0, ptr noundef %2, i32 noundef 4095) #15
   %5 = icmp eq i32 %4, -19
   br i1 %5, label %6, label %10
@@ -2649,7 +2649,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nounde
 declare dso_local i32 @acpi_device_modalias(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @driver_override_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @driver_override_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @mutex_lock(ptr noundef nonnull %4) #15
   %5 = getelementptr i8, ptr %0, i64 776
@@ -2661,7 +2661,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @driver_override_show(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @driver_override_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define internal i64 @driver_override_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = getelementptr i8, ptr %0, i64 776
   %6 = tail call i32 @driver_set_override(ptr noundef %0, ptr noundef %5, ptr noundef %2, i64 noundef %3) #15
   %7 = icmp eq i32 %6, 0
@@ -2716,7 +2716,7 @@ declare dso_local i32 @pm_generic_runtime_suspend(ptr noundef) #2
 declare dso_local i32 @pm_generic_runtime_resume(ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

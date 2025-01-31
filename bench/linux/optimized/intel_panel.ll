@@ -220,7 +220,7 @@ declare dso_local ptr @drm_mode_duplicate(ptr noundef, ptr noundef) local_unname
 declare dso_local void @drm_mode_probed_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_panel_drrs_type(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i32 @intel_panel_drrs_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -847,7 +847,7 @@ define dso_local void @intel_panel_add_encoder_fixed_mode(ptr noundef %0, ptr no
 declare dso_local ptr @intel_encoder_current_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2624
@@ -1313,7 +1313,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 3) i32 @intel_panel_detect(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 1, 3) i32 @intel_panel_detect(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @intel_display_device_enabled(ptr noundef %3) #8
   %5 = select i1 %4, i32 1, i32 2

@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [8 x i8] c"enabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @zif_dl(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -141,7 +141,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((8, 12)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @php_dl(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((8, 12)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %3)
   %6 = icmp eq i32 %5, -1
   %spec.select = select i1 %6, i32 2, i32 3
@@ -151,7 +151,7 @@ define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_load_shlib(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @php_load_shlib(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 265) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8
@@ -205,7 +205,7 @@ define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, 
   br label %.critedge
 
 15:                                               ; preds = %13
-  %16 = tail call noalias ptr @_estrdup(ptr noundef %0) #4
+  %16 = tail call noalias ptr @_estrdup(ptr noundef nonnull %0) #4
   store ptr %16, ptr %4, align 8
   br label %30
 
@@ -227,11 +227,11 @@ define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, 
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.078, ptr noundef %0) #4
+  %27 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.078, ptr noundef nonnull %0) #4
   br label %30
 
 28:                                               ; preds = %20
-  %29 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %.078, i32 noundef 47, ptr noundef %0) #4
+  %29 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %.078, i32 noundef 47, ptr noundef nonnull %0) #4
   br label %30
 
 30:                                               ; preds = %28, %26, %15
@@ -249,11 +249,11 @@ define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, 
   br i1 %.079.shrunk, label %38, label %40
 
 38:                                               ; preds = %33
-  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %.078, ptr noundef %0) #4
+  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %.078, ptr noundef nonnull %0) #4
   br label %42
 
 40:                                               ; preds = %33
-  %41 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %.078, i32 noundef 47, ptr noundef %0) #4
+  %41 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %.078, i32 noundef 47, ptr noundef nonnull %0) #4
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -267,7 +267,7 @@ define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, 
   %47 = call noalias ptr @_estrdup(ptr noundef %46) #4
   %48 = call ptr @dlerror() #4
   %49 = load ptr, ptr %4, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef %37, ptr noundef %35, ptr noundef %49, ptr noundef %47) #4
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.8, ptr noundef nonnull %0, ptr noundef %37, ptr noundef %35, ptr noundef %49, ptr noundef %47) #4
   call void @_efree(ptr noundef %37) #4
   call void @_efree(ptr noundef %35) #4
   %50 = load ptr, ptr %4, align 8
@@ -305,12 +305,12 @@ php_load_shlib.exit:                              ; preds = %30, %php_load_shlib
 
 59:                                               ; preds = %57, %55
   %60 = call i32 @dlclose(ptr noundef nonnull %.082) #4
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.13, ptr noundef %0) #4
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.13, ptr noundef nonnull %0) #4
   br label %.critedge
 
 61:                                               ; preds = %57
   %62 = call i32 @dlclose(ptr noundef nonnull %.082) #4
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.14, ptr noundef %0) #4
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.14, ptr noundef nonnull %0) #4
   br label %.critedge
 
 .thread:                                          ; preds = %php_load_shlib.exit, %53
@@ -319,7 +319,7 @@ php_load_shlib.exit:                              ; preds = %30, %php_load_shlib
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #5
-  %67 = call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef %65, i64 noundef %66) #4
+  %67 = call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef nonnull %65, i64 noundef %66) #4
   %.not97 = icmp eq ptr %67, null
   br i1 %.not97, label %71, label %68
 
@@ -350,7 +350,7 @@ php_load_shlib.exit:                              ; preds = %30, %php_load_shlib
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %64, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.18, ptr noundef %82, ptr noundef %79, ptr noundef nonnull @.str.17) #4
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef %., ptr noundef nonnull @.str.18, ptr noundef %82, ptr noundef nonnull %79, ptr noundef nonnull @.str.17) #4
   %83 = call i32 @dlclose(ptr noundef nonnull %.082) #4
   br label %.critedge
 
@@ -410,7 +410,7 @@ declare ptr @zend_ini_string_ex(ptr noundef, i64 noundef, i32 noundef, ptr nound
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -425,14 +425,14 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #2
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @zend_register_module_ex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @zend_startup_module_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_dl(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @zm_info_dl(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #4
   ret void
 }

@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Invalid padding detected.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z18grpc_base64_encodePKvmii(ptr nocapture noundef readonly %vdata, i64 noundef %data_size, i32 noundef %url_safe, i32 noundef %multiline) local_unnamed_addr #0 {
+define noundef ptr @_Z18grpc_base64_encodePKvmii(ptr noundef readonly captures(none) %vdata, i64 noundef %data_size, i32 noundef %url_safe, i32 noundef %multiline) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i32 %multiline, 0
   br i1 %tobool.not.i, label %_Z33grpc_base64_estimate_encoded_sizemi.exit, label %cond.true.i
@@ -66,7 +66,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23grpc_base64_encode_corePcPKvmii(ptr noundef %result, ptr nocapture noundef readonly %vdata, i64 noundef %data_size, i32 noundef %url_safe, i32 noundef %multiline) local_unnamed_addr #0 {
+define void @_Z23grpc_base64_encode_corePcPKvmii(ptr noundef %result, ptr noundef readonly captures(none) %vdata, i64 noundef %data_size, i32 noundef %url_safe, i32 noundef %multiline) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %url_safe, 0
   %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars = select i1 %tobool.not, ptr @_ZL23base64_url_unsafe_chars, ptr @_ZL21base64_url_safe_chars
@@ -297,15 +297,15 @@ do.end99:                                         ; preds = %do.body93
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18grpc_base64_decodePKci(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %b64, i32 noundef %url_safe) local_unnamed_addr #0 {
+define void @_Z18grpc_base64_decodePKci(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %b64, i32 noundef %url_safe) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %b64) #7
-  tail call void @_Z27grpc_base64_decode_with_lenPKcmi(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %b64, i64 noundef %call, i32 noundef %url_safe)
+  tail call void @_Z27grpc_base64_decode_with_lenPKcmi(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull %b64, i64 noundef %call, i32 noundef %url_safe)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27grpc_base64_decode_with_lenPKcmi(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %b64, i64 noundef %b64_len, i32 noundef %url_safe) local_unnamed_addr #0 {
+define void @_Z27grpc_base64_decode_with_lenPKcmi(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef readonly captures(none) %b64, i64 noundef %b64_len, i32 noundef %url_safe) local_unnamed_addr #0 {
 entry:
   %result = alloca %struct.grpc_slice, align 8
   %codes = alloca [4 x i8], align 1
@@ -676,14 +676,14 @@ return:                                           ; preds = %_ZN9grpc_core11CSli
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 noundef) local_unnamed_addr #2
 
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @grpc_empty_slice(ptr sret(%struct.grpc_slice) align 8) local_unnamed_addr #2
 

@@ -373,7 +373,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @time_independent_strcmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %len) local_unnamed_addr #4 {
+define dso_local i32 @time_independent_strcmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp6 = icmp sgt i32 %len, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -448,7 +448,7 @@ declare void @sha256_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 1) i32 @ACLCheckPasswordHash(ptr nocapture noundef readonly %hash, i32 noundef %hashlen) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @ACLCheckPasswordHash(ptr noundef readonly captures(none) %hash, i32 noundef %hashlen) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq i32 %hashlen, 64
   br i1 %cmp.not, label %for.body, label %return
@@ -475,7 +475,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @ACLStringHasSpaces(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ACLStringHasSpaces(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp6.not = icmp eq i64 %len, 0
   br i1 %cmp6.not, label %return, label %for.body.lr.ph
@@ -512,7 +512,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr nocapture noundef readonly %name) local_unnamed_addr #7 {
+define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captures(none) %name) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @ACLCommandCategories, align 8
   %flag4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -547,10 +547,10 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ACLListMatchLoadedUser(ptr nocapture noundef readonly %definition, ptr noundef %user) #0 {
+define dso_local range(i32 0, 2) i32 @ACLListMatchLoadedUser(ptr noundef readonly captures(none) %definition, ptr noundef %user) #0 {
 entry:
   %0 = load ptr, ptr %definition, align 8
   %call = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %user) #24
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ACLListMatchKeyPattern(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define dso_local range(i32 0, 2) i32 @ACLListMatchKeyPattern(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %pattern = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %pattern, align 8
@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ACLListDupKeyPattern(ptr nocapture noundef readonly %item) #0 {
+define dso_local noalias noundef ptr @ACLListDupKeyPattern(ptr noundef readonly captures(none) %item) #0 {
 entry:
   %pattern = getelementptr inbounds nuw i8, ptr %item, i64 8
   %0 = load ptr, ptr %pattern, align 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsCatPatternString(ptr noundef %base, ptr nocapture noundef readonly %pat) local_unnamed_addr #0 {
+define dso_local ptr @sdsCatPatternString(ptr noundef %base, ptr noundef readonly captures(none) %pat) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pat, align 8
   switch i32 %0, label %if.else10 [
@@ -729,7 +729,7 @@ declare ptr @listCreate() local_unnamed_addr #1
 declare ptr @sdsempty() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLFreeSelector(ptr noundef %selector) local_unnamed_addr #0 {
@@ -798,7 +798,7 @@ ACLResetFirstArgs.exit:                           ; preds = %entry, %for.end23.i
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLResetFirstArgs(ptr nocapture noundef %selector) local_unnamed_addr #0 {
+define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %selector) local_unnamed_addr #0 {
 entry:
   %allowed_firstargs = getelementptr inbounds nuw i8, ptr %selector, i64 136
   %0 = load ptr, ptr %allowed_firstargs, align 8
@@ -852,7 +852,7 @@ return:                                           ; preds = %entry, %for.end23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ACLCopySelector(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(168) ptr @zmalloc(i64 noundef 168) #25
   %0 = load i32, ptr %src, align 8
@@ -981,10 +981,10 @@ if.end30:                                         ; preds = %for.inc27, %entry
 declare ptr @listDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLAddAllowedFirstArg(ptr nocapture noundef %selector, i64 noundef %id, ptr noundef %sub) local_unnamed_addr #0 {
+define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %selector, i64 noundef %id, ptr noundef %sub) local_unnamed_addr #0 {
 entry:
   %allowed_firstargs = getelementptr inbounds nuw i8, ptr %selector, i64 136
   %0 = load ptr, ptr %allowed_firstargs, align 8
@@ -1056,14 +1056,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ACLListDuplicateSelector(ptr nocapture noundef readonly %src) #0 {
+define dso_local noalias noundef ptr @ACLListDuplicateSelector(ptr noundef readonly captures(none) %src) #0 {
 entry:
   %call = tail call ptr @ACLCopySelector(ptr noundef %src)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ACLUserGetRootSelector(ptr nocapture noundef readonly %u) local_unnamed_addr #0 {
+define dso_local noundef ptr @ACLUserGetRootSelector(ptr noundef readonly captures(none) %u) local_unnamed_addr #0 {
 entry:
   %selectors = getelementptr inbounds nuw i8, ptr %u, i64 24
   %0 = load ptr, ptr %selectors, align 8
@@ -1204,10 +1204,10 @@ cond.end:                                         ; preds = %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @raxRemove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1314,7 +1314,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 declare void @freeClientAsync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLCopyUser(ptr nocapture noundef initializes((8, 12)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local void @ACLCopyUser(ptr noundef captures(none) initializes((8, 12)) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %passwords = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %0 = load ptr, ptr %passwords, align 8
@@ -1370,7 +1370,7 @@ entry:
 declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 1) i32 @ACLGetCommandBitCoordinates(i64 noundef %id, ptr nocapture noundef writeonly %word, ptr nocapture noundef writeonly %bit) local_unnamed_addr #13 {
+define dso_local range(i32 -1, 1) i32 @ACLGetCommandBitCoordinates(i64 noundef %id, ptr noundef writeonly captures(none) %word, ptr noundef writeonly captures(none) %bit) local_unnamed_addr #13 {
 entry:
   %cmp = icmp ugt i64 %id, 1023
   br i1 %cmp, label %return, label %if.end
@@ -1389,7 +1389,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @ACLGetSelectorCommandBit(ptr nocapture noundef readonly %selector, i64 noundef %id) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @ACLGetSelectorCommandBit(ptr noundef readonly captures(none) %selector, i64 noundef %id) local_unnamed_addr #14 {
 entry:
   %cmp.i = icmp ugt i64 %id, 1023
   br i1 %cmp.i, label %return, label %if.end
@@ -1411,7 +1411,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @ACLSelectorCanExecuteFutureCommands(ptr nocapture noundef readonly %selector) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @ACLSelectorCanExecuteFutureCommands(ptr noundef readonly captures(none) %selector) local_unnamed_addr #14 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %selector, i64 128
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -1421,7 +1421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ACLSetSelectorCommandBit(ptr nocapture noundef %selector, i64 noundef %id, i32 noundef %value) local_unnamed_addr #15 {
+define dso_local void @ACLSetSelectorCommandBit(ptr noundef captures(none) %selector, i64 noundef %id, i32 noundef %value) local_unnamed_addr #15 {
 entry:
   %cmp.i = icmp ugt i64 %id, 1023
   br i1 %cmp.i, label %if.end5, label %if.end
@@ -1458,7 +1458,7 @@ if.end5:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLSelectorRemoveCommandRule(ptr nocapture noundef readonly %selector, ptr nocapture noundef readonly %new_rule) local_unnamed_addr #0 {
+define dso_local void @ACLSelectorRemoveCommandRule(ptr noundef readonly captures(none) %selector, ptr noundef readonly captures(none) %new_rule) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %new_rule, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1576,7 +1576,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #14 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #14 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -1627,12 +1627,12 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare void @sdsupdatelen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLUpdateCommandRules(ptr nocapture noundef %selector, ptr noundef %rule, i32 noundef %allow) local_unnamed_addr #0 {
+define dso_local void @ACLUpdateCommandRules(ptr noundef captures(none) %selector, ptr noundef %rule, i32 noundef %allow) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef %rule) #24
   tail call void @sdstolower(ptr noundef %call) #24
@@ -1708,7 +1708,7 @@ declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLChangeSelectorPerm(ptr nocapture noundef %selector, ptr nocapture noundef readonly %cmd, i32 noundef %allow) local_unnamed_addr #0 {
+define dso_local void @ACLChangeSelectorPerm(ptr noundef captures(none) %selector, ptr noundef readonly captures(none) %cmd, i32 noundef %allow) local_unnamed_addr #0 {
 entry:
   %id1 = getelementptr inbounds nuw i8, ptr %cmd, i64 208
   %0 = load i32, ptr %id1, align 8
@@ -1859,7 +1859,7 @@ if.end:                                           ; preds = %while.end, %ACLRese
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLResetFirstArgsForCommand(ptr nocapture noundef readonly %selector, i64 noundef %id) local_unnamed_addr #0 {
+define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures(none) %selector, i64 noundef %id) local_unnamed_addr #0 {
 entry:
   %allowed_firstargs = getelementptr inbounds nuw i8, ptr %selector, i64 136
   %0 = load ptr, ptr %allowed_firstargs, align 8
@@ -1911,7 +1911,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLSetSelectorCommandBitsForCategory(ptr noundef %commands, ptr nocapture noundef %selector, i64 noundef %cflag, i32 noundef %value) local_unnamed_addr #0 {
+define dso_local void @ACLSetSelectorCommandBitsForCategory(ptr noundef %commands, ptr noundef captures(none) %selector, i64 noundef %cflag, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetIterator(ptr noundef %commands) #24
   %call18 = tail call ptr @dictNext(ptr noundef %call) #24
@@ -2114,7 +2114,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr nocapture noundef %selector, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none) %selector, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.28) #28
   %tobool.not = icmp eq i32 %call, 0
@@ -2465,12 +2465,12 @@ if.else178:                                       ; preds = %if.then166
   %call182 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call180, i32 noundef 124) #28
   store i8 0, ptr %call182, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call182, i64 1
-  %call185 = tail call ptr @ACLLookupCommand(ptr noundef %call180)
+  %call185 = tail call ptr @ACLLookupCommand(ptr noundef nonnull %call180)
   %cmp186 = icmp eq ptr %call185, null
   br i1 %cmp186, label %if.then188, label %if.end190
 
 if.then188:                                       ; preds = %if.else178
-  tail call void @zfree(ptr noundef %call180) #24
+  tail call void @zfree(ptr noundef nonnull %call180) #24
   %call189 = tail call ptr @__errno_location() #27
   store i32 2, ptr %call189, align 4
   br label %return
@@ -2482,7 +2482,7 @@ if.end190:                                        ; preds = %if.else178
   br i1 %tobool191.not, label %if.end194, label %if.then192
 
 if.then192:                                       ; preds = %if.end190
-  tail call void @zfree(ptr noundef %call180) #24
+  tail call void @zfree(ptr noundef nonnull %call180) #24
   %call193 = tail call ptr @__errno_location() #27
   store i32 10, ptr %call193, align 4
   br label %return
@@ -2493,7 +2493,7 @@ if.end194:                                        ; preds = %if.end190
   br i1 %cmp196, label %if.then198, label %if.end200
 
 if.then198:                                       ; preds = %if.end194
-  tail call void @zfree(ptr noundef %call180) #24
+  tail call void @zfree(ptr noundef nonnull %call180) #24
   %call199 = tail call ptr @__errno_location() #27
   store i32 22, ptr %call199, align 4
   br label %return
@@ -2510,7 +2510,7 @@ if.then202:                                       ; preds = %if.end200
   br i1 %cmp205, label %if.then207, label %if.end209
 
 if.then207:                                       ; preds = %if.then202
-  tail call void @zfree(ptr noundef %call180) #24
+  tail call void @zfree(ptr noundef nonnull %call180) #24
   %call208 = tail call ptr @__errno_location() #27
   store i32 2, ptr %call208, align 4
   br label %return
@@ -2537,7 +2537,7 @@ do.end:                                           ; preds = %do.body, %if.end214
 
 if.end217:                                        ; preds = %do.end, %if.end209
   tail call void @ACLUpdateCommandRules(ptr noundef %selector, ptr noundef nonnull %arrayidx162, i32 noundef 1)
-  tail call void @zfree(ptr noundef %call180) #24
+  tail call void @zfree(ptr noundef nonnull %call180) #24
   br label %return
 
 land.lhs.true225:                                 ; preds = %if.else45
@@ -2591,7 +2591,7 @@ declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr nocapture noundef %selector, ptr noundef %category, i32 noundef %allow) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr noundef captures(none) %selector, ptr noundef %category, i32 noundef %allow) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %category, i64 1
   %0 = load ptr, ptr @ACLCommandCategories, align 8
@@ -2634,7 +2634,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLCountCategoryBitsForCommands(ptr noundef %commands, ptr nocapture noundef readonly %selector, ptr nocapture noundef %on, ptr nocapture noundef %off, i64 noundef %cflag) local_unnamed_addr #0 {
+define dso_local void @ACLCountCategoryBitsForCommands(ptr noundef %commands, ptr noundef readonly captures(none) %selector, ptr noundef captures(none) %on, ptr noundef captures(none) %off, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetIterator(ptr noundef %commands) #24
   %call112 = tail call ptr @dictNext(ptr noundef %call) #24
@@ -2702,7 +2702,7 @@ while.end:                                        ; preds = %if.end11, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr nocapture noundef readonly %selector, ptr nocapture noundef %on, ptr nocapture noundef %off, ptr nocapture noundef readonly %category) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr noundef readonly captures(none) %selector, ptr noundef captures(none) %on, ptr noundef captures(none) %off, ptr noundef readonly captures(none) %category) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ACLCommandCategories, align 8
   %flag4.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2745,7 +2745,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLDescribeSelectorCommandRules(ptr nocapture noundef readonly %selector) local_unnamed_addr #0 {
+define dso_local ptr @ACLDescribeSelectorCommandRules(ptr noundef readonly captures(none) %selector) local_unnamed_addr #0 {
 entry:
   %argc = alloca i32, align 4
   %call = tail call ptr @sdsempty() #24
@@ -2908,7 +2908,7 @@ declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLDescribeSelector(ptr nocapture noundef readonly %selector) local_unnamed_addr #0 {
+define dso_local ptr @ACLDescribeSelector(ptr noundef readonly captures(none) %selector) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %call = tail call ptr @sdsempty() #24
@@ -2981,7 +2981,7 @@ if.end23:                                         ; preds = %while.body16, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLDescribeUser(ptr nocapture noundef %u) local_unnamed_addr #0 {
+define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %u) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %acl_string = getelementptr inbounds nuw i8, ptr %u, i64 32
@@ -3767,7 +3767,7 @@ ACLInitCommandCategories.exit:                    ; preds = %for.inc.i, %entry
 declare ptr @raxNew() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLCheckUserCredentials(ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLCheckUserCredentials(ptr noundef readonly captures(none) %username, ptr noundef readonly captures(none) %password) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA256_CTX, align 8
   %hash.i = alloca [32 x i8], align 16
@@ -4018,7 +4018,7 @@ declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #1
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @checkPasswordBasedAuth(ptr noundef %c, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkPasswordBasedAuth(ptr noundef %c, ptr noundef readonly captures(none) %username, ptr noundef readonly captures(none) %password) local_unnamed_addr #0 {
 entry:
   %myuser.i = alloca ptr, align 8
   %call = tail call i32 @ACLCheckUserCredentials(ptr noundef %username, ptr noundef %password)
@@ -4483,7 +4483,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @raxFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @initACLKeyResultCache(ptr nocapture noundef writeonly initializes((0, 4)) %cache) local_unnamed_addr #13 {
+define dso_local void @initACLKeyResultCache(ptr noundef writeonly captures(none) initializes((0, 4)) %cache) local_unnamed_addr #13 {
 entry:
   store i32 0, ptr %cache, align 8
   ret void
@@ -4538,7 +4538,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr nocapture noundef readonly %selector, ptr noundef %key, i32 noundef %keylen, i32 noundef %keyspec_flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr noundef readonly captures(none) %selector, ptr noundef %key, i32 noundef %keylen, i32 noundef %keyspec_flags) unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load i32, ptr %selector, align 8
@@ -4743,7 +4743,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef nonnull writeonly %keyidxptr, ptr noundef nonnull %cache) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @ACLSelectorCheckCmd(ptr noundef readonly captures(none) %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull writeonly captures(none) %keyidxptr, ptr noundef nonnull %cache) unnamed_addr #0 {
 entry:
   %channels = alloca %struct.getKeysResult, align 8
   %id1 = getelementptr inbounds nuw i8, ptr %cmd, i64 208
@@ -5212,7 +5212,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly captures(none) %idxptr) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %local_idxptr = alloca i32, align 4
@@ -5292,7 +5292,7 @@ return:                                           ; preds = %while.end.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllPerm(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllPerm(ptr noundef readonly captures(none) %c, ptr noundef writeonly captures(none) %idxptr) local_unnamed_addr #0 {
 entry:
   %user = getelementptr inbounds nuw i8, ptr %c, i64 152
   %0 = load ptr, ptr %user, align 8
@@ -5307,7 +5307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLKillPubsubClientsIfNeeded(ptr nocapture noundef readonly %new, ptr noundef readonly %original) local_unnamed_addr #0 {
+define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %new, ptr noundef readonly %original) local_unnamed_addr #0 {
 entry:
   %li.i85 = alloca %struct.listIter, align 8
   %li.i60 = alloca %struct.listIter, align 8
@@ -5767,7 +5767,7 @@ if.then136.critedge39.critedge:                   ; preds = %sdslen.exit84, %if.
 if.then136:                                       ; preds = %if.end112.critedge.critedge, %if.then136.critedge.critedge.critedge, %if.then136.critedge39.critedge
   %call76.sink = phi ptr [ %call76, %if.end112.critedge.critedge ], [ %call93, %if.then136.critedge.critedge.critedge ], [ %call115, %if.then136.critedge39.critedge ]
   call void @dictReleaseIterator(ptr noundef %call76.sink) #24
-  call void @freeClient(ptr noundef %22) #24
+  call void @freeClient(ptr noundef nonnull %22) #24
   br label %if.end138
 
 if.end138:                                        ; preds = %while.end133, %if.then136, %land.lhs.true72, %while.body69
@@ -5790,7 +5790,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 declare void @freeClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLMergeSelectorArguments(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef initializes((0, 4)) %merged_argc, ptr noundef writeonly %invalid_idx) local_unnamed_addr #0 {
+define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef captures(none) initializes((0, 4)) %merged_argc, ptr noundef writeonly %invalid_idx) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %merged_argc, align 4
   %conv = sext i32 %argc to i64
@@ -5983,7 +5983,7 @@ return:                                           ; preds = %entry, %for.end, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLStringSetUser(ptr noundef %u, ptr noundef %username, ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local ptr @ACLStringSetUser(ptr noundef %u, ptr noundef %username, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %merged_argc = alloca i32, align 4
   %invalid_idx = alloca i32, align 4
@@ -6311,7 +6311,7 @@ return:                                           ; preds = %for.end54, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef %argc_err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef %argc_err) local_unnamed_addr #0 {
 entry:
   %merged_argc = alloca i32, align 4
   %cmp = icmp slt i32 %argc, 2
@@ -6830,7 +6830,7 @@ return:                                           ; preds = %if.end51, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ACLLoadFromFile(ptr noundef %filename) local_unnamed_addr #0 {
@@ -6869,8 +6869,8 @@ while.end:                                        ; preds = %while.body, %if.end
   %call10 = call i32 @fclose(ptr noundef nonnull %call)
   %call12 = call ptr @sdsempty() #24
   %call13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %acls.0.lcssa) #28
-  %call14 = call ptr @sdssplitlen(ptr noundef %acls.0.lcssa, i64 noundef %call13, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull %totlines) #24
-  call void @sdsfree(ptr noundef %acls.0.lcssa) #24
+  %call14 = call ptr @sdssplitlen(ptr noundef nonnull %acls.0.lcssa, i64 noundef %call13, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull %totlines) #24
+  call void @sdsfree(ptr noundef nonnull %acls.0.lcssa) #24
   %1 = load ptr, ptr @Users, align 8
   %call15 = call ptr @raxNew() #24
   store ptr %call15, ptr @Users, align 8
@@ -7467,7 +7467,7 @@ return:                                           ; preds = %if.else134, %ACLFre
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -7475,10 +7475,10 @@ declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @sdssplitlen(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7738,22 +7738,22 @@ declare i32 @getpid() local_unnamed_addr #18
 declare i64 @commandTimeSnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #19
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #19
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #19
 
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLLoadUsersAtStartup() local_unnamed_addr #0 {
@@ -7834,7 +7834,7 @@ if.end32:                                         ; preds = %if.then22, %if.end1
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %reason = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %reason, align 8
@@ -7947,7 +7947,7 @@ if.end15:                                         ; preds = %if.then2, %if.then1
 declare ptr @catClientInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAclErrorMessage(i32 noundef %acl_res, ptr nocapture noundef readonly %user, ptr nocapture noundef readonly %cmd, ptr noundef %errored_val, i32 noundef %verbose) local_unnamed_addr #0 {
+define dso_local ptr @getAclErrorMessage(i32 noundef %acl_res, ptr noundef readonly captures(none) %user, ptr noundef readonly captures(none) %cmd, ptr noundef %errored_val, i32 noundef %verbose) local_unnamed_addr #0 {
 entry:
   switch i32 %acl_res, label %sw.epilog [
     i32 1, label %sw.bb
@@ -8002,7 +8002,7 @@ return:                                           ; preds = %if.else13, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @aclCatWithFlags(ptr noundef %c, ptr noundef %commands, i64 noundef %cflag, ptr nocapture noundef %arraylen) local_unnamed_addr #0 {
+define dso_local void @aclCatWithFlags(ptr noundef %c, ptr noundef %commands, i64 noundef %cflag, ptr noundef captures(none) %arraylen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetIterator(ptr noundef %commands) #24
   %call110 = tail call ptr @dictNext(ptr noundef %call) #24
@@ -8099,7 +8099,7 @@ while.end:                                        ; preds = %while.cond.backedge
 declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @aclAddReplySelectorDescription(ptr noundef %c, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local noundef i32 @aclAddReplySelectorDescription(ptr noundef %c, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.130) #24
@@ -8319,7 +8319,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %or.cond.i, label %if.then9, label %for.cond.i
 
 if.then9:                                         ; preds = %for.body.i
-  tail call void @addReplyError(ptr noundef %c, ptr noundef nonnull @.str.135) #24
+  tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.135) #24
   br label %if.end496
 
 if.end:                                           ; preds = %for.cond.i, %sdslen.exit
@@ -8395,7 +8395,7 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
 
 for.end27:                                        ; preds = %for.body18, %sdslen.exit238
   %sub29 = add nsw i32 %22, -3
-  %call30 = call ptr @ACLStringSetUser(ptr noundef %20, ptr noundef %5, ptr noundef %call13, i32 noundef %sub29)
+  %call30 = call ptr @ACLStringSetUser(ptr noundef %20, ptr noundef nonnull %5, ptr noundef %call13, i32 noundef %sub29)
   call void @zfree(ptr noundef %call13) #24
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %if.then33, label %if.else
@@ -9584,7 +9584,7 @@ declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyCommandCategories(ptr noundef %c, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @addReplyCommandCategories(ptr noundef %c, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #24
   %0 = load ptr, ptr @ACLCommandCategories, align 8
@@ -9869,13 +9869,13 @@ declare i32 @getChannelsFromCommand(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #21

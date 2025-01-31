@@ -55,12 +55,12 @@ define ptr @SUNNonlinSol_Newton(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 declare ptr @SUNNonlinSolNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNNonlinSolGetType_Newton(ptr nocapture readnone %0) #2 {
+define noundef i32 @SUNNonlinSolGetType_Newton(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolInitialize_Newton(ptr nocapture noundef readonly %0) #3 {
+define noundef i32 @SUNNonlinSolInitialize_Newton(ptr noundef readonly captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %3, align 8
@@ -74,7 +74,7 @@ define noundef i32 @SUNNonlinSolInitialize_Newton(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr noundef %6) #0 {
+define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -264,14 +264,14 @@ define noundef i32 @SUNNonlinSolFree_Newton(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolSetSysFn_Newton(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define noundef i32 @SUNNonlinSolSetSysFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolSetLSetupFn_Newton(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define noundef i32 @SUNNonlinSolSetLSetupFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
@@ -279,7 +279,7 @@ define noundef i32 @SUNNonlinSolSetLSetupFn_Newton(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolSetLSolveFn_Newton(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define noundef i32 @SUNNonlinSolSetLSolveFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %4, align 8
@@ -287,7 +287,7 @@ define noundef i32 @SUNNonlinSolSetLSolveFn_Newton(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolSetConvTestFn_Newton(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #3 {
+define noundef i32 @SUNNonlinSolSetConvTestFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
@@ -298,7 +298,7 @@ define noundef i32 @SUNNonlinSolSetConvTestFn_Newton(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolSetMaxIters_Newton(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define noundef i32 @SUNNonlinSolSetMaxIters_Newton(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %1, ptr %4, align 8
@@ -306,7 +306,7 @@ define noundef i32 @SUNNonlinSolSetMaxIters_Newton(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetNumIters_Newton(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
+define noundef i32 @SUNNonlinSolGetNumIters_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8
@@ -315,7 +315,7 @@ define noundef i32 @SUNNonlinSolGetNumIters_Newton(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetCurIter_Newton(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
+define noundef i32 @SUNNonlinSolGetCurIter_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
@@ -324,7 +324,7 @@ define noundef i32 @SUNNonlinSolGetCurIter_Newton(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetNumConvFails_Newton(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
+define noundef i32 @SUNNonlinSolGetNumConvFails_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i64, ptr %4, align 8
@@ -396,10 +396,10 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetSysFn_Newton(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @SUNNonlinSolGetSysFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8

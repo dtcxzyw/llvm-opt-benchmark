@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_cmp.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_issuer_and_serial_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @X509_issuer_and_serial_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -143,7 +143,7 @@ return:                                           ; preds = %if.end14, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %md = alloca [16 x i8], align 16
@@ -159,7 +159,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #9
-  %call4 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef %call, i64 noundef %call3) #8
+  %call4 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call, i64 noundef %call3) #8
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %err, label %if.end7
 
@@ -203,17 +203,17 @@ declare ptr @EVP_md5() local_unnamed_addr #1
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_issuer_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @X509_issuer_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %issuer = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -276,7 +276,7 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_subject_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @X509_subject_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %subject = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -339,7 +339,7 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_CRL_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @X509_CRL_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %issuer = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -402,7 +402,7 @@ X509_NAME_cmp.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @X509_CRL_match(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #4 {
+define hidden i32 @X509_CRL_match(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #4 {
 entry:
   %sha1_hash = getelementptr inbounds nuw i8, ptr %a, i64 72
   %sha1_hash1 = getelementptr inbounds nuw i8, ptr %b, i64 72
@@ -411,10 +411,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X509_get_issuer_name(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
+define hidden ptr @X509_get_issuer_name(ptr noundef readonly captures(none) %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %issuer = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -423,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %issuer = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -514,7 +514,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X509_get_subject_name(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
+define hidden ptr @X509_get_subject_name(ptr noundef readonly captures(none) %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %subject = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -523,7 +523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X509_get_serialNumber(ptr nocapture noundef readonly %a) local_unnamed_addr #5 {
+define hidden ptr @X509_get_serialNumber(ptr noundef readonly captures(none) %a) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %serialNumber = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -532,7 +532,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %x, align 8
@@ -556,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %subject = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1091,7 +1091,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef readonly %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures(none) %crl, ptr noundef readonly %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0
@@ -1188,13 +1188,13 @@ declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #1
 declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

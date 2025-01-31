@@ -247,7 +247,7 @@ define dso_local i32 @GetTopTransactionId() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AssignTransactionId(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @AssignTransactionId(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = alloca %struct.xl_xact_assignment, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -457,7 +457,7 @@ define dso_local i64 @GetTopFullTransactionId() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #2 {
@@ -1113,7 +1113,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @SaveTransactionCharacteristics(ptr nocapture noundef writeonly initializes((0, 6)) %0) local_unnamed_addr #12 {
+define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly captures(none) initializes((0, 6)) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr @XactIsoLevel, align 4
   store i32 %2, ptr %0, align 4
   %3 = load i8, ptr @XactReadOnly, align 1
@@ -1128,7 +1128,7 @@ define dso_local void @SaveTransactionCharacteristics(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @RestoreTransactionCharacteristics(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define dso_local void @RestoreTransactionCharacteristics(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load i32, ptr %0, align 4
   store i32 %2, ptr @XactIsoLevel, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4106,7 +4106,7 @@ define dso_local void @ReleaseSavepoint(ptr noundef %0) local_unnamed_addr #1 {
   %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
   tail call void @llvm.assume(i1 %42)
   %43 = tail call i32 @errcode(i32 noundef 16778371) #22
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %0) #22
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %0) #22
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4404, ptr noundef nonnull @__func__.ReleaseSavepoint) #22
   unreachable
 
@@ -4124,7 +4124,7 @@ define dso_local void @ReleaseSavepoint(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RollbackToSavepoint(ptr noundef %0) local_unnamed_addr #1 {
@@ -4233,7 +4233,7 @@ define dso_local void @RollbackToSavepoint(ptr noundef %0) local_unnamed_addr #1
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
   tail call void @llvm.assume(i1 %43)
   %44 = tail call i32 @errcode(i32 noundef 16778371) #22
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %0) #22
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %0) #22
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4513, ptr noundef nonnull @__func__.RollbackToSavepoint) #22
   unreachable
 
@@ -4699,7 +4699,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #9
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SerializeTransactionState(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 5), (8, 28)) %1) local_unnamed_addr #1 {
+define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 5), (8, 28)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @XactIsoLevel, align 4
   store i32 %3, ptr %1, align 8
   %4 = load i8, ptr @XactDeferrable, align 1
@@ -4859,7 +4859,7 @@ define dso_local void @EndParallelWorkerTransaction() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @xactGetCommittedChildren(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #15 {
+define dso_local i32 @xactGetCommittedChildren(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #15 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load i32, ptr %3, align 8
@@ -5107,7 +5107,7 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #23
   %115 = trunc i64 %114 to i32
   %116 = add i32 %115, 1
-  call void @XLogRegisterData(ptr noundef %12, i32 noundef %116) #22
+  call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef %116) #22
   %.pre51 = load i32, ptr %15, align 4
   br label %117
 
@@ -5134,7 +5134,7 @@ declare void @XLogBeginInsert() local_unnamed_addr #9
 declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @XLogSetRecordFlags(i8 noundef zeroext) local_unnamed_addr #9
 
@@ -5310,7 +5310,7 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %83 = trunc i64 %82 to i32
   %84 = add i32 %83, 1
-  call void @XLogRegisterData(ptr noundef %9, i32 noundef %84) #22
+  call void @XLogRegisterData(ptr noundef nonnull %9, i32 noundef %84) #22
   %.pre43 = load i32, ptr %12, align 4
   br label %85
 
@@ -5333,7 +5333,7 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.xl_xact_parsed_commit, align 8
   %3 = alloca %struct.xl_xact_parsed_commit, align 8
   %4 = alloca %struct.xl_xact_parsed_abort, align 8
@@ -5479,7 +5479,7 @@ default.unreachable:                              ; preds = %1
 declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_commit(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5610,7 +5610,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #9
 declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_abort(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5739,7 +5739,7 @@ declare void @AcceptInvalidationMessages() local_unnamed_addr #9
 declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6295,13 +6295,13 @@ declare void @llvm.assume(i1 noundef) #17
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

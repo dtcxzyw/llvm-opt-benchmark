@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace781, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw780], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @vlv_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @vlv_plane_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4329
@@ -104,13 +104,13 @@ define dso_local i32 @vlv_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ivb_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ivb_plane_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -157,7 +157,7 @@ define dso_local i32 @ivb_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @hsw_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @hsw_plane_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -184,7 +184,7 @@ define dso_local i32 @hsw_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @chv_plane_check_rotation(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @chv_plane_check_rotation(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -367,7 +367,7 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
 declare dso_local ptr @intel_plane_alloc() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @vlv_sprite_update_noarm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
@@ -572,7 +572,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal void @vlv_sprite_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = alloca [8 x i16], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
@@ -2205,7 +2205,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @vlv_sprite_disable_arm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -2331,7 +2331,7 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @vlv_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal zeroext i1 @vlv_sprite_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %5 = load i32, ptr %4, align 4
@@ -2428,7 +2428,7 @@ define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
 declare dso_local i32 @i965_plane_max_stride(ptr noundef, i32 noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @ivb_sprite_update_noarm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
@@ -2724,7 +2724,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal void @ivb_sprite_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = alloca [18 x i16], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
@@ -3710,7 +3710,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @ivb_sprite_disable_arm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -3898,7 +3898,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ivb_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal zeroext i1 @ivb_sprite_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -4143,7 +4143,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16385) i32 @hsw_sprite_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 %2, i32 %3) #2 align 16 {
+define internal range(i32 0, 16385) i32 @hsw_sprite_max_stride(ptr readnone captures(none) %0, i32 noundef %1, i64 %2, i32 %3) #2 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i8, ptr %6, align 2
@@ -4154,7 +4154,7 @@ define internal range(i32 0, 16385) i32 @hsw_sprite_max_stride(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16385) i32 @g4x_sprite_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i32 %3) #2 align 16 {
+define internal range(i32 0, 16385) i32 @g4x_sprite_max_stride(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i32 %3) #2 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #11
   %6 = icmp eq i64 %2, 72057594037927937
   br i1 %6, label %7, label %13
@@ -4173,7 +4173,7 @@ define internal range(i32 0, 16385) i32 @g4x_sprite_max_stride(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal i32 @ivb_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @ivb_sprite_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 108
@@ -4257,7 +4257,7 @@ define internal i32 @ivb_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @g4x_sprite_update_noarm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
@@ -4543,7 +4543,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal void @g4x_sprite_update_arm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = alloca [17 x i16], align 16
   %5 = alloca [8 x i16], align 16
   %6 = load ptr, ptr %0, align 8
@@ -5394,7 +5394,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @g4x_sprite_disable_arm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -5572,7 +5572,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @g4x_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal zeroext i1 @g4x_sprite_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -5601,7 +5601,7 @@ define internal zeroext i1 @g4x_sprite_get_hw_state(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @g4x_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal i32 @g4x_sprite_min_cdclk(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -5673,7 +5673,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare dso_local i32 @intel_fb_xy_to_linear(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @intel_display_power_get_if_enabled(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -5691,7 +5691,7 @@ declare dso_local i32 @i9xx_check_plane_surface(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @intel_plane_check_src_coordinates(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @vlv_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vlv_sprite_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -5853,7 +5853,7 @@ define internal noundef zeroext i1 @vlv_sprite_format_mod_supported(ptr noundef 
 declare dso_local zeroext i1 @intel_fb_plane_supports_modifier(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -5988,7 +5988,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @g4x_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @g4x_sprite_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184

@@ -329,7 +329,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 declare void @av1_free_restoration_struct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_free_above_context_buffers(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -450,7 +450,7 @@ define hidden void @av1_free_context_buffers(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr nocapture noundef initializes((40, 52)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef captures(none) initializes((40, 52)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = add nsw i32 %2, 31
   %6 = and i32 %5, -32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -697,7 +697,7 @@ define hidden void @av1_init_mi_buffers(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -931,7 +931,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2lp10lar_solver16set_cut_strategyEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1888) initializes((332, 336), (340, 344)) %this, i32 noundef %cut_frequency) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp10lar_solver16set_cut_strategyEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1888) initializes((332, 336), (340, 344)) %this, i32 noundef %cut_frequency) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp ult i32 %cut_frequency, 4
   br i1 %cmp, label %if.then, label %if.else
@@ -2238,7 +2238,7 @@ _ZN10ptr_vectorI5trailED2Ev.exit:                 ; preds = %_ZN7svectorIjjED2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver24touched_rows_are_trackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver24touched_rows_are_trackedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_touched_rows = getelementptr inbounds nuw i8, ptr %this, i64 944
   %0 = load ptr, ptr %m_touched_rows, align 8
@@ -3058,7 +3058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17sizes_are_correctEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17sizes_are_correctEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
@@ -3175,7 +3175,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver10print_termERKNS_8lar_termERSo(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %term, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver10print_termERKNS_8lar_termERSo(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %term, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca %class.rational, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -3850,7 +3850,7 @@ for.end:                                          ; preds = %_ZNK6vectorIN2lp12n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver36implied_bound_is_correctly_explainedERKNS_13implied_boundERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(72) %be, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %explanation) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver36implied_bound_is_correctly_explainedERKNS_13implied_boundERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(72) %be, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %explanation) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeff_map = alloca %"class.std::unordered_map.95", align 8
   %rs_of_evidence = alloca %class.rational, align 8
@@ -5504,7 +5504,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i24,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2lp10lar_solver8get_termEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2lp10lar_solver8get_termEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_terms = getelementptr inbounds nuw i8, ptr %this, i64 1504
   %and.i = and i32 %j, 2147483647
@@ -5649,7 +5649,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5705,7 +5705,7 @@ _ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17row_has_a_big_numEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17row_has_a_big_numEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %m_rows = getelementptr inbounds nuw i8, ptr %this, i64 688
   %0 = load ptr, ptr %m_rows, align 8
@@ -5859,7 +5859,7 @@ for.end:                                          ; preds = %_ZNK6vectorIPN2lp8l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver19term_is_used_as_rowEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver19term_is_used_as_rowEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.i = or i32 %i, -2147483648
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1088
@@ -6079,7 +6079,7 @@ return:                                           ; preds = %entry, %_ZN9table2m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver24column_to_reported_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef i32 @_ZNK2lp10lar_solver24column_to_reported_indexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %tobool.i = icmp slt i32 %j, 0
   br i1 %tobool.i, label %return, label %if.end
@@ -6114,7 +6114,7 @@ return:                                           ; preds = %_ZNK2lp12var_regist
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver30map_term_index_to_column_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK2lp10lar_solver30map_term_index_to_column_indexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -6168,7 +6168,7 @@ _ZNK2lp12var_register17external_to_localEj.exit:  ; preds = %if.end3.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver10get_statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK2lp10lar_solver10get_statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_status = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load i32, ptr %m_status, align 8
@@ -6176,7 +6176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1888) initializes((368, 372)) %this, i32 noundef %s) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1888) initializes((368, 372)) %this, i32 noundef %s) local_unnamed_addr #5 align 2 {
 entry:
   %m_status = getelementptr inbounds nuw i8, ptr %this, i64 368
   store i32 %s, ptr %m_status, align 8
@@ -6257,7 +6257,7 @@ lpad:                                             ; preds = %if.end21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver21strategy_is_undecidedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver21strategy_is_undecidedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_simplex_strategy.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %0 = load i32, ptr %m_simplex_strategy.i, align 4
@@ -7394,7 +7394,7 @@ _ZN13stacked_valueIjE4pushEv.exit19:              ; preds = %lor.lhs.false.i.i7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver21clean_popped_elementsEjR16indexed_uint_set(i32 noundef %n, ptr nocapture noundef nonnull align 8 dereferenceable(24) %set) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver21clean_popped_elementsEjR16indexed_uint_set(i32 noundef %n, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %set) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %to_remove = alloca %class.vector.9, align 8
   store ptr null, ptr %to_remove, align 8
@@ -9790,7 +9790,7 @@ _ZN2lp14stacked_vectorIjE6resizeINS1_9log_entryEEEvR6vectorIT_Lb1EjEj.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver24maximize_term_on_tableauERKNS_8lar_termERNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr nocapture noundef nonnull align 8 dereferenceable(64) %term_max) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver24maximize_term_on_tableauERKNS_8lar_termERNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %term_max) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp16 = alloca %"struct.lp::numeric_pair", align 8
   %m_mpq_lar_core_solver = getelementptr inbounds nuw i8, ptr %this, i64 408
@@ -10186,7 +10186,7 @@ _ZN8rationalD2Ev.exit4:                           ; preds = %.noexc.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2lp10lar_solver27get_dependencies_of_maximumERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %max_coeffs) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2lp10lar_solver27get_dependencies_of_maximumERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %max_coeffs) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %max_coeffs, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -11150,7 +11150,7 @@ land.end:                                         ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver20get_term_to_maximizeEj(ptr noalias sret(%"class.lp::lar_term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j_or_term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver20get_term_to_maximizeEj(ptr noalias sret(%"class.lp::lar_term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j_or_term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %tobool.i = icmp slt i32 %j_or_term, 0
@@ -11349,7 +11349,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver34maximize_term_on_feasible_r_solverERNS_8lar_termERNS_12numeric_pairI8rationalEEP6vectorISt4pairIS4_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(1888) initializes((324, 325)) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr nocapture noundef nonnull align 8 dereferenceable(64) %term_max, ptr noundef %max_coeffs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver34maximize_term_on_feasible_r_solverERNS_8lar_termERNS_12numeric_pairI8rationalEEP6vectorISt4pairIS4_jELb1EjE(ptr noundef nonnull align 8 dereferenceable(1888) initializes((324, 325)) %this, ptr noundef nonnull align 8 dereferenceable(24) %term, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %term_max, ptr noundef %max_coeffs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19 = alloca %"struct.std::pair", align 8
   %backup_costs = getelementptr inbounds nuw i8, ptr %this, i64 324
@@ -11590,7 +11590,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_var_register = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %m_locals_mask_inverted.i = getelementptr inbounds nuw i8, ptr %this, i64 1124
@@ -11664,19 +11664,19 @@ terminate.lpad:                                   ; preds = %_ZN6vectorISt4pairI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver28costs_are_zeros_for_r_solverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver28costs_are_zeros_for_r_solverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver37reduced_costs_are_zeroes_for_r_solverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver37reduced_costs_are_zeroes_for_r_solverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver17set_costs_to_zeroERKNS_8lar_termE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver17set_costs_to_zeroERKNS_8lar_termE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %class.rational, align 8
   %ref.tmp13 = alloca %class.rational, align 8
@@ -12173,7 +12173,7 @@ for.end35:                                        ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver26prepare_costs_for_r_solverERKNS_8lar_termE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver26prepare_costs_for_r_solverERKNS_8lar_termE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.rational, align 8
   %ref.tmp19 = alloca %class.rational, align 8
@@ -13747,7 +13747,7 @@ return:                                           ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver19row_of_basic_columnEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef i32 @_ZNK2lp10lar_solver19row_of_basic_columnEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_r_heading = getelementptr inbounds nuw i8, ptr %this, i64 760
   %0 = load ptr, ptr %m_r_heading, align 8
@@ -15415,7 +15415,7 @@ if.end:                                           ; preds = %if.else.i.i7.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver37substitute_terms_in_linear_expressionERK6vectorISt4pairI8rationaljELb1EjERS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %left_side_with_terms, ptr noundef nonnull align 8 dereferenceable(8) %left_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver37substitute_terms_in_linear_expressionERK6vectorISt4pairI8rationaljELb1EjERS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %left_side_with_terms, ptr noundef nonnull align 8 dereferenceable(8) %left_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeffs = alloca %"class.std::unordered_map.95", align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -16033,7 +16033,7 @@ _ZN7svectorIjjED2Ev.exit:                         ; preds = %for.end42, %invoke.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17use_tableau_costsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17use_tableau_costsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_simplex_strategy.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %0 = load i32, ptr %m_simplex_strategy.i, align 4
@@ -16042,7 +16042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14row_is_correctEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14row_is_correctEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"struct.lp::numeric_pair", align 8
   %ref.tmp = alloca %"struct.lp::numeric_pair", align 8
@@ -16257,7 +16257,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13ax_is_correctEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13ax_is_correctEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_rows.i = getelementptr inbounds nuw i8, ptr %this, i64 688
   br label %for.cond
@@ -16288,7 +16288,7 @@ return:                                           ; preds = %_ZNK2lp13static_mat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver18tableau_with_costsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver18tableau_with_costsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_simplex_strategy.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %0 = load i32, ptr %m_simplex_strategy.i, align 4
@@ -16297,7 +16297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14costs_are_usedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14costs_are_usedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_simplex_strategy.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %0 = load i32, ptr %m_simplex_strategy.i, align 4
@@ -17536,7 +17536,7 @@ for.end:                                          ; preds = %_ZN2lp10lar_solver1
 declare void @_ZN2lp15lar_core_solver8prefix_rEv(ptr noundef nonnull align 8 dereferenceable(632)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11is_feasibleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11is_feasibleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_status.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load i32, ptr %m_status.i, align 8
@@ -17549,7 +17549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver28get_basic_var_value_from_rowEj(ptr noalias sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver28get_basic_var_value_from_rowEj(ptr noalias sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.lp::numeric_pair", align 8
   tail call void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result)
@@ -17740,7 +17740,7 @@ _ZN8rationalmIERKS_.exit17:                       ; preds = %if.then.i.i16, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17var_is_registeredEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %vj) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17var_is_registeredEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %vj) local_unnamed_addr #11 align 2 {
 entry:
   %tobool.i = icmp slt i32 %vj, 0
   br i1 %tobool.i, label %if.then, label %if.end
@@ -17784,7 +17784,7 @@ return:                                           ; preds = %_ZNK2lp13static_mat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver40all_constrained_variables_are_registeredERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %left_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver40all_constrained_variables_are_registeredERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %left_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %it = alloca %"struct.std::pair", align 8
   %0 = load ptr, ptr %left_side, align 8
@@ -18392,7 +18392,7 @@ eh.resume:                                        ; preds = %lpad3, %ehcleanup, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16constraint_holdsERKNS_19lar_base_constraintERSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(64) %constr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %var_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16constraint_holdsERKNS_19lar_base_constraintERSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(64) %constr, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %var_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %left_side_val = alloca %class.rational, align 8
   call void @_ZNK2lp10lar_solver17get_left_side_valERKNS_19lar_base_constraintERKSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE(ptr nonnull sret(%class.rational) align 8 %left_side_val, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %constr, ptr noundef nonnull align 8 dereferenceable(56) %var_map)
@@ -18736,7 +18736,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver17get_left_side_valERKNS_19lar_base_constraintERKSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %cns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %var_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver17get_left_side_valERKNS_19lar_base_constraintERKSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %cns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %var_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.vector.2, align 8
   %ref.tmp11 = alloca %class.rational, align 8
@@ -18932,7 +18932,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26the_left_sides_sum_to_zeroERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %evidence) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26the_left_sides_sum_to_zeroERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %evidence) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeff_map = alloca %"class.std::unordered_map.95", align 8
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %coeff_map, i64 48
@@ -19036,19 +19036,19 @@ _ZNSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS0_EEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver22explanation_is_correctERNS_11explanationE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %explanation) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver22explanation_is_correctERNS_11explanationE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %explanation) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26inf_explanation_is_correctEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26inf_explanation_is_correctEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver33sum_of_right_sides_of_explanationERNS_11explanationE(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(32) %exp) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver33sum_of_right_sides_of_explanationERNS_11explanationE(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(32) %exp) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1 = alloca %"class.lp::explanation::iterator", align 8
   %__end1 = alloca %"class.lp::explanation::iterator", align 8
@@ -19903,7 +19903,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15has_lower_boundEjRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyER8rationalRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %var, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ci, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %is_strict) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15has_lower_boundEjRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyER8rationalRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %var, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ci, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %is_strict) local_unnamed_addr #4 align 2 {
 entry:
   %m_columns_to_ul_pairs = getelementptr inbounds nuw i8, ptr %this, i64 1200
   %0 = load ptr, ptr %m_columns_to_ul_pairs, align 8
@@ -19984,7 +19984,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15has_upper_boundEjRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyER8rationalRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %var, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ci, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %is_strict) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15has_upper_boundEjRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyER8rationalRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %var, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ci, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %is_strict) local_unnamed_addr #4 align 2 {
 entry:
   %m_columns_to_ul_pairs = getelementptr inbounds nuw i8, ptr %this, i64 1200
   %0 = load ptr, ptr %m_columns_to_ul_pairs, align 8
@@ -20065,7 +20065,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver9has_valueEjR8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %var, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver9has_valueEjR8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %var, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %class.rational, align 8
   %tobool.i = icmp slt i32 %var, 0
@@ -20501,7 +20501,7 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5resetEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver42get_infeasibility_explanation_for_inf_signERNS_11explanationERK6vectorISt4pairI8rationaljELb1EjEi(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(32) %exp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %inf_row, i32 noundef %inf_sign) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver42get_infeasibility_explanation_for_inf_signERNS_11explanationERK6vectorISt4pairI8rationaljELb1EjEi(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(32) %exp, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %inf_row, i32 noundef %inf_sign) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeff = alloca %class.rational, align 8
   %deps = alloca %class.svector, align 8
@@ -21368,7 +21368,7 @@ eh.resume:                                        ; preds = %lpad20.split.us, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver9get_valueERKNS_12column_indexE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %j) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver9get_valueERKNS_12column_indexE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %j) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.rational, align 8
   %m_columns_with_changed_bounds = getelementptr inbounds nuw i8, ptr %this, i64 1312
@@ -21719,7 +21719,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver12get_tv_valueERKNS_2tvE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver12get_tv_valueERKNS_2tvE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.lp::column_index", align 4
   %ref.tmp14 = alloca %class.rational, align 8
@@ -21893,7 +21893,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp10lar_solver13get_tv_ivalueERKNS_2tvE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %t) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp10lar_solver13get_tv_ivalueERKNS_2tvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %t) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %t, align 4
   %cmp.i = icmp sgt i32 %0, -1
@@ -22328,7 +22328,7 @@ eh.resume:                                        ; preds = %lpad9, %ehcleanup, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver17set_variable_nameEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %vi, ptr noundef nonnull %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver17set_variable_nameEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %vi, ptr noundef nonnull %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22371,7 +22371,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10lar_solver17get_variable_nameB5cxx11Ej(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10lar_solver17get_variable_nameB5cxx11Ej(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strs.i100 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %strs.i64 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -22894,7 +22894,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26column_corresponds_to_termEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver26column_corresponds_to_termEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_var_register = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %m_locals_mask_inverted.i = getelementptr inbounds nuw i8, ptr %this, i64 1124
@@ -23454,7 +23454,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver30fill_var_set_for_random_updateEjPKjR6vectorIjLb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %sz, ptr nocapture noundef readonly %vars, ptr noundef nonnull align 8 dereferenceable(8) %column_list) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver30fill_var_set_for_random_updateEjPKjR6vectorIjLb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %sz, ptr noundef readonly captures(none) %vars, ptr noundef nonnull align 8 dereferenceable(8) %column_list) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp50.not = icmp eq i32 %sz, 0
   br i1 %cmp50.not, label %for.end, label %for.body.lr.ph
@@ -23629,7 +23629,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver13random_updateEjPKj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %sz, ptr nocapture noundef readonly %vars) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver13random_updateEjPKj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %sz, ptr noundef readonly captures(none) %vars) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %column_list = alloca %class.vector.10, align 8
   %ru = alloca %"class.lp::random_updater", align 8
@@ -23795,7 +23795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver32column_represents_row_in_tableauEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver32column_represents_row_in_tableauEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_columns_to_ul_pairs = getelementptr inbounds nuw i8, ptr %this, i64 1200
   %0 = load ptr, ptr %m_columns_to_ul_pairs, align 8
@@ -24134,7 +24134,7 @@ _ZN6vectorIN2lp8row_cellI8rationalEELb1EjED2Ev.exit: ; preds = %_ZN6vectorIN2lp8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2lp10lar_solver25remove_last_column_from_AEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver25remove_last_column_from_AEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_columns = getelementptr inbounds nuw i8, ptr %this, i64 696
   %0 = load ptr, ptr %m_columns, align 8
@@ -24181,7 +24181,7 @@ _ZN6vectorIS_IN2lp8row_cellINS0_12empty_structEEELb1EjELb1EjE8pop_backEv.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2lp10lar_solver37remove_last_column_from_basis_tableauEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN2lp10lar_solver37remove_last_column_from_basis_tableauEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #15 align 2 {
 entry:
   %m_basis_heading = getelementptr inbounds nuw i8, ptr %this, i64 848
   %0 = load ptr, ptr %m_basis_heading, align 8
@@ -24799,7 +24799,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver21model_is_int_feasibleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver21model_is_int_feasibleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_columns.i = getelementptr inbounds nuw i8, ptr %this, i64 696
   %0 = load ptr, ptr %m_columns.i, align 8
@@ -24861,7 +24861,7 @@ return:                                           ; preds = %_ZNK2lp10lar_solver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11term_is_intEPKNS_8lar_termE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef readonly %t) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11term_is_intEPKNS_8lar_termE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef readonly captures(none) %t) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
@@ -24945,7 +24945,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11term_is_intERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %coeffs) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11term_is_intERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %coeffs) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %coeffs, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -24999,7 +24999,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver10var_is_intEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %v) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver10var_is_intEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %v) local_unnamed_addr #11 align 2 {
 entry:
   %tobool.i = icmp slt i32 %v, 0
   br i1 %tobool.i, label %if.then, label %if.else
@@ -25104,7 +25104,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15column_is_fixedEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver15column_is_fixedEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_vector.i.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %0 = load ptr, ptr %m_vector.i.i, align 8
@@ -25116,7 +25116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14column_is_freeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver14column_is_freeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j) local_unnamed_addr #11 align 2 {
 entry:
   %m_vector.i.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %0 = load ptr, ptr %m_vector.i.i, align 8
@@ -25409,7 +25409,7 @@ return:                                           ; preds = %_ZNK2lp12var_regist
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver24external_to_column_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %ext_j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK2lp10lar_solver24external_to_column_indexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %ext_j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %0 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
@@ -25682,7 +25682,7 @@ _ZN2lp14stacked_vectorINS_11column_typeEE9push_backERKS1_.exit: ; preds = %lor.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11has_int_varEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver11has_int_varEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_var_register = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %0 = load ptr, ptr %m_var_register, align 8
@@ -25927,7 +25927,7 @@ return:                                           ; preds = %_ZNK2lp12var_regist
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16external_is_usedEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %v) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16external_is_usedEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %v) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -26827,7 +26827,7 @@ for.end:                                          ; preds = %for.body, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -2147483648, 0) i32 @_ZN2lp10lar_solver18add_term_undecidedERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %coeffs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -2147483648, 0) i32 @_ZN2lp10lar_solver18add_term_undecidedERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %coeffs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
   %call.i.i.i.i.i.i.i1 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 384)
@@ -27061,7 +27061,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver23all_vars_are_registeredERK6vectorISt4pairI8rationaljELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %coeffs) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver23all_vars_are_registeredERK6vectorISt4pairI8rationaljELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %coeffs) local_unnamed_addr #11 align 2 {
 entry:
   %coeffs.val = load ptr, ptr %coeffs, align 8
   %cmp.i.i.i = icmp eq ptr %coeffs.val, null
@@ -27107,7 +27107,7 @@ for.body.i:                                       ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver17subst_known_termsEPNS_8lar_termE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr noundef %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver17subst_known_termsEPNS_8lar_termE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seen_terms = alloca %"class.std::set", align 8
   %j25 = alloca i32, align 4
@@ -27721,7 +27721,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -2147483648, 0) i32 @_ZN2lp10lar_solver8add_termERK6vectorISt4pairI8rationaljELb1EjEj(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %coeffs, i32 noundef %ext_i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -2147483648, 0) i32 @_ZN2lp10lar_solver8add_termERK6vectorISt4pairI8rationaljELb1EjEj(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %coeffs, i32 noundef %ext_i) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_term_register = getelementptr inbounds nuw i8, ptr %this, i64 1128
   %0 = load ptr, ptr %coeffs, align 8
@@ -28979,7 +28979,7 @@ ehcleanup18:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZN2lp10lar_solver13ensure_columnEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %vi) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN2lp10lar_solver13ensure_columnEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %vi) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i = icmp slt i32 %vi, 0
   br i1 %tobool.i, label %if.then, label %return
@@ -29041,7 +29041,7 @@ return:                                           ; preds = %entry, %_ZNK2lp10la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK2lp10lar_solver9to_columnEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %ext_j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK2lp10lar_solver9to_columnEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %ext_j) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -29599,7 +29599,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver35bound_is_integer_for_integer_columnEjRK8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right_side) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver35bound_is_integer_for_integer_columnEjRK8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %right_side) local_unnamed_addr #11 align 2 {
 entry:
   %m_var_register.i = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %m_locals_mask_inverted.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1124
@@ -29629,7 +29629,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp10lar_solver28add_var_bound_check_on_equalEjNS_16lconstraint_kindERK8rationalRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(32) %right_side, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %equal_var) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN2lp10lar_solver28add_var_bound_check_on_equalEjNS_16lconstraint_kindERK8rationalRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(32) %right_side, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %equal_var) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN2lp10lar_solver12mk_var_boundEjNS_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(32) %right_side)
   %m_constraints.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1264
@@ -29756,7 +29756,7 @@ if.end:                                           ; preds = %.noexc.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver23activate_check_on_equalEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %ci, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %equal_column) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2lp10lar_solver23activate_check_on_equalEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %ci, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %equal_column) local_unnamed_addr #4 align 2 {
 entry:
   %m_constraints.i = getelementptr inbounds nuw i8, ptr %this, i64 1264
   %0 = load ptr, ptr %m_constraints.i, align 8
@@ -30143,7 +30143,7 @@ _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %equal_to_j) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2lp10lar_solver27register_in_fixed_var_tableEjRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %equal_to_j) local_unnamed_addr #4 align 2 {
 entry:
   %j.addr = alloca i32, align 4
   store i32 %j, ptr %j.addr, align 4
@@ -30326,7 +30326,7 @@ lpad:                                             ; preds = %_ZN9_key_dataI8rati
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver43update_column_type_and_bound_check_on_equalEjRK8rationaljRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull align 8 dereferenceable(32) %right_side, i32 noundef %constr_index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %equal_to_j) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2lp10lar_solver43update_column_type_and_bound_check_on_equalEjRK8rationaljRj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull align 8 dereferenceable(32) %right_side, i32 noundef %constr_index, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %equal_to_j) local_unnamed_addr #4 align 2 {
 entry:
   %m_constraints.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1264
   %0 = load ptr, ptr %m_constraints.i.i, align 8
@@ -30462,7 +30462,7 @@ _ZN2lp14constraint_set8activateEj.exit:           ; preds = %entry, %_ZN6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver20adjust_bound_for_intEjRNS_16lconstraint_kindERK8rational(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j, ptr nocapture noundef nonnull align 4 dereferenceable(4) %k, ptr noundef nonnull align 8 dereferenceable(32) %bound) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver20adjust_bound_for_intEjRNS_16lconstraint_kindERK8rational(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %k, ptr noundef nonnull align 8 dereferenceable(32) %bound) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_var_register.i = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %m_locals_mask_inverted.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1124
@@ -30979,7 +30979,7 @@ return:                                           ; preds = %.noexc.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver14compare_valuesEjNS_16lconstraint_kindERK8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(32) %rhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver14compare_valuesEjNS_16lconstraint_kindERK8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(32) %rhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.i = icmp slt i32 %j, 0
   br i1 %tobool.i, label %if.then, label %if.end
@@ -31046,7 +31046,7 @@ if.end:                                           ; preds = %_ZNK2lp10lar_solver
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver14compare_valuesERKNS_12numeric_pairI8rationalEENS_16lconstraint_kindERKS2_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %lhs, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(32) %rhs) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver14compare_valuesERKNS_12numeric_pairI8rationalEENS_16lconstraint_kindERKS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %lhs, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(32) %rhs) local_unnamed_addr #4 align 2 {
 entry:
   switch i32 %k, label %sw.default [
     i32 -1, label %sw.bb
@@ -32142,7 +32142,7 @@ _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN2lp10lar_solver7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver28add_bound_negation_to_solverERS0_jNS_16lconstraint_kindERK8rational(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(1888) %ls, i32 noundef %j, i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(32) %right_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver28add_bound_negation_to_solverERS0_jNS_16lconstraint_kindERK8rational(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(1888) %ls, i32 noundef %j, i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(32) %right_side) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 1088
   %0 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
@@ -32503,7 +32503,7 @@ sw.epilog:                                        ; preds = %_ZN6vectorIjLb0EjE9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver26add_constraint_to_validateERS0_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(1888) %ls, i32 noundef %ci) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver26add_constraint_to_validateERS0_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(1888) %ls, i32 noundef %ci) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeffs = alloca %class.vector.2, align 8
   %ref.tmp = alloca %class.vector.2, align 8
@@ -39447,7 +39447,7 @@ lor.end:                                          ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaERKNS_2tvERKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %t, ptr noundef nonnull align 8 dereferenceable(64) %delta) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaERKNS_2tvERKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %t, ptr noundef nonnull align 8 dereferenceable(64) %delta) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.lp::numeric_pair", align 8
   %ref.tmp7 = alloca %"struct.lp::numeric_pair", align 8
@@ -41470,7 +41470,7 @@ for.end26:                                        ; preds = %_ZNK6vectorIPN2lp8l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16sum_first_coordsERKNS_8lar_termER8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %t, ptr noundef nonnull align 8 dereferenceable(32) %val) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver16sum_first_coordsERKNS_8lar_termER8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %t, ptr noundef nonnull align 8 dereferenceable(32) %val) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %ref.tmp13 = alloca %class.rational, align 8
@@ -41677,7 +41677,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver49get_equality_and_right_side_for_term_on_current_xERKNS_2tvER8rationalRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %t, ptr noundef nonnull align 8 dereferenceable(32) %rs, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ci, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %upper_bound) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver49get_equality_and_right_side_for_term_on_current_xERKNS_2tvER8rationalRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %t, ptr noundef nonnull align 8 dereferenceable(32) %rs, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ci, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %upper_bound) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %class.rational, align 8
   %m_var_register = getelementptr inbounds nuw i8, ptr %this, i64 1056
@@ -42484,7 +42484,7 @@ return:                                           ; preds = %_ZN14core_hashtable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver26deregister_normalized_termERKNS_8lar_termE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver26deregister_normalized_termERKNS_8lar_termE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %class.rational, align 8
   %normalized_t = alloca %"class.lp::lar_term", align 8
@@ -42761,7 +42761,7 @@ if.end:                                           ; preds = %_ZNK6vectorIPN2lp8l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver28fetch_normalized_term_columnERKNS_8lar_termERSt4pairI8rationaljE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %c, ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %a_j) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver28fetch_normalized_term_columnERKNS_8lar_termERSt4pairI8rationaljE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %c, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %a_j) local_unnamed_addr #4 align 2 {
 entry:
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1552
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
@@ -42834,7 +42834,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10lar_solver22unfold_nested_subtermsERKNS_8lar_termE(ptr noalias sret(%"class.lp::lar_term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10lar_solver22unfold_nested_subtermsERKNS_8lar_termE(ptr noalias sret(%"class.lp::lar_term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %term) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %todo = alloca %class.vector.112, align 8
   %ref.tmp = alloca %"struct.std::pair.162", align 8
@@ -44331,7 +44331,7 @@ ehcleanup56:                                      ; preds = %ehcleanup55, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13inside_boundsEjRKNS_12numeric_pairI8rationalEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull align 8 dereferenceable(64) %val) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2lp10lar_solver13inside_boundsEjRKNS_12numeric_pairI8rationalEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1888) %this, i32 noundef %j, ptr noundef nonnull align 8 dereferenceable(64) %val) local_unnamed_addr #4 align 2 {
 entry:
   %m_column_types.i.i = getelementptr inbounds nuw i8, ptr %this, i64 896
   %0 = load ptr, ptr %m_column_types.i.i, align 8
@@ -44697,7 +44697,7 @@ _ZN6vectorIP5trailLb0EjED2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -51651,7 +51651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2lp19lar_term_constraint6coeffsEv(ptr noalias sret(%class.vector.2) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
@@ -52626,7 +52626,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -59982,10 +59982,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26

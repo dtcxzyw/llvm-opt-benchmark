@@ -4,17 +4,17 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_sun_awt_DebugSettings_setCTracingOn__Z(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_DebugSettings_setCTracingOn__Z(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_sun_awt_DebugSettings_setCTracingOn__ZLjava_lang_String_2(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_DebugSettings_setCTracingOn__ZLjava_lang_String_2(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_sun_awt_DebugSettings_setCTracingOn__ZLjava_lang_String_2I(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_DebugSettings_setCTracingOn__ZLjava_lang_String_2I(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   ret void
 }
 

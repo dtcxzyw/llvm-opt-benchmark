@@ -828,7 +828,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -968,22 +968,23 @@ get_at_packet_info.exit:                          ; preds = %get_at_conv_info.ex
   %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.v.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  %81 = icmp eq i32 %.1, 2
+  %78 = icmp eq i32 %.1, 2
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %.pre = load i32, ptr %77, align 4
   br label %82
 
-82:                                               ; preds = %.lr.ph, %375
-  %.066127 = phi i32 [ 0, %.lr.ph ], [ %.167, %375 ]
-  %.068123 = phi i32 [ 0, %.lr.ph ], [ %.169, %375 ]
-  %83 = load i32, ptr %76, align 8
-  %84 = load i32, ptr %77, align 4
-  %85 = icmp ugt i32 %83, %84
+82:                                               ; preds = %.lr.ph, %377
+  %83 = phi i32 [ %.pre, %.lr.ph ], [ %378, %377 ]
+  %.066127 = phi i32 [ 0, %.lr.ph ], [ %.167, %377 ]
+  %.068123 = phi i32 [ 0, %.lr.ph ], [ %.169, %377 ]
+  %84 = load i32, ptr %76, align 8
+  %85 = icmp ugt i32 %84, %83
   br i1 %85, label %86, label %121
 
 86:                                               ; preds = %82
-  %87 = load i32, ptr %78, align 8
+  %87 = load i32, ptr %80, align 8
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.066127) #9
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %90, label %92
@@ -1022,23 +1023,23 @@ get_at_packet_info.exit:                          ; preds = %get_at_conv_info.ex
 .critedge.i:                                      ; preds = %103, %.critedge.split.loop.exit60.i
   %.0.lcssa.i = phi i32 [ %104, %.critedge.split.loop.exit60.i ], [ %88, %103 ]
   %105 = load i32, ptr @hf_data_part, align 4
-  %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %105, ptr noundef %0, i32 noundef %.066127, i32 noundef %.0.lcssa.i, ptr noundef nonnull @.str.506, i32 noundef %87, i32 noundef %84) #9
+  %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %105, ptr noundef %0, i32 noundef %.066127, i32 noundef %.0.lcssa.i, ptr noundef nonnull @.str.506, i32 noundef %87, i32 noundef %83) #9
   %107 = load i32, ptr @ett_at_data_part, align 4
   %108 = call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107) #9
-  %109 = load ptr, ptr %79, align 8
+  %109 = load ptr, ptr %81, align 8
   %.not56.i = icmp eq ptr %109, null
   br i1 %.not56.i, label %117, label %110
 
 110:                                              ; preds = %.critedge.i
-  %111 = load i16, ptr %80, align 4
-  %112 = call i32 %109(ptr noundef %0, ptr noundef %1, ptr noundef %108, i32 noundef %.066127, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %111, ptr noundef nonnull %96, i32 noundef %84, i32 noundef %.0.lcssa.i, ptr noundef nonnull %.0.i) #9
+  %111 = load i16, ptr %79, align 4
+  %112 = call i32 %109(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %108, i32 noundef %.066127, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %111, ptr noundef nonnull %96, i32 noundef %83, i32 noundef %.0.lcssa.i, ptr noundef nonnull %.0.i) #9
   %.not57.i = icmp eq i32 %112, 0
   br i1 %.not57.i, label %113, label %117
 
 113:                                              ; preds = %110
   %114 = load i32, ptr @hf_unknown_parameter, align 4
   %115 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %114, ptr noundef %0, i32 noundef %.066127, i32 noundef %.0.lcssa.i, i32 noundef 0) #9
-  %116 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %115, ptr noundef nonnull @ei_unknown_parameter) #9
+  %116 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %115, ptr noundef nonnull @ei_unknown_parameter) #9
   br label %117
 
 117:                                              ; preds = %113, %110, %.critedge.i
@@ -1050,7 +1051,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   %119 = load i32, ptr %77, align 4
   %120 = add i32 %119, 1
   store i32 %120, ptr %77, align 4
-  br label %375
+  br label %377
 
 121:                                              ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -1060,7 +1061,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
 
 124:                                              ; preds = %121
   %125 = call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %dissect_at_command.exit
+  br label %370
 
 126:                                              ; preds = %121
   %.not.i79 = icmp eq i32 %.068123, 0
@@ -1098,7 +1099,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   br i1 %.not404.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %130
-  br i1 %81, label %146, label %.lr.ph493.preheader.i
+  br i1 %78, label %146, label %.lr.ph493.preheader.i
 
 146:                                              ; preds = %._crit_edge.i
   br i1 %.not.i79, label %147, label %.preheader470.i
@@ -1279,7 +1280,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
 216:                                              ; preds = %205
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0378566.i, ptr noundef nonnull @.str.511) #9
   %217 = add i32 %.3370.lcssa.i, %.1362574.i
-  br label %proto_item_set_generated.exit.i
+  br label %271
 
 218:                                              ; preds = %215, %213
   %219 = add i32 %.3370.lcssa.i, %.1362574.i
@@ -1287,7 +1288,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   %221 = load ptr, ptr %.0359.i, align 8
   %222 = call i32 @g_strcmp0(ptr noundef %221, ptr noundef nonnull @.str.512) #9
   %.not418.i = icmp eq i32 %222, 0
-  br i1 %.not418.i, label %proto_item_set_generated.exit.i, label %223
+  br i1 %.not418.i, label %271, label %223
 
 223:                                              ; preds = %218
   %224 = icmp sgt i32 %220, 1
@@ -1311,7 +1312,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   %236 = call ptr @proto_tree_add_uint(ptr noundef %.0380565.i, i32 noundef %235, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef 15679) #9
   %237 = add i32 %219, 2
   %238 = add nuw i32 %.3370.lcssa.i, 2
-  br label %proto_item_set_generated.exit.i
+  br label %271
 
 239:                                              ; preds = %225
   %240 = icmp eq i8 %228, 13
@@ -1329,7 +1330,7 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   %247 = call ptr @proto_tree_add_uint(ptr noundef %.0380565.i, i32 noundef %246, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef 3338) #9
   %248 = add i32 %219, 2
   %249 = add nuw i32 %.3370.lcssa.i, 2
-  br label %proto_item_set_generated.exit.i
+  br label %271
 
 250:                                              ; preds = %223
   %251 = icmp eq i32 %220, 1
@@ -1357,335 +1358,336 @@ dissect_at_command_continuation.exit:             ; preds = %90, %117
   %256 = zext nneg i8 %253 to i32
   %257 = call ptr @proto_tree_add_uint(ptr noundef %.0380565.i, i32 noundef %255, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef %256) #9
   %258 = add i32 %219, 1
-  br label %proto_item_set_generated.exit.i
+  br label %271
 
 259:                                              ; preds = %.thread456.i, %250
   %260 = icmp eq i32 %.0365573.i, %.3370.lcssa.i
-  br i1 %260, label %261, label %proto_item_set_generated.exit.i
+  br i1 %260, label %261, label %271
 
 261:                                              ; preds = %259
   %262 = load i32, ptr @hf_at_cmd_type, align 4
   %263 = call ptr @proto_tree_add_uint(ptr noundef %.0380565.i, i32 noundef %262, ptr noundef %0, i32 noundef %219, i32 noundef 0, i32 noundef 13) #9
   %.not.i.i83 = icmp eq ptr %263, null
-  br i1 %.not.i.i83, label %proto_item_set_generated.exit.i, label %264
+  br i1 %.not.i.i83, label %271, label %264
 
 264:                                              ; preds = %261
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %266 = load ptr, ptr %265, align 8
   %.not5.i.i = icmp eq ptr %266, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %267
+  br i1 %.not5.i.i, label %271, label %267
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 28
   %269 = load i32, ptr %268, align 4
   %270 = or i32 %269, 2
   store i32 %270, ptr %268, align 4
-  br label %proto_item_set_generated.exit.i
+  br label %271
 
-proto_item_set_generated.exit.i:                  ; preds = %216, %218, %234, %245, %.thread456.thread.i, %259, %261, %264, %267
+271:                                              ; preds = %267, %264, %261, %259, %.thread456.thread.i, %245, %234, %218, %216
   %.4371.i = phi i32 [ %238, %234 ], [ %249, %245 ], [ %207, %.thread456.thread.i ], [ %.3370.lcssa.i, %259 ], [ %.3370.lcssa.i, %218 ], [ %.3370.lcssa.i, %216 ], [ %.0365573.i, %261 ], [ %.0365573.i, %264 ], [ %.0365573.i, %267 ]
   %.2363.i = phi i32 [ %237, %234 ], [ %248, %245 ], [ %258, %.thread456.thread.i ], [ %219, %259 ], [ %219, %218 ], [ %217, %216 ], [ %219, %261 ], [ %219, %264 ], [ %219, %267 ]
   %.0349.i = phi i16 [ 15679, %234 ], [ 3338, %245 ], [ %254, %.thread456.thread.i ], [ 0, %259 ], [ 0, %218 ], [ 0, %216 ], [ 13, %261 ], [ 13, %264 ], [ 13, %267 ]
-  %271 = call i64 @g_strlcpy(ptr noundef nonnull %75, ptr noundef %209, i64 noundef 20) #9
-  store i16 %.0349.i, ptr %80, align 4
+  %272 = call i64 @g_strlcpy(ptr noundef nonnull %75, ptr noundef %209, i64 noundef 20) #9
+  store i16 %.0349.i, ptr %79, align 4
   store i32 0, ptr %76, align 8
   store i32 0, ptr %77, align 4
-  br i1 %.not417.i, label %279, label %272
+  br i1 %.not417.i, label %280, label %273
 
-272:                                              ; preds = %proto_item_set_generated.exit.i
-  %273 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 16
-  %274 = load ptr, ptr %273, align 8
-  %.not420.i = icmp eq ptr %274, null
-  br i1 %.not420.i, label %279, label %275
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 16
+  %275 = load ptr, ptr %274, align 8
+  %.not420.i = icmp eq ptr %275, null
+  br i1 %.not420.i, label %280, label %276
 
-275:                                              ; preds = %272
-  %276 = call i32 %274(i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i) #9
-  %.not421.i = icmp eq i32 %276, 0
-  br i1 %.not421.i, label %277, label %279
+276:                                              ; preds = %273
+  %277 = call i32 %275(i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i) #9
+  %.not421.i = icmp eq i32 %277, 0
+  br i1 %.not421.i, label %278, label %280
 
-277:                                              ; preds = %275
-  %278 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0378566.i, ptr noundef nonnull @ei_invalid_usage) #9
-  br label %279
+278:                                              ; preds = %276
+  %279 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0378566.i, ptr noundef nonnull @ei_invalid_usage) #9
+  br label %280
 
-279:                                              ; preds = %277, %275, %272, %proto_item_set_generated.exit.i
-  %280 = load i32, ptr @hf_parameters, align 4
-  %281 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %.0380565.i, i32 noundef %280, ptr noundef %0, i32 noundef %.2363.i, i32 noundef 0, ptr noundef nonnull @.str.4) #9
-  %282 = load i32, ptr @ett_at_parameters, align 4
-  %283 = call ptr @proto_item_add_subtree(ptr noundef %281, i32 noundef %282) #9
+280:                                              ; preds = %278, %276, %273, %271
+  %281 = load i32, ptr @hf_parameters, align 4
+  %282 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %.0380565.i, i32 noundef %281, ptr noundef %0, i32 noundef %.2363.i, i32 noundef 0, ptr noundef nonnull @.str.4) #9
+  %283 = load i32, ptr @ett_at_parameters, align 4
+  %284 = call ptr @proto_item_add_subtree(ptr noundef %282, i32 noundef %283) #9
   store ptr null, ptr %5, align 8
-  %284 = icmp slt i32 %.4371.i, %.0365573.i
-  br i1 %284, label %.preheader468.lr.ph.i, label %.loopexit.thread.i
+  %285 = icmp slt i32 %.4371.i, %.0365573.i
+  br i1 %285, label %.preheader468.lr.ph.i, label %.loopexit.thread.i
 
-.loopexit.thread.i:                               ; preds = %279
-  %285 = add i32 %.4371.i, %.0366572.i
-  call void @proto_item_set_len(ptr noundef %.0378566.i, i32 noundef %285) #9
-  br label %368
+.loopexit.thread.i:                               ; preds = %280
+  %286 = add i32 %.4371.i, %.0366572.i
+  call void @proto_item_set_len(ptr noundef %.0378566.i, i32 noundef %286) #9
+  br label %369
 
-.preheader468.lr.ph.i:                            ; preds = %279
-  %286 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 24
+.preheader468.lr.ph.i:                            ; preds = %280
+  %287 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 24
   br label %.preheader468.i
 
-.preheader468.i:                                  ; preds = %358, %.preheader468.lr.ph.i
-  %.0354524.i = phi i32 [ 0, %.preheader468.lr.ph.i ], [ %.2356.i, %358 ]
-  %.3364523.i = phi i32 [ %.2363.i, %.preheader468.lr.ph.i ], [ %.6.i, %358 ]
-  %.5372522.i = phi i32 [ %.4371.i, %.preheader468.lr.ph.i ], [ %.8.i, %358 ]
-  br label %287
+.preheader468.i:                                  ; preds = %359, %.preheader468.lr.ph.i
+  %.0354524.i = phi i32 [ 0, %.preheader468.lr.ph.i ], [ %.2356.i, %359 ]
+  %.3364523.i = phi i32 [ %.2363.i, %.preheader468.lr.ph.i ], [ %.6.i, %359 ]
+  %.5372522.i = phi i32 [ %.4371.i, %.preheader468.lr.ph.i ], [ %.8.i, %359 ]
+  br label %288
 
-287:                                              ; preds = %.critedge7.i, %.preheader468.i
-  %.7374.i = phi i32 [ %294, %.critedge7.i ], [ %.5372522.i, %.preheader468.i ]
-  %.5.i = phi i32 [ %293, %.critedge7.i ], [ %.3364523.i, %.preheader468.i ]
-  %288 = sext i32 %.7374.i to i64
-  %289 = getelementptr i8, ptr %.0377568.i, i64 %288
-  %290 = load i8, ptr %289, align 1
-  switch i8 %290, label %.preheader.i [
+288:                                              ; preds = %.critedge7.i, %.preheader468.i
+  %.7374.i = phi i32 [ %295, %.critedge7.i ], [ %.5372522.i, %.preheader468.i ]
+  %.5.i = phi i32 [ %294, %.critedge7.i ], [ %.3364523.i, %.preheader468.i ]
+  %289 = sext i32 %.7374.i to i64
+  %290 = getelementptr i8, ptr %.0377568.i, i64 %289
+  %291 = load i8, ptr %290, align 1
+  switch i8 %291, label %.preheader.i [
     i8 32, label %.critedge7.i
     i8 9, label %.critedge7.i
     i8 13, label %.critedge431.i
   ]
 
-.preheader.i:                                     ; preds = %287
-  %291 = getelementptr i8, ptr %.0377568.i, i64 %288
-  %292 = icmp slt i32 %.7374.i, %.0365573.i
-  br i1 %292, label %.lr.ph514.i, label %.critedge9.i
+.preheader.i:                                     ; preds = %288
+  %292 = getelementptr i8, ptr %.0377568.i, i64 %289
+  %293 = icmp slt i32 %.7374.i, %.0365573.i
+  br i1 %293, label %.lr.ph514.i, label %.critedge9.i
 
-.critedge7.i:                                     ; preds = %287, %287
-  %293 = add i32 %.5.i, 1
-  %294 = add i32 %.7374.i, 1
-  br label %287, !llvm.loop !10
+.critedge7.i:                                     ; preds = %288, %288
+  %294 = add i32 %.5.i, 1
+  %295 = add i32 %.7374.i, 1
+  br label %288, !llvm.loop !10
 
-295:                                              ; preds = %.lr.ph514.i, %303
-  %296 = phi i32 [ %317, %.lr.ph514.i ], [ %305, %303 ]
-  %.0345513.i = phi i32 [ 0, %.lr.ph514.i ], [ 1, %303 ]
-  %.not424512.i = phi i32 [ 1, %.lr.ph514.i ], [ 0, %303 ]
-  %.1358511.i = phi i32 [ %.1358.ph519.i, %.lr.ph514.i ], [ %304, %303 ]
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr i8, ptr %.0377568.i, i64 %297
-  %299 = load i8, ptr %298, align 1
-  switch i8 %299, label %301 [
+296:                                              ; preds = %.lr.ph514.i, %304
+  %297 = phi i32 [ %318, %.lr.ph514.i ], [ %306, %304 ]
+  %.0345513.i = phi i32 [ 0, %.lr.ph514.i ], [ 1, %304 ]
+  %.not424512.i = phi i32 [ 1, %.lr.ph514.i ], [ 0, %304 ]
+  %.1358511.i = phi i32 [ %.1358.ph519.i, %.lr.ph514.i ], [ %305, %304 ]
+  %298 = sext i32 %297 to i64
+  %299 = getelementptr i8, ptr %.0377568.i, i64 %298
+  %300 = load i8, ptr %299, align 1
+  switch i8 %300, label %302 [
     i8 13, label %.critedge9.i
     i8 59, label %.critedge9.i.loopexit
-    i8 34, label %300
+    i8 34, label %301
   ]
 
-300:                                              ; preds = %295
-  br label %301
+301:                                              ; preds = %296
+  br label %302
 
-301:                                              ; preds = %300, %295
-  %.1346.i = phi i32 [ %.not424512.i, %300 ], [ %.0345513.i, %295 ]
-  %302 = icmp eq i32 %.1346.i, 1
-  br i1 %302, label %303, label %307
+302:                                              ; preds = %301, %296
+  %.1346.i = phi i32 [ %.not424512.i, %301 ], [ %.0345513.i, %296 ]
+  %303 = icmp eq i32 %.1346.i, 1
+  br i1 %303, label %304, label %308
 
-303:                                              ; preds = %301
-  %304 = add i32 %.1358511.i, 1
-  %305 = add i32 %304, %.7374.i
-  %306 = icmp slt i32 %305, %.0365573.i
-  br i1 %306, label %295, label %.critedge9.i, !llvm.loop !11
+304:                                              ; preds = %302
+  %305 = add i32 %.1358511.i, 1
+  %306 = add i32 %305, %.7374.i
+  %307 = icmp slt i32 %306, %.0365573.i
+  br i1 %307, label %296, label %.critedge9.i, !llvm.loop !11
 
-307:                                              ; preds = %301
-  %308 = icmp eq i8 %299, 40
-  %309 = zext i1 %308 to i32
-  %spec.select.i = add i32 %.0347.ph520.i, %309
-  %310 = icmp eq i8 %299, 41
-  %311 = sext i1 %310 to i32
-  %.2.i = add i32 %spec.select.i, %311
-  %312 = icmp eq i32 %.2.i, 0
-  %313 = icmp eq i8 %299, 44
-  %or.cond466.i = and i1 %313, %312
+308:                                              ; preds = %302
+  %309 = icmp eq i8 %300, 40
+  %310 = zext i1 %309 to i32
+  %spec.select.i = add i32 %.0347.ph520.i, %310
+  %311 = icmp eq i8 %300, 41
+  %312 = sext i1 %311 to i32
+  %.2.i = add i32 %spec.select.i, %312
+  %313 = icmp eq i32 %.2.i, 0
+  %314 = icmp eq i8 %300, 44
+  %or.cond466.i = and i1 %314, %313
   br i1 %or.cond466.i, label %.critedge9.i, label %.outer.i
 
-.outer.i:                                         ; preds = %307
-  %314 = add i32 %.1358511.i, 1
-  %315 = add i32 %314, %.7374.i
-  %316 = icmp slt i32 %315, %.0365573.i
-  br i1 %316, label %.lr.ph514.i, label %.critedge9.i, !llvm.loop !11
+.outer.i:                                         ; preds = %308
+  %315 = add i32 %.1358511.i, 1
+  %316 = add i32 %315, %.7374.i
+  %317 = icmp slt i32 %316, %.0365573.i
+  br i1 %317, label %.lr.ph514.i, label %.critedge9.i, !llvm.loop !11
 
 .lr.ph514.i:                                      ; preds = %.preheader.i, %.outer.i
-  %317 = phi i32 [ %315, %.outer.i ], [ %.7374.i, %.preheader.i ]
+  %318 = phi i32 [ %316, %.outer.i ], [ %.7374.i, %.preheader.i ]
   %.0347.ph520.i = phi i32 [ %.2.i, %.outer.i ], [ 0, %.preheader.i ]
-  %.1358.ph519.i = phi i32 [ %314, %.outer.i ], [ 0, %.preheader.i ]
-  br label %295
+  %.1358.ph519.i = phi i32 [ %315, %.outer.i ], [ 0, %.preheader.i ]
+  br label %296
 
-.critedge9.i.loopexit:                            ; preds = %295
+.critedge9.i.loopexit:                            ; preds = %296
   br label %.critedge9.i
 
-.critedge9.i:                                     ; preds = %.outer.i, %307, %303, %295, %.critedge9.i.loopexit, %.preheader.i
-  %.1358478.i = phi i32 [ 0, %.preheader.i ], [ %.1358511.i, %295 ], [ %304, %303 ], [ %.1358511.i, %.critedge9.i.loopexit ], [ %.1358511.i, %307 ], [ %314, %.outer.i ]
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %295 ], [ 0, %303 ], [ 1, %.critedge9.i.loopexit ], [ 0, %307 ], [ 0, %.outer.i ]
+.critedge9.i:                                     ; preds = %.outer.i, %308, %304, %296, %.critedge9.i.loopexit, %.preheader.i
+  %.1358478.i = phi i32 [ 0, %.preheader.i ], [ %.1358511.i, %296 ], [ %305, %304 ], [ %.1358511.i, %.critedge9.i.loopexit ], [ %.1358511.i, %308 ], [ %315, %.outer.i ]
+  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %296 ], [ 0, %304 ], [ 1, %.critedge9.i.loopexit ], [ 0, %308 ], [ 0, %.outer.i ]
   switch i16 %.0349.i, label %.critedge431.i [
-    i16 61, label %318
-    i16 58, label %318
+    i16 61, label %319
+    i16 58, label %319
   ]
 
-318:                                              ; preds = %.critedge9.i, %.critedge9.i
-  br i1 %.not417.i, label %.critedge431.i, label %319
+319:                                              ; preds = %.critedge9.i, %.critedge9.i
+  br i1 %.not417.i, label %.critedge431.i, label %320
 
-319:                                              ; preds = %318
-  %320 = load ptr, ptr %286, align 8
-  %.not425.i = icmp eq ptr %320, null
-  br i1 %.not425.i, label %.thread457.i, label %321
+320:                                              ; preds = %319
+  %321 = load ptr, ptr %287, align 8
+  %.not425.i = icmp eq ptr %321, null
+  br i1 %.not425.i, label %.thread457.i, label %322
 
-321:                                              ; preds = %319
-  %322 = call i32 %320(ptr noundef %0, ptr noundef %1, ptr noundef %283, i32 noundef %.5.i, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i, ptr noundef nonnull %291, i32 noundef %.0354524.i, i32 noundef %.1358478.i, ptr noundef %.0.i, ptr noundef nonnull %5) #9
-  %.not426.i = icmp eq i32 %322, 0
-  br i1 %.not426.i, label %323, label %327
+322:                                              ; preds = %320
+  %323 = call i32 %321(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %284, i32 noundef %.5.i, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i, ptr noundef nonnull %292, i32 noundef %.0354524.i, i32 noundef %.1358478.i, ptr noundef nonnull %.0.i, ptr noundef nonnull %5) #9
+  %.not426.i = icmp eq i32 %323, 0
+  br i1 %.not426.i, label %324, label %328
 
-323:                                              ; preds = %321
-  %324 = load i32, ptr @hf_unknown_parameter, align 4
-  %325 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %324, ptr noundef %0, i32 noundef %.5.i, i32 noundef %.1358478.i, i32 noundef 0) #9
-  %326 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %325, ptr noundef nonnull @ei_unknown_parameter) #9
+324:                                              ; preds = %322
+  %325 = load i32, ptr @hf_unknown_parameter, align 4
+  %326 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %325, ptr noundef %0, i32 noundef %.5.i, i32 noundef %.1358478.i, i32 noundef 0) #9
+  %327 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %326, ptr noundef nonnull @ei_unknown_parameter) #9
   br label %.critedge431.i
 
-327:                                              ; preds = %321
-  %.pr.i = load ptr, ptr %286, align 8
-  %328 = icmp eq ptr %.pr.i, null
-  br i1 %328, label %.thread457.i, label %.critedge431.i
+328:                                              ; preds = %322
+  %.pr.i = load ptr, ptr %287, align 8
+  %329 = icmp eq ptr %.pr.i, null
+  br i1 %329, label %.thread457.i, label %.critedge431.i
 
-.thread457.i:                                     ; preds = %327, %319
-  %329 = load i32, ptr @hf_parameter, align 4
-  %330 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %329, ptr noundef %0, i32 noundef %.5.i, i32 noundef %.1358478.i, i32 noundef 0) #9
+.thread457.i:                                     ; preds = %328, %320
+  %330 = load i32, ptr @hf_parameter, align 4
+  %331 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %330, ptr noundef %0, i32 noundef %.5.i, i32 noundef %.1358478.i, i32 noundef 0) #9
   br label %.critedge431.i
 
-.critedge431.i:                                   ; preds = %287, %.thread457.i, %327, %323, %318, %.critedge9.i
-  %.0357.i = phi i32 [ %.1358478.i, %.thread457.i ], [ %.1358478.i, %327 ], [ %.1358478.i, %323 ], [ %.1358478.i, %.critedge9.i ], [ %.1358478.i, %318 ], [ 0, %287 ]
-  %.0344.i = phi i32 [ %.1.i, %.thread457.i ], [ %.1.i, %327 ], [ %.1.i, %323 ], [ %.1.i, %.critedge9.i ], [ %.1.i, %318 ], [ 0, %287 ]
-  switch i16 %.0349.i, label %331 [
-    i16 15679, label %333
-    i16 3338, label %333
-    i16 63, label %333
-    i16 13, label %333
+.critedge431.i:                                   ; preds = %288, %.thread457.i, %328, %324, %319, %.critedge9.i
+  %.0357.i = phi i32 [ %.1358478.i, %.thread457.i ], [ %.1358478.i, %328 ], [ %.1358478.i, %324 ], [ %.1358478.i, %.critedge9.i ], [ %.1358478.i, %319 ], [ 0, %288 ]
+  %.0344.i = phi i32 [ %.1.i, %.thread457.i ], [ %.1.i, %328 ], [ %.1.i, %324 ], [ %.1.i, %.critedge9.i ], [ %.1.i, %319 ], [ 0, %288 ]
+  switch i16 %.0349.i, label %332 [
+    i16 15679, label %334
+    i16 3338, label %334
+    i16 63, label %334
+    i16 13, label %334
   ]
 
-331:                                              ; preds = %.critedge431.i
-  %332 = add i32 %.0354524.i, 1
-  br label %333
+332:                                              ; preds = %.critedge431.i
+  %333 = add i32 %.0354524.i, 1
+  br label %334
 
-333:                                              ; preds = %331, %.critedge431.i, %.critedge431.i, %.critedge431.i, %.critedge431.i
-  %.2356.i = phi i32 [ %332, %331 ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ]
-  %334 = add i32 %.0357.i, %.7374.i
-  %335 = add i32 %.0357.i, %.5.i
-  br i1 %74, label %336, label %351
+334:                                              ; preds = %332, %.critedge431.i, %.critedge431.i, %.critedge431.i, %.critedge431.i
+  %.2356.i = phi i32 [ %333, %332 ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ], [ %.0354524.i, %.critedge431.i ]
+  %335 = add i32 %.0357.i, %.7374.i
+  %336 = add i32 %.0357.i, %.5.i
+  br i1 %74, label %337, label %352
 
-336:                                              ; preds = %333
-  %337 = add i32 %334, 1
-  %.not427.i = icmp sgt i32 %337, %.0365573.i
-  br i1 %.not427.i, label %351, label %338
+337:                                              ; preds = %334
+  %338 = add i32 %335, 1
+  %.not427.i = icmp sgt i32 %338, %.0365573.i
+  br i1 %.not427.i, label %352, label %339
 
-338:                                              ; preds = %336
-  %339 = sext i32 %334 to i64
-  %340 = getelementptr i8, ptr %.0377568.i, i64 %339
-  %341 = load i8, ptr %340, align 1
-  %342 = icmp eq i8 %341, 13
-  br i1 %342, label %343, label %351
+339:                                              ; preds = %337
+  %340 = sext i32 %335 to i64
+  %341 = getelementptr i8, ptr %.0377568.i, i64 %340
+  %342 = load i8, ptr %341, align 1
+  %343 = icmp eq i8 %342, 13
+  br i1 %343, label %344, label %352
 
-343:                                              ; preds = %338
-  %344 = sext i32 %337 to i64
-  %345 = getelementptr i8, ptr %.0377568.i, i64 %344
-  %346 = load i8, ptr %345, align 1
-  %347 = icmp eq i8 %346, 10
-  br i1 %347, label %348, label %351
+344:                                              ; preds = %339
+  %345 = sext i32 %338 to i64
+  %346 = getelementptr i8, ptr %.0377568.i, i64 %345
+  %347 = load i8, ptr %346, align 1
+  %348 = icmp eq i8 %347, 10
+  br i1 %348, label %349, label %352
 
-348:                                              ; preds = %343
-  %349 = add i32 %335, 2
-  %350 = add i32 %334, 2
+349:                                              ; preds = %344
+  %350 = add i32 %336, 2
+  %351 = add i32 %335, 2
   br label %.loopexit.i
 
-351:                                              ; preds = %343, %338, %336, %333
-  %352 = sext i32 %334 to i64
-  %353 = getelementptr i8, ptr %.0377568.i, i64 %352
-  %354 = load i8, ptr %353, align 1
-  switch i8 %354, label %358 [
-    i8 44, label %355
-    i8 13, label %355
-    i8 59, label %355
+352:                                              ; preds = %344, %339, %337, %334
+  %353 = sext i32 %335 to i64
+  %354 = getelementptr i8, ptr %.0377568.i, i64 %353
+  %355 = load i8, ptr %354, align 1
+  switch i8 %355, label %359 [
+    i8 44, label %356
+    i8 13, label %356
+    i8 59, label %356
   ]
 
-355:                                              ; preds = %351, %351, %351
-  %356 = add i32 %334, 1
+356:                                              ; preds = %352, %352, %352
   %357 = add i32 %335, 1
-  br label %358
+  %358 = add i32 %336, 1
+  br label %359
 
-358:                                              ; preds = %355, %351
-  %.8.i = phi i32 [ %356, %355 ], [ %334, %351 ]
-  %.6.i = phi i32 [ %357, %355 ], [ %335, %351 ]
+359:                                              ; preds = %356, %352
+  %.8.i = phi i32 [ %357, %356 ], [ %335, %352 ]
+  %.6.i = phi i32 [ %358, %356 ], [ %336, %352 ]
   %.not428.i = icmp eq i32 %.0344.i, 0
-  %359 = icmp slt i32 %.8.i, %.0365573.i
-  %or.cond608.i = select i1 %.not428.i, i1 %359, i1 false
+  %360 = icmp slt i32 %.8.i, %.0365573.i
+  %or.cond608.i = select i1 %.not428.i, i1 %360, i1 false
   br i1 %or.cond608.i, label %.preheader468.i, label %.loopexit.i, !llvm.loop !12
 
 .thread458.i:                                     ; preds = %176, %147
   %.1362444.i = phi i32 [ %.1362.i, %176 ], [ %.066127, %147 ]
-  %360 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1362444.i) #9
-  %spec.store.select.i = call i32 @llvm.smax.i32(i32 %360, i32 0)
-  %361 = add i32 %spec.store.select.i, %.1362444.i
-  br label %368
+  %361 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1362444.i) #9
+  %spec.store.select.i = call i32 @llvm.smax.i32(i32 %361, i32 0)
+  %362 = add i32 %spec.store.select.i, %.1362444.i
+  br label %369
 
-.loopexit.i:                                      ; preds = %358, %348
-  %.6373.i = phi i32 [ %350, %348 ], [ %.8.i, %358 ]
-  %.4.i = phi i32 [ %349, %348 ], [ %.6.i, %358 ]
-  %362 = add i32 %.6373.i, %.0366572.i
-  call void @proto_item_set_len(ptr noundef %.0378566.i, i32 noundef %362) #9
-  %363 = icmp eq i32 %.2356.i, 0
-  br i1 %363, label %368, label %364
+.loopexit.i:                                      ; preds = %359, %349
+  %.6373.i = phi i32 [ %351, %349 ], [ %.8.i, %359 ]
+  %.4.i = phi i32 [ %350, %349 ], [ %.6.i, %359 ]
+  %363 = add i32 %.6373.i, %.0366572.i
+  call void @proto_item_set_len(ptr noundef %.0378566.i, i32 noundef %363) #9
+  %364 = icmp eq i32 %.2356.i, 0
+  br i1 %364, label %369, label %365
 
-364:                                              ; preds = %.loopexit.i
-  %365 = sub i32 %335, %.2363.i
-  %366 = icmp sgt i32 %365, 0
-  br i1 %366, label %367, label %368
+365:                                              ; preds = %.loopexit.i
+  %366 = sub i32 %336, %.2363.i
+  %367 = icmp sgt i32 %366, 0
+  br i1 %367, label %368, label %369
 
-367:                                              ; preds = %364
-  call void @proto_item_set_len(ptr noundef %281, i32 noundef %365) #9
-  br label %dissect_at_command.exit
+368:                                              ; preds = %365
+  call void @proto_item_set_len(ptr noundef %282, i32 noundef %366) #9
+  br label %370
 
-368:                                              ; preds = %364, %.loopexit.i, %.thread458.i, %.loopexit.thread.i
-  %.7465.i = phi i32 [ %361, %.thread458.i ], [ %.4.i, %364 ], [ %.4.i, %.loopexit.i ], [ %.2363.i, %.loopexit.thread.i ]
-  %.0379464.i = phi ptr [ null, %.thread458.i ], [ %281, %364 ], [ %281, %.loopexit.i ], [ %281, %.loopexit.thread.i ]
+369:                                              ; preds = %365, %.loopexit.i, %.thread458.i, %.loopexit.thread.i
+  %.7465.i = phi i32 [ %362, %.thread458.i ], [ %.4.i, %365 ], [ %.4.i, %.loopexit.i ], [ %.2363.i, %.loopexit.thread.i ]
+  %.0379464.i = phi ptr [ null, %.thread458.i ], [ %282, %365 ], [ %282, %.loopexit.i ], [ %282, %.loopexit.thread.i ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0379464.i, ptr noundef nonnull @.str.513) #9
-  br label %dissect_at_command.exit
+  br label %370
 
-dissect_at_command.exit:                          ; preds = %124, %367, %368
-  %.0.i82 = phi i32 [ %125, %124 ], [ %.7465.i, %368 ], [ %.4.i, %367 ]
+370:                                              ; preds = %369, %368, %124
+  %.0.i82 = phi i32 [ %125, %124 ], [ %.7465.i, %369 ], [ %.4.i, %368 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %369 = load i32, ptr %76, align 8
-  %370 = load i32, ptr %77, align 4
-  %371 = icmp ugt i32 %369, %370
-  br i1 %371, label %372, label %373
+  %371 = load i32, ptr %76, align 8
+  %372 = load i32, ptr %77, align 4
+  %373 = icmp ugt i32 %371, %372
+  br i1 %373, label %374, label %375
 
-372:                                              ; preds = %dissect_at_command.exit
-  store i32 %.068123, ptr %78, align 8
-  br label %373
-
-373:                                              ; preds = %372, %dissect_at_command.exit
-  %374 = add i32 %.068123, 1
+374:                                              ; preds = %370
+  store i32 %.068123, ptr %80, align 8
   br label %375
 
-375:                                              ; preds = %373, %dissect_at_command_continuation.exit
-  %.169 = phi i32 [ %.068123, %dissect_at_command_continuation.exit ], [ %374, %373 ]
-  %.167 = phi i32 [ %.051.i, %dissect_at_command_continuation.exit ], [ %.0.i82, %373 ]
-  %376 = icmp slt i32 %.167, %39
-  br i1 %376, label %82, label %._crit_edge, !llvm.loop !13
+375:                                              ; preds = %374, %370
+  %376 = add i32 %.068123, 1
+  br label %377
 
-._crit_edge:                                      ; preds = %375, %get_at_packet_info.exit
+377:                                              ; preds = %375, %dissect_at_command_continuation.exit
+  %378 = phi i32 [ %120, %dissect_at_command_continuation.exit ], [ %372, %375 ]
+  %.169 = phi i32 [ %.068123, %dissect_at_command_continuation.exit ], [ %376, %375 ]
+  %.167 = phi i32 [ %.051.i, %dissect_at_command_continuation.exit ], [ %.0.i82, %375 ]
+  %379 = icmp slt i32 %.167, %39
+  br i1 %379, label %82, label %._crit_edge, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %377, %get_at_packet_info.exit
   %.not.i90 = icmp eq ptr %.07.i, null
-  br i1 %.not.i90, label %set_at_packet_info.exit, label %377
+  br i1 %.not.i90, label %set_at_packet_info.exit, label %380
 
-377:                                              ; preds = %._crit_edge
-  %378 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 50
-  %381 = load i16, ptr %380, align 2
-  %382 = and i16 %381, 8
-  %.not6.i = icmp eq i16 %382, 0
-  br i1 %.not6.i, label %383, label %set_at_packet_info.exit
+380:                                              ; preds = %._crit_edge
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %382 = load ptr, ptr %381, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 50
+  %384 = load i16, ptr %383, align 2
+  %385 = and i16 %384, 8
+  %.not6.i = icmp eq i16 %385, 0
+  br i1 %.not6.i, label %386, label %set_at_packet_info.exit
 
-383:                                              ; preds = %377
-  %384 = getelementptr inbounds nuw i8, ptr %.07.i, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %384, ptr noundef nonnull readonly align 8 dereferenceable(48) %70, i64 48, i1 false)
+386:                                              ; preds = %380
+  %387 = getelementptr inbounds nuw i8, ptr %.07.i, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %387, ptr noundef nonnull readonly align 8 dereferenceable(48) %70, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.07.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %72, i64 48, i1 false)
   br label %set_at_packet_info.exit
 
-set_at_packet_info.exit:                          ; preds = %._crit_edge, %377, %383
-  %385 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  ret i32 %385
+set_at_packet_info.exit:                          ; preds = %._crit_edge, %380, %386
+  %388 = call i32 @tvb_captured_length(ptr noundef %0) #9
+  ret i32 %388
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1708,7 +1710,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @heur_dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @heur_dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca [3 x i8], align 1
   %7 = alloca [2 x i8], align 2
@@ -1828,7 +1830,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1850,7 +1852,7 @@ declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1885,7 +1887,7 @@ define internal range(i32 0, 2) i32 @check_ccwa(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %check_ccwa.exit
 
@@ -2042,7 +2044,7 @@ define internal range(i32 0, 2) i32 @check_cfun(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cfun_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cfun_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %14
 
@@ -2190,7 +2192,7 @@ define internal range(i32 0, 2) i32 @check_cgdcont(i32 noundef %0, i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cgdcont_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cgdcont_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %check_cgdcont.exit
 
@@ -2315,7 +2317,7 @@ define internal range(i32 0, 2) i32 @check_cgmi(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cgmi_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cgmi_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -2357,7 +2359,7 @@ define internal range(i32 0, 2) i32 @check_cgmm(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cgmm_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cgmm_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -2399,7 +2401,7 @@ define internal range(i32 0, 2) i32 @check_cgmr(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cgmr_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cgmr_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -2429,7 +2431,7 @@ define internal range(i32 0, 2) i32 @check_cgsn(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_no_parameter(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i32 %4, i16 zeroext %5, ptr nocapture readnone %6, i32 %7, i32 %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #5 {
+define internal noundef i32 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #5 {
   ret i32 0
 }
 
@@ -2457,7 +2459,7 @@ define internal range(i32 0, 2) i32 @check_chld(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %check_chld.exit
 
@@ -2560,7 +2562,7 @@ define internal range(i32 0, 2) i32 @check_ciev(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture noundef %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr noundef captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 1
   %13 = icmp eq i16 %5, 58
   %or.cond = and i1 %12, %13
@@ -2641,7 +2643,7 @@ define internal range(i32 0, 2) i32 @check_cimi(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cimi_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cimi_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %check_cimi.exit.thread, label %check_cimi.exit
 
@@ -2705,7 +2707,7 @@ define internal range(i32 0, 2) i32 @check_cind(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cind_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %14
 
@@ -2774,7 +2776,7 @@ define internal range(i32 0, 2) i32 @check_clcc(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 13
   %or.cond = and i1 %12, %13
@@ -2966,7 +2968,7 @@ define internal range(i32 0, 2) i32 @check_clip(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   br i1 %12, label %13, label %check_clip.exit
 
@@ -3102,7 +3104,7 @@ define internal range(i32 0, 2) i32 @check_cme(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cme_error_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cme_error_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 1
   %13 = icmp eq i16 %5, 58
   %or.cond = and i1 %12, %13
@@ -3189,7 +3191,7 @@ define internal range(i32 0, 2) i32 @check_cmee(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmee_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -3253,7 +3255,7 @@ define internal range(i32 0, 2) i32 @check_cmer(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 2
   %13 = icmp ne i16 %5, 61
   %or.cond.not52 = or i1 %12, %13
@@ -3364,7 +3366,7 @@ define internal range(i32 0, 2) i32 @check_cmgl(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgl_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgl_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -3481,7 +3483,7 @@ define internal range(i32 0, 2) i32 @check_cmgr(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgr_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgr_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -3610,7 +3612,7 @@ define internal range(i32 0, 2) i32 @check_cmux(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmux_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmux_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -3731,7 +3733,7 @@ define internal range(i32 0, 2) i32 @check_cnum(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not61 = or i1 %12, %13
@@ -3862,7 +3864,7 @@ define internal range(i32 0, 2) i32 @check_cops(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cops_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cops_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = and i16 %5, -3
   %or.cond = icmp eq i16 %13, 61
@@ -3975,7 +3977,7 @@ define internal range(i32 0, 2) i32 @check_cpin(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cpin_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cpin_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -4054,7 +4056,7 @@ define internal range(i32 0, 2) i32 @check_cpms(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cpms_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cpms_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -4169,7 +4171,7 @@ define internal range(i32 0, 2) i32 @check_cscs(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cscs_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cscs_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -4221,7 +4223,7 @@ define internal range(i32 0, 2) i32 @check_csim(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_csim_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr noundef %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_csim_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr noundef %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -4359,7 +4361,7 @@ define internal range(i32 0, 2) i32 @check_csq(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_csq_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_csq_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not37 = or i1 %12, %13
@@ -4453,7 +4455,7 @@ define internal range(i32 0, 2) i32 @check_gmi(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_gmi_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_gmi_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -4495,7 +4497,7 @@ define internal range(i32 0, 2) i32 @check_gmm(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_gmm_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_gmm_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -4537,7 +4539,7 @@ define internal range(i32 0, 2) i32 @check_gmr(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_gmr_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_gmr_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not11 = or i1 %12, %13
@@ -4590,7 +4592,7 @@ define internal range(i32 0, 2) i32 @check_vts(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 2
   %13 = icmp ne i16 %5, 61
   %or.cond.not25 = or i1 %12, %13
@@ -4647,7 +4649,7 @@ define internal range(i32 0, 2) i32 @check_zpas(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_zpas_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_zpas_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp ne i32 %4, 1
   %13 = icmp ne i16 %5, 58
   %or.cond.not17 = or i1 %12, %13
@@ -4682,7 +4684,7 @@ define internal range(i32 0, 2) i32 @check_zusim(i32 noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_zusim_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_zusim_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 1
   %13 = icmp eq i16 %5, 58
   %or.cond = and i1 %12, %13
@@ -4730,7 +4732,7 @@ define internal range(i32 0, 2) i32 @check_only_dte_role(i32 noundef %0, i16 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_uint_parameter(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @get_uint_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %5) #9
@@ -4752,7 +4754,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @dissect_e212_utf8_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgl_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgl_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4844,7 +4846,7 @@ define internal range(i32 0, 2) i32 @dissect_cmgl_data_part(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4853,7 +4855,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgr_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgr_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4958,10 +4960,10 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

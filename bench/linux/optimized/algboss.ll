@@ -54,7 +54,7 @@ define internal i32 @cryptomgr_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
+define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %5, label %105
 
@@ -257,7 +257,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @crypto_alg_get(ptr noundef returned %0) unnamed_addr #4 align 16 {

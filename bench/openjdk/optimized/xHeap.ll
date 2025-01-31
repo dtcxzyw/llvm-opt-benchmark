@@ -347,7 +347,7 @@ define hidden noundef i64 @_ZNK5XHeap9tlab_usedEv(ptr noundef nonnull align 64 d
 declare noundef i64 @_ZNK16XObjectAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK5XHeap13max_tlab_sizeEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK5XHeap13max_tlab_sizeEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0) local_unnamed_addr #2 align 2 {
   ret i64 262144
 }
 
@@ -365,7 +365,7 @@ define hidden noundef range(i64 0, 262145) i64 @_ZNK5XHeap21unsafe_max_tlab_allo
 declare noundef i64 @_ZNK16XObjectAllocator9remainingEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_ZNK5XHeap5is_inEm(ptr nocapture noundef nonnull readonly align 64 dereferenceable(4088) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK5XHeap5is_inEm(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(4088) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr @XAddressOffsetMask, align 8
   %4 = xor i64 %3, -1
   %5 = and i64 %1, %4
@@ -438,7 +438,7 @@ declare void @_ZNK14XPageAllocator10threads_doEP13ThreadClosure(ptr noundef nonn
 declare void @_ZNK8XWorkers10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XHeap13out_of_memoryEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5XHeap13out_of_memoryEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -760,7 +760,7 @@ define hidden void @_ZN5XHeap9mark_freeEv(ptr noundef nonnull align 64 dereferen
 declare void @_ZN5XMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2492)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XHeap10keep_aliveEP7oopDesc(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5XHeap10keep_aliveEP7oopDesc(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr @XGlobalPhase, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %_ZN8XBarrier25keep_alive_barrier_on_oopEP7oopDesc.exit
@@ -1464,7 +1464,7 @@ declare void @_ZN9XStatHeap19set_at_relocate_endERK19XPageAllocatorStatsm(ptr no
 declare noundef i64 @_ZNK16XObjectAllocator9relocatedEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr nocapture noundef nonnull readonly align 64 dereferenceable(4088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(4088) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr @XAddressOffsetMask, align 8
   %4 = and i64 %3, %1
   %5 = lshr i64 %4, 21
@@ -1480,7 +1480,7 @@ define hidden noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XHeap14object_iterateEP13ObjectClosureb(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5XHeap14object_iterateEP13ObjectClosureb(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.XHeapIterator, align 8
   call void @_ZN13XHeapIteratorC1Ejb(ptr noundef nonnull align 8 dereferenceable(1464) %4, i32 noundef 1, i1 noundef zeroext %2) #12
   call void @_ZN13XHeapIterator14object_iterateEP13ObjectClosurej(ptr noundef nonnull align 8 dereferenceable(1464) %4, ptr noundef %1, i32 noundef 0) #12
@@ -1496,7 +1496,7 @@ declare void @_ZN13XHeapIterator14object_iterateEP13ObjectClosurej(ptr noundef n
 declare void @_ZN13XHeapIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(1464)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5XHeap24parallel_object_iteratorEjb(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN5XHeap24parallel_object_iteratorEjb(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1464, i8 noundef zeroext 5, i32 noundef 0) #12
   tail call void @_ZN13XHeapIteratorC1Ejb(ptr noundef nonnull align 8 dereferenceable(1464) %4, i32 noundef %1, i1 noundef zeroext %2) #12
   ret ptr %4
@@ -1663,7 +1663,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNK5XPage8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5XHeap14print_locationEP12outputStreamm(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5XHeap14print_locationEP12outputStreamm(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noundef %4) #12
   br i1 %5, label %6, label %12
@@ -1690,7 +1690,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XHeap6verifyEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5XHeap6verifyEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr @XGlobalPhase, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %6, label %4
@@ -1978,10 +1978,10 @@ declare i64 @llvm.ctpop.i64(i64) #10
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

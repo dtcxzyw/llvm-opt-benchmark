@@ -31,7 +31,7 @@ define void @lv_grid_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @grid_update(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @grid_update(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_grid_calc_t, align 8
   %5 = alloca %struct.item_repos_hint_t, align 4
@@ -1366,14 +1366,14 @@ define range(i32 536870811, 536871067) i32 @lv_grid_fr(i8 noundef zeroext %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @lv_obj_get_scroll_x(ptr noundef) local_unnamed_addr #2
 
 declare i32 @lv_obj_get_scroll_y(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare zeroext i1 @lv_obj_refr_size(ptr noundef) local_unnamed_addr #2
 

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_arc_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_arc_constructor, ptr null, ptr @lv_arc_event, ptr null, ptr @.str, i32 0, i32 0, i8 -127, i8 7, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_arc_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 96), (100, 112)) %1) #0 {
+define internal void @lv_arc_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 96), (100, 112)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -58,7 +58,7 @@ define internal void @lv_arc_constructor(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_arc_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_point_t, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.lv_draw_arc_dsc_t, align 8
@@ -553,7 +553,7 @@ lv_arc_set_value.exit:                            ; preds = %217
   %275 = mul nsw i32 %274, 360
   %276 = udiv i32 %275, %273
   %277 = uitofp i32 %276 to float
-  %278 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef %17, float noundef %.1258.lcssa, float noundef %277)
+  %278 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1258.lcssa, float noundef %277)
   br i1 %278, label %279, label %285
 
 279:                                              ; preds = %._crit_edge
@@ -733,14 +733,14 @@ define noundef ptr @lv_arc_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_arc_set_start_angle(ptr noundef %0, float noundef %1) local_unnamed_addr #0 {
@@ -1359,14 +1359,14 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_arc_set_change_rate(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_change_rate(ptr noundef writeonly captures(none) initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_arc_set_knob_offset(ptr nocapture noundef writeonly initializes((112, 114)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_knob_offset(ptr noundef writeonly captures(none) initializes((112, 114)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i16 %3, ptr %4, align 8, !tbaa !48
@@ -1374,56 +1374,56 @@ define void @lv_arc_set_knob_offset(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @lv_arc_get_angle_start(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_angle_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4, !tbaa !15
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @lv_arc_get_angle_end(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_angle_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load float, ptr %2, align 8, !tbaa !16
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @lv_arc_get_bg_angle_start(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_bg_angle_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load float, ptr %2, align 4, !tbaa !13
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @lv_arc_get_bg_angle_end(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define float @lv_arc_get_bg_angle_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load float, ptr %2, align 8, !tbaa !14
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_arc_get_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4, !tbaa !17
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_arc_get_min_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_min_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !18
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_arc_get_max_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_max_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4, !tbaa !19
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @lv_arc_get_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @lv_arc_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 1
@@ -1433,14 +1433,14 @@ define range(i32 0, 4) i32 @lv_arc_get_mode(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_arc_get_rotation(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_arc_get_rotation(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -32768, 32768) i32 @lv_arc_get_knob_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -32768, 32768) i32 @lv_arc_get_knob_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i16, ptr %2, align 8, !tbaa !48
   %4 = sext i16 %3 to i32
@@ -1556,7 +1556,7 @@ get_angle.exit:                                   ; preds = %6, %16, %20, %40, %
 declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @get_center(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #7
   %5 = ptrtoint ptr %4 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
@@ -1758,7 +1758,7 @@ declare zeroext i16 @lv_atan2(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @lv_dpx(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr nocapture noundef %0, float noundef %1, float noundef %2) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load float, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1917,7 +1917,7 @@ declare void @lv_obj_init_draw_arc_dsc(ptr noundef, i32 noundef, ptr noundef) lo
 declare void @lv_draw_arc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_knob_area(ptr noundef %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @get_knob_area(ptr noundef %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 131072, i8 noundef zeroext 80) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8, !tbaa !3

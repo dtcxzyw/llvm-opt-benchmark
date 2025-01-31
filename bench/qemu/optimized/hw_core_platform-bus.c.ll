@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_platform_bus_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @platform_bus_get_irqn(ptr nocapture noundef readonly %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local i32 @platform_bus_get_irqn(ptr noundef readonly captures(none) %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_get_connected_irq(ptr noundef %sbdev, i32 noundef %n) #9
   %num_irqs = getelementptr inbounds nuw i8, ptr %pbus, i64 1104
@@ -253,7 +253,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @platform_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @platform_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -263,7 +263,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @platform_bus_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @platform_bus_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #9
@@ -361,7 +361,7 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #6
 declare void @foreach_dynamic_sysbus_device(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @platform_bus_count_irqs(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @platform_bus_count_irqs(ptr noundef %sbdev, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %call11 = tail call zeroext i1 @sysbus_has_irq(ptr noundef %sbdev, i32 noundef 0) #9
   br i1 %call11, label %if.end.lr.ph, label %for.end8
@@ -411,15 +411,15 @@ for.end8:                                         ; preds = %for.inc6, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @bitmap_set(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

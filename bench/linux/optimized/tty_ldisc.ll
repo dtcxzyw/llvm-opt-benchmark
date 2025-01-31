@@ -65,7 +65,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_unregister_ldisc(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @tty_unregister_ldisc(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tty_ldiscs_lock) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -77,7 +77,7 @@ define dso_local void @tty_unregister_ldisc(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @tty_ldiscs_seq_start(ptr nocapture readnone %0, ptr noundef readonly %1) #2 align 16 {
+define internal ptr @tty_ldiscs_seq_start(ptr readnone captures(none) %0, ptr noundef readonly %1) #2 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp slt i64 %3, 31
   %5 = select i1 %4, ptr %1, ptr null
@@ -85,12 +85,12 @@ define internal ptr @tty_ldiscs_seq_start(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @tty_ldiscs_seq_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal void @tty_ldiscs_seq_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal ptr @tty_ldiscs_seq_next(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
+define internal ptr @tty_ldiscs_seq_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #4 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -100,7 +100,7 @@ define internal ptr @tty_ldiscs_seq_next(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tty_ldiscs_seq_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @tty_ldiscs_seq_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tty_ldiscs_lock) #10
@@ -190,7 +190,7 @@ define dso_local ptr @tty_ldisc_ref(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @ldsem_down_read_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_ldisc_deref(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @tty_ldisc_deref(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1179,7 +1179,7 @@ define dso_local i32 @tty_ldisc_init(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_ldisc_deinit(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @tty_ldisc_deinit(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1326,7 +1326,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @tty_termios_input_baud_rate(ptr noundef) local_unnamed_addr #1

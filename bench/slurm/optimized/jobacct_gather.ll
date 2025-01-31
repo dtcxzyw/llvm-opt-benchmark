@@ -239,7 +239,7 @@ define void @jobacctinfo_pack(ptr noundef readonly %0, i16 noundef zeroext %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 zeroext %2, ptr noundef %3, i1 noundef zeroext %4) #0 {
+define range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr noundef captures(none) %0, i16 noundef zeroext %1, i16 zeroext %2, ptr noundef %3, i1 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -961,7 +961,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_watch_tasks(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_watch_tasks(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef null, ptr noundef null) #10
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %.preheader
@@ -1356,7 +1356,7 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1513,7 +1513,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #4
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_copy_tres_usage(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_copy_tres_usage(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -1834,7 +1834,7 @@ define range(i32 -1, 1) i32 @jobacct_gather_set_proctrack_container_id(i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %19, label %5
@@ -2043,7 +2043,7 @@ define internal fastcc void @_free_tres_usage(ptr noundef %0) unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.assoc_mgr_lock_t, align 4
@@ -2317,7 +2317,7 @@ declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #4
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @free_buf(ptr noundef) local_unnamed_addr #4
 
@@ -2669,12 +2669,12 @@ define range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @create_buf(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
@@ -2707,7 +2707,7 @@ declare void @slurmdb_destroy_tres_rec(ptr noundef) #4
 declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @jobacctinfo_aggregate(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp ne i32 %3, 1
   %5 = icmp ne ptr %1, null
@@ -3025,7 +3025,7 @@ _jobacctinfo_aggregate_tres_usage.exit:           ; preds = %195, %56, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jobacctinfo_2_stats(ptr nocapture noundef writeonly initializes((0, 144)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @jobacctinfo_2_stats(ptr noundef writeonly captures(none) initializes((0, 144)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
@@ -3149,7 +3149,7 @@ declare zeroext i1 @acct_gather_profile_test() local_unnamed_addr #4
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_tres_usage(ptr nocapture noundef initializes((112, 116), (120, 128), (136, 248)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initializes((112, 116), (120, 128), (136, 248)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %2, ptr %4, align 8
   %5 = zext i32 %2 to i64
@@ -3350,10 +3350,10 @@ declare ptr @assoc_mgr_make_tres_str_from_array(ptr noundef, i32 noundef, i1 nou
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

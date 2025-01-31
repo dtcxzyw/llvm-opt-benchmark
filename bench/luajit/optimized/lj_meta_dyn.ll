@@ -85,7 +85,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_meta_lookup(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %o, i32 noundef %mm) local_unnamed_addr #0 {
+define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %o, i32 noundef %mm) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -150,7 +150,7 @@ return:                                           ; preds = %if.then21, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lj_meta_tailcall(ptr noundef %L, ptr nocapture noundef readonly %tv) local_unnamed_addr #2 {
+define hidden noundef i32 @lj_meta_tailcall(ptr noundef %L, ptr noundef readonly captures(none) %tv) local_unnamed_addr #2 {
 entry:
   %base1 = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base1, align 8
@@ -648,7 +648,7 @@ declare hidden ptr @lj_tab_newkey(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden void @lj_cont_nop() #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_meta_arith(ptr noundef %L, ptr nocapture noundef writeonly %ra, ptr noundef %rb, ptr noundef %rc, i32 noundef %op) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_meta_arith(ptr noundef %L, ptr noundef writeonly captures(none) %ra, ptr noundef %rb, ptr noundef %rc, i32 noundef %op) local_unnamed_addr #0 {
 entry:
   %tempb = alloca %union.TValue, align 8
   %tempc = alloca %union.TValue, align 8
@@ -1484,7 +1484,7 @@ mmcall.exit:                                      ; preds = %if.end, %if.then.i9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_meta_equal(ptr nocapture noundef readonly %L, ptr noundef %o1, ptr noundef %o2, i32 noundef %ne) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_meta_equal(ptr noundef readonly captures(none) %L, ptr noundef %o1, ptr noundef %o2, i32 noundef %ne) local_unnamed_addr #0 {
 entry:
   %metatable = getelementptr inbounds nuw i8, ptr %o1, i64 32
   %0 = load i64, ptr %metatable, align 8
@@ -1642,7 +1642,7 @@ declare hidden void @lj_cont_condf() #1
 declare hidden void @lj_cont_condt() #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_meta_equal_cd(ptr nocapture noundef readonly %L, i32 noundef %ins) local_unnamed_addr #0 {
+define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %L, i32 noundef %ins) local_unnamed_addr #0 {
 entry:
   %tv.sroa.0 = alloca i64, align 8
   %and1 = and i32 %ins, 1

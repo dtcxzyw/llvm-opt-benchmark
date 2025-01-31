@@ -1612,7 +1612,7 @@ loadDebug.exit:                                   ; preds = %for.body58.i, %load
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @error(ptr nocapture noundef nonnull readonly %S, ptr noundef %why) unnamed_addr #2 {
+define internal fastcc void @error(ptr noundef nonnull readonly captures(none) %S, ptr noundef %why) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %S, align 8
   %name = getelementptr inbounds nuw i8, ptr %S, i64 16
@@ -1633,7 +1633,7 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @loadStringN(ptr nocapture noundef nonnull readonly %S, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc ptr @loadStringN(ptr noundef nonnull readonly captures(none) %S, ptr noundef %p) unnamed_addr #0 {
 entry:
   %buff = alloca [40 x i8], align 16
   %0 = load ptr, ptr %S, align 8
@@ -1767,13 +1767,13 @@ declare hidden ptr @luaS_createlngstrobj(ptr noundef, i64 noundef) local_unnamed
 declare hidden ptr @luaM_malloc_(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -8606,7 +8606,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @zip_open(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #4
 
@@ -8616,7 +8616,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @zip_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %path = alloca %"class.llvh::StringRef", align 8
   %fileBuf = alloca %"class.llvh::ErrorOr", align 8
@@ -8805,7 +8805,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIjSt6vectorIN12_GLOBAL__N_115ModuleInSegmentESaIS2_EESt4lessIjESaISt4pairIKjS4_EEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__k) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIjSt6vectorIN12_GLOBAL__N_115ModuleInSegmentESaIS2_EESt4lessIjESaISt4pairIKjS4_EEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__k) unnamed_addr #0 align 2 {
 entry:
   %__k.val = load i32, ptr %__k, align 4
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12090,10 +12090,10 @@ _ZNSt6vectorISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14defa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN4llvh2cl14OptionCategory16registerCategoryEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -12357,7 +12357,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
@@ -12487,7 +12487,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i64 @_ZNK4llvh2cl17basic_parser_impl14getOptionWidthERKNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(145)) local_unnamed_addr #4
 
@@ -12879,7 +12879,7 @@ return:                                           ; preds = %_ZN4llvhplERKNS_5Tw
 declare noundef zeroext i1 @_ZN4llvh2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(145), ptr noundef nonnull align 8 dereferenceable(18), ptr, i64, ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh2cl15OptionValueCopyIN2cl8OptLevelEE7compareERKNS0_18GenericOptionValueE(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(8) %V) unnamed_addr #0 comdat align 2 {
@@ -15558,7 +15558,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 declare { i32, ptr } @_ZN4llvh3sys2fs12is_directoryERKNS_5TwineERb(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.228", align 8
   %ref.tmp11.i = alloca %"class.llvh::Twine", align 8
@@ -15828,7 +15828,7 @@ _ZN4llvh11SmallStringILj32EED2Ev.exit:            ; preds = %cond.end, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113parseJSONFileERSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes28BacktrackingBumpPtrAllocatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %file, ptr noundef nonnull align 8 dereferenceable(32) %alloc) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113parseJSONFileERSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EERN6hermes28BacktrackingBumpPtrAllocatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %file, ptr noundef nonnull align 8 dereferenceable(32) %alloc) unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.173", align 8
   %agg.tmp1 = alloca %"class.llvh::MemoryBufferRef", align 8
@@ -19559,7 +19559,7 @@ declare { i32, ptr } @_ZN4llvh3sys2fs6renameERKNS_5TwineES4_(ptr noundef nonnull
 declare { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121initializeDumpOptionsERN6hermes35CodeGenerationSettings_DumpSettingsERKN4llvh2cl3optIbLb0ENS4_6parserIbEEEERKNS4_4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS6_ISH_EEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 1)) %dumpSettings, i8 %dumpAll.152.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %passes) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121initializeDumpOptionsERN6hermes35CodeGenerationSettings_DumpSettingsERKN4llvh2cl3optIbLb0ENS4_6parserIbEEEERKNS4_4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS6_ISH_EEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 1)) %dumpSettings, i8 %dumpAll.152.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %passes) unnamed_addr #0 {
 entry:
   %ConstFoundBucket.i.i.i.i = alloca ptr, align 8
   %s.i = alloca %"class.llvh::StringRef", align 8
@@ -21309,17 +21309,17 @@ declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr 
 declare noundef i32 @_ZN4llvh3sys7Process18StandardErrColumnsEv() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare { ptr, i64 } @_ZN4llvh4SHA15finalEv(ptr noundef nonnull align 4 dereferenceable(112)) local_unnamed_addr #4
 
 declare void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr sret(%"class.std::unique_ptr.173") align 8, ptr, i64, ptr, i64, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %context, ptr nocapture noundef nonnull %content, ptr nocapture noundef nonnull align 8 dereferenceable(24) %declFileList) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %context, ptr noundef nonnull captures(none) %content, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %declFileList) unnamed_addr #0 {
 entry:
   %jsParser = alloca %"class.hermes::parser::JSParser", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.173", align 8
@@ -21904,7 +21904,7 @@ declare noundef i32 @_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefEN
 declare void @_ZN6hermes15SourceMapParser5parseEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerE(ptr sret(%"class.std::unique_ptr.672") align 8, ptr noundef byval(%"class.llvh::MemoryBufferRef") align 8, ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr nocapture noundef nonnull %fileBuf, ptr nocapture noundef nonnull %sourceMap, ptr nocapture noundef nonnull readonly %sourceMapTranslator, i1 noundef zeroext %wrapCJSModule) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef nonnull captures(none) %fileBuf, ptr noundef nonnull captures(none) %sourceMap, ptr noundef nonnull readonly captures(none) %sourceMapTranslator, i1 noundef zeroext %wrapCJSModule) unnamed_addr #0 {
 entry:
   %useStaticBuiltinDetected = alloca i8, align 1
   %agg.tmp = alloca %"class.std::unique_ptr.173", align 8
@@ -23162,7 +23162,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGenOrNull, ptr nocapture noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGenOrNull, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %baseBytecodeMap) unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.838", align 8
   %bytecodeModule = alloca %"class.std::unique_ptr.838", align 8
@@ -24939,7 +24939,7 @@ _ZNSt10shared_ptrIN6hermes7ContextEED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %fileBuf) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull captures(none) %fileBuf) unnamed_addr #0 {
 entry:
   %ret = alloca %"struct.std::pair.388", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.390", align 8
@@ -29097,16 +29097,16 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

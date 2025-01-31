@@ -35,7 +35,7 @@ if.then3:                                         ; preds = %entry
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.BIO_new_file) #9
   %call4 = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call4, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef %filename, ptr noundef %mode) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef %filename, ptr noundef nonnull %mode) #9
   %1 = load i32, ptr %call4, align 4
   switch i32 %1, label %if.else [
     i32 2, label %if.then9
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -124,7 +124,7 @@ declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @file_write(ptr nocapture noundef readonly %b, ptr noundef %in, i32 noundef %inl) #6 {
+define internal noundef i32 @file_write(ptr noundef readonly captures(none) %b, ptr noundef %in, i32 noundef %inl) #6 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %b, i64 40
   %0 = load i32, ptr %init, align 8
@@ -151,7 +151,7 @@ if.end11:                                         ; preds = %if.else, %entry
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_read(ptr nocapture noundef readonly %b, ptr noundef %out, i32 noundef %outl) #0 {
+define internal noundef i32 @file_read(ptr noundef readonly captures(none) %b, ptr noundef %out, i32 noundef %outl) #0 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %b, i64 40
   %0 = load i32, ptr %init, align 8
@@ -192,14 +192,12 @@ if.end23:                                         ; preds = %if.else, %cond.fals
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @file_puts(ptr nocapture noundef readonly %bp, ptr noundef %str) #6 {
+define internal i32 @file_puts(ptr noundef readonly captures(none) %bp, ptr noundef captures(none) %str) #6 {
 entry:
   %init.i = getelementptr inbounds nuw i8, ptr %bp, i64 40
   %0 = load i32, ptr %init.i, align 8
-  %tobool.i = icmp ne i32 %0, 0
-  %cmp.i = icmp ne ptr %str, null
-  %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %if.else.i, label %file_write.exit
+  %tobool.i.not = icmp eq i32 %0, 0
+  br i1 %tobool.i.not, label %file_write.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
@@ -220,7 +218,7 @@ file_write.exit:                                  ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @file_gets(ptr nocapture noundef readonly %bp, ptr noundef initializes((0, 1)) %buf, i32 noundef %size) #6 {
+define internal i32 @file_gets(ptr noundef readonly captures(none) %bp, ptr noundef initializes((0, 1)) %buf, i32 noundef %size) #6 {
 entry:
   store i8 0, ptr %buf, align 1
   %ptr3 = getelementptr inbounds nuw i8, ptr %bp, i64 64
@@ -436,7 +434,7 @@ sw.epilog:                                        ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @file_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #7 {
+define internal noundef i32 @file_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #7 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
@@ -490,33 +488,33 @@ return:                                           ; preds = %if.end, %if.end13, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -172,7 +172,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 declare void @_ZN7VM_Exit17wait_if_vm_exitedEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext range(i8 0, 2) i8 @_ZL18UH_FreeUpcallStub0P7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal noundef zeroext range(i8 0, 2) i8 @_ZL18UH_FreeUpcallStub0P7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr

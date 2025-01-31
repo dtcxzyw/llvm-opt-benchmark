@@ -71,7 +71,7 @@ define noundef nonnull ptr @Pg_magic_func() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_PG_output_plugin_init(ptr nocapture noundef writeonly initializes((0, 64), (72, 168)) %0) local_unnamed_addr #1 {
+define void @_PG_output_plugin_init(ptr noundef writeonly captures(none) initializes((0, 64), (72, 168)) %0) local_unnamed_addr #1 {
   store ptr @pgoutput_startup, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @pgoutput_begin_txn, ptr %2, align 8
@@ -115,7 +115,7 @@ define void @_PG_output_plugin_init(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_startup(ptr nocapture noundef initializes((264, 272)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i1 noundef zeroext %2) #2 {
+define internal void @pgoutput_startup(ptr noundef captures(none) initializes((264, 272)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, i1 noundef zeroext %2) #2 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @palloc0(i64 noundef 48) #13
@@ -615,7 +615,7 @@ init_rel_sync_cache.exit:                         ; preds = %230, %233, %238
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_begin_txn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((296, 304)) %1) #2 {
+define internal void @pgoutput_begin_txn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((296, 304)) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef 1) #13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -624,7 +624,7 @@ define internal void @pgoutput_begin_txn(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal void @pgoutput_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1171,7 +1171,7 @@ pgoutput_row_filter.exit.thread92:                ; preds = %pgoutput_row_filter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_truncate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 {
+define internal void @pgoutput_truncate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -1484,7 +1484,7 @@ define internal void @pgoutput_rollback_prepared_txn(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @pgoutput_origin_filter(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #3 {
+define internal zeroext i1 @pgoutput_origin_filter(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -1496,7 +1496,7 @@ define internal zeroext i1 @pgoutput_origin_filter(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_shutdown(ptr nocapture readnone %0) #2 {
+define internal void @pgoutput_shutdown(ptr readnone captures(none) %0) #2 {
   %2 = load ptr, ptr @RelationSyncCache, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -1511,7 +1511,7 @@ define internal void @pgoutput_shutdown(ptr nocapture readnone %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_stream_start(ptr noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal void @pgoutput_stream_start(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -1556,7 +1556,7 @@ send_repl_origin.exit:                            ; preds = %2, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_stream_stop(ptr noundef %0, ptr nocapture readnone %1) #2 {
+define internal void @pgoutput_stream_stop(ptr noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   tail call void @OutputPluginPrepareWrite(ptr noundef %0, i1 noundef zeroext true) #13
@@ -1570,7 +1570,7 @@ define internal void @pgoutput_stream_stop(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_stream_abort(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
+define internal void @pgoutput_stream_abort(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = alloca %struct.HASH_SEQ_STATUS, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load ptr, ptr %5, align 8
@@ -1771,13 +1771,13 @@ rel_sync_cache_publication_cb.exit:               ; preds = %.lr.ph.i, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare zeroext i1 @SplitIdentifierString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #4
 
@@ -1894,7 +1894,7 @@ declare void @logicalrep_write_rollback_prepared(ptr noundef, ptr noundef, i64 n
 declare zeroext i1 @is_publishable_relation(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_rel_sync_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc ptr @get_rel_sync_entry(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = alloca [3 x ptr], align 16
@@ -2750,7 +2750,7 @@ send_repl_origin.exit:                            ; preds = %2, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @maybe_send_schema(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc void @maybe_send_schema(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2848,7 +2848,7 @@ declare void @RelationClose(ptr noundef) local_unnamed_addr #4
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @get_rel_namespace(i32 noundef) local_unnamed_addr #4
 
@@ -2929,7 +2929,7 @@ declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #4
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #4
 
@@ -3071,10 +3071,10 @@ declare void @logicalrep_write_stream_prepare(ptr noundef, ptr noundef, i64 noun
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

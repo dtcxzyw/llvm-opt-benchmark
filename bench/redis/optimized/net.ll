@@ -317,7 +317,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %completed) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures(none) %c, ptr noundef writeonly captures(none) %completed) local_unnamed_addr #0 {
 entry:
   %so_error = alloca i32, align 4
   %optlen = alloca i32, align 4
@@ -516,7 +516,7 @@ return:                                           ; preds = %if.end5, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captures(none) %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %command_timeout = getelementptr inbounds nuw i8, ptr %c, i64 184
   %0 = load ptr, ptr %command_timeout, align 8
@@ -545,7 +545,7 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captures(none) %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %connect_timeout = getelementptr inbounds nuw i8, ptr %c, i64 176
   %0 = load ptr, ptr %connect_timeout, align 8
@@ -574,7 +574,7 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
@@ -1237,7 +1237,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %c, i64 noundef %msec) unnamed_addr #0 {
@@ -1373,10 +1373,10 @@ return:                                           ; preds = %redisCheckConnectDo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @__xpg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1403,10 +1403,10 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

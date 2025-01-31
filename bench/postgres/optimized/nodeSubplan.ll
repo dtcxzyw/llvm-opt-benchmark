@@ -1564,20 +1564,20 @@ list_length.exit:                                 ; preds = %94, %95
   %.0149.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph176 ], [ %131, %164 ]
   %.0148.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph176 ], [ %125, %164 ]
   %181 = call ptr @ExecTypeFromTL(ptr noundef %.0148.lcssa) #7
-  %182 = call ptr @ExecInitExtraTupleSlot(ptr noundef %8, ptr noundef %181, ptr noundef nonnull @TTSOpsVirtual) #7
-  %183 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0148.lcssa, ptr noundef null, ptr noundef %182, ptr noundef %1, ptr noundef null) #7
+  %182 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %181, ptr noundef nonnull @TTSOpsVirtual) #7
+  %183 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0148.lcssa, ptr noundef null, ptr noundef %182, ptr noundef nonnull %1, ptr noundef null) #7
   store ptr %183, ptr %37, align 8
   %184 = call ptr @ExecTypeFromTL(ptr noundef %.0149.lcssa) #7
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %184, ptr %185, align 8
-  %186 = call ptr @ExecInitExtraTupleSlot(ptr noundef %8, ptr noundef %184, ptr noundef nonnull @TTSOpsVirtual) #7
+  %186 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %184, ptr noundef nonnull @TTSOpsVirtual) #7
   %187 = load ptr, ptr %41, align 8
   %188 = load ptr, ptr %19, align 8
   %189 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0149.lcssa, ptr noundef %187, ptr noundef %186, ptr noundef %188, ptr noundef null) #7
   store ptr %189, ptr %38, align 8
   %190 = load ptr, ptr %42, align 8
   %191 = load ptr, ptr %46, align 8
-  %192 = call ptr @ExecBuildGroupingEqual(ptr noundef %181, ptr noundef %184, ptr noundef nonnull @TTSOpsVirtual, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %98, ptr noundef %190, ptr noundef %111, ptr noundef %191, ptr noundef %1) #7
+  %192 = call ptr @ExecBuildGroupingEqual(ptr noundef %181, ptr noundef %184, ptr noundef nonnull @TTSOpsVirtual, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %98, ptr noundef %190, ptr noundef %111, ptr noundef %191, ptr noundef nonnull %1) #7
   %193 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %192, ptr %193, align 8
   br label %194
@@ -1619,7 +1619,7 @@ declare ptr @ExecBuildProjectionInfo(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare ptr @ExecBuildGroupingEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecSetParamPlan(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecSetParamPlan(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2235,7 +2235,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare i64 @makeArrayResultAny(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecSetParamPlanMulti(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecSetParamPlanMulti(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef -1) #7
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -2269,7 +2269,7 @@ define dso_local void @ExecSetParamPlanMulti(ptr noundef %0, ptr nocapture nound
 declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanSetParamPlan(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecReScanSetParamPlan(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2364,7 +2364,7 @@ declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @FindTupleHashEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @findPartialMatch(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @findPartialMatch(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.tuplehash_iterator, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2544,13 +2544,13 @@ declare void @llvm.assume(i1 noundef) #3
 declare i64 @llvm.smax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cookie_io_functions_t = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias ptr @fdopen(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lib_get_streams() #6
   %4 = tail call i32 @lib_mode2oflags(ptr noundef %1)
   %5 = icmp slt i32 %4, 0
@@ -103,7 +103,7 @@ define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) lo
 declare ptr @lib_get_streams() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_mode2oflags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @lib_mode2oflags(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %33, %1
@@ -216,7 +216,7 @@ declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #2
 declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #1
 
@@ -225,7 +225,7 @@ declare i32 @nxrmutex_init(ptr noundef) local_unnamed_addr #1
 declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @fopen(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias ptr @fopen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @lib_mode2oflags(ptr noundef %1)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %13, label %5
@@ -250,12 +250,12 @@ define noalias ptr @fopen(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

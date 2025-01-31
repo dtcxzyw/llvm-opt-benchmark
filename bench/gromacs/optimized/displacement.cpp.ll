@@ -108,7 +108,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx30AnalysisDataDisplacementModuleD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx30AnalysisDataDisplacementModuleD2Ev
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModuleD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx30AnalysisDataDisplacementModuleD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.trap() #25
   unreachable
 }
@@ -116,18 +116,18 @@ define void @_ZN3gmx30AnalysisDataDisplacementModuleD0Ev(ptr nocapture nonnull r
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx30AnalysisDataDisplacementModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #1 align 2 {
+define void @_ZNK3gmx30AnalysisDataDisplacementModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 %2) unnamed_addr #1 align 2 {
   tail call void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3gmx30AnalysisDataDisplacementModule22requestStorageInternalEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3gmx30AnalysisDataDisplacementModule22requestStorageInternalEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3gmx30AnalysisDataDisplacementModule5flagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3gmx30AnalysisDataDisplacementModule5flagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 4
 }
 
@@ -284,7 +284,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE7reserveEm.exit: ; preds = %45, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -514,7 +514,7 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -636,7 +636,7 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23Analysi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::AnalysisHistogramSettingsInitializer", align 4
   %4 = alloca %"class.gmx::AnalysisHistogramSettings", align 4
   %5 = alloca %"class.gmx::AnalysisHistogramSettingsInitializer", align 4
@@ -1013,13 +1013,13 @@ define void @_ZThn16_N3gmx30AnalysisDataDisplacementModuleD1Ev(ptr noundef %0) u
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn16_N3gmx30AnalysisDataDisplacementModuleD0Ev(ptr nocapture readnone %0) unnamed_addr #4 align 2 {
+define void @_ZThn16_N3gmx30AnalysisDataDisplacementModuleD0Ev(ptr readnone captures(none) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #25
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK3gmx30AnalysisDataDisplacementModule5flagsEv(ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZThn16_NK3gmx30AnalysisDataDisplacementModule5flagsEv(ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 4
 }
 
@@ -1033,21 +1033,21 @@ define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule11dataStartedEPNS_20Ab
 declare noundef zeroext i1 @_ZN3gmx24AnalysisDataModuleSerial19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1) unnamed_addr #6
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(12) %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx30AnalysisDataDisplacementModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx30AnalysisDataDisplacementModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx30AnalysisDataDisplacementModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull align 4 poison)
   ret void
@@ -1078,7 +1078,7 @@ _ZN3gmx30AnalysisDataDisplacementModule12dataFinishedEv.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 13), (16, 80)) %0) unnamed_addr #8 align 2 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 13), (16, 80)) %0) unnamed_addr #8 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -1096,7 +1096,7 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplC2Ev(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef %3)
@@ -1232,7 +1232,7 @@ _ZNSt10unique_ptrIN3gmx30AnalysisDataDisplacementModule4ImplESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule10setMaxTimeEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule10setMaxTimeEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1241,7 +1241,7 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule10setMaxTimeEf(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule15setMSDHistogramERKSt10shared_ptrINS_28AnalysisDataBinAverageModuleEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule15setMSDHistogramERKSt10shared_ptrINS_28AnalysisDataBinAverageModuleEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.13", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1713,7 +1713,7 @@ declare void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnu
 declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
@@ -1787,7 +1787,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
@@ -1877,13 +1877,13 @@ declare void @_ZN3gmx36AnalysisHistogramSettingsInitializerC1Ev(ptr noundef nonn
 declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

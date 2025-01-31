@@ -158,7 +158,7 @@ return:                                           ; preds = %if.then37, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %md = alloca [16 x i8], align 16
   %call = tail call ptr @EVP_MD_CTX_new() #8
@@ -233,7 +233,7 @@ declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -244,7 +244,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @X509_issuer_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @X509_issuer_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %issuer = getelementptr inbounds nuw i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
@@ -255,7 +255,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @X509_subject_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @X509_subject_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %a, i64 72
   %0 = load ptr, ptr %subject, align 8
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @X509_CRL_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @X509_CRL_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %issuer = getelementptr inbounds nuw i8, ptr %a, i64 24
   %0 = load ptr, ptr %issuer, align 8
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2, 2) i32 @X509_CRL_match(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #3 {
+define range(i32 -2, 2) i32 @X509_CRL_match(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %a, i64 132
   %0 = load i32, ptr %flags, align 4
@@ -308,10 +308,10 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get_issuer_name(ptr nocapture noundef readonly %a) local_unnamed_addr #4 {
+define ptr @X509_get_issuer_name(ptr noundef readonly captures(none) %a) local_unnamed_addr #4 {
 entry:
   %issuer = getelementptr inbounds nuw i8, ptr %a, i64 48
   %0 = load ptr, ptr %issuer, align 8
@@ -319,7 +319,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %issuer = getelementptr inbounds nuw i8, ptr %x, i64 48
@@ -419,7 +419,7 @@ if.end22:                                         ; preds = %if.then6, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %issuer = getelementptr inbounds nuw i8, ptr %x, i64 48
   %0 = load ptr, ptr %issuer, align 8
@@ -476,7 +476,7 @@ end:                                              ; preds = %if.end6, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get_subject_name(ptr nocapture noundef readonly %a) local_unnamed_addr #4 {
+define ptr @X509_get_subject_name(ptr noundef readonly captures(none) %a) local_unnamed_addr #4 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %a, i64 72
   %0 = load ptr, ptr %subject, align 8
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %subject = getelementptr inbounds nuw i8, ptr %x, i64 72
@@ -544,7 +544,7 @@ X509_NAME_hash_ex.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %subject, align 8
@@ -631,7 +631,7 @@ return:                                           ; preds = %if.end48, %land.lhs
 declare i32 @X509_check_purpose(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_add_cert_new(ptr nocapture noundef %p_sk, ptr noundef %cert, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_add_cert_new(ptr noundef captures(none) %p_sk, ptr noundef %cert, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_sk, align 8
   %cmp = icmp eq ptr %0, null
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr nocapture noundef %p_sk, ptr noundef %certs, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr noundef captures(none) %p_sk, ptr noundef %certs, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #8
   %cmp9 = icmp sgt i32 %call1, 0
@@ -856,7 +856,7 @@ declare i32 @i2d_X509_NAME(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_find_by_issuer_and_serial(ptr noundef %sk, ptr noundef %name, ptr nocapture noundef readonly %serial) local_unnamed_addr #0 {
+define ptr @X509_find_by_issuer_and_serial(ptr noundef %sk, ptr noundef %name, ptr noundef readonly captures(none) %serial) local_unnamed_addr #0 {
 entry:
   %x = alloca %struct.x509_st, align 8
   %tobool.not = icmp eq ptr %sk, null
@@ -903,7 +903,7 @@ return:                                           ; preds = %X509_issuer_and_ser
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_find_by_subject(ptr noundef %sk, ptr noundef %name) local_unnamed_addr #0 {
@@ -1377,7 +1377,7 @@ declare i64 @X509_get_version(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures(none) %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %curve_name.i = alloca [80 x i8], align 16
   %curve_name_len.i = alloca i64, align 8
@@ -1508,10 +1508,10 @@ declare i32 @EVP_PKEY_get_group_name(ptr noundef, ptr noundef, i64 noundef, ptr 
 declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -203,7 +203,7 @@ define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr nounde
 declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
@@ -298,7 +298,7 @@ define range(i32 -20, 1) i32 @IDASetNlsResFn(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDAGetNonlinearSystemData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAGetNonlinearSystemData(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12
 
@@ -388,7 +388,7 @@ define range(i32 -15, 1) i32 @idaNlsInit(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 

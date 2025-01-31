@@ -172,7 +172,7 @@ declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_attach(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage_attach(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -455,7 +455,7 @@ spl_object_storage_free_hash.exit172:             ; preds = %102, %97, %90, %.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_detach(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage_detach(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -588,7 +588,7 @@ spl_object_storage_free_hash.exit:                ; preds = %42, %37, %31, %.thr
 declare void @zend_hash_internal_pointer_reset_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_getHash(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_getHash(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -628,7 +628,7 @@ define hidden void @zim_SplObjectStorage_getHash(ptr noundef %0, ptr nocapture n
 declare ptr @php_spl_object_hash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -802,7 +802,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_addAll(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_addAll(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -879,7 +879,7 @@ spl_object_storage_addall.exit:                   ; preds = %37, %15
 declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_removeAll(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_removeAll(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -942,7 +942,7 @@ define hidden void @zim_SplObjectStorage_removeAll(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_removeAllExcept(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_removeAllExcept(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1099,7 +1099,7 @@ spl_object_storage_get_hash.exit.thread:          ; preds = %21, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_contains(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_contains(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -1140,7 +1140,7 @@ define hidden void @zim_SplObjectStorage_contains(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1186,7 +1186,7 @@ define hidden void @zim_SplObjectStorage_count(ptr nocapture noundef readonly %0
 declare i64 @php_count_recursive(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1216,7 +1216,7 @@ define hidden void @zim_SplObjectStorage_rewind(ptr nocapture noundef readonly %
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1246,7 +1246,7 @@ define hidden void @zim_SplObjectStorage_valid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1274,7 +1274,7 @@ define hidden void @zim_SplObjectStorage_key(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1322,7 +1322,7 @@ define hidden void @zim_SplObjectStorage_current(ptr nocapture noundef readonly 
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_getInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_getInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1373,7 +1373,7 @@ define hidden void @zim_SplObjectStorage_getInfo(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_setInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_setInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1429,7 +1429,7 @@ define hidden void @zim_SplObjectStorage_setInfo(ptr nocapture noundef readonly 
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1461,7 +1461,7 @@ define hidden void @zim_SplObjectStorage_next(ptr nocapture noundef readonly %0,
 declare i32 @zend_hash_move_forward_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage_serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca i32, align 4
@@ -1776,7 +1776,7 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @php_var_serialize_init() local_unnamed_addr #1
 
@@ -1789,7 +1789,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage_unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -2129,7 +2129,7 @@ declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_add
 declare void @php_var_unserialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_SplObjectStorage___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2243,7 +2243,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare ptr @zend_proptable_to_symtable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplObjectStorage___unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2385,7 +2385,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplObjectStorage___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplObjectStorage___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -2545,7 +2545,7 @@ spl_object_storage_debug_info.exit:               ; preds = %72, %76, %81
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2573,7 +2573,7 @@ define hidden void @zim_MultipleIterator___construct(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_MultipleIterator_getFlags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2601,7 +2601,7 @@ define hidden void @zim_MultipleIterator_getFlags(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator_setFlags(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2622,7 +2622,7 @@ define hidden void @zim_MultipleIterator_setFlags(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_attachIterator(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator_attachIterator(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2807,7 +2807,7 @@ thread-pre-split:                                 ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_detachIterator(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator_detachIterator(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2840,7 +2840,7 @@ define hidden void @zim_MultipleIterator_detachIterator(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_containsIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_MultipleIterator_containsIterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2872,7 +2872,7 @@ define hidden void @zim_MultipleIterator_containsIterator(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_countIterators(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_MultipleIterator_countIterators(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2901,7 +2901,7 @@ define hidden void @zim_MultipleIterator_countIterators(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -2951,7 +2951,7 @@ define hidden void @zim_MultipleIterator_rewind(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_MultipleIterator_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -3001,7 +3001,7 @@ define hidden void @zim_MultipleIterator_next(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_MultipleIterator_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3099,7 +3099,7 @@ define hidden void @zim_MultipleIterator_valid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_MultipleIterator_current(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3124,7 +3124,7 @@ define hidden void @zim_MultipleIterator_current(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3308,7 +3308,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_MultipleIterator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_MultipleIterator_key(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3601,7 +3601,7 @@ define internal noundef nonnull ptr @spl_SplObjectStorage_new(ptr noundef %0) #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @spl_object_storage_compare_objects(ptr noundef %0, ptr noundef %1) #0 {
@@ -3668,7 +3668,7 @@ define internal noundef nonnull ptr @spl_object_storage_clone(ptr noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_object_storage_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_object_storage_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #10
   %5 = getelementptr inbounds i8, ptr %0, i64 -64
   %6 = load i32, ptr %5, align 8
@@ -4166,7 +4166,7 @@ declare ptr @zend_call_method(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -4220,7 +4220,7 @@ define internal fastcc noundef nonnull ptr @spl_object_storage_new_ex(ptr nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 128, i1 false)
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #10
   tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef %0) #10
-  tail call void @_zend_hash_init(ptr noundef %12, i32 noundef 0, ptr noundef nonnull @spl_object_storage_dtor, i1 noundef zeroext false) #10
+  tail call void @_zend_hash_init(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull @spl_object_storage_dtor, i1 noundef zeroext false) #10
   %14 = load ptr, ptr @spl_ce_SplObjectStorage, align 8
   br label %15
 
@@ -4364,7 +4364,7 @@ define internal fastcc noundef nonnull ptr @spl_object_storage_new_ex(ptr nounde
   %79 = load ptr, ptr %.017.i, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = tail call fastcc ptr @spl_object_storage_attach(ptr noundef %12, ptr noundef %80, ptr noundef nonnull %81)
+  %82 = tail call fastcc ptr @spl_object_storage_attach(ptr noundef nonnull %12, ptr noundef %80, ptr noundef nonnull %81)
   br label %83
 
 83:                                               ; preds = %78, %74
@@ -4390,7 +4390,7 @@ declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_add
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_object_storage_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @spl_object_storage_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -4434,7 +4434,7 @@ declare i32 @zend_std_compare_objects(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @zend_hash_compare(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @spl_object_storage_compare_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @spl_object_storage_compare_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4466,10 +4466,10 @@ declare void @zend_std_unset_dimension(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

@@ -55,7 +55,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %20, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9DeclGroupC2EjPPNS_4DeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 4)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9DeclGroupC2EjPPNS_4DeclE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 4)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPPN5clang4DeclES3_ET0_T_S5_S4_.exit, label %4
@@ -176,7 +176,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4

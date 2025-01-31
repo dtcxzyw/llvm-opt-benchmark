@@ -23,7 +23,7 @@ define { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h11dc81f6842
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3ef615d05dc9d635E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3ef615d05dc9d635E"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 24)) %0, ptr %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %10
 
@@ -47,7 +47,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3ef615d05dc9d635E"(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3dbb90a373c00e0E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, i64 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3dbb90a373c00e0E"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 24)) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %4, label %8
 

@@ -487,7 +487,7 @@ define dso_local i32 @hibernate_resume_nonboot_cpu_disable() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @cpuhp_smt_enable() local_unnamed_addr #2
@@ -503,7 +503,7 @@ define internal void @resume_play_dead() #3 align 16 {
 declare dso_local i32 @freeze_secondary_cpus(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @bsp_pm_check_init() #4 section ".init.text" align 16 {
@@ -613,13 +613,13 @@ declare dso_local void @native_write_cr4(i64 noundef) local_unnamed_addr #2
 declare dso_local void @native_write_cr0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @get_cpu_entry_area(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @syscall_init() local_unnamed_addr #2
@@ -655,7 +655,7 @@ declare dso_local void @play_dead_common() local_unnamed_addr #2
 declare dso_local void @hlt_play_dead() local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 1, 32789) i32 @bsp_pm_callback(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 1, 32789) i32 @bsp_pm_callback(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   switch i64 %1, label %13 [
     i64 3, label %4
     i64 1, label %4
@@ -691,7 +691,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @msr_initialize_bdw(ptr nocapture noundef readonly %0) #10 align 16 {
+define internal noundef range(i32 -12, 1) i32 @msr_initialize_bdw(ptr noundef readonly captures(none) %0) #10 align 16 {
   %2 = alloca [1 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
   store i32 410, ptr %2, align 4
@@ -704,7 +704,7 @@ define internal noundef range(i32 -12, 1) i32 @msr_initialize_bdw(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @msr_build_context(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @saved_context, i64 240), align 8
   %3 = add i32 %2, 1
   %4 = sext i32 %3 to i64
@@ -801,7 +801,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @msr_save_cpuid_features(ptr nocapture noundef readonly %0) #10 align 16 {
+define internal noundef range(i32 -12, 1) i32 @msr_save_cpuid_features(ptr noundef readonly captures(none) %0) #10 align 16 {
   %2 = alloca [1 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
   store i32 -1073672188, ptr %2, align 4

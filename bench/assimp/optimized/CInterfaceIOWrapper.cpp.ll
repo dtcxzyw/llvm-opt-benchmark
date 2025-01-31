@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp16CIOStreamWrapperD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp16CIOStreamWrapperD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -152,7 +152,7 @@ _ZN6Assimp16CIOStreamWrapperD2Ev.exit:            ; preds = %entry, %if.then.i
 declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper4ReadEPvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper4ReadEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper5WriteEPKvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper5WriteEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp16CIOStreamWrapper4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN6Assimp16CIOStreamWrapper4SeekEm8aiOrigin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper4TellEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper4TellEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper8FileSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper8FileSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp16CIOStreamWrapper5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp16CIOStreamWrapper5FlushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp16CIOSystemWrapper6ExistsEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %pFile) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp16CIOSystemWrapper6ExistsEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %pFile) unnamed_addr #5 align 2 {
 entry:
   %mFileSystem = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mFileSystem, align 8
@@ -238,7 +238,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef signext i8 @_ZNK6Assimp16CIOSystemWrapper14getOsSeparatorEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define hidden noundef signext i8 @_ZNK6Assimp16CIOSystemWrapper14getOsSeparatorEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i8 47
 }
@@ -270,7 +270,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp16CIOSystemWrapper5CloseEPNS_8IOStreamE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %pFile) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp16CIOSystemWrapper5CloseEPNS_8IOStreamE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %pFile) unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pFile, null
   br i1 %tobool.not, label %delete.end, label %delete.notnull
@@ -648,7 +648,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #11
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -657,7 +657,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare i32 @chdir(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

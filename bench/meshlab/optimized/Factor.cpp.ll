@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, double noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double noundef %1, ptr noundef writeonly captures(none) %2, double noundef %3) local_unnamed_addr #0 {
   %5 = tail call double @llvm.fabs.f64(double %0)
   %6 = fcmp ugt double %5, %3
   br i1 %6, label %7, label %11
@@ -26,7 +26,7 @@ define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double 
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, double noundef %4) local_unnamed_addr #2 {
+define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double noundef %1, double noundef %2, ptr noundef writeonly captures(none) %3, double noundef %4) local_unnamed_addr #2 {
   %6 = tail call double @llvm.fabs.f64(double %0)
   %7 = fcmp ugt double %6, %4
   br i1 %7, label %15, label %8
@@ -96,7 +96,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, double noundef %5) local_unnamed_addr #2 {
+define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr noundef writeonly captures(none) %4, double noundef %5) local_unnamed_addr #2 {
   %7 = tail call double @llvm.fabs.f64(double %0)
   %8 = fcmp ugt double %7, %5
   br i1 %8, label %45, label %9
@@ -338,7 +338,7 @@ define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_
 declare double @atan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_Z5AnglePKd(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define noundef double @_Z5AnglePKd(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -390,7 +390,7 @@ _Z7ArcTan2dd.exit:                                ; preds = %25, %23, %16, %12, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_Z4SqrtPKdPd(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
+define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
@@ -456,7 +456,7 @@ _Z5AnglePKd.exit:                                 ; preds = %2, %14, %18, %22, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z3AddPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z3AddPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %4, %5
@@ -472,7 +472,7 @@ define void @_Z3AddPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z8SubtractPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z8SubtractPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fsub double %4, %5
@@ -488,7 +488,7 @@ define void @_Z8SubtractPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z8MultiplyPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z8MultiplyPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -511,7 +511,7 @@ define void @_Z8MultiplyPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z6DividePKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
@@ -537,7 +537,7 @@ define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef %5, double noundef %6) local_unnamed_addr #4 {
+define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(none) %5, double noundef %6) local_unnamed_addr #4 {
   %8 = tail call double @llvm.fabs.f64(double %0)
   %9 = fcmp olt double %8, %6
   br i1 %9, label %10, label %12
@@ -909,7 +909,7 @@ _Z4SqrtPKdPd.exit88:                              ; preds = %_Z4SqrtPKdPd.exit83
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = sext i32 %3 to i64
   %6 = icmp slt i32 %3, 0
   %7 = shl nsw i64 %5, 2
@@ -1100,10 +1100,10 @@ declare double @llvm.sqrt.f64(double) #9
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

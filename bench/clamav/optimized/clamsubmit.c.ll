@@ -138,7 +138,7 @@ define dso_local void @usage(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @get_version() local_unnamed_addr #2
 
@@ -155,7 +155,7 @@ define dso_local void @version() local_unnamed_addr #0 {
 declare void @print_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #4 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #4 {
   %5 = mul i64 %2, %1
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 11
@@ -222,10 +222,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -236,13 +236,13 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #4 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #4 {
   %5 = mul i64 %2, %1
   %6 = trunc i64 %5 to i32
   %.not = icmp eq i32 %6, 0
@@ -284,7 +284,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @presigned_get_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
@@ -471,7 +471,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %67, label %68, label %77
 
 68:                                               ; preds = %65
-  %69 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 41, i64 noundef 1) #12
+  %69 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 41, i64 noundef 1) #12
   %.not252 = icmp eq i32 %69, 0
   br i1 %.not252, label %72, label %70
 
@@ -481,7 +481,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 72:                                               ; preds = %70, %68
   %73 = load ptr, ptr @stdout, align 8
-  %74 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10037, ptr noundef %73) #12
+  %74 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10037, ptr noundef %73) #12
   %.not253 = icmp eq i32 %74, 0
   br i1 %.not253, label %77, label %75
 
@@ -490,7 +490,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %77
 
 77:                                               ; preds = %72, %75, %65
-  %78 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 84, i32 noundef 2) #12
+  %78 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 84, i32 noundef 2) #12
   %.not254 = icmp eq i32 %78, 0
   br i1 %.not254, label %81, label %79
 
@@ -499,16 +499,16 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %81
 
 81:                                               ; preds = %79, %77
-  call void @set_tls_ca_bundle(ptr noundef %12) #12
+  call void @set_tls_ca_bundle(ptr noundef nonnull %12) #12
   %.str.31..str.32 = select i1 %49, ptr @.str.31, ptr @.str.32
   store ptr %.str.31..str.32, ptr %9, align 8
-  %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10002, ptr noundef nonnull %.str.31..str.32) #12
-  %83 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 80, i32 noundef 1) #12
-  %84 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10001, ptr noundef nonnull %6) #12
-  %85 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 20011, ptr noundef nonnull @write_cb) #12
-  %86 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10029, ptr noundef nonnull %7) #12
-  %87 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 20079, ptr noundef nonnull @header_cb) #12
-  %88 = call i32 @curl_easy_perform(ptr noundef %12) #12
+  %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10002, ptr noundef nonnull %.str.31..str.32) #12
+  %83 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 80, i32 noundef 1) #12
+  %84 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10001, ptr noundef nonnull %6) #12
+  %85 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 20011, ptr noundef nonnull @write_cb) #12
+  %86 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10029, ptr noundef nonnull %7) #12
+  %87 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 20079, ptr noundef nonnull @header_cb) #12
+  %88 = call i32 @curl_easy_perform(ptr noundef nonnull %12) #12
   %.not255 = icmp eq i32 %88, 0
   br i1 %.not255, label %93, label %89
 
@@ -610,13 +610,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 142:                                              ; preds = %138, %127
   %.1 = phi ptr [ null, %127 ], [ %134, %138 ]
   %.str.44..str.45 = select i1 %49, ptr @.str.44, ptr @.str.45
-  %143 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10002, ptr noundef nonnull %.str.44..str.45) #12
-  %144 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 80, i32 noundef 1) #12
+  %143 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10002, ptr noundef nonnull %.str.44..str.45) #12
+  %144 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 80, i32 noundef 1) #12
   %.not257 = icmp eq ptr %.1, null
   br i1 %.not257, label %147, label %145
 
 145:                                              ; preds = %142
-  %146 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
+  %146 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
   br label %147
 
 147:                                              ; preds = %145, %142
@@ -633,19 +633,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread
 
 156:                                              ; preds = %147
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %152, i64 noundef %151, ptr noundef nonnull @.str.47, ptr noundef %.1191) #12
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %152, i64 noundef %151, ptr noundef nonnull @.str.47, ptr noundef nonnull %.1191) #12
   %158 = icmp sgt i32 %157, %150
   br i1 %158, label %343, label %159
 
 159:                                              ; preds = %156
   %160 = call ptr @curl_slist_append(ptr noundef null, ptr noundef nonnull %152) #12
   call void @free(ptr noundef nonnull %152) #12
-  %161 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10023, ptr noundef %160) #12
-  %162 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10029, ptr noundef nonnull %8) #12
-  %163 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 20079, ptr noundef nonnull @header_cb) #12
+  %161 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10023, ptr noundef %160) #12
+  %162 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10029, ptr noundef nonnull %8) #12
+  %163 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 20079, ptr noundef nonnull @header_cb) #12
   %164 = load ptr, ptr %9, align 8
-  %165 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10016, ptr noundef %164) #12
-  %166 = call i32 @curl_easy_perform(ptr noundef %12) #12
+  %165 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10016, ptr noundef %164) #12
+  %166 = call i32 @curl_easy_perform(ptr noundef nonnull %12) #12
   %.not258 = icmp eq i32 %166, 0
   br i1 %.not258, label %170, label %167
 
@@ -873,12 +873,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not257, label %291, label %289
 
 289:                                              ; preds = %287
-  %290 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
+  %290 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10022, ptr noundef nonnull %.1) #12
   br label %291
 
 291:                                              ; preds = %289, %287
   %292 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.75, i32 noundef 4, ptr noundef nonnull @.str.76, i32 noundef 17) #12
-  %293 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.77, i32 noundef 4, ptr noundef %.1191, i32 noundef 17) #12
+  %293 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.77, i32 noundef 4, ptr noundef nonnull %.1191, i32 noundef 17) #12
   %294 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.78, i32 noundef 4, ptr noundef nonnull %199, i32 noundef 17) #12
   %295 = select i1 %49, ptr @.str.80, ptr @.str.81
   %296 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 4, ptr noundef nonnull %295, i32 noundef 17) #12
@@ -898,12 +898,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %304 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.87, i32 noundef 4, ptr noundef nonnull @.str.88, i32 noundef 17) #12
   %305 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.89, i32 noundef 4, ptr noundef nonnull @.str.85, i32 noundef 17) #12
   %306 = call i32 (ptr, ptr, ...) @curl_formadd(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.90, i32 noundef 4, ptr noundef nonnull @.str.85, i32 noundef 17) #12
-  %307 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10023, ptr noundef %288) #12
-  %308 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10002, ptr noundef nonnull @.str.91) #12
+  %307 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10023, ptr noundef %288) #12
+  %308 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10002, ptr noundef nonnull @.str.91) #12
   %309 = load ptr, ptr %4, align 8
-  %310 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 10024, ptr noundef %309) #12
-  %311 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %12, i32 noundef 20079, ptr noundef null) #12
-  %312 = call i32 @curl_easy_perform(ptr noundef %12) #12
+  %310 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10024, ptr noundef %309) #12
+  %311 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 20079, ptr noundef null) #12
+  %312 = call i32 @curl_easy_perform(ptr noundef nonnull %12) #12
   %.not266 = icmp eq i32 %312, 0
   br i1 %.not266, label %316, label %313
 
@@ -913,14 +913,14 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread
 
 316:                                              ; preds = %303
-  %317 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %12, i32 noundef 2097154, ptr noundef nonnull %10) #12
+  %317 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef nonnull %12, i32 noundef 2097154, ptr noundef nonnull %10) #12
   %318 = load i64, ptr %10, align 8
   %.off = add i64 %318, -300
   %319 = icmp ult i64 %.off, 100
   br i1 %319, label %320, label %341
 
 320:                                              ; preds = %316
-  %321 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %12, i32 noundef 1048607, ptr noundef nonnull %9) #12
+  %321 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef nonnull %12, i32 noundef 1048607, ptr noundef nonnull %9) #12
   %322 = load ptr, ptr %9, align 8
   %323 = icmp eq ptr %322, null
   br i1 %323, label %324, label %326
@@ -1092,14 +1092,14 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @curl_global_init(i64 noundef) local_unnamed_addr #2
 
 declare ptr @curl_easy_init() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
@@ -1178,7 +1178,7 @@ declare i32 @curl_easy_perform(ptr noundef) local_unnamed_addr #2
 declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @curl_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1197,35 +1197,35 @@ declare i32 @json_object_put(ptr noundef) local_unnamed_addr #2
 declare i32 @curl_easy_getinfo(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @curl_global_cleanup() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

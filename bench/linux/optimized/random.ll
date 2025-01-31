@@ -184,10 +184,10 @@ define dso_local zeroext i1 @rng_is_initialized() #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @wait_for_random_bytes() #0 align 16 {
@@ -460,7 +460,7 @@ define internal fastcc void @try_to_generate_entropy() unnamed_addr #2 align 16 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -1096,10 +1096,10 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crng_reseed(ptr nocapture readnone %0) #0 align 16 {
+define internal void @crng_reseed(ptr readnone captures(none) %0) #0 align 16 {
   %2 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
   %3 = load ptr, ptr @system_unbound_wq, align 8
@@ -1330,7 +1330,7 @@ define dso_local void @random_init() local_unnamed_addr #2 section ".init.text" 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @crng_set_ready(ptr nocapture readnone %0) #2 align 16 {
+define internal void @crng_set_ready(ptr readnone captures(none) %0) #2 align 16 {
   tail call void @static_key_enable(ptr noundef nonnull @crng_is_ready) #17
   ret void
 }
@@ -1774,7 +1774,7 @@ define dso_local void @add_disk_randomness(ptr noundef readonly %0) #0 align 16 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @rand_initialize_disk(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @rand_initialize_disk(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #22
   %4 = icmp eq ptr %3, null
@@ -1791,7 +1791,7 @@ define dso_local void @rand_initialize_disk(ptr nocapture noundef writeonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_getrandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__x64_sys_getrandom(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.iov_iter, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -1854,7 +1854,7 @@ define dso_local i64 @__x64_sys_getrandom(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_getrandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__ia32_sys_getrandom(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.iov_iter, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -1922,7 +1922,7 @@ define dso_local i64 @__ia32_sys_getrandom(ptr nocapture noundef readonly %0) lo
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @random_read_iter(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i64 @random_read_iter(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #17
           to label %.thread [label %3], !srcloc !6
 
@@ -1965,7 +1965,7 @@ define internal i64 @random_read_iter(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @random_write_iter(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i64 @random_write_iter(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i64 @write_pool_user(ptr noundef %1)
   ret i64 %3
 }
@@ -2001,7 +2001,7 @@ define internal range(i32 65, 261) i32 @random_poll(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -9223372036854775808, 2147483648) i64 @random_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -9223372036854775808, 2147483648) i64 @random_ioctl(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.iov_iter, align 8
   %5 = inttoptr i64 %2 to ptr
   switch i32 %1, label %.thread [
@@ -2178,7 +2178,7 @@ declare dso_local i64 @iter_file_splice_write(ptr noundef, ptr noundef, ptr noun
 declare dso_local i64 @copy_splice_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @urandom_read_iter(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i64 @urandom_read_iter(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #17
           to label %.thread [label %3], !srcloc !6
 
@@ -2256,7 +2256,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_make_state(ptr noundef initializes((0, 64)) %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 33) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_make_state(ptr noundef initializes((0, 64)) %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 1, 33) %2) unnamed_addr #0 align 16 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca i64, align 8
@@ -2373,7 +2373,7 @@ define internal fastcc void @crng_make_state(ptr noundef initializes((0, 64)) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -2538,7 +2538,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_fast_key_erasure(ptr noundef initializes((0, 64)) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_fast_key_erasure(ptr noundef initializes((0, 64)) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) unnamed_addr #0 align 16 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !7
@@ -2612,7 +2612,7 @@ declare dso_local i64 @ktime_get_with_offset(i32 noundef) local_unnamed_addr #4
 declare dso_local void @static_key_enable(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @random_pm_notification(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef i32 @random_pm_notification(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x i64], align 16
@@ -2992,7 +2992,7 @@ define internal i32 @proc_do_rointvec(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_do_uuid(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal i32 @proc_do_uuid(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [37 x i8], align 16
   %8 = alloca %struct.ctl_table, align 8
@@ -3052,7 +3052,7 @@ define internal i32 @proc_do_uuid(ptr nocapture noundef readonly %0, i32 noundef
 declare dso_local void @generate_random_uuid(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @proc_dostring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4

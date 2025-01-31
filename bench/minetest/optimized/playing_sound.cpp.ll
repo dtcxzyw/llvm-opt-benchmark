@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound12PlayingSoundC2EjSt10shared_ptrINS_14ISoundDataOpenEEbfffRKSt8optionalISt4pairIN3irr4core8vector3dIfEES9_EERKNS_12ALExtensionsE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 31), (40, 41)) %this, i32 noundef %source_id, ptr nocapture noundef %data, i1 noundef zeroext %loop, float noundef %volume, float noundef %pitch, float noundef %start_time, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %pos_vel_opt, ptr nocapture nonnull readnone align 1 %exts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound12PlayingSoundC2EjSt10shared_ptrINS_14ISoundDataOpenEEbfffRKSt8optionalISt4pairIN3irr4core8vector3dIfEES9_EERKNS_12ALExtensionsE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 31), (40, 41)) %this, i32 noundef %source_id, ptr noundef captures(none) %data, i1 noundef zeroext %loop, float noundef %volume, float noundef %pitch, float noundef %start_time, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %pos_vel_opt, ptr nonnull readnone align 1 captures(none) %exts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = alloca %"class.std::tuple", align 4
   %buf_ids = alloca [2 x i32], align 4
@@ -373,7 +373,7 @@ ehcleanup128:                                     ; preds = %ehcleanup110, %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -381,7 +381,7 @@ declare i32 @__gxx_personality_v0(...)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @alSourcei(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -517,7 +517,7 @@ cleanup:                                          ; preds = %_ZSt4endlIcSt11char
 declare void @alSourceQueueBuffers(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5sound12PlayingSound12updatePosVelERKN3irr4core8vector3dIfEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vel) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound12PlayingSound12updatePosVelERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vel) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8, !tbaa !4
   invoke void @alSourcei(i32 noundef %0, i32 noundef 514, i32 noundef 0)
@@ -566,7 +566,7 @@ terminate.lpad:                                   ; preds = %invoke.cont10, %inv
 declare void @alSource3f(i32 noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5sound12PlayingSound7setGainEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, float noundef %gain) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound12PlayingSound7setGainEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, float noundef %gain) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_is_positional = getelementptr inbounds nuw i8, ptr %this, i64 29
   %0 = load i8, ptr %m_is_positional, align 1, !tbaa !27, !range !25, !noundef !26
@@ -645,7 +645,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound10stepStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound10stepStreamEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i = alloca i32, align 4
   %state.i.i = alloca i32, align 4
@@ -884,7 +884,7 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 declare void @alSourceUnqueueBuffers(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound4fadeEff(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, float noundef %step, float noundef %target_gain) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound4fadeEff(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, float noundef %step, float noundef %target_gain) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gain.i = alloca float, align 4
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -933,7 +933,7 @@ _ZNSt8optionalIN5sound12PlayingSound9FadeStateEEaSIS2_EENSt9enable_ifIX7__and_vI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_ZN5sound12PlayingSound7getGainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN5sound12PlayingSound7getGainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gain = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %gain) #15
@@ -972,7 +972,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound6doFadeEf(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, float noundef %dtime) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5sound12PlayingSound6doFadeEf(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, float noundef %dtime) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gain.i = alloca float, align 4
   %state.i = alloca i32, align 4
@@ -1130,7 +1130,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {

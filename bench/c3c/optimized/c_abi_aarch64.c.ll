@@ -86,7 +86,7 @@ declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @abi_arg_new_indirect_not_by_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @aarch64_classify_argument_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %0)
@@ -270,7 +270,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -418,7 +418,7 @@ declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = tail call fastcc ptr @type_lowering(ptr noundef %0)
@@ -593,7 +593,7 @@ declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #1
 declare ptr @abi_arg_new_indirect_by_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_aarch64(ptr noundef captures(none) initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %0, align 8

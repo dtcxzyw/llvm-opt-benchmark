@@ -32,7 +32,7 @@ entry:
 declare i32 @connTypeRegister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @connUnixGetType(ptr nocapture readnone %conn) #2 {
+define internal noundef nonnull ptr @connUnixGetType(ptr readnone captures(none) %conn) #2 {
 entry:
   ret ptr @.str
 }
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @connUnixAcceptHandler(ptr nocapture readnone %el, i32 noundef %fd, ptr nocapture readnone %privdata, i32 %mask) #0 {
+define internal void @connUnixAcceptHandler(ptr readnone captures(none) %el, i32 noundef %fd, ptr readnone captures(none) %privdata, i32 %mask) #0 {
 entry:
   br label %while.body
 
@@ -110,13 +110,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @connUnixIsLocal(ptr nocapture readnone %conn) #2 {
+define internal noundef i32 @connUnixIsLocal(ptr readnone captures(none) %conn) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @connUnixListen(ptr nocapture noundef %listener) #0 {
+define internal noundef i32 @connUnixListen(ptr noundef captures(none) %listener) #0 {
 entry:
   %priv = getelementptr inbounds nuw i8, ptr %listener, i64 96
   %0 = load ptr, ptr %priv, align 8
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @connCreateAcceptedUnix(i32 noundef %fd, ptr nocapture readnone %priv) #0 {
+define internal noalias noundef ptr @connCreateAcceptedUnix(i32 noundef %fd, ptr readnone captures(none) %priv) #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #10
   store ptr @CT_Unix, ptr %call.i, align 8
@@ -281,7 +281,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @connUnixGetLastError(ptr nocapture noundef readonly %conn) #0 {
+define internal ptr @connUnixGetLastError(ptr noundef readonly captures(none) %conn) #0 {
 entry:
   %last_errno = getelementptr inbounds nuw i8, ptr %conn, i64 12
   %0 = load i32, ptr %last_errno, align 4
@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connUnixSyncWrite(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connUnixSyncWrite(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connUnixSyncRead(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connUnixSyncRead(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -308,7 +308,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connUnixSyncReadLine(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
+define internal i64 @connUnixSyncReadLine(ptr noundef readonly captures(none) %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
@@ -328,7 +328,7 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @acceptCommonHandler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @anetUnixServer(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

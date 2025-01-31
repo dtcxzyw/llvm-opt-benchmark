@@ -1347,7 +1347,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf10TextFormat7Printer24SetUseUtf8StringEscapingEb(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i1 noundef zeroext %as_utf8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf10TextFormat7Printer24SetUseUtf8StringEscapingEb(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, i1 noundef zeroext %as_utf8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
   %. = select i1 %as_utf8, ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf10TextFormat7Printer33FastFieldValuePrinterUtf8EscapingE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterE, i64 16)
@@ -1381,7 +1381,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -1989,19 +1989,19 @@ _ZNSt6vectorISt10unique_ptrIN6google8protobuf10TextFormat13ParseInfoTreeESt14def
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6google8protobuf15CheckFieldIndexEPKNS0_15FieldDescriptorEi(ptr nocapture noundef readonly %field, i32 noundef %index) local_unnamed_addr #11 {
+define hidden void @_ZN6google8protobuf15CheckFieldIndexEPKNS0_15FieldDescriptorEi(ptr noundef readonly captures(none) %field, i32 noundef %index) local_unnamed_addr #11 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define { i64, i64 } @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetLocationRangeEPKNS0_15FieldDescriptorEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %field, i32 noundef %index) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetLocationRangeEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %field, i32 noundef %index) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.prefetch.p0(ptr %0, i32 0, i32 1, i32 1)
@@ -2119,10 +2119,10 @@ return:                                           ; preds = %lor.rhs, %_ZNK4absl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define noundef ptr @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetTreeForNestedEPKNS0_15FieldDescriptorEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %field, i32 noundef %index) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf10TextFormat13ParseInfoTree16GetTreeForNestedEPKNS0_15FieldDescriptorEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %field, i32 noundef %index) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nested_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %nested_, align 8
@@ -2304,7 +2304,7 @@ _ZNK6google8protobuf10Reflection6GetRawIcEERKT_RKNS0_7MessageEPKNS0_15FieldDescr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf10TextFormat6FinderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf10TextFormat6FinderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -2318,7 +2318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder13FindExtensionEPNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %message, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder13FindExtensionEPNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %message, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
 entry:
   %vtable.i.i = load ptr, ptr %message, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 80
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %descriptor, i32 noundef %number) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %descriptor, i32 noundef %number) unnamed_addr #4 align 2 {
 entry:
   %file_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i.i, align 8
@@ -2348,7 +2348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder11FindAnyTypeERKNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK6google8protobuf10TextFormat6Finder11FindAnyTypeERKNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
 entry:
   %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull @_ZN6google8protobuf8internal24kTypeGoogleApisComPrefixE) #36
   %cmp.i.i.not.i = icmp eq i32 %call.i.i.i, 0
@@ -2381,13 +2381,13 @@ _ZN6google8protobuf12_GLOBAL__N_124DefaultFinderFindAnyTypeERKNS0_7MessageERKNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK6google8protobuf10TextFormat6Finder20FindExtensionFactoryEPKNS0_15FieldDescriptorE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #11 align 2 {
+define noalias noundef ptr @_ZNK6google8protobuf10TextFormat6Finder20FindExtensionFactoryEPKNS0_15FieldDescriptorE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #11 align 2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf10TextFormat6ParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 {
+define void @_ZN6google8protobuf10TextFormat6ParserC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 {
 entry:
   %recursion_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
@@ -2398,13 +2398,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf10TextFormat6ParserD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf10TextFormat6ParserD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5ParseEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5ParseEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
   %vtable = load ptr, ptr %output, align 8
@@ -2541,7 +2541,7 @@ lpad:                                             ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser14MergeUsingImplEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageEPNS2_10ParserImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture readnone %0, ptr noundef %output, ptr noundef %parser_impl) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser14MergeUsingImplEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageEPNS2_10ParserImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr readnone captures(none) %0, ptr noundef %output, ptr noundef %parser_impl) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %missing_fields = alloca %"class.std::vector.71", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2671,7 +2671,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser15ParseFromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser15ParseFromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input_stream = alloca %"class.google::protobuf::io::ArrayInputStream", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2770,7 +2770,7 @@ return:                                           ; preds = %entry, %invoke.cont
 declare void @_ZN6google8protobuf2io16ArrayInputStreamC1EPKvii(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser13ParseFromCordERKN4absl12lts_202308024CordEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser13ParseFromCordERKN4absl12lts_202308024CordEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [6 x %"class.std::basic_string_view"], align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2886,7 +2886,7 @@ return:                                           ; preds = %if.end, %_ZN6google
 declare void @_ZN6google8protobuf2io15CordInputStreamC1EPKN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5MergeEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5MergeEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
   %vtable.i = load ptr, ptr %output, align 8
@@ -3014,7 +3014,7 @@ lpad:                                             ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser15MergeFromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser15MergeFromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input_stream = alloca %"class.google::protobuf::io::ArrayInputStream", align 8
   %0 = load ptr, ptr %this, align 8
@@ -3193,7 +3193,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser25ParseFieldValueFromStringESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_15FieldDescriptorEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %field, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser25ParseFieldValueFromStringESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_15FieldDescriptorEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %field, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input_stream = alloca %"class.google::protobuf::io::ArrayInputStream", align 8
   %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
@@ -3519,13 +3519,13 @@ lpad:                                             ; preds = %.noexc, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 {
+define void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.trap() #42
   unreachable
@@ -3560,7 +3560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter9PrintBoolB5cxx11Eb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 noundef zeroext %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter9PrintBoolB5cxx11Eb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, i1 noundef zeroext %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3589,7 +3589,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter9PrintBoolEbPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i1 noundef zeroext %val, ptr noundef %generator) unnamed_addr #4 align 2 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter9PrintBoolEbPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i1 noundef zeroext %val, ptr noundef %generator) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %generator, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
@@ -3618,7 +3618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintInt32B5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i32 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintInt32B5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i32 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3642,7 +3642,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintInt32EiPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintInt32EiPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3694,7 +3694,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintUInt32B5cxx11Ej(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i32 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintUInt32B5cxx11Ej(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i32 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3718,7 +3718,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintUInt32EjPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintUInt32EjPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3770,7 +3770,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintInt64B5cxx11El(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i64 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintInt64B5cxx11El(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i64 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3794,7 +3794,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintInt64ElPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintInt64ElPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3846,7 +3846,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintUInt64B5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i64 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintUInt64B5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i64 noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3870,7 +3870,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintUInt64EmPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintUInt64EmPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3922,7 +3922,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintFloatB5cxx11Ef(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, float noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter10PrintFloatB5cxx11Ef(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, float noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -3946,7 +3946,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintFloatEfPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, float noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter10PrintFloatEfPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, float noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -4019,7 +4019,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintDoubleB5cxx11Ed(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintDoubleB5cxx11Ed(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4043,7 +4043,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintDoubleEdPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, double noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintDoubleEdPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, double noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -4116,7 +4116,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4140,7 +4140,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable.i = load ptr, ptr %generator, align 8
@@ -4193,7 +4193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i32 %val, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, i32 %val, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4223,7 +4223,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %generator) unnamed_addr #4 align 2 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %generator) unnamed_addr #4 align 2 {
 entry:
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #36
   %1 = extractvalue { i64, ptr } %call, 0
@@ -4236,7 +4236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter14PrintFieldNameB5cxx11ERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %message, ptr nocapture noundef readnone %reflection, ptr noundef %field) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter14PrintFieldNameB5cxx11ERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %message, ptr noundef readnone captures(none) %reflection, ptr noundef %field) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4260,7 +4260,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter14PrintFieldNameERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter14PrintFieldNameERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_extension_.i = getelementptr inbounds nuw i8, ptr %field, i64 1
   %bf.load.i = load i8, ptr %is_extension_.i, align 1
@@ -4354,7 +4354,7 @@ if.end15:                                         ; preds = %if.then6, %if.else1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter17PrintMessageStartB5cxx11ERKNS0_7MessageEiib(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %message, i32 %field_index, i32 %field_count, i1 noundef zeroext %single_line_mode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter17PrintMessageStartB5cxx11ERKNS0_7MessageEiib(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %message, i32 %field_index, i32 %field_count, i1 noundef zeroext %single_line_mode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4382,7 +4382,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter17PrintMessageStartERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter17PrintMessageStartERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %generator, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
@@ -4393,7 +4393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter15PrintMessageEndB5cxx11ERKNS0_7MessageEiib(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %message, i32 %field_index, i32 %field_count, i1 noundef zeroext %single_line_mode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat17FieldValuePrinter15PrintMessageEndB5cxx11ERKNS0_7MessageEiib(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %message, i32 %field_index, i32 %field_count, i1 noundef zeroext %single_line_mode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %generator, align 8
@@ -4421,7 +4421,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter15PrintMessageEndERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 {
+define void @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter15PrintMessageEndERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %generator, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
@@ -4432,14 +4432,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
+define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf10TextFormat21FastFieldValuePrinterE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -4545,7 +4545,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf15F
 declare noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter19PrintMessageContentERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i1 zeroext %3, ptr nocapture readnone %4) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat21FastFieldValuePrinter19PrintMessageContentERKNS0_7MessageEiibPNS1_17BaseTextGeneratorE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 %2, i1 zeroext %3, ptr readnone captures(none) %4) unnamed_addr #11 align 2 {
 entry:
   ret i1 false
 }
@@ -4703,7 +4703,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf10TextFormat7Printer27SetDefaultFieldValuePrinterEPKNS1_21FastFieldValuePrinterE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %printer) local_unnamed_addr #5 align 2 {
+define void @_ZN6google8protobuf10TextFormat7Printer27SetDefaultFieldValuePrinterEPKNS1_21FastFieldValuePrinterE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef %printer) local_unnamed_addr #5 align 2 {
 entry:
   %default_field_value_printer_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %default_field_value_printer_, align 8
@@ -4723,7 +4723,7 @@ _ZNSt10unique_ptrIKN6google8protobuf10TextFormat21FastFieldValuePrinterESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf10TextFormat7Printer27SetDefaultFieldValuePrinterEPKNS1_17FieldValuePrinterE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %printer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf10TextFormat7Printer27SetDefaultFieldValuePrinterEPKNS1_17FieldValuePrinterE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef %printer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %default_field_value_printer_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #38
@@ -5191,7 +5191,7 @@ _ZN6google8protobuf10TextFormat7Printer13TextGeneratorD2Ev.exit14: ; preds = %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer26PrintUnknownFieldsToStringERKNS0_15UnknownFieldSetEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef nonnull %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer26PrintUnknownFieldsToStringERKNS0_15UnknownFieldSetEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields, ptr noundef nonnull %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %output_stream = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #36
@@ -5201,7 +5201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generator = alloca %"class.google::protobuf::TextFormat::Printer::TextGenerator", align 8
   %0 = load i32, ptr %this, align 8
@@ -5521,7 +5521,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS1_17BaseTextGeneratorEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef %generator, i32 noundef %recursion_budget) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS1_17BaseTextGeneratorEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields, ptr noundef %generator, i32 noundef %recursion_budget) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp6 = alloca i64, align 8
@@ -8127,7 +8127,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal21MapFieldPrinterHelper7SortMapERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPSt6vectorIPS4_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %reflection, ptr noundef %field, ptr nocapture noundef %sorted_map_field) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal21MapFieldPrinterHelper7SortMapERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPSt6vectorIPS4_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %reflection, ptr noundef %field, ptr noundef captures(none) %sorted_map_field) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.google::protobuf::MapIterator", align 8
   %ref.tmp9 = alloca %"class.google::protobuf::MapIterator", align 8
@@ -10368,7 +10368,7 @@ declare noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7MessageEP
 declare noundef zeroext i1 @_ZNK6google8protobuf10Reflection8HasFieldERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10TextFormat7Printer14PrintFieldNameERKNS0_7MessageEiiPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10TextFormat7Printer14PrintFieldNameERKNS0_7MessageEiiPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10526,7 +10526,7 @@ return:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer19TryRedactFieldValueERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %message, ptr nocapture noundef readonly %field, ptr noundef %generator, i1 noundef zeroext %insert_value_separator) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6google8protobuf10TextFormat7Printer19TryRedactFieldValueERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS1_17BaseTextGeneratorEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %message, ptr noundef readonly captures(none) %field, ptr noundef %generator, i1 noundef zeroext %insert_value_separator) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 56
   %0 = load ptr, ptr %options_.i.i, align 8
@@ -10758,7 +10758,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat18PrintUnknownFieldsERKNS0_15UnknownFieldSetEPNS0_2io20ZeroCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::TextFormat::Printer", align 8
   call void @_ZN6google8protobuf10TextFormat7PrinterC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp)
@@ -11020,7 +11020,7 @@ lpad:                                             ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf10TextFormat26PrintUnknownFieldsToStringERKNS0_15UnknownFieldSetEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf10TextFormat26PrintUnknownFieldsToStringERKNS0_15UnknownFieldSetEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %output_stream.i = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %ref.tmp = alloca %"class.google::protobuf::TextFormat::Printer", align 8
@@ -11616,7 +11616,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet20ParseFromCoded
 declare void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal17ShouldRedactFieldEPKNS0_15FieldDescriptorE(ptr nocapture noundef readonly %field) local_unnamed_addr #19 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal17ShouldRedactFieldEPKNS0_15FieldDescriptorE(ptr noundef readonly captures(none) %field) local_unnamed_addr #19 {
 entry:
   %options_.i = getelementptr inbounds nuw i8, ptr %field, i64 56
   %0 = load ptr, ptr %options_.i, align 8
@@ -18952,7 +18952,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #24
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25
@@ -19284,7 +19284,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #27
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
@@ -19503,7 +19503,7 @@ entry:
 declare noundef i64 @_ZN10utf8_range21SpanStructurallyValidESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19545,7 +19545,7 @@ _ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper9PrintBoolEbPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper9PrintBoolEbPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19575,7 +19575,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintInt32EiPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintInt32EiPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19605,7 +19605,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintUInt32EjPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintUInt32EjPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19635,7 +19635,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintInt64ElPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintInt64ElPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19665,7 +19665,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintUInt64EmPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintUInt64EmPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19695,7 +19695,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintFloatEfPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, float noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintFloatEfPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, float noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19725,7 +19725,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintDoubleEdPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, double noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintDoubleEdPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19755,7 +19755,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper11PrintStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19785,7 +19785,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintBytesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper10PrintBytesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19815,7 +19815,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %val, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper9PrintEnumEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %val, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19845,7 +19845,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper14PrintFieldNameERKNS0_7MessageEiiPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 %0, i32 %1, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper14PrintFieldNameERKNS0_7MessageEiiPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 %0, i32 %1, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19875,7 +19875,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper14PrintFieldNameERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper14PrintFieldNameERKNS0_7MessageEPKNS0_10ReflectionEPKNS0_15FieldDescriptorEPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %reflection, ptr noundef %field, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19905,7 +19905,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper17PrintMessageStartERKNS0_7MessageEiibPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper17PrintMessageStartERKNS0_7MessageEiibPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19935,7 +19935,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper15PrintMessageEndERKNS0_7MessageEiibPNS0_10TextFormat17BaseTextGeneratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapper15PrintMessageEndERKNS0_7MessageEiibPNS0_10TextFormat17BaseTextGeneratorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %message, i32 noundef %field_index, i32 noundef %field_count, i1 noundef zeroext %single_line_mode, ptr noundef %generator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20564,7 +20564,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorESt6vectorINS5_10TextFormat18ParseLocationRangeESaISB_EEEENS1_6HashEqIS8_vE4HashENSG_2EqESaISt4pairIKS8_SD_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %hash) local_unnamed_addr #4 comdat align 2 {
@@ -22261,7 +22261,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #29 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_T2_(ptr captures(none) %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #29 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -23812,10 +23812,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
@@ -23830,7 +23830,7 @@ declare i64 @llvm.umin.i64(i64, i64) #34
 declare i64 @llvm.smin.i64(i64, i64) #34
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

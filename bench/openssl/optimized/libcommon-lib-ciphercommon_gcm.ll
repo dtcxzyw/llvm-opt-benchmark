@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.gcm_tls_cipher = private unnamed_addr constant [15 x i8] c"gcm_tls_cipher\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_gcm_initctx(ptr noundef %provctx, ptr nocapture noundef initializes((0, 4), (8, 32), (40, 48), (232, 248)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #0 {
+define void @ossl_gcm_initctx(ptr noundef %provctx, ptr noundef captures(none) initializes((0, 4), (8, 32), (40, 48), (232, 248)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #0 {
 entry:
   %pad = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %pad, align 4
@@ -617,7 +617,7 @@ declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_stream_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %inl, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gcm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gcm_cipher_internal(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %padlen, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %hw1 = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %hw1, align 8
@@ -921,7 +921,7 @@ return:                                           ; preds = %finish, %if.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -944,7 +944,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -975,7 +975,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 

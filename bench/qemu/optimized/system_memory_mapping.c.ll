@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @cpus_queue = external local_unnamed_addr global %union.CPUTailQ, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_mapping_list_add_merge_sorted(ptr nocapture noundef %list, i64 noundef %phys_addr, i64 noundef %virt_addr, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local void @memory_mapping_list_add_merge_sorted(ptr noundef captures(none) %list, i64 noundef %phys_addr, i64 noundef %virt_addr, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
@@ -244,7 +244,7 @@ return:                                           ; preds = %do.body11.i.i74, %d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_mapping_list_free(ptr nocapture noundef %list) local_unnamed_addr #0 {
+define dso_local void @memory_mapping_list_free(ptr noundef captures(none) %list) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @guest_phys_blocks_free(ptr nocapture noundef %list) local_unnamed_addr #0 {
+define dso_local void @guest_phys_blocks_free(ptr noundef captures(none) %list) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load ptr, ptr %head, align 8
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @guest_phys_blocks_region_add(ptr noundef %listener, ptr noundef %section) #0 {
@@ -423,7 +423,7 @@ declare void @memory_listener_register(ptr noundef, ptr noundef) local_unnamed_a
 declare void @memory_listener_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qemu_get_guest_memory_mapping(ptr noundef %list, ptr nocapture noundef readonly %guest_phys_blocks, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_get_guest_memory_mapping(ptr noundef %list, ptr noundef readonly captures(none) %guest_phys_blocks, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -555,7 +555,7 @@ declare zeroext i1 @cpu_get_memory_mapping(ptr noundef, ptr noundef, ptr noundef
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_get_guest_simple_memory_mapping(ptr nocapture noundef %list, ptr nocapture noundef readonly %guest_phys_blocks) local_unnamed_addr #0 {
+define dso_local void @qemu_get_guest_simple_memory_mapping(ptr noundef captures(none) %list, ptr noundef readonly captures(none) %guest_phys_blocks) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %guest_phys_blocks, i64 8
   %block.06 = load ptr, ptr %head, align 8
@@ -633,7 +633,7 @@ for.end:                                          ; preds = %create_new_memory_m
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_mapping_filter(ptr nocapture noundef %list, i64 noundef %begin, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local void @memory_mapping_filter(ptr noundef captures(none) %list, i64 noundef %begin, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
@@ -738,14 +738,14 @@ declare ptr @memory_region_get_ram_discard_manager(ptr noundef) local_unnamed_ad
 declare i32 @ram_discard_manager_replay_populated(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @guest_phys_ram_populate_cb(ptr nocapture noundef readonly %section, ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @guest_phys_ram_populate_cb(ptr noundef readonly captures(none) %section, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   tail call fastcc void @guest_phys_block_add_section(ptr noundef %opaque, ptr noundef %section)
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @guest_phys_block_add_section(ptr nocapture noundef readonly %g, ptr nocapture noundef readonly %section) unnamed_addr #0 {
+define internal fastcc void @guest_phys_block_add_section(ptr noundef readonly captures(none) %g, ptr noundef readonly captures(none) %section) unnamed_addr #0 {
 entry:
   %offset_within_address_space = getelementptr inbounds nuw i8, ptr %section, i64 40
   %0 = load i64, ptr %offset_within_address_space, align 8

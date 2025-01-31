@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ida_destroy:
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_ida_alloc_range189, ptr @__UNIQUE_ID___addressable_ida_destroy195, ptr @__UNIQUE_ID___addressable_ida_free194, ptr @__UNIQUE_ID___addressable_idr_alloc173, ptr @__UNIQUE_ID___addressable_idr_alloc_cyclic174, ptr @__UNIQUE_ID___addressable_idr_alloc_u32170, ptr @__UNIQUE_ID___addressable_idr_find176, ptr @__UNIQUE_ID___addressable_idr_for_each181, ptr @__UNIQUE_ID___addressable_idr_get_next187, ptr @__UNIQUE_ID___addressable_idr_get_next_ul184, ptr @__UNIQUE_ID___addressable_idr_remove175, ptr @__UNIQUE_ID___addressable_idr_replace188], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -94,13 +94,13 @@ define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @idr_get_free(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -340,7 +340,7 @@ define dso_local ptr @idr_find(ptr noundef %0, i64 noundef %1) #0 align 16 {
 declare dso_local ptr @radix_tree_lookup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @idr_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @idr_for_each(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -424,7 +424,7 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr nocapture noundef readonl
 declare dso_local ptr @radix_tree_next_chunk(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -524,7 +524,7 @@ split:                                            ; preds = %27, %._crit_edge
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @idr_get_next(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local ptr @idr_get_next(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.radix_tree_iter, align 8
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64

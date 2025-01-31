@@ -193,22 +193,22 @@ $_ZZNK5folly17BaseFormatterImplINS_9FormatterILb0EJmEEELb0ESt16integer_sequenceI
 @_ZN5folly10MacAddressC1ENS_5RangeIPKcEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5folly10MacAddressC2ENS_5RangeIPKcEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10MacAddressC2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) initializes((0, 8)) %this, ptr %str.coerce0, ptr %str.coerce1) unnamed_addr #3 align 2 {
+define void @_ZN5folly10MacAddressC2ENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr %str.coerce0, ptr %str.coerce1) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 1
   tail call void @_ZN5folly10MacAddress13setFromStringENS_5RangeIPKcEE(ptr noundef nonnull align 1 dereferenceable(8) %this, ptr %str.coerce0, ptr %str.coerce1)
@@ -216,7 +216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10MacAddress13setFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10MacAddress13setFromStringENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %widths.i.i.i.i.i.i177.i = alloca [2 x i32], align 8
   %out.i.i.i.i.i178.i = alloca %"struct.folly::detail::BaseFormatterAppendToString", align 8
@@ -979,7 +979,7 @@ unreachable.i.i203.i:                             ; preds = %invoke.cont4.i.i202
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 858980352, -3221291007) i64 @_ZN5folly10MacAddress15createMulticastENS_11IPAddressV6E(ptr nocapture noundef readonly byval(%"class.folly::IPAddressV6") align 8 %v6addr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 858980352, -3221291007) i64 @_ZN5folly10MacAddress15createMulticastENS_11IPAddressV6E(ptr noundef readonly byval(%"class.folly::IPAddressV6") align 8 captures(none) %v6addr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %v6addr, i64 12
   %0 = load i32, ptr %add.ptr2, align 4
@@ -990,7 +990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10MacAddress13setFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10MacAddress13setFromBinaryENS_5RangeIPKhEE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %widths.i.i.i.i.i.i.i = alloca [2 x i32], align 8
   %out.i.i.i.i.i.i = alloca %"struct.folly::detail::BaseFormatterAppendToString", align 8
@@ -1098,7 +1098,7 @@ unreachable.i.i.i:                                ; preds = %invoke.cont6.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly10MacAddress8toStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly10MacAddress8toStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !17
@@ -1256,7 +1256,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
+define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) %this, ptr readonly %value.coerce0, ptr readnone %value.coerce1) local_unnamed_addr #7 align 2 {
 entry:
   %cmp3.i = icmp eq ptr %value.coerce0, %value.coerce1
   br i1 %cmp3.i, label %"_ZN5folly10MacAddress13setFromStringIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit", label %if.end18.i
@@ -2706,7 +2706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEE4callIJNS_5RangeIPKcEES9_S9_S8_cS8_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v3, ptr noundef nonnull align 8 dereferenceable(8) %v5, ptr noundef nonnull align 1 dereferenceable(1) %v7, ptr noundef nonnull align 8 dereferenceable(8) %v9, ptr noundef nonnull align 8 dereferenceable(8) %v11) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3564,7 +3564,7 @@ _ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 declare void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -4846,7 +4846,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #20 align 2 {
+define noundef range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromBinaryENS_5RangeIPKhEE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) %this, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #20 align 2 {
 entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %value.coerce1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %value.coerce0 to i64

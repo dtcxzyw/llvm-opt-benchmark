@@ -66,7 +66,7 @@ define void @group_free_child(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @group_add_child(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #4 {
+define void @group_add_child(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -75,7 +75,7 @@ define void @group_add_child(ptr nocapture noundef %0, ptr noundef initializes((
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @group_find_child(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define ptr @group_find_child(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %4
 
@@ -96,7 +96,7 @@ define ptr @group_find_child(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @group_exit_child(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @group_exit_child(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %3
 
@@ -118,7 +118,7 @@ define ptr @group_exit_child(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @group_remove_child(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %4
 
@@ -157,7 +157,7 @@ define ptr @group_remove_child(ptr nocapture noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @group_remove_children(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @group_remove_children(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null

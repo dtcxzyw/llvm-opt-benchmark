@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"9\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @JIMAGE_Open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef ptr @JIMAGE_Open(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = tail call noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr noundef %0, i1 noundef zeroext false)
   ret ptr %3
@@ -38,7 +38,7 @@ declare noundef ptr @_ZN15ImageFileReader21get_image_module_dataEv(ptr noundef n
 declare noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #4
@@ -52,11 +52,11 @@ define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr noc
   %14 = add i64 %7, 1
   store i8 47, ptr %6, align 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %1, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %1, i64 %7, i1 false)
   %16 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %14
   store i8 47, ptr %16, align 1
   %17 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %3, i64 %8, i1 false)
   %18 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   %19 = call noundef i32 @_ZNK15ImageFileReader19find_location_indexEPKcPy(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %6, ptr noundef %4)
@@ -69,10 +69,10 @@ define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef i32 @_ZNK15ImageFileReader19find_location_indexEPKcPy(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -86,7 +86,7 @@ define noundef i64 @JIMAGE_GetResource(ptr noundef nonnull %0, i64 noundef %1, p
 declare void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %class.ImageLocation, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -181,7 +181,7 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN13ImageLocation10clear_dataEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 

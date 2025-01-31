@@ -194,7 +194,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @drm_atomic_helper_connector_reset(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drm_bridge_connector_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #0 align 16 {
+define internal i32 @drm_bridge_connector_detect(ptr noundef readonly captures(none) %0, i1 zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -318,7 +318,7 @@ define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_bridge_connector_debugfs_init(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @drm_bridge_connector_debugfs_init(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -484,7 +484,7 @@ define internal void @drm_bridge_connector_enable_hpd(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_bridge_connector_disable_hpd(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @drm_bridge_connector_disable_hpd(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

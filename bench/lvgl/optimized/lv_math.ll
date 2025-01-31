@@ -218,7 +218,7 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_sqrt(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @lv_sqrt(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = shl i32 %0, 8
   br label %5
 

@@ -90,10 +90,10 @@ define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -221,7 +221,7 @@ define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #0 align 16 {
   %6 = zext i32 %3 to i64
   %7 = shl nuw nsw i64 %6, 2
   %8 = tail call noalias ptr @__alloc_percpu_gfp(i64 noundef %7, i64 noundef 4, i32 noundef %2) #9

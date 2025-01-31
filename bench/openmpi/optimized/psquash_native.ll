@@ -79,7 +79,7 @@ define internal void @native_finalize() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 -27, 1) i32 @native_get_max_size(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -27, 1) i32 @native_get_max_size(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
   br i1 %3, label %switch.hole_check, label %5
@@ -102,7 +102,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %switch.tableidx = add i16 %0, -4
@@ -186,7 +186,7 @@ pmix_hton64.exit:                                 ; preds = %21, %18, %14, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
   %switch.tableidx = add i16 %0, -4
@@ -274,7 +274,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #4

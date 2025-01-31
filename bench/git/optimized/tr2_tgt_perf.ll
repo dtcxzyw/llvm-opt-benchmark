@@ -215,7 +215,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #8
-  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef %pathname, i64 noundef %call.i) #7
+  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull %pathname, i64 noundef %call.i) #7
   call fastcc void @perf_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
@@ -270,7 +270,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #8
-  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef %name, i64 noundef %call.i) #7
+  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull %name, i64 noundef %call.i) #7
   %tobool.not = icmp eq ptr %hierarchy, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -295,7 +295,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mode) #8
-  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef %mode, i64 noundef %call.i) #7
+  call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull %mode, i64 noundef %call.i) #7
   call fastcc void @perf_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.27, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %buf_payload)
   call void @strbuf_release(ptr noundef nonnull %buf_payload) #7
   ret void
@@ -345,7 +345,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_child_start_fl(ptr noundef %file, i32 noundef %line, i64 noundef %us_elapsed_absolute, ptr nocapture noundef readonly %cmd) #0 {
+define internal void @fn_child_start_fl(ptr noundef %file, i32 noundef %line, i64 noundef %us_elapsed_absolute, ptr noundef readonly captures(none) %cmd) #0 {
 entry:
   %us_elapsed_absolute.addr = alloca i64, align 8
   %buf_payload = alloca %struct.strbuf, align 8
@@ -642,7 +642,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_param_fl(ptr noundef %file, i32 noundef %line, ptr noundef %param, ptr noundef %value, ptr nocapture noundef readonly %kvi) #0 {
+define internal void @fn_param_fl(ptr noundef %file, i32 noundef %line, ptr noundef %param, ptr noundef %value, ptr noundef readonly captures(none) %kvi) #0 {
 entry:
   %buf_payload = alloca %struct.strbuf, align 8
   %scope_payload = alloca %struct.strbuf, align 8
@@ -847,7 +847,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_data_json_fl(ptr noundef %file, i32 noundef %line, i64 noundef %us_elapsed_absolute, i64 noundef %us_elapsed_region, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr nocapture noundef readonly %value) #0 {
+define internal void @fn_data_json_fl(ptr noundef %file, i32 noundef %line, i64 noundef %us_elapsed_absolute, i64 noundef %us_elapsed_region, ptr noundef %category, ptr noundef %repo, ptr noundef %key, ptr noundef readonly captures(none) %value) #0 {
 entry:
   %us_elapsed_absolute.addr = alloca i64, align 8
   %us_elapsed_region.addr = alloca i64, align 8
@@ -894,7 +894,7 @@ maybe_append_string_va.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_timer(ptr nocapture noundef readonly %meta, ptr nocapture noundef readonly %timer, i32 noundef %is_final_data) #0 {
+define internal void @fn_timer(ptr noundef readonly captures(none) %meta, ptr noundef readonly captures(none) %timer, i32 noundef %is_final_data) #0 {
 entry:
   %buf_payload = alloca %struct.strbuf, align 8
   %tobool.not = icmp eq i32 %is_final_data, 0
@@ -923,7 +923,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fn_counter(ptr nocapture noundef readonly %meta, ptr nocapture noundef readonly %counter, i32 noundef %is_final_data) #0 {
+define internal void @fn_counter(ptr noundef readonly captures(none) %meta, ptr noundef readonly captures(none) %counter, i32 noundef %is_final_data) #0 {
 entry:
   %buf_payload = alloca %struct.strbuf, align 8
   %tobool.not = icmp eq i32 %is_final_data, 0
@@ -948,7 +948,7 @@ declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #1
 declare void @tr2_dst_trace_disable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @perf_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %event_name, ptr noundef readonly %repo, ptr noundef readonly %p_us_elapsed_absolute, ptr noundef readonly %p_us_elapsed_relative, ptr noundef %category, ptr noundef nonnull %buf_payload) unnamed_addr #0 {
@@ -1188,7 +1188,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @tr2tls_get_self() local_unnamed_addr #1
 
@@ -1224,10 +1224,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

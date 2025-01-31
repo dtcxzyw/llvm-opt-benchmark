@@ -102,7 +102,7 @@ return:                                           ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_sign(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_sign(ptr noundef readonly captures(none) %vpsm2ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
   %ec = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 16
@@ -147,7 +147,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_verify(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal i32 @sm2sig_verify(ptr noundef readonly captures(none) %vpsm2ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %mdsize = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 368
   %0 = load i64, ptr %mdsize, align 8
@@ -274,7 +274,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef %vpsm2ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef %vpsm2ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize) #0 {
 entry:
   %sltmp.i = alloca i32, align 4
   %digest = alloca [64 x i8], align 16
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2sig_dupctx(ptr nocapture noundef readonly %vpsm2ctx) #0 {
+define internal ptr @sm2sig_dupctx(ptr noundef readonly captures(none) %vpsm2ctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 392, ptr noundef nonnull @.str, i32 noundef 342) #7
   %cmp = icmp eq ptr %call, null
@@ -620,7 +620,7 @@ return:                                           ; preds = %cond.end, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sm2sig_gettable_ctx_params(ptr nocapture readnone %vpsm2ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sm2sig_gettable_ctx_params(ptr readnone captures(none) %vpsm2ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
@@ -718,13 +718,13 @@ return:                                           ; preds = %if.end30, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sm2sig_settable_ctx_params(ptr nocapture readnone %vpsm2ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sm2sig_settable_ctx_params(ptr readnone captures(none) %vpsm2ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_get_ctx_md_params(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %params) #0 {
+define internal i32 @sm2sig_get_ctx_md_params(ptr noundef readonly captures(none) %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 360
   %0 = load ptr, ptr %mdctx, align 8
@@ -741,7 +741,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2sig_gettable_ctx_md_params(ptr nocapture noundef readonly %vpsm2ctx) #0 {
+define internal ptr @sm2sig_gettable_ctx_md_params(ptr noundef readonly captures(none) %vpsm2ctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 352
   %0 = load ptr, ptr %md, align 8
@@ -758,7 +758,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_set_ctx_md_params(ptr nocapture noundef readonly %vpsm2ctx, ptr noundef %params) #0 {
+define internal i32 @sm2sig_set_ctx_md_params(ptr noundef readonly captures(none) %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 360
   %0 = load ptr, ptr %mdctx, align 8
@@ -775,7 +775,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2sig_settable_ctx_md_params(ptr nocapture noundef readonly %vpsm2ctx) #0 {
+define internal ptr @sm2sig_settable_ctx_md_params(ptr noundef readonly captures(none) %vpsm2ctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vpsm2ctx, i64 352
   %0 = load ptr, ptr %md, align 8
@@ -887,14 +887,14 @@ declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sm2sig_compute_z_digest(ptr nocapture noundef nonnull %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2sig_compute_z_digest(ptr noundef nonnull captures(none) %ctx) unnamed_addr #0 {
 entry:
   %flag_compute_z_digest = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %bf.load = load i8, ptr %flag_compute_z_digest, align 8
@@ -958,7 +958,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #2
 
@@ -993,13 +993,13 @@ declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

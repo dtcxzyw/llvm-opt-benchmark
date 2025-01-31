@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514LocaleDistanceC2ERKNS_18LocaleDistanceDataERKNS_13LikelySubtagsE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 36), (40, 84)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %data, ptr noundef nonnull align 8 dereferenceable(352) %likely) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514LocaleDistanceC2ERKNS_18LocaleDistanceDataERKNS_13LikelySubtagsE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 36), (40, 84)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %data, ptr noundef nonnull align 8 dereferenceable(352) %likely) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %en = alloca %"struct.icu_75::LSR", align 8
   %enGB = alloca %"struct.icu_75::LSR", align 8
@@ -373,7 +373,7 @@ ehcleanup16:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %desired, ptr nocapture noundef readonly %supportedLSRs, i32 noundef %supportedLSRsLength, i32 noundef %shiftedThreshold, i32 noundef %favorSubtag, i32 noundef %direction) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %desired, ptr noundef readonly captures(none) %supportedLSRs, i32 noundef %supportedLSRsLength, i32 noundef %shiftedThreshold, i32 noundef %favorSubtag, i32 noundef %direction) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pSupp.i144 = alloca ptr, align 8
   %pSupp.i138 = alloca ptr, align 8
@@ -841,7 +841,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514LocaleDistance8trieNextERNS_9BytesTrieEPKcb(ptr noundef nonnull align 8 dereferenceable(28) %iter, ptr nocapture noundef readonly %s, i1 noundef zeroext %wantValue) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7514LocaleDistance8trieNextERNS_9BytesTrieEPKcb(ptr noundef nonnull align 8 dereferenceable(28) %iter, ptr noundef readonly captures(none) %s, i1 noundef zeroext %wantValue) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %s, align 1
   %cmp = icmp eq i8 %0, 0
@@ -899,10 +899,10 @@ return:                                           ; preds = %if.then3, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514LocaleDistance24getDesSuppScriptDistanceERNS_9BytesTrieEmPKcS4_(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %startState, ptr nocapture noundef readonly %desired, ptr nocapture noundef readonly %supported) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7514LocaleDistance24getDesSuppScriptDistanceERNS_9BytesTrieEmPKcS4_(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %startState, ptr noundef readonly captures(none) %desired, ptr noundef readonly captures(none) %supported) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %desired, align 1
   %cmp.i = icmp eq i8 %0, 0
@@ -1011,7 +1011,7 @@ if.end14:                                         ; preds = %if.end10, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %startState, ptr nocapture noundef readonly %desiredPartitions, ptr nocapture noundef readonly %supportedPartitions, i32 noundef %threshold) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7514LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %startState, ptr noundef readonly captures(none) %desiredPartitions, ptr noundef readonly captures(none) %supportedPartitions, i32 noundef %threshold) local_unnamed_addr #0 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %desiredPartitions, i64 1
   %0 = load i8, ptr %desiredPartitions, align 1
@@ -1241,7 +1241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSRE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %lsr) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514LocaleDistance13isParadigmLSRERKNS_3LSRE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %lsr) local_unnamed_addr #0 align 2 {
 entry:
   %paradigmLSRs = getelementptr inbounds nuw i8, ptr %this, i64 56
   %paradigmLSRsLength = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1297,10 +1297,10 @@ declare noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef, i32 nounde
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

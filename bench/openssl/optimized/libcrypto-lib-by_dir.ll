@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @new_dir(ptr nocapture noundef writeonly %lu) #1 {
+define internal range(i32 0, 2) i32 @new_dir(ptr noundef writeonly captures(none) %lu) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.1, i32 noundef 110) #7
   %cmp = icmp eq ptr %call, null
@@ -84,7 +84,7 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_dir(ptr nocapture noundef readonly %lu) #1 {
+define internal void @free_dir(ptr noundef readonly captures(none) %lu) #1 {
 entry:
   %method_data = getelementptr inbounds nuw i8, ptr %lu, i64 16
   %0 = load ptr, ptr %method_data, align 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dir_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %retp) #1 {
+define internal range(i32 0, 2) i32 @dir_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr readnone captures(none) %retp) #1 {
 entry:
   %method_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %method_data, align 8
@@ -145,14 +145,14 @@ sw.epilog:                                        ; preds = %if.else9, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) #1 {
+define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr noundef writeonly captures(none) %ret) #1 {
 entry:
   %call = tail call i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr noundef %ret, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
+define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr noundef writeonly captures(none) %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
 entry:
   %data = alloca %union.anon, align 8
   %i = alloca i32, align 4
@@ -538,7 +538,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #2
 declare ptr @X509_get_default_cert_dir_env() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_cert_dir(ptr nocapture noundef %ctx, ptr noundef %dir, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @add_cert_dir(ptr noundef captures(none) %ctx, ptr noundef %dir, i32 noundef %type) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dir, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -596,7 +596,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp21, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %call24 = tail call i32 @strncmp(ptr noundef %4, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #8
+  %call24 = tail call i32 @strncmp(ptr noundef nonnull %4, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #8
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %for.end, label %for.inc
 
@@ -690,13 +690,13 @@ return:                                           ; preds = %do.cond, %if.end44,
 declare ptr @X509_get_default_cert_dir() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @by_dir_hash_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @by_dir_hash_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i64, ptr %0, align 8
@@ -729,7 +729,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @X509_load_cert_file_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 

@@ -44,7 +44,7 @@ $_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @_ZNK20btConvexHullInternal6Int128mlEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %b) local_unnamed_addr #0 align 2 {
+define dso_local { i64, i64 } @_ZNK20btConvexHullInternal6Int128mlEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %b) local_unnamed_addr #0 align 2 {
 entry:
   %high = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %high, align 8
@@ -109,7 +109,7 @@ cond.end12:                                       ; preds = %cond.end, %cond.tru
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { i64, i64 } @_ZN20btConvexHullInternal6Int1283mulEmm(i64 noundef %a, i64 noundef %b) local_unnamed_addr #2 align 2 {
@@ -189,7 +189,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %b) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %b) local_unnamed_addr #0 align 2 {
 entry:
   %sign = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %sign, align 8
@@ -284,7 +284,7 @@ return:                                           ; preds = %if.else, %_ZNK20btC
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %b) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %b) local_unnamed_addr #3 align 2 {
 entry:
   %nbdLow = alloca %"class.btConvexHullInternal::Int128", align 8
   %nbdHigh = alloca %"class.btConvexHullInternal::Int128", align 8
@@ -398,7 +398,7 @@ return:                                           ; preds = %if.else, %_ZNK20btC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, i64 noundef %b) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %this, i64 noundef %b) local_unnamed_addr #0 align 2 {
 entry:
   %isInt64 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i8, ptr %isInt64, align 4
@@ -643,7 +643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %from, ptr noundef %to) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this, ptr noundef %from, ptr noundef %to) local_unnamed_addr #3 align 2 {
 entry:
   %edgePool = getelementptr inbounds nuw i8, ptr %this, i64 64
   %freeObjects.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -809,7 +809,7 @@ if.end:                                           ; preds = %if.then, %_ZN20btCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %h0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %h1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %c0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %c1) local_unnamed_addr #4 align 2 {
 entry:
   %maxYx = getelementptr inbounds nuw i8, ptr %h0, i64 24
   %0 = load ptr, ptr %maxYx, align 8
@@ -1485,7 +1485,7 @@ return:                                           ; preds = %if.then9, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %start, i32 noundef %end, ptr nocapture noundef nonnull align 8 dereferenceable(32) %result) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %start, i32 noundef %end, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %result) local_unnamed_addr #3 align 2 {
 entry:
   %hull1 = alloca %"class.btConvexHullInternal::IntermediateHull", align 8
   %sub = sub nsw i32 %end, %start
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %while.end, %sw.bb65
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1_(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20btConvexHullInternal5mergeERNS_16IntermediateHullES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %h0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %h1) local_unnamed_addr #3 align 2 {
 entry:
   %c0 = alloca ptr, align 8
   %c1 = alloca ptr, align 8
@@ -2669,7 +2669,7 @@ return:                                           ; preds = %if.then207, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr nocapture noundef readonly %prev, ptr noundef readonly %next, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %t) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr noundef readonly captures(none) %prev, ptr noundef readonly %next, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %t) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %prev, align 8
   %cmp = icmp eq ptr %0, %next
@@ -2773,7 +2773,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i1 noundef zeroext %ccw, ptr nocapture noundef readonly %start, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rxs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sxrxs, ptr nocapture noundef nonnull align 8 dereferenceable(20) %minCot) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6VertexERKNS_7Point32ERKNS_7Point64ES8_RNS_10Rational64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i1 noundef zeroext %ccw, ptr noundef readonly captures(none) %start, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rxs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sxrxs, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %minCot) local_unnamed_addr #6 align 2 {
 entry:
   %t = alloca %"class.btConvexHullInternal::Point32", align 8
   %cot = alloca %"class.btConvexHullInternal::Rational64", align 8
@@ -2934,7 +2934,7 @@ if.end28:                                         ; preds = %if.end25, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef readonly %c0, ptr nocapture noundef readonly %c1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %e0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %e1, ptr noundef readnone %stop0, ptr noundef readnone %stop1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef readonly captures(none) %c0, ptr noundef readonly captures(none) %c1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e1, ptr noundef readnone %stop0, ptr noundef readnone %stop1) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp106 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %ref.tmp107 = alloca %"class.btConvexHullInternal::Rational64", align 8
@@ -3928,7 +3928,7 @@ if.end288:                                        ; preds = %cond.true265, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btConvexHullInternal7computeEPKvbii(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef readonly %coords, i1 noundef zeroext %doubleCoords, i32 noundef %stride, i32 noundef %count) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20btConvexHullInternal7computeEPKvbii(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readonly captures(none) %coords, i1 noundef zeroext %doubleCoords, i32 noundef %stride, i32 noundef %count) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %points = alloca %class.btAlignedObjectArray.4, align 8
   %p96 = alloca %class.btVector3, align 8
@@ -4711,7 +4711,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal10toBtVectorERKNS_7Point32E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal10toBtVectorERKNS_7Point32E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #9 align 2 {
 entry:
   %p = alloca %class.btVector3, align 4
   %0 = load i32, ptr %v, align 4
@@ -4759,7 +4759,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtNormalEPNS_4FaceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef readonly %face) local_unnamed_addr #9 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtNormalEPNS_4FaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef readonly captures(none) %face) local_unnamed_addr #9 align 2 {
 entry:
   %p.i2 = alloca %class.btVector3, align 4
   %p.i = alloca %class.btVector3, align 4
@@ -4853,7 +4853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %v) local_unnamed_addr #7 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %v) local_unnamed_addr #7 align 2 {
 entry:
   %p = alloca %class.btVector3, align 4
   %index.i = getelementptr inbounds nuw i8, ptr %v, i64 116
@@ -4965,7 +4965,7 @@ _ZNK20btConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %cond.true.i21, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN20btConvexHullInternal6shrinkEff(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, float noundef %amount, float noundef %clampAmount) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN20btConvexHullInternal6shrinkEff(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this, float noundef %amount, float noundef %clampAmount) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %class.btVector3, align 4
   %p.i2.i = alloca %class.btVector3, align 4
@@ -5988,7 +5988,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4FaceEf20btAlignedObjectArrayIPNS_6VertexEE(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %face, float noundef %amount, ptr noundef %stack) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal9shiftFaceEPNS_4FaceEf20btAlignedObjectArrayIPNS_6VertexEE(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this, ptr noundef %face, float noundef %amount, ptr noundef %stack) local_unnamed_addr #7 align 2 {
 entry:
   %p.i2.i = alloca %class.btVector3, align 4
   %p.i.i = alloca %class.btVector3, align 4
@@ -8922,7 +8922,7 @@ cond.end:                                         ; preds = %if.else12.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %coords, i1 noundef zeroext %doubleCoords, i32 noundef %stride, i32 noundef %count, float noundef %shrink, float noundef %shrinkClamp) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef readonly captures(none) %coords, i1 noundef zeroext %doubleCoords, i32 noundef %stride, i32 noundef %count, float noundef %shrink, float noundef %shrinkClamp) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hull = alloca %class.btConvexHullInternal, align 8
   %oldVertices = alloca %class.btAlignedObjectArray, align 8
@@ -10018,7 +10018,7 @@ return:                                           ; preds = %cleanup, %_ZN20btAl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10321,10 +10321,10 @@ declare i32 @llvm.scmp.i32.i64(i64, i64) #15
 declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #15

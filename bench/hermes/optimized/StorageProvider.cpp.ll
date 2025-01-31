@@ -43,14 +43,14 @@ $_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EE
 @_ZN6hermes2vm15StorageProviderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm15StorageProviderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm15StorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProviderD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN6hermes2vm15StorageProviderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProviderD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
@@ -60,7 +60,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -74,7 +74,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15StorageProvider20contiguousVAProviderEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProvider20contiguousVAProviderEm(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %result.i.i = alloca %"class.llvh::ErrorOr", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17, !noalias !4
@@ -121,7 +121,7 @@ _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -173,7 +173,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm19vmAllocateAllowLessEmmm(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, i64 noundef %sz, i64 noundef %minSz, i64 noundef %alignment) local_unnamed_addr #3 {
+define hidden void @_ZN6hermes2vm19vmAllocateAllowLessEmmm(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, i64 noundef %sz, i64 noundef %minSz, i64 noundef %alignment) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.llvh::ErrorOr", align 8
   %div4 = lshr i64 %sz, 3
@@ -326,7 +326,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider18numSucceededAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider18numSucceededAllocsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %numSucceededAllocs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %numSucceededAllocs_, align 8
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider15numFailedAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider15numFailedAllocsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %numFailedAllocs_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %numFailedAllocs_, align 8
@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider16numDeletedAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider16numDeletedAllocsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %numDeletedAllocs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %numDeletedAllocs_, align 8
@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider13numLiveAllocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm15StorageProvider13numLiveAllocsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %numSucceededAllocs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %numSucceededAllocs_, align 8
@@ -363,7 +363,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 16), ptr %this, align 8
   ret void
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) initializes((0, 4)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   %result = alloca %"class.llvh::ErrorOr", align 8
   %call3 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
@@ -415,7 +415,7 @@ cleanup:                                          ; preds = %_ZNK4llvh7ErrorOrIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider17deleteStorageImplEPv(ptr nocapture nonnull readnone align 8 %this, ptr noundef %storage) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider17deleteStorageImplEPv(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %storage) unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %storage, null
   br i1 %tobool.not, label %return, label %if.end
@@ -436,7 +436,7 @@ declare void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef, i64 noundef, ptr n
 declare void @_ZN6hermes8oscompat15vm_free_alignedEPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %lowLimToAllocHandle_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_, align 8
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProvider14newStorageImplEPKc(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture readnone %name) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr readnone captures(none) %name) unnamed_addr #3 align 2 {
 entry:
   %lowLim = alloca ptr, align 8
   %call.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef 8388608) #18
@@ -958,7 +958,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #9
@@ -1041,7 +1041,7 @@ _ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i32, ptr %Size.i, align 8
@@ -1147,13 +1147,13 @@ declare void @_ZN6hermes8oscompat11vm_uncommitEPvm(ptr noundef, i64 noundef) loc
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

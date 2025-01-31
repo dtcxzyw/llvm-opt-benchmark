@@ -98,7 +98,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZL25printSymbolizedStackTraceN4llvh9StringRefEPPviRNS_11raw_ostreamE(ptr %Argv0.coerce0, i64 %Argv0.coerce1, ptr nocapture readnone %StackTrace, i32 noundef %Depth, ptr nocapture nonnull readnone align 8 %OS) #0 {
+define internal noundef zeroext i1 @_ZL25printSymbolizedStackTraceN4llvh9StringRefEPPviRNS_11raw_ostreamE(ptr %Argv0.coerce0, i64 %Argv0.coerce1, ptr readnone captures(none) %StackTrace, i32 noundef %Depth, ptr nonnull readnone align 8 captures(none) %OS) #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %Argv0 = alloca %"class.llvh::StringRef", align 8
@@ -367,7 +367,7 @@ declare { ptr, i64 } @_ZN4llvh3sys4path11parent_pathENS_9StringRefENS1_5StyleE(p
 declare void @_ZN4llvh3sys17findProgramByNameB5cxx11ENS_9StringRefENS_8ArrayRefIS1_EE(ptr sret(%"class.llvh::ErrorOr") align 8, ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_ZN4llvh3sys2fs17getMainExecutableB5cxx11EPKcPv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -589,7 +589,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i20, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef readnone %ErrMsg) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN4llvh3sys18RemoveFileOnSignalENS_9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %Filename.coerce0, i64 %Filename.coerce1, ptr noundef readnone captures(none) %ErrMsg) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -777,7 +777,7 @@ _ZL19insertSignalHandlerPFvPvES_.exit:            ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4llvh3sys15PrintStackTraceERNS_11raw_ostreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %OS) local_unnamed_addr #5 {
+define hidden void @_ZN4llvh3sys15PrintStackTraceERNS_11raw_ostreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %OS) local_unnamed_addr #5 {
 entry:
   ret void
 }
@@ -822,7 +822,7 @@ _ZN4llvh3sys16AddSignalHandlerEPFvPvES1_.exit:    ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL28PrintStackTraceSignalHandlerPv(ptr nocapture readnone %0) #0 {
+define internal void @_ZL28PrintStackTraceSignalHandlerPv(ptr readnone captures(none) %0) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #15
   ret void
@@ -832,13 +832,13 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1031,7 +1031,7 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #3
 declare noundef zeroext i1 @_ZN4llvh3sys9MutexImpl7releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
@@ -1091,7 +1091,7 @@ delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FileToRemoveListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FileToRemoveListD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %Next = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw xchg ptr %Next, i64 0 seq_cst, align 8
@@ -1119,10 +1119,10 @@ if.end5:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

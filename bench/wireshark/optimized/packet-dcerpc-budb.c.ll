@@ -1221,7 +1221,7 @@ define hidden i32 @budb_dissect_dfs_interfaceDescription(ptr noundef %0, i32 nou
   %.078.i = phi i32 [ %46, %18 ], [ %50, %47 ]
   %48 = add nsw i32 %.09.i, -1
   %49 = load i32, ptr @hf_budb_dfs_interfaceDescription_spareText, align 4
-  %50 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.078.i, ptr noundef %2, ptr noundef %.0103, ptr noundef %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #3
+  %50 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.078.i, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #3
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %fixedarray_budb_dissect_dfs_interfaceDescription_spareText.exit, label %47, !llvm.loop !4
 
@@ -1763,7 +1763,7 @@ define internal i32 @budb_dissect_FreeLock_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @budb_dissect_GetInstanceId_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @budb_dissect_GetInstanceId_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -1800,7 +1800,7 @@ define internal i32 @budb_dissect_GetLock_response(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @budb_dissect_DbVerify_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @budb_dissect_DbVerify_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 
@@ -1851,7 +1851,7 @@ define internal i32 @budb_dissect_RestoreDbHeader_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @budb_dissect_T_GetVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @budb_dissect_T_GetVersion_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
   ret i32 %1
 }
 

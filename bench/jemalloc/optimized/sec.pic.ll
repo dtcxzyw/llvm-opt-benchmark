@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [10 x i8] c"sec_shard\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @sec_init(ptr noundef %tsdn, ptr nocapture noundef writeonly %sec, ptr noundef %base, ptr noundef %fallback, ptr nocapture noundef readonly %opts) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @sec_init(ptr noundef %tsdn, ptr noundef writeonly captures(none) %sec, ptr noundef %base, ptr noundef %fallback, ptr noundef readonly captures(none) %opts) local_unnamed_addr #0 {
 entry:
   %max_alloc1 = getelementptr inbounds nuw i8, ptr %opts, i64 8
   %0 = load i64, ptr %max_alloc1, align 8
@@ -138,10 +138,10 @@ declare ptr @base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) loca
 declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sec_alloc(ptr noundef %tsdn, ptr nocapture noundef readonly %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 zeroext %guarded, i1 noundef zeroext %frequent_reuse, ptr noundef %deferred_work_generated) #0 {
+define internal ptr @sec_alloc(ptr noundef %tsdn, ptr noundef readonly captures(none) %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 zeroext %guarded, i1 noundef zeroext %frequent_reuse, ptr noundef %deferred_work_generated) #0 {
 entry:
   %result.i = alloca %struct.edata_list_active_t, align 8
   %deferred_work_generated.i = alloca i8, align 1
@@ -522,7 +522,7 @@ return:                                           ; preds = %if.end25, %if.else,
 declare i64 @pai_alloc_batch_default(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @sec_expand(ptr noundef %tsdn, ptr nocapture noundef readonly %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr noundef %deferred_work_generated) #0 {
+define internal zeroext i1 @sec_expand(ptr noundef %tsdn, ptr noundef readonly captures(none) %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, i1 noundef zeroext %zero, ptr noundef %deferred_work_generated) #0 {
 entry:
   %fallback = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load ptr, ptr %fallback, align 8
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @sec_shrink(ptr noundef %tsdn, ptr nocapture noundef readonly %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr noundef %deferred_work_generated) #0 {
+define internal zeroext i1 @sec_shrink(ptr noundef %tsdn, ptr noundef readonly captures(none) %self, ptr noundef %edata, i64 noundef %old_size, i64 noundef %new_size, ptr noundef %deferred_work_generated) #0 {
 entry:
   %fallback = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load ptr, ptr %fallback, align 8
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sec_dalloc(ptr noundef %tsdn, ptr nocapture noundef readonly %self, ptr noundef %edata, ptr noundef %deferred_work_generated) #0 {
+define internal void @sec_dalloc(ptr noundef %tsdn, ptr noundef readonly captures(none) %self, ptr noundef %edata, ptr noundef %deferred_work_generated) #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %self, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -745,7 +745,7 @@ if.end7:                                          ; preds = %if.else.i, %if.then
 declare void @pai_dalloc_batch_default(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_flush(ptr noundef %tsdn, ptr nocapture noundef readonly %sec) local_unnamed_addr #0 {
+define hidden void @sec_flush(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec) local_unnamed_addr #0 {
 entry:
   %to_flush.i = alloca %struct.edata_list_active_t, align 8
   %deferred_work_generated.i = alloca i8, align 1
@@ -893,7 +893,7 @@ for.end:                                          ; preds = %sec_flush_all_locke
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_disable(ptr noundef %tsdn, ptr nocapture noundef readonly %sec) local_unnamed_addr #0 {
+define hidden void @sec_disable(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec) local_unnamed_addr #0 {
 entry:
   %to_flush.i = alloca %struct.edata_list_active_t, align 8
   %deferred_work_generated.i = alloca i8, align 1
@@ -1044,7 +1044,7 @@ for.end:                                          ; preds = %sec_flush_all_locke
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_stats_merge(ptr noundef %tsdn, ptr nocapture noundef readonly %sec, ptr nocapture noundef %stats) local_unnamed_addr #0 {
+define hidden void @sec_stats_merge(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec, ptr noundef captures(none) %stats) local_unnamed_addr #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %sec, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -1113,7 +1113,7 @@ for.end:                                          ; preds = %malloc_mutex_lock.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_mutex_stats_read(ptr noundef %tsdn, ptr nocapture noundef readonly %sec, ptr noundef %mutex_prof_data) local_unnamed_addr #0 {
+define hidden void @sec_mutex_stats_read(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec, ptr noundef %mutex_prof_data) local_unnamed_addr #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %sec, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -1226,7 +1226,7 @@ for.end:                                          ; preds = %malloc_mutex_prof_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_prefork2(ptr noundef %tsdn, ptr nocapture noundef readonly %sec) local_unnamed_addr #0 {
+define hidden void @sec_prefork2(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec) local_unnamed_addr #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %sec, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -1254,7 +1254,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_postfork_parent(ptr noundef %tsdn, ptr nocapture noundef readonly %sec) local_unnamed_addr #0 {
+define hidden void @sec_postfork_parent(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec) local_unnamed_addr #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %sec, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -1282,7 +1282,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sec_postfork_child(ptr noundef %tsdn, ptr nocapture noundef readonly %sec) local_unnamed_addr #0 {
+define hidden void @sec_postfork_child(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec) local_unnamed_addr #0 {
 entry:
   %opts = getelementptr inbounds nuw i8, ptr %sec, i64 64
   %0 = load i64, ptr %opts, align 8
@@ -1316,7 +1316,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr nocapture noundef readonly %sec, ptr noundef %shard) unnamed_addr #0 {
+define internal fastcc void @sec_flush_some_and_unlock(ptr noundef %tsdn, ptr noundef readonly captures(none) %sec, ptr noundef %shard) unnamed_addr #0 {
 entry:
   %to_flush = alloca %struct.edata_list_active_t, align 8
   %deferred_work_generated = alloca i8, align 1
@@ -1440,13 +1440,13 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

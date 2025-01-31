@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8proxygen8SamplingD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen8SamplingD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen8SamplingC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %rate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen8SamplingC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, double noundef %rate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen8SamplingE, i64 16), ptr %this, align 8
@@ -72,7 +72,7 @@ _ZN8proxygen8Sampling10updateRateEd.exit:         ; preds = %cleanup.done.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen8Sampling10updateRateEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, double noundef %rate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen8Sampling10updateRateEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) %this, double noundef %rate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %cmp = fcmp ult double %rate, 0.000000e+00
@@ -119,7 +119,7 @@ _ZN8proxygen8Sampling12rateToWeightEd.exit:       ; preds = %cleanup.done, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen8SamplingD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN8proxygen8SamplingD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen8Sampling10getIntRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK8proxygen8Sampling10getIntRateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %rate_, align 8
@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #10
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #10
@@ -238,7 +238,7 @@ _ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %key.coerce0, ptr %key.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %key.coerce0, ptr %key.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weight_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %weight_, align 8
@@ -284,7 +284,7 @@ return:                                           ; preds = %entry, %_ZN5folly4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
   %rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -322,10 +322,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

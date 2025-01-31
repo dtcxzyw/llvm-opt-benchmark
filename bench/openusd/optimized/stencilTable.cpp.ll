@@ -1063,7 +1063,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull readonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull readonly %9, ptr noundef nonnull %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef nonnull %10, ptr noundef readonly captures(none) %11, ptr noundef %12, ptr noundef readonly captures(none) %13, ptr noundef %14, ptr noundef readonly captures(none) %15, ptr noundef %16, ptr noundef readonly captures(none) %17, ptr noundef %18, ptr noundef readonly captures(none) %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %22 = select i1 %1, i64 0, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit170:            ; preds = %459, %457, %455, %4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1955,7 +1955,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2890,7 +2890,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull readonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull readonly %9, ptr noundef nonnull %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef nonnull %10, ptr noundef readonly captures(none) %11, ptr noundef %12, ptr noundef readonly captures(none) %13, ptr noundef %14, ptr noundef readonly captures(none) %15, ptr noundef %16, ptr noundef readonly captures(none) %17, ptr noundef %18, ptr noundef readonly captures(none) %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %22 = select i1 %1, i64 0, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -5363,7 +5363,7 @@ define internal void @_GLOBAL__sub_I_stencilTable.cpp() #9 section ".text.startu
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

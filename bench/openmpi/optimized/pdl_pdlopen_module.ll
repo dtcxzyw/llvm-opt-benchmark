@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [4 x i8] c".lo\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -32, 1) i32 @pdlopen_open(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) #0 {
+define internal range(i32 -32, 1) i32 @pdlopen_open(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.stat, align 8
   store ptr null, ptr %3, align 8
@@ -157,7 +157,7 @@ do_pdlopen.exit36.thread:                         ; preds = %.lr.ph.split, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pdlopen_close(ptr nocapture noundef %0) #0 {
+define internal i32 @pdlopen_close(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @dlclose(ptr noundef %2) #7
   tail call void @free(ptr noundef %0) #7
@@ -165,7 +165,7 @@ define internal i32 @pdlopen_close(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef writeonly %3) #0 {
+define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #7
   store ptr %6, ptr %2, align 8
@@ -187,7 +187,7 @@ define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.stat, align 8
@@ -378,10 +378,10 @@ sub_1:                                            ; preds = %sub_0
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -401,7 +401,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #5
 
@@ -409,12 +409,12 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #5
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #5
 

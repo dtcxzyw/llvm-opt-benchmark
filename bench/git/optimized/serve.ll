@@ -67,7 +67,7 @@ for.body:                                         ; preds = %entry, %strbuf_setl
 if.then:                                          ; preds = %for.body
   %2 = load ptr, ptr %arrayidx, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  call void @strbuf_add(ptr noundef nonnull %capability, ptr noundef %2, i64 noundef %call.i) #6
+  call void @strbuf_add(ptr noundef nonnull %capability, ptr noundef nonnull %2, i64 noundef %call.i) #6
   %3 = load i64, ptr %len, align 8
   %tobool2.not = icmp eq i64 %3, 0
   br i1 %tobool2.not, label %if.end, label %if.then3
@@ -169,7 +169,7 @@ for.end:                                          ; preds = %strbuf_setlen.exit2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @packet_write_fmt(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -464,7 +464,7 @@ return:                                           ; preds = %sw.bb12, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @agent_advertise(ptr nocapture readnone %r, ptr noundef %value) #0 {
+define internal noundef i32 @agent_advertise(ptr readnone captures(none) %r, ptr noundef %value) #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -472,7 +472,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call ptr @git_user_agent_sanitized() #6
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #7
-  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef %call, i64 noundef %call.i) #6
+  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef nonnull %call, i64 noundef %call.i) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -488,13 +488,13 @@ declare i32 @upload_pack_advertise(ptr noundef, ptr noundef) #2
 declare i32 @upload_pack_v2(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @always_advertise(ptr nocapture readnone %r, ptr nocapture readnone %value) #3 {
+define internal noundef i32 @always_advertise(ptr readnone captures(none) %r, ptr readnone captures(none) %value) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @object_format_advertise(ptr nocapture noundef readonly %r, ptr noundef %value) #0 {
+define internal noundef i32 @object_format_advertise(ptr noundef readonly captures(none) %r, ptr noundef %value) #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -504,7 +504,7 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %hash_algo, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef %1, i64 noundef %call.i) #6
+  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef nonnull %1, i64 noundef %call.i) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -512,7 +512,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @object_format_receive(ptr nocapture readnone %r, ptr noundef %algo_name) #0 {
+define internal void @object_format_receive(ptr readnone captures(none) %r, ptr noundef %algo_name) #0 {
 entry:
   %tobool.not = icmp eq ptr %algo_name, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -567,7 +567,7 @@ if.end3:                                          ; preds = %if.end
 if.then5:                                         ; preds = %if.end3
   %call6 = tail call ptr @trace2_session_id() #6
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call6) #7
-  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef %call6, i64 noundef %call.i) #6
+  tail call void @strbuf_add(ptr noundef nonnull %value, ptr noundef nonnull %call6, i64 noundef %call.i) #6
   br label %return
 
 return:                                           ; preds = %if.end.thread, %if.end3, %if.then5, %if.end
@@ -576,7 +576,7 @@ return:                                           ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @session_id_receive(ptr nocapture readnone %r, ptr noundef %client_sid) #0 {
+define internal void @session_id_receive(ptr readnone captures(none) %r, ptr noundef %client_sid) #0 {
 entry:
   %tobool.not = icmp eq ptr %client_sid, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.12, ptr %client_sid
@@ -606,7 +606,7 @@ declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr n
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 

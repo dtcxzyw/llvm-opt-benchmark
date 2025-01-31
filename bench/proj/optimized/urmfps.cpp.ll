@@ -199,7 +199,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_wag1P8PJconsts(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL16urmfps_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL16urmfps_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -220,7 +220,7 @@ define internal { double, double } @_ZL16urmfps_s_inverse5PJ_XYP8PJconsts(double
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL16urmfps_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL16urmfps_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [36 x i8] c"lineLink: linkcount too large (%s)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @lineCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @lineCreate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %3 = add i64 %2, 2
   %4 = tail call ptr @cli_max_malloc(i64 noundef %3) #9
@@ -24,7 +24,7 @@ define ptr @lineCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 7:                                                ; preds = %1
   store i8 1, ptr %4, align 1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %0, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %0, i64 %2, i1 false)
   %9 = getelementptr i8, ptr %4, i64 %2
   %10 = getelementptr i8, ptr %9, i64 1
   store i8 0, ptr %10, align 1
@@ -35,14 +35,14 @@ define ptr @lineCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @lineLink(ptr noundef %0) local_unnamed_addr #0 {
@@ -121,7 +121,7 @@ define noundef ptr @lineUnlink(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

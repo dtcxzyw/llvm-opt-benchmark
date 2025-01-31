@@ -571,15 +571,15 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 155:                                              ; preds = %151
   store i8 0, ptr %154, align 1
   %156 = getelementptr i8, ptr %154, i64 1
-  %157 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef %156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  %157 = call zeroext i1 @do_pset(ptr noundef nonnull %153, ptr noundef %156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
   br i1 %157, label %161, label %160
 
 158:                                              ; preds = %151
-  %159 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  %159 = call zeroext i1 @do_pset(ptr noundef nonnull %153, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
   br i1 %159, label %161, label %160
 
 160:                                              ; preds = %158, %155
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef %153) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef nonnull %153) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -633,7 +633,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
-  %187 = call zeroext i1 @DeleteVariable(ptr noundef %186, ptr noundef %183) #15
+  %187 = call zeroext i1 @DeleteVariable(ptr noundef %186, ptr noundef nonnull %183) #15
   br i1 %187, label %194, label %188
 
 188:                                              ; preds = %185
@@ -644,7 +644,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   store i8 0, ptr %184, align 1
   %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %191 = getelementptr i8, ptr %184, i64 1
-  %192 = call zeroext i1 @SetVariable(ptr noundef %190, ptr noundef %183, ptr noundef %191) #15
+  %192 = call zeroext i1 @SetVariable(ptr noundef %190, ptr noundef nonnull %183, ptr noundef %191) #15
   br i1 %192, label %194, label %193
 
 193:                                              ; preds = %189
@@ -1135,7 +1135,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %403 = trunc i64 %402 to i32
   %404 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %405 = call zeroext i1 @standard_strings() #15
-  call void @psql_scan_setup(ptr noundef %399, ptr noundef %401, i32 noundef %403, i32 noundef %404, i1 noundef zeroext %405) #15
+  call void @psql_scan_setup(ptr noundef %399, ptr noundef nonnull %401, i32 noundef %403, i32 noundef %404, i1 noundef zeroext %405) #15
   %406 = call ptr @conditional_stack_create() #15
   call void @psql_scan_set_passthrough(ptr noundef %399, ptr noundef %406) #15
   %407 = call i32 @HandleSlashCmds(ptr noundef %399, ptr noundef %406, ptr noundef null, ptr noundef null) #15
@@ -1266,7 +1266,7 @@ define internal void @log_pre_callback() #2 {
 declare void @pg_logging_set_locus_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @log_locus_callback(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
+define internal void @log_locus_callback(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 328), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1289,7 +1289,7 @@ define internal void @log_locus_callback(ptr nocapture noundef writeonly initial
 declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @usage(i16 noundef zeroext) local_unnamed_addr #1
 
@@ -1311,16 +1311,16 @@ declare i32 @PQenv2encoding() local_unnamed_addr #1
 declare void @refresh_utf8format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @SetVariable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1337,7 +1337,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PQconnectdbParams(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @PQstatus(ptr noundef) local_unnamed_addr #1
 
@@ -1422,7 +1422,7 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
 declare zeroext i1 @listAllDbs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #1
 
@@ -1431,7 +1431,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 declare void @pg_logging_config(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @SendQuery(ptr noundef) local_unnamed_addr #1
 
@@ -1440,7 +1440,7 @@ declare ptr @psql_scan_create(ptr noundef) local_unnamed_addr #1
 declare void @psql_scan_setup(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @standard_strings() local_unnamed_addr #1
 
@@ -1465,15 +1465,15 @@ declare void @initializeInput(i32 noundef) local_unnamed_addr #1
 declare i32 @MainLoop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @setQFout(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -1531,7 +1531,7 @@ declare void @expand_tilde(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @get_home_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #9
 
 declare ptr @CreateVariableSpace() local_unnamed_addr #1
 
@@ -1612,7 +1612,7 @@ define internal zeroext i1 @fetch_count_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @histfile_hook(ptr nocapture readnone %0) #11 {
+define internal noundef zeroext i1 @histfile_hook(ptr readnone captures(none) %0) #11 {
   ret i1 true
 }
 
@@ -2069,10 +2069,10 @@ declare i32 @PQsetErrorVerbosity(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PQsetErrorContextVisibility(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

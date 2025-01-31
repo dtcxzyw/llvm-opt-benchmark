@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [81 x i8] c"failed to open dir %s while determining file descriptors to close for process %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -5, 1) i32 @dbgsysExec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -5, 1) i32 @dbgsysExec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not5.i = icmp eq i8 %2, 0
   br i1 %.not5.i, label %skipWhitespace.exit, label %.lr.ph.i
@@ -246,7 +246,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
   br i1 %.not13.i.i, label %.backedge.i.i, label %105
 
 105:                                              ; preds = %96
-  %106 = tail call i64 @strtol(ptr nocapture noundef nonnull %99, ptr noundef null, i32 noundef 10) #11
+  %106 = tail call i64 @strtol(ptr noundef nonnull captures(none) %99, ptr noundef null, i32 noundef 10) #11
   %107 = add i64 %106, -5
   %or.cond.i.i = icmp ult i64 %107, 2147483643
   br i1 %or.cond.i.i, label %108, label %.backedge.i.i
@@ -351,10 +351,10 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 
@@ -387,7 +387,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #6
@@ -395,10 +395,10 @@ declare i32 @getpid() local_unnamed_addr #6
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

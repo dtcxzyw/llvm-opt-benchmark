@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_process_info = external local_unnamed_addr global %struct.opal_process_info_t, align 8
 
 ; Function Attrs: cold nofree nounwind uwtable
-define noundef i32 @mca_btl_base_err(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define noundef i32 @mca_btl_base_err(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -30,10 +30,10 @@ define noundef i32 @mca_btl_base_err(ptr nocapture noundef readonly %0, ...) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @mca_btl_base_out(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+define noundef i32 @mca_btl_base_out(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stdout, align 8
@@ -73,10 +73,10 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare ptr @opal_proc_local_get() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @mca_btl_base_dump(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @mca_btl_base_dump(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   ret void
 }
 

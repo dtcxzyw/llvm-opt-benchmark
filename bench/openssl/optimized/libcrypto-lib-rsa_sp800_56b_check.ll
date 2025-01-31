@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_rsa_sp800_56b_check_keypair = private unnamed_addr constant [33 x i8] c"ossl_rsa_sp800_56b_check_keypair\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_check_crt_components(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_crt_components(ptr noundef readonly captures(none) %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %dmp1 = getelementptr inbounds nuw i8, ptr %rsa, i64 80
   %0 = load ptr, ptr %dmp1, align 8
@@ -305,7 +305,7 @@ declare i32 @BN_check_prime(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_check_private_exponent(ptr nocapture noundef readonly %rsa, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_private_exponent(ptr noundef readonly captures(none) %rsa, i32 noundef %nbits, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
@@ -473,7 +473,7 @@ declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_public(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_public(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %n = getelementptr inbounds nuw i8, ptr %rsa, i64 40
@@ -599,7 +599,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_private(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_private(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %rsa, i64 56
   %0 = load ptr, ptr %d, align 8
@@ -631,7 +631,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_keypair(ptr nocapture noundef readonly %rsa, ptr noundef %efixed, i32 noundef %strength, i32 noundef %nbits) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_keypair(ptr noundef readonly captures(none) %rsa, ptr noundef %efixed, i32 noundef %strength, i32 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %rsa, i64 64
   %0 = load ptr, ptr %p, align 8

@@ -33,7 +33,7 @@ entry:
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_stats(ptr nocapture noundef readonly %filter, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_stats(ptr noundef readonly captures(none) %filter, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i10 = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
@@ -297,7 +297,7 @@ cleanup:                                          ; preds = %for.end, %if.then11
 declare void @qapi_free_StatsSchemaList(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @add_stats_entry(ptr nocapture noundef %stats_results, i32 noundef %provider, ptr noundef %qom_path, ptr noundef %stats_list) local_unnamed_addr #0 {
+define dso_local void @add_stats_entry(ptr noundef captures(none) %stats_results, i32 noundef %provider, ptr noundef %qom_path, ptr noundef %stats_list) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
   store i32 %provider, ptr %call, align 8
@@ -324,7 +324,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @add_stats_schema(ptr nocapture noundef %schema_results, i32 noundef %provider, i32 noundef %target, ptr noundef %stats_list) local_unnamed_addr #0 {
+define dso_local void @add_stats_schema(ptr noundef captures(none) %schema_results, i32 noundef %provider, i32 noundef %target, ptr noundef %stats_list) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #6
   store i32 %provider, ptr %call, align 8
@@ -375,10 +375,10 @@ declare void @qapi_free_StatsResultList(ptr noundef) local_unnamed_addr #2
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

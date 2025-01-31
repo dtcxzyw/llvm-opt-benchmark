@@ -61,7 +61,7 @@ declare ptr @parsed_object_pool_new() local_unnamed_addr #1
 declare void @index_state_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @repo_set_hash_algo(ptr nocapture noundef writeonly initializes((256, 264)) %repo, i32 noundef %hash_algo) local_unnamed_addr #2 {
+define dso_local void @repo_set_hash_algo(ptr noundef writeonly captures(none) initializes((256, 264)) %repo, i32 noundef %hash_algo) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %hash_algo to i64
   %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @repo_set_gitdir(ptr nocapture noundef %repo, ptr noundef %root, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local void @repo_set_gitdir(ptr noundef captures(none) %repo, ptr noundef %root, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %sb.i = alloca %struct.strbuf, align 8
   %call = tail call ptr @read_gitfile_gently(ptr noundef %root, ptr noundef null) #8
@@ -228,12 +228,12 @@ declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @repo_set_ref_storage_format(ptr nocapture noundef writeonly initializes((264, 268)) %repo, i32 noundef %format) local_unnamed_addr #2 {
+define dso_local void @repo_set_ref_storage_format(ptr noundef writeonly captures(none) initializes((264, 268)) %repo, i32 noundef %format) local_unnamed_addr #2 {
 entry:
   %ref_storage_format = getelementptr inbounds nuw i8, ptr %repo, i64 264
   store i32 %format, ptr %ref_storage_format, align 8
@@ -381,12 +381,12 @@ return:                                           ; preds = %error, %if.end11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @clear_repository_format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @repo_clear(ptr nocapture noundef %repo) local_unnamed_addr #0 {
+define dso_local void @repo_clear(ptr noundef captures(none) %repo) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %repo, align 8
   tail call void @free(ptr noundef %0) #8
@@ -589,7 +589,7 @@ out:                                              ; preds = %strbuf_setlen.exit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @strbuf_repo_worktree_path(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -677,7 +677,7 @@ declare void @ensure_full_index(ptr noundef) local_unnamed_addr #1
 declare void @clear_skip_worktree_from_present_files(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @repo_hold_locked_index(ptr nocapture noundef readonly %repo, ptr noundef %lf, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @repo_hold_locked_index(ptr noundef readonly captures(none) %repo, ptr noundef %lf, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %index_file = getelementptr inbounds nuw i8, ptr %repo, i64 120
   %0 = load ptr, ptr %index_file, align 8
@@ -710,10 +710,10 @@ declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @hold_lock_file_for_update_timeout_mode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

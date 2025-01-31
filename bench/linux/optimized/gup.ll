@@ -251,10 +251,10 @@ define dso_local ptr @try_grab_folio(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc ptr @try_get_folio(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
@@ -744,7 +744,7 @@ define dso_local void @folio_add_pin(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unpin_user_pages_dirty_lock(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3
@@ -935,7 +935,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unpin_user_pages(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp ugt i64 %1, -4096
   br i1 %3, label %6, label %4, !prof !5
 
@@ -1338,7 +1338,7 @@ define dso_local ptr @follow_page(ptr noundef %0, i64 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @vma_is_secretmem(ptr noundef) local_unnamed_addr #3
@@ -2129,7 +2129,7 @@ define dso_local range(i32 -14, 1) i32 @fixup_user_fault(ptr noundef %0, i64 nou
 declare dso_local i32 @handle_mm_fault(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @populate_vma_page_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local i64 @populate_vma_page_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2165,7 +2165,7 @@ define dso_local i64 @populate_vma_page_range(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.follow_page_context, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
@@ -2700,7 +2700,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 declare dso_local void @lru_add_drain() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @faultin_vma_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @faultin_vma_page_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = select i1 %3, i32 2162753, i32 2162752
@@ -3768,7 +3768,7 @@ define dso_local i64 @get_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @is_valid_gup_args(ptr noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef range(i32 2, 2686977) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @is_valid_gup_args(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef range(i32 2, 2686977) %3) unnamed_addr #0 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = and i32 %5, 4128768
   %7 = icmp eq i32 %6, 0
@@ -6141,7 +6141,7 @@ define dso_local i64 @pin_user_pages_remote(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.migration_target_control, align 8
   %8 = alloca %struct.list_head, align 8
   %9 = and i32 %5, 256
@@ -7562,7 +7562,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #8
 declare dso_local i32 @pud_huge(i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6) unnamed_addr #0 align 16 {
   %8 = and i32 %4, 1
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, i64 -6, i64 -8

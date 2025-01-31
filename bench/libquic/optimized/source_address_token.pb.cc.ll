@@ -235,7 +235,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken21InitAsDefaultInstanceEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken21InitAsDefaultInstanceEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((48, 56)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkParameters16default_instanceEv()
   %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -244,7 +244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net19SourceAddressTokens21InitAsDefaultInstanceEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net19SourceAddressTokens21InitAsDefaultInstanceEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -282,7 +282,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken10SharedCtorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (24, 56)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken10SharedCtorEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((8, 16), (24, 56)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -461,7 +461,7 @@ if.end23:                                         ; preds = %if.then19, %if.end1
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18SourceAddressTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -599,7 +599,7 @@ _ZN3net18SourceAddressTokenD2Ev.exit:             ; preds = %.noexc1.i, %if.then
 declare void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK3net18SourceAddressToken13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK3net18SourceAddressToken13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %size, ptr %_cached_size_, align 4
@@ -624,7 +624,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZNK3net18SourceAddressToken3NewEPN6google8protobuf5ArenaE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNK3net18SourceAddressToken3NewEPN6google8protobuf5ArenaE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %call, align 8
@@ -664,7 +664,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
@@ -1079,7 +1079,7 @@ declare void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull 
 declare void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net18SourceAddressToken24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK3net18SourceAddressToken24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -1145,7 +1145,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
@@ -1195,7 +1195,7 @@ if.end11:                                         ; preds = %if.then6, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net18SourceAddressToken8ByteSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((28, 32)) %this) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK3net18SourceAddressToken8ByteSizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((28, 32)) %this) unnamed_addr #1 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
@@ -1376,7 +1376,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #11 align 2 {
 entry:
   %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
@@ -1435,7 +1435,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %other) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %other) local_unnamed_addr #12 align 2 {
 entry:
   %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %ip_2 = getelementptr inbounds nuw i8, ptr %other, i64 32
@@ -1477,7 +1477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net18SourceAddressToken11GetTypeNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net18SourceAddressToken11GetTypeNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
@@ -1549,7 +1549,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19SourceAddressTokens10SharedCtorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net19SourceAddressTokens10SharedCtorEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -1801,7 +1801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK3net19SourceAddressTokens13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK3net19SourceAddressTokens13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %size, ptr %_cached_size_, align 4
@@ -1826,7 +1826,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZNK3net19SourceAddressTokens3NewEPN6google8protobuf5ArenaE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNK3net19SourceAddressTokens3NewEPN6google8protobuf5ArenaE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %call, align 8
@@ -1865,7 +1865,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19SourceAddressTokens5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19SourceAddressTokens5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i, align 8
@@ -2179,7 +2179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net19SourceAddressTokens24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net19SourceAddressTokens24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
@@ -2214,7 +2214,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK3net19SourceAddressTokens8ByteSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK3net19SourceAddressTokens8ByteSizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
@@ -2325,7 +2325,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net19SourceAddressTokens13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net19SourceAddressTokens13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
@@ -2454,7 +2454,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net19SourceAddressTokens11GetTypeNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net19SourceAddressTokens11GetTypeNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15

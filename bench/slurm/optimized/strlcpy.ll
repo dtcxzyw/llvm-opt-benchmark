@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_strlcpy = alias i64 (ptr, ptr, i64), ptr @strlcpy
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @strlcpy(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.thread26.preheader, label %.preheader
 

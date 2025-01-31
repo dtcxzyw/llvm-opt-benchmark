@@ -118,7 +118,7 @@ _ZN28JfrJavaThreadIteratorAdapter13skip_excludedEv.exit: ; preds = %_ZL31java_th
 declare void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28JfrJavaThreadIteratorAdapter13skip_excludedEv(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28JfrJavaThreadIteratorAdapter13skip_excludedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i2 = load ptr, ptr %3, align 8
@@ -170,7 +170,7 @@ _ZL31java_thread_inclusion_predicateP10JavaThreadb.exit.thread: ; preds = %17, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(73) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
@@ -180,7 +180,7 @@ define hidden noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN28JfrJavaThreadIteratorAdapter4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN28JfrJavaThreadIteratorAdapter4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
@@ -264,7 +264,7 @@ _ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit: ; preds = %4, %7
 declare void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK31JfrNonJavaThreadIteratorAdapter8has_nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK31JfrNonJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null

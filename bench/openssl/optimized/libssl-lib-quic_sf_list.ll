@@ -6,17 +6,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_sf_list.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_sframe_list_init(ptr nocapture noundef writeonly initializes((0, 48)) %fl) local_unnamed_addr #0 {
+define void @ossl_sframe_list_init(ptr noundef writeonly captures(none) initializes((0, 48)) %fl) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %fl, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_sframe_list_destroy(ptr nocapture noundef readonly %fl) local_unnamed_addr #2 {
+define void @ossl_sframe_list_destroy(ptr noundef readonly captures(none) %fl) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %fl, align 8
   %cmp.not4 = icmp eq ptr %0, null
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_insert(ptr nocapture noundef %fl, ptr nocapture noundef readonly %range, ptr noundef %pkt, ptr noundef %data, i32 noundef %fin) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_insert(ptr noundef captures(none) %fl, ptr noundef readonly captures(none) %range, ptr noundef %pkt, ptr noundef %data, i32 noundef %fin) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %fl, i64 32
   %0 = load i64, ptr %offset, align 8
@@ -451,7 +451,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr nocapture noundef readonly %fl, ptr nocapture noundef %iter, ptr nocapture noundef writeonly initializes((0, 16)) %range, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr noundef readonly captures(none) %fl, ptr noundef captures(none) %iter, ptr noundef writeonly captures(none) initializes((0, 16)) %range, ptr noundef writeonly captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 4)) %fin) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %cmp = icmp eq ptr %0, null
@@ -538,7 +538,7 @@ return:                                           ; preds = %cond.end39, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr nocapture noundef %fl, i64 noundef %limit) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr noundef captures(none) %fl, i64 noundef %limit) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %fl, i64 32
   %0 = load i64, ptr %offset, align 8
@@ -631,7 +631,7 @@ return:                                           ; preds = %entry, %lor.rhs, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_lock_head(ptr nocapture noundef %fl, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_sframe_list_lock_head(ptr noundef captures(none) %fl, ptr noundef writeonly captures(none) %range, ptr noundef writeonly captures(none) %data, ptr noundef writeonly captures(none) %fin) local_unnamed_addr #3 {
 entry:
   %head_locked = getelementptr inbounds nuw i8, ptr %fl, i64 40
   %0 = load i32, ptr %head_locked, align 8
@@ -716,7 +716,7 @@ return:                                           ; preds = %ossl_sframe_list_pe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_sframe_list_is_head_locked(ptr nocapture noundef readonly %fl) local_unnamed_addr #4 {
+define i32 @ossl_sframe_list_is_head_locked(ptr noundef readonly captures(none) %fl) local_unnamed_addr #4 {
 entry:
   %head_locked = getelementptr inbounds nuw i8, ptr %fl, i64 40
   %0 = load i32, ptr %head_locked, align 8
@@ -724,7 +724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr nocapture noundef %fl, ptr nocapture noundef readonly %write_at_cb, ptr noundef %cb_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr noundef captures(none) %fl, ptr noundef readonly captures(none) %write_at_cb, ptr noundef %cb_arg) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %fl, align 8
   %offset = getelementptr inbounds nuw i8, ptr %fl, i64 32
@@ -876,7 +876,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ossl_qrx_pkt_up_ref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

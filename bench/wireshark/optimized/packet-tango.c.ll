@@ -1338,12 +1338,12 @@ decode_Tango_NamedDevError_st.exit.i.i:           ; preds = %.lr.ph.i.i.i, %.lr.
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %93
 
 93:                                               ; preds = %90, %89
   %94 = load i32, ptr @hf_operationrequest, align 4
-  %95 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %95 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1006 = icmp eq ptr %95, null
   br i1 %.not.i.i1006, label %process_RequestOperation.exit, label %96
 
@@ -1431,12 +1431,12 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %133 = load ptr, ptr %132, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %134
 
 134:                                              ; preds = %131, %130
   %135 = load i32, ptr @hf_operationrequest, align 4
-  %136 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %136 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1009 = icmp eq ptr %136, null
   br i1 %.not.i.i1009, label %process_RequestOperation.exit1011, label %137
 
@@ -1547,12 +1547,12 @@ start_dissecting.exit1014:                        ; preds = %process_RequestOper
 184:                                              ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = load ptr, ptr %185, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %187
 
 187:                                              ; preds = %184, %183
   %188 = load i32, ptr @hf_operationrequest, align 4
-  %189 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %188, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %189 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %188, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1016 = icmp eq ptr %189, null
   br i1 %.not.i.i1016, label %process_RequestOperation.exit1018, label %190
 
@@ -1644,12 +1644,12 @@ start_dissecting.exit1021:                        ; preds = %process_RequestOper
 229:                                              ; preds = %228
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %231 = load ptr, ptr %230, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %232
 
 232:                                              ; preds = %229, %228
   %233 = load i32, ptr @hf_operationrequest, align 4
-  %234 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %233, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %234 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %233, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1025 = icmp eq ptr %234, null
   br i1 %.not.i.i1025, label %process_RequestOperation.exit1027, label %235
 
@@ -1760,12 +1760,12 @@ start_dissecting.exit1030:                        ; preds = %process_RequestOper
 282:                                              ; preds = %281
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %284 = load ptr, ptr %283, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %284, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %284, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %285
 
 285:                                              ; preds = %282, %281
   %286 = load i32, ptr @hf_operationrequest, align 4
-  %287 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %286, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %287 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %286, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1039 = icmp eq ptr %287, null
   br i1 %.not.i.i1039, label %process_RequestOperation.exit1041, label %288
 
@@ -1857,12 +1857,12 @@ start_dissecting.exit1044:                        ; preds = %process_RequestOper
 327:                                              ; preds = %326
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %329 = load ptr, ptr %328, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %329, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %329, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef nonnull %5) #4
   br label %330
 
 330:                                              ; preds = %327, %326
   %331 = load i32, ptr @hf_operationrequest, align 4
-  %332 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %5) #4
+  %332 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %.not.i.i1050 = icmp eq ptr %332, null
   br i1 %.not.i.i1050, label %process_RequestOperation.exit1052, label %333
 
@@ -1932,7 +1932,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %363, label %364, label %368
 
 364:                                              ; preds = %361, %360
-  %365 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %365 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %366 = getelementptr i8, ptr %1, i64 8
   %.val926 = load ptr, ptr %366, align 8
   %367 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val926, ptr noundef %2, ptr noundef %3)
@@ -1954,7 +1954,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %374, label %375, label %379
 
 375:                                              ; preds = %372, %371
-  %376 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %376 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %377 = getelementptr i8, ptr %1, i64 8
   %.val927 = load ptr, ptr %377, align 8
   %378 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val927, ptr noundef %2, ptr noundef %3)
@@ -1976,7 +1976,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %385, label %386, label %390
 
 386:                                              ; preds = %383, %382
-  %387 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %387 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %388 = getelementptr i8, ptr %1, i64 8
   %.val928 = load ptr, ptr %388, align 8
   %389 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val928, ptr noundef %2, ptr noundef %3)
@@ -1998,7 +1998,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %396, label %397, label %401
 
 397:                                              ; preds = %394, %393
-  %398 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %398 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %399 = getelementptr i8, ptr %1, i64 8
   %.val929 = load ptr, ptr %399, align 8
   %400 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val929, ptr noundef %2, ptr noundef %3)
@@ -2020,7 +2020,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %407, label %408, label %412
 
 408:                                              ; preds = %405, %404
-  %409 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %409 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %410 = getelementptr i8, ptr %1, i64 8
   %.val930 = load ptr, ptr %410, align 8
   %411 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val930, ptr noundef %2, ptr noundef %3)
@@ -2042,7 +2042,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %418, label %419, label %423
 
 419:                                              ; preds = %416, %415
-  %420 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %420 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %421 = getelementptr i8, ptr %1, i64 8
   %.val931 = load ptr, ptr %421, align 8
   %422 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val931, ptr noundef %2, ptr noundef %3)
@@ -2064,7 +2064,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %429, label %430, label %434
 
 430:                                              ; preds = %427, %426
-  %431 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %431 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %432 = getelementptr i8, ptr %1, i64 8
   %.val932 = load ptr, ptr %432, align 8
   %433 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val932, ptr noundef %2, ptr noundef %3)
@@ -2086,7 +2086,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %438, %437
-  %442 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %442 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %443 = getelementptr i8, ptr %1, i64 8
   %.val933 = load ptr, ptr %443, align 8
   %444 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val933, ptr noundef %2, ptr noundef %3)
@@ -2108,7 +2108,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %451, label %452, label %456
 
 452:                                              ; preds = %449, %448
-  %453 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %453 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %454 = getelementptr i8, ptr %1, i64 8
   %.val934 = load ptr, ptr %454, align 8
   %455 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val934, ptr noundef %2, ptr noundef %3)
@@ -2130,7 +2130,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %462, label %463, label %467
 
 463:                                              ; preds = %460, %459
-  %464 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %464 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %465 = getelementptr i8, ptr %1, i64 8
   %.val935 = load ptr, ptr %465, align 8
   %466 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val935, ptr noundef %2, ptr noundef %3)
@@ -2152,7 +2152,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %473, label %474, label %478
 
 474:                                              ; preds = %471, %470
-  %475 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %475 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %476 = getelementptr i8, ptr %1, i64 8
   %.val936 = load ptr, ptr %476, align 8
   %477 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val936, ptr noundef %2, ptr noundef %3)
@@ -2174,7 +2174,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %484, label %485, label %489
 
 485:                                              ; preds = %482, %481
-  %486 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %486 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %487 = getelementptr i8, ptr %1, i64 8
   %.val937 = load ptr, ptr %487, align 8
   %488 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val937, ptr noundef %2, ptr noundef %3)
@@ -2196,7 +2196,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %495, label %496, label %500
 
 496:                                              ; preds = %493, %492
-  %497 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %497 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %498 = getelementptr i8, ptr %1, i64 8
   %.val938 = load ptr, ptr %498, align 8
   %499 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val938, ptr noundef %2, ptr noundef %3)
@@ -2218,7 +2218,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %506, label %507, label %511
 
 507:                                              ; preds = %504, %503
-  %508 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %508 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %509 = getelementptr i8, ptr %1, i64 8
   %.val939 = load ptr, ptr %509, align 8
   %510 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val939, ptr noundef %2, ptr noundef %3)
@@ -2240,7 +2240,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %517, label %518, label %522
 
 518:                                              ; preds = %515, %514
-  %519 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %519 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %520 = getelementptr i8, ptr %1, i64 8
   %.val940 = load ptr, ptr %520, align 8
   %521 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val940, ptr noundef %2, ptr noundef %3)
@@ -2262,7 +2262,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %528, label %529, label %533
 
 529:                                              ; preds = %526, %525
-  %530 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %530 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %531 = getelementptr i8, ptr %1, i64 8
   %.val941 = load ptr, ptr %531, align 8
   %532 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val941, ptr noundef %2, ptr noundef %3)
@@ -2284,7 +2284,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %539, label %540, label %544
 
 540:                                              ; preds = %537, %536
-  %541 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %541 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %542 = getelementptr i8, ptr %1, i64 8
   %.val942 = load ptr, ptr %542, align 8
   %543 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val942, ptr noundef %2, ptr noundef %3)
@@ -2306,7 +2306,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %550, label %551, label %555
 
 551:                                              ; preds = %548, %547
-  %552 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %552 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %553 = getelementptr i8, ptr %1, i64 8
   %.val943 = load ptr, ptr %553, align 8
   %554 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val943, ptr noundef %2, ptr noundef %3)
@@ -2328,7 +2328,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %561, label %562, label %566
 
 562:                                              ; preds = %559, %558
-  %563 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %563 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %564 = getelementptr i8, ptr %1, i64 8
   %.val944 = load ptr, ptr %564, align 8
   %565 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val944, ptr noundef %2, ptr noundef %3)
@@ -2350,7 +2350,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %572, label %573, label %577
 
 573:                                              ; preds = %570, %569
-  %574 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %574 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %575 = getelementptr i8, ptr %1, i64 8
   %.val945 = load ptr, ptr %575, align 8
   %576 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val945, ptr noundef %2, ptr noundef %3)
@@ -2372,7 +2372,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %583, label %584, label %588
 
 584:                                              ; preds = %581, %580
-  %585 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %585 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %586 = getelementptr i8, ptr %1, i64 8
   %.val946 = load ptr, ptr %586, align 8
   %587 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val946, ptr noundef %2, ptr noundef %3)
@@ -2394,7 +2394,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %594, label %595, label %599
 
 595:                                              ; preds = %592, %591
-  %596 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %596 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %597 = getelementptr i8, ptr %1, i64 8
   %.val947 = load ptr, ptr %597, align 8
   %598 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val947, ptr noundef %2, ptr noundef %3)
@@ -2416,7 +2416,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %605, label %606, label %610
 
 606:                                              ; preds = %603, %602
-  %607 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %607 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %608 = getelementptr i8, ptr %1, i64 8
   %.val948 = load ptr, ptr %608, align 8
   %609 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val948, ptr noundef %2, ptr noundef %3)
@@ -2438,7 +2438,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %616, label %617, label %621
 
 617:                                              ; preds = %614, %613
-  %618 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %618 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %619 = getelementptr i8, ptr %1, i64 8
   %.val949 = load ptr, ptr %619, align 8
   %620 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val949, ptr noundef %2, ptr noundef %3)
@@ -2460,7 +2460,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %627, label %628, label %632
 
 628:                                              ; preds = %625, %624
-  %629 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %629 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %630 = getelementptr i8, ptr %1, i64 8
   %.val950 = load ptr, ptr %630, align 8
   %631 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val950, ptr noundef %2, ptr noundef %3)
@@ -2482,7 +2482,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %638, label %639, label %643
 
 639:                                              ; preds = %636, %635
-  %640 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %640 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %641 = getelementptr i8, ptr %1, i64 8
   %.val951 = load ptr, ptr %641, align 8
   %642 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val951, ptr noundef %2, ptr noundef %3)
@@ -2504,7 +2504,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %649, label %650, label %654
 
 650:                                              ; preds = %647, %646
-  %651 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %651 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %652 = getelementptr i8, ptr %1, i64 8
   %.val952 = load ptr, ptr %652, align 8
   %653 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val952, ptr noundef %2, ptr noundef %3)
@@ -2526,7 +2526,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %660, label %661, label %665
 
 661:                                              ; preds = %658, %657
-  %662 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %662 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %663 = getelementptr i8, ptr %1, i64 8
   %.val953 = load ptr, ptr %663, align 8
   %664 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val953, ptr noundef %2, ptr noundef %3)
@@ -2548,7 +2548,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %671, label %672, label %676
 
 672:                                              ; preds = %669, %668
-  %673 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %673 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %674 = getelementptr i8, ptr %1, i64 8
   %.val954 = load ptr, ptr %674, align 8
   %675 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val954, ptr noundef %2, ptr noundef %3)
@@ -2570,7 +2570,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %682, label %683, label %687
 
 683:                                              ; preds = %680, %679
-  %684 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %684 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %685 = getelementptr i8, ptr %1, i64 8
   %.val955 = load ptr, ptr %685, align 8
   %686 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val955, ptr noundef %2, ptr noundef %3)
@@ -2592,7 +2592,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %693, label %694, label %698
 
 694:                                              ; preds = %691, %690
-  %695 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %695 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %696 = getelementptr i8, ptr %1, i64 8
   %.val956 = load ptr, ptr %696, align 8
   %697 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val956, ptr noundef %2, ptr noundef %3)
@@ -2614,7 +2614,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %704, label %705, label %709
 
 705:                                              ; preds = %702, %701
-  %706 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %706 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %707 = getelementptr i8, ptr %1, i64 8
   %.val957 = load ptr, ptr %707, align 8
   %708 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val957, ptr noundef %2, ptr noundef %3)
@@ -2636,7 +2636,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %715, label %716, label %720
 
 716:                                              ; preds = %713, %712
-  %717 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %717 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %718 = getelementptr i8, ptr %1, i64 8
   %.val958 = load ptr, ptr %718, align 8
   %719 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val958, ptr noundef %2, ptr noundef %3)
@@ -2658,7 +2658,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %726, label %727, label %731
 
 727:                                              ; preds = %724, %723
-  %728 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef %5)
+  %728 = tail call fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 %10, ptr noundef nonnull %5)
   %729 = getelementptr i8, ptr %1, i64 8
   %.val959 = load ptr, ptr %729, align 8
   %730 = tail call fastcc ptr @start_dissecting(ptr noundef %0, ptr %.val959, ptr noundef %2, ptr noundef %3)
@@ -2778,10 +2778,10 @@ declare void @register_giop_user(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @is_big_endian(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 %.7.val, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq i8 %.7.val, 1
   br i1 %5, label %6, label %9
 
@@ -2815,7 +2815,7 @@ proto_item_set_generated.exit:                    ; preds = %9, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 34, ptr noundef nonnull @.str.646) #4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
@@ -2835,7 +2835,7 @@ define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -2890,7 +2890,7 @@ define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
@@ -2936,7 +2936,7 @@ define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -2982,7 +2982,7 @@ define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -3137,7 +3137,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %79 [
@@ -3270,7 +3270,7 @@ decode_Tango_AttributeConfig_2_st.exit:           ; preds = %.lr.ph.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -3316,7 +3316,7 @@ define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -3723,7 +3723,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
@@ -3771,7 +3771,7 @@ define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -3834,7 +3834,7 @@ define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4409,7 +4409,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -4481,7 +4481,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4529,7 +4529,7 @@ define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4577,7 +4577,7 @@ define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
@@ -4643,7 +4643,7 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -4706,7 +4706,7 @@ define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -4754,7 +4754,7 @@ define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
@@ -4826,7 +4826,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %36 [
@@ -5206,7 +5206,7 @@ decode_Tango_DevAttrHistory_5_st.exit:            ; preds = %.lr.ph35.i, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
@@ -5269,7 +5269,7 @@ define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
@@ -5317,7 +5317,7 @@ define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
@@ -5357,7 +5357,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
@@ -5390,7 +5390,7 @@ define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
@@ -5947,7 +5947,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i64 @get_CDR_ulong_long(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   tail call fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
   %7 = load i32, ptr @hf_Tango_AttributeValue_4_quality, align 4
@@ -6026,7 +6026,7 @@ define internal fastcc void @decode_Tango_AttributeValue_4_st(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
@@ -6510,7 +6510,7 @@ define internal fastcc void @decode_Tango_AttributeConfig_5_st(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_Tango_AttributeValue_5_st(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_Tango_AttributeValue_5_st(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   tail call fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %6 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef 12) #4
   %7 = load i32, ptr @hf_Tango_AttributeValue_5_quality, align 4
@@ -6661,10 +6661,10 @@ define internal fastcc void @decode_Tango_DevPipeData_st(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

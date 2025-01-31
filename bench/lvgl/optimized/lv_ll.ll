@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_ll_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_ll_init(ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = add i32 %1, 7
   %5 = and i32 %4, -8
@@ -14,7 +14,7 @@ define void @lv_ll_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_ll_ins_head(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define ptr @lv_ll_ins_head(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 16
@@ -150,7 +150,7 @@ define ptr @lv_ll_get_head(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ll_get_prev(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define ptr @lv_ll_get_prev(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -159,7 +159,7 @@ define ptr @lv_ll_get_prev(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_ll_ins_tail(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define ptr @lv_ll_ins_tail(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 16
@@ -282,7 +282,7 @@ node_set_prev.exit34:                             ; preds = %37, %node_set_next.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ll_get_next(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define ptr @lv_ll_get_next(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -415,7 +415,7 @@ lv_ll_remove.exit.us:                             ; preds = %node_set_prev.exit.
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ll_chg_list(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define void @lv_ll_chg_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %lv_ll_remove.exit, label %lv_ll_get_head.exit.i
 
@@ -897,7 +897,7 @@ lv_ll_clear_custom.exit:                          ; preds = %lv_ll_remove.exit.u
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

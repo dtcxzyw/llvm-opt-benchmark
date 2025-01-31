@@ -393,7 +393,7 @@ $_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4nposE = comdat
 @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED1Ev = weak_odr dso_local unnamed_addr alias void (ptr), ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -1, 2) i32 @_ZN4base9c16memcmpEPKtS1_m(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN4base9c16memcmpEPKtS1_m(ptr noundef readonly captures(none) %s1, ptr noundef readonly captures(none) %s2, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp.not7 = icmp eq i64 %n, 0
   br i1 %cmp.not7, label %return, label %while.body
@@ -469,7 +469,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly %s1, ptr noundef readonly captures(none) %s2, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %mul = shl i64 %n, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %s1, ptr align 2 %s2, i64 %mul, i1 false)
@@ -477,10 +477,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly %s1, ptr noundef readonly captures(none) %s2, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %mul = shl i64 %n, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %s1, ptr align 2 %s2, i64 %mul, i1 false)
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly %s, i16 noundef zeroext %c, i64 noundef %n) local_unnamed_addr #3 {
@@ -7420,10 +7420,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

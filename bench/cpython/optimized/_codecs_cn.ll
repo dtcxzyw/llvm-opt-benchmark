@@ -220,7 +220,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -432,17 +432,17 @@ register_maps.exit:                               ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 2) i64 @gb2312_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gb2312_encode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp24 = icmp slt i64 %0, %inlen
@@ -560,7 +560,7 @@ return:                                           ; preds = %do.body2, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -4, 2) i64 @gb2312_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gb2312_decode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp16 = icmp sgt i64 %inleft, 0
   br i1 %cmp16, label %while.body.preheader, label %return
@@ -640,7 +640,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 2) i64 @gbk_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gbk_encode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp35 = icmp slt i64 %0, %inlen
@@ -794,7 +794,7 @@ return:                                           ; preds = %do.body2, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -4, 2) i64 @gbk_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gbk_decode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp38 = icmp sgt i64 %inleft, 0
   br i1 %cmp38, label %while.body.preheader, label %return
@@ -945,7 +945,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 2) i64 @gb18030_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gb18030_encode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp88 = icmp slt i64 %0, %inlen
@@ -1223,7 +1223,7 @@ return:                                           ; preds = %do.body2, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -4, 2) i64 @gb18030_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gb18030_decode(ptr readnone captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp91 = icmp sgt i64 %inleft, 0
   br i1 %cmp91, label %while.body.preheader, label %return
@@ -1497,7 +1497,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 2) i64 @hz_encode(ptr nocapture noundef %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @hz_encode(ptr noundef captures(none) %state, ptr readnone captures(none) %codec, i32 noundef %kind, ptr noundef readonly captures(none) %data, ptr noundef captures(none) %inpos, i64 noundef %inlen, ptr noundef captures(none) %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp47 = icmp slt i64 %0, %inlen
@@ -1689,14 +1689,14 @@ return:                                           ; preds = %do.body4, %do.body2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @hz_encode_init(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i32 @hz_encode_init(ptr noundef writeonly captures(none) initializes((0, 1)) %state, ptr readnone captures(none) %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 1) i64 @hz_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #7 {
+define internal range(i64 -1, 1) i64 @hz_encode_reset(ptr noundef captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %outbuf, i64 noundef %outleft) #7 {
 entry:
   %0 = load i8, ptr %state, align 1
   %cmp.not = icmp eq i8 %0, 0
@@ -1724,7 +1724,7 @@ return:                                           ; preds = %entry, %do.body6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -4, 2) i64 @hz_decode(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @hz_decode(ptr noundef captures(none) %state, ptr readnone captures(none) %codec, ptr noundef captures(none) %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp31 = icmp sgt i64 %inleft, 0
   br i1 %cmp31, label %while.body.preheader, label %return
@@ -1855,14 +1855,14 @@ return:                                           ; preds = %if.then, %do.body16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @hz_decode_init(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i32 @hz_decode_init(ptr noundef writeonly captures(none) initializes((0, 1)) %state, ptr readnone captures(none) %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @hz_decode_reset(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i64 @hz_decode_reset(ptr noundef writeonly captures(none) initializes((0, 1)) %state, ptr readnone captures(none) %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i64 0
@@ -1871,10 +1871,10 @@ entry:
 declare i32 @_PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

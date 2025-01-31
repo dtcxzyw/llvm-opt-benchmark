@@ -333,7 +333,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -1920,7 +1920,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 declare noundef zeroext i1 @_ZN6icu_756number4impl10AffixUtils18hasCurrencySymbolsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider6charAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(267) %this, i32 noundef %flags, i32 noundef %i) unnamed_addr #8 align 2 {
+define noundef zeroext i16 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider6charAtEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(267) %this, i32 noundef %flags, i32 noundef %i) unnamed_addr #8 align 2 {
 entry:
   %and2.i = and i32 %flags, 512
   %cmp3.not.i = icmp eq i32 %and2.i, 0
@@ -1977,7 +1977,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider6lengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(267) %this, i32 noundef %flags) unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider6lengthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(267) %this, i32 noundef %flags) unnamed_addr #10 align 2 {
 entry:
   %and2.i = and i32 %flags, 512
   %cmp3.not.i = icmp eq i32 %and2.i, 0
@@ -2217,7 +2217,7 @@ lpad:                                             ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider15hasCurrencySignEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(267) %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider15hasCurrencySignEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(267) %this) unnamed_addr #10 align 2 {
 entry:
   %isCurrencyPattern = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load i8, ptr %isCurrencyPattern, align 8
@@ -2253,13 +2253,13 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider7hasBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider7hasBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider17currencyAsDecimalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(267) %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider17currencyAsDecimalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(267) %this) unnamed_addr #10 align 2 {
 entry:
   %fCurrencyAsDecimal = getelementptr inbounds nuw i8, ptr %this, i64 265
   %0 = load i8, ptr %fCurrencyAsDecimal, align 1
@@ -2843,7 +2843,7 @@ declare void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 

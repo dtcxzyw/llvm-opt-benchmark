@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_sign(ptr nocapture noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @rsa_sign(ptr noundef captures(none) %vprsactx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
   %sltmp56 = alloca i32, align 4
@@ -435,7 +435,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_verify(ptr nocapture noundef %vprsactx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @rsa_verify(ptr noundef captures(none) %vprsactx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %rslen = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #11
@@ -639,7 +639,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_verify_recover(ptr nocapture noundef %vprsactx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, i64 noundef %routsize, ptr noundef %sig, i64 noundef %siglen) #0 {
+define internal range(i32 0, 2) i32 @rsa_verify_recover(ptr noundef captures(none) %vprsactx, ptr noundef %rout, ptr noundef writeonly captures(none) %routlen, i64 noundef %routsize, ptr noundef %sig, i64 noundef %siglen) #0 {
 entry:
   %sltmp = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #11
@@ -847,7 +847,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_digest_sign_final(ptr noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
+define internal range(i32 0, 2) i32 @rsa_digest_sign_final(ptr noundef %vprsactx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4
@@ -1013,7 +1013,7 @@ return:                                           ; preds = %entry, %free_tbuf.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_dupctx(ptr nocapture noundef readonly %vprsactx) #0 {
+define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %vprsactx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -1462,7 +1462,7 @@ return:                                           ; preds = %rsa_generate_signat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr readnone captures(none) %vprsactx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
@@ -1675,7 +1675,7 @@ if.else88:                                        ; preds = %if.else83
   br i1 %cmp91, label %if.end104.sink.split, label %if.else93
 
 if.else93:                                        ; preds = %if.else88
-  %call95 = call i32 @atoi(ptr noundef %11) #12
+  %call95 = call i32 @atoi(ptr noundef nonnull %11) #12
   store i32 %call95, ptr %saltlen, align 4
   br label %sw.epilog101
 
@@ -1854,7 +1854,7 @@ return:                                           ; preds = %if.else175, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr readnone captures(none) %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vprsactx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1875,7 +1875,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_get_ctx_md_params(ptr nocapture noundef readonly %vprsactx, ptr noundef %params) #0 {
+define internal i32 @rsa_get_ctx_md_params(ptr noundef readonly captures(none) %vprsactx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vprsactx, i64 40
   %0 = load ptr, ptr %mdctx, align 8
@@ -1892,7 +1892,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_gettable_ctx_md_params(ptr nocapture noundef readonly %vprsactx) #0 {
+define internal ptr @rsa_gettable_ctx_md_params(ptr noundef readonly captures(none) %vprsactx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vprsactx, i64 32
   %0 = load ptr, ptr %md, align 8
@@ -1909,7 +1909,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_set_ctx_md_params(ptr nocapture noundef readonly %vprsactx, ptr noundef %params) #0 {
+define internal i32 @rsa_set_ctx_md_params(ptr noundef readonly captures(none) %vprsactx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vprsactx, i64 40
   %0 = load ptr, ptr %mdctx, align 8
@@ -1926,7 +1926,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_settable_ctx_md_params(ptr nocapture noundef readonly %vprsactx) #0 {
+define internal ptr @rsa_settable_ctx_md_params(ptr noundef readonly captures(none) %vprsactx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vprsactx, i64 32
   %0 = load ptr, ptr %md, align 8
@@ -2414,7 +2414,7 @@ return:                                           ; preds = %if.end56, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_check_parameters(ptr nocapture noundef nonnull %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_check_parameters(ptr noundef nonnull captures(none) %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
 entry:
   %pad_mode = getelementptr inbounds nuw i8, ptr %prsactx, i64 104
   %0 = load i32, ptr %pad_mode, align 8
@@ -2461,7 +2461,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @ossl_digest_rsa_sign_get_md_nid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr nocapture noundef readonly %prsactx, ptr noundef %mdname, ptr noundef %mgf1_mdname, i32 noundef %mdnid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readonly captures(none) %prsactx, ptr noundef %mdname, ptr noundef %mgf1_mdname, i32 noundef %mdnid) unnamed_addr #0 {
 entry:
   %pad_mode = getelementptr inbounds nuw i8, ptr %prsactx, i64 104
   %0 = load i32, ptr %pad_mode, align 8
@@ -2530,7 +2530,7 @@ declare i32 @RSA_X931_hash_id(i32 noundef) local_unnamed_addr #3
 declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #3
 
@@ -2545,7 +2545,7 @@ declare i32 @RSA_bits(ptr noundef) local_unnamed_addr #3
 declare i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr noundef captures(none) %ctx) unnamed_addr #0 {
 entry:
   %tbuf = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %0 = load ptr, ptr %tbuf, align 8
@@ -2569,12 +2569,12 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clean_tbuf(ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc void @clean_tbuf(ptr noundef readonly captures(none) %ctx) unnamed_addr #0 {
 entry:
   %tbuf = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %0 = load ptr, ptr %tbuf, align 8
@@ -2729,7 +2729,7 @@ declare ptr @WPACKET_get_curr(ptr noundef) local_unnamed_addr #3
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2738,10 +2738,10 @@ declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) l
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @EVP_MD_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2752,16 +2752,16 @@ declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @EVP_MD_settable_ctx_params(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

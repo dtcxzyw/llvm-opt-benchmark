@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [16 x i8] c"deallocate \22%s\22\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -98,7 +98,7 @@ ecpg_find_prepared_statement.exit.thread:         ; preds = %.lr.ph, %1, %ecpg_f
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define noundef ptr @ecpg_find_prepared_statement(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.01118 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %.01118, null
@@ -139,7 +139,7 @@ define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -231,7 +231,7 @@ declare ptr @ecpg_alloc(i64 noundef, i32 noundef) local_unnamed_addr #2
 declare void @ecpg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @ecpg_strdup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -494,7 +494,7 @@ replace_variables.exit:                           ; preds = %29, %73, %9, %60
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ECPGdeallocate(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -550,7 +550,7 @@ ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.lr.ph.i
 declare void @ecpg_raise(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %5
 
@@ -587,7 +587,7 @@ ecpg_deallocate_all_conn.exit:                    ; preds = %6, %8
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ecpg_prepared(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define ptr @ecpg_prepared(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.01118.i = load ptr, ptr %3, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
@@ -619,7 +619,7 @@ ecpg_find_prepared_statement.exit.thread:         ; preds = %7, %2, %ecpg_find_p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ECPGprepared_statement(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @ECPGprepared_statement(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ecpg_get_connection(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.01118.i.i = load ptr, ptr %5, align 8
@@ -652,7 +652,7 @@ ecpg_prepared.exit:                               ; preds = %9, %3, %ecpg_find_p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = load ptr, ptr @stmtCacheEntries, align 8
   %8 = icmp eq ptr %7, null
@@ -750,7 +750,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   br i1 %.not.i32, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 .loopexit:                                        ; preds = %49, %39
-  %51 = tail call fastcc zeroext i1 @prepare_common(i32 noundef %0, ptr noundef %44, ptr noundef %43, ptr noundef %4)
+  %51 = tail call fastcc zeroext i1 @prepare_common(i32 noundef %0, ptr noundef %44, ptr noundef %43, ptr noundef nonnull %4)
   br i1 %51, label %ecpg_find_prepared_statement.exit, label %AddStmtToCache.exit.thread
 
 ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.loopexit
@@ -916,7 +916,7 @@ AddStmtToCache.exit:                              ; preds = %.thread.i37, %ecpg_
   %120 = phi ptr [ %.pre.i, %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i ], [ %64, %.thread.i37 ]
   %121 = getelementptr %struct.stmtCacheEntry, ptr %120, i64 %99
   store i32 %0, ptr %121, align 8
-  %122 = call ptr @ecpg_strdup(ptr noundef %4, i32 noundef %0) #11
+  %122 = call ptr @ecpg_strdup(ptr noundef nonnull %4, i32 noundef %0) #11
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store ptr %122, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 56
@@ -961,16 +961,16 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #2
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #8

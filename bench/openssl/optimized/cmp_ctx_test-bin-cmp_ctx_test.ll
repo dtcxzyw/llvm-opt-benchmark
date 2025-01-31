@@ -938,7 +938,7 @@ while.end.i:                                      ; preds = %while.body.i
   %tobool8.not.i = icmp ne i32 %call7.i, 0
   %tobool38.not.i = icmp ne i32 %call37.i, 0
   store i32 0, ptr @msg_total_size, align 4
-  tail call void @OSSL_CMP_CTX_print_errors(ptr noundef %call.val) #6
+  tail call void @OSSL_CMP_CTX_print_errors(ptr noundef nonnull %call.val) #6
   %4 = load i32, ptr @msg_total_size, align 4
   %call50.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 198, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, i32 noundef %4, i32 noundef 4128) #6
   %tobool51.not.i = icmp ne i32 %call50.i, 0
@@ -3925,7 +3925,7 @@ if.then2:                                         ; preds = %entry
   %call4.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 783, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %conv.i, i32 noundef 0) #6
   %call.i32.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #7
   %conv.i.i = trunc i64 %call.i32.i to i32
-  %call1.i.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef null, ptr noundef %call.i.i, i32 noundef %conv.i.i) #6
+  %call1.i.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef null, ptr noundef nonnull %call.i.i, i32 noundef %conv.i.i) #6
   %tobool6.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool6.not.i, label %lor.lhs.false.i, label %if.then9.i
 
@@ -3990,7 +3990,7 @@ if.end24.i:                                       ; preds = %if.then23.i, %OSSL_
   %res.3.i = phi i32 [ %res.2.i, %OSSL_CMP_CTX_get1_referenceValue_str.exit.i ], [ 0, %if.then23.i ], [ %res.2.i, %if.then.i.i ], [ %res.2.i, %if.end.i.i ]
   %call.i35.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #7
   %conv.i36.i = trunc i64 %call.i35.i to i32
-  %call1.i37.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef %call.val, ptr noundef %call.i.i, i32 noundef %conv.i36.i) #6
+  %call1.i37.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef %call.val, ptr noundef nonnull %call.i.i, i32 noundef %conv.i36.i) #6
   %tobool26.not.i = icmp eq i32 %call1.i37.i, 0
   br i1 %tobool26.not.i, label %if.then27.i, label %if.end28.i
 
@@ -4045,7 +4045,7 @@ if.end37.i:                                       ; preds = %if.then36.i, %if.en
   %res.6.i = phi i32 [ 0, %if.then36.i ], [ %res.4.i, %if.end33.i ]
   %call.i49.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i31.i) #7
   %conv.i50.i = trunc i64 %call.i49.i to i32
-  %call1.i51.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef %call.val, ptr noundef %call.i31.i, i32 noundef %conv.i50.i) #6
+  %call1.i51.i = tail call i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef %call.val, ptr noundef nonnull %call.i31.i, i32 noundef %conv.i50.i) #6
   %tobool39.not.i = icmp eq i32 %call1.i51.i, 0
   br i1 %tobool39.not.i, label %if.then40.i, label %if.end41.i
 
@@ -4157,8 +4157,8 @@ tear_down.exit:                                   ; preds = %if.end63.i, %if.the
   %conv69.i = trunc i64 %call68.i to i32
   %call70.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 783, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %conv69.i, i32 noundef 0) #6
   %tobool71.not.i = icmp ne i32 %call70.i, 0
-  tail call void @CRYPTO_free(ptr noundef %call.i.i, ptr noundef nonnull @.str, i32 noundef 500) #6
-  tail call void @CRYPTO_free(ptr noundef %call.i31.i, ptr noundef nonnull @.str, i32 noundef 500) #6
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str, i32 noundef 500) #6
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i31.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val1_read.07.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val2_read.0.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val3_read.0.i, ptr noundef nonnull @.str, i32 noundef 500) #6
@@ -4193,7 +4193,7 @@ if.then2:                                         ; preds = %entry
   %call4.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 785, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %conv.i, i32 noundef 0) #6
   %call.i32.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #7
   %conv.i.i = trunc i64 %call.i32.i to i32
-  %call1.i.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef null, ptr noundef %call.i.i, i32 noundef %conv.i.i) #6
+  %call1.i.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef null, ptr noundef nonnull %call.i.i, i32 noundef %conv.i.i) #6
   %tobool6.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool6.not.i, label %lor.lhs.false.i, label %if.then9.i
 
@@ -4258,7 +4258,7 @@ if.end24.i:                                       ; preds = %if.then23.i, %OSSL_
   %res.3.i = phi i32 [ %res.2.i, %OSSL_CMP_CTX_get1_secretValue_str.exit.i ], [ 0, %if.then23.i ], [ %res.2.i, %if.then.i.i ], [ %res.2.i, %if.end.i.i ]
   %call.i35.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i) #7
   %conv.i36.i = trunc i64 %call.i35.i to i32
-  %call1.i37.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %call.val, ptr noundef %call.i.i, i32 noundef %conv.i36.i) #6
+  %call1.i37.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %call.val, ptr noundef nonnull %call.i.i, i32 noundef %conv.i36.i) #6
   %tobool26.not.i = icmp eq i32 %call1.i37.i, 0
   br i1 %tobool26.not.i, label %if.then27.i, label %if.end28.i
 
@@ -4313,7 +4313,7 @@ if.end37.i:                                       ; preds = %if.then36.i, %if.en
   %res.6.i = phi i32 [ 0, %if.then36.i ], [ %res.4.i, %if.end33.i ]
   %call.i49.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i31.i) #7
   %conv.i50.i = trunc i64 %call.i49.i to i32
-  %call1.i51.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %call.val, ptr noundef %call.i31.i, i32 noundef %conv.i50.i) #6
+  %call1.i51.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef %call.val, ptr noundef nonnull %call.i31.i, i32 noundef %conv.i50.i) #6
   %tobool39.not.i = icmp eq i32 %call1.i51.i, 0
   br i1 %tobool39.not.i, label %if.then40.i, label %if.end41.i
 
@@ -4425,8 +4425,8 @@ tear_down.exit:                                   ; preds = %if.end63.i, %if.the
   %conv69.i = trunc i64 %call68.i to i32
   %call70.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 785, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %conv69.i, i32 noundef 0) #6
   %tobool71.not.i = icmp ne i32 %call70.i, 0
-  tail call void @CRYPTO_free(ptr noundef %call.i.i, ptr noundef nonnull @.str, i32 noundef 500) #6
-  tail call void @CRYPTO_free(ptr noundef %call.i31.i, ptr noundef nonnull @.str, i32 noundef 500) #6
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str, i32 noundef 500) #6
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i31.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val1_read.07.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val2_read.0.i, ptr noundef nonnull @.str, i32 noundef 500) #6
   tail call void @CRYPTO_free(ptr noundef %val3_read.0.i, ptr noundef nonnull @.str, i32 noundef 500) #6
@@ -8739,21 +8739,21 @@ declare void @OSSL_CMP_log_close() local_unnamed_addr #2
 declare void @OSSL_CMP_CTX_print_errors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @msg_total_size_log_cb(ptr nocapture readnone %func, ptr nocapture readnone %file, i32 %line, i32 %level, ptr noundef %msg) #1 {
+define internal noundef i32 @msg_total_size_log_cb(ptr readnone captures(none) %func, ptr readnone captures(none) %file, i32 %line, i32 %level, ptr noundef %msg) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #7
   %0 = load i32, ptr @msg_total_size, align 4
   %1 = trunc i64 %call to i32
   %conv1 = add i32 %0, %1
   store i32 %conv1, ptr @msg_total_size, align 4
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.121, i32 noundef %conv1, i64 noundef %call, ptr noundef %msg) #6
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.121, i32 noundef %conv1, i64 noundef %call, ptr noundef nonnull %msg) #6
   ret i32 1
 }
 
 declare void @ERR_add_error_txt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @test_note(ptr noundef, ...) local_unnamed_addr #2
 
@@ -8772,7 +8772,7 @@ declare i32 @OSSL_CMP_CTX_set1_no_proxy(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @OSSL_CMP_CTX_set_http_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @test_http_cb(ptr nocapture readnone %bio, ptr nocapture readnone %arg, i32 %use_ssl, i32 %detail) #0 {
+define internal noalias noundef ptr @test_http_cb(ptr readnone captures(none) %bio, ptr readnone captures(none) %arg, i32 %use_ssl, i32 %detail) #0 {
 entry:
   ret ptr null
 }
@@ -8784,7 +8784,7 @@ declare ptr @OSSL_CMP_CTX_get_http_cb_arg(ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_CMP_CTX_set_transfer_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @test_transfer_cb(ptr nocapture readnone %ctx, ptr nocapture readnone %req) #0 {
+define internal noalias noundef ptr @test_transfer_cb(ptr readnone captures(none) %ctx, ptr readnone captures(none) %req) #0 {
 entry:
   ret ptr null
 }
@@ -8886,7 +8886,7 @@ declare i32 @OSSL_CMP_CTX_push0_genm_ITAV(ptr noundef, ptr noundef) local_unname
 declare i32 @OSSL_CMP_CTX_set_certConf_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @test_certConf_cb(ptr nocapture readnone %ctx, ptr nocapture readnone %cert, i32 %fail_info, ptr nocapture readnone %txt) #0 {
+define internal noundef i32 @test_certConf_cb(ptr readnone captures(none) %ctx, ptr readnone captures(none) %cert, i32 %fail_info, ptr readnone captures(none) %txt) #0 {
 entry:
   ret i32 0
 }
@@ -8917,10 +8917,10 @@ declare ptr @OSSL_CMP_CTX_get1_extraCertsIn(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

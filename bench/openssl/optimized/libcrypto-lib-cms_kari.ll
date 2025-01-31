@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"id-aes256-wrap\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_alg(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pukm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_alg(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pukm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -63,7 +63,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_RecipientInfo_kari_get0_reks(ptr nocapture noundef readonly %ri) local_unnamed_addr #0 {
+define ptr @CMS_RecipientInfo_kari_get0_reks(ptr noundef readonly captures(none) %ri) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -88,7 +88,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pubalg, ptr noundef writeonly %pubkey, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %pubalg, ptr noundef writeonly %pubkey, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -209,7 +209,7 @@ return:                                           ; preds = %if.then24, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientInfo_kari_orig_id_cmp(ptr nocapture noundef readonly %ri, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @CMS_RecipientInfo_kari_orig_id_cmp(ptr noundef readonly captures(none) %ri, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -254,7 +254,7 @@ declare i32 @ossl_cms_ias_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @ossl_cms_keyid_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr nocapture noundef readonly %rek, ptr noundef writeonly %keyid, ptr noundef writeonly %tm, ptr noundef writeonly %other, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr noundef readonly captures(none) %rek, ptr noundef writeonly %keyid, ptr noundef writeonly %tm, ptr noundef writeonly %other, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %rek, align 8
   %1 = load i32, ptr %0, align 8
@@ -364,7 +364,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_RecipientEncryptedKey_cert_cmp(ptr nocapture noundef readonly %rek, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @CMS_RecipientEncryptedKey_cert_cmp(ptr noundef readonly captures(none) %rek, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rek, align 8
   %1 = load i32, ptr %0, align 8
@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey_and_peer(ptr nocapture noundef readonly %ri, ptr noundef %pk, ptr noundef %peer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey_and_peer(ptr noundef readonly captures(none) %ri, ptr noundef %pk, ptr noundef %peer) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %ri, i64 8
   %0 = load ptr, ptr %d, align 8
@@ -456,7 +456,7 @@ declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_derive_set_peer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey(ptr noundef readonly captures(none) %ri, ptr noundef %pk) local_unnamed_addr #0 {
 entry:
   %d.i = getelementptr inbounds nuw i8, ptr %ri, i64 8
   %0 = load ptr, ptr %d.i, align 8
@@ -496,7 +496,7 @@ CMS_RecipientInfo_kari_set0_pkey_and_peer.exit:   ; preds = %entry, %if.end10.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @CMS_RecipientInfo_kari_get0_ctx(ptr nocapture noundef readonly %ri) local_unnamed_addr #3 {
+define ptr @CMS_RecipientInfo_kari_get0_ctx(ptr noundef readonly captures(none) %ri) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp = icmp eq i32 %0, 1
@@ -515,7 +515,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_decrypt(ptr noundef %cms, ptr noundef %ri, ptr nocapture noundef readonly %rek) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_decrypt(ptr noundef %cms, ptr noundef %ri, ptr noundef readonly captures(none) %rek) local_unnamed_addr #0 {
 entry:
   %cek = alloca ptr, align 8
   %ceklen = alloca i64, align 8
@@ -564,7 +564,7 @@ err:                                              ; preds = %if.end.err_crit_edg
 declare i32 @ossl_cms_env_asn1_ctrl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_kek_cipher(ptr nocapture noundef nonnull writeonly %pout, ptr nocapture noundef nonnull writeonly %poutlen, ptr noundef %in, i64 noundef %inlen, ptr nocapture noundef %kari, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_kek_cipher(ptr noundef nonnull writeonly captures(none) %pout, ptr noundef nonnull writeonly captures(none) %poutlen, ptr noundef %in, i64 noundef %inlen, ptr noundef captures(none) %kari, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %kek = alloca [64 x i8], align 16
   %keklen = alloca i64, align 8
@@ -647,7 +647,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_init(ptr nocapture noundef initializes((8, 16)) %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_init(ptr noundef captures(none) initializes((8, 16)) %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %ekey.i = alloca ptr, align 8
   %call = tail call ptr @CMS_KeyAgreeRecipientInfo_it() #5
@@ -832,7 +832,7 @@ declare i32 @ossl_cms_set1_ias(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_kari_set_originator_private_key(ptr nocapture noundef %kari, ptr noundef nonnull %originatorPrivKey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_kari_set_originator_private_key(ptr noundef captures(none) %kari, ptr noundef nonnull %originatorPrivKey) unnamed_addr #0 {
 entry:
   %cms_ctx = getelementptr inbounds nuw i8, ptr %kari, i64 56
   %0 = load ptr, ptr %cms_ctx, align 8
@@ -1084,10 +1084,10 @@ declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

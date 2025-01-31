@@ -78,7 +78,7 @@ define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unna
 
 _valid_shared_gres_bind.exit:                     ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
-  %30 = call i64 @strtol(ptr nocapture noundef nonnull readonly %29, ptr noundef null, i32 noundef 0) #6
+  %30 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %29, ptr noundef null, i32 noundef 0) #6
   %or.cond.i.i = icmp ult i64 %30, 9223372036854775807
   br i1 %or.cond.i.i, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
 
@@ -287,7 +287,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
-  %96 = call i64 @strtol(ptr nocapture noundef nonnull readonly %95, ptr noundef null, i32 noundef 0) #6
+  %96 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %95, ptr noundef null, i32 noundef 0) #6
   %or.cond.i30.i = icmp ugt i64 %96, 9223372036854775806
   %..i.i24 = sext i1 %or.cond.i30.i to i32
   br label %_valid_gres_bind.exit
@@ -299,7 +299,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 7
-  %101 = call i64 @strtol(ptr nocapture noundef nonnull readonly %100, ptr noundef null, i32 noundef 0) #6
+  %101 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %100, ptr noundef null, i32 noundef 0) #6
   %or.cond.i31.i = icmp ugt i64 %101, 9223372036854775806
   %..i32.i = sext i1 %or.cond.i31.i to i32
   br label %_valid_gres_bind.exit
@@ -327,7 +327,7 @@ _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -339,12 +339,12 @@ declare zeroext i1 @gres_is_shared_name(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isxdigit(i32 noundef) local_unnamed_addr #4
@@ -352,10 +352,10 @@ declare i32 @isxdigit(i32 noundef) local_unnamed_addr #4
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

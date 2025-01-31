@@ -90,7 +90,7 @@ define internal i32 @ft_bitmap_glyph_copy(ptr noundef %0, ptr noundef initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ft_bitmap_glyph_bbox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #1 {
+define internal void @ft_bitmap_glyph_bbox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = shl nsw i32 %4, 6
@@ -212,7 +212,7 @@ define internal void @ft_outline_glyph_bbox(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ft_outline_glyph_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((144, 148), (200, 240)) %1) #1 {
+define internal noundef i32 @ft_outline_glyph_prepare(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((144, 148), (200, 240)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 1869968492, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -226,7 +226,7 @@ define internal noundef i32 @ft_outline_glyph_prepare(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_svg_glyph_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @ft_svg_glyph_init(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -295,7 +295,7 @@ define internal i32 @ft_svg_glyph_init(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_svg_glyph_done(ptr nocapture noundef %0) #0 {
+define internal void @ft_svg_glyph_done(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -306,7 +306,7 @@ define internal void @ft_svg_glyph_done(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_svg_glyph_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @ft_svg_glyph_copy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -372,7 +372,7 @@ define internal i32 @ft_svg_glyph_copy(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_svg_glyph_transform(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 {
+define internal void @ft_svg_glyph_transform(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.FT_Matrix_, align 8
   %.sroa.0 = alloca i64, align 8
   %.sroa.2 = alloca i64, align 8
@@ -471,7 +471,7 @@ define internal void @ft_svg_glyph_transform(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_svg_glyph_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i32 @ft_svg_glyph_prepare(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -610,7 +610,7 @@ FT_Done_Glyph.exit:                               ; preds = %30, %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @FT_Done_Glyph(ptr noundef %0) local_unnamed_addr #0 {
@@ -1103,7 +1103,7 @@ FT_Done_Glyph.exit:                               ; preds = %73, %79
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare hidden i32 @FT_Render_Glyph_Internal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1134,10 +1134,10 @@ declare void @FT_Matrix_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

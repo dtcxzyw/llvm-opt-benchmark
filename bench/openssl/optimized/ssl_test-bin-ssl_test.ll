@@ -601,7 +601,7 @@ declare i32 @SSL_CTX_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @do_handshake(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_test(ptr nocapture noundef nonnull readonly %result, ptr nocapture noundef readonly %test_ctx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_test(ptr noundef nonnull readonly captures(none) %result, ptr noundef readonly captures(none) %test_ctx) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %result, align 8
   %expected_result.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 424

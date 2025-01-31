@@ -170,7 +170,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [32 x ptr] [ptr @__UNIQUE_ID___addressable_cdrom_check_events434, ptr @__UNIQUE_ID___addressable_cdrom_dummy_generic_packet407, ptr @__UNIQUE_ID___addressable_cdrom_get_last_written443, ptr @__UNIQUE_ID___addressable_cdrom_get_media_event430, ptr @__UNIQUE_ID___addressable_cdrom_init446, ptr @__UNIQUE_ID___addressable_cdrom_ioctl444, ptr @__UNIQUE_ID___addressable_cdrom_mode_select438, ptr @__UNIQUE_ID___addressable_cdrom_mode_sense437, ptr @__UNIQUE_ID___addressable_cdrom_multisession441, ptr @__UNIQUE_ID___addressable_cdrom_number_of_slots433, ptr @__UNIQUE_ID___addressable_cdrom_open431, ptr @__UNIQUE_ID___addressable_cdrom_read_tocentry442, ptr @__UNIQUE_ID___addressable_cdrom_release432, ptr @__UNIQUE_ID___addressable_init_cdrom_command436, ptr @__UNIQUE_ID___addressable_register_cdrom428, ptr @__UNIQUE_ID___addressable_unregister_cdrom429, ptr @__UNIQUE_ID_autoclosetype402, ptr @__UNIQUE_ID_autoejecttype403, ptr @__UNIQUE_ID_check_media_typetype405, ptr @__UNIQUE_ID_debugtype401, ptr @__UNIQUE_ID_file447, ptr @__UNIQUE_ID_license448, ptr @__UNIQUE_ID_lockdoortype404, ptr @__UNIQUE_ID_mrw_format_restarttype406, ptr @__exitcall_cdrom_exit, ptr @__param_autoclose, ptr @__param_autoeject, ptr @__param_check_media_type, ptr @__param_debug, ptr @__param_lockdoor, ptr @__param_mrw_format_restart, ptr @cdrom_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @cdrom_dummy_generic_packet(ptr nocapture readnone %0, ptr nocapture noundef initializes((28, 32)) %1) #0 align 16 {
+define dso_local noundef i32 @cdrom_dummy_generic_packet(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((28, 32)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -554,13 +554,13 @@ define dso_local noundef range(i32 -22, 1) i32 @register_cdrom(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @ktime_get() local_unnamed_addr #4
@@ -702,7 +702,7 @@ define dso_local void @unregister_cdrom(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
@@ -760,10 +760,10 @@ define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @init_cdrom_command(ptr nocapture noundef writeonly initializes((0, 64)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6 align 16 {
+define dso_local void @init_cdrom_command(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %5 = icmp eq ptr %1, null
   br i1 %5, label %8, label %6
@@ -790,7 +790,7 @@ define dso_local void @init_cdrom_command(ptr nocapture noundef writeonly initia
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
@@ -2179,7 +2179,7 @@ define dso_local i32 @cdrom_read_tocentry(ptr noundef %0, ptr noundef %1) #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca %struct.packet_command, align 8
   %5 = alloca %struct.packet_command, align 8
@@ -6450,7 +6450,7 @@ declare i64 @llvm.read_register.i64(metadata) #13
 declare void @llvm.write_register.i64(metadata, i64) #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -124, 2) i32 @check_for_audio_disc(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -124, 2) i32 @check_for_audio_disc(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_tochdr, align 2
   %4 = alloca %struct.cdrom_tocentry, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52

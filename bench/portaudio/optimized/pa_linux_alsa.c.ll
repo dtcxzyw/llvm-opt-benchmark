@@ -250,7 +250,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.232 = private unnamed_addr constant [325 x i8] c"Expression 'PA_STREAM_REP( s )->streamInterface == &alsaHostApi->callbackStreamInterface || PA_STREAM_REP( s )->streamInterface == &alsaHostApi->blockingStreamInterface' failed in 'generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/portaudio/portaudio/src/hostapi/alsa/pa_linux_alsa.c', line: 4656\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @PaAlsa_SetLibraryPathName(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @PaAlsa_SetLibraryPathName(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -261,7 +261,7 @@ define noundef i32 @PaAlsa_SetNumPeriods(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PaAlsa_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @PaAlsa_Initialize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   store ptr @snd_pcm_hw_params_get_buffer_size, ptr @alsa_snd_pcm_hw_params_get_buffer_size, align 8
   %3 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 280) #25
   %4 = icmp eq ptr %3, null
@@ -387,7 +387,7 @@ define internal void @Terminate(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #2 {
+define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #2 {
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = alloca i32, align 4
@@ -709,7 +709,7 @@ PaAlsaStream_Initialize.exit:                     ; preds = %102, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IsFormatSupported(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, double noundef %3) #2 {
+define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, double noundef %3) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread50, label %5
 
@@ -867,7 +867,7 @@ define internal i32 @IsFormatSupported(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef nonnull initializes((28, 36)) %0) unnamed_addr #2 {
+define internal fastcc i32 @BuildDeviceList(ptr noundef nonnull captures(none) initializes((28, 36)) %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -955,7 +955,7 @@ define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef nonnull initia
   br i1 %45, label %47, label %PaAlsa_StrDup.exit
 
 PaAlsa_StrDup.exit:                               ; preds = %37
-  %46 = call ptr @strncpy(ptr noundef nonnull %44, ptr noundef readonly %40, i64 noundef %43) #25
+  %46 = call ptr @strncpy(ptr noundef nonnull %44, ptr noundef nonnull readonly %40, i64 noundef %43) #25
   store i32 0, ptr @paUtilErr_, align 4
   br label %.outer
 
@@ -1704,7 +1704,7 @@ define internal i32 @IsStreamActive(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal double @GetStreamTime(ptr nocapture noundef readonly %0) #2 {
+define internal double @GetStreamTime(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = tail call i64 @snd_pcm_status_sizeof() #25, !callees !40
   %4 = alloca i8, i64 %3, align 16
@@ -1992,7 +1992,7 @@ define internal i32 @WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 47:                                               ; preds = %45
   %48 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %30, ptr noundef nonnull %6, i64 noundef %46) #25
   store i64 %48, ptr %4, align 8
-  %49 = call fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef %0, i64 noundef %48, ptr noundef %7)
+  %49 = call fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef nonnull %0, i64 noundef %48, ptr noundef %7)
   store i32 %49, ptr @paUtilErr_, align 4
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %53
@@ -2008,7 +2008,7 @@ define internal i32 @WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 55:                                               ; preds = %45, %53
   %.1 = phi i64 [ %54, %53 ], [ %.039, %45 ]
-  %56 = call i64 @GetStreamWriteAvailable(ptr noundef %0)
+  %56 = call i64 @GetStreamWriteAvailable(ptr noundef nonnull %0)
   %57 = trunc i64 %56 to i32
   store i32 %57, ptr @paUtilErr_, align 4
   %58 = icmp slt i32 %57, 0
@@ -2246,7 +2246,7 @@ declare void @PaUtil_DestroyAllocationGroup(ptr noundef) local_unnamed_addr #3
 declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaAlsa_InitializeStreamInfo(ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %0) local_unnamed_addr #5 {
+define void @PaAlsa_InitializeStreamInfo(ptr noundef writeonly captures(none) initializes((0, 12), (16, 32)) %0) local_unnamed_addr #5 {
   store i64 32, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 8, ptr %2, align 8
@@ -2258,14 +2258,14 @@ define void @PaAlsa_InitializeStreamInfo(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaAlsa_EnableRealtimeScheduling(ptr nocapture noundef writeonly initializes((556, 560)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @PaAlsa_EnableRealtimeScheduling(ptr noundef writeonly captures(none) initializes((556, 560)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 556
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PaAlsa_GetStreamInputCard(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define i32 @PaAlsa_GetStreamInputCard(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call i32 @PaUtil_ValidateStreamPointer(ptr noundef %0) #25
@@ -2341,10 +2341,10 @@ GetAlsaStreamPointer.exit:                        ; preds = %11, %6, %10, %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @PaAlsa_GetStreamOutputCard(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define i32 @PaAlsa_GetStreamOutputCard(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call i32 @PaUtil_ValidateStreamPointer(ptr noundef %0) #25
@@ -2614,18 +2614,18 @@ declare ptr @snd_asoundlib_version() local_unnamed_addr #3
 declare ptr @snd_strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #11
@@ -2636,16 +2636,16 @@ declare i64 @pthread_self() local_unnamed_addr #11
 declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FillInDevInfo(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull initializes((0, 4), (8, 28), (32, 72)) %3, ptr nocapture noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc void @FillInDevInfo(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull initializes((0, 4), (8, 28), (32, 72)) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store i32 -1, ptr %3, align 8
@@ -2800,13 +2800,13 @@ define internal fastcc void @FillInDevInfo(ptr nocapture noundef nonnull %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @GropeDevice(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @GropeDevice(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -3218,7 +3218,7 @@ define internal fastcc range(i32 -9999, 1) i32 @SetApproximateSampleRate(ptr nou
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TestParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i64 @snd_pcm_hw_params_sizeof() #25, !callees !51
@@ -3391,7 +3391,7 @@ Pa2AlsaFormat.exit:                               ; preds = %48, %50, %51, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3508,7 +3508,7 @@ define internal fastcc range(i64 0, 64) i64 @GetAvailableFormats(ptr noundef %0)
 declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, double noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7) unnamed_addr #2 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -4195,7 +4195,7 @@ define internal fastcc void @PaAlsaStream_Terminate(ptr noundef %0) unnamed_addr
 declare void @PaUtil_InitializeStreamRepresentation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef nonnull initializes((0, 128)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStreamComponent_Initialize(ptr noundef nonnull initializes((0, 128)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
@@ -4451,7 +4451,7 @@ define internal fastcc void @LogAllAvailableFormats(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4698,7 +4698,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_FinishConfigure(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3, double noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_FinishConfigure(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i32 noundef %3, double noundef %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store double -1.000000e+00, ptr %5, align 8
@@ -4933,7 +4933,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_FinishConf
 declare i32 @ilogb(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr nocapture noundef nonnull %0, double %.16.val, i64 noundef %1, double noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef nonnull captures(none) %0, double %.16.val, i64 noundef %1, double noundef %2, ptr noundef nonnull %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5544,7 +5544,7 @@ OnExit.exit:                                      ; preds = %.loopexit90, %147
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -5767,7 +5767,7 @@ declare i32 @PaUnixThread_StopRequested(ptr noundef) local_unnamed_addr #3
 declare i32 @PaUtil_IsBufferProcessorOutputEmpty(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -6231,7 +6231,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CalculateTimeInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @CalculateTimeInfo(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = tail call i64 @snd_pcm_status_sizeof() #25, !callees !40
@@ -6316,7 +6316,7 @@ declare void @PaUtil_BeginBufferProcessing(ptr noundef, ptr noundef, i64 noundef
 declare void @PaUtil_BeginCpuLoadMeasurement(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -6472,7 +6472,7 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
 .lr.ph59:                                         ; preds = %.lr.ph.split, %.lr.ph59
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.198) #25
   %69 = load i32, ptr @paUtilErr_, align 4
-  %70 = call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0)
+  %70 = call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %70, ptr @paUtilErr_, align 4
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.lr.ph59, label %.split
@@ -6495,7 +6495,7 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
 declare i64 @PaUtil_EndBufferProcessing(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6737,7 +6737,7 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #19
 declare void @PaUtil_ResetCpuLoadMeasurer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6798,7 +6798,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStream_GetAvailableFrames(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStream_GetAvailableFrames(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #2 {
   store i32 0, ptr %4, align 4
   %.not44 = icmp eq i32 %1, 0
   br i1 %.not44, label %23, label %6
@@ -6920,7 +6920,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndPolling(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndPolling(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #2 {
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -6998,7 +6998,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndPolling
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   store i32 1, ptr %3, align 4
   %6 = icmp eq i32 %1, 0
@@ -7079,7 +7079,7 @@ define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcessing(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcessing(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -7367,7 +7367,7 @@ declare i32 @PaUnixMutex_Lock(ptr noundef) local_unnamed_addr #3
 declare i32 @PaUnixMutex_Unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
@@ -7692,7 +7692,7 @@ declare void @PaUtil_SetInputChannel(ptr noundef, i32 noundef, ptr noundef, i32 
 declare void @PaUtil_SetOutputChannel(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 declare i32 @PaUnixThread_Terminate(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -7721,10 +7721,10 @@ declare double @exp2(double) local_unnamed_addr
 declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

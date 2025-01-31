@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_mutex_lock_func = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rr_kick_vcpu_thread(ptr nocapture noundef readnone %unused) local_unnamed_addr #0 {
+define dso_local void @rr_kick_vcpu_thread(ptr noundef readnone captures(none) %unused) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
@@ -521,7 +521,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @rcu_register_thread() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rr_force_rcu(ptr nocapture readnone %notify, ptr nocapture readnone %data) #0 {
+define internal void @rr_force_rcu(ptr readnone captures(none) %notify, ptr readnone captures(none) %data) #0 {
 entry:
   br label %do.body.i
 
@@ -648,7 +648,7 @@ declare zeroext i1 @all_cpu_threads_idle() local_unnamed_addr #2
 declare void @qemu_notify_event() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rr_kick_thread(ptr nocapture readnone %opaque) #0 {
+define internal void @rr_kick_thread(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr @rr_kick_vcpu_timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #8
@@ -694,7 +694,7 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #2
 declare void @tcg_cpus_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

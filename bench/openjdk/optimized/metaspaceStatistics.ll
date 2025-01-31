@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN9metaspace17ChunkManagerStats3addERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace17ChunkManagerStats3addERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %5
@@ -62,7 +62,7 @@ define hidden void @_ZN9metaspace17ChunkManagerStats3addERKS0_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats15total_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats15total_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -83,7 +83,7 @@ define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats15total_word_sizeEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %3
 
@@ -102,7 +102,7 @@ define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_wo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %5
 
@@ -166,7 +166,7 @@ declare void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef, 
 declare void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
@@ -221,7 +221,7 @@ define hidden void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(pt
 declare noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN9metaspace10ArenaStats3addERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -283,7 +283,7 @@ define hidden void @_ZN9metaspace10ArenaStats3addERKS0_(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.metaspace::InUseChunkStats") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.metaspace::InUseChunkStats") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -332,7 +332,7 @@ define hidden void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"struct.metaspace::InUseChunkStats", align 8
   %6 = alloca %"struct.metaspace::InUseChunkStats", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -504,7 +504,7 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %58
 declare void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK9metaspace9ClmsStats6totalsEv(ptr dead_on_unwind noalias nocapture writable sret(%"struct.metaspace::ArenaStats") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1472) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9metaspace9ClmsStats6totalsEv(ptr dead_on_unwind noalias writable sret(%"struct.metaspace::ArenaStats") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1472) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -636,7 +636,7 @@ _ZN9metaspace10ArenaStats3addERKS0_.exit4:        ; preds = %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1472) %0, ptr noundef nonnull %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1472) %0, ptr noundef nonnull %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"struct.metaspace::ArenaStats", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
@@ -696,7 +696,7 @@ define hidden void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noca
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5

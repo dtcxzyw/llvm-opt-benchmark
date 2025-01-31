@@ -144,7 +144,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core12BatchBuilderC2EP38grpc_transport_stream_op_batch_payload(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8), (32, 33), (40, 48)) %this, ptr noundef %payload) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core12BatchBuilderC2EP38grpc_transport_stream_op_batch_payload(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 8), (32, 33), (40, 48)) %this, ptr noundef %payload) unnamed_addr #3 align 2 {
 entry:
   store ptr %payload, ptr %this, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -417,7 +417,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core12BatchBuilder17PendingCompletionC2ENS_13RefCountedPtrINS0_5BatchEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24), (40, 49), (50, 52), (56, 64)) %this, ptr nocapture noundef %batch) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder17PendingCompletionC2ENS_13RefCountedPtrINS0_5BatchEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24), (40, 49), (50, 52), (56, 64)) %this, ptr noundef captures(none) %batch) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i64 16), ptr %this, align 8
   %done_latch = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -811,7 +811,7 @@ delete.end:                                       ; preds = %_ZN9grpc_core12Batc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core12BatchBuilder8GetBatchENS0_6TargetE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 %target) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN9grpc_core12BatchBuilder8GetBatchENS0_6TargetE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 captures(none) %target) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -895,7 +895,7 @@ do.end:                                           ; preds = %do.body.thread, %do
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core12BatchBuilder10FlushBatchEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder10FlushBatchEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1027,7 +1027,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_Z37grpc_transport_stream_op_batch_stringB5cxx11P30grpc_transport_stream_op_batchb(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12BatchBuilder5Batch11PerformWithENS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 %target) local_unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core12BatchBuilder5Batch11PerformWithENS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 captures(none) %target) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -1044,10 +1044,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core12BatchBuilder34CompleteSendServerTrailingMetadataEPNS0_5BatchESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEN4absl12lts_202308026StatusEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %batch, ptr nocapture noundef %sent_metadata, ptr noundef %send_result, i1 noundef zeroext %actually_sent) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder34CompleteSendServerTrailingMetadataEPNS0_5BatchESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEN4absl12lts_202308026StatusEb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %batch, ptr noundef captures(none) %sent_metadata, ptr noundef %send_result, i1 noundef zeroext %actually_sent) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i23 = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp2.i24 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1429,7 +1429,7 @@ _ZN9grpc_core15metadata_detail10UnknownMap5ClearEv.exit: ; preds = %entry, %whil
 declare noundef i32 @_ZNK4absl12lts_202308026Status4codeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9grpc_core12BatchBuilder10MakeCancelEP20grpc_stream_refcountN4absl12lts_202308026StatusE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream_refcount, ptr nocapture noundef %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9grpc_core12BatchBuilder10MakeCancelEP20grpc_stream_refcountN4absl12lts_202308026StatusE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream_refcount, ptr noundef captures(none) %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
   %1 = load ptr, ptr %0, align 8
@@ -1488,7 +1488,7 @@ _ZN4absl12lts_202308026StatusaSEOS1_.exit:        ; preds = %_ZN9grpc_core5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12BatchBuilder6CancelENS0_6TargetEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr nocapture noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 %target, ptr nocapture noundef %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder6CancelENS0_6TargetEN4absl12lts_202308026StatusE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly byval(%"struct.grpc_core::BatchBuilder::Target") align 8 captures(none) %target, ptr noundef captures(none) %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %stream_refcount = getelementptr inbounds nuw i8, ptr %target, i64 16
@@ -1693,7 +1693,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @_Z19grpc_stream_destroyP20grpc_stream_refcount(ptr noundef) local_unnamed_addr #0
 
@@ -3217,7 +3217,7 @@ _ZN9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_IN
 declare void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN9grpc_core10NewClosureIZNS_12BatchBuilder6CancelENS1_6TargetEN4absl12lts_202308026StatusEE3$_0EEP12grpc_closureT_EN7Closure3RunEPvS5_"(ptr noundef %arg, ptr nocapture noundef readonly %error) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN9grpc_core10NewClosureIZNS_12BatchBuilder6CancelENS1_6TargetEN4absl12lts_202308026StatusEE3$_0EEP12grpc_closureT_EN7Closure3RunEPvS5_"(ptr noundef %arg, ptr noundef readonly captures(none) %error) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %0 = load i64, ptr %error, align 8
@@ -3267,10 +3267,10 @@ declare extern_weak void @_ZTHN9grpc_core8Activity19g_current_activity_E() #0
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

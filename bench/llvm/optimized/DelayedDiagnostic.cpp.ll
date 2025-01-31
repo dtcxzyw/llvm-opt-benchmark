@@ -21,7 +21,7 @@ $_ZN5clang17DiagnosticStorageD2Ev = comdat any
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18AvailabilityResultEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_9NamedDeclES9_PKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclENS3_9StringRefEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::sema::DelayedDiagnostic") align 8 initializes((0, 2), (4, 77)) %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18AvailabilityResultEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_9NamedDeclES9_PKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclENS3_9StringRefEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::sema::DelayedDiagnostic") align 8 captures(none) initializes((0, 2), (4, 77)) %0, i32 noundef %1, ptr readonly captures(none) %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -71,13 +71,13 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4sema17DelayedDiagnostic7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4sema17DelayedDiagnostic7DestroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %_ZN5clang4sema14AccessedEntityD2Ev.exit [
     i8 1, label %3
@@ -215,7 +215,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

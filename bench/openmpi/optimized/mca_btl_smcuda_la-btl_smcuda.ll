@@ -93,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [59 x i8] c"Sending IPC REQ (try=%d): myrank=%d, mydev=%d, peerrank=%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_smcuda_add_procs(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define i32 @mca_btl_smcuda_add_procs(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.pmix_proc, align 4
   %8 = alloca ptr, align 8
@@ -321,7 +321,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %48
 
 103:                                              ; preds = %102, %101
   %104 = load ptr, ptr %6, align 8
-  %105 = call i64 @strtoul(ptr nocapture noundef %104, ptr noundef null, i32 noundef 10) #21
+  %105 = call i64 @strtoul(ptr noundef captures(none) %104, ptr noundef null, i32 noundef 10) #21
   %106 = trunc i64 %105 to i32
   store i32 %106, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2284), align 4
   %107 = load ptr, ptr %6, align 8
@@ -430,7 +430,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %48
   br i1 %.not107.i, label %156, label %160
 
 156:                                              ; preds = %154
-  %157 = call i64 @strtoul(ptr nocapture noundef nonnull %150, ptr noundef null, i32 noundef 10) #21
+  %157 = call i64 @strtoul(ptr noundef nonnull captures(none) %150, ptr noundef null, i32 noundef 10) #21
   %158 = trunc i64 %157 to i32
   br label %160
 
@@ -1104,7 +1104,7 @@ sm_fifo_init.exit:                                ; preds = %.loopexit, %opal_ne
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_smcuda_del_procs(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) #0 {
+define noundef i32 @mca_btl_smcuda_del_procs(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1134,12 +1134,12 @@ define noundef i32 @mca_btl_smcuda_del_procs(ptr nocapture readnone %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_btl_smcuda_finalize(ptr nocapture readnone %0) #1 {
+define noundef i32 @mca_btl_smcuda_finalize(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_btl_smcuda_alloc(ptr nocapture readnone %0, ptr nocapture readnone %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
+define ptr @mca_btl_smcuda_alloc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
   %.not = icmp ugt i64 %3, %6
   br i1 %.not, label %7, label %9
@@ -1168,7 +1168,7 @@ define ptr @mca_btl_smcuda_alloc(ptr nocapture readnone %0, ptr nocapture readno
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @mca_btl_smcuda_free(ptr nocapture readnone %0, ptr noundef %1) #2 {
+define noundef i32 @mca_btl_smcuda_free(ptr readnone captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
@@ -1252,7 +1252,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_btl_smcuda_prepare_src(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) #0 {
+define ptr @mca_btl_smcuda_prepare_src(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3, i64 noundef %4, ptr noundef captures(none) %5, i32 noundef %6) #0 {
   %8 = alloca %struct.iovec, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -1391,7 +1391,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((120, 128)) %2, i8 noundef zeroext %3) #0 {
+define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((120, 128)) %2, i8 noundef zeroext %3) #0 {
   %5 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %6 = shl nsw i32 %5, 1
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
@@ -1600,7 +1600,7 @@ add_pending.exit:                                 ; preds = %96, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
+define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
   %11 = alloca i64, align 8
   %12 = alloca %struct.iovec, align 8
   %13 = alloca i32, align 4
@@ -1926,7 +1926,7 @@ define void @mca_btl_smcuda_dump(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mca_btl_smcuda_register_mem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 {
+define internal ptr @mca_btl_smcuda_register_mem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = and i32 %4, 15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -1942,7 +1942,7 @@ define internal ptr @mca_btl_smcuda_register_mem(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_btl_smcuda_deregister_mem(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @mca_btl_smcuda_deregister_mem(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = add i64 %3, -184
   %5 = inttoptr i64 %4 to ptr
@@ -1955,7 +1955,7 @@ define internal noundef i32 @mca_btl_smcuda_deregister_mem(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @mca_btl_smcuda_register_error_cb(ptr nocapture noundef writeonly initializes((568, 576)) %0, ptr noundef %1) #3 {
+define noundef i32 @mca_btl_smcuda_register_error_cb(ptr noundef writeonly captures(none) initializes((568, 576)) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -1972,10 +1972,10 @@ declare i32 @mca_common_sm_module_unlink(ptr noundef) local_unnamed_addr #4
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @opal_free_list_resize_mt(ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -2399,12 +2399,12 @@ add_pending.exit:                                 ; preds = %160, %148, %sm_fifo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @btl_smcuda_process_pending_sends(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_smcuda_get_cuda(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define i32 @mca_btl_smcuda_get_cuda(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.opal_accelerator_ipc_event_handle_t, align 8
   %14 = alloca %struct.opal_accelerator_event_t, align 8
   %15 = alloca %struct.mca_opal_gpu_reg_t, align 8
@@ -2570,7 +2570,7 @@ mca_btl_smcuda_wait_stream_synchronize.exit:      ; preds = %.lr.ph.i.i, %62, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @mca_btl_smcuda_memcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2596,7 +2596,7 @@ declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare i32 @opal_hwloc_base_get_topology() local_unnamed_addr #4
 
@@ -2622,7 +2622,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #14
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #15
@@ -2631,7 +2631,7 @@ declare ptr @__errno_location() local_unnamed_addr #15
 declare ptr @strerror(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
@@ -2652,13 +2652,13 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #16
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

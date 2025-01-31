@@ -1329,7 +1329,7 @@ _ZN8XBarrier5remapEm.exit:                        ; preds = %30, %27, %12, %4
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier25load_barrier_on_oop_fieldEPV9narrowOop(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier25load_barrier_on_oop_fieldEPV9narrowOop(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 217) #10
@@ -1340,7 +1340,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier25load_barrier_on_oop_fie
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier35load_barrier_on_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier35load_barrier_on_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 222) #10
@@ -1348,7 +1348,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier35load_barrier_on_oop_fie
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN8XBarrier25load_barrier_on_oop_arrayEPV9narrowOopm(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8XBarrier25load_barrier_on_oop_arrayEPV9narrowOopm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 227) #10
@@ -1356,7 +1356,7 @@ define hidden void @_ZN8XBarrier25load_barrier_on_oop_arrayEPV9narrowOopm(ptr no
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier40load_barrier_on_weak_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier40load_barrier_on_weak_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 231) #10
@@ -1364,7 +1364,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier40load_barrier_on_weak_oo
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 236) #10
@@ -1372,7 +1372,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier43load_barrier_on_phantom
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier40weak_load_barrier_on_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier40weak_load_barrier_on_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 241) #10
@@ -1380,7 +1380,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier40weak_load_barrier_on_oo
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier45weak_load_barrier_on_weak_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier45weak_load_barrier_on_weak_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 246) #10
@@ -1388,7 +1388,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier45weak_load_barrier_on_we
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN8XBarrier48weak_load_barrier_on_phantom_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN8XBarrier48weak_load_barrier_on_phantom_oop_field_preloadedEPV9narrowOopP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 251) #10
@@ -1396,7 +1396,7 @@ define hidden noalias noundef nonnull ptr @_ZN8XBarrier48weak_load_barrier_on_ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22XLoadBarrierOopClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22XLoadBarrierOopClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr %1, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = load i64, ptr @XAddressBadMask, align 8
@@ -1431,7 +1431,7 @@ _ZN8XBarrier25load_barrier_on_oop_fieldEPVP7oopDesc.exit: ; preds = %.lr.ph.i.i.
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN22XLoadBarrierOopClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN22XLoadBarrierOopClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 274) #10
@@ -6040,10 +6040,10 @@ _ZN22XMarkThreadLocalStacks4pushEP19XMarkStackAllocatorP14XMarkStripeSetP11XMark
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

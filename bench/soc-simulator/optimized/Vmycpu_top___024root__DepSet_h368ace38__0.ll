@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_top___024root(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_top___024root(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19216
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %4 = load i8, ptr %3, align 4
@@ -18,7 +18,7 @@ define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__actP20Vmycpu_top___024root(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__actP20Vmycpu_top___024root(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19232
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %4 = load i8, ptr %3, align 2

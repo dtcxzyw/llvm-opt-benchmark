@@ -24,7 +24,7 @@ define hidden noundef zeroext i1 @_ZN15IntelJccErratum41is_crossing_or_ending_at
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 31
@@ -58,7 +58,7 @@ define hidden noundef i32 @_ZN15IntelJccErratum22jcc_erratum_taint_nodeEP8MachNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7CompileP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7CompileP8PhaseCFGP13PhaseRegAlloc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
@@ -243,7 +243,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15IntelJccErratum15compute_paddingEmPK8MachNodeP5BlockjP13PhaseRegAlloc(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN15IntelJccErratum15compute_paddingEmPK8MachNodeP5BlockjP13PhaseRegAlloc(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
@@ -317,7 +317,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %14, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -328,7 +328,7 @@ define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -388,7 +388,7 @@ define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocap
 declare void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN24IntelJccErratumAlignmentD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24IntelJccErratumAlignmentD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_wrmsr_safe_r
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_rdmsr_on_cpu64, ptr @__UNIQUE_ID___addressable_rdmsr_on_cpus69, ptr @__UNIQUE_ID___addressable_rdmsr_safe_on_cpu71, ptr @__UNIQUE_ID___addressable_rdmsr_safe_regs_on_cpu75, ptr @__UNIQUE_ID___addressable_rdmsrl_on_cpu65, ptr @__UNIQUE_ID___addressable_rdmsrl_safe_on_cpu74, ptr @__UNIQUE_ID___addressable_wrmsr_on_cpu66, ptr @__UNIQUE_ID___addressable_wrmsr_on_cpus70, ptr @__UNIQUE_ID___addressable_wrmsr_safe_on_cpu72, ptr @__UNIQUE_ID___addressable_wrmsr_safe_regs_on_cpu76, ptr @__UNIQUE_ID___addressable_wrmsrl_on_cpu67, ptr @__UNIQUE_ID___addressable_wrmsrl_safe_on_cpu73, ptr @__rwmsr_on_cpus.__UNIQUE_ID___addressable___SCK__preempt_schedule68], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rdmsr_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define dso_local i32 @rdmsr_on_cpu(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) #0 align 16 {
   %5 = alloca %struct.msr_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -82,16 +82,16 @@ define dso_local i32 @rdmsr_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
+define internal void @__rdmsr_on_cpu(ptr noundef captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -137,10 +137,10 @@ define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rdmsrl_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 align 16 {
+define dso_local i32 @rdmsrl_on_cpu(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 align 16 {
   %4 = alloca %struct.msr_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -169,7 +169,7 @@ define dso_local i32 @wrmsr_on_cpu(i32 noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__wrmsr_on_cpu(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @__wrmsr_on_cpu(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -378,7 +378,7 @@ define dso_local void @wrmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rdmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define dso_local i32 @rdmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) #0 align 16 {
   %5 = alloca %struct.msr_info_completion, align 8
   %6 = alloca %struct.__call_single_data, align 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
@@ -479,7 +479,7 @@ define dso_local i32 @wrmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__wrmsr_safe_on_cpu(ptr nocapture noundef initializes((24, 28)) %0) #0 align 16 {
+define internal void @__wrmsr_safe_on_cpu(ptr noundef captures(none) initializes((24, 28)) %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -521,7 +521,7 @@ define dso_local i32 @wrmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rdmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 align 16 {
+define dso_local i32 @rdmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 align 16 {
   %4 = alloca %struct.msr_info_completion, align 8
   %5 = alloca %struct.__call_single_data, align 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
@@ -574,7 +574,7 @@ define dso_local i32 @rdmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__rdmsr_safe_regs_on_cpu(ptr nocapture noundef initializes((8, 12)) %0) #0 align 16 {
+define internal void @__rdmsr_safe_regs_on_cpu(ptr noundef captures(none) initializes((8, 12)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @rdmsr_safe_regs(ptr noundef %2) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -600,7 +600,7 @@ define dso_local i32 @wrmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__wrmsr_safe_regs_on_cpu(ptr nocapture noundef initializes((8, 12)) %0) #0 align 16 {
+define internal void @__wrmsr_safe_regs_on_cpu(ptr noundef captures(none) initializes((8, 12)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @wrmsr_safe_regs(ptr noundef %2) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

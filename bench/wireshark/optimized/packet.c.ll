@@ -285,7 +285,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @call_routine(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @call_routine(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call void %0() #25
   ret void
 }
@@ -390,7 +390,7 @@ define void @postseq_cleanup_all_protocols() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @add_new_data_source(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @add_new_data_source(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #25
@@ -413,7 +413,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @remove_last_data_source(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @remove_last_data_source(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_slist_last(ptr noundef %3) #25
@@ -428,7 +428,7 @@ declare ptr @g_slist_last(ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @get_data_source_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @get_data_source_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @tvb_captured_length(ptr noundef %2) #25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -444,13 +444,13 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_data_source_tvb(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @get_data_source_tvb(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define ptr @get_data_source_tvb_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.0912 = load ptr, ptr %3, align 8
   %.not13 = icmp eq ptr %.0912, null
@@ -485,10 +485,10 @@ define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @free_data_sources(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @free_data_sources(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -504,7 +504,7 @@ define hidden void @free_data_sources(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mark_frame_as_depended_upon(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @mark_frame_as_depended_upon(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %1, %3
   br i1 %.not, label %15, label %4
@@ -895,7 +895,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare void @col_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 
@@ -1332,7 +1332,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #10
@@ -1473,7 +1473,7 @@ dissector_handle_get_dissector_name.exit53:       ; preds = %57
   %64 = icmp eq ptr %63, null
   %spec.store.select2 = select i1 %64, ptr @.str.29, ptr %63
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.store.select2, ptr noundef %0, ptr noundef %58) #29
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.store.select2, ptr noundef %0, ptr noundef nonnull %58) #29
   %67 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not47 = icmp eq i32 %67, 0
   br i1 %.not47, label %69, label %68
@@ -1585,7 +1585,7 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
@@ -1688,7 +1688,7 @@ define void @dissector_add_uint_range_with_preference(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dissector_delete_uint(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) local_unnamed_addr #0 {
+define void @dissector_delete_uint(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
@@ -1746,7 +1746,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1923,7 +1923,7 @@ find_dissector_table.exit:                        ; preds = %2, %5
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissector_delete_all_check(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @dissector_delete_all_check(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2135,7 +2135,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %3, %3, %3, %3, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_uint_new(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @dissector_try_uint_new(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %10 [
@@ -2178,7 +2178,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %7, %7, %7, %7, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -2377,7 +2377,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_uint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @dissector_try_uint(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
@@ -2420,7 +2420,7 @@ dissector_try_uint_new.exit:                      ; preds = %find_uint_dtbl_entr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_get_uint_handle(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @dissector_get_uint_handle(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
@@ -2622,7 +2622,7 @@ declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_add
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dissector_delete_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define void @dissector_delete_string(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
@@ -2920,7 +2920,7 @@ find_string_dtbl_entry.exit:                      ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_string_new(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @dissector_try_string_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %8
 
@@ -2980,13 +2980,13 @@ find_string_dtbl_entry.exit:                      ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_string(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @dissector_try_string(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @dissector_try_string_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_get_string_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dissector_get_string_handle(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
 
@@ -3189,7 +3189,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_get_custom_table_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dissector_get_custom_table_handle(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #25
   %.not = icmp eq ptr %4, null
@@ -3295,7 +3295,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_guid_new(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @dissector_try_guid_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %1) #25
   %.not = icmp eq ptr %9, null
@@ -3317,7 +3317,7 @@ define i32 @dissector_try_guid_new(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_guid(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @dissector_try_guid(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %1) #25
   %.not.i = icmp eq ptr %7, null
@@ -3339,7 +3339,7 @@ dissector_try_guid_new.exit:                      ; preds = %5, %8, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_get_guid_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dissector_get_guid_handle(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #25
   %.not = icmp eq ptr %4, null
@@ -3356,7 +3356,7 @@ define ptr @dissector_get_guid_handle(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_payload(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @dissector_try_payload(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %7 [
@@ -3397,7 +3397,7 @@ dissector_try_uint.exit:                          ; preds = %find_uint_dtbl_entr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_try_payload_new(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @dissector_try_payload_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %9 [
@@ -3450,7 +3450,7 @@ define void @dissector_reset_payload(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_get_payload_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @dissector_get_payload_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %4 [
@@ -3482,7 +3482,7 @@ dissector_get_uint_handle.exit:                   ; preds = %find_uint_dtbl_entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dtbl_entry_get_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @dtbl_entry_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3549,7 +3549,7 @@ declare ptr @g_slist_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissector_compare_filter_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @dissector_compare_filter_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3586,7 +3586,7 @@ define void @dissector_add_for_decode_as_with_preference(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dtbl_entry_get_initial_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @dtbl_entry_get_initial_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
@@ -3607,7 +3607,7 @@ define ptr @dissector_table_get_dissector_handles(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dissector_table_get_dissector_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dissector_table_get_dissector_handle(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lookup_entry, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3620,7 +3620,7 @@ define ptr @dissector_table_get_dissector_handle(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_dissector_in_table(ptr noundef %0, ptr nocapture noundef %1) #12 {
+define internal void @find_dissector_in_table(ptr noundef %0, ptr noundef captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3657,14 +3657,14 @@ define i32 @dissector_table_get_type(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @dissector_table_allow_decode_as(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #13 {
+define void @dissector_table_allow_decode_as(ptr noundef writeonly captures(none) initializes((48, 52)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @dissector_table_supports_decode_as(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @dissector_table_supports_decode_as(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -3709,7 +3709,7 @@ find_dissector_table.exit:                        ; preds = %3, %7
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3737,7 +3737,7 @@ define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dissector_table_foreach_handle(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @dissector_table_foreach_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
@@ -3789,7 +3789,7 @@ define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3812,7 +3812,7 @@ define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((24, 36)) %2) #0 {
+define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((24, 36)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
@@ -3921,7 +3921,7 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @dissector_all_tables_foreach_list_func(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3936,7 +3936,7 @@ define internal void @dissector_all_tables_foreach_list_func(ptr noundef %0, ptr
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_tables_foreach_table_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @dissector_all_tables_foreach_table_func(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4031,13 +4031,13 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
 declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @uuid_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @uuid_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @uuid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 0, 2) i32 @uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %3 = icmp eq i32 %bcmp, 0
   br i1 %3, label %4, label %11
@@ -4500,7 +4500,7 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @find_matching_heur_dissector(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @find_matching_heur_dissector(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4525,7 +4525,7 @@ declare void @proto_add_deregistered_data(ptr noundef) local_unnamed_addr #1
 declare void @proto_add_deregistered_slice(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((330, 332)) %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dissector_try_heuristic(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef initializes((330, 332)) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -4791,7 +4791,7 @@ declare i32 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 declare i32 @proto_get_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 378)) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @add_layer(ptr noundef captures(none) initializes((377, 378)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load i8, ptr %3, align 8
   %5 = add i8 %4, 1
@@ -4844,7 +4844,7 @@ define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @remove_last_layer(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %3
 
@@ -4933,7 +4933,7 @@ define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4970,7 +4970,7 @@ define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4981,7 +4981,7 @@ define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_heur_tables_foreach_table_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @dissector_all_heur_tables_foreach_table_func(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -5003,7 +5003,7 @@ define void @dissector_dump_heur_decodes() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = load ptr, ptr @heur_dissector_lists, align 8
@@ -5159,14 +5159,14 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dissector_handle_get_description(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @dissector_handle_get_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissector_handle_get_protocol_index(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @dissector_handle_get_protocol_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5552,7 +5552,7 @@ destroy_dissector_handle.exit:                    ; preds = %31, %5, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @remove_depend_dissector_ghfunc(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @remove_depend_dissector_ghfunc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @g_slist_find_custom(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @strcmp) #25
   %.not.i = icmp eq ptr %5, null
@@ -5739,7 +5739,7 @@ define ptr @find_depend_dissector_list(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @find_matching_proto_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal i32 @find_matching_proto_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #26
   ret i32 %3
 }
@@ -5782,7 +5782,7 @@ define void @dissector_dump_decodes() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = ptrtoint ptr %2 to i64
   %7 = trunc i64 %6 to i32
   %8 = load ptr, ptr @dissector_tables, align 8
@@ -5848,13 +5848,13 @@ define void @dissector_dump_dissector_tables() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_dissector_key_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal i32 @compare_dissector_key_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #26
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5929,7 +5929,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_dump_heur_dissector_tables_display(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissector_dump_heur_dissector_tables_display(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = load ptr, ptr %4, align 8
@@ -6014,10 +6014,10 @@ declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_dissector_info_names(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal i32 @compare_dissector_info_names(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #26
@@ -6025,7 +6025,7 @@ define internal i32 @compare_dissector_info_names(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
@@ -6318,7 +6318,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
 declare void @epan_dissect_prime_with_hfid_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @increment_dissection_depth(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -6336,7 +6336,7 @@ define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @decrement_dissection_depth(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @decrement_dissection_depth(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
@@ -6389,7 +6389,7 @@ declare void @prefs_register_decode_as_range_preference(ptr noundef, ptr noundef
 declare i32 @proto_is_pino(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @call_dissector_work_error(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6702,7 +6702,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_remove_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -6755,7 +6755,7 @@ declare i32 @proto_is_protocol_enabled_by_default(ptr noundef) local_unnamed_add
 declare zeroext i8 @proto_check_field_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_delete_from_table(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @dissector_delete_from_table(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %4, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %2) #25
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6770,22 +6770,22 @@ declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ftype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

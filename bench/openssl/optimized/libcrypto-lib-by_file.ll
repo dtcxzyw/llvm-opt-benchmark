@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_load_cert_file_ex(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define i32 @X509_load_cert_file_ex(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %x = alloca ptr, align 8
   store ptr null, ptr %x, align 8
@@ -199,14 +199,14 @@ declare ptr @d2i_X509_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_load_cert_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define i32 @X509_load_cert_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @X509_load_cert_file_ex(ptr noundef %ctx, ptr noundef %file, i32 noundef %type, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_load_crl_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define i32 @X509_load_crl_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3
@@ -328,7 +328,7 @@ declare ptr @d2i_X509_CRL_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_load_cert_crl_file_ex(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq i32 %type, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -444,21 +444,21 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509_INFO_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_load_cert_crl_file(ptr nocapture noundef readonly %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
+define i32 @X509_load_cert_crl_file(ptr noundef readonly captures(none) %ctx, ptr noundef %file, i32 noundef %type) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @X509_load_cert_crl_file_ex(ptr noundef %ctx, ptr noundef %file, i32 noundef %type, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @by_file_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture noundef readnone %ret) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr noundef readnone captures(none) %ret) #1 {
 entry:
   %call = tail call i32 @by_file_ctrl_ex(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr poison, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @by_file_ctrl_ex(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
+define internal range(i32 0, 2) i32 @by_file_ctrl_ex(ptr noundef readonly captures(none) %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr readnone captures(none) %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
 entry:
   %cond = icmp eq i32 %cmd, 1
   br i1 %cond, label %sw.bb, label %sw.epilog

@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2Hull = type { [8 x %struct.b2Vec2], i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_f(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %this, ptr nocapture noundef readonly %manifold, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, float noundef %radiusA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB, float noundef %radiusB) local_unnamed_addr #0 align 2 {
+define void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_f(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %manifold, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfA, float noundef %radiusA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfB, float noundef %radiusB) local_unnamed_addr #0 align 2 {
 entry:
   %pointCount = getelementptr inbounds nuw i8, ptr %manifold, i64 60
   %0 = load i32, ptr %pointCount, align 4
@@ -328,10 +328,10 @@ sw.epilog:                                        ; preds = %for.body, %sw.bb31,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z16b2GetPointStatesP12b2PointStateS0_PK10b2ManifoldS3_(ptr nocapture noundef writeonly %state1, ptr nocapture noundef writeonly %state2, ptr nocapture noundef readonly %manifold1, ptr nocapture noundef readonly %manifold2) local_unnamed_addr #2 {
+define void @_Z16b2GetPointStatesP12b2PointStateS0_PK10b2ManifoldS3_(ptr noundef writeonly captures(none) %state1, ptr noundef writeonly captures(none) %state2, ptr noundef readonly captures(none) %manifold1, ptr noundef readonly captures(none) %manifold2) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %state1, align 4
   store i32 0, ptr %state2, align 4
@@ -433,7 +433,7 @@ for.end60:                                        ; preds = %for.inc58, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK6b2AABB7RayCastEP15b2RayCastOutputRK14b2RayCastInput(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6b2AABB7RayCastEP15b2RayCastOutputRK14b2RayCastInput(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) %output, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %input) local_unnamed_addr #0 align 2 {
 entry:
   %p.sroa.0 = alloca float, align 8
   %p.sroa.3 = alloca float, align 4
@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end28, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 4) i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr nocapture noundef writeonly %vOut, ptr nocapture noundef readonly %vIn, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %normal, float noundef %offset, i32 noundef %vertexIndexA) local_unnamed_addr #3 {
+define noundef range(i32 0, 4) i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr noundef writeonly captures(none) %vOut, ptr noundef readonly captures(none) %vIn, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %normal, float noundef %offset, i32 noundef %vertexIndexA) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %normal, align 4
   %1 = load float, ptr %vIn, align 4
@@ -637,7 +637,7 @@ if.end46:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z13b2TestOverlapPK7b2ShapeiS1_iRK11b2TransformS4_(ptr noundef %shapeA, i32 noundef %indexA, ptr noundef %shapeB, i32 noundef %indexB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #4 {
+define noundef zeroext i1 @_Z13b2TestOverlapPK7b2ShapeiS1_iRK11b2TransformS4_(ptr noundef %shapeA, i32 noundef %indexA, ptr noundef %shapeB, i32 noundef %indexB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xfB) local_unnamed_addr #4 {
 entry:
   %input = alloca %struct.b2DistanceInput, align 8
   %cache = alloca %struct.b2SimplexCache, align 4
@@ -669,7 +669,7 @@ declare void @_ZN15b2DistanceProxy3SetEPK7b2Shapei(ptr noundef nonnull align 8 d
 declare void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z13b2ComputeHullPK6b2Vec2i(ptr noalias nocapture sret(%struct.b2Hull) align 4 initializes((64, 68)) %agg.result, ptr nocapture noundef readonly %points, i32 noundef %count) local_unnamed_addr #6 {
+define hidden void @_Z13b2ComputeHullPK6b2Vec2i(ptr noalias sret(%struct.b2Hull) align 4 captures(none) initializes((64, 68)) %agg.result, ptr noundef readonly captures(none) %points, i32 noundef %count) local_unnamed_addr #6 {
 entry:
   %ps = alloca [8 x %struct.b2Vec2], align 16
   %rightPoints = alloca [6 x %struct.b2Vec2], align 16
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nocapture nonnull align 4 initializes((64, 68)) %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr nocapture noundef nonnull readonly %ps, i32 noundef %count) unnamed_addr #6 {
+define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 captures(none) initializes((64, 68)) %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr noundef nonnull readonly captures(none) %ps, i32 noundef %count) unnamed_addr #6 {
 entry:
   %rightPoints = alloca [8 x %struct.b2Vec2], align 16
   %hull1 = alloca %struct.b2Hull, align 4
@@ -1268,7 +1268,7 @@ return:                                           ; preds = %for.body63, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z14b2ValidateHullRK6b2Hull(ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %hull) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_Z14b2ValidateHullRK6b2Hull(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %hull) local_unnamed_addr #7 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hull, i64 64
   %0 = load i32, ptr %count, align 4
@@ -1418,7 +1418,7 @@ return:                                           ; preds = %if.end19.us, %for.c
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #10

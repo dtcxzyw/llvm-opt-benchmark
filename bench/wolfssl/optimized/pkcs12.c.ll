@@ -38,7 +38,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @wc_PKCS12_free(ptr noundef %pkcs12) local_unnamed_addr #0 {
@@ -162,7 +162,7 @@ if.then15:                                        ; preds = %for.end, %if.then10
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_verify_ex(ptr noundef readonly %pkcs12, ptr nocapture noundef readonly %psw, i32 noundef %pswSz) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_verify_ex(ptr noundef readonly %pkcs12, ptr noundef readonly captures(none) %psw, i32 noundef %pswSz) local_unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %pkcs12, null
@@ -283,7 +283,7 @@ declare i32 @GetSequence(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @GetMyVersion(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetSafeContent(ptr nocapture noundef nonnull writeonly %pkcs12, ptr noundef nonnull %input, ptr nocapture noundef nonnull %idx, i32 noundef %maxIdx) unnamed_addr #0 {
+define internal fastcc i32 @GetSafeContent(ptr noundef nonnull writeonly captures(none) %pkcs12, ptr noundef nonnull %input, ptr noundef nonnull captures(none) %idx, i32 noundef %maxIdx) unnamed_addr #0 {
 entry:
   %oid = alloca i32, align 4
   %localIdx = alloca i32, align 4
@@ -608,7 +608,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr nocapture noundef nonnull writeonly %pkcs12, ptr noundef nonnull %mem, ptr nocapture noundef nonnull %idx, i32 noundef %totalSz) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef nonnull writeonly captures(none) %pkcs12, ptr noundef nonnull %mem, ptr noundef nonnull captures(none) %idx, i32 noundef %totalSz) unnamed_addr #0 {
 entry:
   %curIdx = alloca i32, align 4
   %oid = alloca i32, align 4
@@ -1118,14 +1118,14 @@ declare i32 @SetSequence(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SetOctetString(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @SetMyVersion(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @SetObjectId(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wc_FreeCertList(ptr noundef %list, ptr nocapture readnone %heap) local_unnamed_addr #0 {
+define void @wc_FreeCertList(ptr noundef %list, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %list, null
   br i1 %cmp.not, label %return, label %while.body
@@ -1317,7 +1317,7 @@ if.end104:                                        ; preds = %if.end97
   %conv105 = sext i32 %22 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call100, ptr align 1 %add.ptr, i64 %conv105, i1 false)
   %23 = load i32, ptr %size, align 4
-  %call106 = call i32 @DecryptContent(ptr noundef nonnull %call100, i32 noundef %23, ptr noundef %psw, i32 noundef %conv) #9
+  %call106 = call i32 @DecryptContent(ptr noundef nonnull %call100, i32 noundef %23, ptr noundef nonnull %psw, i32 noundef %conv) #9
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %if.then439.loopexit170, label %if.end112
 
@@ -1480,7 +1480,7 @@ if.end236:                                        ; preds = %if.end229
   %conv239 = sext i32 %52 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call232, ptr align 1 %add.ptr238, i64 %conv239, i1 false)
   %53 = load i32, ptr %size, align 4
-  %call240 = call i32 @ToTraditionalEnc(ptr noundef nonnull %call232, i32 noundef %53, ptr noundef %psw, i32 noundef %conv, ptr noundef nonnull %algId) #9
+  %call240 = call i32 @ToTraditionalEnc(ptr noundef nonnull %call232, i32 noundef %53, ptr noundef nonnull %psw, i32 noundef %conv, ptr noundef nonnull %algId) #9
   %cmp241 = icmp slt i32 %call240, 0
   br i1 %cmp241, label %if.then245, label %if.end247
 
@@ -1783,7 +1783,7 @@ return:                                           ; preds = %if.then11.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @GetASNTag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1800,7 +1800,7 @@ declare i32 @ToTraditional_ex(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @ToTraditionalEnc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeDecCertList(ptr nocapture noundef nonnull %list, ptr nocapture noundef readonly %pkey, ptr nocapture noundef readonly %pkeySz, ptr nocapture noundef nonnull writeonly %cert, ptr nocapture noundef writeonly %certSz, ptr noundef %heap) unnamed_addr #0 {
+define internal fastcc void @freeDecCertList(ptr noundef nonnull captures(none) %list, ptr noundef readonly captures(none) %pkey, ptr noundef readonly captures(none) %pkeySz, ptr noundef nonnull writeonly captures(none) %cert, ptr noundef writeonly captures(none) %certSz, ptr noundef %heap) unnamed_addr #0 {
 entry:
   %DeCert = alloca [1 x %struct.DecodedCert], align 16
   %current.015 = load ptr, ptr %list, align 8
@@ -1862,7 +1862,7 @@ while.end:                                        ; preds = %if.end17, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_PKCS12_create(ptr noundef %pass, i32 noundef %passSz, ptr nocapture noundef readnone %name, ptr noundef %key, i32 noundef %keySz, ptr nocapture noundef readonly %cert, i32 noundef %certSz, ptr noundef readonly %ca, i32 noundef %nidKey, i32 noundef %nidCert, i32 noundef %iter, i32 noundef %macIter, i32 noundef %keyType, ptr noundef %heap) local_unnamed_addr #0 {
+define ptr @wc_PKCS12_create(ptr noundef %pass, i32 noundef %passSz, ptr noundef readnone captures(none) %name, ptr noundef %key, i32 noundef %keySz, ptr noundef readonly captures(none) %cert, i32 noundef %certSz, ptr noundef readonly %ca, i32 noundef %nidKey, i32 noundef %nidCert, i32 noundef %iter, i32 noundef %macIter, i32 noundef %keyType, ptr noundef %heap) local_unnamed_addr #0 {
 entry:
   %seq.i.i64 = alloca [6 x i8], align 1
   %length.i = alloca i32, align 4
@@ -2367,7 +2367,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_create_mac(ptr nocapture noundef nonnull readonly %pkcs12, ptr noundef %data, i32 noundef %dataSz, ptr nocapture noundef readonly %psw, i32 noundef %pswSz, ptr noundef nonnull %out) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly captures(none) %pkcs12, ptr noundef %data, i32 noundef %dataSz, ptr noundef readonly captures(none) %psw, i32 noundef %pswSz, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %unicodePasswd = alloca [256 x i8], align 16
@@ -2523,7 +2523,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @GetAlgoId(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2536,10 +2536,10 @@ declare i32 @wc_CheckPrivateKeyCert(ptr noundef, i32 noundef, ptr noundef) local
 declare void @FreeDecodedCert(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.0.val, ptr noundef nonnull %rng, ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr noundef %content, i32 noundef %contentSz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %iter, i32 noundef range(i32 651, 657) %type) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.0.val, ptr noundef nonnull %rng, ptr noundef %out, ptr noundef nonnull captures(none) %outSz, ptr noundef %content, i32 noundef %contentSz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %iter, i32 noundef range(i32 651, 657) %type) unnamed_addr #0 {
 entry:
   %encSz = alloca i32, align 4
   %seq = alloca [6 x i8], align 1
@@ -2760,7 +2760,7 @@ return:                                           ; preds = %entry, %if.end190, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_shroud_key(ptr nocapture noundef nonnull readonly %pkcs12, ptr noundef nonnull %rng, ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr noundef %key, i32 noundef %keySz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %itt) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly captures(none) %pkcs12, ptr noundef nonnull %rng, ptr noundef %out, ptr noundef nonnull captures(none) %outSz, ptr noundef %key, i32 noundef %keySz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %itt) unnamed_addr #0 {
 entry:
   %sz = alloca i32, align 4
   %curveOID = alloca ptr, align 8
@@ -2856,7 +2856,7 @@ declare i32 @SetExplicit(i8 noundef zeroext, i32 noundef, ptr noundef) local_unn
 declare i32 @EncryptContent(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr nocapture noundef readonly %cert, i32 noundef %certSz) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %out, ptr noundef nonnull captures(none) %outSz, ptr noundef readonly captures(none) %cert, i32 noundef %certSz) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %out, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3008,13 +3008,13 @@ declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

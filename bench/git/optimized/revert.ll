@@ -110,7 +110,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @sequencer_init_config(ptr noundef) local_unnamed_addr #2
 
@@ -832,7 +832,7 @@ if.end:                                           ; preds = %entry
 declare i32 @parse_opt_noop_cb(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @option_parse_m(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @option_parse_m(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %end = alloca ptr, align 8
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
@@ -883,7 +883,7 @@ declare i32 @parse_opt_tertiary(ptr noundef, ptr noundef, i32 noundef) #2
 declare i32 @parse_opt_strvec(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @parse_options_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -976,12 +976,12 @@ declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @setup_revisions(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @sequencer_remove_state(ptr noundef) local_unnamed_addr #2
 
@@ -996,7 +996,7 @@ declare i32 @sequencer_skip(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sequencer_pick_revisions(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 

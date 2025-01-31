@@ -53,7 +53,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef %block) local_unnamed_addr #0 {
@@ -98,7 +98,7 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 17, 1) i64 @CRYPTO_cts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 17, 1) i64 @CRYPTO_cts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon, align 8
   %cmp = icmp ult i64 %len, 17
@@ -127,10 +127,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.0, align 8
   %cmp = icmp ult i64 %len, 16
@@ -315,7 +315,7 @@ return:                                           ; preds = %entry, %for.end40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 17, 1) i64 @CRYPTO_cts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 17, 1) i64 @CRYPTO_cts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.3, align 8
   %cmp = icmp ult i64 %len, 17
@@ -354,7 +354,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.4, align 8
   %cmp = icmp ult i64 %len, 16

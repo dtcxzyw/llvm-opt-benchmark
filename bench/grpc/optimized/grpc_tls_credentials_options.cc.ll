@@ -303,7 +303,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
@@ -1201,7 +1201,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef %options, ptr nocapture noundef readonly %provider) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef %options, ptr noundef readonly captures(none) %provider) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1670,7 +1670,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

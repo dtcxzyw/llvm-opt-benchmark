@@ -186,7 +186,7 @@ define dso_local ptr @sxe_get_element_class_entry() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_xpath(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 {
+define hidden void @zim_SimpleXMLElement_xpath(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -518,7 +518,7 @@ declare ptr @_zend_new_array(i32 noundef) local_unnamed_addr #2
 declare void @zend_hash_real_init_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @_node_as_zval(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -588,7 +588,7 @@ define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, pt
 declare void @xmlXPathFreeObject(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_registerXPathNamespace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_registerXPathNamespace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -656,7 +656,7 @@ define hidden void @zim_SimpleXMLElement_registerXPathNamespace(ptr nocapture no
 declare i32 @xmlXPathRegisterNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_asXML(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_asXML(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -919,7 +919,7 @@ declare ptr @xmlOutputBufferGetContent(ptr noundef) local_unnamed_addr #2
 declare i64 @xmlOutputBufferGetSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_getNamespaces(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 {
+define hidden void @zim_SimpleXMLElement_getNamespaces(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1028,7 +1028,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @sxe_add_namespaces(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1092,7 +1092,7 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_namespace_name(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
+define internal fastcc void @sxe_add_namespace_name(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1133,7 +1133,7 @@ define internal fastcc void @sxe_add_namespace_name(ptr nocapture noundef readon
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %20, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr align 1 %19, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %19, i64 %20, i1 false)
   %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 %20
   store i8 0, ptr %28, align 1
   store ptr %23, ptr %3, align 8
@@ -1167,7 +1167,7 @@ define internal fastcc void @sxe_add_namespace_name(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_getDocNamespaces(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 {
+define hidden void @zim_SimpleXMLElement_getDocNamespaces(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   store i8 0, ptr %3, align 1
@@ -1248,7 +1248,7 @@ define hidden void @zim_SimpleXMLElement_getDocNamespaces(ptr nocapture noundef 
 declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @sxe_add_registered_namespaces(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
@@ -1289,7 +1289,7 @@ define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_children(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_children(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -1388,7 +1388,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %25, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1503,7 +1503,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_attributes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_attributes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -1601,7 +1601,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_addChild(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_addChild(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1818,7 +1818,7 @@ declare ptr @xmlNewNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @xmlSearchNsByHref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_addAttribute(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define hidden void @zim_SimpleXMLElement_addAttribute(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2034,7 +2034,7 @@ declare ptr @xmlHasNsProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @xmlNewNsProp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement___toString(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
+define hidden void @zim_SimpleXMLElement___toString(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2733,7 +2733,7 @@ cast_object.exit:                                 ; preds = %.thread77, %272, %2
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -96
@@ -2805,7 +2805,7 @@ php_sxe_count_elements_helper.exit:               ; preds = %.lr.ph.i, %php_sxe_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define hidden void @zim_SimpleXMLElement_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2921,7 +2921,7 @@ php_sxe_reset_iterator.exit:                      ; preds = %.thread.i.i, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2950,7 +2950,7 @@ define hidden void @zim_SimpleXMLElement_valid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3026,7 +3026,7 @@ define hidden void @zim_SimpleXMLElement_current(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3099,7 +3099,7 @@ define hidden void @zim_SimpleXMLElement_key(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define hidden void @zim_SimpleXMLElement_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3191,7 +3191,7 @@ define dso_local void @php_sxe_move_forward_iterator(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_hasChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_hasChildren(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3270,7 +3270,7 @@ define hidden void @zim_SimpleXMLElement_hasChildren(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement_getChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zim_SimpleXMLElement_getChildren(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3400,7 +3400,7 @@ php_sxe_find_fptr_count.exit:                     ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_simplexml_load_file(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zif_simplexml_load_file(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3583,7 +3583,7 @@ declare i32 @php_libxml_increment_doc_ref(ptr noundef, ptr noundef) local_unname
 declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_simplexml_load_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zif_simplexml_load_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3774,7 +3774,7 @@ php_sxe_find_fptr_count.exit:                     ; preds = %._crit_edge.i, %65,
 declare ptr @xmlReadMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SimpleXMLElement___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define hidden void @zim_SimpleXMLElement___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -3930,7 +3930,7 @@ declare void @zend_argument_error(ptr noundef, i32 noundef, ptr noundef, ...) lo
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_sxe_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define hidden noundef ptr @php_sxe_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -3967,7 +3967,7 @@ declare noalias ptr @_emalloc_96() local_unnamed_addr #2
 declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_sxe_iterator_fetch(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc ptr @php_sxe_iterator_fetch(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -4310,7 +4310,7 @@ match_ns.exit.thread:                             ; preds = %.thread.i65, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @simplexml_export_node(ptr nocapture noundef readonly %0) #1 {
+define hidden ptr @simplexml_export_node(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -96
   %4 = load ptr, ptr %3, align 8
@@ -4371,7 +4371,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %8, %.thread.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_simplexml_import_dom(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define hidden void @zif_simplexml_import_dom(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @ce_SimpleXMLElement, align 8
@@ -4511,8 +4511,8 @@ php_sxe_find_fptr_count.exit:                     ; preds = %._crit_edge.i, %36,
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.029, i64 64
   %76 = load ptr, ptr %75, align 8
-  %77 = call i32 @php_libxml_increment_doc_ref(ptr noundef %69, ptr noundef %76) #14
-  %78 = call i32 @php_libxml_increment_node_ptr(ptr noundef %69, ptr noundef nonnull %.029, ptr noundef null) #14
+  %77 = call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %69, ptr noundef %76) #14
+  %78 = call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %69, ptr noundef nonnull %.029, ptr noundef null) #14
   store ptr %71, ptr %1, align 8
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 776, ptr %79, align 8
@@ -4608,7 +4608,7 @@ define hidden noundef i32 @zm_shutdown_simplexml(i32 %0, i32 %1) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_simplexml(ptr nocapture readnone %0) #1 {
+define hidden void @zm_info_simplexml(ptr readnone captures(none) %0) #1 {
   tail call void @php_info_print_table_start() #14
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #14
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32) #14
@@ -4617,7 +4617,7 @@ define hidden void @zm_info_simplexml(ptr nocapture readnone %0) #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @sxe_object_free_storage(ptr noundef %0) #1 {
@@ -4696,7 +4696,7 @@ define internal void @sxe_object_free_storage(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @sxe_object_clone(ptr nocapture noundef readonly %0) #1 {
+define internal noundef nonnull ptr @sxe_object_clone(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4826,7 +4826,7 @@ define internal noundef nonnull ptr @sxe_object_clone(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sxe_property_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4) #1 {
+define internal noundef ptr @sxe_property_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4) #1 {
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4841,7 +4841,7 @@ define internal noundef ptr @sxe_property_read(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxe_property_write(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal ptr @sxe_property_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4864,13 +4864,13 @@ define internal noundef ptr @sxe_dimension_read(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sxe_dimension_write(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal void @sxe_dimension_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call fastcc ptr @sxe_prop_dim_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxe_property_get_adr(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #1 {
+define internal ptr @sxe_property_get_adr(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -5109,7 +5109,7 @@ sxe_get_element_by_name.exit:                     ; preds = %84, %12, %sxe_get_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sxe_property_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @sxe_property_exists(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5124,7 +5124,7 @@ define internal range(i32 0, 2) i32 @sxe_property_exists(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sxe_property_delete(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
+define internal void @sxe_property_delete(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5139,19 +5139,19 @@ define internal void @sxe_property_delete(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sxe_dimension_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 0, 2) i32 @sxe_dimension_exists(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = tail call fastcc i32 @sxe_prop_dim_exists(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sxe_dimension_delete(ptr nocapture noundef %0, ptr noundef %1) #1 {
+define internal void @sxe_dimension_delete(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   tail call fastcc void @sxe_prop_dim_delete(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxe_get_properties(ptr nocapture noundef %0) #1 {
+define internal ptr @sxe_get_properties(ptr noundef captures(none) %0) #1 {
   %2 = tail call fastcc ptr @sxe_get_prop_hash(ptr noundef %0, i32 noundef 0)
   ret ptr %2
 }
@@ -5244,7 +5244,7 @@ define internal range(i32 -1, 1) i32 @sxe_object_cast(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sxe_count_elements(ptr noundef %0, ptr nocapture noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @sxe_count_elements(ptr noundef %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -96
   %5 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -5329,14 +5329,14 @@ php_sxe_count_elements_helper.exit:               ; preds = %.lr.ph.i, %php_sxe_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxe_get_debug_info(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal ptr @sxe_get_debug_info(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   store i32 1, ptr %1, align 4
   %3 = tail call fastcc ptr @sxe_get_prop_hash(ptr noundef %0, i32 noundef 1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @sxe_get_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 {
+define internal ptr @sxe_get_gc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #6 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 -80
@@ -5353,7 +5353,7 @@ declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
 declare void @php_info_print_table_end() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_sxe_reset_iterator_no_clear_iter_data(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc ptr @php_sxe_reset_iterator_no_clear_iter_data(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -5397,14 +5397,14 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
@@ -5425,7 +5425,7 @@ declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sxe_iterator_dtor(ptr noundef %0) #1 {
@@ -5444,7 +5444,7 @@ define internal void @php_sxe_iterator_dtor(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @php_sxe_iterator_valid(ptr nocapture noundef readonly %0) #11 {
+define internal range(i32 -1, 1) i32 @php_sxe_iterator_valid(ptr noundef readonly captures(none) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -5455,7 +5455,7 @@ define internal range(i32 -1, 1) i32 @php_sxe_iterator_valid(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @php_sxe_iterator_current_data(ptr nocapture noundef readonly %0) #12 {
+define internal nonnull ptr @php_sxe_iterator_current_data(ptr noundef readonly captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -5463,7 +5463,7 @@ define internal nonnull ptr @php_sxe_iterator_current_data(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sxe_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #1 {
+define internal void @php_sxe_iterator_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -5508,7 +5508,7 @@ define internal void @php_sxe_iterator_current_key(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sxe_iterator_move_forward(ptr nocapture noundef readonly %0) #1 {
+define internal void @php_sxe_iterator_move_forward(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -5548,7 +5548,7 @@ php_sxe_move_forward_iterator.exit:               ; preds = %1, %.thread17.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sxe_iterator_rewind(ptr nocapture noundef readonly %0) #1 {
+define internal void @php_sxe_iterator_rewind(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -6283,7 +6283,7 @@ sxe_find_element_by_name.exit.thread:             ; preds = %match_ns.exit.i, %1
 declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_get_element_by_offset(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc ptr @sxe_get_element_by_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
@@ -6399,7 +6399,7 @@ match_ns.exit:                                    ; preds = %.thread.i, %33, %36
 declare ptr @xmlNewTextChild(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_prop_dim_write(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc ptr @sxe_prop_dim_write(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8
@@ -7317,7 +7317,7 @@ declare ptr @xmlEncodeEntitiesReentrant(ptr noundef, ptr noundef) local_unnamed_
 declare void @xmlNodeSetContent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sxe_prop_dim_exists(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @sxe_prop_dim_exists(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
@@ -7879,7 +7879,7 @@ sxe_find_element_by_name.exit.thread262:          ; preds = %200, %sxe_find_elem
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_prop_dim_delete(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @sxe_prop_dim_delete(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
@@ -8414,7 +8414,7 @@ match_ns.exit233:                                 ; preds = %.thread.i227, %209,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sxe_get_prop_hash(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc ptr @sxe_get_prop_hash(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 -96
@@ -9084,7 +9084,7 @@ define internal fastcc ptr @sxe_xmlNodeListGetString(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sxe_properties_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc void @sxe_properties_add(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = sext i32 %2 to i64
   %6 = and i64 %5, -8
   %7 = add nsw i64 %6, 32
@@ -9165,10 +9165,10 @@ declare ptr @zend_call_method(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

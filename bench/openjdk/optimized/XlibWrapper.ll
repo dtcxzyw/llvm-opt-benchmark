@@ -63,10 +63,10 @@ define hidden void @freeNativeStringArray(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
@@ -182,12 +182,12 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XOpenDisplay(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XOpenDisplay(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @XOpenDisplay(ptr noundef %4) #14
   %6 = ptrtoint ptr %5 to i64
@@ -197,7 +197,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XOpenDisplay(ptr nocapture noundef read
 declare ptr @XOpenDisplay(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XCloseDisplay(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XCloseDisplay(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XCloseDisplay(ptr noundef %4) #14
   ret void
@@ -206,7 +206,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XCloseDisplay(ptr nocapture noundef re
 declare i32 @XCloseDisplay(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XDisplayString(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XDisplayString(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @XDisplayString(ptr noundef %4) #14
   %6 = ptrtoint ptr %5 to i64
@@ -216,7 +216,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XDisplayString(ptr nocapture noundef re
 declare ptr @XDisplayString(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetCloseDownMode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetCloseDownMode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSetCloseDownMode(ptr noundef %5, i32 noundef %3) #14
   ret void
@@ -225,7 +225,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetCloseDownMode(ptr nocapture nounde
 declare i32 @XSetCloseDownMode(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DefaultScreen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DefaultScreen(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load i32, ptr %5, align 8
@@ -234,7 +234,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -244,7 +244,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_DoesBackingStore(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define i32 @Java_sun_awt_X11_XlibWrapper_DoesBackingStore(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load i32, ptr %5, align 8
@@ -252,7 +252,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_DoesBackingStore(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidth(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidth(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -263,7 +263,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidthMM(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidthMM(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -274,7 +274,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeight(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeight(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -285,7 +285,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeightMM(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeightMM(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -296,7 +296,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -306,7 +306,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr nocapture noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_ScreenCount(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define i32 @Java_sun_awt_X11_XlibWrapper_ScreenCount(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 228
   %6 = load i32, ptr %5, align 4
@@ -314,7 +314,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_ScreenCount(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreateWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreateWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #0 {
   %15 = inttoptr i64 %2 to ptr
   %16 = trunc i64 %10 to i32
   %17 = inttoptr i64 %11 to ptr
@@ -326,7 +326,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreateWindow(ptr nocapture noundef rea
 declare i64 @XCreateWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XConvertCase(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XConvertCase(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = inttoptr i64 %4 to ptr
   tail call void @XConvertCase(i64 noundef %2, ptr noundef %6, ptr noundef %7) #14
@@ -336,7 +336,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XConvertCase(ptr nocapture noundef rea
 declare void @XConvertCase(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XMapWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XMapWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XMapWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -345,7 +345,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XMapWindow(ptr nocapture noundef readn
 declare i32 @XMapWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XMapRaised(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XMapRaised(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XMapRaised(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -354,7 +354,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XMapRaised(ptr nocapture noundef readn
 declare i32 @XMapRaised(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XRaiseWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XRaiseWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XRaiseWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -363,7 +363,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XRaiseWindow(ptr nocapture noundef rea
 declare i32 @XRaiseWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XLowerWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XLowerWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XLowerWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -372,7 +372,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XLowerWindow(ptr nocapture noundef rea
 declare i32 @XLowerWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XRestackWindows(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XRestackWindows(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i32 @XRestackWindows(ptr noundef %6, ptr noundef %7, i32 noundef %4) #14
@@ -382,7 +382,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XRestackWindows(ptr nocapture noundef 
 declare i32 @XRestackWindows(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XConfigureWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XConfigureWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = trunc i64 %4 to i32
   %9 = inttoptr i64 %5 to ptr
@@ -393,7 +393,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XConfigureWindow(ptr nocapture noundef
 declare i32 @XConfigureWindow(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetInputFocus(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetInputFocus(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSetInputFocus(ptr noundef %5, i64 noundef %3, i32 noundef 1, i64 noundef 0) #14
   ret void
@@ -402,14 +402,14 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetInputFocus(ptr nocapture noundef r
 declare i32 @XSetInputFocus(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetInputFocus2(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetInputFocus2(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XSetInputFocus(ptr noundef %6, i64 noundef %3, i32 noundef 1, i64 noundef %4) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XGetInputFocus(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XGetInputFocus(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = inttoptr i64 %2 to ptr
@@ -421,7 +421,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XGetInputFocus(ptr nocapture noundef re
 declare i32 @XGetInputFocus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XDestroyWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XDestroyWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XDestroyWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -430,7 +430,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XDestroyWindow(ptr nocapture noundef r
 declare i32 @XDestroyWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGrabPointer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGrabPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
   %12 = inttoptr i64 %2 to ptr
   %13 = tail call i32 @XGrabPointer(ptr noundef %12, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) #14
   ret i32 %13
@@ -439,7 +439,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGrabPointer(ptr nocapture noundef read
 declare i32 @XGrabPointer(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XUngrabPointer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XUngrabPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XUngrabPointer(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -448,7 +448,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XUngrabPointer(ptr nocapture noundef r
 declare i32 @XUngrabPointer(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGrabKeyboard(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGrabKeyboard(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = tail call i32 @XGrabKeyboard(ptr noundef %9, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) #14
   ret i32 %10
@@ -457,7 +457,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGrabKeyboard(ptr nocapture noundef rea
 declare i32 @XGrabKeyboard(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XUngrabKeyboard(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XUngrabKeyboard(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XUngrabKeyboard(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -466,7 +466,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XUngrabKeyboard(ptr nocapture noundef 
 declare i32 @XUngrabKeyboard(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XGrabServer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XGrabServer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XGrabServer(ptr noundef %4) #14
   ret void
@@ -475,7 +475,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XGrabServer(ptr nocapture noundef read
 declare i32 @XGrabServer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XUngrabServer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XUngrabServer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XUngrabServer(ptr noundef %4) #14
   %6 = tail call i32 @XSync(ptr noundef %4, i32 noundef 0) #14
@@ -487,7 +487,7 @@ declare i32 @XUngrabServer(ptr noundef) local_unnamed_addr #3
 declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XUnmapWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XUnmapWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XUnmapWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -496,7 +496,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XUnmapWindow(ptr nocapture noundef rea
 declare i32 @XUnmapWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSelectInput(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSelectInput(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XSelectInput(ptr noundef %6, i64 noundef %3, i64 noundef %4) #14
   ret void
@@ -505,7 +505,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSelectInput(ptr nocapture noundef rea
 declare i32 @XSelectInput(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEvents(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEvents(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = trunc i64 %3 to i32
   %9 = trunc i64 %4 to i32
@@ -517,7 +517,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEvents(ptr nocapture noundef 
 declare i32 @XkbSelectEvents(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEventDetails(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEventDetails(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = trunc i64 %3 to i32
   %10 = trunc i64 %4 to i32
@@ -528,7 +528,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XkbSelectEventDetails(ptr nocapture no
 declare i32 @XkbSelectEventDetails(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbQueryExtension(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbQueryExtension(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = inttoptr i64 %3 to ptr
   %11 = inttoptr i64 %4 to ptr
@@ -544,7 +544,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbQueryExtension
 declare i32 @XkbQueryExtension(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbLibraryVersion(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbLibraryVersion(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   store i32 1, ptr %5, align 4
   %6 = inttoptr i64 %3 to ptr
@@ -558,7 +558,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbLibraryVersion
 declare i32 @XkbLibraryVersion(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XkbGetMap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XkbGetMap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i64 %3 to i32
   %8 = trunc i64 %4 to i32
@@ -570,7 +570,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XkbGetMap(ptr nocapture noundef readnon
 declare ptr @XkbGetMap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XkbGetUpdatedMap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XkbGetUpdatedMap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i64 %3 to i32
   %8 = inttoptr i64 %4 to ptr
@@ -582,7 +582,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XkbG
 declare i32 @XkbGetUpdatedMap(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XkbFreeKeyboard(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XkbFreeKeyboard(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i64 %3 to i32
   %8 = zext i8 %4 to i32
@@ -593,7 +593,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XkbFreeKeyboard(ptr nocapture noundef 
 declare void @XkbFreeKeyboard(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbTranslateKeyCode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbTranslateKeyCode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = trunc i32 %3 to i8
   %10 = trunc i64 %4 to i32
@@ -608,7 +608,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XkbTranslateKeyCo
 declare i32 @XkbTranslateKeyCode(ptr noundef, i8 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XkbSetDetectableAutoRepeat(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XkbSetDetectableAutoRepeat(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = zext i8 %3 to i32
   %7 = tail call i32 @XkbSetDetectableAutoRepeat(ptr noundef %5, i32 noundef %6, ptr noundef null) #14
@@ -618,7 +618,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XkbSetDetectableAutoRepeat(ptr nocaptu
 declare i32 @XkbSetDetectableAutoRepeat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XNextEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XNextEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @XNextEvent(ptr noundef %5, ptr noundef %6) #14
@@ -628,7 +628,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XNextEvent(ptr nocapture noundef readn
 declare i32 @XNextEvent(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XMaskEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XMaskEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %4 to ptr
   %8 = tail call i32 @XMaskEvent(ptr noundef %6, i64 noundef %3, ptr noundef %7) #14
@@ -638,7 +638,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XMaskEvent(ptr nocapture noundef readn
 declare i32 @XMaskEvent(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XWindowEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XWindowEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = inttoptr i64 %5 to ptr
   %9 = tail call i32 @XWindowEvent(ptr noundef %7, i64 noundef %3, i64 noundef %4, ptr noundef %8) #14
@@ -648,7 +648,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XWindowEvent(ptr nocapture noundef rea
 declare i32 @XWindowEvent(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XFilterEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XFilterEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XFilterEvent(ptr noundef %5, i64 noundef %3) #14
   %7 = trunc i32 %6 to i8
@@ -658,7 +658,7 @@ define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XFilterEvent(ptr nocapture nound
 declare i32 @XFilterEvent(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XSupportsLocale(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XSupportsLocale(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @XSupportsLocale() #14
   %4 = trunc i32 %3 to i8
   ret i8 %4
@@ -667,7 +667,7 @@ define zeroext i8 @Java_sun_awt_X11_XlibWrapper_XSupportsLocale(ptr nocapture no
 declare i32 @XSupportsLocale() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_XSetLocaleModifiers(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_XSetLocaleModifiers(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %10, label %5
 
@@ -704,7 +704,7 @@ declare ptr @XSetLocaleModifiers(ptr noundef) local_unnamed_addr #3
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XPeekEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XPeekEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @XPeekEvent(ptr noundef %5, ptr noundef %6) #14
@@ -714,7 +714,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XPeekEvent(ptr nocapture noundef readn
 declare i32 @XPeekEvent(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XMoveResizeWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XMoveResizeWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = tail call i32 @XMoveResizeWindow(ptr noundef %9, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #14
   ret void
@@ -723,7 +723,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XMoveResizeWindow(ptr nocapture nounde
 declare i32 @XMoveResizeWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XResizeWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XResizeWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @XResizeWindow(ptr noundef %7, i64 noundef %3, i32 noundef %4, i32 noundef %5) #14
   ret void
@@ -732,7 +732,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XResizeWindow(ptr nocapture noundef re
 declare i32 @XResizeWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XMoveWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XMoveWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @XMoveWindow(ptr noundef %7, i64 noundef %3, i32 noundef %4, i32 noundef %5) #14
   ret void
@@ -741,7 +741,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XMoveWindow(ptr nocapture noundef read
 declare i32 @XMoveWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackground(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackground(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XSetWindowBackground(ptr noundef %6, i64 noundef %3, i64 noundef %4) #14
   ret void
@@ -750,7 +750,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackground(ptr nocapture nou
 declare i32 @XSetWindowBackground(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFlush(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFlush(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XFlush(ptr noundef %4) #14
   ret void
@@ -759,14 +759,14 @@ define void @Java_sun_awt_X11_XlibWrapper_XFlush(ptr nocapture noundef readnone 
 declare i32 @XFlush(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSync(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSync(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSync(ptr noundef %5, i32 noundef %3) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XTranslateCoordinates(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XTranslateCoordinates(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = inttoptr i64 %2 to ptr
   %12 = trunc i64 %5 to i32
   %13 = trunc i64 %6 to i32
@@ -780,7 +780,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XTranslateCoordinates(ptr nocapture nou
 declare i32 @XTranslateCoordinates(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XEventsQueued(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XEventsQueued(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XEventsQueued(ptr noundef %5, i32 noundef %3) #14
   ret i32 %6
@@ -789,7 +789,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XEventsQueued(ptr nocapture noundef rea
 declare i32 @XEventsQueued(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_SetProperty(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_SetProperty(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.XTextProperty, align 8
   %9 = icmp eq ptr %5, null
@@ -854,7 +854,7 @@ declare i32 @XChangeProperty(ptr noundef, i64 noundef, i64 noundef, i64 noundef,
 declare i32 @XFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyImpl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyImpl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = inttoptr i64 %2 to ptr
   %12 = inttoptr i64 %8 to ptr
   %13 = tail call i32 @XChangeProperty(ptr noundef %11, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %12, i32 noundef %9) #14
@@ -862,7 +862,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyImpl(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyS(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyS(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %10) #14
   %12 = icmp eq ptr %11, null
@@ -886,10 +886,10 @@ define void @Java_sun_awt_X11_XlibWrapper_XChangePropertyS(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetWindowProperty(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetWindowProperty(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #0 {
   %15 = inttoptr i64 %2 to ptr
   %16 = trunc i64 %7 to i32
   %17 = inttoptr i64 %9 to ptr
@@ -904,7 +904,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGetWindowProperty(ptr nocapture nounde
 declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_GetProperty(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_GetProperty(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -943,7 +943,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_GetProperty(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_InternAtom(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_InternAtom(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.thread, label %9
 
@@ -971,7 +971,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_InternAtom(ptr noundef %0, ptr nocaptur
 declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XCreateFontCursor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XCreateFontCursor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i64 @XCreateFontCursor(ptr noundef %5, i32 noundef %3) #14
   %7 = trunc i64 %6 to i32
@@ -981,7 +981,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XCreateFontCursor(ptr nocapture noundef
 declare i64 @XCreateFontCursor(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmapCursor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmapCursor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = inttoptr i64 %2 to ptr
   %11 = inttoptr i64 %5 to ptr
   %12 = inttoptr i64 %6 to ptr
@@ -992,7 +992,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmapCursor(ptr nocapture nound
 declare i64 @XCreatePixmapCursor(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryBestCursor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryBestCursor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = inttoptr i64 %6 to ptr
   %11 = inttoptr i64 %7 to ptr
@@ -1005,7 +1005,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryBestCursor(
 declare i32 @XQueryBestCursor(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFreeCursor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFreeCursor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XFreeCursor(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -1014,7 +1014,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XFreeCursor(ptr nocapture noundef read
 declare i32 @XFreeCursor(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryPointer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
   %12 = inttoptr i64 %2 to ptr
   %13 = inttoptr i64 %4 to ptr
   %14 = inttoptr i64 %5 to ptr
@@ -1032,7 +1032,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryPointer(ptr
 declare i32 @XQueryPointer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XChangeWindowAttributes(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XChangeWindowAttributes(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = inttoptr i64 %5 to ptr
   %9 = tail call i32 @XChangeWindowAttributes(ptr noundef %7, i64 noundef %3, i64 noundef %4, ptr noundef %8) #14
@@ -1042,7 +1042,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XChangeWindowAttributes(ptr nocapture 
 declare i32 @XChangeWindowAttributes(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetTransientFor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetTransientFor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XSetTransientForHint(ptr noundef %6, i64 noundef %3, i64 noundef %4) #14
   ret void
@@ -1051,7 +1051,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetTransientFor(ptr nocapture noundef
 declare i32 @XSetTransientForHint(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetWMHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetWMHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %4 to ptr
   %8 = tail call i32 @XSetWMHints(ptr noundef %6, i64 noundef %3, ptr noundef %7) #14
@@ -1061,7 +1061,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetWMHints(ptr nocapture noundef read
 declare i32 @XSetWMHints(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XGetWMHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XGetWMHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call ptr @XGetWMHints(ptr noundef %6, i64 noundef %3) #14
   %.not = icmp eq ptr %7, null
@@ -1084,13 +1084,13 @@ define void @Java_sun_awt_X11_XlibWrapper_XGetWMHints(ptr nocapture noundef read
 declare ptr @XGetWMHints(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetPointerMapping(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetPointerMapping(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i32 @XGetPointerMapping(ptr noundef %6, ptr noundef %7, i32 noundef %4) #14
@@ -1100,7 +1100,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGetPointerMapping(ptr nocapture nounde
 declare i32 @XGetPointerMapping(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_XGetDefault(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_XGetDefault(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.thread, label %7
 
@@ -1142,7 +1142,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XGetDefault(ptr noundef %0, ptr nocaptu
 declare ptr @XGetDefault(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_getScreenOfWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_getScreenOfWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.XWindowAttributes, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)
   %6 = inttoptr i64 %2 to ptr
@@ -1156,7 +1156,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_getScreenOfWindow(ptr nocapture noundef
 declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XScreenNumberOfScreen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XScreenNumberOfScreen(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %9, label %5
 
@@ -1174,7 +1174,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_XScr
 declare i32 @XScreenNumberOfScreen(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XIconifyWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XIconifyWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i64 %4 to i32
   %8 = tail call i32 @XIconifyWindow(ptr noundef %6, i64 noundef %3, i32 noundef %7) #14
@@ -1184,14 +1184,14 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XIconifyWindow(ptr nocapture noundef re
 declare i32 @XIconifyWindow(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFree(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFree(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XFree(ptr noundef %4) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %6 = load ptr, ptr %0, align 8
@@ -1206,7 +1206,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noca
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1664
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %9, ptr noundef %4) #14
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %4) #14
   br label %16
 
 16:                                               ; preds = %3, %12
@@ -1214,7 +1214,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_ServerVendor(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_ServerVendor(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -1223,7 +1223,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_ServerVendor(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_VendorRelease(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define i32 @Java_sun_awt_X11_XlibWrapper_VendorRelease(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %6 = load i32, ptr %5, align 4
@@ -1231,7 +1231,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_VendorRelease(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsXsunKPBehavior(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsXsunKPBehavior(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call zeroext i8 @XKeysymToKeycode(ptr noundef %4, i64 noundef 65463) #14
   %.not = icmp eq i8 %5, 0
@@ -1253,7 +1253,7 @@ declare zeroext i8 @XKeysymToKeycode(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @keycodeToKeysym(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsSunKeyboard(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsSunKeyboard(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call zeroext i8 @XKeysymToKeycode(ptr noundef %4, i64 noundef 268828433) #14
   %.not = icmp ne i8 %5, 0
@@ -1262,7 +1262,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsSunKeyboard(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKanaKeyboard(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKanaKeyboard(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1313,7 +1313,7 @@ declare i32 @XDisplayKeycodes(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @XGetKeyboardMapping(ptr noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_SetToolkitErrorHandler(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_SetToolkitErrorHandler(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1752
   %5 = load ptr, ptr %4, align 8
@@ -1366,14 +1366,14 @@ define internal i32 @ToolkitErrorHandler(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetErrorHandler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetErrorHandler(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @XSetErrorHandler(ptr noundef %4) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_CallErrorHandler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_CallErrorHandler(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %4 to ptr
@@ -1382,7 +1382,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_CallErrorHandler(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_PrintXErrorEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_PrintXErrorEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
   %7 = inttoptr i64 %3 to ptr
@@ -1431,7 +1431,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare i32 @XGetErrorDatabaseText(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XInternAtoms(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XInternAtoms(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = call ptr @stringArrayToNative(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq ptr %8, null
@@ -1471,16 +1471,16 @@ freeNativeStringArray.exit:                       ; preds = %.lr.ph.i, %.prehead
 declare i32 @XInternAtoms(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetWindowAttributes(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetWindowAttributes(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %4 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, i8 0, i64 136, i1 false)
   %7 = inttoptr i64 %2 to ptr
-  %8 = tail call i32 @XGetWindowAttributes(ptr noundef %7, i64 noundef %3, ptr noundef %6) #14
+  %8 = tail call i32 @XGetWindowAttributes(ptr noundef %7, i64 noundef %3, ptr noundef nonnull %6) #14
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetGeometry(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetGeometry(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) local_unnamed_addr #0 {
   %12 = inttoptr i64 %2 to ptr
   %13 = inttoptr i64 %4 to ptr
   %14 = inttoptr i64 %5 to ptr
@@ -1496,7 +1496,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGetGeometry(ptr nocapture noundef read
 declare i32 @XGetGeometry(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetWMNormalHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetWMNormalHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = inttoptr i64 %4 to ptr
   %9 = inttoptr i64 %5 to ptr
@@ -1507,7 +1507,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGetWMNormalHints(ptr nocapture noundef
 declare i32 @XGetWMNormalHints(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetWMNormalHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetWMNormalHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %4 to ptr
   tail call void @XSetWMNormalHints(ptr noundef %6, i64 noundef %3, ptr noundef %7) #14
@@ -1517,7 +1517,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetWMNormalHints(ptr nocapture nounde
 declare void @XSetWMNormalHints(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XDeleteProperty(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XDeleteProperty(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XDeleteProperty(ptr noundef %6, i64 noundef %3, i64 noundef %4) #14
   ret void
@@ -1526,7 +1526,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XDeleteProperty(ptr nocapture noundef 
 declare i32 @XDeleteProperty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XSendEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XSendEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = icmp eq i8 %4, 1
   %10 = zext i1 %9 to i32
@@ -1538,7 +1538,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XSendEvent(ptr nocapture noundef readno
 declare i32 @XSendEvent(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XQueryTree(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XQueryTree(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = inttoptr i64 %4 to ptr
   %11 = inttoptr i64 %5 to ptr
@@ -1551,7 +1551,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XQueryTree(ptr nocapture noundef readno
 declare i32 @XQueryTree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Java_sun_awt_X11_XlibWrapper_memcpy(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
+define void @Java_sun_awt_X11_XlibWrapper_memcpy(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %4, i1 false)
@@ -1559,7 +1559,7 @@ define void @Java_sun_awt_X11_XlibWrapper_memcpy(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetMinMaxHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetMinMaxHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @XAllocSizeHints() #14
   store i64 %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1587,7 +1587,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetMinMaxHints(ptr nocapture noundef 
 declare ptr @XAllocSizeHints() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XGetVisualInfo(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XGetVisualInfo(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = inttoptr i64 %4 to ptr
   %9 = inttoptr i64 %5 to ptr
@@ -1599,14 +1599,14 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XGetVisualInfo(ptr nocapture noundef re
 declare ptr @XGetVisualInfo(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XAllocSizeHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XAllocSizeHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @XAllocSizeHints() #14
   %4 = ptrtoint ptr %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XBell(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XBell(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XBell(ptr noundef %5, i32 noundef %3) #14
   ret void
@@ -1615,7 +1615,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XBell(ptr nocapture noundef readnone %
 declare i32 @XBell(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XAllocColor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XAllocColor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %4 to ptr
   %8 = tail call i32 @XAllocColor(ptr noundef %6, i64 noundef %3, ptr noundef %7) #14
@@ -1627,7 +1627,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XAllocColor(ptr n
 declare i32 @XAllocColor(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreateBitmapFromData(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreateBitmapFromData(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = inttoptr i64 %4 to ptr
   %10 = tail call i64 @XCreateBitmapFromData(ptr noundef %8, i64 noundef %3, ptr noundef %9, i32 noundef %5, i32 noundef %6) #14
@@ -1637,7 +1637,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreateBitmapFromData(ptr nocapture nou
 declare i64 @XCreateBitmapFromData(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFreePixmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFreePixmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XFreePixmap(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -1646,7 +1646,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XFreePixmap(ptr nocapture noundef read
 declare i32 @XFreePixmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XReparentWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XReparentWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = tail call i32 @XReparentWindow(ptr noundef %8, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #14
   ret void
@@ -1655,7 +1655,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XReparentWindow(ptr nocapture noundef 
 declare i32 @XReparentWindow(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XConvertSelection(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XConvertSelection(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = tail call i32 @XConvertSelection(ptr noundef %9, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) #14
   ret void
@@ -1664,7 +1664,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XConvertSelection(ptr nocapture nounde
 declare i32 @XConvertSelection(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetSelectionOwner(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetSelectionOwner(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @XSetSelectionOwner(ptr noundef %7, i64 noundef %3, i64 noundef %4, i64 noundef %5) #14
   ret void
@@ -1673,7 +1673,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetSelectionOwner(ptr nocapture nound
 declare i32 @XSetSelectionOwner(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XGetSelectionOwner(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XGetSelectionOwner(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i64 @XGetSelectionOwner(ptr noundef %5, i64 noundef %3) #14
   ret i64 %6
@@ -1682,7 +1682,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XGetSelectionOwner(ptr nocapture nounde
 declare i64 @XGetSelectionOwner(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_XGetAtomName(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_XGetAtomName(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call ptr @XGetAtomName(ptr noundef %5, i64 noundef %3) #14
   %7 = icmp eq ptr %6, null
@@ -1711,12 +1711,12 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XGetAtomName(ptr noundef %0, ptr nocapt
 declare ptr @XGetAtomName(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XMaxRequestSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XMaxRequestSize(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @XMaxRequestSize(ptr noundef %4) #14
   ret i64 %5
@@ -1725,7 +1725,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XMaxRequestSize(ptr nocapture noundef r
 declare i64 @XMaxRequestSize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XAllocWMHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XAllocWMHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @XAllocWMHints() #14
   %4 = ptrtoint ptr %3 to i64
   ret i64 %4
@@ -1734,7 +1734,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XAllocWMHints(ptr nocapture noundef rea
 declare ptr @XAllocWMHints() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %2 to ptr
   %9 = tail call i64 @XCreatePixmap(ptr noundef %8, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #14
   ret i64 %9
@@ -1743,7 +1743,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreatePixmap(ptr nocapture noundef rea
 declare i64 @XCreatePixmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreateImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreateImage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = inttoptr i64 %2 to ptr
   %14 = inttoptr i64 %3 to ptr
   %15 = inttoptr i64 %7 to ptr
@@ -1755,7 +1755,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreateImage(ptr nocapture noundef read
 declare ptr @XCreateImage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XCreateGC(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XCreateGC(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = inttoptr i64 %5 to ptr
   %9 = tail call ptr @XCreateGC(ptr noundef %7, i64 noundef %3, i64 noundef %4, ptr noundef %8) #14
@@ -1766,7 +1766,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XCreateGC(ptr nocapture noundef readnon
 declare ptr @XCreateGC(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XDestroyImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XDestroyImage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8
@@ -1777,7 +1777,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XDestroyImage(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XPutImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XPutImage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = inttoptr i64 %2 to ptr
   %14 = inttoptr i64 %4 to ptr
   %15 = inttoptr i64 %5 to ptr
@@ -1788,7 +1788,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XPutImage(ptr nocapture noundef readno
 declare i32 @XPutImage(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFreeGC(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFreeGC(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @XFreeGC(ptr noundef %5, ptr noundef %6) #14
@@ -1798,7 +1798,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XFreeGC(ptr nocapture noundef readnone
 declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackgroundPixmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackgroundPixmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = tail call i32 @XSetWindowBackgroundPixmap(ptr noundef %6, i64 noundef %3, i64 noundef %4) #14
   ret void
@@ -1807,7 +1807,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XSetWindowBackgroundPixmap(ptr nocaptu
 declare i32 @XSetWindowBackgroundPixmap(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XClearWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XClearWindow(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XClearWindow(ptr noundef %5, i64 noundef %3) #14
   ret void
@@ -1816,7 +1816,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XClearWindow(ptr nocapture noundef rea
 declare i32 @XClearWindow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XGetIconSizes(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XGetIconSizes(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %4 to ptr
   %8 = inttoptr i64 %5 to ptr
   %9 = inttoptr i64 %2 to ptr
@@ -1827,7 +1827,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XGetIconSizes(ptr nocapture noundef rea
 declare i32 @XGetIconSizes(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XdbeQueryExtension(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XdbeQueryExtension(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %4 to ptr
@@ -1838,7 +1838,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XdbeQueryExtension(ptr nocapture nounde
 declare i32 @XdbeQueryExtension(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryExtension(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryExtension(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %3, null
   br i1 %8, label %.thread, label %14
 
@@ -1879,7 +1879,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XQueryExtension(p
 declare i32 @XQueryExtension(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKeypadKey(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #11 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKeypadKey(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = add i64 %2, -65408
   %or.cond = icmp ult i64 %4, 62
   %. = zext i1 %or.cond to i8
@@ -1887,7 +1887,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKeypadKey(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XdbeAllocateBackBufferName(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XdbeAllocateBackBufferName(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i32 %4 to i8
   %8 = tail call i64 @XdbeAllocateBackBufferName(ptr noundef %6, i64 noundef %3, i8 noundef zeroext %7) #14
@@ -1897,7 +1897,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XdbeAllocateBackBufferName(ptr nocaptur
 declare i64 @XdbeAllocateBackBufferName(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XdbeDeallocateBackBufferName(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XdbeDeallocateBackBufferName(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XdbeDeallocateBackBufferName(ptr noundef %5, i64 noundef %3) #14
   ret i32 %6
@@ -1906,7 +1906,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XdbeDeallocateBackBufferName(ptr nocapt
 declare i32 @XdbeDeallocateBackBufferName(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XdbeBeginIdiom(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XdbeBeginIdiom(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XdbeBeginIdiom(ptr noundef %4) #14
   ret i32 %5
@@ -1915,7 +1915,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XdbeBeginIdiom(ptr nocapture noundef re
 declare i32 @XdbeBeginIdiom(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XdbeEndIdiom(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XdbeEndIdiom(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XdbeEndIdiom(ptr noundef %4) #14
   ret i32 %5
@@ -1924,7 +1924,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XdbeEndIdiom(ptr nocapture noundef read
 declare i32 @XdbeEndIdiom(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XlibWrapper_XdbeSwapBuffers(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XlibWrapper_XdbeSwapBuffers(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i32 @XdbeSwapBuffers(ptr noundef %6, ptr noundef %7, i32 noundef %4) #14
@@ -1934,7 +1934,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XdbeSwapBuffers(ptr nocapture noundef r
 declare i32 @XdbeSwapBuffers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XQueryKeymap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XQueryKeymap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @XQueryKeymap(ptr noundef %5, ptr noundef %6) #14
@@ -1944,7 +1944,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XQueryKeymap(ptr nocapture noundef rea
 declare i32 @XQueryKeymap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XKeycodeToKeysym(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XKeycodeToKeysym(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = trunc i32 %3 to i8
   %8 = tail call i64 @keycodeToKeysym(ptr noundef %6, i8 noundef zeroext %7, i32 noundef %4) #14
@@ -1952,7 +1952,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XKeycodeToKeysym(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XkbGetEffectiveGroup(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XkbGetEffectiveGroup(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._XkbStateRec, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %4, i8 0, i64 18, i1 false)
   %5 = inttoptr i64 %2 to ptr
@@ -1965,7 +1965,7 @@ define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XkbGetEffectiveGroup(
 declare i32 @XkbGetState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XkbKeycodeToKeysym(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XkbKeycodeToKeysym(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = trunc i32 %3 to i8
   %9 = tail call i64 @XkbKeycodeToKeysym(ptr noundef %7, i8 noundef zeroext %8, i32 noundef %4, i32 noundef %5) #14
@@ -1975,7 +1975,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XkbKeycodeToKeysym(ptr nocapture nounde
 declare i64 @XkbKeycodeToKeysym(ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XKeysymToKeycode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XKeysymToKeycode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call zeroext i8 @XKeysymToKeycode(ptr noundef %5, i64 noundef %3) #14
   %7 = zext i8 %6 to i32
@@ -1983,7 +1983,7 @@ define range(i32 0, 256) i32 @Java_sun_awt_X11_XlibWrapper_XKeysymToKeycode(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XlibWrapper_XGetModifierMapping(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XlibWrapper_XGetModifierMapping(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @XGetModifierMapping(ptr noundef %4) #14
   %6 = ptrtoint ptr %5 to i64
@@ -1993,7 +1993,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_XGetModifierMapping(ptr nocapture nound
 declare ptr @XGetModifierMapping(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XFreeModifiermap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XFreeModifiermap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XFreeModifiermap(ptr noundef %4) #14
   ret void
@@ -2002,7 +2002,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XFreeModifiermap(ptr nocapture noundef
 declare i32 @XFreeModifiermap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XRefreshKeyboardMapping(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XRefreshKeyboardMapping(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @XRefreshKeyboardMapping(ptr noundef %4) #14
   ret void
@@ -2011,7 +2011,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XRefreshKeyboardMapping(ptr nocapture 
 declare i32 @XRefreshKeyboardMapping(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XChangeActivePointerGrab(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XChangeActivePointerGrab(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @XChangeActivePointerGrab(ptr noundef %7, i32 noundef %3, i64 noundef %4, i64 noundef %5) #14
   ret void
@@ -2020,7 +2020,7 @@ define void @Java_sun_awt_X11_XlibWrapper_XChangeActivePointerGrab(ptr nocapture
 declare i32 @XChangeActivePointerGrab(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XNextSecondaryLoopEvent(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XNextSecondaryLoopEvent(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i1 true, ptr @exitSecondaryLoop, align 4
   %6 = tail call i64 @get_xawt_root_shell(ptr noundef %0) #14
@@ -2060,7 +2060,7 @@ declare i64 @get_xawt_root_shell(ptr noundef) local_unnamed_addr #3
 declare i32 @XCheckIfEvent(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @secondary_loop_event(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal range(i32 0, 2) i32 @secondary_loop_event(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = load i32, ptr %1, align 8
   switch i32 %4, label %.fold.split [
     i32 31, label %11
@@ -2086,7 +2086,7 @@ define internal range(i32 0, 2) i32 @secondary_loop_event(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_ExitSecondaryLoop(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_ExitSecondaryLoop(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store i1 false, ptr @exitSecondaryLoop, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1128
@@ -2098,7 +2098,7 @@ define void @Java_sun_awt_X11_XlibWrapper_ExitSecondaryLoop(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.XTextProperty, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2298,7 +2298,7 @@ declare i32 @XTextPropertyToStringList(ptr noundef, ptr noundef, ptr noundef) lo
 declare void @XFreeStringList(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_XPutBackEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_XPutBackEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @XPutBackEvent(ptr noundef %5, ptr noundef %6) #14
@@ -2308,13 +2308,13 @@ define void @Java_sun_awt_X11_XlibWrapper_XPutBackEvent(ptr nocapture noundef re
 declare i32 @XPutBackEvent(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_sun_awt_X11_XlibWrapper_getAddress(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #11 {
+define noundef i64 @Java_sun_awt_X11_XlibWrapper_getAddress(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #11 {
   %4 = ptrtoint ptr %2 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_copyIntArray(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_copyIntArray(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %0, align 8
@@ -2340,7 +2340,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyIntArray(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_copyLongArray(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_copyLongArray(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %0, align 8
@@ -2366,7 +2366,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyLongArray(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XShapeQueryExtension(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XShapeQueryExtension(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %4 to ptr
@@ -2379,7 +2379,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XShapeQueryExtens
 declare i32 @XShapeQueryExtension(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_SetRectangularShape(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_SetRectangularShape(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [256 x %struct.XRectangle], align 16
   %11 = alloca ptr, align 8
   %12 = icmp ne ptr %8, null
@@ -2423,7 +2423,7 @@ declare void @XShapeCombineRectangles(ptr noundef, i64 noundef, i32 noundef, i32
 declare void @XShapeCombineMask(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_SetZOrder(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_SetZOrder(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.XWindowChanges, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %4, ptr %7, align 8
@@ -2438,7 +2438,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetZOrder(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   store i8 0, ptr %8, align 1
   %9 = sdiv i32 %4, 2

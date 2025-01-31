@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [34 x i8] c"Could not submit HTTP request: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %u.i = alloca %struct.http_parser_url, align 2
   %act = alloca %struct.sigaction, align 8
@@ -64,12 +64,12 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %u.i)
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
-  %call1.i = call i32 @http_parser_parse_url(ptr noundef %3, i64 noundef %call.i, i32 noundef 0, ptr noundef nonnull %u.i) #20
+  %call1.i = call i32 @http_parser_parse_url(ptr noundef nonnull %3, i64 noundef %call.i, i32 noundef 0, ptr noundef nonnull %u.i) #20
   %cmp.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %3) #22
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %3) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.end
@@ -80,7 +80,7 @@ if.end.i:                                         ; preds = %if.end
   %len.i = getelementptr inbounds nuw i8, ptr %u.i, i64 10
   %5 = load i16, ptr %len.i, align 2
   %conv.i = zext i16 %5 to i64
-  %call5.i = call noalias ptr @strndup(ptr noundef %arrayidx2.i, i64 noundef %conv.i) #20
+  %call5.i = call noalias ptr @strndup(ptr noundef nonnull %arrayidx2.i, i64 noundef %conv.i) #20
   %6 = load i16, ptr %u.i, align 2
   %7 = and i16 %6, 4
   %tobool.not.i = icmp eq i16 %7, 0
@@ -123,7 +123,7 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end.i
   %10 = load i16, ptr %arrayidx.i, align 2
   %idxprom.i.i = zext i16 %10 to i64
   %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i13.i, ptr align 1 %arrayidx8.i.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i13.i, ptr nonnull align 1 %arrayidx8.i.i, i64 %conv.i.i, i1 false)
   %11 = load i16, ptr %u.i, align 2
   %12 = and i16 %11, 4
   %tobool.not.i14.i = icmp eq i16 %12, 0
@@ -185,7 +185,7 @@ if.then55.i.i:                                    ; preds = %if.end48.i.i
   %len64.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 18
   %22 = load i16, ptr %len64.i.i, align 2
   %conv65.i.i = zext i16 %22 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call50.i.i, ptr align 1 %arrayidx61.i.i, i64 %conv65.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call50.i.i, ptr nonnull align 1 %arrayidx61.i.i, i64 %conv65.i.i, i1 false)
   br label %if.end68.i.i
 
 if.else.i.i:                                      ; preds = %if.end48.i.i
@@ -209,7 +209,7 @@ if.then73.i.i:                                    ; preds = %if.end68.i.i
   %26 = load i16, ptr %arrayidx77.i.i, align 2
   %idxprom94.i.i = zext i16 %26 to i64
   %arrayidx95.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom94.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr90.i.i, ptr align 1 %arrayidx95.i.i, i64 %conv79.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr90.i.i, ptr nonnull align 1 %arrayidx95.i.i, i64 %conv79.i.i, i1 false)
   br label %create_http2_stream_data.exit.i
 
 create_http2_stream_data.exit.i:                  ; preds = %if.then73.i.i, %if.end68.i.i
@@ -251,13 +251,13 @@ run.exit:                                         ; preds = %create_ssl.exit.i.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -265,18 +265,18 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @http_parser_parse_url(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @errx(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare ptr @event_base_new() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -302,10 +302,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare ptr @evdns_base_new(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @bufferevent_openssl_socket_new(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -314,7 +314,7 @@ declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_
 declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @readcb(ptr noundef %bev, ptr nocapture noundef %ptr) #0 {
+define internal void @readcb(ptr noundef %bev, ptr noundef captures(none) %ptr) #0 {
 entry:
   %call = tail call ptr @bufferevent_get_input(ptr noundef %bev) #20
   %call1 = tail call i64 @evbuffer_get_length(ptr noundef %call) #20
@@ -359,7 +359,7 @@ if.end14:                                         ; preds = %if.end14.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writecb(ptr nocapture readnone %bev, ptr nocapture noundef %ptr) #0 {
+define internal void @writecb(ptr readnone captures(none) %bev, ptr noundef captures(none) %ptr) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @nghttp2_session_want_read(ptr noundef %0) #20
@@ -487,7 +487,7 @@ declare void @warnx(ptr noundef, ...) local_unnamed_addr #5
 declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delete_http2_session_data(ptr nocapture noundef %session_data) unnamed_addr #0 {
+define internal fastcc void @delete_http2_session_data(ptr noundef captures(none) %session_data) unnamed_addr #0 {
 entry:
   %bev = getelementptr inbounds nuw i8, ptr %session_data, i64 16
   %0 = load ptr, ptr %bev, align 8
@@ -617,7 +617,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @submit_request(ptr nocapture noundef readonly %session_data) unnamed_addr #12 {
+define internal fastcc void @submit_request(ptr noundef readonly captures(none) %session_data) unnamed_addr #12 {
 entry:
   %hdrs = alloca [4 x %struct.nghttp2_nv], align 16
   %stream_data1 = getelementptr inbounds nuw i8, ptr %session_data, i64 24
@@ -725,7 +725,7 @@ declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #5
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @send_callback(ptr nocapture readnone %session, ptr noundef %data, i64 noundef returned %length, i32 %flags, ptr nocapture noundef readonly %user_data) #0 {
+define internal noundef i64 @send_callback(ptr readnone captures(none) %session, ptr noundef %data, i64 noundef returned %length, i32 %flags, ptr noundef readonly captures(none) %user_data) #0 {
 entry:
   %bev1 = getelementptr inbounds nuw i8, ptr %user_data, i64 16
   %0 = load ptr, ptr %bev1, align 8
@@ -736,7 +736,7 @@ entry:
 declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_frame_recv_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #13 {
+define internal noundef i32 @on_frame_recv_callback(ptr readnone captures(none) %session, ptr noundef readonly captures(none) %frame, ptr noundef readonly captures(none) %user_data) #13 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
@@ -771,7 +771,7 @@ sw.epilog:                                        ; preds = %sw.bb, %land.lhs.tr
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_data_chunk_recv_callback(ptr nocapture readnone %session, i8 zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef %data, i64 noundef %len, ptr nocapture noundef readonly %user_data) #13 {
+define internal noundef i32 @on_data_chunk_recv_callback(ptr readnone captures(none) %session, i8 zeroext %flags, i32 noundef %stream_id, ptr noundef captures(none) %data, i64 noundef %len, ptr noundef readonly captures(none) %user_data) #13 {
 entry:
   %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8
@@ -792,7 +792,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
+define internal range(i32 -902, 1) i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr noundef readonly captures(none) %user_data) #0 {
 entry:
   %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8
@@ -819,7 +819,7 @@ return:                                           ; preds = %if.then, %if.end5
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_header_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef %name, i64 noundef %namelen, ptr nocapture noundef %value, i64 noundef %valuelen, i8 zeroext %flags, ptr nocapture noundef readonly %user_data) #13 {
+define internal noundef i32 @on_header_callback(ptr readnone captures(none) %session, ptr noundef readonly captures(none) %frame, ptr noundef captures(none) %name, i64 noundef %namelen, ptr noundef captures(none) %value, i64 noundef %valuelen, i8 zeroext %flags, ptr noundef readonly captures(none) %user_data) #13 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
@@ -857,7 +857,7 @@ sw.epilog:                                        ; preds = %sw.bb, %land.lhs.tr
 declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_begin_headers_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #13 {
+define internal noundef i32 @on_begin_headers_callback(ptr readnone captures(none) %session, ptr noundef readonly captures(none) %frame, ptr noundef readonly captures(none) %user_data) #13 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
@@ -896,7 +896,7 @@ declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #5
 declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @nghttp2_session_terminate_session(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -905,19 +905,19 @@ declare i32 @nghttp2_submit_settings(ptr noundef, i8 noundef zeroext, ptr nounde
 declare i32 @nghttp2_submit_request(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

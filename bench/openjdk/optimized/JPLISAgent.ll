@@ -112,7 +112,7 @@ define hidden ptr @getJPLISEnvironment(ptr noundef %0) local_unnamed_addr #0 {
 declare void @JPLISAssertCondition(i8 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %1, align 8
@@ -304,7 +304,7 @@ define hidden void @deallocateJPLISAgent(ptr noundef %0, ptr noundef %1) local_u
 declare ptr @allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @checkCapabilities(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @checkCapabilities(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -348,14 +348,14 @@ define hidden void @checkCapabilities(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @eventHandlerVMInit(ptr noundef, ptr noundef, ptr noundef) #1
 
 declare void @deallocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -413,10 +413,10 @@ define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -621,7 +621,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiEventCallbacks, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -661,7 +661,7 @@ define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @startJavaAgent(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @startJavaAgent(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1336
   %8 = load ptr, ptr %7, align 8
@@ -731,7 +731,7 @@ invokeJavaAgentMainMethod.exit:                   ; preds = %.thread.i, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @deallocateCommandLineData(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @deallocateCommandLineData(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -746,7 +746,7 @@ define hidden void @deallocateCommandLineData(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @commandStringIntoJavaStrings(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @commandStringIntoJavaStrings(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1336
   %8 = load ptr, ptr %7, align 8
@@ -853,7 +853,7 @@ define hidden void @enableNativeMethodPrefixCapability(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @addNativeMethodPrefixCapability(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @addNativeMethodPrefixCapability(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = alloca %struct.jvmtiCapabilities, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 90
@@ -939,7 +939,7 @@ enableNativeMethodPrefixCapability.exit10:        ; preds = %30, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @addOriginalMethodOrderCapability(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @addOriginalMethodOrderCapability(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -971,7 +971,7 @@ define hidden void @addOriginalMethodOrderCapability(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @addRedefineClassesCapability(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @addRedefineClassesCapability(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1021,7 +1021,7 @@ define hidden void @addRedefineClassesCapability(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, i8 noundef zeroext %10) local_unnamed_addr #0 {
+define hidden void @transformClassFile(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9, i8 noundef zeroext %10) local_unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   store ptr null, ptr %13, align 8
@@ -1258,7 +1258,7 @@ declare ptr @getMessageFromThrowable(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @createInternalError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -1411,7 +1411,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @isModifiableClass(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext i8 @isModifiableClass(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1436,14 +1436,14 @@ define hidden zeroext i8 @isModifiableClass(ptr nocapture noundef readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i8 @isRetransformClassesSupported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden zeroext i8 @isRetransformClassesSupported(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i8, ptr %3, align 8
   ret i8 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @setHasTransformers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @setHasTransformers(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -1469,7 +1469,7 @@ define hidden void @setHasTransformers(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @setHasRetransformableTransformers(ptr nocapture noundef readnone %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @setHasRetransformableTransformers(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @retransformableEnvironment(ptr noundef %1)
   %5 = icmp ne ptr %4, null
   %6 = zext i1 %5 to i8
@@ -1612,7 +1612,7 @@ declare void @createAndThrowThrowableFromJVMTIErrorCode(ptr noundef, i32 noundef
 declare void @mapThrownThrowableIfNecessary(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %2, null
@@ -1837,7 +1837,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @commonGetClassList(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @commonGetClassList(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1883,7 +1883,7 @@ define hidden ptr @commonGetClassList(ptr noundef %0, ptr nocapture noundef read
 declare ptr @mapAllCheckedToInternalErrorMapper(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @getAllLoadedClassesClassListFetcher(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @getAllLoadedClassesClassListFetcher(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 616
   %7 = load ptr, ptr %6, align 8
@@ -1892,7 +1892,7 @@ define hidden i32 @getAllLoadedClassesClassListFetcher(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getAllLoadedClasses(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @getAllLoadedClasses(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -1952,7 +1952,7 @@ define hidden i32 @getInitiatedClassesClassListFetcher(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getInitiatedClasses(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @getInitiatedClasses(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -2003,7 +2003,7 @@ commonGetClassList.exit:                          ; preds = %3, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @getObjectSize(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i64 @getObjectSize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2036,7 +2036,7 @@ define hidden i64 @getObjectSize(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2111,7 +2111,7 @@ declare i32 @convertUtf8ToPlatformString(ptr noundef, i32 noundef, ptr noundef, 
 declare void @createAndThrowInternalError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = icmp ne ptr %2, null
   %7 = zext i1 %6 to i8
@@ -2250,7 +2250,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @jarFile(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @jarFile(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %5 = load ptr, ptr %4, align 8
@@ -2267,19 +2267,19 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

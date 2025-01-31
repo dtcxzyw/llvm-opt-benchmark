@@ -34,7 +34,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qlist_copy(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local noundef ptr @qlist_copy(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #9
   %refcnt.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -90,7 +90,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qlist_append_obj(ptr nocapture noundef %qlist, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local void @qlist_append_obj(ptr noundef captures(none) %qlist, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %value, ptr %call, align 8
@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qlist_append_int(ptr nocapture noundef %qlist, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local void @qlist_append_int(ptr noundef captures(none) %qlist, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qnum_from_int(i64 noundef %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
@@ -125,7 +125,7 @@ entry:
 declare ptr @qnum_from_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qlist_append_bool(ptr nocapture noundef %qlist, i1 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @qlist_append_bool(ptr noundef captures(none) %qlist, i1 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
@@ -144,7 +144,7 @@ entry:
 declare ptr @qbool_from_bool(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qlist_append_str(ptr nocapture noundef %qlist, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local void @qlist_append_str(ptr noundef captures(none) %qlist, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qstring_from_str(ptr noundef %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
@@ -163,7 +163,7 @@ entry:
 declare ptr @qstring_from_str(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qlist_append_null(ptr nocapture noundef %qlist) local_unnamed_addr #0 {
+define dso_local void @qlist_append_null(ptr noundef captures(none) %qlist) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %0, 1
@@ -248,7 +248,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @qlist_empty(ptr nocapture noundef readonly %qlist) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @qlist_empty(ptr noundef readonly captures(none) %qlist) local_unnamed_addr #4 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %qlist, i64 16
   %0 = load ptr, ptr %head, align 8
@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @qlist_size(ptr nocapture noundef readonly %qlist) local_unnamed_addr #5 {
+define dso_local i64 @qlist_size(ptr noundef readonly captures(none) %qlist) local_unnamed_addr #5 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %qlist, i64 16
   %entry1.03 = load ptr, ptr %head, align 8
@@ -482,7 +482,7 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 declare void @qobject_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

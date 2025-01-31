@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ChooseContextMap.kStaticContextMapSimpleUTF8 = internal constant <{ i32, i32, i32, i32, [60 x i32] }> <{ i32 0, i32 0, i32 1, i32 1, [60 x i32] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr noundef captures(none) %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %is_initialized_ = getelementptr inbounds nuw i8, ptr %state, i64 6972
   %0 = load i32, ptr %is_initialized_, align 4
@@ -305,7 +305,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BrotliEncoderCompress(i32 noundef %quality, i32 noundef %lgwin, i32 noundef %mode, i64 noundef %input_size, ptr noundef %input_buffer, ptr nocapture noundef %encoded_size, ptr noundef %encoded_buffer) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderCompress(i32 noundef %quality, i32 noundef %lgwin, i32 noundef %mode, i64 noundef %input_size, ptr noundef %input_buffer, ptr noundef captures(none) %encoded_size, ptr noundef %encoded_buffer) local_unnamed_addr #1 {
 entry:
   %available_in = alloca i64, align 8
   %next_in = alloca ptr, align 8
@@ -520,7 +520,7 @@ return:                                           ; preds = %if.end3, %BrotliEnc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BrotliEncoderCompressStream(ptr noundef %s, i32 noundef %op, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr nocapture noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderCompressStream(ptr noundef %s, i32 noundef %op, ptr noundef captures(none) %available_in, ptr noundef captures(none) %next_in, ptr noundef captures(none) %available_out, ptr noundef captures(none) %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
 entry:
   %storage_ix.i = alloca i64, align 8
   %memory_manager_.i = getelementptr inbounds nuw i8, ptr %s, i64 1400
@@ -2005,7 +2005,7 @@ return:                                           ; preds = %land.lhs.true92, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliEncoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @BrotliEncoderIsFinished(ptr noundef readonly captures(none) %s) local_unnamed_addr #4 {
 entry:
   %stream_state_ = getelementptr inbounds nuw i8, ptr %s, i64 6964
   %0 = load i32, ptr %stream_state_, align 4
@@ -2025,7 +2025,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @EncodeData(ptr noundef %s, i32 noundef range(i32 0, 2) %is_last, i32 noundef range(i32 0, 2) %force_flush, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef writeonly %output) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @EncodeData(ptr noundef %s, i32 noundef range(i32 0, 2) %is_last, i32 noundef range(i32 0, 2) %force_flush, ptr noundef writeonly captures(none) %out_size, ptr noundef writeonly captures(none) %output) unnamed_addr #1 {
 entry:
   %literal_histo.i.i = alloca [256 x i32], align 16
   %block_params.i = alloca %struct.BrotliEncoderParams, align 8
@@ -4914,7 +4914,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @BrotliEncoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @BrotliEncoderHasMoreOutput(ptr noundef readonly captures(none) %s) local_unnamed_addr #4 {
 entry:
   %available_out_ = getelementptr inbounds nuw i8, ptr %s, i64 6928
   %0 = load i64, ptr %available_out_, align 8
@@ -4924,7 +4924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @BrotliEncoderTakeOutput(ptr nocapture noundef %s, ptr nocapture noundef %size) local_unnamed_addr #0 {
+define ptr @BrotliEncoderTakeOutput(ptr noundef captures(none) %s, ptr noundef captures(none) %size) local_unnamed_addr #0 {
 entry:
   %available_out_ = getelementptr inbounds nuw i8, ptr %s, i64 6928
   %0 = load i64, ptr %available_out_, align 8
@@ -5197,7 +5197,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare hidden i32 @AttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @BrotliEncoderEstimatePeakMemoryUsage(i32 noundef %quality, i32 noundef %lgwin, i64 noundef %input_size) local_unnamed_addr #1 {
@@ -5528,10 +5528,10 @@ return:                                           ; preds = %if.end88, %cond.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr nocapture noundef readonly %prepared_dictionary) local_unnamed_addr #7 {
+define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly captures(none) %prepared_dictionary) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %prepared_dictionary, align 4
   %cmp = icmp eq i32 %0, -558043678
@@ -5724,7 +5724,7 @@ declare hidden void @BrotliCompressFragmentFast(ptr noundef, ptr noundef, i64 no
 declare hidden void @BrotliCompressFragmentTwoPass(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @UpdateLastProcessedPos(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @UpdateLastProcessedPos(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %last_processed_pos_ = getelementptr inbounds nuw i8, ptr %s, i64 1520
   %0 = load i64, ptr %last_processed_pos_, align 8
@@ -5767,7 +5767,7 @@ WrapPosition.exit11:                              ; preds = %WrapPosition.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ExtendLastCommand(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %bytes, ptr nocapture noundef nonnull %wrapped_last_processed_pos) unnamed_addr #9 {
+define internal fastcc void @ExtendLastCommand(ptr noundef readonly captures(none) %s, ptr noundef nonnull captures(none) %bytes, ptr noundef nonnull captures(none) %wrapped_last_processed_pos) unnamed_addr #9 {
 entry:
   %commands_ = getelementptr inbounds nuw i8, ptr %s, i64 1480
   %0 = load ptr, ptr %commands_, align 8
@@ -6112,7 +6112,7 @@ declare hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef, i64 nou
 declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias nocapture noundef writeonly initializes((0, 56)) %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias noundef writeonly captures(none) initializes((0, 56)) %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds nuw i8, ptr %self, i64 32
   store ptr %common, ptr %common_, align 8
@@ -6151,7 +6151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias nocapture noundef writeonly initializes((0, 36), (40, 64)) %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias noundef writeonly captures(none) initializes((0, 36), (40, 64)) %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds nuw i8, ptr %self, i64 40
   store ptr %common, ptr %common_, align 8
@@ -6189,7 +6189,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH4(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
+define internal fastcc void @PrepareH4(ptr writeonly captures(none) %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp samesign ult i64 %input_size, 4097
@@ -6235,7 +6235,7 @@ if.end:                                           ; preds = %for.inc6, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH5(ptr noalias nocapture noundef readonly %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+define internal fastcc void @PrepareH5(ptr noalias noundef readonly captures(none) %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #11 {
 entry:
   %num_ = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %num_, align 8
@@ -6278,7 +6278,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH6(ptr noalias nocapture noundef readonly %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+define internal fastcc void @PrepareH6(ptr noalias noundef readonly captures(none) %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #11 {
 entry:
   %num_ = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load ptr, ptr %num_, align 8
@@ -6320,7 +6320,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH40(ptr noalias nocapture noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+define internal fastcc void @PrepareH40(ptr noalias noundef captures(none) %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %extra, align 8
@@ -6362,7 +6362,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH41(ptr noalias nocapture noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+define internal fastcc void @PrepareH41(ptr noalias noundef captures(none) %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %extra, align 8
@@ -6404,7 +6404,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @PrepareH42(ptr noalias nocapture noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #11 {
+define internal fastcc void @PrepareH42(ptr noalias noundef captures(none) %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #11 {
 entry:
   %extra = getelementptr inbounds nuw i8, ptr %self, i64 1032
   %0 = load ptr, ptr %extra, align 8
@@ -6446,7 +6446,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PrepareH54(ptr nocapture writeonly %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #10 {
+define internal fastcc void @PrepareH54(ptr writeonly captures(none) %self.8.val, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #10 {
 entry:
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp samesign ult i64 %input_size, 32769
@@ -6492,7 +6492,7 @@ if.end:                                           ; preds = %for.inc6, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH35(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+define internal fastcc void @PrepareH35(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds nuw i8, ptr %self, i64 224
   %0 = load i32, ptr %fresh, align 8
@@ -6610,7 +6610,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH55(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+define internal fastcc void @PrepareH55(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds nuw i8, ptr %self, i64 224
   %0 = load i32, ptr %fresh, align 8
@@ -6738,7 +6738,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @PrepareH65(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
+define internal fastcc void @PrepareH65(ptr noalias noundef %self, i32 noundef range(i32 0, 2) %one_shot, i64 noundef range(i64 0, 4294967296) %input_size, ptr noalias noundef readonly captures(none) %data) unnamed_addr #12 {
 entry:
   %fresh = getelementptr inbounds nuw i8, ptr %self, i64 272
   %0 = load i32, ptr %fresh, align 8
@@ -6900,7 +6900,7 @@ declare hidden void @BrotliStoreMetaBlockFast(ptr noundef, ptr noundef, i64 noun
 declare hidden void @BrotliStoreMetaBlockTrivial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @DecideOverLiteralContextModeling(ptr nocapture noundef readonly %input, i64 noundef range(i64 0, 4294967296) %start_pos, i64 noundef range(i64 1, 4294967296) %length, i64 noundef range(i64 0, 4294967296) %mask, i32 noundef %quality, i64 noundef %size_hint, ptr nocapture noundef nonnull writeonly %num_literal_contexts, ptr nocapture noundef nonnull writeonly %literal_context_map, ptr nocapture noundef %arena) unnamed_addr #13 {
+define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readonly captures(none) %input, i64 noundef range(i64 0, 4294967296) %start_pos, i64 noundef range(i64 1, 4294967296) %length, i64 noundef range(i64 0, 4294967296) %mask, i32 noundef %quality, i64 noundef %size_hint, ptr noundef nonnull writeonly captures(none) %num_literal_contexts, ptr noundef nonnull writeonly captures(none) %literal_context_map, ptr noundef captures(none) %arena) unnamed_addr #13 {
 entry:
   %monogram_histo.i = alloca [3 x i32], align 4
   %two_prefix_histo.i = alloca [6 x i32], align 16
@@ -7666,10 +7666,10 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 declare i64 @llvm.usub.sat.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

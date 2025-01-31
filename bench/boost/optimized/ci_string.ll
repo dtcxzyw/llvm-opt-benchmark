@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5boost4urls7grammar6detail11ci_is_equalENS_4core17basic_string_viewIcEES5_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5boost4urls7grammar6detail11ci_is_equalENS_4core17basic_string_viewIcEES5_(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %6, %4
@@ -55,7 +55,7 @@ define noundef zeroext i1 @_ZN5boost4urls7grammar6detail11ci_is_equalENS_4core17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5boost4urls7grammar6detail10ci_is_lessENS_4core17basic_string_viewIcEES5_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5boost4urls7grammar6detail10ci_is_lessENS_4core17basic_string_viewIcEES5_(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %6, %4
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZN5boost4urls7grammar6detail10ci_is_lessENS_4core17b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5boost4urls7grammar10ci_compareENS_4core17basic_string_viewIcEES4_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #0 {
+define noundef i32 @_ZN5boost4urls7grammar10ci_compareENS_4core17basic_string_viewIcEES4_(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #0 {
   %.014 = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %.010 = tail call i32 @llvm.ucmp.i32.i64(i64 %1, i64 %3)
   br label %5
@@ -133,7 +133,7 @@ define noundef i32 @_ZN5boost4urls7grammar10ci_compareENS_4core17basic_string_vi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5boost4urls7grammar9ci_digestENS_4core17basic_string_viewIcEE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5boost4urls7grammar9ci_digestENS_4core17basic_string_viewIcEE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %.not6 = icmp eq i64 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

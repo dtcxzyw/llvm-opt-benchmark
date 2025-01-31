@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GenericXLogStart(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @GenericXLogStart(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc_aligned(i64 noundef 69632, i64 noundef 4096, i32 noundef 0) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -69,7 +69,7 @@ define dso_local ptr @GenericXLogStart(ptr nocapture noundef readonly %0) local_
 declare ptr @palloc_aligned(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GenericXLogRegisterBuffer(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @GenericXLogRegisterBuffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32768
   br label %6
 
@@ -137,7 +137,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -653,7 +653,7 @@ BufferGetPage.exit57:                             ; preds = %257, %263
 declare void @XLogBeginInsert() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 

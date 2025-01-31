@@ -667,7 +667,7 @@ declare void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr sr
 declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(164), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes7BVToInt21addFinalizeAssertionsEPNS1_17AssertionPipelineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %assertionsToPreprocess, ptr noundef nonnull align 8 dereferenceable(24) %additionalConstraints) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes7BVToInt21addFinalizeAssertionsEPNS1_17AssertionPipelineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %assertionsToPreprocess, ptr noundef nonnull align 8 dereferenceable(24) %additionalConstraints) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lemmas = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -779,7 +779,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes7BVToInt20addSkolemDefinitionsERKSt3mapINS0_12NodeTemplateILb1EEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %skolems) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes7BVToInt20addSkolemDefinitionsERKSt3mapINS0_12NodeTemplateILb1EEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %skolems) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %originalSkolem = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %definition = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -3035,13 +3035,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

@@ -526,7 +526,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #2
 
@@ -538,12 +538,12 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -564,7 +564,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noun
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN5folly23JemallocNodumpAllocator5allocEP14extent_hooks_sPvmmPbS4_j(ptr noundef %extent, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind) #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1053,7 +1053,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @_ZN5folly23JemallocNodumpAllocator8allocateEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZN5folly23JemallocNodumpAllocator8allocateEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %.not = icmp eq ptr @mallocx, null
   br i1 %.not, label %cond.false, label %cond.true
@@ -1080,7 +1080,7 @@ declare extern_weak noalias ptr @mallocx(i64 noundef, i32 noundef) #11
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5folly23JemallocNodumpAllocator10reallocateEPvm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr noundef %p, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN5folly23JemallocNodumpAllocator10reallocateEPvm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef %p, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %.not = icmp eq ptr @rallocx, null
   br i1 %.not, label %cond.false, label %cond.true
@@ -1104,7 +1104,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare extern_weak ptr @rallocx(ptr noundef, i64 noundef, i32 noundef) #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
@@ -1112,7 +1112,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly23JemallocNodumpAllocator10deallocateEPvm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr noundef %p, i64 noundef %0) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly23JemallocNodumpAllocator10deallocateEPvm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef %p, i64 noundef %0) local_unnamed_addr #6 align 2 {
 entry:
   %.not = icmp eq ptr @dallocx, null
   br i1 %.not, label %cond.false, label %cond.true
@@ -1135,7 +1135,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare extern_weak void @dallocx(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly23JemallocNodumpAllocator10deallocateEPvS1_(ptr noundef %p, ptr noundef %userData) local_unnamed_addr #6 align 2 {

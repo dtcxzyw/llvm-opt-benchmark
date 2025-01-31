@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK9metaspace13FreeChunkList24calc_committed_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9metaspace13FreeChunkList24calc_committed_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
   %.06 = load ptr, ptr %0, align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -37,7 +37,7 @@ define hidden noundef i64 @_ZNK9metaspace13FreeChunkList24calc_committed_word_si
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace13FreeChunkList8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK9metaspace13FreeChunkList8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -80,7 +80,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZNK9metaspace9Metachunk8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -101,7 +101,7 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit
@@ -135,7 +135,7 @@ _ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, i8 noundef signext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, i8 noundef signext %1) local_unnamed_addr #0 align 2 {
   %3 = sext i8 %1 to i64
   %4 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %3
   %.06.i = load ptr, ptr %4, align 8
@@ -159,7 +159,7 @@ _ZNK9metaspace13FreeChunkList24calc_committed_word_sizeEv.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #3 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -177,7 +177,7 @@ define hidden noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_ascendingEaam(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0, i8 noundef signext %1, i8 noundef signext %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_ascendingEaam(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, i8 noundef signext %1, i8 noundef signext %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
   %.not20 = icmp sgt i8 %1, %2
   br i1 %.not20, label %.loopexit18, label %.lr.ph
 
@@ -266,7 +266,7 @@ _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector23search_chunk_descendingEam(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector23search_chunk_descendingEam(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp sgt i8 %1, -1
   br i1 %4, label %.lr.ph.preheader, label %.loopexit16
 
@@ -358,7 +358,7 @@ _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace19FreeChunkListVector8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK9metaspace19FreeChunkListVector8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit
@@ -438,7 +438,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

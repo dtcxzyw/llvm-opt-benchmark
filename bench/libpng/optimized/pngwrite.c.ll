@@ -376,7 +376,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
-  tail call void @png_write_tRNS(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %43, i32 noundef %46, i32 noundef %49) #15
+  tail call void @png_write_tRNS(ptr noundef nonnull %0, ptr noundef %42, ptr noundef nonnull %43, i32 noundef %46, i32 noundef %49) #15
   %.pre149 = load i32, ptr %6, align 8
   br label %50
 
@@ -391,7 +391,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  tail call void @png_write_bKGD(ptr noundef %0, ptr noundef nonnull %54, i32 noundef %57) #15
+  tail call void @png_write_bKGD(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %57) #15
   %.pre150 = load i32, ptr %6, align 8
   br label %58
 
@@ -406,7 +406,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %65 = load i32, ptr %64, align 4
-  tail call void @png_write_eXIf(ptr noundef %0, ptr noundef %63, i32 noundef %65) #15
+  tail call void @png_write_eXIf(ptr noundef nonnull %0, ptr noundef %63, i32 noundef %65) #15
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %67 = load i32, ptr %66, align 4
   %68 = or i32 %67, 16384
@@ -426,7 +426,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %76 = load i16, ptr %75, align 8
   %77 = zext i16 %76 to i32
-  tail call void @png_write_hIST(ptr noundef %0, ptr noundef %74, i32 noundef %77) #15
+  tail call void @png_write_hIST(ptr noundef nonnull %0, ptr noundef %74, i32 noundef %77) #15
   %.pre152 = load i32, ptr %6, align 8
   br label %78
 
@@ -444,7 +444,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %87 = load i8, ptr %86, align 4
   %88 = zext i8 %87 to i32
-  tail call void @png_write_oFFs(ptr noundef %0, i32 noundef %83, i32 noundef %85, i32 noundef %88) #15
+  tail call void @png_write_oFFs(ptr noundef nonnull %0, i32 noundef %83, i32 noundef %85, i32 noundef %88) #15
   %.pre153 = load i32, ptr %6, align 8
   br label %89
 
@@ -471,7 +471,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %108 = load ptr, ptr %107, align 8
-  tail call void @png_write_pCAL(ptr noundef %0, ptr noundef %94, i32 noundef %96, i32 noundef %98, i32 noundef %101, i32 noundef %104, ptr noundef %106, ptr noundef %108) #15
+  tail call void @png_write_pCAL(ptr noundef nonnull %0, ptr noundef %94, i32 noundef %96, i32 noundef %98, i32 noundef %101, i32 noundef %104, ptr noundef %106, ptr noundef %108) #15
   %.pre154 = load i32, ptr %6, align 8
   br label %109
 
@@ -489,7 +489,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %119 = load ptr, ptr %118, align 8
-  tail call void @png_write_sCAL_s(ptr noundef %0, i32 noundef %115, ptr noundef %117, ptr noundef %119) #15
+  tail call void @png_write_sCAL_s(ptr noundef nonnull %0, i32 noundef %115, ptr noundef %117, ptr noundef %119) #15
   %.pre155 = load i32, ptr %6, align 8
   br label %120
 
@@ -507,7 +507,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %129 = load i8, ptr %128, align 8
   %130 = zext i8 %129 to i32
-  tail call void @png_write_pHYs(ptr noundef %0, i32 noundef %125, i32 noundef %127, i32 noundef %130) #15
+  tail call void @png_write_pHYs(ptr noundef nonnull %0, i32 noundef %125, i32 noundef %127, i32 noundef %130) #15
   %.pre156 = load i32, ptr %6, align 8
   br label %131
 
@@ -519,7 +519,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  tail call void @png_write_tIME(ptr noundef %0, ptr noundef nonnull %135) #15
+  tail call void @png_write_tIME(ptr noundef nonnull %0, ptr noundef nonnull %135) #15
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %137 = load i32, ptr %136, align 4
   %138 = or i32 %137, 512
@@ -547,7 +547,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %indvars.iv143 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next144, %146 ]
   %147 = load ptr, ptr %145, align 8
   %148 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %147, i64 %indvars.iv143
-  tail call void @png_write_sPLT(ptr noundef %0, ptr noundef %148) #15
+  tail call void @png_write_sPLT(ptr noundef nonnull %0, ptr noundef %148) #15
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %149 = load i32, ptr %142, align 8
   %150 = sext i32 %149 to i64
@@ -581,7 +581,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %169 = load ptr, ptr %168, align 8
-  tail call void @png_write_iTXt(ptr noundef %0, i32 noundef %159, ptr noundef %163, ptr noundef %165, ptr noundef %167, ptr noundef %169) #15
+  tail call void @png_write_iTXt(ptr noundef nonnull %0, i32 noundef %159, ptr noundef %163, ptr noundef %165, ptr noundef %167, ptr noundef %169) #15
   %170 = load ptr, ptr %155, align 8
   %171 = getelementptr inbounds nuw %struct.png_text_struct, ptr %170, i64 %indvars.iv146
   %172 = load i32, ptr %171, align 8
@@ -607,7 +607,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %181 = load ptr, ptr %180, align 8
-  tail call void @png_write_zTXt(ptr noundef %0, ptr noundef %179, ptr noundef %181, i32 noundef 0) #15
+  tail call void @png_write_zTXt(ptr noundef nonnull %0, ptr noundef %179, ptr noundef %181, i32 noundef 0) #15
   %182 = load ptr, ptr %155, align 8
   %183 = getelementptr inbounds nuw %struct.png_text_struct, ptr %182, i64 %indvars.iv146
   store i32 -2, ptr %183, align 8
@@ -618,7 +618,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %188 = load ptr, ptr %187, align 8
-  tail call void @png_write_tEXt(ptr noundef %0, ptr noundef %186, ptr noundef %188, i64 noundef 0) #15
+  tail call void @png_write_tEXt(ptr noundef nonnull %0, ptr noundef %186, ptr noundef %188, i64 noundef 0) #15
   %189 = load ptr, ptr %155, align 8
   %190 = getelementptr inbounds nuw %struct.png_text_struct, ptr %189, i64 %indvars.iv146
   store i32 -3, ptr %190, align 8
@@ -986,7 +986,7 @@ declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @png_write_IEND(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_convert_from_struct_tm(ptr nocapture noundef writeonly initializes((0, 7)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @png_convert_from_struct_tm(ptr noundef writeonly captures(none) initializes((0, 7)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = trunc i32 %4 to i16
@@ -1021,7 +1021,7 @@ define void @png_convert_from_struct_tm(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_convert_from_time_t(ptr nocapture noundef writeonly initializes((0, 7)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @png_convert_from_time_t(ptr noundef writeonly captures(none) initializes((0, 7)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call ptr @gmtime(ptr noundef nonnull %3) #15
@@ -1073,7 +1073,7 @@ define void @png_convert_from_time_t(ptr nocapture noundef writeonly initializes
 declare ptr @gmtime(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_write_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1152,7 +1152,7 @@ declare noalias ptr @png_create_png_struct(ptr noundef, ptr noundef, ptr noundef
 declare void @png_set_write_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_rows(ptr noalias noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_write_rows(ptr noalias noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -1173,7 +1173,7 @@ define void @png_write_rows(ptr noalias noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_row(ptr noalias noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @png_write_row(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.png_row_info_struct, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %209, label %5
@@ -1576,7 +1576,7 @@ png_do_write_intrapixel.exit:                     ; preds = %png_do_write_intrap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_image(ptr noalias noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @png_write_image(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1625,7 +1625,7 @@ declare void @png_write_start_row(ptr noundef) local_unnamed_addr #1
 declare void @png_write_finish_row(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @png_do_write_interlace(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1904,12 +1904,12 @@ declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @png_set_filter_heuristics(ptr noalias nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #8 {
+define void @png_set_filter_heuristics(ptr noalias noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #8 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @png_set_filter_heuristics_fixed(ptr noalias nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #8 {
+define void @png_set_filter_heuristics_fixed(ptr noalias noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #8 {
   ret void
 }
 
@@ -2136,7 +2136,7 @@ define void @png_set_write_user_transform_fn(ptr noalias noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define void @png_write_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -2298,7 +2298,7 @@ define void @png_write_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   br i1 %exitcond.not.i, label %png_write_image.exit, label %.preheader.i, !llvm.loop !29
 
 png_write_image.exit:                             ; preds = %._crit_edge.i, %49, %.preheader.lr.ph.i
-  tail call void @png_write_end(ptr noundef %0, ptr noundef %1)
+  tail call void @png_write_end(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %64
 
 64:                                               ; preds = %4, %png_write_image.exit, %12
@@ -3519,22 +3519,22 @@ png_image_write_to_stdio.exit:                    ; preds = %22, %31
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -3559,7 +3559,7 @@ declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @image_memory_write(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @image_memory_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -3599,7 +3599,7 @@ define internal void @image_memory_write(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @image_memory_flush(ptr nocapture readnone %0) #8 {
+define internal void @image_memory_flush(ptr readnone captures(none) %0) #8 {
   ret void
 }
 
@@ -3616,7 +3616,7 @@ declare void @png_set_sRGB(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i64 @png_get_rowbytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @png_write_image_16bit(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3769,7 +3769,7 @@ define internal noundef i32 @png_write_image_16bit(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @png_write_image_8bit(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @png_write_image_8bit(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -4022,10 +4022,10 @@ declare i3 @llvm.bitreverse.i3(i3) #12
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12

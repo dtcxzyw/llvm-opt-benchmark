@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_op_ddt_map = external local_unnamed_addr global [52 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_base_get_primitive_type_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_osc_base_get_primitive_type_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef %0) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -195,7 +195,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %60
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %76, ptr %77, align 8
-  %78 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %9, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %68, ptr noundef %0) #4
+  %78 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %9, ptr noundef nonnull %3, i64 noundef range(i64 -2147483648, 2147483648) %68, ptr noundef %0) #4
   br label %79
 
 79:                                               ; preds = %._crit_edge, %opal_obj_run_constructors.exit
@@ -277,12 +277,12 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i60, %opal_c
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -397,7 +397,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_convertor_raw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_base_sndrcv_op(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_base_sndrcv_op(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.opal_convertor_t, align 8
   %10 = alloca [32 x %struct.iovec], align 16
@@ -470,7 +470,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %45, ptr %46, align 8
-  %47 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %37, ptr noundef %0) #4
+  %47 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef range(i64 -2147483648, 2147483648) %37, ptr noundef %0) #4
   %48 = load i32, ptr @opal_class_init_epoch, align 4
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not55 = icmp eq i32 %48, %49

@@ -825,7 +825,7 @@ define linkonce_odr dso_local void @_ZN20cmDocumentationEntryD2Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1296,7 +1296,7 @@ _ZN10cmCPackLog16SetVerbosePrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 312:                                              ; preds = %311
   %313 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   %314 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %313) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 118, ptr noundef %313, i64 noundef %314)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 118, ptr noundef nonnull %313, i64 noundef %314)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit unwind label %339
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit:                ; preds = %312
@@ -3759,7 +3759,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP1
 1050:                                             ; preds = %1049
   %1051 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #27
   %1052 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1051) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 274, ptr noundef %1051, i64 noundef %1052)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 274, ptr noundef nonnull %1051, i64 noundef %1052)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit912 unwind label %1061
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit912:             ; preds = %1050
@@ -3930,7 +3930,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
 1113:                                             ; preds = %1112
   %1114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %129) #27
   %1115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1114) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 287, ptr noundef %1114, i64 noundef %1115)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 287, ptr noundef nonnull %1114, i64 noundef %1115)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit918 unwind label %1129
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit918:             ; preds = %1113
@@ -4034,7 +4034,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit918:             ; preds = %1113
 1156:                                             ; preds = %1155
   %1157 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #27
   %1158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1157) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 295, ptr noundef %1157, i64 noundef %1158)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 295, ptr noundef nonnull %1157, i64 noundef %1158)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit924 unwind label %1172
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit924:             ; preds = %1156
@@ -4130,7 +4130,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit924:             ; preds = %1156
 1195:                                             ; preds = %1194
   %1196 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #27
   %1197 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1196) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 304, ptr noundef %1196, i64 noundef %1197)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 304, ptr noundef nonnull %1196, i64 noundef %1197)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit930 unwind label %1211
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit930:             ; preds = %1195
@@ -4234,7 +4234,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit930:             ; preds = %1195
 1238:                                             ; preds = %1237
   %1239 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #27
   %1240 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1239) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 312, ptr noundef %1239, i64 noundef %1240)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 312, ptr noundef nonnull %1239, i64 noundef %1240)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit936 unwind label %1254
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit936:             ; preds = %1238
@@ -4324,7 +4324,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit936:             ; preds = %1238
 1273:                                             ; preds = %1272
   %1274 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %141) #27
   %1275 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1274) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 318, ptr noundef %1274, i64 noundef %1275)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 318, ptr noundef nonnull %1274, i64 noundef %1275)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit942 unwind label %1289
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit942:             ; preds = %1273
@@ -4432,7 +4432,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit942:             ; preds = %1273
 1318:                                             ; preds = %1317
   %1319 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %144) #27
   %1320 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1319) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 329, ptr noundef %1319, i64 noundef %1320)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 329, ptr noundef nonnull %1319, i64 noundef %1320)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit950.invoke unwind label %1323
 
 1321:                                             ; preds = %1317, %1315, %1313, %1311, %1309, %1307
@@ -4488,7 +4488,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit942:             ; preds = %1273
 1342:                                             ; preds = %1341
   %1343 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %146) #27
   %1344 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1343) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 338, ptr noundef %1343, i64 noundef %1344)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 338, ptr noundef nonnull %1343, i64 noundef %1344)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit950.invoke unwind label %1347
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit950.invoke:      ; preds = %1342, %1318
@@ -4544,7 +4544,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit950.invoke:      ; preds = %1342, %1318
 1362:                                             ; preds = %1361
   %1363 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %148) #27
   %1364 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1363) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 348, ptr noundef %1363, i64 noundef %1364)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 348, ptr noundef nonnull %1363, i64 noundef %1364)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit952 unwind label %1367
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit952:             ; preds = %1362
@@ -4874,7 +4874,7 @@ _ZNSt8functionIFbRKN19cmCMakePresetsGraph13PackagePresetEEED2Ev.exit915: ; preds
 1490:                                             ; preds = %1489
   %1491 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %159) #27
   %1492 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1491) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 404, ptr noundef %1491, i64 noundef %1492)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 404, ptr noundef nonnull %1491, i64 noundef %1492)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit955 unwind label %1499
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit955:             ; preds = %1490
@@ -5034,7 +5034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit961: ;
 1540:                                             ; preds = %1539
   %1541 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %168) #27
   %1542 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1541) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 434, ptr noundef %1541, i64 noundef %1542)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 434, ptr noundef nonnull %1541, i64 noundef %1542)
           to label %.thread1181 unwind label %1549
 
 1543:                                             ; preds = %2173, %.noexc1034, %2144, %_ZNSt6vectorI20cmDocumentationEntrySaIS0_EED2Ev.exit, %_ZN15cmDocumentation14PrependSectionIA14_20cmDocumentationEntryEEvPKcRKT_.exit, %2143, %2142, %1518, %1516, %1515
@@ -5140,7 +5140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit970: ;
 1565:                                             ; preds = %1564
   %1566 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %173) #27
   %1567 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1566) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 442, ptr noundef %1566, i64 noundef %1567)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 442, ptr noundef nonnull %1566, i64 noundef %1567)
           to label %.thread1181 unwind label %1572
 
 1568:                                             ; preds = %.noexc966, %1552
@@ -5236,7 +5236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit970: ;
 1599:                                             ; preds = %1598
   %1600 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %177) #27
   %1601 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1600) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 453, ptr noundef %1600, i64 noundef %1601)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 453, ptr noundef nonnull %1600, i64 noundef %1601)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit977 unwind label %1617
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit977:             ; preds = %1599
@@ -5271,7 +5271,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit977:             ; preds = %1599
 1612:                                             ; preds = %1611
   %1613 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %179) #27
   %1614 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1613) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 457, ptr noundef %1613, i64 noundef %1614)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 457, ptr noundef nonnull %1613, i64 noundef %1614)
           to label %.thread1181 unwind label %1622
 
 1615:                                             ; preds = %1598, %1596, %1594, %1592
@@ -5332,7 +5332,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit977:             ; preds = %1599
 1634:                                             ; preds = %1633
   %1635 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %181) #27
   %1636 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1635) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 463, ptr noundef %1635, i64 noundef %1636)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 463, ptr noundef nonnull %1635, i64 noundef %1636)
           to label %.thread1181 unwind label %1639
 
 1637:                                             ; preds = %1633, %1631, %1629, %1627
@@ -5693,7 +5693,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit977:             ; preds = %1599
 1755:                                             ; preds = %1754
   %1756 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %204) #27
   %1757 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1756) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 506, ptr noundef %1756, i64 noundef %1757)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 506, ptr noundef nonnull %1756, i64 noundef %1757)
           to label %.thread1184 unwind label %1765
 
 .thread1184:                                      ; preds = %1755
@@ -5785,7 +5785,7 @@ _ZN10cmMakefile12ScopePushPopC2EPS_.exit:         ; preds = %1776
 1784:                                             ; preds = %1783
   %1785 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %208) #27
   %1786 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1785) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 513, ptr noundef %1785, i64 noundef %1786)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 513, ptr noundef nonnull %1785, i64 noundef %1786)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit988 unwind label %1810
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit988:             ; preds = %1784
@@ -5838,7 +5838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit993: ;
 1798:                                             ; preds = %1797
   %1799 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %212) #27
   %1800 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1799) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 516, ptr noundef %1799, i64 noundef %1800)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 516, ptr noundef nonnull %1799, i64 noundef %1800)
           to label %.critedge664.thread.thread unwind label %1819
 
 .critedge664.thread.thread:                       ; preds = %1798
@@ -6020,7 +6020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1000: 
 1845:                                             ; preds = %1844
   %1846 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %222) #27
   %1847 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1846) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 529, ptr noundef %1846, i64 noundef %1847)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 529, ptr noundef nonnull %1846, i64 noundef %1847)
           to label %.thread1164 unwind label %1872
 
 .thread1164:                                      ; preds = %1845
@@ -6162,7 +6162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1000: 
 1888:                                             ; preds = %1887
   %1889 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %225) #27
   %1890 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1889) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 540, ptr noundef %1889, i64 noundef %1890)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 540, ptr noundef nonnull %1889, i64 noundef %1890)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit1004 unwind label %1899
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit1004:            ; preds = %1888
@@ -6263,7 +6263,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit1004:            ; preds = %1888
 1924:                                             ; preds = %1923
   %1925 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %229) #27
   %1926 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1925) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 553, ptr noundef %1925, i64 noundef %1926)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 553, ptr noundef nonnull %1925, i64 noundef %1926)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit1006 unwind label %1929
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit1006:            ; preds = %1924
@@ -6377,7 +6377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1011: 
 1953:                                             ; preds = %1952
   %1954 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %239) #27
   %1955 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1954) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 566, ptr noundef %1954, i64 noundef %1955)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 566, ptr noundef nonnull %1954, i64 noundef %1955)
           to label %.sink.split1349 unwind label %1980
 
 1956:                                             ; preds = %.noexc1007, %1932
@@ -6532,7 +6532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1011: 
 2001:                                             ; preds = %2000
   %2002 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %243) #27
   %2003 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2002) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 573, ptr noundef %2002, i64 noundef %2003)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 573, ptr noundef nonnull %2002, i64 noundef %2003)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit1015 unwind label %2055
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit1015:            ; preds = %2001
@@ -6562,7 +6562,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit1015:            ; preds = %2001
 2012:                                             ; preds = %2011
   %2013 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %245) #27
   %2014 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2013) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 575, ptr noundef %2013, i64 noundef %2014)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef 575, ptr noundef nonnull %2013, i64 noundef %2014)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit1018 unwind label %2060
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit1018:            ; preds = %2012
@@ -6851,7 +6851,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit1018:            ; preds = %2012
 2109:                                             ; preds = %2108
   %2110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %259) #27
   %2111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2110) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 595, ptr noundef %2110, i64 noundef %2111)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %19, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 595, ptr noundef nonnull %2110, i64 noundef %2111)
           to label %.sink.split1349 unwind label %2114
 
 2112:                                             ; preds = %2108, %2106, %2104, %2102
@@ -8822,7 +8822,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8
@@ -8840,7 +8840,7 @@ define internal fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt1
 9:                                                ; preds = %7
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef 1, ptr noundef nonnull @.str.40, i32 noundef 152, ptr noundef %10, i64 noundef %11)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef 1, ptr noundef nonnull @.str.40, i32 noundef 152, ptr noundef nonnull %10, i64 noundef %11)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit unwind label %14
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit:                ; preds = %9
@@ -8866,7 +8866,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit:                ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %0, align 8
@@ -8883,7 +8883,7 @@ define internal fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt1
 8:                                                ; preds = %6
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef 1, ptr noundef nonnull @.str.40, i32 noundef 145, ptr noundef %9, i64 noundef %10)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef 1, ptr noundef nonnull @.str.40, i32 noundef 145, ptr noundef nonnull %9, i64 noundef %10)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit unwind label %13
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit:                ; preds = %8
@@ -9879,7 +9879,7 @@ declare void @_ZN5cmsys8Encoding20CommandLineArgumentsD1Ev(ptr noundef nonnull a
 declare void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
@@ -9894,7 +9894,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -10198,7 +10198,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN19cmCMakePresetsGraph4FileESt14default_delet
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N19cmCMakePresetsGraph10PresetPairINS8_14WorkflowPresetEEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12009,13 +12009,13 @@ _ZNSt14_Function_base13_Base_managerIZN21cmCommandLineArgumentIFbRKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) #3 align 2 {
   tail call fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -12040,13 +12040,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) #3 align 2 {
   tail call fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -12071,7 +12071,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture nonnull readnone align 8 %3) #18 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readnone align 8 captures(none) %3) #18 align 2 {
   %.val = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 270
   store i8 1, ptr %5, align 2
@@ -12079,7 +12079,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_3E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_3E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -12098,7 +12098,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_4E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture nonnull readnone align 8 %3) #18 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_4E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readnone align 8 captures(none) %3) #18 align 2 {
   %.val = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 270
   store i8 1, ptr %5, align 2
@@ -12108,7 +12108,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_4E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -12127,7 +12127,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12161,7 +12161,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 18:                                               ; preds = %16
   %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %17, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 218, ptr noundef %19, i64 noundef %20)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %17, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef 218, ptr noundef nonnull %19, i64 noundef %20)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit.i.i.i unwind label %25
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit.i.i.i:          ; preds = %18
@@ -12241,7 +12241,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit.i.i.i:          ; preds = %18
 51:                                               ; preds = %49
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #29
-  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %50, i32 noundef 4, ptr noundef nonnull @.str.40, i32 noundef 226, ptr noundef %52, i64 noundef %53)
+  invoke void @_ZN10cmCPackLog3LogEiPKciS1_m(ptr noundef nonnull align 8 dereferenceable(232) %50, i32 noundef 4, ptr noundef nonnull @.str.40, i32 noundef 226, ptr noundef nonnull %52, i64 noundef %53)
           to label %_ZN10cmCPackLog3LogEiPKciS1_.exit18.i.i.i unwind label %58
 
 _ZN10cmCPackLog3LogEiPKciS1_.exit18.i.i.i:        ; preds = %51
@@ -12293,7 +12293,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit18.i.i.i:        ; preds = %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_5E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_5E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -13166,7 +13166,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1) #4 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %1) #4 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val2 = load ptr, ptr %3, align 8
@@ -13177,7 +13177,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN19cmCMakePres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN19cmCMakePresetsGraph13PackagePresetEEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -15615,13 +15615,13 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25

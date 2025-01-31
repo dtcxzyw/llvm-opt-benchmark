@@ -485,7 +485,7 @@ declare noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr nou
 declare noundef ptr @_ZN8datatype4util25get_constructor_accessorsEP9func_decl(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN14decl_collector7is_boolEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, ptr noundef readnone %s) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN14decl_collector7is_boolEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this, ptr noundef readnone %s) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_bool_sort.i = getelementptr inbounds nuw i8, ptr %0, i64 840
@@ -890,7 +890,7 @@ if.end32:                                         ; preds = %_ZN15ref_vector_cor
 declare noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14decl_collector14should_declareEP9func_decl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, ptr nocapture noundef readonly %f) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK14decl_collector14should_declareEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #4 align 2 {
 entry:
   %m_info.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %0 = load ptr, ptr %m_info.i, align 8
@@ -2494,7 +2494,7 @@ if.then4:                                         ; preds = %_ZNK4sort10is_sort_
 
 for.body:                                         ; preds = %if.then4, %for.body
   %i.0256 = phi i32 [ %inc, %for.body ], [ 0, %if.then4 ]
-  %call8 = call noundef ptr @_ZN8datatype4util27get_datatype_parameter_sortEP4sortj(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef %s, i32 noundef %i.0256)
+  %call8 = call noundef ptr @_ZN8datatype4util27get_datatype_parameter_sortEP4sortj(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef nonnull %s, i32 noundef %i.0256)
   store ptr %call8, ptr %ref.tmp, align 8
   call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %set, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %inc = add nuw i32 %i.0256, 1
@@ -2502,7 +2502,7 @@ for.body:                                         ; preds = %if.then4, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.then4
-  %call10 = call noundef i32 @_ZN8datatype4util29get_datatype_num_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef %s)
+  %call10 = call noundef i32 @_ZN8datatype4util29get_datatype_num_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef nonnull %s)
   %cmp13262.not = icmp eq i32 %call10, 0
   br i1 %cmp13262.not, label %if.end46, label %for.body14.lr.ph
 
@@ -2514,7 +2514,7 @@ for.body14.lr.ph:                                 ; preds = %for.end
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc43
   %indvars.iv301 = phi i64 [ 0, %for.body14.lr.ph ], [ %indvars.iv.next302, %for.inc43 ]
-  %call16 = call noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef %s)
+  %call16 = call noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef nonnull %s)
   %10 = load ptr, ptr %call16, align 8
   %arrayidx.i = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv301
   %11 = load ptr, ptr %arrayidx.i, align 8
@@ -3780,7 +3780,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare noundef ptr @_ZNK17array_recognizers22get_as_array_func_declEP9func_decl(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -4002,7 +4002,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5084,10 +5084,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

@@ -124,7 +124,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.82 = private unnamed_addr constant [18 x i8] c"IO thread exiting\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_listening_socket_readable(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @_listening_socket_readable(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @get_log_level() #10
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %5
@@ -171,7 +171,7 @@ define internal noundef zeroext i1 @_listening_socket_readable(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_listening_socket_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.io_init_msg_t, align 8
   %4 = alloca [1 x %struct.pollfd], align 4
   %5 = alloca %struct.sockaddr_storage, align 8
@@ -443,7 +443,7 @@ _handle_io_init_msg.exit:                         ; preds = %31, %140, %40, %40,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_server_readable(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @_server_readable(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @get_log_level() #10
@@ -572,7 +572,7 @@ define internal noundef zeroext i1 @_server_readable(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef readonly %0) #0 {
+define internal noundef zeroext i1 @_server_writable(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @get_log_level() #10
@@ -653,7 +653,7 @@ define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_server_read(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1016,7 +1016,7 @@ define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_server_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_server_write(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1213,7 +1213,7 @@ define internal range(i32 -1, 1) i32 @_server_write(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_file_writable(ptr nocapture noundef readonly %0) #0 {
+define internal noundef zeroext i1 @_file_writable(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @get_log_level() #10
@@ -1265,7 +1265,7 @@ define internal noundef zeroext i1 @_file_writable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_file_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_file_write(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1417,7 +1417,7 @@ define internal range(i32 -1, 1) i32 @_file_write(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @_file_readable(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @get_log_level() #10
@@ -1544,7 +1544,7 @@ define internal noundef zeroext i1 @_file_readable(ptr nocapture noundef %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_file_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_file_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.io_hdr_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1850,7 +1850,7 @@ define internal noundef i32 @_file_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @client_io_handler_create(ptr nocapture noundef readonly byval(%struct.slurm_step_io_fds) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define noundef ptr @client_io_handler_create(ptr noundef readonly byval(%struct.slurm_step_io_fds) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i1 %4 to i8
   %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 280, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1080, ptr noundef nonnull @__func__.client_io_handler_create) #10
   store i32 %1, ptr %9, align 8
@@ -2514,7 +2514,7 @@ define void @client_io_handler_finish(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @eio_signal_shutdown(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #2
@@ -2604,7 +2604,7 @@ declare void @eio_handle_destroy(ptr noundef) local_unnamed_addr #1
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @client_io_handler_downnodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @client_io_handler_downnodes(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %51, label %5
 
@@ -2906,7 +2906,7 @@ define range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_incoming_buf_free(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_incoming_buf_free(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @list_count(ptr noundef %3) #10
@@ -2945,7 +2945,7 @@ define internal fastcc noundef zeroext i1 @_incoming_buf_free(ptr nocapture noun
 declare ptr @list_dequeue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @create_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2974,7 +2974,7 @@ declare i32 @net_set_keep_alive(i32 noundef) local_unnamed_addr #1
 declare ptr @eio_obj_create(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_outgoing_buf_free(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_outgoing_buf_free(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @list_count(ptr noundef %3) #10
@@ -3015,17 +3015,17 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 declare i32 @io_hdr_read_fd(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @step_launch_notify_io_failure(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @write_labelled_message(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -3052,10 +3052,10 @@ declare i32 @eio_handle_mainloop(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -520,7 +520,7 @@ declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 declare void @tuplesort_puttupleslot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_disc_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_disc_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -669,13 +669,13 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @tuplesort_getdatum(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_cont_float8_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_cont_float8_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @percentile_cont_final_common(ptr noundef %0, ptr noundef nonnull @float8_lerp)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @percentile_cont_final_common(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @percentile_cont_final_common(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -848,7 +848,7 @@ define internal noundef i64 @float8_lerp(i64 noundef %0, i64 noundef %1, double 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_cont_interval_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_cont_interval_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @percentile_cont_final_common(ptr noundef %0, ptr noundef nonnull @interval_lerp)
   ret i64 %2
 }
@@ -863,7 +863,7 @@ define internal i64 @interval_lerp(i64 noundef %0, i64 noundef %1, double nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_disc_multi_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1081,7 +1081,7 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = sext i32 %0 to i64
   %7 = shl nsw i64 %6, 5
   %8 = tail call ptr @palloc(i64 noundef %7) #10
@@ -1199,13 +1199,13 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @construct_md_array(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_cont_float8_multi_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_cont_float8_multi_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @percentile_cont_multi_final_common(ptr noundef %0, i32 noundef 701, i16 noundef signext 8, i1 noundef zeroext true, ptr noundef nonnull @float8_lerp)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture noundef %0, i32 noundef range(i32 701, 1187) %1, i16 noundef signext range(i16 8, 17) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captures(none) %0, i32 noundef range(i32 701, 1187) %1, i16 noundef signext range(i16 8, 17) %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1456,13 +1456,13 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @percentile_cont_interval_multi_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @percentile_cont_interval_multi_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @percentile_cont_multi_final_common(ptr noundef %0, i32 noundef 1186, i16 noundef signext 16, i1 noundef zeroext false, ptr noundef nonnull @interval_lerp)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @mode_final(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @mode_final(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
@@ -1674,14 +1674,14 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hypothetical_rank_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hypothetical_rank_final(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef %2)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i64 @hypothetical_rank_common(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -1, 2) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
@@ -1839,7 +1839,7 @@ slot_getattr.exit._crit_edge:                     ; preds = %80, %slot_getattr.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hypothetical_percent_rank_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hypothetical_percent_rank_final(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef %2)
   %4 = load i64, ptr %2, align 8
@@ -1860,7 +1860,7 @@ define dso_local i64 @hypothetical_percent_rank_final(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hypothetical_cume_dist_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hypothetical_cume_dist_final(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef 1, ptr noundef %2)
   %4 = sitofp i64 %3 to double
@@ -1873,7 +1873,7 @@ define dso_local i64 @hypothetical_cume_dist_final(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hypothetical_dense_rank_final(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -2218,7 +2218,7 @@ slot_getattr.exit._crit_edge:                     ; preds = %168, %slot_getattr.
 declare ptr @CreateStandaloneExprContext() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef readonly %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %4
 
@@ -2369,7 +2369,7 @@ declare i64 @interval_pl(ptr noundef) #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @pct_info_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @pct_info_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, %4
@@ -2411,16 +2411,16 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

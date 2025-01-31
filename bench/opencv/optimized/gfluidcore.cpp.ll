@@ -4075,7 +4075,7 @@ declare float @roundf(float noundef) local_unnamed_addr #6
 declare float @rintf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvRKSt6vectorIN2cv4GArgESaIS2_EERKS0_IPNS1_4gapi5fluid6BufferESaISA_EEEPSF_E9_M_invokeERKSt9_Any_dataS6_SE_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #3 comdat align 2 {
@@ -4570,7 +4570,7 @@ define linkonce_odr hidden void @_ZN2cv4util3any11holder_implINS_12GFluidKernelE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv12GFluidKernelC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5386,7 +5386,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN2cv4util11throw_errorINS0_18bad_variant_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #13 comdat {
@@ -16210,7 +16210,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidAndS3runERKNS1_4ViewER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i64 } @_ZN2cv4gapi5fluidL23convertScalarForBitwiseERKNS_7Scalar_IdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i64 } @_ZN2cv4gapi5fluidL23convertScalarForBitwiseERKNS_7Scalar_IdEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.26", align 1
   %4 = load double, ptr %0, align 8
@@ -16280,7 +16280,7 @@ define internal fastcc { i64, i64 } @_ZN2cv4gapi5fluidL23convertScalarForBitwise
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.8.val1.0.val, i32 %.8.val1.72.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16943,7 +16943,7 @@ default.unreachable19:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.8.val1.0.val, i32 %.8.val1.72.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17606,7 +17606,7 @@ default.unreachable19:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.8.val1.0.val, i32 %.8.val1.72.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -39035,7 +39035,7 @@ _ZN2cv4gapi5fluidL10run_selectIssshEEvRNS1_6BufferERKNS1_4ViewES7_S7_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture readonly %.8.val3.0.val, i32 %.8.val3.72.val, ptr nocapture readonly %.8.val5.0.val, i32 %.8.val5.72.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL10run_selectIhhhhEEvRNS1_6BufferERKNS1_4ViewES7_S7_(ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.8.val1.0.val, i32 %.8.val1.72.val, ptr readonly captures(none) %.8.val3.0.val, i32 %.8.val3.72.val, ptr readonly captures(none) %.8.val5.0.val, i32 %.8.val5.72.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.26", align 1
   %3 = load ptr, ptr %.8.val, align 8
@@ -67694,7 +67694,7 @@ define internal void @_GLOBAL__sub_I_gfluidcore.cpp() #18 section ".text.startup
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
@@ -67712,10 +67712,10 @@ declare i16 @llvm.sadd.sat.i16(i16, i16) #21
 declare i16 @llvm.fptosi.sat.i16.f32(float) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ssub.sat.i16(i16, i16) #21

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN3std2io5error14repr_bitpacked11decode_repr17h30b3e0331066eecdE(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3std2io5error14repr_bitpacked11decode_repr17h30b3e0331066eecdE(ptr writeonly sret({ i8, [15 x i8] }) align 8 captures(none) %0, ptr %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable8 [
@@ -52,7 +52,7 @@ default.unreachable8:                             ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3std2io5error14repr_bitpacked11decode_repr17h91a3312f42d0610dE(ptr writeonly sret({ i8, [15 x i8] }) align 8 captures(none) %0, ptr %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable8 [

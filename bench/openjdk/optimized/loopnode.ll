@@ -835,7 +835,7 @@ _ZNK22BaseCountedLoopEndNode6strideEv.exit.thread: ; preds = %1, %_ZNK22BaseCoun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop14get_early_ctrlEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop14get_early_ctrlEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1389,7 +1389,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14PhaseIdealLoop9dom_depthEP4Node(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop28get_early_ctrl_for_expensiveEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop28get_early_ctrl_for_expensiveEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2234,7 +2234,7 @@ _ZN13IdealLoopTreeC2EP14PhaseIdealLoopP4NodeS3_.exit: ; preds = %24, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop29create_outer_strip_mined_loopEP8BoolNodeP4NodeS3_P13IdealLoopTreeffRS3_S6_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull align 8 dereferenceable(8) %8) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop29create_outer_strip_mined_loopEP8BoolNodeP4NodeS3_P13IdealLoopTreeffRS3_S6_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, float noundef %5, float noundef %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8) local_unnamed_addr #0 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %11, i32 noundef 0) #16
@@ -2780,7 +2780,7 @@ declare noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr nocapture noundef nonnull align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -2945,7 +2945,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
 declare noundef ptr @_ZN14PhaseIdealLoop27create_new_if_for_predicateEP10IfTrueNodeP4NodeN14Deoptimization11DeoptReasonEib(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop17loop_exit_controlEP4NodeP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop17loop_exit_controlEP4NodeP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -3035,7 +3035,7 @@ define hidden noundef ptr @_ZN14PhaseIdealLoop17loop_exit_controlEP4NodeP13Ideal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop14loop_exit_testEP4NodeP13IdealLoopTreeRS1_S4_RN8BoolTest4maskERf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop14loop_exit_testEP4NodeP13IdealLoopTreeRS1_S4_RN8BoolTest4maskERf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 {
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(52) %1) #16
@@ -3384,7 +3384,7 @@ _ZNK14PhaseIdealLoop9is_memberEPK13IdealLoopTreeP4Node.exit71: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop12loop_iv_incrEP4NodeS1_P13IdealLoopTreeRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop12loop_iv_incrEP4NodeS1_P13IdealLoopTreeRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 15
@@ -3509,7 +3509,7 @@ _ZNK14PhaseIdealLoop9is_memberEPK13IdealLoopTreeP4Node.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop14loop_iv_strideEP4NodeP13IdealLoopTreeRS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop14loop_iv_strideEP4NodeP13IdealLoopTreeRS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3541,7 +3541,7 @@ define hidden noundef ptr @_ZN14PhaseIdealLoop14loop_iv_strideEP4NodeP13IdealLoo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop11loop_iv_phiEP4NodeS1_S1_P13IdealLoopTree(ptr nocapture noundef nonnull readnone align 8 dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop11loop_iv_phiEP4NodeS1_S1_P13IdealLoopTree(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef readnone %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 15
@@ -4720,7 +4720,7 @@ declare noundef ptr @_ZNK7Compile5startEv(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN8HaltNodeC1EP4NodeS1_PKcb(ptr noundef nonnull align 8 dereferenceable(65), ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop14find_safepointEP4NodeS1_P13IdealLoopTree(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture readnone %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop14find_safepointEP4NodeS1_P13IdealLoopTree(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -5852,7 +5852,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
 ._crit_edge:                                      ; preds = %504, %419
   %508 = call noundef ptr @_ZN14PhaseIdealLoop20loop_nest_replace_ivEP4NodeS1_S1_S1_9BasicType(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %150, ptr noundef nonnull %391, ptr noundef nonnull %317, ptr noundef nonnull %6, i8 noundef zeroext %27)
   call void @_ZN14PhaseIdealLoop16set_subtree_ctrlEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %.1, i1 noundef zeroext true)
-  %509 = call noundef ptr @_ZN14PhaseIdealLoop17create_inner_headEP13IdealLoopTreeP19BaseCountedLoopNodeP6IfNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %.0212)
+  %509 = call noundef ptr @_ZN14PhaseIdealLoop17create_inner_headEP13IdealLoopTreeP19BaseCountedLoopNodeP6IfNode(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %.0212)
   br i1 %186, label %510, label %516
 
 510:                                              ; preds = %._crit_edge
@@ -5913,7 +5913,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   %538 = zext i32 %537 to i64
   %539 = shl nuw nsw i64 %538, 3
   call void @llvm.memset.p0.i64(ptr align 1 %535, i8 0, i64 %539, i1 false)
-  call void @_ZN14PhaseIdealLoop10do_peelingEP13IdealLoopTreeR9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2) #16
+  call void @_ZN14PhaseIdealLoop10do_peelingEP13IdealLoopTreeR9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(28) %2) #16
   %540 = getelementptr inbounds nuw i8, ptr %.0213, i64 40
   %541 = load i32, ptr %540, align 8
   %542 = load i32, ptr %536, align 8
@@ -6331,7 +6331,7 @@ declare void @_ZN13IdealLoopTree18compute_trip_countEP14PhaseIdealLoop(ptr nound
 declare void @_ZN13IdealLoopTree24compute_profile_trip_cntEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15CountedLoopNode10outer_loopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK15CountedLoopNode10outer_loopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8165,7 +8165,7 @@ _ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_.exit58: ; preds = %_ZN14PhaseIdealLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop27transform_long_range_checksEiRK9Node_ListP4NodeS4_S4_S4_P8LoopNode(ptr noundef nonnull align 8 dereferenceable(237) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop27transform_long_range_checksEiRK9Node_ListP4NodeS4_S4_S4_P8LoopNode(ptr noundef nonnull align 8 dereferenceable(237) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
@@ -9613,7 +9613,7 @@ _ZN14PhaseIdealLoop11lazy_updateEP4NodeS1_.exit:  ; preds = %3, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop15is_counted_loopEP4NodeRP13IdealLoopTree9BasicType(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop15is_counted_loopEP4NodeRP13IdealLoopTree9BasicType(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   %7 = alloca ptr, align 8
@@ -10744,7 +10744,7 @@ _ZN14PhaseIdealLoop8set_loopEP4NodeP13IdealLoopTree.exit388: ; preds = %_ZN14Pha
   %.0316 = phi ptr [ %644, %_ZN14PhaseIdealLoop8set_loopEP4NodeP13IdealLoopTree.exit388 ], [ %.024.i, %677 ]
   %683 = add i32 %615, 1
   call void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %.0316, ptr noundef nonnull %614, i32 noundef %683)
-  call void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %682, ptr noundef nonnull %614, i32 noundef %683)
+  call void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %682, ptr noundef nonnull %614, i32 noundef %683)
   call void @_ZN14PhaseIdealLoop12lazy_replaceEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %226, ptr noundef nonnull %614)
   store ptr %373, ptr %15, align 8
   br i1 %80, label %684, label %.thread427
@@ -10954,7 +10954,7 @@ _ZN14PhaseIdealLoop14loop_iv_strideEP4NodeP13IdealLoopTreeRS1_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15CountedLoopNode35match_incr_with_optional_truncationEP4NodePS1_S2_PPK11TypeInteger9BasicType(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15CountedLoopNode35match_incr_with_optional_truncationEP4NodePS1_S2_PPK11TypeInteger9BasicType(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread, label %7
 
@@ -11286,7 +11286,7 @@ _ZN14PredicateBlockC2EP4NodeN14Deoptimization11DeoptReasonE.exit8: ; preds = %_Z
 declare noundef ptr @_ZN7CmpNode4makeEP4NodeS1_9BasicTypeb(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop31has_dominating_loop_limit_checkEP4NodeS1_l9BasicTypeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop31has_dominating_loop_limit_checkEP4NodeS1_l9BasicTypeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = icmp sgt i64 %3, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
@@ -11632,7 +11632,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit43: ; preds = %_ZN9VectorSet8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop20is_deleteable_safeptEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop20is_deleteable_safeptEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %3, label %5
 
@@ -11891,7 +11891,7 @@ _ZN4NodenwEm.exit9:                               ; preds = %33, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop11exact_limitEP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop11exact_limitEP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12894,7 +12894,7 @@ _ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i:
 declare noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22), i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13LoopLimitNode5ValueEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13LoopLimitNode5ValueEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13003,7 +13003,7 @@ define hidden noundef ptr @_ZNK13LoopLimitNode5ValueEP8PhaseGVN(ptr noundef nonn
 declare noundef ptr @_ZN7TypeInt4makeEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13LoopLimitNode5IdealEP8PhaseGVNb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13LoopLimitNode5IdealEP8PhaseGVNb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13352,7 +13352,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 declare noundef zeroext i1 @_ZN7Matcher14has_match_ruleEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13LoopLimitNode8IdentityEP8PhaseGVN(ptr noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN13LoopLimitNode8IdentityEP8PhaseGVN(ptr noundef nonnull readonly align 8 dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -13413,7 +13413,7 @@ define hidden noundef ptr @_ZN15CountedLoopNode16skip_strip_minedEi(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode15outer_loop_tailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode15outer_loop_tailEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13434,7 +13434,7 @@ define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode15outer_loop_tailEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15CountedLoopNode15outer_loop_tailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15CountedLoopNode15outer_loop_tailEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13502,7 +13502,7 @@ define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode14outer_loop_endEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15CountedLoopNode14outer_loop_endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15CountedLoopNode14outer_loop_endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13554,7 +13554,7 @@ define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode15outer_loop_exitEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15CountedLoopNode15outer_loop_exitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15CountedLoopNode15outer_loop_exitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13616,7 +13616,7 @@ define hidden noundef ptr @_ZNK23OuterStripMinedLoopNode15outer_safepointEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15CountedLoopNode15outer_safepointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15CountedLoopNode15outer_safepointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15422,7 +15422,7 @@ _ZN9Node_ListC2Ej.exit:                           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN23OuterStripMinedLoopNode16register_controlEP4NodeS1_S1_P12PhaseIterGVNP14PhaseIdealLoop(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN23OuterStripMinedLoopNode16register_controlEP4NodeS1_S1_P12PhaseIterGVNP14PhaseIdealLoop(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %12
 
@@ -15596,7 +15596,7 @@ define hidden noundef ptr @_ZN26OuterStripMinedLoopEndNode5IdealEP8PhaseGVNb(ptr
 declare noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop13filtered_typeEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop13filtered_typeEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 15
@@ -15721,7 +15721,7 @@ define hidden noundef ptr @_ZN14PhaseIdealLoop13filtered_typeEP4NodeS1_(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop29filtered_type_from_dominatorsEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop29filtered_type_from_dominatorsEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16
@@ -15964,7 +15964,7 @@ define hidden noundef zeroext i1 @_ZNK13IdealLoopTree9is_memberEPKS_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN13IdealLoopTree8set_nestEj(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((88, 90)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN13IdealLoopTree8set_nestEj(ptr noundef nonnull align 8 captures(none) dereferenceable(113) initializes((88, 90)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = trunc i32 %1 to i16
   %4 = add i32 %1, 1
   br label %tailrecurse
@@ -16431,7 +16431,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %191, %199, %210
   br label %223
 
 221:                                              ; preds = %._crit_edge178
-  %222 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %5, ptr noundef %161, ptr noundef %153) #16
+  %222 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %5, ptr noundef %161, ptr noundef nonnull %153) #16
   br label %223
 
 223:                                              ; preds = %221, %220
@@ -19622,7 +19622,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %198, %205
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop19replace_parallel_ivEP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop19replace_parallel_ivEP13IdealLoopTree(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK8LoopNode21is_valid_counted_loopE9BasicType(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 noundef zeroext 10)
@@ -20927,7 +20927,7 @@ define hidden noundef i32 @_ZNK13IdealLoopTree18est_loop_unroll_szEj(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop13log_loop_treeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop13log_loop_treeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
@@ -21075,7 +21075,7 @@ tailrecurse:                                      ; preds = %32, %53, %49, %28, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop28eliminate_useless_predicatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop28eliminate_useless_predicatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
@@ -21099,7 +21099,7 @@ define hidden void @_ZN14PhaseIdealLoop28eliminate_useless_predicatesEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop34eliminate_useless_parse_predicatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop34eliminate_useless_parse_predicatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
@@ -21267,7 +21267,7 @@ _ZN14PhaseIdealLoop45add_useless_parse_predicates_to_igvn_worklistEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.Unique_Node_List, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -21379,7 +21379,7 @@ _ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesER16Unique_N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK14PhaseIdealLoop33mark_all_parse_predicates_uselessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK14PhaseIdealLoop33mark_all_parse_predicates_uselessEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
@@ -21409,7 +21409,7 @@ define hidden void @_ZNK14PhaseIdealLoop33mark_all_parse_predicates_uselessEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop44mark_loop_associated_parse_predicates_usefulEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop44mark_loop_associated_parse_predicates_usefulEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -21461,7 +21461,7 @@ define hidden void @_ZN14PhaseIdealLoop44mark_loop_associated_parse_predicates_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop45add_useless_parse_predicates_to_igvn_worklistEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop45add_useless_parse_predicates_to_igvn_worklistEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
@@ -21553,7 +21553,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 declare noundef zeroext i1 @_ZN13IdealLoopTree26can_apply_loop_predicationEv(ptr noundef nonnull align 8 dereferenceable(113)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop37mark_useful_parse_predicates_for_loopEP13IdealLoopTree(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop37mark_useful_parse_predicates_for_loopEP13IdealLoopTree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.Predicates, align 8
   %3 = alloca %class.ParsePredicateIterator, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21613,7 +21613,7 @@ _ZN22ParsePredicateIteratorD2Ev.exit:             ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16LoopTreeIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN16LoopTreeIterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -21656,7 +21656,7 @@ declare void @_ZN22ParsePredicateIteratorC1ERK10Predicates(ptr noundef nonnull a
 declare noundef ptr @_ZN22ParsePredicateIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop44collect_useful_template_assertion_predicatesER16Unique_Node_List(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop44collect_useful_template_assertion_predicatesER16Unique_Node_List(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Predicates, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -21754,7 +21754,7 @@ _ZN16LoopTreeIterator4nextEv.exit.backedge:       ; preds = %.lr.ph.i, %34, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesER16Unique_Node_List(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesER16Unique_Node_List(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 464
@@ -21817,7 +21817,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %12, %_ZN16Unique_No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop53collect_useful_template_assertion_predicates_for_loopEP13IdealLoopTreeR16Unique_Node_List(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop53collect_useful_template_assertion_predicates_for_loopEP13IdealLoopTreeR16Unique_Node_List(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Predicates, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -21866,7 +21866,7 @@ define hidden void @_ZN14PhaseIdealLoop53collect_useful_template_assertion_predi
 declare void @_ZN14PhaseIdealLoop24get_assertion_predicatesEP4NodeR16Unique_Node_Listb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(68), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop33eliminate_useless_zero_trip_guardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop33eliminate_useless_zero_trip_guardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.Unique_Node_List, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
@@ -24458,7 +24458,7 @@ _ZN16LoopTreeIterator4nextEv.exit114.backedge:    ; preds = %.lr.ph.i112, %633, 
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14PhaseIdealLoop15build_loop_treeEv(ptr noundef nonnull align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
@@ -25993,7 +25993,7 @@ declare void @_ZN14PhaseIdealLoop36move_unordered_reduction_out_of_loopEP13Ideal
 declare noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop19recompute_dom_depthEv(ptr nocapture noundef nonnull align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop19recompute_dom_depthEv(ptr noundef nonnull align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 592
@@ -26310,7 +26310,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE4pushERKj.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop4sortEP13IdealLoopTreeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop4sortEP13IdealLoopTreeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 align 2 {
   %4 = alloca ptr, align 8
   br label %tailrecurse
 
@@ -27385,7 +27385,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %529, %536
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14PhaseIdealLoop16dom_lca_internalEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14PhaseIdealLoop16dom_lca_internalEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit85, label %4
 
@@ -27828,7 +27828,7 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit83:     ; preds = %_ZNK14PhaseIdealLoo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14PhaseIdealLoop12compute_idomEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14PhaseIdealLoop12compute_idomEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
@@ -27883,7 +27883,7 @@ _ZNK14PhaseIdealLoop7dom_lcaEP4NodeS1_.exit:      ; preds = %22, %17, %15, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop16verify_dominanceEP4NodeS1_S1_S1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(237) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop16verify_dominanceEP4NodeS1_S1_S1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(237) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 align 2 {
   ret i1 false
 }
 
@@ -28838,7 +28838,7 @@ declare noundef i32 @_ZNK18CallStaticJavaNode21uncommon_trap_requestEv(ptr nound
 declare noundef zeroext i1 @_ZN7Compile9can_aliasEPK7TypePtri(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop12is_dominatorEP4NodeS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop12is_dominatorEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %.loopexit, label %5
 
@@ -28974,7 +28974,7 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop19is_strict_dominatorEP4Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14PhaseIdealLoop34dom_lca_for_get_late_ctrl_internalEP4NodeS1_S1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14PhaseIdealLoop34dom_lca_for_get_late_ctrl_internalEP4NodeS1_S1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %7
 
@@ -29820,7 +29820,7 @@ define hidden void @_ZN14PhaseIdealLoop20build_loop_late_postEP4Node(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14PhaseIdealLoop29verify_strip_mined_schedulingEP4NodeS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(237) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN14PhaseIdealLoop29verify_strip_mined_schedulingEP4NodeS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(237) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   ret void
 }
 
@@ -30381,7 +30381,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit118:     ; preds = %_ZNK14PhaseIdealLoo
   %299 = load ptr, ptr %0, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %301 = load ptr, ptr %300, align 8
-  %302 = call noundef zeroext i1 %301(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %297, ptr noundef %.0.i.i95) #16
+  %302 = call noundef zeroext i1 %301(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %297, ptr noundef nonnull %.0.i.i95) #16
   br i1 %302, label %.loopexit148, label %_ZN14PhaseIdealLoop19is_strict_dominatorEP4NodeS1_.exit.backedge
 
 _ZN14PhaseIdealLoop19is_strict_dominatorEP4NodeS1_.exit.backedge: ; preds = %298, %.lr.ph163
@@ -30695,7 +30695,7 @@ declare noundef zeroext i1 @_ZNK22PredicateEntryIterator8has_nextEv(ptr noundef 
 declare noundef ptr @_ZN22PredicateEntryIterator10next_entryEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14PhaseIdealLoop3rpoEP4NodeR10Node_StackR9VectorSetR9Node_List(ptr nocapture noundef nonnull readnone align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(28) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK14PhaseIdealLoop3rpoEP4NodeR10Node_StackR9VectorSetR9Node_List(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(28) %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %2, align 8
@@ -31496,10 +31496,10 @@ declare void @llvm.assume(i1 noundef) #14
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

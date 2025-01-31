@@ -176,7 +176,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal noundef i32 @module_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #6
   %send_channel_type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -354,7 +354,7 @@ _globals_fini.exit:                               ; preds = %clear_xid_class_reg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelsmod_create(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @channelsmod_create(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %cidobj = alloca ptr, align 8
   %call.i = tail call ptr @PyThread_allocate_lock() #6
@@ -448,7 +448,7 @@ _channelitem_free.exit.i.i.i.i.i:                 ; preds = %if.end9.i.i.i.i.i.i
 
 _channelqueue_free.exit.i.i:                      ; preds = %_channelitem_free.exit.i.i.i.i.i, %if.then10.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  tail call void @PyMem_RawFree(ptr noundef %0) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %0) #6
   br label %if.then3.sink.split.i
 
 if.then3.sink.split.i:                            ; preds = %_channelqueue_free.exit.i.i, %if.then5.i.i
@@ -557,7 +557,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelsmod_list_all(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @channelsmod_list_all(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %cidobj = alloca ptr, align 8
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8
@@ -2816,7 +2816,7 @@ return:                                           ; preds = %if.then2, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %res) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %res) unnamed_addr #0 {
 entry:
   store ptr null, ptr %res, align 8
   %call = tail call ptr @_PyObject_New(ptr noundef %cls) #6
@@ -3072,7 +3072,7 @@ _channelitem_free.exit.i.i.i:                     ; preds = %if.end9.i.i.i.i.i, 
 
 _channelqueue_free.exit:                          ; preds = %_channelitem_free.exit.i.i.i, %_channel_clear_closing.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  tail call void @PyMem_RawFree(ptr noundef %4) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %4) #6
   %ends = getelementptr inbounds nuw i8, ptr %chan, i64 16
   %12 = load ptr, ptr %ends, align 8
   %send.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3148,7 +3148,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @channel_id_converter(ptr noundef %arg, ptr nocapture noundef %ptr) #0 {
+define internal range(i32 0, 2) i32 @channel_id_converter(ptr noundef %arg, ptr noundef captures(none) %ptr) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %0) #6
@@ -3756,7 +3756,7 @@ declare ptr @PyMemoryView_FromObject(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyCrossInterpreterData_NewObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @PyStructSequence_New(ptr noundef) local_unnamed_addr #1
 
@@ -3769,7 +3769,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_channelend_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_channelend_shared(ptr noundef readonly captures(none) %tstate, ptr noundef %obj, ptr noundef %data) #0 {
 entry:
   %call = tail call ptr @PyObject_GetAttrString(ptr noundef %obj, ptr noundef nonnull @.str.47) #6
   %cmp = icmp eq ptr %call, null
@@ -3831,7 +3831,7 @@ declare i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef, ptr noundef) loc
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_channelid_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_channelid_shared(ptr noundef readonly captures(none) %tstate, ptr noundef %obj, ptr noundef %data) #0 {
 entry:
   %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -3860,7 +3860,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_channelend_from_xid(ptr nocapture noundef readonly %data) #0 {
+define internal ptr @_channelend_from_xid(ptr noundef readonly captures(none) %data) #0 {
 entry:
   %call = tail call ptr @_channelid_from_xid(ptr noundef %data)
   %cmp = icmp eq ptr %call, null
@@ -3911,7 +3911,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @_PyCrossInterpreterData_InitWithSize(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_channelid_from_xid(ptr nocapture noundef readonly %data) #0 {
+define internal ptr @_channelid_from_xid(ptr noundef readonly captures(none) %data) #0 {
 entry:
   %cidobj = alloca ptr, align 8
   %0 = load ptr, ptr %data, align 8
@@ -4799,7 +4799,7 @@ _channels_release_cid_object.exit:                ; preds = %if.end.i.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelid_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @channelid_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -4817,7 +4817,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelid_str(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @channelid_str(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %cid = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %cid, align 8
@@ -4826,7 +4826,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @channelid_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @channelid_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %cid = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %cid, align 8
@@ -4857,7 +4857,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelid_richcompare(ptr nocapture noundef readonly %self, ptr noundef %other, i32 noundef %op) #0 {
+define internal ptr @channelid_richcompare(ptr noundef readonly captures(none) %self, ptr noundef %other, i32 noundef %op) #0 {
 entry:
   %overflow = alloca i32, align 4
   %cmp1 = icmp ne i32 %op, 3
@@ -5073,7 +5073,7 @@ return:                                           ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelid_int(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @channelid_int(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %cid = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %cid, align 8
@@ -5094,7 +5094,7 @@ declare i32 @PyNumber_Check(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @channelid_end(ptr nocapture noundef readonly %self, ptr noundef readonly %end) #0 {
+define internal ptr @channelid_end(ptr noundef readonly captures(none) %self, ptr noundef readonly %end) #0 {
 entry:
   %cmp.not = icmp eq ptr %end, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -5229,7 +5229,7 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_module_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @clear_module_state(ptr noundef captures(none) %state) unnamed_addr #0 {
 entry:
   %send_channel_type = getelementptr inbounds nuw i8, ptr %state, i64 48
   %0 = load ptr, ptr %send_channel_type, align 8
@@ -5448,10 +5448,10 @@ do.end61:                                         ; preds = %do.body55, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5

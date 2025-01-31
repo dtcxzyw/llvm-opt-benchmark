@@ -600,7 +600,7 @@ for.end83:                                        ; preds = %for.inc81, %if.end,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %nearestPoint) local_unnamed_addr #3 {
+define dso_local void @_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %point, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %line0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %line1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %nearestPoint) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %line1, align 4
   %1 = load float, ptr %line0, align 4
@@ -740,7 +740,7 @@ if.end17:                                         ; preds = %if.end10, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_Z13btClampNormalRK9btVector3S1_S1_fRS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %edge, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tri_normal_org, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %localContactNormalOnB, float noundef %correctedEdgeAngle, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %clampedLocalNormal) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z13btClampNormalRK9btVector3S1_S1_fRS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %edge, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %tri_normal_org, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %localContactNormalOnB, float noundef %correctedEdgeAngle, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %clampedLocalNormal) local_unnamed_addr #4 {
 entry:
   %tri_normal.sroa.0.0.copyload = load float, ptr %tri_normal_org, align 4
   %tri_normal.sroa.3.0.tri_normal_org.sroa_idx = getelementptr inbounds nuw i8, ptr %tri_normal_org, i64 4
@@ -908,7 +908,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z28btAdjustInternalEdgeContactsR15btManifoldPointPK24btCollisionObjectWrapperS3_iii(ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr nocapture noundef readonly %colObj0Wrap, ptr nocapture noundef readnone %colObj1Wrap, i32 noundef %partId0, i32 noundef %index0, i32 noundef %normalAdjustFlags) local_unnamed_addr #5 {
+define dso_local void @_Z28btAdjustInternalEdgeContactsR15btManifoldPointPK24btCollisionObjectWrapperS3_iii(ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr noundef readonly captures(none) %colObj0Wrap, ptr noundef readnone captures(none) %colObj1Wrap, i32 noundef %partId0, i32 noundef %index0, i32 noundef %normalAdjustFlags) local_unnamed_addr #5 {
 entry:
   %v0 = alloca %class.btVector3, align 8
   %v1 = alloca %class.btVector3, align 8
@@ -4715,7 +4715,7 @@ declare float @llvm.fabs.f32(float) #11
 declare float @llvm.sqrt.f32(float) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

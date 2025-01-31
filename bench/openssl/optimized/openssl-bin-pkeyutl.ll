@@ -544,7 +544,7 @@ for.body194:                                      ; preds = %if.then186, %if.end
   br i1 %cmp199, label %if.then201, label %if.else224
 
 if.then201:                                       ; preds = %for.body194
-  %call202 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %passwd_buf, i64 noundef 4096, ptr noundef nonnull @.str.86, ptr noundef %call197) #5
+  %call202 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %passwd_buf, i64 noundef 4096, ptr noundef nonnull @.str.86, ptr noundef nonnull %call197) #5
   %call205 = call i32 @EVP_read_pw_string(ptr noundef nonnull %passwd_buf, i32 noundef 4095, ptr noundef nonnull %passwd_buf, i32 noundef 0) #5
   %cmp206 = icmp slt i32 %call205, 0
   br i1 %cmp206, label %if.then208, label %if.end216
@@ -586,18 +586,18 @@ if.else224.if.end231_crit_edge:                   ; preds = %if.else224
 
 if.then228:                                       ; preds = %if.else224
   %14 = load ptr, ptr @bio_err, align 8
-  %call229 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.90, ptr noundef %call197) #5
+  %call229 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.90, ptr noundef nonnull %call197) #5
   br label %if.then417
 
 if.end231:                                        ; preds = %if.else224.if.end231_crit_edge, %if.end216
   %15 = phi ptr [ %.pre, %if.else224.if.end231_crit_edge ], [ %call218, %if.end216 ]
-  %call232 = call i32 @EVP_PKEY_CTX_ctrl_str(ptr noundef %phi.call, ptr noundef %call197, ptr noundef %15) #5
+  %call232 = call i32 @EVP_PKEY_CTX_ctrl_str(ptr noundef %phi.call, ptr noundef nonnull %call197, ptr noundef %15) #5
   %cmp233 = icmp slt i32 %call232, 1
   br i1 %cmp233, label %if.then235, label %if.end237
 
 if.then235:                                       ; preds = %if.end231
   %16 = load ptr, ptr @bio_err, align 8
-  %call236 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.85, ptr noundef %call1, ptr noundef %call197) #5
+  %call236 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.85, ptr noundef %call1, ptr noundef nonnull %call197) #5
   br label %if.then417
 
 if.end237:                                        ; preds = %if.end231
@@ -928,7 +928,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
 declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
@@ -943,7 +943,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr nocapture noundef nonnull writeonly %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef range(i32 0, 4) %key_type, ptr noundef %passinarg, i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %e, i32 noundef range(i32 0, 2) %engine_impl, i32 noundef range(i32 0, 2) %rawin, ptr nocapture noundef nonnull writeonly %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr noundef nonnull writeonly captures(none) %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef range(i32 0, 4) %key_type, ptr noundef %passinarg, i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %e, i32 noundef range(i32 0, 2) %engine_impl, i32 noundef range(i32 0, 2) %rawin, ptr noundef nonnull writeonly captures(none) %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   store ptr null, ptr %passin, align 8
@@ -1187,7 +1187,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 

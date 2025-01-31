@@ -330,13 +330,13 @@ return:                                           ; preds = %if.end11, %if.else1
 declare i32 @dbIsValid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr nocapture noundef readonly %proto, ptr nocapture noundef nonnull writeonly %scratch) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly captures(none) %proto, ptr noundef nonnull writeonly captures(none) %scratch) unnamed_addr #0 {
 entry:
   %queueCount1 = getelementptr inbounds nuw i8, ptr %proto, i64 8
   %0 = load i32, ptr %queueCount1, align 8

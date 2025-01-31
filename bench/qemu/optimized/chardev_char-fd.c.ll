@@ -204,7 +204,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_fd_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_fd_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
   %chr_add_watch = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -314,7 +314,7 @@ declare ptr @qio_channel_create_watch(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @g_source_set_callback(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @child_func(ptr nocapture readnone %source, i32 noundef %condition, ptr nocapture noundef %data) #4 {
+define internal noundef i32 @child_func(ptr readnone captures(none) %source, i32 noundef %condition, ptr noundef captures(none) %data) #4 {
 entry:
   %cond = getelementptr inbounds nuw i8, ptr %data, i64 96
   %0 = load i32, ptr %cond, align 8
@@ -328,7 +328,7 @@ declare void @g_source_add_child_source(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @g_source_new(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fd_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture readnone %timeout_) #5 {
+define internal range(i32 0, 2) i32 @fd_source_prepare(ptr noundef readonly captures(none) %source, ptr readnone captures(none) %timeout_) #5 {
 entry:
   %cond = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load i32, ptr %cond, align 8
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fd_source_check(ptr nocapture noundef readonly %source) #5 {
+define internal range(i32 0, 2) i32 @fd_source_check(ptr noundef readonly captures(none) %source) #5 {
 entry:
   %cond = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load i32, ptr %cond, align 8
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @fd_source_dispatch(ptr nocapture noundef %source, ptr nocapture noundef readonly %callback, ptr noundef %user_data) #0 {
+define internal i32 @fd_source_dispatch(ptr noundef captures(none) %source, ptr noundef readonly captures(none) %callback, ptr noundef %user_data) #0 {
 entry:
   %cond = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load i32, ptr %cond, align 8

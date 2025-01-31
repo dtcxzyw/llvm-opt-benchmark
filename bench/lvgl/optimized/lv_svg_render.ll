@@ -48,7 +48,7 @@ define void @lv_svg_render_init(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @lv_freetype_outline_add_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -283,15 +283,15 @@ _lv_svg_draw_dsc_delete.exit:                     ; preds = %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @lv_tree_walk(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !tbaa !57
   switch i8 %4, label %_lv_svg_render_create.exit.thread [
@@ -777,7 +777,7 @@ _lv_svg_render_create.exit.thread:                ; preds = %2, %191
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_lv_svg_doc_walk_before_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i1 @_lv_svg_doc_walk_before_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !tbaa !57
   switch i8 %4, label %.thread12 [
@@ -882,7 +882,7 @@ _lv_svg_draw_dsc_push.exit:                       ; preds = %.thread12, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lv_svg_doc_walk_after_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @_lv_svg_doc_walk_after_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !138
   %.not = icmp eq ptr %4, null
@@ -1072,7 +1072,7 @@ _lv_svg_draw_dsc_pop.exit:                        ; preds = %102, %105
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_svg_render_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -1319,7 +1319,7 @@ declare i24 @lv_color_black() local_unnamed_addr #2
 declare void @lv_matrix_identity(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_viewport(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @_init_viewport(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -1328,7 +1328,7 @@ define internal void @_init_viewport(ptr noundef %0, ptr nocapture readnone %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_render_viewport(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @_render_viewport(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.lv_area_t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -1362,7 +1362,7 @@ define internal void @_render_viewport(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_viewport_attr(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_viewport_attr(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %.thread [
     i8 13, label %5
@@ -1489,7 +1489,7 @@ define internal void @_set_viewport_attr(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_obj(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @_init_obj(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   ret void
@@ -1643,7 +1643,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %69, %.loopexit31.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_rect_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_rect_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %29 [
@@ -1702,7 +1702,7 @@ define internal void @_set_rect_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_rect_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_rect_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !173
   %5 = fptosi float %4 to i32
@@ -1836,7 +1836,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %45, %.loopexit31.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_circle_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_circle_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %17 [
@@ -1871,7 +1871,7 @@ define internal void @_set_circle_attr(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_circle_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_circle_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -2007,7 +2007,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %47, %.loopexit31.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_ellipse_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_ellipse_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %21 [
@@ -2050,7 +2050,7 @@ define internal void @_set_ellipse_attr(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_ellipse_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_ellipse_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !183
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -2195,7 +2195,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %49, %.loopexit31.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_line_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_line_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %21 [
@@ -2238,7 +2238,7 @@ define internal void @_set_line_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_line_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_line_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !183
   %5 = fptosi float %4 to i32
@@ -2262,7 +2262,7 @@ define internal void @_get_line_bounds(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_poly(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @_init_poly(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = tail call ptr @lv_vector_path_create(i32 noundef 0) #9
@@ -2369,7 +2369,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %36, %.loopexit31.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._lv_fpoint_t, align 4
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = load i8, ptr %2, align 8, !tbaa !164
@@ -2517,7 +2517,7 @@ define internal void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_poly_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_poly_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158
@@ -2537,7 +2537,7 @@ define internal void @_get_poly_bounds(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_destroy_poly(ptr nocapture noundef readonly %0) #0 {
+define internal void @_destroy_poly(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8, !tbaa !187
   tail call void @lv_vector_path_delete(ptr noundef %3) #9
@@ -2545,7 +2545,7 @@ define internal void @_destroy_poly(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_polygen_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_polygen_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   %5 = icmp eq i8 %4, 24
@@ -2562,7 +2562,7 @@ define internal void @_set_polygen_attr(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._lv_fpoint_t, align 4
   %5 = alloca %struct._lv_fpoint_t, align 4
   %6 = alloca [2 x %struct._lv_fpoint_t], align 16
@@ -3018,7 +3018,7 @@ _get_path_seg_size.exit:                          ; preds = %31, %64, %95, %246,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_text(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_init_text(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = tail call ptr @lv_strdup(ptr noundef nonnull @.str) #9
@@ -3039,7 +3039,7 @@ define internal void @_init_text(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_text_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_text_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %106 [
@@ -3506,7 +3506,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %111, %.loopexit31.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_text_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_text_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158
@@ -3722,7 +3722,7 @@ define internal void @_render_span(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false), !tbaa.struct !213
   %110 = load i16, ptr %98, align 2, !tbaa !214
   %111 = sitofp i16 %110 to float
-  call void @lv_matrix_translate(ptr noundef %2, float noundef %111, float noundef 0.000000e+00) #9
+  call void @lv_matrix_translate(ptr noundef nonnull %2, float noundef %111, float noundef 0.000000e+00) #9
   call void @lv_matrix_scale(ptr noundef nonnull %6, float noundef %92, float noundef %92) #9
   call void @lv_matrix_transform_path(ptr noundef nonnull %6, ptr noundef %89) #9
   %112 = load ptr, ptr %83, align 8, !tbaa !224
@@ -3732,7 +3732,7 @@ define internal void @_render_span(ptr noundef %0, ptr noundef %1, ptr noundef %
   %115 = load ptr, ptr %114, align 8, !tbaa !215
   call void %115(ptr noundef %113, ptr noundef nonnull %5) #9
   %116 = uitofp i16 %.v to float
-  call void @lv_matrix_translate(ptr noundef %2, float noundef %116, float noundef 0.000000e+00) #9
+  call void @lv_matrix_translate(ptr noundef nonnull %2, float noundef %116, float noundef 0.000000e+00) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3842,7 +3842,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %146, %.loopexit31.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_tspan(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_init_tspan(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %4) #9
@@ -3924,7 +3924,7 @@ _init_content.exit:                               ; preds = %38, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_tspan_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_tspan_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %106 [
@@ -4126,7 +4126,7 @@ define internal void @_set_tspan_attr(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_tspan_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
+define internal void @_get_tspan_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158
@@ -4146,7 +4146,7 @@ define internal void @_get_tspan_bounds(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_destroy_tspan(ptr nocapture noundef readonly %0) #0 {
+define internal void @_destroy_tspan(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !219
   %.not = icmp eq ptr %3, null
@@ -4184,7 +4184,7 @@ _destroy_content.exit:                            ; preds = %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_content(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_init_content(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %4) #9
@@ -4234,7 +4234,7 @@ define internal void @_init_content(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_destroy_content(ptr nocapture noundef readonly %0) #0 {
+define internal void @_destroy_content(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8, !tbaa !209
   %.not = icmp eq ptr %3, null
@@ -4249,7 +4249,7 @@ define internal void @_destroy_content(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_image(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @_init_image(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -4518,7 +4518,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %124, %.loopexit31.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_image_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_image_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %41 [
@@ -4598,7 +4598,7 @@ define internal void @_set_image_attr(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_use_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_use_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   tail call void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %21 [
@@ -4643,7 +4643,7 @@ define internal void @_set_use_attr(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_render_use(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @_render_use(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._lv_matrix_t, align 4
   %5 = alloca %struct._lv_matrix_t, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
@@ -4749,7 +4749,7 @@ define internal void @_render_use(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_destroy_use(ptr nocapture noundef readonly %0) #0 {
+define internal void @_destroy_use(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8, !tbaa !237
   %.not = icmp eq ptr %3, null
@@ -4764,7 +4764,7 @@ define internal void @_destroy_use(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_solid_attr(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_solid_attr(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %14 [
     i8 40, label %5
@@ -4791,7 +4791,7 @@ define internal void @_set_solid_attr(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_solid_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, i1 noundef zeroext %3) #0 {
+define internal void @_set_solid_ref(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2, i1 noundef zeroext %3) #0 {
   br i1 %3, label %5, label %6
 
 5:                                                ; preds = %4
@@ -4821,7 +4821,7 @@ define internal void @_set_solid_ref(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_gradient(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -4942,7 +4942,7 @@ define internal void @_init_gradient(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_set_gradient_attr(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #5 {
+define internal void @_set_gradient_attr(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %38 [
     i8 17, label %5
@@ -5144,7 +5144,7 @@ define internal void @_set_gradient_ref(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_init_group(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_init_group(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @lv_matrix_identity(ptr noundef nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -5155,7 +5155,7 @@ define internal void @_init_group(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i8, ptr %2, align 8, !tbaa !164
   switch i8 %4, label %.loopexit [
     i8 28, label %5
@@ -5724,7 +5724,7 @@ declare void @lv_vector_dsc_add_path(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @lv_vector_path_append_circle(ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #2
 
@@ -5737,7 +5737,7 @@ declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare void @lv_freetype_font_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @lv_freetype_font_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

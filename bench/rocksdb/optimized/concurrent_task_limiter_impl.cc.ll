@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl21SetMaxOutstandingTaskEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %limit) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl21SetMaxOutstandingTaskEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %limit) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %max_outstanding_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store atomic i32 %limit, ptr %max_outstanding_tasks_ monotonic, align 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl23ResetMaxOutstandingTaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl23ResetMaxOutstandingTaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %max_outstanding_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store atomic i32 -1, ptr %max_outstanding_tasks_ monotonic, align 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK7rocksdb25ConcurrentTaskLimiterImpl18GetOutstandingTaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK7rocksdb25ConcurrentTaskLimiterImpl18GetOutstandingTaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
   %outstanding_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load atomic i32, ptr %outstanding_tasks_ monotonic, align 4
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl8GetTokenEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %force) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25ConcurrentTaskLimiterImpl8GetTokenEb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %force) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %max_outstanding_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic i32, ptr %max_outstanding_tasks_ monotonic, align 8
@@ -151,7 +151,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb16TaskLimiterTokenD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb16TaskLimiterTokenD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %outstanding_tasks_ = getelementptr inbounds nuw i8, ptr %0, i64 44

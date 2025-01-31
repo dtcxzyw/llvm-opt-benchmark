@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN11BigUnsignedC1Es = unnamed_addr alias void (ptr, i16), ptr @_ZN11BigUnsignedC2Es
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveImEEvT_.exit, label %.noexc
@@ -46,7 +46,7 @@ _ZN11BigUnsigned17initFromPrimitiveImEEvT_.exit:  ; preds = %.noexc, %2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveIjEEvT_.exit, label %.noexc
@@ -67,7 +67,7 @@ _ZN11BigUnsigned17initFromPrimitiveIjEEvT_.exit:  ; preds = %.noexc, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Et(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Et(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i16 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveItEEvT_.exit, label %.noexc
@@ -88,7 +88,7 @@ _ZN11BigUnsigned17initFromPrimitiveItEEvT_.exit:  ; preds = %.noexc, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2El(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2El(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %6
@@ -139,7 +139,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %12, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %6
@@ -191,7 +191,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %13, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Es(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i16 noundef signext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Es(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i16 noundef signext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i16 %1, 0
   br i1 %3, label %4, label %6
@@ -243,7 +243,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %13, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK11BigUnsigned14toUnsignedLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK11BigUnsigned14toUnsignedLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %8 [
@@ -269,7 +269,7 @@ _ZNK11BigUnsigned18convertToPrimitiveImEET_v.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK11BigUnsigned13toUnsignedIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK11BigUnsigned13toUnsignedIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %11 [
@@ -300,7 +300,7 @@ _ZNK11BigUnsigned18convertToPrimitiveIjEET_v.exit: ; preds = %1, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %11 [
@@ -331,7 +331,7 @@ _ZNK11BigUnsigned18convertToPrimitiveItEET_v.exit: ; preds = %1, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, -9223372036854775808) i64 @_ZNK11BigUnsigned6toLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZNK11BigUnsigned6toLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
@@ -364,7 +364,7 @@ _ZNK11BigUnsigned24convertToSignedPrimitiveIlEET_v.exit: ; preds = %1, %_ZNK11Bi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK11BigUnsigned5toIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK11BigUnsigned5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %10 [
@@ -403,7 +403,7 @@ _ZNK11BigUnsigned24convertToSignedPrimitiveIiEET_v.exit: ; preds = %1, %_ZNK11Bi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i16 0, -32768) i16 @_ZNK11BigUnsigned7toShortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef signext range(i16 0, -32768) i16 @_ZNK11BigUnsigned7toShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %10 [
@@ -442,7 +442,7 @@ _ZNK11BigUnsigned24convertToSignedPrimitiveIsEET_v.exit: ; preds = %1, %_ZNK11Bi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned8setBlockEjm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsigned8setBlockEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i64 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -561,7 +561,7 @@ _ZN11BigUnsigned15zapLeadingZerosEv.exit:         ; preds = %21, %16, %9, %8, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK11BigUnsigned9bitLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK11BigUnsigned9bitLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -590,7 +590,7 @@ _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned6setBitEjb(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsigned6setBitEjb(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = lshr i32 %1, 6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -619,7 +619,7 @@ _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3201,7 +3201,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %39, %_ZN11BigUnsign
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedppEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsignedppEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -3289,7 +3289,7 @@ _ZN15NumberlikeArrayImE15allocateAndCopyEj.exit:  ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedppEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3377,7 +3377,7 @@ _ZN11BigUnsignedppEv.exit:                        ; preds = %._crit_edge.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedmmEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsignedmmEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3424,7 +3424,7 @@ define void @_ZN11BigUnsignedmmEv(ptr nocapture noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedmmEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -3471,7 +3471,7 @@ _ZN11BigUnsignedmmEv.exit:                        ; preds = %17, %25
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6

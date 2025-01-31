@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @adapt_module_construct(ptr nocapture noundef writeonly initializes((624, 633)) %0) #0 {
+define internal void @adapt_module_construct(ptr noundef writeonly captures(none) initializes((624, 633)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -48,7 +48,7 @@ define internal void @adapt_module_construct(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @adapt_module_destruct(ptr nocapture noundef %0) #1 {
+define internal void @adapt_module_destruct(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -193,7 +193,7 @@ define noundef i32 @ompi_coll_adapt_init_query(i1 noundef zeroext %0, i1 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ompi_coll_adapt_comm_query(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @ompi_coll_adapt_comm_query(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -307,7 +307,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @adapt_module_enable(ptr nocapture noundef writeonly initializes((592, 608)) %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @adapt_module_enable(ptr noundef writeonly captures(none) initializes((592, 608)) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -426,7 +426,7 @@ declare i32 @ompi_coll_adapt_ibcast(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare i32 @ompi_coll_adapt_ireduce(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_adapt_request_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @ompi_coll_adapt_request_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store volatile i32 0, ptr %3, align 8
@@ -506,7 +506,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
@@ -514,7 +514,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

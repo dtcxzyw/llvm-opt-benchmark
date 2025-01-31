@@ -158,7 +158,7 @@ define internal noundef range(i32 -19, 1) i32 @univ8250_console_init() #2 sectio
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 31
@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @serial8250_isa_init_ports() unnamed_addr #2 section ".init.text" align 16 {
@@ -422,7 +422,7 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
 declare dso_local void @serial8250_set_defaults(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @serial8250_suspend_port(i32 noundef %0) #5 align 16 {
@@ -1085,7 +1085,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local void @uart_remove_one_port(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @uart_get_rs485_mode(ptr noundef) local_unnamed_addr #4
@@ -1288,7 +1288,7 @@ define internal void @s8250_options() #0 align 16 {
 declare dso_local void @register_console(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @univ8250_console_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
+define internal void @univ8250_console_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i64
@@ -1389,7 +1389,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @univ8250_console_exit(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal i32 @univ8250_console_exit(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i64
@@ -1399,7 +1399,7 @@ define internal i32 @univ8250_console_exit(ptr nocapture noundef readonly %0) #5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, ptr noundef %3) #5 align 16 {
+define internal i32 @univ8250_console_match(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef %3) #5 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca [5 x i8], align 1
   %7 = alloca i8, align 1
@@ -1530,7 +1530,7 @@ declare dso_local i32 @serial8250_console_setup(ptr noundef, ptr noundef, i1 nou
 declare dso_local i32 @serial8250_console_exit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @uart_parse_earlycon(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2599,7 +2599,7 @@ define internal noundef i32 @serial8250_resume(ptr noundef readnone %0) #5 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #7

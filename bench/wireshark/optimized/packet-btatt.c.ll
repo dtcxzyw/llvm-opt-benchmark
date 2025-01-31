@@ -4700,7 +4700,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_signed_one_tenth_unitless(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_signed_one_tenth_unitless(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
@@ -4709,7 +4709,7 @@ define internal void @base_signed_one_tenth_unitless(ptr nocapture noundef write
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_hundredth_km_h(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_hundredth_km_h(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 100
   %4 = urem i32 %1, 100
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3027, i32 noundef %3, i32 noundef %4) #13
@@ -4717,7 +4717,7 @@ define internal void @base_unsigned_one_hundredth_km_h(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_signed_one_tenth_percentage(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_signed_one_tenth_percentage(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 10
   %5 = sdiv i32 %1, 10
@@ -4726,7 +4726,7 @@ define internal void @base_signed_one_tenth_percentage(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_tenth_percentage(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_tenth_percentage(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 10
   %4 = urem i32 %1, 10
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3029, i32 noundef %3, i32 noundef %4) #13
@@ -4734,7 +4734,7 @@ define internal void @base_unsigned_one_tenth_percentage(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_tenth_unitless(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_tenth_unitless(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 10
   %4 = urem i32 %1, 10
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3030, i32 noundef %3, i32 noundef %4) #13
@@ -4742,7 +4742,7 @@ define internal void @base_unsigned_one_tenth_unitless(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_tenth_milimeters(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_tenth_milimeters(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 10
   %4 = urem i32 %1, 10
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3056, i32 noundef %3, i32 noundef %4) #13
@@ -4750,7 +4750,7 @@ define internal void @base_unsigned_one_tenth_milimeters(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_half_half_minute(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_half_half_minute(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = lshr i32 %1, 1
   %4 = and i32 %1, 1
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3057, i32 noundef %3, i32 noundef %4) #13
@@ -4758,7 +4758,7 @@ define internal void @base_unsigned_one_half_half_minute(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_signed_one_thousandth_meters_per_seconds(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_signed_one_thousandth_meters_per_seconds(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 1000
   %5 = sdiv i32 %1, 1000
@@ -4767,7 +4767,7 @@ define internal void @base_signed_one_thousandth_meters_per_seconds(ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_signed_one_hundredth_percentage(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_signed_one_hundredth_percentage(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = srem i32 %3, 100
   %5 = sdiv i32 %1, 100
@@ -4776,7 +4776,7 @@ define internal void @base_signed_one_hundredth_percentage(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_ten_thousandth_unitless(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_ten_thousandth_unitless(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 10000
   %4 = urem i32 %1, 10000
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3030, i32 noundef %3, i32 noundef %4) #13
@@ -4784,7 +4784,7 @@ define internal void @base_unsigned_one_ten_thousandth_unitless(ptr nocapture no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @base_unsigned_one_hundredth_kg_per_meter(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @base_unsigned_one_hundredth_kg_per_meter(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = udiv i32 %1, 100
   %4 = urem i32 %1, 100
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3059, i32 noundef %3, i32 noundef %4) #13
@@ -4812,7 +4812,7 @@ define internal ptr @btatt_handle_value(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @btatt_handle_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @btatt_handle_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_btatt, align 4
@@ -6815,7 +6815,7 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_nordic_uart_tx(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_nordic_uart_tx(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -6842,7 +6842,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_nordic_uart_rx(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_nordic_uart_rx(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -6869,7 +6869,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_nordic_dfu_control_point(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_nordic_dfu_control_point(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr58 = freeze i8 %6
@@ -6954,7 +6954,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_nordic_dfu_packet(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_nordic_dfu_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -6981,7 +6981,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_accelerometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_accelerometer_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
@@ -7025,7 +7025,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_accelerometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_accelerometer_period(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7050,7 +7050,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_magnetometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_magnetometer_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
@@ -7094,7 +7094,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_period(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7119,7 +7119,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_bearing(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_bearing(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7144,7 +7144,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_a_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_a_state(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7169,7 +7169,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_b_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_b_state(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7194,7 +7194,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 1) i32 @dissect_btgatt_microbit_pin_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 2, 1) i32 @dissect_btgatt_microbit_pin_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
@@ -7243,7 +7243,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_pin_ad_config(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_pin_ad_config(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr10 = freeze i8 %6
@@ -7272,7 +7272,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_pin_io_config(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_pin_io_config(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr10 = freeze i8 %6
@@ -7301,7 +7301,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_pwm_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_pwm_control(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7328,7 +7328,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_led_matrix(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_led_matrix(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7355,7 +7355,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_led_text(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_led_text(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7382,7 +7382,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_scrolling_delay(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_scrolling_delay(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7407,7 +7407,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_microbit_requirements(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_microbit_requirements(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7434,7 +7434,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_microbit_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_microbit_event(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7461,7 +7461,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_client_requirements(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_client_requirements(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7488,7 +7488,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_client_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_btgatt_microbit_client_event(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
@@ -7515,7 +7515,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_dfu_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_dfu_control(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7540,7 +7540,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_temperature_value(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_temperature_value(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7565,7 +7565,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_temperature_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_temperature_period(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
@@ -7590,7 +7590,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7599,12 +7599,12 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7627,7 +7627,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %11 = alloca i32, align 4
@@ -8048,7 +8048,7 @@ proto_item_set_generated.exit85:                  ; preds = %171, %168, %167, %p
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable writeonly align 2 captures(none) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4
@@ -8113,7 +8113,7 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @col_append_info_by_handle(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
@@ -8330,7 +8330,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef zeroext %0, ptr nocapture noundef readonly byval(%union.request_parameters_union) align 8 %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef zeroext %0, ptr noundef readonly byval(%union.request_parameters_union) align 8 captures(none) %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -8408,7 +8408,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @print_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_handle(ptr noundef %0, ptr nocapture noundef readonly byval(%struct._uuid_t) align 8 %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_handle(ptr noundef %0, ptr noundef readonly byval(%struct._uuid_t) align 8 captures(none) %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -8482,7 +8482,7 @@ switch.early.test:                                ; preds = %5
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i32 %3, ptr %44, align 4
   %45 = load ptr, ptr @handle_to_uuid, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %45, ptr noundef nonnull %7, ptr noundef %43) #13
+  call void @wmem_tree_insert32_array(ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %43) #13
   br label %46
 
 46:                                               ; preds = %switch.early.test, %29, %21
@@ -9054,7 +9054,7 @@ get_service_uuid_from_handle.exit:                ; preds = %.thread.i, %140, %1
   ]
 
 165:                                              ; preds = %163
-  %166 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %166 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8807 = load i8, ptr %44, align 8
   %167 = freeze i8 %.pre8807
   br label %is_readable_response.exit.thread
@@ -9089,7 +9089,7 @@ switch.early.test7924:                            ; preds = %is_readable_respons
   %179 = load ptr, ptr %29, align 8
   %180 = call ptr @print_bluetooth_uuid(ptr noundef %179, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %178, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %180) #13
-  call fastcc void @save_handle(ptr noundef %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %42, i32 noundef 0, ptr noundef %28)
+  call fastcc void @save_handle(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %42, i32 noundef 0, ptr noundef %28)
   br label %is_readable_request.exit.thread
 
 181:                                              ; preds = %169
@@ -9110,13 +9110,13 @@ switch.early.test7924:                            ; preds = %is_readable_respons
   %191 = load ptr, ptr %29, align 8
   %192 = call ptr @print_bluetooth_uuid(ptr noundef %191, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %190, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %192) #13
-  call fastcc void @save_handle(ptr noundef %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %42, i32 noundef 0, ptr noundef %28)
+  call fastcc void @save_handle(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %42, i32 noundef 0, ptr noundef %28)
   br label %is_readable_request.exit.thread
 
 193:                                              ; preds = %181
   %194 = load i32, ptr @hf_btatt_value, align 4
   %195 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %194, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %196 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %195, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %196 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %195, ptr noundef nonnull @ei_btatt_bad_data) #13
   %197 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -9134,7 +9134,7 @@ switch.early.test7924:                            ; preds = %is_readable_respons
   ]
 
 200:                                              ; preds = %198
-  %201 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %201 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8806 = load i8, ptr %44, align 8
   %202 = freeze i8 %.pre8806
   br label %is_readable_response.exit5540.thread
@@ -9153,7 +9153,7 @@ switch.early.test7925:                            ; preds = %is_readable_respons
 
 204:                                              ; preds = %switch.early.test7925
   %205 = load i32, ptr @hf_btatt_included_service_handle, align 4
-  %206 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef %2, i32 noundef %205, ptr noundef %25, i32 noundef %.0.i, ptr noundef %28, ptr noundef null, i32 noundef -1)
+  %206 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %205, ptr noundef %25, i32 noundef %.0.i, ptr noundef %28, ptr noundef null, i32 noundef -1)
   %207 = add i32 %206, -2
   %208 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %207, i32 noundef -2147483648) #13
   %209 = load i32, ptr @hf_btatt_ending_handle, align 4
@@ -9172,7 +9172,7 @@ switch.early.test7925:                            ; preds = %is_readable_respons
   %219 = load ptr, ptr %29, align 8
   %220 = call ptr @print_bluetooth_uuid(ptr noundef %219, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %218, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %220) #13
-  call fastcc void @save_handle(ptr noundef %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %214, i32 noundef 2, ptr noundef %28)
+  call fastcc void @save_handle(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %214, i32 noundef 2, ptr noundef %28)
   br label %is_readable_request.exit.thread
 
 221:                                              ; preds = %get_service_uuid_from_handle.exit
@@ -9189,7 +9189,7 @@ switch.early.test7925:                            ; preds = %is_readable_respons
   ]
 
 223:                                              ; preds = %221
-  %224 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %224 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8805 = load i8, ptr %44, align 8
   %225 = freeze i8 %.pre8805
   br label %is_readable_response.exit5545.thread
@@ -9212,7 +9212,7 @@ switch.early.test7926:                            ; preds = %is_readable_respons
   %230 = call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %25, i32 noundef %.0.i, i32 noundef %228, i32 noundef %229, ptr noundef nonnull @hfx_btatt_characteristic_properties, i32 noundef 0) #13
   %231 = add nuw i32 %.0.i, 1
   %232 = load i32, ptr @hf_btatt_characteristic_value_handle, align 4
-  %233 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef %2, i32 noundef %232, ptr noundef %25, i32 noundef %231, ptr noundef %28, ptr noundef null, i32 noundef -1)
+  %233 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %232, ptr noundef %25, i32 noundef %231, ptr noundef %28, ptr noundef null, i32 noundef -1)
   %234 = add i32 %233, -2
   %235 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %234, i32 noundef -2147483648) #13
   %236 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %233) #13
@@ -9235,7 +9235,7 @@ switch.early.test7926:                            ; preds = %is_readable_respons
   %248 = call ptr @print_bluetooth_uuid(ptr noundef %247, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %246, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %248) #13
   %249 = zext i16 %235 to i32
-  call fastcc void @save_handle(ptr noundef %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %249, i32 noundef 1, ptr noundef %28)
+  call fastcc void @save_handle(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %249, i32 noundef 1, ptr noundef %28)
   br label %is_readable_request.exit.thread
 
 250:                                              ; preds = %227
@@ -9257,13 +9257,13 @@ switch.early.test7926:                            ; preds = %is_readable_respons
   %261 = load ptr, ptr %29, align 8
   %262 = call ptr @print_bluetooth_uuid(ptr noundef %261, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %260, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %262) #13
-  call fastcc void @save_handle(ptr noundef %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %256, i32 noundef 1, ptr noundef %28)
+  call fastcc void @save_handle(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct._uuid_t) align 8 %12, i32 noundef %256, i32 noundef 1, ptr noundef %28)
   br label %is_readable_request.exit.thread
 
 263:                                              ; preds = %250
   %264 = load i32, ptr @hf_btatt_value, align 4
   %265 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %264, ptr noundef %25, i32 noundef %233, i32 noundef -1, i32 noundef 0) #13
-  %266 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %265, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %266 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %265, ptr noundef nonnull @ei_btatt_bad_data) #13
   %267 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -9281,7 +9281,7 @@ switch.early.test7926:                            ; preds = %is_readable_respons
   ]
 
 270:                                              ; preds = %268
-  %271 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %271 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8804 = load i8, ptr %44, align 8
   %272 = freeze i8 %.pre8804
   br label %is_readable_response.exit5550.thread
@@ -9329,7 +9329,7 @@ switch.early.test7927:                            ; preds = %is_readable_respons
   br i1 %.not7896, label %is_readable_response.exit5555.thread, label %286
 
 286:                                              ; preds = %285
-  %287 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %287 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8803 = load i8, ptr %44, align 8
   %288 = freeze i8 %.pre8803
   br label %is_readable_response.exit5555.thread
@@ -9388,7 +9388,7 @@ switch.early.test7928:                            ; preds = %is_readable_respons
   br i1 %.not7889, label %is_readable_response.exit5560.thread, label %301
 
 301:                                              ; preds = %299
-  %302 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %302 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8802 = load i8, ptr %44, align 8
   %303 = freeze i8 %.pre8802
   br label %is_readable_response.exit5560.thread
@@ -9412,7 +9412,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   %309 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %.0.i, i32 noundef -2147483648) #13
   %310 = zext i16 %309 to i32
   %311 = add i32 %.0.i, 2
-  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %18, ptr noundef %2, i32 noundef %42, ptr noundef %28)
+  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %18, ptr noundef nonnull %2, i32 noundef %42, ptr noundef %28)
   %.sroa.0.0.copyload = load i16, ptr %18, align 2
   %312 = and i32 %310, 1
   %.not5511 = icmp eq i32 %312, 0
@@ -9447,7 +9447,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   ]
 
 314:                                              ; preds = %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313, %313
-  %315 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %315 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %316
 
 316:                                              ; preds = %314, %313, %305
@@ -9517,7 +9517,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   ]
 
 319:                                              ; preds = %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318, %318
-  %320 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %320 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %321
 
 321:                                              ; preds = %319, %318, %316
@@ -9525,7 +9525,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   br i1 %322, label %323, label %is_readable_request.exit.thread
 
 323:                                              ; preds = %321
-  %324 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %324 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_bad_data) #13
   br label %is_readable_request.exit.thread
 
 325:                                              ; preds = %get_service_uuid_from_handle.exit
@@ -9552,7 +9552,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   br i1 %.not7883, label %is_readable_response.exit5565.thread, label %332
 
 332:                                              ; preds = %331
-  %333 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %333 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8801 = load i8, ptr %44, align 8
   %334 = freeze i8 %.pre8801
   br label %is_readable_response.exit5565.thread
@@ -9602,7 +9602,7 @@ switch.early.test7930:                            ; preds = %is_readable_respons
   ]
 
 344:                                              ; preds = %342
-  %345 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %345 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8800 = load i8, ptr %44, align 8
   %346 = freeze i8 %.pre8800
   br label %is_readable_response.exit5570.thread
@@ -9655,7 +9655,7 @@ switch.early.test7931:                            ; preds = %is_readable_respons
   ]
 
 368:                                              ; preds = %366
-  %369 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %369 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8799 = load i8, ptr %44, align 8
   %370 = freeze i8 %.pre8799
   br label %is_readable_response.exit5575.thread
@@ -9687,7 +9687,7 @@ switch.early.test7932:                            ; preds = %is_readable_respons
 .lr.ph8205:                                       ; preds = %372, %.lr.ph8205
   %.18203 = phi i32 [ %383, %.lr.ph8205 ], [ %.0.i, %372 ]
   %382 = load i32, ptr @hf_btatt_handle, align 4
-  %383 = call fastcc i32 @dissect_handle(ptr noundef %379, ptr noundef %2, i32 noundef %382, ptr noundef %25, i32 noundef %.18203, ptr noundef %28, ptr noundef null, i32 noundef -1)
+  %383 = call fastcc i32 @dissect_handle(ptr noundef %379, ptr noundef nonnull %2, i32 noundef %382, ptr noundef %25, i32 noundef %.18203, ptr noundef %28, ptr noundef null, i32 noundef -1)
   %384 = call i32 @tvb_captured_length(ptr noundef %25) #13
   %385 = icmp ult i32 %383, %384
   br i1 %385, label %.lr.ph8205, label %is_readable_request.exit.thread, !llvm.loop !44
@@ -9706,7 +9706,7 @@ switch.early.test7933:                            ; preds = %386
   ]
 
 389:                                              ; preds = %switch.early.test7933
-  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %19, ptr noundef %2, i32 noundef %42, ptr noundef %28)
+  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %19, ptr noundef nonnull %2, i32 noundef %42, ptr noundef %28)
   %390 = load ptr, ptr %29, align 8
   %391 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %390, ptr noundef nonnull %19) #13
   %392 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %390, ptr noundef nonnull @.str.3105, ptr noundef %391) #13
@@ -9772,7 +9772,7 @@ switch.early.test7933:                            ; preds = %386
   ]
 
 429:                                              ; preds = %428
-  %430 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %430 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8797 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5583.thread
 
@@ -9814,7 +9814,7 @@ switch.early.test7934:                            ; preds = %is_readable_respons
 447:                                              ; preds = %440
   %448 = load i32, ptr @hf_btatt_value, align 4
   %449 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %448, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %450 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %449, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %450 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %449, ptr noundef nonnull @ei_btatt_bad_data) #13
   %451 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -9836,7 +9836,7 @@ switch.early.test7934:                            ; preds = %is_readable_respons
   ]
 
 455:                                              ; preds = %454
-  %456 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %456 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8795 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5588.thread
 
@@ -9876,7 +9876,7 @@ switch.early.test7935:                            ; preds = %is_readable_respons
   ]
 
 468:                                              ; preds = %466
-  %469 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %469 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8794 = load i8, ptr %44, align 8
   %470 = freeze i8 %.pre8794
   br label %is_readable_response.exit5593.thread
@@ -9923,7 +9923,7 @@ switch.early.test7936:                            ; preds = %is_readable_respons
   br i1 %.not7848, label %is_readable_response.exit5598.thread, label %483
 
 483:                                              ; preds = %482
-  %484 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %484 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8793 = load i8, ptr %44, align 8
   %485 = freeze i8 %.pre8793
   br label %is_readable_response.exit5598.thread
@@ -9973,7 +9973,7 @@ switch.early.test7937:                            ; preds = %is_readable_respons
 
 500:                                              ; preds = %498
   %501 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %492, i32 noundef 1) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %501, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %501, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %502 = add i32 %.0.i, 2
   br label %is_readable_request.exit.thread
 
@@ -10092,7 +10092,7 @@ switch.early.test7940:                            ; preds = %541
   br i1 %.not7832, label %is_readable_response.exit5612.thread, label %560
 
 560:                                              ; preds = %559
-  %561 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %561 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8792 = load i8, ptr %44, align 8
   %562 = freeze i8 %.pre8792
   br label %is_readable_response.exit5612.thread
@@ -10275,7 +10275,7 @@ switch.early.test7943:                            ; preds = %595
   br i1 %.not7819, label %is_readable_response.exit5623.thread, label %625
 
 625:                                              ; preds = %624
-  %626 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %626 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8790 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5623.thread
 
@@ -10323,7 +10323,7 @@ switch.early.test7944:                            ; preds = %is_readable_respons
   ]
 
 638:                                              ; preds = %636
-  %639 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %639 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8788 = load i8, ptr %44, align 8
   br label %640
 
@@ -10353,7 +10353,7 @@ switch.early.test7945:                            ; preds = %640
   %.04628 = phi i32 [ %647, %644 ], [ 0, %643 ]
   %.04627 = phi i32 [ %645, %644 ], [ 0, %643 ]
   %649 = load i32, ptr @hf_btatt_reconnection_address, align 4
-  %650 = call i32 @dissect_bd_addr(i32 noundef %649, ptr noundef %2, ptr noundef %0, ptr noundef %25, i32 noundef %.0.i, i32 noundef 0, i32 noundef %.04627, i32 noundef %.04628, ptr noundef null) #13
+  %650 = call i32 @dissect_bd_addr(i32 noundef %649, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %25, i32 noundef %.0.i, i32 noundef 0, i32 noundef %.04627, i32 noundef %.04628, ptr noundef null) #13
   br label %is_readable_request.exit.thread
 
 651:                                              ; preds = %get_service_uuid_from_handle.exit
@@ -10365,7 +10365,7 @@ switch.early.test7945:                            ; preds = %640
   br i1 %or.cond8999, label %is_readable_request.exit5630.thread, label %654
 
 654:                                              ; preds = %651
-  %655 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %655 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8786 = load i8, ptr %44, align 8
   br label %is_readable_request.exit5630.thread
 
@@ -10409,7 +10409,7 @@ switch.early.test7946:                            ; preds = %is_readable_request
   ]
 
 674:                                              ; preds = %673
-  %675 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %675 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8784 = load i8, ptr %44, align 8
   br label %676
 
@@ -10471,7 +10471,7 @@ switch.early.test7947.thread:                     ; preds = %673, %switch.early.
   br i1 %.not7799, label %is_readable_response.exit5639.threadthread-pre-split, label %is_readable_response.exit5639.threadthread-pre-split.sink.split
 
 is_readable_response.exit5639.threadthread-pre-split.sink.split: ; preds = %694, %686
-  %695 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %695 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %is_readable_response.exit5639.threadthread-pre-split
 
 is_readable_response.exit5639.threadthread-pre-split: ; preds = %is_readable_response.exit5639.threadthread-pre-split.sink.split, %694, %685
@@ -10528,7 +10528,7 @@ switch.early.test7948:                            ; preds = %686, %is_readable_r
   ]
 
 706:                                              ; preds = %705
-  %707 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %707 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8782 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5644.thread
 
@@ -10619,7 +10619,7 @@ switch.early.test7951:                            ; preds = %719
   ]
 
 733:                                              ; preds = %732
-  %734 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %734 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8780 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5655.thread
 
@@ -10738,7 +10738,7 @@ switch.early.test7954:                            ; preds = %761
   br i1 %.not7769, label %is_readable_response.exit5666.thread, label %776
 
 776:                                              ; preds = %775
-  %777 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %777 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8778 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5666.thread
 
@@ -10807,7 +10807,7 @@ switch.early.test7955:                            ; preds = %is_readable_respons
   ]
 
 799:                                              ; preds = %798
-  %800 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %800 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8776 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5671.thread
 
@@ -10887,7 +10887,7 @@ switch.early.test7958:                            ; preds = %815
   ]
 
 825:                                              ; preds = %824
-  %826 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %826 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8774 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5682.thread
 
@@ -10934,13 +10934,13 @@ switch.early.test7960:                            ; preds = %842
 
 845:                                              ; preds = %switch.early.test7960
   %846 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 9) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3107, ptr noundef %846, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3107, ptr noundef %846, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %847 = add i32 %.0.i, 9
   %848 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %847, i32 noundef 2) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3108, ptr noundef %848, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3108, ptr noundef %848, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %849 = add i32 %.0.i, 11
   %850 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %849, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3109, ptr noundef %850, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3109, ptr noundef %850, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %851 = add i32 %.0.i, 15
   br label %is_readable_request.exit.thread
 
@@ -10954,7 +10954,7 @@ switch.early.test7960:                            ; preds = %842
   br i1 %.not5420, label %switch.early.test7961.thread, label %855
 
 855:                                              ; preds = %854
-  %856 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %856 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8772 = load i8, ptr %44, align 8
   br label %857
 
@@ -10995,7 +10995,7 @@ switch.early.test7961.thread:                     ; preds = %854, %switch.early.
   ]
 
 866:                                              ; preds = %865
-  %867 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %867 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8770 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5693.thread
 
@@ -11031,7 +11031,7 @@ switch.early.test7962:                            ; preds = %is_readable_respons
   br i1 %.not5410, label %switch.early.test7963.thread, label %880
 
 880:                                              ; preds = %879
-  %881 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %881 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8768 = load i8, ptr %44, align 8
   br label %882
 
@@ -11133,7 +11133,7 @@ switch.early.test7963.thread:                     ; preds = %879, %switch.early.
   ]
 
 923:                                              ; preds = %922
-  %924 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %924 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8766 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5701.thread
 
@@ -11158,7 +11158,7 @@ switch.early.test7964:                            ; preds = %is_readable_respons
   br i1 %931, label %932, label %934
 
 932:                                              ; preds = %927
-  %933 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %929, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %933 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %929, ptr noundef nonnull @ei_btatt_bad_data) #13
   br label %934
 
 934:                                              ; preds = %932, %927
@@ -11206,7 +11206,7 @@ switch.early.test7966:                            ; preds = %944
   br i1 %951, label %952, label %954
 
 952:                                              ; preds = %947
-  %953 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %949, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %953 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %949, ptr noundef nonnull @ei_btatt_bad_data) #13
   br label %954
 
 954:                                              ; preds = %952, %947
@@ -11249,7 +11249,7 @@ switch.early.test7966:                            ; preds = %944
   br i1 %.not5398, label %switch.early.test7967, label %.sink.split
 
 .sink.split:                                      ; preds = %972, %967
-  %974 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %974 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %975
 
 975:                                              ; preds = %.sink.split, %969, %965
@@ -11319,7 +11319,7 @@ switch.early.test7967:                            ; preds = %972, %967, %975
   ]
 
 1001:                                             ; preds = %1000
-  %1002 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1002 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8764 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5715.thread
 
@@ -11363,7 +11363,7 @@ switch.early.test7969:                            ; preds = %1009
   br i1 %1016, label %1017, label %1019
 
 1017:                                             ; preds = %1012
-  %1018 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1014, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %1018 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %1014, ptr noundef nonnull @ei_btatt_bad_data) #13
   br label %1019
 
 1019:                                             ; preds = %1017, %1012
@@ -11391,7 +11391,7 @@ switch.early.test7970:                            ; preds = %1021
   br i1 %1028, label %1029, label %1031
 
 1029:                                             ; preds = %1024
-  %1030 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1026, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %1030 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %1026, ptr noundef nonnull @ei_btatt_bad_data) #13
   br label %1031
 
 1031:                                             ; preds = %1029, %1024
@@ -11422,7 +11422,7 @@ switch.early.test7970:                            ; preds = %1021
   ]
 
 1036:                                             ; preds = %1035
-  %1037 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1037 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8762 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5726.thread
 
@@ -11475,7 +11475,7 @@ switch.early.test7971:                            ; preds = %is_readable_respons
   ]
 
 1050:                                             ; preds = %1049
-  %1051 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1051 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8760 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5731.thread
 
@@ -11495,7 +11495,7 @@ switch.early.test7972:                            ; preds = %is_readable_respons
 1054:                                             ; preds = %switch.early.test7972
   %1055 = load ptr, ptr @usb_hid_boot_keyboard_input_report_handle, align 8
   %1056 = call ptr @tvb_new_subset_remaining(ptr noundef %25, i32 noundef %.0.i) #13
-  %1057 = call i32 @call_dissector_with_data(ptr noundef %1055, ptr noundef %1056, ptr noundef %2, ptr noundef %0, ptr noundef null) #13
+  %1057 = call i32 @call_dissector_with_data(ptr noundef %1055, ptr noundef %1056, ptr noundef nonnull %2, ptr noundef %0, ptr noundef null) #13
   %1058 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %.0.i) #13
   %1059 = add i32 %1058, %.0.i
   br label %is_readable_request.exit.thread
@@ -11518,7 +11518,7 @@ switch.early.test7972:                            ; preds = %is_readable_respons
   ]
 
 1063:                                             ; preds = %1062
-  %1064 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1064 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8758 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5736.thread
 
@@ -11562,7 +11562,7 @@ switch.early.test7973:                            ; preds = %is_readable_respons
   ]
 
 1077:                                             ; preds = %1076
-  %1078 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1078 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8756 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5741.thread
 
@@ -11605,7 +11605,7 @@ switch.early.test7974:                            ; preds = %is_readable_respons
   ]
 
 1090:                                             ; preds = %1089
-  %1091 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1091 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8754 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5746.thread
 
@@ -11648,7 +11648,7 @@ switch.early.test7975:                            ; preds = %is_readable_respons
   ]
 
 1103:                                             ; preds = %1102
-  %1104 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1104 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8752 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5751.thread
 
@@ -11691,7 +11691,7 @@ switch.early.test7976:                            ; preds = %is_readable_respons
   ]
 
 1116:                                             ; preds = %1115
-  %1117 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1117 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8750 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5756.thread
 
@@ -11734,7 +11734,7 @@ switch.early.test7977:                            ; preds = %is_readable_respons
   ]
 
 1129:                                             ; preds = %1128
-  %1130 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1130 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8748 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5761.thread
 
@@ -11777,7 +11777,7 @@ switch.early.test7978:                            ; preds = %is_readable_respons
   ]
 
 1142:                                             ; preds = %1141
-  %1143 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1143 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8746 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5766.thread
 
@@ -11820,7 +11820,7 @@ switch.early.test7979:                            ; preds = %is_readable_respons
   ]
 
 1155:                                             ; preds = %1154
-  %1156 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1156 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8744 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5771.thread
 
@@ -11955,7 +11955,7 @@ switch.early.test7980:                            ; preds = %is_readable_respons
   br i1 %.not5359, label %1236, label %1234
 
 1234:                                             ; preds = %.thread6580
-  %1235 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1180, ptr noundef nonnull @ei_btatt_invalid_length) #13
+  %1235 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %1180, ptr noundef nonnull @ei_btatt_invalid_length) #13
   br label %1236
 
 1236:                                             ; preds = %1234, %.thread6580
@@ -11981,7 +11981,7 @@ switch.early.test7980:                            ; preds = %is_readable_respons
   ]
 
 1240:                                             ; preds = %1239
-  %1241 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1241 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8742 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5776.thread
 
@@ -12019,10 +12019,10 @@ switch.early.test7982:                            ; preds = %1248
 
 1251:                                             ; preds = %switch.early.test7982
   %1252 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3110, ptr noundef %1252, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3110, ptr noundef %1252, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1253 = add i32 %.0.i, 4
   %1254 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1253, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3111, ptr noundef %1254, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3111, ptr noundef %1254, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1255 = add i32 %.0.i, 8
   br label %is_readable_request.exit.thread
 
@@ -12041,10 +12041,10 @@ switch.early.test7983:                            ; preds = %1256
 
 1259:                                             ; preds = %switch.early.test7983
   %1260 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 8) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3112, ptr noundef %1260, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3112, ptr noundef %1260, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1261 = add i32 %.0.i, 8
   %1262 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1261, i32 noundef 3) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3113, ptr noundef %1262, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3113, ptr noundef %1262, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1263 = add i32 %.0.i, 11
   br label %is_readable_request.exit.thread
 
@@ -12058,7 +12058,7 @@ switch.early.test7983:                            ; preds = %1256
   br i1 %.not5345, label %switch.early.test7984.thread, label %1267
 
 1267:                                             ; preds = %1266
-  %1268 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1268 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8740 = load i8, ptr %44, align 8
   br label %1269
 
@@ -12111,7 +12111,7 @@ switch.early.test7984.thread:                     ; preds = %1266, %switch.early
   ]
 
 1281:                                             ; preds = %1280
-  %1282 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1282 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8738 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5790.thread
 
@@ -12131,7 +12131,7 @@ switch.early.test7985:                            ; preds = %is_readable_respons
 1285:                                             ; preds = %switch.early.test7985
   %1286 = load ptr, ptr @usb_hid_boot_keyboard_output_report_handle, align 8
   %1287 = call ptr @tvb_new_subset_remaining(ptr noundef %25, i32 noundef %.0.i) #13
-  %1288 = call i32 @call_dissector_with_data(ptr noundef %1286, ptr noundef %1287, ptr noundef %2, ptr noundef %0, ptr noundef null) #13
+  %1288 = call i32 @call_dissector_with_data(ptr noundef %1286, ptr noundef %1287, ptr noundef nonnull %2, ptr noundef %0, ptr noundef null) #13
   %1289 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %.0.i) #13
   %1290 = add i32 %1289, %.0.i
   br label %is_readable_request.exit.thread
@@ -12166,7 +12166,7 @@ switch.early.test7985:                            ; preds = %is_readable_respons
   ]
 
 1297:                                             ; preds = %1296
-  %1298 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1298 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8736 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5795.thread
 
@@ -12186,7 +12186,7 @@ switch.early.test7986:                            ; preds = %is_readable_respons
 1301:                                             ; preds = %switch.early.test7986
   %1302 = load ptr, ptr @usb_hid_boot_mouse_input_report_handle, align 8
   %1303 = call ptr @tvb_new_subset_remaining(ptr noundef %25, i32 noundef %.0.i) #13
-  %1304 = call i32 @call_dissector_with_data(ptr noundef %1302, ptr noundef %1303, ptr noundef %2, ptr noundef %0, ptr noundef null) #13
+  %1304 = call i32 @call_dissector_with_data(ptr noundef %1302, ptr noundef %1303, ptr noundef nonnull %2, ptr noundef %0, ptr noundef null) #13
   %1305 = call i32 @tvb_reported_length_remaining(ptr noundef %25, i32 noundef %.0.i) #13
   %1306 = add i32 %1305, %.0.i
   br label %is_readable_request.exit.thread
@@ -12201,7 +12201,7 @@ switch.early.test7986:                            ; preds = %is_readable_respons
   br i1 %.not5323, label %switch.early.test7987.thread, label %1310
 
 1310:                                             ; preds = %1309
-  %1311 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1311 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8734 = load i8, ptr %44, align 8
   br label %1312
 
@@ -12348,7 +12348,7 @@ switch.early.test7987.thread:                     ; preds = %1309, %switch.early
   br i1 %.not5315, label %switch.early.test7988, label %.sink.split9005
 
 .sink.split9005:                                  ; preds = %1382, %1379
-  %1384 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1384 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %1385
 
 1385:                                             ; preds = %.sink.split9005, %1381, %1378
@@ -12445,7 +12445,7 @@ switch.early.test7988:                            ; preds = %1382, %1379, %1385
   br i1 %.not5309, label %switch.early.test7989.thread, label %1429
 
 1429:                                             ; preds = %1428
-  %1430 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1430 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8732 = load i8, ptr %44, align 8
   br label %1431
 
@@ -12547,7 +12547,7 @@ switch.early.test7989.thread:                     ; preds = %1428, %switch.early
   ]
 
 1471:                                             ; preds = %1470
-  %1472 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1472 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8730 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5809.thread
 
@@ -12583,7 +12583,7 @@ switch.early.test7990:                            ; preds = %is_readable_respons
   ]
 
 1483:                                             ; preds = %1481
-  %1484 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1484 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8728 = load i8, ptr %44, align 8
   br label %1485
 
@@ -12724,7 +12724,7 @@ switch.early.test7996:                            ; preds = %1524
   ]
 
 1534:                                             ; preds = %1533
-  %1535 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1535 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8726 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5832.thread
 
@@ -12758,7 +12758,7 @@ switch.early.test7997:                            ; preds = %is_readable_respons
   br i1 %.not5292, label %switch.early.test7998.thread, label %1546
 
 1546:                                             ; preds = %1545
-  %1547 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1547 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8724 = load i8, ptr %44, align 8
   br label %1548
 
@@ -12800,7 +12800,7 @@ switch.early.test7998.thread:                     ; preds = %1545, %switch.early
   ]
 
 1557:                                             ; preds = %1556
-  %1558 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1558 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8722 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5840.thread
 
@@ -12844,7 +12844,7 @@ switch.early.test7999:                            ; preds = %is_readable_respons
   ]
 
 1569:                                             ; preds = %1568
-  %1570 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1570 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8720 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5845.thread
 
@@ -12909,7 +12909,7 @@ switch.early.test8001:                            ; preds = %1585
   ]
 
 1596:                                             ; preds = %1594
-  %1597 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1597 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8718 = load i8, ptr %44, align 8
   br label %1598
 
@@ -12945,7 +12945,7 @@ switch.early.test8002:                            ; preds = %1598
   br i1 %.not5279, label %switch.early.test8003.thread, label %1611
 
 1611:                                             ; preds = %1610
-  %1612 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1612 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8716 = load i8, ptr %44, align 8
   br label %1613
 
@@ -12981,7 +12981,7 @@ switch.early.test8003.thread:                     ; preds = %1610, %switch.early
   br i1 %.not5277, label %switch.early.test8004.thread, label %1625
 
 1625:                                             ; preds = %1624
-  %1626 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1626 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8714 = load i8, ptr %44, align 8
   br label %1627
 
@@ -13035,7 +13035,7 @@ switch.early.test8004.thread:                     ; preds = %1624, %switch.early
   ]
 
 1647:                                             ; preds = %1646
-  %1648 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1648 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8712 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5862.thread
 
@@ -13077,7 +13077,7 @@ switch.early.test8005:                            ; preds = %is_readable_respons
   ]
 
 1659:                                             ; preds = %1658
-  %1660 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1660 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8710 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5867.thread
 
@@ -13125,7 +13125,7 @@ switch.early.test8006:                            ; preds = %is_readable_respons
   ]
 
 1677:                                             ; preds = %1676
-  %1678 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1678 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8708 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5872.thread
 
@@ -13143,7 +13143,7 @@ switch.early.test8007:                            ; preds = %is_readable_respons
   ]
 
 1681:                                             ; preds = %switch.early.test8007
-  %1682 = call i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %25, i32 noundef %.0.i, ptr noundef null) #13
+  %1682 = call i32 @dissect_usb_hid_get_report_descriptor(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %25, i32 noundef %.0.i, ptr noundef null) #13
   br label %is_readable_request.exit.thread
 
 1683:                                             ; preds = %get_service_uuid_from_handle.exit
@@ -13156,7 +13156,7 @@ switch.early.test8007:                            ; preds = %is_readable_respons
   br i1 %.not5266, label %switch.early.test8008.thread, label %1686
 
 1686:                                             ; preds = %1685
-  %1687 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1687 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8706 = load i8, ptr %44, align 8
   br label %1688
 
@@ -13213,7 +13213,7 @@ switch.early.test8008.thread:                     ; preds = %1685, %switch.early
   ]
 
 1703:                                             ; preds = %1702
-  %1704 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1704 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8704 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5880.thread
 
@@ -13245,7 +13245,7 @@ switch.early.test8009:                            ; preds = %is_readable_respons
 1708:                                             ; preds = %switch.early.test8009
   %1709 = load i32, ptr @hf_btatt_value, align 4
   %1710 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1709, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %1711 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1710, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %1711 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %1710, ptr noundef nonnull @ei_btatt_undecoded) #13
   %1712 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -13268,7 +13268,7 @@ switch.early.test8009:                            ; preds = %is_readable_respons
   ]
 
 1716:                                             ; preds = %1715
-  %1717 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1717 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8702 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5885.thread
 
@@ -13301,7 +13301,7 @@ switch.early.test8010:                            ; preds = %is_readable_respons
   br i1 %.not5253, label %switch.early.test8011.thread, label %1727
 
 1727:                                             ; preds = %1726
-  %1728 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1728 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8700 = load i8, ptr %44, align 8
   br label %1729
 
@@ -13345,7 +13345,7 @@ switch.early.test8011.thread:                     ; preds = %1726, %switch.early
   ]
 
 1741:                                             ; preds = %1740
-  %1742 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1742 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8698 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5893.thread
 
@@ -13402,7 +13402,7 @@ switch.early.test8012:                            ; preds = %is_readable_respons
   ]
 
 1762:                                             ; preds = %1761
-  %1763 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1763 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8696 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5898.thread
 
@@ -13445,7 +13445,7 @@ switch.early.test8013:                            ; preds = %is_readable_respons
   ]
 
 1774:                                             ; preds = %1772
-  %1775 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1775 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %thread-pre-split8868
 
 thread-pre-split8868:                             ; preds = %1774, %1771
@@ -13587,7 +13587,7 @@ switch.early.test8014:                            ; preds = %1777
   br i1 %.not5239, label %switch.early.test8015.thread, label %1854
 
 1854:                                             ; preds = %1853
-  %1855 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1855 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8694 = load i8, ptr %44, align 8
   br label %1856
 
@@ -13657,7 +13657,7 @@ switch.early.test8015.thread:                     ; preds = %1853, %switch.early
   ]
 
 1885:                                             ; preds = %1884
-  %1886 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1886 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8692 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5909.thread
 
@@ -13698,7 +13698,7 @@ switch.early.test8016:                            ; preds = %is_readable_respons
   ]
 
 1897:                                             ; preds = %1896
-  %1898 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1898 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8690 = load i8, ptr %44, align 8
   br label %1899
 
@@ -13800,7 +13800,7 @@ switch.early.test8017:                            ; preds = %1899
   ]
 
 1938:                                             ; preds = %1937
-  %1939 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1939 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8688 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5917.thread
 
@@ -13875,7 +13875,7 @@ switch.early.test8019:                            ; preds = %1946
   ]
 
 1960:                                             ; preds = %1959
-  %1961 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1961 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8686 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5925.thread
 
@@ -13946,7 +13946,7 @@ is_readable_request.exit5932:                     ; preds = %1977
   ]
 
 1982:                                             ; preds = %1979
-  %1983 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1983 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8684 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5933.thread
 
@@ -13965,10 +13965,10 @@ switch.early.test8022:                            ; preds = %is_readable_respons
 
 1986:                                             ; preds = %switch.early.test8022
   %1987 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 1) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %1987, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %1987, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1988 = add nuw i32 %.0.i, 1
   %1989 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1988, i32 noundef 2) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3115, ptr noundef %1989, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3115, ptr noundef %1989, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %1990 = add i32 %.0.i, 3
   br label %is_readable_request.exit.thread
 
@@ -13982,7 +13982,7 @@ switch.early.test8022:                            ; preds = %is_readable_respons
   br i1 %.not5207, label %switch.early.test8023.thread, label %1994
 
 1994:                                             ; preds = %1993
-  %1995 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %1995 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8682 = load i8, ptr %44, align 8
   br label %1996
 
@@ -14052,7 +14052,7 @@ switch.early.test8023.thread:                     ; preds = %1993, %switch.early
   ]
 
 2025:                                             ; preds = %2024
-  %2026 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2026 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8680 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5941.thread
 
@@ -14097,7 +14097,7 @@ switch.early.test8024:                            ; preds = %is_readable_respons
   ]
 
 2037:                                             ; preds = %2035
-  %2038 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2038 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   br label %is_readable_response.exit5946.threadthread-pre-split
 
 is_readable_response.exit5946.threadthread-pre-split: ; preds = %2037, %2034
@@ -14135,7 +14135,7 @@ switch.early.test8025:                            ; preds = %is_readable_respons
   ]
 
 2048:                                             ; preds = %2047
-  %2049 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2049 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8678 = load i8, ptr %44, align 8
   br label %2050
 
@@ -14179,7 +14179,7 @@ switch.early.test8026.thread:                     ; preds = %2047, %switch.early
   %2073 = load i32, ptr @ett_btatt_value, align 4
   %2074 = call ptr @proto_item_add_subtree(ptr noundef %2072, i32 noundef %2073) #13
   %2075 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %2068, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %2075, ptr noundef %2, ptr noundef %2074, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %2075, ptr noundef nonnull %2, ptr noundef %2074, ptr noundef %8)
   %2076 = add i32 %.0.i, 12
   br label %2077
 
@@ -14231,7 +14231,7 @@ switch.early.test8026.thread:                     ; preds = %2047, %switch.early
   br i1 %.not5188, label %switch.early.test8027.thread, label %2100
 
 2100:                                             ; preds = %2099
-  %2101 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2101 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8676 = load i8, ptr %44, align 8
   br label %2102
 
@@ -14357,7 +14357,7 @@ switch.early.test8027.thread:                     ; preds = %2099, %switch.early
   ]
 
 2169:                                             ; preds = %2168
-  %2170 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2170 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8674 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5957.thread
 
@@ -14415,7 +14415,7 @@ switch.early.test8028:                            ; preds = %is_readable_respons
   br i1 %.not5171, label %switch.early.test8029.thread, label %2196
 
 2196:                                             ; preds = %2195
-  %2197 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2197 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8672 = load i8, ptr %44, align 8
   br label %2198
 
@@ -14583,7 +14583,7 @@ switch.early.test8029.thread:                     ; preds = %2195, %switch.early
   br i1 %.not5165, label %switch.early.test8030.thread, label %2285
 
 2285:                                             ; preds = %2284
-  %2286 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2286 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8670 = load i8, ptr %44, align 8
   br label %2287
 
@@ -14690,7 +14690,7 @@ switch.early.test8030.thread:                     ; preds = %2284, %switch.early
   ]
 
 2330:                                             ; preds = %2329
-  %2331 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2331 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8668 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5968.thread
 
@@ -14730,7 +14730,7 @@ switch.early.test8031:                            ; preds = %is_readable_respons
   ]
 
 2342:                                             ; preds = %2341
-  %2343 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2343 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8666 = load i8, ptr %44, align 8
   br label %2344
 
@@ -14930,7 +14930,7 @@ switch.early.test8032:                            ; preds = %2344
   br i1 %.not5148, label %switch.early.test8033.thread, label %2448
 
 2448:                                             ; preds = %2447
-  %2449 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2449 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8664 = load i8, ptr %44, align 8
   br label %2450
 
@@ -15048,7 +15048,7 @@ switch.early.test8033.thread:                     ; preds = %2447, %switch.early
   br i1 %.not5143, label %switch.early.test8034.thread, label %2505
 
 2505:                                             ; preds = %2504
-  %2506 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2506 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8662 = load i8, ptr %44, align 8
   br label %2507
 
@@ -15129,7 +15129,7 @@ switch.early.test8034.thread:                     ; preds = %2504, %switch.early
   ]
 
 2541:                                             ; preds = %2540
-  %2542 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2542 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8660 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5982.thread
 
@@ -15253,7 +15253,7 @@ switch.early.test8035:                            ; preds = %is_readable_respons
   ]
 
 2596:                                             ; preds = %2595
-  %2597 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2597 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8658 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5987.thread
 
@@ -15293,7 +15293,7 @@ switch.early.test8036:                            ; preds = %is_readable_respons
   ]
 
 2608:                                             ; preds = %2607
-  %2609 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2609 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8656 = load i8, ptr %44, align 8
   br label %2610
 
@@ -15409,7 +15409,7 @@ switch.early.test8037:                            ; preds = %2610
   ]
 
 2664:                                             ; preds = %2663
-  %2665 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2665 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8654 = load i8, ptr %44, align 8
   br label %is_readable_response.exit5995.thread
 
@@ -15451,7 +15451,7 @@ switch.early.test8038:                            ; preds = %is_readable_respons
   ]
 
 2675:                                             ; preds = %2674
-  %2676 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2676 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8652 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6000.thread
 
@@ -15493,7 +15493,7 @@ switch.early.test8039:                            ; preds = %is_readable_respons
   ]
 
 2686:                                             ; preds = %2685
-  %2687 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2687 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8650 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6005.thread
 
@@ -15535,7 +15535,7 @@ switch.early.test8040:                            ; preds = %is_readable_respons
   ]
 
 2697:                                             ; preds = %2696
-  %2698 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2698 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8648 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6010.thread
 
@@ -15577,7 +15577,7 @@ switch.early.test8041:                            ; preds = %is_readable_respons
   ]
 
 2708:                                             ; preds = %2707
-  %2709 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2709 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8646 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6015.thread
 
@@ -15619,7 +15619,7 @@ switch.early.test8042:                            ; preds = %is_readable_respons
   ]
 
 2719:                                             ; preds = %2718
-  %2720 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2720 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8644 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6020.thread
 
@@ -15661,7 +15661,7 @@ switch.early.test8043:                            ; preds = %is_readable_respons
   ]
 
 2730:                                             ; preds = %2729
-  %2731 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2731 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8642 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6025.thread
 
@@ -15703,7 +15703,7 @@ switch.early.test8044:                            ; preds = %is_readable_respons
   ]
 
 2741:                                             ; preds = %2740
-  %2742 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2742 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8640 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6030.thread
 
@@ -15745,7 +15745,7 @@ switch.early.test8045:                            ; preds = %is_readable_respons
   ]
 
 2752:                                             ; preds = %2751
-  %2753 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2753 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8638 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6035.thread
 
@@ -15787,7 +15787,7 @@ switch.early.test8046:                            ; preds = %is_readable_respons
   ]
 
 2763:                                             ; preds = %2762
-  %2764 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2764 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8636 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6040.thread
 
@@ -15829,7 +15829,7 @@ switch.early.test8047:                            ; preds = %is_readable_respons
   ]
 
 2774:                                             ; preds = %2773
-  %2775 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2775 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8634 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6045.thread
 
@@ -15871,7 +15871,7 @@ switch.early.test8048:                            ; preds = %is_readable_respons
   ]
 
 2785:                                             ; preds = %2784
-  %2786 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2786 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8632 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6050.thread
 
@@ -15913,7 +15913,7 @@ switch.early.test8049:                            ; preds = %is_readable_respons
   ]
 
 2796:                                             ; preds = %2795
-  %2797 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2797 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8630 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6055.thread
 
@@ -15955,7 +15955,7 @@ switch.early.test8050:                            ; preds = %is_readable_respons
   ]
 
 2807:                                             ; preds = %2806
-  %2808 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2808 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8628 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6060.thread
 
@@ -15997,7 +15997,7 @@ switch.early.test8051:                            ; preds = %is_readable_respons
   ]
 
 2818:                                             ; preds = %2817
-  %2819 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2819 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8626 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6065.thread
 
@@ -16039,7 +16039,7 @@ switch.early.test8052:                            ; preds = %is_readable_respons
   ]
 
 2829:                                             ; preds = %2828
-  %2830 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2830 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8624 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6070.thread
 
@@ -16074,7 +16074,7 @@ switch.early.test8053:                            ; preds = %is_readable_respons
   ]
 
 2840:                                             ; preds = %2839
-  %2841 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2841 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8622 = load i8, ptr %44, align 8
   br label %2842
 
@@ -16120,7 +16120,7 @@ switch.early.test8054.thread:                     ; preds = %2839, %switch.early
 2862:                                             ; preds = %2855
   %2863 = load i32, ptr @hf_btatt_value, align 4
   %2864 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2863, ptr noundef %25, i32 noundef %2848, i32 noundef -1, i32 noundef 0) #13
-  %2865 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2864, ptr noundef nonnull @ei_btatt_bad_data) #13
+  %2865 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %2864, ptr noundef nonnull @ei_btatt_bad_data) #13
   %2866 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -16171,7 +16171,7 @@ switch.early.test8055:                            ; preds = %2867
   br i1 %.not7363, label %is_readable_response.exit6081.thread, label %2882
 
 2882:                                             ; preds = %2881
-  %2883 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2883 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8620 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6081.thread
 
@@ -16234,7 +16234,7 @@ switch.early.test8056:                            ; preds = %is_readable_respons
   br i1 %.not7356, label %is_readable_response.exit6086.thread, label %2899
 
 2899:                                             ; preds = %2898
-  %2900 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2900 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8618 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6086.thread
 
@@ -16297,7 +16297,7 @@ switch.early.test8057:                            ; preds = %is_readable_respons
   br i1 %.not7349, label %is_readable_response.exit6091.thread, label %2916
 
 2916:                                             ; preds = %2915
-  %2917 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2917 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8616 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6091.thread
 
@@ -16360,7 +16360,7 @@ switch.early.test8058:                            ; preds = %is_readable_respons
   br i1 %.not7342, label %is_readable_response.exit6096.thread, label %2933
 
 2933:                                             ; preds = %2932
-  %2934 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2934 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8614 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6096.thread
 
@@ -16423,7 +16423,7 @@ switch.early.test8059:                            ; preds = %is_readable_respons
   br i1 %.not7335, label %is_readable_response.exit6101.thread, label %2950
 
 2950:                                             ; preds = %2949
-  %2951 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2951 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8612 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6101.thread
 
@@ -16486,7 +16486,7 @@ switch.early.test8060:                            ; preds = %is_readable_respons
   br i1 %.not7328, label %is_readable_response.exit6106.thread, label %2967
 
 2967:                                             ; preds = %2966
-  %2968 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2968 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8610 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6106.thread
 
@@ -16549,7 +16549,7 @@ switch.early.test8061:                            ; preds = %is_readable_respons
   br i1 %.not7321, label %is_readable_response.exit6111.thread, label %2984
 
 2984:                                             ; preds = %2983
-  %2985 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %2985 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8608 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6111.thread
 
@@ -16618,7 +16618,7 @@ switch.early.test8062:                            ; preds = %is_readable_respons
   br i1 %.not7314, label %is_readable_response.exit6116.thread, label %3007
 
 3007:                                             ; preds = %3006
-  %3008 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3008 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8606 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6116.thread
 
@@ -16683,7 +16683,7 @@ switch.early.test8063:                            ; preds = %is_readable_respons
   br i1 %.not7307, label %is_readable_response.exit6121.thread, label %3026
 
 3026:                                             ; preds = %3025
-  %3027 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3027 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8604 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6121.thread
 
@@ -16746,7 +16746,7 @@ switch.early.test8064:                            ; preds = %is_readable_respons
   br i1 %.not7300, label %is_readable_response.exit6126.thread, label %3043
 
 3043:                                             ; preds = %3042
-  %3044 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3044 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8602 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6126.thread
 
@@ -16809,7 +16809,7 @@ switch.early.test8065:                            ; preds = %is_readable_respons
   br i1 %.not7293, label %is_readable_response.exit6131.thread, label %3060
 
 3060:                                             ; preds = %3059
-  %3061 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3061 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8600 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6131.thread
 
@@ -16874,7 +16874,7 @@ switch.early.test8066:                            ; preds = %is_readable_respons
   br i1 %.not7286, label %is_readable_response.exit6136.thread, label %3079
 
 3079:                                             ; preds = %3078
-  %3080 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3080 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8598 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6136.thread
 
@@ -16946,7 +16946,7 @@ switch.early.test8067:                            ; preds = %is_readable_respons
   br i1 %.not7279, label %is_readable_response.exit6141.thread, label %3105
 
 3105:                                             ; preds = %3104
-  %3106 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3106 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8596 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6141.thread
 
@@ -17009,7 +17009,7 @@ switch.early.test8068:                            ; preds = %is_readable_respons
   br i1 %.not7272, label %is_readable_response.exit6146.thread, label %3122
 
 3122:                                             ; preds = %3121
-  %3123 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3123 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8594 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6146.thread
 
@@ -17072,7 +17072,7 @@ switch.early.test8069:                            ; preds = %is_readable_respons
   br i1 %.not7265, label %is_readable_response.exit6151.thread, label %3139
 
 3139:                                             ; preds = %3138
-  %3140 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3140 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8592 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6151.thread
 
@@ -17135,7 +17135,7 @@ switch.early.test8070:                            ; preds = %is_readable_respons
   br i1 %.not7258, label %is_readable_response.exit6156.thread, label %3156
 
 3156:                                             ; preds = %3155
-  %3157 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3157 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8590 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6156.thread
 
@@ -17198,7 +17198,7 @@ switch.early.test8071:                            ; preds = %is_readable_respons
   br i1 %.not7251, label %is_readable_response.exit6161.thread, label %3173
 
 3173:                                             ; preds = %3172
-  %3174 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3174 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8588 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6161.thread
 
@@ -17263,7 +17263,7 @@ switch.early.test8072:                            ; preds = %is_readable_respons
   br i1 %.not7244, label %is_readable_response.exit6166.thread, label %3192
 
 3192:                                             ; preds = %3191
-  %3193 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3193 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8586 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6166.thread
 
@@ -17326,7 +17326,7 @@ switch.early.test8073:                            ; preds = %is_readable_respons
   br i1 %.not7237, label %is_readable_response.exit6171.thread, label %3209
 
 3209:                                             ; preds = %3208
-  %3210 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3210 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8584 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6171.thread
 
@@ -17389,7 +17389,7 @@ switch.early.test8074:                            ; preds = %is_readable_respons
   br i1 %.not7230, label %is_readable_response.exit6176.thread, label %3226
 
 3226:                                             ; preds = %3225
-  %3227 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3227 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8582 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6176.thread
 
@@ -17452,7 +17452,7 @@ switch.early.test8075:                            ; preds = %is_readable_respons
   br i1 %.not7223, label %is_readable_response.exit6181.thread, label %3243
 
 3243:                                             ; preds = %3242
-  %3244 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3244 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8580 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6181.thread
 
@@ -17518,7 +17518,7 @@ switch.early.test8076:                            ; preds = %is_readable_respons
   br i1 %.not7216, label %is_readable_response.exit6186.thread, label %3263
 
 3263:                                             ; preds = %3262
-  %3264 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3264 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8578 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6186.thread
 
@@ -17581,7 +17581,7 @@ switch.early.test8077:                            ; preds = %is_readable_respons
   br i1 %.not7209, label %is_readable_response.exit6191.thread, label %3280
 
 3280:                                             ; preds = %3279
-  %3281 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3281 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8576 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6191.thread
 
@@ -17644,7 +17644,7 @@ switch.early.test8078:                            ; preds = %is_readable_respons
   br i1 %.not7202, label %is_readable_response.exit6196.thread, label %3297
 
 3297:                                             ; preds = %3296
-  %3298 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3298 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8574 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6196.thread
 
@@ -17707,7 +17707,7 @@ switch.early.test8079:                            ; preds = %is_readable_respons
   br i1 %.not7195, label %is_readable_response.exit6201.thread, label %3314
 
 3314:                                             ; preds = %3313
-  %3315 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3315 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8572 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6201.thread
 
@@ -17772,7 +17772,7 @@ switch.early.test8080:                            ; preds = %is_readable_respons
   ]
 
 3329:                                             ; preds = %3328
-  %3330 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3330 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8570 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6206.thread
 
@@ -17813,7 +17813,7 @@ switch.early.test8081:                            ; preds = %is_readable_respons
   ]
 
 3340:                                             ; preds = %3339
-  %3341 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3341 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8568 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6211.thread
 
@@ -17854,7 +17854,7 @@ switch.early.test8082:                            ; preds = %is_readable_respons
   ]
 
 3351:                                             ; preds = %3350
-  %3352 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3352 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8566 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6216.thread
 
@@ -17890,7 +17890,7 @@ switch.early.test8083:                            ; preds = %is_readable_respons
   ]
 
 3363:                                             ; preds = %3362
-  %3364 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3364 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8564 = load i8, ptr %44, align 8
   br label %3365
 
@@ -18086,7 +18086,7 @@ switch.early.test8084.thread:                     ; preds = %3362, %switch.early
   ]
 
 3450:                                             ; preds = %3449
-  %3451 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3451 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8562 = load i8, ptr %44, align 8
   br label %3452
 
@@ -18173,7 +18173,7 @@ switch.early.test8085:                            ; preds = %3452
   ]
 
 3488:                                             ; preds = %3487
-  %3489 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3489 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8560 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6227.thread
 
@@ -18213,7 +18213,7 @@ switch.early.test8086:                            ; preds = %is_readable_respons
   ]
 
 3500:                                             ; preds = %3499
-  %3501 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3501 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8558 = load i8, ptr %44, align 8
   br label %3502
 
@@ -18249,7 +18249,7 @@ switch.early.test8087:                            ; preds = %3502
   br i1 %3514, label %3515, label %3517
 
 3515:                                             ; preds = %3510
-  %3516 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3512, ptr noundef nonnull @ei_btatt_consent_out_of_bounds) #13
+  %3516 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %3512, ptr noundef nonnull @ei_btatt_consent_out_of_bounds) #13
   br label %3517
 
 3517:                                             ; preds = %3515, %3510
@@ -18267,7 +18267,7 @@ switch.early.test8087:                            ; preds = %3502
   br i1 %3526, label %3527, label %3529
 
 3527:                                             ; preds = %3519
-  %3528 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3524, ptr noundef nonnull @ei_btatt_consent_out_of_bounds) #13
+  %3528 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %3524, ptr noundef nonnull @ei_btatt_consent_out_of_bounds) #13
   br label %3529
 
 3529:                                             ; preds = %3527, %3519
@@ -18315,7 +18315,7 @@ switch.early.test8087:                            ; preds = %3502
   ]
 
 3550:                                             ; preds = %3549
-  %3551 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3551 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8556 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6235.thread
 
@@ -18377,7 +18377,7 @@ switch.early.test8088:                            ; preds = %is_readable_respons
   br i1 %.not7154, label %is_readable_response.exit6240.thread, label %3575
 
 3575:                                             ; preds = %3574
-  %3576 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3576 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8554 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6240.thread
 
@@ -18433,7 +18433,7 @@ switch.early.test8089:                            ; preds = %is_readable_respons
   ]
 
 3589:                                             ; preds = %3588
-  %3590 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3590 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8552 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6245.thread
 
@@ -18469,7 +18469,7 @@ switch.early.test8090:                            ; preds = %is_readable_respons
   ]
 
 3601:                                             ; preds = %3599
-  %3602 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3602 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8550 = load i8, ptr %44, align 8
   br label %3603
 
@@ -18520,7 +18520,7 @@ switch.early.test8091:                            ; preds = %3603
   ]
 
 3621:                                             ; preds = %3620
-  %3622 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3622 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8548 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6253.thread
 
@@ -18566,7 +18566,7 @@ switch.early.test8092:                            ; preds = %is_readable_respons
   br i1 %or.cond9019, label %is_readable_request.exit6257.thread, label %3640
 
 3640:                                             ; preds = %3637
-  %3641 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3641 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8546 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6257.thread
 
@@ -18599,7 +18599,7 @@ switch.early.test8093:                            ; preds = %is_readable_request
   br i1 %.not4853, label %switch.early.test8094.thread, label %3651
 
 3651:                                             ; preds = %3650
-  %3652 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3652 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8544 = load i8, ptr %44, align 8
   br label %3653
 
@@ -18624,7 +18624,7 @@ switch.early.test8094.thread:                     ; preds = %3650, %switch.early
   br i1 %3659, label %3660, label %3662
 
 3660:                                             ; preds = %switch.early.test8094.thread
-  %3661 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3657, ptr noundef nonnull @ei_btatt_cgm_size_too_small) #13
+  %3661 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %3657, ptr noundef nonnull @ei_btatt_cgm_size_too_small) #13
   br label %3662
 
 3662:                                             ; preds = %3660, %switch.early.test8094.thread
@@ -18748,7 +18748,7 @@ switch.early.test8094.thread:                     ; preds = %3650, %switch.early
   ]
 
 3725:                                             ; preds = %3724
-  %3726 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3726 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8542 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6266.thread
 
@@ -18797,7 +18797,7 @@ switch.early.test8095:                            ; preds = %is_readable_respons
   ]
 
 3744:                                             ; preds = %3743
-  %3745 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3745 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8540 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6271.thread
 
@@ -18872,7 +18872,7 @@ switch.early.test8096:                            ; preds = %is_readable_respons
   br i1 %.not7115, label %is_readable_response.exit6276.thread, label %3782
 
 3782:                                             ; preds = %3781
-  %3783 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3783 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8538 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6276.thread
 
@@ -18948,7 +18948,7 @@ switch.early.test8097:                            ; preds = %is_readable_respons
   br i1 %.not7108, label %is_readable_response.exit6281.thread, label %3810
 
 3810:                                             ; preds = %3809
-  %3811 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3811 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8536 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6281.thread
 
@@ -19007,7 +19007,7 @@ switch.early.test8098:                            ; preds = %is_readable_respons
   ]
 
 3828:                                             ; preds = %3827
-  %3829 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3829 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8534 = load i8, ptr %44, align 8
   br label %3830
 
@@ -19102,7 +19102,7 @@ switch.early.test8099:                            ; preds = %3830
   br label %3924
 
 3879:                                             ; preds = %3833, %3833, %3833, %3833, %3833, %3833, %3833, %3833
-  %3880 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3839, ptr noundef nonnull @ei_btatt_opcode_invalid_request) #13
+  %3880 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %3839, ptr noundef nonnull @ei_btatt_opcode_invalid_request) #13
   br label %3924
 
 3881:                                             ; preds = %3833
@@ -19144,7 +19144,7 @@ switch.early.test8099:                            ; preds = %3830
   ]
 
 3889:                                             ; preds = %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881, %3881
-  %3890 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3839, ptr noundef nonnull @ei_btatt_opcode_invalid_response) #13
+  %3890 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %3839, ptr noundef nonnull @ei_btatt_opcode_invalid_response) #13
   br label %3924
 
 3891:                                             ; preds = %3881
@@ -19232,7 +19232,7 @@ switch.early.test8099:                            ; preds = %3830
   ]
 
 3938:                                             ; preds = %3937
-  %3939 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3939 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8532 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6289.thread
 
@@ -19286,7 +19286,7 @@ switch.early.test8100:                            ; preds = %is_readable_respons
   ]
 
 3953:                                             ; preds = %3952
-  %3954 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3954 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8530 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6294.thread
 
@@ -19339,7 +19339,7 @@ switch.early.test8101:                            ; preds = %is_readable_respons
   ]
 
 3967:                                             ; preds = %3966
-  %3968 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3968 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8528 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6299.thread
 
@@ -19392,7 +19392,7 @@ switch.early.test8102:                            ; preds = %is_readable_respons
   ]
 
 3981:                                             ; preds = %3980
-  %3982 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3982 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8526 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6304.thread
 
@@ -19445,7 +19445,7 @@ switch.early.test8103:                            ; preds = %is_readable_respons
   ]
 
 3995:                                             ; preds = %3994
-  %3996 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %3996 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8524 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6309.thread
 
@@ -19498,7 +19498,7 @@ switch.early.test8104:                            ; preds = %is_readable_respons
   ]
 
 4009:                                             ; preds = %4008
-  %4010 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4010 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8522 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6314.thread
 
@@ -19551,7 +19551,7 @@ switch.early.test8105:                            ; preds = %is_readable_respons
   ]
 
 4023:                                             ; preds = %4022
-  %4024 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4024 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8520 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6319.thread
 
@@ -19604,7 +19604,7 @@ switch.early.test8106:                            ; preds = %is_readable_respons
   ]
 
 4037:                                             ; preds = %4036
-  %4038 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4038 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8518 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6324.thread
 
@@ -19658,7 +19658,7 @@ switch.early.test8107:                            ; preds = %is_readable_respons
   ]
 
 4052:                                             ; preds = %4051
-  %4053 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4053 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8516 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6329.thread
 
@@ -19696,7 +19696,7 @@ switch.early.test8108:                            ; preds = %is_readable_respons
   ]
 
 4066:                                             ; preds = %4064
-  %4067 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4067 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8514 = load i8, ptr %44, align 8
   br label %4068
 
@@ -19749,7 +19749,7 @@ switch.early.test8109:                            ; preds = %4068
   br i1 %.not7039, label %is_readable_response.exit6337.thread, label %4085
 
 4085:                                             ; preds = %4084
-  %4086 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4086 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8512 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6337.thread
 
@@ -19786,7 +19786,7 @@ switch.early.test8110:                            ; preds = %is_readable_respons
   %4095 = call ptr @proto_item_add_subtree(ptr noundef %4093, i32 noundef %4094) #13
   %4096 = load ptr, ptr @http_handle, align 8
   %4097 = call ptr @tvb_new_subset_remaining(ptr noundef %25, i32 noundef %.0.i) #13
-  %4098 = call i32 @call_dissector(ptr noundef %4096, ptr noundef %4097, ptr noundef %2, ptr noundef %4095) #13
+  %4098 = call i32 @call_dissector(ptr noundef %4096, ptr noundef %4097, ptr noundef nonnull %2, ptr noundef %4095) #13
   %4099 = call i32 @tvb_captured_length_remaining(ptr noundef %25, i32 noundef %.0.i) #13
   %4100 = add i32 %4099, %.0.i
   br label %is_readable_request.exit.thread
@@ -19801,7 +19801,7 @@ switch.early.test8110:                            ; preds = %is_readable_respons
   br i1 %.not4769, label %switch.early.test8111.thread, label %4104
 
 4104:                                             ; preds = %4103
-  %4105 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4105 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8510 = load i8, ptr %44, align 8
   br label %4106
 
@@ -19856,7 +19856,7 @@ switch.early.test8111.thread:                     ; preds = %4103, %switch.early
   br i1 %.not7029, label %is_readable_response.exit6345.thread, label %4124
 
 4124:                                             ; preds = %4123
-  %4125 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4125 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8508 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6345.thread
 
@@ -19906,7 +19906,7 @@ switch.early.test8112:                            ; preds = %is_readable_respons
   ]
 
 4139:                                             ; preds = %4137
-  %4140 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4140 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8506 = load i8, ptr %44, align 8
   br label %4141
 
@@ -19947,7 +19947,7 @@ switch.early.test8113:                            ; preds = %4141
   ]
 
 4151:                                             ; preds = %4150
-  %4152 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4152 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8504 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6353.thread
 
@@ -19986,7 +19986,7 @@ switch.early.test8114:                            ; preds = %is_readable_respons
   ]
 
 4162:                                             ; preds = %4161
-  %4163 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4163 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8502 = load i8, ptr %44, align 8
   br label %4164
 
@@ -20046,7 +20046,7 @@ switch.early.test8115:                            ; preds = %4164
   ]
 
 4186:                                             ; preds = %4185
-  %4187 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4187 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8500 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6361.thread
 
@@ -20102,7 +20102,7 @@ switch.early.test8116:                            ; preds = %is_readable_respons
   br i1 %.not7004, label %is_readable_response.exit6366.thread, label %4207
 
 4207:                                             ; preds = %4206
-  %4208 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4208 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8498 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6366.thread
 
@@ -20157,7 +20157,7 @@ switch.early.test8117:                            ; preds = %is_readable_respons
   ]
 
 4221:                                             ; preds = %4220
-  %4222 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4222 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8496 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6371.thread
 
@@ -20175,7 +20175,7 @@ switch.early.test8118:                            ; preds = %is_readable_respons
   ]
 
 4225:                                             ; preds = %switch.early.test8118
-  %4226 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef %2, ptr noundef %25, i32 noundef %.0.i)
+  %4226 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %25, i32 noundef %.0.i)
   br label %is_readable_request.exit.thread
 
 4227:                                             ; preds = %get_service_uuid_from_handle.exit
@@ -20196,7 +20196,7 @@ switch.early.test8118:                            ; preds = %is_readable_respons
   ]
 
 4230:                                             ; preds = %4229
-  %4231 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4231 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8494 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6376.thread
 
@@ -20250,7 +20250,7 @@ switch.early.test8119:                            ; preds = %is_readable_respons
   br i1 %.not6987, label %is_readable_response.exit6381.thread, label %4249
 
 4249:                                             ; preds = %4248
-  %4250 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4250 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8492 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6381.thread
 
@@ -20285,7 +20285,7 @@ switch.early.test8120:                            ; preds = %is_readable_respons
   %4257 = load i32, ptr @ett_btatt_value, align 4
   %4258 = call ptr @proto_item_add_subtree(ptr noundef %4256, i32 noundef %4257) #13
   %4259 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4259, ptr noundef %2, ptr noundef %4258, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4259, ptr noundef nonnull %2, ptr noundef %4258, ptr noundef %8)
   %4260 = add i32 %.0.i, 7
   br label %is_readable_request.exit.thread
 
@@ -20317,7 +20317,7 @@ switch.early.test8120:                            ; preds = %is_readable_respons
   br i1 %.not6980, label %is_readable_response.exit6386.thread, label %4269
 
 4269:                                             ; preds = %4268
-  %4270 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4270 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8490 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6386.thread
 
@@ -20352,7 +20352,7 @@ switch.early.test8121:                            ; preds = %is_readable_respons
   %4277 = load i32, ptr @ett_btatt_value, align 4
   %4278 = call ptr @proto_item_add_subtree(ptr noundef %4276, i32 noundef %4277) #13
   %4279 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4279, ptr noundef %2, ptr noundef %4278, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4279, ptr noundef nonnull %2, ptr noundef %4278, ptr noundef %8)
   %4280 = add i32 %.0.i, 7
   br label %is_readable_request.exit.thread
 
@@ -20374,7 +20374,7 @@ switch.early.test8121:                            ; preds = %is_readable_respons
   ]
 
 4284:                                             ; preds = %4283
-  %4285 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4285 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8488 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6391.thread
 
@@ -20425,7 +20425,7 @@ switch.early.test8122:                            ; preds = %is_readable_respons
   br i1 %.not6968, label %is_readable_response.exit6396.thread, label %4300
 
 4300:                                             ; preds = %4299
-  %4301 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4301 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8486 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6396.thread
 
@@ -20477,7 +20477,7 @@ switch.early.test8123:                            ; preds = %is_readable_respons
   ]
 
 4313:                                             ; preds = %4312
-  %4314 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4314 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8484 = load i8, ptr %44, align 8
   br label %4315
 
@@ -20512,7 +20512,7 @@ switch.early.test8124:                            ; preds = %4315
   %4324 = load i32, ptr @hf_btatt_ots_size, align 4
   %4325 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4324, ptr noundef %25, i32 noundef %4322, i32 noundef 4, i32 noundef -2147483648) #13
   %4326 = add i32 %.0.i, 5
-  %4327 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef %2, ptr noundef %25, i32 noundef %4326)
+  %4327 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %25, i32 noundef %4326)
   br label %is_readable_request.exit.thread
 
 4328:                                             ; preds = %4318, %4318, %4318
@@ -20552,7 +20552,7 @@ switch.early.test8124:                            ; preds = %4315
 
 4352:                                             ; preds = %4344
   %4353 = load i32, ptr @hf_btatt_ots_checksum, align 4
-  %4354 = call ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %25, i32 noundef %4350, i32 noundef %4353, i32 noundef -1, ptr noundef null, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  %4354 = call ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %25, i32 noundef %4350, i32 noundef %4353, i32 noundef -1, ptr noundef null, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %4355 = add i32 %.0.i, 7
   br label %is_readable_request.exit.thread
 
@@ -20585,7 +20585,7 @@ switch.early.test8124:                            ; preds = %4315
   ]
 
 4368:                                             ; preds = %4367
-  %4369 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4369 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8482 = load i8, ptr %44, align 8
   br label %4370
 
@@ -20670,7 +20670,7 @@ switch.early.test8125:                            ; preds = %4370
   br i1 %.not6955, label %is_readable_response.exit6407.thread, label %4406
 
 4406:                                             ; preds = %4405
-  %4407 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4407 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8480 = load i8, ptr %44, align 8
   br label %is_readable_response.exit6407.thread
 
@@ -20725,15 +20725,15 @@ switch.early.test8126:                            ; preds = %is_readable_respons
   br label %is_readable_request.exit.thread
 
 4422:                                             ; preds = %4411
-  %4423 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef %2, ptr noundef %25, i32 noundef %4414)
+  %4423 = call fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %25, i32 noundef %4414)
   br label %is_readable_request.exit.thread
 
 4424:                                             ; preds = %4411, %4411
   %4425 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %4414, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4425, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4425, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %4426 = add i32 %.0.i, 8
   %4427 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %4426, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4427, ptr noundef %2, ptr noundef %0, ptr noundef %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4427, ptr noundef nonnull %2, ptr noundef %0, ptr noundef %8)
   %4428 = add i32 %.0.i, 15
   br label %is_readable_request.exit.thread
 
@@ -20758,7 +20758,7 @@ switch.early.test8126:                            ; preds = %is_readable_respons
   ]
 
 4439:                                             ; preds = %4438
-  %4440 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4440 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8478 = load i8, ptr %44, align 8
   br label %4441
 
@@ -20794,7 +20794,7 @@ switch.early.test8127.thread:                     ; preds = %4438, %switch.early
   br i1 %or.cond9021, label %is_readable_request.exit6414.thread, label %4454
 
 4454:                                             ; preds = %4451
-  %4455 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4455 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8476 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6414.thread
 
@@ -20826,7 +20826,7 @@ switch.early.test8128:                            ; preds = %is_readable_request
   br i1 %or.cond9022, label %is_readable_request.exit6419.thread, label %4465
 
 4465:                                             ; preds = %4462
-  %4466 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4466 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8474 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6419.thread
 
@@ -20864,7 +20864,7 @@ switch.early.test8129:                            ; preds = %is_readable_request
   br i1 %.not4699, label %switch.early.test8130.thread, label %4481
 
 4481:                                             ; preds = %4480
-  %4482 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4482 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8472 = load i8, ptr %44, align 8
   br label %4483
 
@@ -20884,7 +20884,7 @@ switch.early.test8130:                            ; preds = %4483
 switch.early.test8130.thread:                     ; preds = %4480, %switch.early.test8130
   %4486 = load i32, ptr @hf_btatt_value, align 4
   %4487 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4486, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4488 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4487, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4488 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4487, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4489 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -20898,7 +20898,7 @@ switch.early.test8130.thread:                     ; preds = %4480, %switch.early
   br i1 %.not4697, label %switch.early.test8131.thread, label %4493
 
 4493:                                             ; preds = %4492
-  %4494 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4494 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8470 = load i8, ptr %44, align 8
   br label %4495
 
@@ -20918,7 +20918,7 @@ switch.early.test8131:                            ; preds = %4495
 switch.early.test8131.thread:                     ; preds = %4492, %switch.early.test8131
   %4498 = load i32, ptr @hf_btatt_value, align 4
   %4499 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4498, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4500 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4499, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4500 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4499, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4501 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -20932,7 +20932,7 @@ switch.early.test8131.thread:                     ; preds = %4492, %switch.early
   br i1 %.not4695, label %switch.early.test8132.thread, label %4505
 
 4505:                                             ; preds = %4504
-  %4506 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4506 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8468 = load i8, ptr %44, align 8
   br label %4507
 
@@ -20952,7 +20952,7 @@ switch.early.test8132:                            ; preds = %4507
 switch.early.test8132.thread:                     ; preds = %4504, %switch.early.test8132
   %4510 = load i32, ptr @hf_btatt_value, align 4
   %4511 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4510, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4512 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4511, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4512 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4511, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4513 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -20966,7 +20966,7 @@ switch.early.test8132.thread:                     ; preds = %4504, %switch.early
   br i1 %.not4693, label %switch.early.test8133.thread, label %4517
 
 4517:                                             ; preds = %4516
-  %4518 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4518 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8466 = load i8, ptr %44, align 8
   br label %4519
 
@@ -20986,7 +20986,7 @@ switch.early.test8133:                            ; preds = %4519
 switch.early.test8133.thread:                     ; preds = %4516, %switch.early.test8133
   %4522 = load i32, ptr @hf_btatt_value, align 4
   %4523 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4522, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4524 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4523, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4524 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4523, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4525 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -21000,7 +21000,7 @@ switch.early.test8133.thread:                     ; preds = %4516, %switch.early
   br i1 %.not4691, label %switch.early.test8134.thread, label %4529
 
 4529:                                             ; preds = %4528
-  %4530 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4530 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8464 = load i8, ptr %44, align 8
   br label %4531
 
@@ -21020,7 +21020,7 @@ switch.early.test8134:                            ; preds = %4531
 switch.early.test8134.thread:                     ; preds = %4528, %switch.early.test8134
   %4534 = load i32, ptr @hf_btatt_value, align 4
   %4535 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4534, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4536 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4535, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4536 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4535, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4537 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -21034,7 +21034,7 @@ switch.early.test8134.thread:                     ; preds = %4528, %switch.early
   br i1 %.not4689, label %switch.early.test8135.thread, label %4541
 
 4541:                                             ; preds = %4540
-  %4542 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4542 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8462 = load i8, ptr %44, align 8
   br label %4543
 
@@ -21054,7 +21054,7 @@ switch.early.test8135:                            ; preds = %4543
 switch.early.test8135.thread:                     ; preds = %4540, %switch.early.test8135
   %4546 = load i32, ptr @hf_btatt_value, align 4
   %4547 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4546, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4548 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4547, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4548 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4547, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4549 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -21073,7 +21073,7 @@ is_readable_response.exit6443:                    ; preds = %4550
   ]
 
 4552:                                             ; preds = %is_readable_response.exit6443
-  %4553 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4553 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8460 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6442.thread
 
@@ -21114,7 +21114,7 @@ switch.early.test8136:                            ; preds = %is_readable_request
   br i1 %or.cond9024, label %is_readable_request.exit6447.thread, label %4572
 
 4572:                                             ; preds = %4569
-  %4573 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4573 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8458 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6447.thread
 
@@ -21152,7 +21152,7 @@ switch.early.test8137:                            ; preds = %is_readable_request
   br i1 %or.cond9025, label %is_readable_request.exit6452.thread, label %4589
 
 4589:                                             ; preds = %4586
-  %4590 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4590 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8456 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6452.thread
 
@@ -21190,7 +21190,7 @@ switch.early.test8138:                            ; preds = %is_readable_request
   br i1 %or.cond9026, label %is_readable_request.exit6457.thread, label %4606
 
 4606:                                             ; preds = %4603
-  %4607 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4607 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8454 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6457.thread
 
@@ -21228,7 +21228,7 @@ switch.early.test8139:                            ; preds = %is_readable_request
   br i1 %or.cond9027, label %is_readable_request.exit6462.thread, label %4623
 
 4623:                                             ; preds = %4620
-  %4624 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4624 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8452 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6462.thread
 
@@ -21266,7 +21266,7 @@ switch.early.test8140:                            ; preds = %is_readable_request
   br i1 %or.cond9028, label %is_readable_request.exit6467.thread, label %4640
 
 4640:                                             ; preds = %4637
-  %4641 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4641 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8450 = load i8, ptr %44, align 8
   br label %is_readable_request.exit6467.thread
 
@@ -21311,7 +21311,7 @@ switch.early.test8141:                            ; preds = %is_readable_request
   ]
 
 4657:                                             ; preds = %4656
-  %4658 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4658 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre8448 = load i8, ptr %44, align 8
   br label %4659
 
@@ -21331,7 +21331,7 @@ switch.early.test8142:                            ; preds = %4659
 4662:                                             ; preds = %switch.early.test8142
   %4663 = load i32, ptr @hf_btatt_value, align 4
   %4664 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4663, ptr noundef %25, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #13
-  %4665 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %4664, ptr noundef nonnull @ei_btatt_undecoded) #13
+  %4665 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %4664, ptr noundef nonnull @ei_btatt_undecoded) #13
   %4666 = call i32 @tvb_captured_length(ptr noundef %25) #13
   br label %is_readable_request.exit.thread
 
@@ -21345,7 +21345,7 @@ switch.early.test8142:                            ; preds = %4659
   br i1 %.not4665, label %switch.early.test8143.thread, label %4670
 
 4670:                                             ; preds = %4669
-  %4671 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
+  %4671 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage) #13
   %.pre = load i8, ptr %44, align 8
   br label %4672
 
@@ -21781,7 +21781,7 @@ define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
+define internal fastcc noalias ptr @get_value(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %1, ptr %5, align 4
@@ -21891,7 +21891,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable writeonly align 2 captures(none) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4
@@ -22126,7 +22126,7 @@ declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @dissector_handle_get_dissector_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #2
 
@@ -22137,7 +22137,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #2
 declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -22158,16 +22158,16 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #9
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #9

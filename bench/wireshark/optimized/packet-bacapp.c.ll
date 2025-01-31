@@ -4103,7 +4103,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -5420,7 +5420,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5443,7 +5443,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 0) #7
   %7 = and i8 %6, 15
   store i8 %7, ptr @bacapp_flags, align 1
@@ -6864,7 +6864,7 @@ define internal fastcc noundef i32 @fObjectIdentifier(ptr noundef nonnull %0, pt
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
+define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) initializes((0, 1)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5, ptr noundef nonnull captures(none) initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %3) #7
@@ -7345,7 +7345,7 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @proto_tree_add_boolean_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -13099,7 +13099,7 @@ fDestination.exit.thread.thread:                  ; preds = %2372, %332, %312, %
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -21019,7 +21019,7 @@ define internal fastcc i32 @fAccessMethod(ptr noundef nonnull %0, ptr noundef %1
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bacapp_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @bacapp_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %6) #7
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef null, ptr noundef nonnull @.str.3814, ptr noundef %7, ptr noundef null) #7
@@ -21078,7 +21078,7 @@ define internal void @bacapp_packet_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bacapp_stats_tree_service(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @bacapp_stats_tree_service(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %6) #7
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef null, ptr noundef nonnull @.str.3814, ptr noundef %7, ptr noundef null) #7
@@ -21123,7 +21123,7 @@ define internal void @bacapp_service_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bacapp_stats_tree_objectid(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @bacapp_stats_tree_objectid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %6) #7
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef null, ptr noundef nonnull @.str.3814, ptr noundef %7, ptr noundef null) #7
@@ -21168,7 +21168,7 @@ define internal void @bacapp_objectid_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bacapp_stats_tree_instanceid(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @bacapp_stats_tree_instanceid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %6) #7
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef null, ptr noundef nonnull @.str.3814, ptr noundef %7, ptr noundef null) #7
@@ -21227,10 +21227,10 @@ declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

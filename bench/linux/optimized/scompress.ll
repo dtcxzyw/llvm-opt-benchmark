@@ -48,7 +48,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_unreg
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_register_scomp439, ptr @__UNIQUE_ID___addressable_crypto_register_scomps441, ptr @__UNIQUE_ID___addressable_crypto_unregister_scomp440, ptr @__UNIQUE_ID___addressable_crypto_unregister_scomps442, ptr @__UNIQUE_ID_description445, ptr @__UNIQUE_ID_file443, ptr @__UNIQUE_ID_license444], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_init_scomp_ops_async(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @crypto_init_scomp_ops_async(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -32
@@ -93,7 +93,7 @@ declare dso_local ptr @crypto_mod_get(ptr noundef) local_unnamed_addr #1
 declare dso_local void @crypto_mod_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @crypto_exit_scomp_ops_async(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #4
@@ -188,7 +188,7 @@ define dso_local noundef ptr @crypto_acomp_scomp_alloc_ctx(ptr noundef %0) local
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @crypto_acomp_scomp_free_ctx(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @crypto_acomp_scomp_free_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -449,7 +449,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local i32 @crypto_alg_extsize(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @scomp_lock) #4
   %2 = load i32, ptr @scomp_scratch_users, align 4
   %3 = add i32 %2, 1
@@ -545,7 +545,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_scomp_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @crypto_scomp_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str) #4
   ret void
 }
@@ -557,7 +557,7 @@ declare dso_local noalias ptr @vmalloc_node(i64 noundef, i32 noundef) local_unna
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

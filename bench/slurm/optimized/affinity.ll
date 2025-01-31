@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._bind_ldom = private unnamed_addr constant [11 x i8] c"_bind_ldom\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -172,7 +172,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   br i1 %.not105, label %75, label %70
 
 70:                                               ; preds = %.critedge
-  %71 = call i32 @task_str_to_cpuset(ptr noundef %0, ptr noundef nonnull %4) #7
+  %71 = call i32 @task_str_to_cpuset(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %.loopexit
 
@@ -192,11 +192,11 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %82 = call i64 @strtoul(ptr nocapture noundef nonnull %81, ptr noundef null, i32 noundef 16) #7
+  %82 = call i64 @strtoul(ptr noundef nonnull captures(none) %81, ptr noundef null, i32 noundef 16) #7
   br label %85
 
 83:                                               ; preds = %77
-  %84 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #7
+  %84 = call i64 @strtoul(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #7
   br label %85
 
 85:                                               ; preds = %83, %80
@@ -252,7 +252,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   br i1 %.not112, label %110, label %109
 
 109:                                              ; preds = %107
-  call fastcc void @_bind_ldom(i32 noundef %.078135, ptr noundef %0)
+  call fastcc void @_bind_ldom(i32 noundef %.078135, ptr noundef nonnull %0)
   br label %110
 
 110:                                              ; preds = %109, %107
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 112:                                              ; preds = %110
   %113 = or disjoint i32 %.078135, 1
-  call fastcc void @_bind_ldom(i32 noundef %113, ptr noundef %0)
+  call fastcc void @_bind_ldom(i32 noundef %113, ptr noundef nonnull %0)
   br label %114
 
 114:                                              ; preds = %112, %110
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 116:                                              ; preds = %114
   %117 = or disjoint i32 %.078135, 2
-  call fastcc void @_bind_ldom(i32 noundef %117, ptr noundef %0)
+  call fastcc void @_bind_ldom(i32 noundef %117, ptr noundef nonnull %0)
   br label %118
 
 118:                                              ; preds = %116, %114
@@ -282,7 +282,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 120:                                              ; preds = %118
   %121 = or disjoint i32 %.078135, 3
-  call fastcc void @_bind_ldom(i32 noundef %121, ptr noundef %0)
+  call fastcc void @_bind_ldom(i32 noundef %121, ptr noundef nonnull %0)
   br label %122
 
 122:                                              ; preds = %120, %118
@@ -303,17 +303,17 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %131 = call i64 @strtoul(ptr nocapture noundef nonnull %130, ptr noundef null, i32 noundef 16) #7
+  %131 = call i64 @strtoul(ptr noundef nonnull captures(none) %130, ptr noundef null, i32 noundef 16) #7
   br label %134
 
 132:                                              ; preds = %126
-  %133 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #7
+  %133 = call i64 @strtoul(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #7
   br label %134
 
 134:                                              ; preds = %132, %129
   %.0.in = phi i64 [ %131, %129 ], [ %133, %132 ]
   %.0 = trunc i64 %.0.in to i32
-  call fastcc void @_bind_ldom(i32 noundef %.0, ptr noundef %0)
+  call fastcc void @_bind_ldom(i32 noundef %.0, ptr noundef nonnull %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph138, %122, %.preheader, %97, %124, %88, %85, %70, %._crit_edge130, %40, %29, %19, %14, %134, %73, %39
@@ -328,10 +328,10 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_bind_ldom(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_bind_ldom(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @numa_max_node() #7
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -407,10 +407,10 @@ declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @slurm_xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #1
 
@@ -444,7 +444,7 @@ declare ptr @task_cpuset_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 define i32 @slurm_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef initializes((0, 128)) %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
-  %5 = tail call i32 @sched_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2) #7
+  %5 = tail call i32 @sched_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef nonnull %2) #7
   %.not = icmp eq i32 %5, 0
   %6 = tail call i32 @slurm_get_log_level() #7
   br i1 %.not, label %11, label %7

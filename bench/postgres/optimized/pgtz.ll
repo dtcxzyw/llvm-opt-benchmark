@@ -124,7 +124,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
   br i1 %49, label %50, label %.backedge.i
 
 50:                                               ; preds = %47
-  %51 = call i32 @pg_strncasecmp(ptr noundef nonnull %44, ptr noundef %.028, i64 noundef %41) #10
+  %51 = call i32 @pg_strncasecmp(ptr noundef nonnull %44, ptr noundef nonnull %.028, i64 noundef %41) #10
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %55, label %.backedge.i
 
@@ -178,19 +178,19 @@ scan_directory_ci.exit.thread:                    ; preds = %36, %.backedge.i
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pg_tzset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @pg_tzset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASHCTL, align 8
   %3 = alloca %struct.state, align 8
   %4 = alloca [256 x i8], align 16
@@ -314,7 +314,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @tzload(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pg_tzset_offset(i64 noundef %0) local_unnamed_addr #0 {
@@ -390,7 +390,7 @@ pg_TZDIR.exit:                                    ; preds = %0, %2
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %7, ptr %12, align 8
-  %13 = tail call ptr @AllocateDir(ptr noundef %7) #10
+  %13 = tail call ptr @AllocateDir(ptr noundef nonnull %7) #10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %13, ptr %14, align 8
   %.not = icmp eq ptr %13, null
@@ -400,7 +400,7 @@ pg_TZDIR.exit:                                    ; preds = %0, %2
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode_for_file_access() #10
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %7) #10
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 409, ptr noundef nonnull @__func__.pg_tzenumerate_start) #10
   unreachable
 
@@ -608,10 +608,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

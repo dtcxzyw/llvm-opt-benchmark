@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @DES_SPtrans = internal unnamed_addr constant [8 x [64 x i32]] [[64 x i32] [i32 34080768, i32 524288, i32 33554434, i32 34080770, i32 33554432, i32 526338, i32 524290, i32 33554434, i32 526338, i32 34080768, i32 34078720, i32 2050, i32 33556482, i32 33554432, i32 0, i32 524290, i32 524288, i32 2, i32 33556480, i32 526336, i32 34080770, i32 34078720, i32 2050, i32 33556480, i32 2, i32 2048, i32 526336, i32 34078722, i32 2048, i32 33556482, i32 34078722, i32 0, i32 0, i32 34080770, i32 33556480, i32 524290, i32 34080768, i32 524288, i32 2050, i32 33556480, i32 34078722, i32 2048, i32 526336, i32 33554434, i32 526338, i32 2, i32 33554434, i32 34078720, i32 34080770, i32 526336, i32 34078720, i32 33556482, i32 33554432, i32 2050, i32 524290, i32 0, i32 524288, i32 33554432, i32 33556482, i32 34080768, i32 2, i32 34078722, i32 2048, i32 526338], [64 x i32] [i32 1074823184, i32 0, i32 1081344, i32 1074790400, i32 1073741840, i32 32784, i32 1073774592, i32 1081344, i32 32768, i32 1074790416, i32 16, i32 1073774592, i32 1048592, i32 1074823168, i32 1074790400, i32 16, i32 1048576, i32 1073774608, i32 1074790416, i32 32768, i32 1081360, i32 1073741824, i32 0, i32 1048592, i32 1073774608, i32 1081360, i32 1074823168, i32 1073741840, i32 1073741824, i32 1048576, i32 32784, i32 1074823184, i32 1048592, i32 1074823168, i32 1073774592, i32 1081360, i32 1074823184, i32 1048592, i32 1073741840, i32 0, i32 1073741824, i32 32784, i32 1048576, i32 1074790416, i32 32768, i32 1073741824, i32 1081360, i32 1073774608, i32 1074823168, i32 32768, i32 0, i32 1073741840, i32 16, i32 1074823184, i32 1081344, i32 1074790400, i32 1074790416, i32 1048576, i32 32784, i32 1073774592, i32 1073774608, i32 16, i32 1074790400, i32 1081344], [64 x i32] [i32 67108865, i32 67371264, i32 256, i32 67109121, i32 262145, i32 67108864, i32 67109121, i32 262400, i32 67109120, i32 262144, i32 67371008, i32 1, i32 67371265, i32 257, i32 1, i32 67371009, i32 0, i32 262145, i32 67371264, i32 256, i32 257, i32 67371265, i32 262144, i32 67108865, i32 67371009, i32 67109120, i32 262401, i32 67371008, i32 262400, i32 0, i32 67108864, i32 262401, i32 67371264, i32 256, i32 1, i32 262144, i32 257, i32 262145, i32 67371008, i32 67109121, i32 0, i32 67371264, i32 262400, i32 67371009, i32 262145, i32 67108864, i32 67371265, i32 1, i32 262401, i32 67108865, i32 67108864, i32 67371265, i32 262144, i32 67109120, i32 67109121, i32 262400, i32 67109120, i32 0, i32 67371009, i32 257, i32 67108865, i32 262401, i32 256, i32 67371008], [64 x i32] [i32 4198408, i32 268439552, i32 8, i32 272633864, i32 0, i32 272629760, i32 268439560, i32 4194312, i32 272633856, i32 268435464, i32 268435456, i32 4104, i32 268435464, i32 4198408, i32 4194304, i32 268435456, i32 272629768, i32 4198400, i32 4096, i32 8, i32 4198400, i32 268439560, i32 272629760, i32 4096, i32 4104, i32 0, i32 4194312, i32 272633856, i32 268439552, i32 272629768, i32 272633864, i32 4194304, i32 272629768, i32 4104, i32 4194304, i32 268435464, i32 4198400, i32 268439552, i32 8, i32 272629760, i32 268439560, i32 0, i32 4096, i32 4194312, i32 0, i32 272629768, i32 272633856, i32 4096, i32 268435456, i32 272633864, i32 4198408, i32 4194304, i32 272633864, i32 8, i32 268439552, i32 4198408, i32 4194312, i32 4198400, i32 272629760, i32 268439560, i32 4104, i32 268435456, i32 268435464, i32 272633856], [64 x i32] [i32 134217728, i32 65536, i32 1024, i32 134284320, i32 134283296, i32 134218752, i32 66592, i32 134283264, i32 65536, i32 32, i32 134217760, i32 66560, i32 134218784, i32 134283296, i32 134284288, i32 0, i32 66560, i32 134217728, i32 65568, i32 1056, i32 134218752, i32 66592, i32 0, i32 134217760, i32 32, i32 134218784, i32 134284320, i32 65568, i32 134283264, i32 1024, i32 1056, i32 134284288, i32 134284288, i32 134218784, i32 65568, i32 134283264, i32 65536, i32 32, i32 134217760, i32 134218752, i32 134217728, i32 66560, i32 134284320, i32 0, i32 66592, i32 134217728, i32 1024, i32 65568, i32 134218784, i32 1024, i32 0, i32 134284320, i32 134283296, i32 134284288, i32 1056, i32 65536, i32 66560, i32 134283296, i32 134218752, i32 1056, i32 32, i32 66592, i32 134283264, i32 134217760], [64 x i32] [i32 -2147483584, i32 2097216, i32 0, i32 -2145378304, i32 2097216, i32 8192, i32 -2147475392, i32 2097152, i32 8256, i32 -2145378240, i32 2105344, i32 -2147483648, i32 -2147475456, i32 -2147483584, i32 -2145386496, i32 2105408, i32 2097152, i32 -2147475392, i32 -2145386432, i32 0, i32 8192, i32 64, i32 -2145378304, i32 -2145386432, i32 -2145378240, i32 -2145386496, i32 -2147483648, i32 8256, i32 64, i32 2105344, i32 2105408, i32 -2147475456, i32 8256, i32 -2147483648, i32 -2147475456, i32 2105408, i32 -2145378304, i32 2097216, i32 0, i32 -2147475456, i32 -2147483648, i32 8192, i32 -2145386432, i32 2097152, i32 2097216, i32 -2145378240, i32 2105344, i32 64, i32 -2145378240, i32 2105344, i32 2097152, i32 -2147475392, i32 -2147483584, i32 -2145386496, i32 2105408, i32 0, i32 8192, i32 -2147483584, i32 -2147475392, i32 -2145378304, i32 -2145386496, i32 8256, i32 64, i32 -2145386432], [64 x i32] [i32 16384, i32 512, i32 16777728, i32 16777220, i32 16794116, i32 16388, i32 16896, i32 0, i32 16777216, i32 16777732, i32 516, i32 16793600, i32 4, i32 16794112, i32 16793600, i32 516, i32 16777732, i32 16384, i32 16388, i32 16794116, i32 0, i32 16777728, i32 16777220, i32 16896, i32 16793604, i32 16900, i32 16794112, i32 4, i32 16900, i32 16793604, i32 512, i32 16777216, i32 16900, i32 16793600, i32 16793604, i32 516, i32 16384, i32 512, i32 16777216, i32 16793604, i32 16777732, i32 16900, i32 16896, i32 0, i32 512, i32 16777220, i32 4, i32 16777728, i32 0, i32 16777732, i32 16777728, i32 16896, i32 516, i32 16384, i32 16794116, i32 16777216, i32 16794112, i32 4, i32 16388, i32 16794116, i32 16777220, i32 16794112, i32 16793600, i32 16388], [64 x i32] [i32 545259648, i32 545390592, i32 131200, i32 0, i32 537001984, i32 8388736, i32 545259520, i32 545390720, i32 128, i32 536870912, i32 8519680, i32 131200, i32 8519808, i32 537002112, i32 536871040, i32 545259520, i32 131072, i32 8519808, i32 8388736, i32 537001984, i32 545390720, i32 536871040, i32 0, i32 8519680, i32 536870912, i32 8388608, i32 537002112, i32 545259648, i32 8388608, i32 131072, i32 545390592, i32 128, i32 8388608, i32 131072, i32 536871040, i32 545390720, i32 131200, i32 536870912, i32 0, i32 8519680, i32 545259648, i32 537002112, i32 537001984, i32 8388736, i32 545390592, i32 128, i32 8388736, i32 537001984, i32 545390720, i32 8388608, i32 545259520, i32 536871040, i32 8519680, i32 131200, i32 537002112, i32 545259520, i32 128, i32 545390592, i32 8519808, i32 0, i32 536870912, i32 545259648, i32 131072, i32 8519808]], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @DES_set_key(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #0 {
+define hidden void @DES_set_key(ptr noundef readonly captures(none) %key, ptr noundef writeonly captures(none) %schedule) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %key, align 1
   %1 = zext i16 %0 to i32
@@ -183,7 +183,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @DES_set_odd_parity(ptr nocapture noundef %key) local_unnamed_addr #0 {
+define hidden void @DES_set_odd_parity(ptr noundef captures(none) %key) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -204,7 +204,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_encrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
+define hidden void @DES_encrypt3(ptr noundef captures(none) %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -282,7 +282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @DES_encrypt2(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
+define internal fastcc void @DES_encrypt2(ptr noundef captures(none) %data, ptr noundef readonly %ks, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -1955,7 +1955,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_decrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
+define hidden void @DES_decrypt3(ptr noundef captures(none) %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -2033,7 +2033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_ecb_encrypt(ptr nocapture noundef readonly %in_block, ptr nocapture noundef writeonly initializes((0, 8)) %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
+define hidden void @DES_ecb_encrypt(ptr noundef readonly captures(none) %in_block, ptr noundef writeonly captures(none) initializes((0, 8)) %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %in_block, align 1
@@ -2078,7 +2078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @DES_encrypt1(ptr nocapture noundef nonnull %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
+define internal fastcc void @DES_encrypt1(ptr noundef nonnull captures(none) %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -3811,7 +3811,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @DES_ncbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %schedule, ptr nocapture noundef %ivec, i32 noundef %enc) local_unnamed_addr #2 {
+define hidden void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len, ptr noundef %schedule, ptr noundef captures(none) %ivec, i32 noundef %enc) local_unnamed_addr #2 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %enc, 0
@@ -4268,7 +4268,7 @@ if.end405:                                        ; preds = %if.end372, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_ecb3_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly initializes((0, 8)) %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
+define hidden void @DES_ecb3_encrypt(ptr noundef readonly captures(none) %input, ptr noundef writeonly captures(none) initializes((0, 8)) %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %input, align 1
@@ -4324,7 +4324,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @DES_ede3_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr nocapture noundef %ivec, i32 noundef %enc) local_unnamed_addr #2 {
+define hidden void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr noundef captures(none) %ivec, i32 noundef %enc) local_unnamed_addr #2 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %enc, 0
@@ -4781,14 +4781,14 @@ if.end405:                                        ; preds = %if.end372, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @DES_ede2_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len, ptr noundef %ks1, ptr noundef %ks2, ptr nocapture noundef %ivec, i32 noundef %enc) local_unnamed_addr #2 {
+define hidden void @DES_ede2_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %len, ptr noundef %ks1, ptr noundef %ks2, ptr noundef captures(none) %ivec, i32 noundef %enc) local_unnamed_addr #2 {
 entry:
   tail call void @DES_ede3_cbc_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks1, ptr noundef %ivec, i32 noundef %enc)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @DES_set_key_unchecked(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %schedule) local_unnamed_addr #0 {
+define hidden void @DES_set_key_unchecked(ptr noundef readonly captures(none) %key, ptr noundef writeonly captures(none) %schedule) local_unnamed_addr #0 {
 entry:
   tail call void @DES_set_key(ptr noundef %key, ptr noundef %schedule)
   ret void

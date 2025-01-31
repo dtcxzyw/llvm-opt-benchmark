@@ -126,7 +126,7 @@ define dso_local noundef nonnull ptr @mei_hbm_state_str(i32 noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mei_hbm_idle(ptr nocapture noundef writeonly initializes((428, 432), (436, 438)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @mei_hbm_idle(ptr noundef writeonly captures(none) initializes((428, 432), (436, 438)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 436
   store i16 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 428
@@ -229,16 +229,16 @@ define dso_local noundef range(i32 -62, 1) i32 @mei_hbm_start_wait(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -303,7 +303,7 @@ define dso_local i32 @mei_hbm_start_req(ptr noundef %0) local_unnamed_addr #2 al
 declare dso_local void @mei_schedule_stall_timer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_notify_req(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_notify_req(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.mei_msg_hdr, align 4
   %5 = alloca %struct.hbm_notification_request, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -367,7 +367,7 @@ define dso_local i32 @mei_hbm_cl_notify_req(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_dma_map_req(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_dma_map_req(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_client_dma_map_request, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
@@ -414,7 +414,7 @@ define dso_local i32 @mei_hbm_cl_dma_map_req(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_dma_unmap_req(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_dma_unmap_req(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_client_dma_unmap_request, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
@@ -481,7 +481,7 @@ define dso_local i32 @mei_hbm_pg(ptr noundef %0, i8 noundef zeroext %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_flow_control_req(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_flow_control_req(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_flow_control, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
@@ -534,7 +534,7 @@ define dso_local i32 @mei_hbm_cl_flow_control_req(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_disconnect_req(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_disconnect_req(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_client_connect_request, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -587,7 +587,7 @@ define dso_local i32 @mei_hbm_cl_disconnect_req(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_disconnect_rsp(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_disconnect_rsp(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_client_connect_response, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -640,7 +640,7 @@ define dso_local i32 @mei_hbm_cl_disconnect_rsp(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_hbm_cl_connect_req(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @mei_hbm_cl_connect_req(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_client_connect_request, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -693,14 +693,14 @@ define dso_local i32 @mei_hbm_cl_connect_req(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_hbm_pg_resume(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local void @mei_hbm_pg_resume(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @__pm_runtime_resume(ptr noundef %2, i32 noundef 1) #10
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @mei_hbm_version_is_supported(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
+define dso_local zeroext i1 @mei_hbm_version_is_supported(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3320
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3321
   %4 = load i8, ptr %3, align 1
@@ -722,7 +722,7 @@ define dso_local zeroext i1 @mei_hbm_version_is_supported(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_host_stop_request, align 4
   %5 = alloca %struct.mei_msg_hdr, align 4
@@ -2125,7 +2125,7 @@ define internal fastcc noundef nonnull ptr @mei_hbm_status_str(i32 noundef range
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mei_hbm_cl_res(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @mei_hbm_cl_res(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -2399,7 +2399,7 @@ define internal fastcc i32 @mei_hbm_prop_req(ptr noundef %0, i64 noundef range(i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mei_set_devstate(ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -32,7 +32,7 @@ define nonnull align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core3cmp6max_by17h59a6d3712d77358dE(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 1 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN4core3cmp6max_by17h59a6d3712d77358dE(ptr writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 1 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne ptr %2, null
@@ -87,7 +87,7 @@ define i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %0, i64 %1) unnamed_addr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4c1db6f89fe6d29dE"(ptr nocapture readonly align 8 %0, ptr align 2 %1, ptr align 2 %2) unnamed_addr #1 {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4c1db6f89fe6d29dE"(ptr readonly align 8 captures(none) %0, ptr align 2 %1, ptr align 2 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !7, !noundef !4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -153,7 +153,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #1
 declare i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17haed4c753b12b8a8fE"(ptr align 1, ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare i8 @_ZN4core3ops8function6FnOnce9call_once17h0020ec4c3e39391aE(ptr align 8, ptr align 8) unnamed_addr #0

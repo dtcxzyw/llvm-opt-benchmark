@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [13 x i8] c"iso-latin-1-\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_syntaxerror(ptr nocapture noundef %tok, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyTokenizer_syntaxerror(ptr noundef captures(none) %tok, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_syntaxerror_range(ptr nocapture noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs) unnamed_addr #0 {
+define internal fastcc void @_syntaxerror_range(ptr noundef captures(none) %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs) unnamed_addr #0 {
 entry:
   %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   %0 = load i32, ptr %done, align 8
@@ -160,7 +160,7 @@ return:                                           ; preds = %entry, %Py_XDECREF.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyTokenizer_syntaxerror_known_range(ptr nocapture noundef %tok, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden noundef i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef captures(none) %tok, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef initializes((8, 16), (64, 68)) %tok) local_unnamed_addr #1 {
+define hidden noundef i32 @_PyTokenizer_indenterror(ptr noundef captures(none) initializes((8, 16), (64, 68)) %tok) local_unnamed_addr #1 {
 entry:
   %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 18, ptr %done, align 8
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyTokenizer_error_ret(ptr nocapture noundef initializes((8, 24), (48, 68), (2748, 2752)) %tok) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyTokenizer_error_ret(ptr noundef captures(none) initializes((8, 24), (48, 68), (2748, 2752)) %tok) local_unnamed_addr #0 {
 entry:
   %decoding_erred = getelementptr inbounds nuw i8, ptr %tok, i64 2748
   store i32 1, ptr %decoding_erred, align 4
@@ -218,7 +218,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 65) i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr nocapture noundef %tok, i32 noundef %first_invalid_escape_char) local_unnamed_addr #0 {
+define hidden range(i32 -1, 65) i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr noundef captures(none) %tok, i32 noundef %first_invalid_escape_char) local_unnamed_addr #0 {
 entry:
   %report_warnings = getelementptr inbounds nuw i8, ptr %tok, i64 2848
   %0 = load i32, ptr %report_warnings, align 8
@@ -296,7 +296,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #2
 declare void @PyErr_Clear() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyTokenizer_parser_warn(ptr nocapture noundef %tok, ptr noundef %category, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTokenizer_parser_warn(ptr noundef captures(none) %tok, ptr noundef %category, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %report_warnings = getelementptr inbounds nuw i8, ptr %tok, i64 2848
@@ -375,7 +375,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyUnicode_FromFormatV(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyTokenizer_new_string(ptr nocapture noundef readonly %s, i64 noundef %len, ptr nocapture noundef writeonly %tok) local_unnamed_addr #0 {
+define hidden ptr @_PyTokenizer_new_string(ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly captures(none) %tok) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, 1
   %call = tail call ptr @PyMem_Malloc(i64 noundef %add) #9
@@ -400,13 +400,13 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_translate_into_utf8(ptr noundef %str, ptr noundef %enc) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
-  %call1 = tail call ptr @PyUnicode_Decode(ptr noundef %str, i64 noundef %call, ptr noundef %enc, ptr noundef null) #9
+  %call1 = tail call ptr @PyUnicode_Decode(ptr noundef nonnull %str, i64 noundef %call, ptr noundef %enc, ptr noundef null) #9
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -435,12 +435,12 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PyUnicode_AsUTF8String(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyTokenizer_translate_newlines(ptr nocapture noundef readonly %s, i32 noundef %exec_input, i32 noundef %preserve_crlf, ptr nocapture noundef writeonly %tok) local_unnamed_addr #0 {
+define hidden ptr @_PyTokenizer_translate_newlines(ptr noundef readonly captures(none) %s, i32 noundef %exec_input, i32 noundef %preserve_crlf, ptr noundef writeonly captures(none) %tok) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #10
   %add = add i64 %call, 2
@@ -546,7 +546,7 @@ return:                                           ; preds = %if.end31, %if.then4
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr nocapture noundef readonly %get_char, ptr nocapture noundef readonly %unget_char, ptr nocapture noundef readnone %set_readline, ptr noundef %tok) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly captures(none) %get_char, ptr noundef readonly captures(none) %unget_char, ptr noundef readnone captures(none) %set_readline, ptr noundef %tok) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 %get_char(ptr noundef %tok) #9
   %decoding_state = getelementptr inbounds nuw i8, ptr %tok, i64 2744
@@ -618,7 +618,7 @@ return:                                           ; preds = %_PyTokenizer_new_st
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %line, i64 noundef %size, ptr noundef %tok, ptr nocapture noundef readonly %set_readline) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %line, i64 noundef %size, ptr noundef %tok, ptr noundef readonly captures(none) %set_readline) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [13 x i8], align 1
   %cont_line = getelementptr inbounds nuw i8, ptr %tok, i64 2760
@@ -823,7 +823,7 @@ _PyTokenizer_new_string.exit49.thread.i:          ; preds = %if.then77.i
   br label %return
 
 _PyTokenizer_new_string.exit49.i:                 ; preds = %if.then77.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr readonly align 1 %retval.0.i.i, i64 %call78.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i43.i, ptr nonnull readonly align 1 %retval.0.i.i, i64 %call78.i, i1 false)
   %arrayidx.i46.i = getelementptr i8, ptr %call.i43.i, i64 %call78.i
   store i8 0, ptr %arrayidx.i46.i, align 1
   br label %if.end35
@@ -939,12 +939,12 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr nocapture noundef readonly %line, ptr nocapture noundef readonly %tok) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr noundef readonly captures(none) %line, ptr noundef readonly captures(none) %tok) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %line, align 1
   %tobool.not17 = icmp eq i8 %0, 0
@@ -1051,7 +1051,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1066,16 +1066,16 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

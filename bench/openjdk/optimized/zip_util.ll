@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [31 x i8] c"Internal error in deflateInit2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Open_Generic(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Open_Generic(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %6
 
@@ -76,7 +76,7 @@ define hidden noundef ptr @ZIP_Open_Generic(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Get_From_Cache(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Get_From_Cache(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = tail call ptr @__errno_location() #22
   store i32 0, ptr %5, align 4
@@ -166,28 +166,28 @@ InitializeZip.exit:                               ; preds = %11, %6, %16, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Put_In_Cache(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Put_In_Cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @ZIP_Put_In_Cache0(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext 1)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @JVM_NativePath(ptr noundef) local_unnamed_addr #3
 
 declare i32 @JVM_RawMonitorEnter(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @JVM_RawMonitorExit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Put_In_Cache0(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Put_In_Cache0(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #24
   %.not.i = icmp eq ptr %7, null
@@ -344,7 +344,7 @@ allocZip.exit.thread:                             ; preds = %13, %5, %69, %68, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeZip(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @freeZip(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @JVM_RawMonitorEnter(ptr noundef %3) #21
@@ -474,7 +474,7 @@ freeCEN.exit:                                     ; preds = %16, %._crit_edge.i.
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @readCEN(ptr nocapture noundef nonnull initializes((104, 112)) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @readCEN(ptr noundef nonnull captures(none) initializes((104, 112)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [4 x i8], align 1
   %5 = alloca [128 x i8], align 16
@@ -1562,7 +1562,7 @@ freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ZIP_Open(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @ZIP_Open(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.thread.i, label %4
 
@@ -1647,7 +1647,7 @@ define void @ZIP_Close(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ZIP_FreeEntry(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @ZIP_FreeEntry(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @JVM_RawMonitorEnter(ptr noundef %4) #21
@@ -1676,7 +1676,7 @@ define hidden void @ZIP_FreeEntry(ptr nocapture noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ZIP_Lock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @ZIP_Lock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @JVM_RawMonitorEnter(ptr noundef %3) #21
@@ -1684,7 +1684,7 @@ define hidden void @ZIP_Lock(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ZIP_Unlock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @ZIP_Unlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @JVM_RawMonitorExit(ptr noundef %3) #21
@@ -1692,17 +1692,17 @@ define hidden void @ZIP_Unlock(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ZIP_GetEntry(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @ZIP_GetEntry(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %7 = trunc i64 %6 to i32
-  %8 = tail call ptr @ZIP_GetEntry2(ptr noundef %0, ptr noundef %1, i32 noundef %7, i8 noundef zeroext 0)
+  %8 = tail call ptr @ZIP_GetEntry2(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %7, i8 noundef zeroext 0)
   br label %11
 
 9:                                                ; preds = %3
@@ -1715,7 +1715,7 @@ define hidden ptr @ZIP_GetEntry(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ZIP_GetEntry2(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden ptr @ZIP_GetEntry2(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.i, label %hashN.exit
 
@@ -1920,7 +1920,7 @@ equals.exit71:                                    ; preds = %.critedge, %.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden zeroext range(i8 0, 2) i8 @equals(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #6 {
+define hidden zeroext range(i8 0, 2) i8 @equals(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %.not = icmp eq i32 %1, %3
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -1946,7 +1946,7 @@ define hidden zeroext range(i8 0, 2) i8 @equals(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @newEntry(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @newEntry(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %344, label %6
@@ -2447,7 +2447,7 @@ sequentialAccessReadCENHeader.exit.thread220:     ; preds = %50, %324, %154, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ZIP_GetNextEntry(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @ZIP_GetNextEntry(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %17, label %4
 
@@ -2476,7 +2476,7 @@ define noalias noundef ptr @ZIP_GetNextEntry(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ZIP_GetEntryDataOffset(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden i64 @ZIP_GetEntryDataOffset(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [30 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8
@@ -2568,7 +2568,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %readFullyAt.exit, label %7
 
@@ -2671,7 +2671,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %readFu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2794,7 +2794,7 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -2803,10 +2803,10 @@ declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ZIP_FindEntry(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @ZIP_FindEntry(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %6 = trunc i64 %5 to i32
-  %7 = tail call ptr @ZIP_GetEntry2(ptr noundef %0, ptr noundef %1, i32 noundef %6, i8 noundef zeroext 0)
+  %7 = tail call ptr @ZIP_GetEntry2(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %6, i8 noundef zeroext 0)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %15, label %8
 
@@ -2966,7 +2966,7 @@ declare i32 @getErrorString(i32 noundef, ptr noundef, i64 noundef) local_unnamed
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.z_stream_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false)
   store ptr null, ptr %4, align 8
@@ -3043,7 +3043,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ZIP_GZip_InitParams(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @ZIP_GZip_InitParams(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   store i64 0, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
@@ -3073,7 +3073,7 @@ define ptr @ZIP_GZip_InitParams(i64 noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @tracking_zlib_alloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #9 {
+define internal noalias noundef ptr @tracking_zlib_alloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #9 {
   %4 = zext i32 %1 to i64
   %5 = zext i32 %2 to i64
   %6 = mul nuw i64 %5, %4
@@ -3085,7 +3085,7 @@ define internal noalias noundef ptr @tracking_zlib_alloc(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @tracking_zlib_free(ptr nocapture readnone %0, ptr nocapture noundef %1) #10 {
+define internal void @tracking_zlib_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #10 {
   tail call void @free(ptr noundef %1) #21
   ret void
 }
@@ -3095,7 +3095,7 @@ declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8) local_unnamed_addr #0 {
+define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.z_stream_s, align 8
   %11 = alloca %struct.gz_header_s, align 8
   %12 = alloca [2 x ptr], align 16
@@ -3172,7 +3172,7 @@ define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @zlib_block_alloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #11 {
+define internal ptr @zlib_block_alloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #11 {
   %4 = zext i32 %1 to i64
   %5 = zext i32 %2 to i64
   %6 = mul nuw i64 %5, %4
@@ -3196,7 +3196,7 @@ define internal ptr @zlib_block_alloc(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @zlib_block_free(ptr nocapture readnone %0, ptr nocapture readnone %1) #12 {
+define internal void @zlib_block_free(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #12 {
   ret void
 }
 
@@ -3205,7 +3205,7 @@ declare i32 @deflateSetHeader(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
 declare ptr @JVM_RawMonitorCreate() local_unnamed_addr #3
 
@@ -3213,7 +3213,7 @@ declare ptr @JVM_RawMonitorCreate() local_unnamed_addr #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 declare void @JVM_RawMonitorDestroy(ptr noundef) local_unnamed_addr #3
 
@@ -3221,7 +3221,7 @@ declare void @JVM_RawMonitorDestroy(ptr noundef) local_unnamed_addr #3
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
@@ -3235,10 +3235,10 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef range(i32 160, 8193) %1) unnamed_addr #0 {
@@ -3379,10 +3379,10 @@ declare i64 @llvm.smax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

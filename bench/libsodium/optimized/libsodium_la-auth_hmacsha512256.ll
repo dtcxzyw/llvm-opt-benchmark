@@ -52,7 +52,7 @@ entry:
 declare i32 @crypto_auth_hmacsha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_auth_hmacsha512256_final(ptr noundef nonnull %state, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %out) local_unnamed_addr #1 {
+define noundef i32 @crypto_auth_hmacsha512256_final(ptr noundef nonnull %state, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %out) local_unnamed_addr #1 {
 entry:
   %out0 = alloca [64 x i8], align 16
   %call = call i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %state, ptr noundef nonnull %out0) #5
@@ -63,10 +63,10 @@ entry:
 declare i32 @crypto_auth_hmacsha512_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_auth_hmacsha512256(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %out, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) local_unnamed_addr #1 {
+define noundef i32 @crypto_auth_hmacsha512256(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %out, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) local_unnamed_addr #1 {
 entry:
   %out0.i = alloca [64 x i8], align 16
   %state = alloca %struct.crypto_auth_hmacsha512_state, align 8
@@ -106,10 +106,10 @@ declare i32 @crypto_verify_32(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

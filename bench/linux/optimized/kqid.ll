@@ -102,7 +102,7 @@ define dso_local zeroext i1 @qid_lt(i64 %0, i64 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @from_kqid(ptr nocapture readnone %0, i64 %1) #0 align 16 {
+define dso_local i32 @from_kqid(ptr readnone captures(none) %0, i64 %1) #0 align 16 {
   %3 = icmp ult i64 %1, 12884901888
   br i1 %3, label %5, label %4
 
@@ -117,7 +117,7 @@ define dso_local i32 @from_kqid(ptr nocapture readnone %0, i64 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @from_kqid_munged(ptr nocapture readnone %0, i64 %1) #0 align 16 {
+define dso_local i32 @from_kqid_munged(ptr readnone captures(none) %0, i64 %1) #0 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32

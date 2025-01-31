@@ -615,7 +615,7 @@ declare void @ExecSortRestrPos(ptr noundef) local_unnamed_addr #1
 declare void @ExecResultRestrPos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @ExecSupportsMarkRestore(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @ExecSupportsMarkRestore(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1

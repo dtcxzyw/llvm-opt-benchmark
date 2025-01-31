@@ -29,7 +29,7 @@ define hidden noundef nonnull ptr @cmsD50_xyY() local_unnamed_addr #1 {
 declare void @cmsXYZ2xyY(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsWhitePointFromTemp(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cmsWhitePointFromTemp(ptr noundef writeonly captures(none) %0, double noundef %1) local_unnamed_addr #1 {
   %3 = fmul double %1, %1
   %4 = fmul double %1, %3
   %5 = fcmp oge double %1, 4.000000e+03
@@ -91,7 +91,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @cmsTempFromWhitePoint(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @cmsTempFromWhitePoint(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -149,7 +149,7 @@ define hidden range(i32 0, 2) i32 @cmsTempFromWhitePoint(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsAdaptationMatrix(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_cmsAdaptationMatrix(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
   %7 = alloca %struct.cmsVEC3, align 8
@@ -240,10 +240,10 @@ ComputeChromaticAdaptation.exit:                  ; preds = %4, %15, %29, %34, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.cmsCIEXYZ, align 8
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsMAT3, align 8
@@ -322,7 +322,7 @@ define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0
 
 62:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
-  call void @_cmsMAT3per(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  call void @_cmsMAT3per(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   br label %_cmsAdaptMatrixToD50.exit
 
 _cmsAdaptMatrixToD50.exit:                        ; preds = %34, %62
@@ -344,7 +344,7 @@ declare i32 @_cmsMAT3inverse(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @_cmsMAT3eval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsAdaptToIlluminant(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cmsAdaptToIlluminant(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
   %7 = alloca %struct.cmsVEC3, align 8
@@ -388,10 +388,10 @@ declare void @cmsxyY2XYZ(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare double @llvm.sqrt.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

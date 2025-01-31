@@ -340,7 +340,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare noundef zeroext i1 @_ZN4absl12lts_2023080216EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES4_(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core23RegisterAresDnsResolverEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
@@ -961,7 +961,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(312) ptr @_ZN9grpc_core10ConfigVars4LoadEv() local_unnamed_addr #0
 
@@ -1055,10 +1055,10 @@ if.end:                                           ; preds = %if.end8.sink.split.
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -1071,13 +1071,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { i64, ptr } @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory6schemeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, ptr } @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory6schemeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret { i64, ptr } { i64 3, ptr @.str.3 }
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory10IsValidUriERKNS_3URIE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(200) %uri) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory10IsValidUriERKNS_3URIE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(200) %uri) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path_.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %call2 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #24
@@ -1103,7 +1103,7 @@ return:                                           ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.71") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %args) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias writeonly sret(%"class.std::unique_ptr.71") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef %args) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.grpc_core::ResolverArgs", align 8
   %agg.tmp3.i.i = alloca %"class.grpc_core::BackOff::Options", align 8
@@ -1540,7 +1540,7 @@ declare void @_ZN9grpc_core15PollingResolver18ResetBackoffLockedEv(ptr noundef n
 declare void @_ZN9grpc_core15PollingResolver14ShutdownLockedEv(ptr noundef nonnull align 8 dereferenceable(536)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver12StartRequestEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.116") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver12StartRequestEv(ptr noalias writeonly sret(%"class.std::unique_ptr.116") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !13
@@ -1858,7 +1858,7 @@ _ZN9grpc_core13RefCountedPtrINS_8ResolverEED2Ev.exit13: ; preds = %lpad.body.thr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper18OnHostnameResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper18OnHostnameResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.std::optional.184", align 8
   %ref.tmp = alloca %"class.std::optional.184", align 8
@@ -2134,7 +2134,7 @@ _ZNSt8optionalIN9grpc_core8Resolver6ResultEED2Ev.exit27: ; preds = %ehcleanup19,
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper13OnSRVResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper13OnSRVResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.std::optional.184", align 8
   %ref.tmp = alloca %"class.std::optional.184", align 8
@@ -2407,7 +2407,7 @@ _ZNSt8optionalIN9grpc_core8Resolver6ResultEED2Ev.exit27: ; preds = %ehcleanup18,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper13OnTXTResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapper13OnTXTResolvedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.std::optional.184", align 8
   %ref.tmp = alloca %"class.std::optional.184", align 8
@@ -5422,7 +5422,7 @@ _ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD2Ev.exit: ; preds = %_ZN4absl12lts_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14LookupHostnameESt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEESG_NS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %default_port.coerce0, ptr %default_port.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14LookupHostnameESt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEESG_NS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef captures(none) %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %default_port.coerce0, ptr %default_port.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.0", align 1
@@ -5661,7 +5661,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit19:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver22LookupHostnameBlockingESt17basic_string_viewIcSt11char_traitsIcEES5_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.245") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %default_port.coerce0, ptr %default_port.coerce1) unnamed_addr #5 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver22LookupHostnameBlockingESt17basic_string_viewIcSt11char_traitsIcEES5_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.245") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %default_port.coerce0, ptr %default_port.coerce1) unnamed_addr #5 align 2 {
 entry:
   %default_resolver_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %default_resolver_, align 8
@@ -5673,7 +5673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupSRVESt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupSRVESt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS7_EEEEEESt17basic_string_viewIcSt11char_traitsIcEENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef captures(none) %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   %agg.tmp4 = alloca %"class.std::function.242", align 8
@@ -5874,7 +5874,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit15:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupTXTESt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt17basic_string_viewIcS9_ENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver9LookupTXTESt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt17basic_string_viewIcS9_ENS_8DurationEP16grpc_pollset_setSG_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef captures(none) %on_resolved, i64 %name.coerce0, ptr %name.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %name_server) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   %agg.tmp4 = alloca %"class.std::function.253", align 8
@@ -6655,7 +6655,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef readonly captures(none) %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::StatusOr.245", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -7021,7 +7021,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i56, %e
 declare noundef ptr @_Z23grpc_pollset_set_createv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequest15OnDnsLookupDoneEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequest15OnDnsLookupDoneEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %arg, i64 80
@@ -7266,7 +7266,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
@@ -7372,7 +7372,7 @@ return:                                           ; preds = %for.end.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #17
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
@@ -7430,7 +7430,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE22find_or_prepare_insertIS6_EESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %key) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7876,7 +7876,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::StatusOr.245", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -8354,7 +8354,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequest10OnCompleteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::StatusOr.210", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -8724,7 +8724,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN9grpc_core11DNSResolver14HandleToStringB5cxx11ENS0_16LookupTaskHandleE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define internal void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -8737,7 +8737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define internal void @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %_M_impl = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
@@ -8763,7 +8763,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115Ar
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZNSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
@@ -8790,7 +8790,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_dns_resolver_ares.cc() #21 section ".text.startup" {
@@ -8801,10 +8801,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

@@ -87,10 +87,10 @@ define dso_local void @intel_pmu_lbr_reset_32() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_pmu_lbr_reset_64() local_unnamed_addr #0 align 16 {
@@ -202,7 +202,7 @@ define dso_local noundef i64 @lbr_from_signext_quirk_wr(i64 noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_restore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #12, !srcloc !13
   %3 = inttoptr i64 %2 to ptr
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 490), align 2
@@ -478,7 +478,7 @@ define dso_local void @intel_pmu_lbr_restore(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_save(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_save(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #12, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 490), align 2
@@ -692,7 +692,7 @@ define internal fastcc i64 @native_read_msr(i32 noundef %0) unnamed_addr #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_swap_task_ctx(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_swap_task_ctx(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1046,7 +1046,7 @@ define dso_local void @intel_pmu_lbr_sched_task(ptr noundef readonly %0, i1 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_add(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #12, !srcloc !20
   %3 = inttoptr i64 %2 to ptr
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
@@ -1640,7 +1640,7 @@ define dso_local void @intel_pmu_lbr_disable_all() local_unnamed_addr #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_read_32(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_read_32(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %3 = add i32 %2, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2472
@@ -1715,10 +1715,10 @@ define dso_local void @intel_pmu_lbr_read_32(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_read_64(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_read_64(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %3 = add i32 %2, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2472
@@ -1933,7 +1933,7 @@ define dso_local void @intel_pmu_lbr_read_64(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_lbr_save_brstack(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [64 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -2160,7 +2160,7 @@ define dso_local void @intel_pmu_lbr_read() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmu_lbr_filter(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pmu_lbr_filter(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3504
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2339,7 +2339,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %4
@@ -2512,7 +2512,7 @@ define dso_local void @intel_pmu_store_pebs_lbrs(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmu_store_lbr(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pmu_store_lbr(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %split, label %5
@@ -3133,7 +3133,7 @@ define internal void @intel_pmu_arch_lbr_xrstors(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pmu_arch_lbr_read_xsave(ptr nocapture noundef %0) #0 align 16 {
+define internal void @intel_pmu_arch_lbr_read_xsave(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3528
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3152,7 +3152,7 @@ define internal void @intel_pmu_arch_lbr_read_xsave(ptr nocapture noundef %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pmu_arch_lbr_save(ptr nocapture noundef writeonly %0) #0 align 16 {
+define internal void @intel_pmu_arch_lbr_save(ptr noundef writeonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %4 = icmp eq i32 %3, 0
@@ -3252,7 +3252,7 @@ define internal void @intel_pmu_arch_lbr_save(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pmu_arch_lbr_restore(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @intel_pmu_arch_lbr_restore(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %4 = add i32 %3, -1
@@ -3353,7 +3353,7 @@ define internal void @intel_pmu_arch_lbr_restore(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pmu_arch_lbr_read(ptr nocapture noundef %0) #0 align 16 {
+define internal void @intel_pmu_arch_lbr_read(ptr noundef captures(none) %0) #0 align 16 {
   tail call fastcc void @intel_pmu_store_lbr(ptr noundef %0, ptr noundef null)
   ret void
 }
@@ -3362,7 +3362,7 @@ define internal void @intel_pmu_arch_lbr_read(ptr nocapture noundef %0) #0 align
 declare dso_local void @setup_clear_cpu_cap(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @x86_perf_get_lbr(ptr nocapture noundef writeonly initializes((0, 16)) %0) #9 align 16 {
+define dso_local void @x86_perf_get_lbr(ptr noundef writeonly captures(none) initializes((0, 16)) %0) #9 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   store i32 %2, ptr %0, align 4
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
@@ -3390,7 +3390,7 @@ declare dso_local i32 @branch_type(i64 noundef, i64 noundef, i32 noundef) local_
 declare dso_local i32 @common_branch_type(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.quic_increment_sequence_ctr = private unnamed_addr constant [28 x i8] c"quic_increment_sequence_ctr\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_tls_new(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define ptr @ossl_quic_tls_new(ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %crypto_send_cb = getelementptr inbounds nuw i8, ptr %args, i64 8
   %0 = load ptr, ptr %crypto_send_cb, align 8
@@ -92,7 +92,7 @@ declare ptr @OSSL_ERR_STATE_new() local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_tls_free(ptr noundef %qtls) local_unnamed_addr #0 {
@@ -396,7 +396,7 @@ return:                                           ; preds = %entry, %if.end131, 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raise_error(ptr nocapture noundef initializes((152, 168)) %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
+define internal fastcc void @raise_error(ptr noundef captures(none) initializes((152, 168)) %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %src_line, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
@@ -425,7 +425,7 @@ declare void @ossl_ssl_set_custom_record_layer(ptr noundef, ptr noundef, ptr nou
 declare i32 @ossl_tls_add_custom_ext_intern(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @add_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #3 {
+define internal noundef i32 @add_transport_params_cb(ptr readnone captures(none) %s, i32 %ext_type, i32 %context, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %x, i64 %chainidx, ptr readnone captures(none) %al, ptr noundef readonly captures(none) %add_arg) #3 {
 entry:
   %local_transport_params = getelementptr inbounds nuw i8, ptr %add_arg, i64 128
   %0 = load ptr, ptr %local_transport_params, align 8
@@ -437,13 +437,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @free_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture readnone %out, ptr nocapture readnone %add_arg) #4 {
+define internal void @free_transport_params_cb(ptr readnone captures(none) %s, i32 %ext_type, i32 %context, ptr readnone captures(none) %out, ptr readnone captures(none) %add_arg) #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %parse_arg) #0 {
+define internal i32 @parse_transport_params_cb(ptr readnone captures(none) %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr readnone captures(none) %x, i64 %chainidx, ptr readnone captures(none) %al, ptr noundef readonly captures(none) %parse_arg) #0 {
 entry:
   %got_transport_params_cb = getelementptr inbounds nuw i8, ptr %parse_arg, i64 72
   %0 = load ptr, ptr %got_transport_params_cb, align 8
@@ -476,7 +476,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_quic_tls_set_transport_params(ptr nocapture noundef writeonly initializes((128, 144)) %qtls, ptr noundef %transport_params, i64 noundef %transport_params_len) local_unnamed_addr #5 {
+define noundef i32 @ossl_quic_tls_set_transport_params(ptr noundef writeonly captures(none) initializes((128, 144)) %qtls, ptr noundef %transport_params, i64 noundef %transport_params_len) local_unnamed_addr #5 {
 entry:
   %local_transport_params = getelementptr inbounds nuw i8, ptr %qtls, i64 128
   store ptr %transport_params, ptr %local_transport_params, align 8
@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_tls_get_error(ptr nocapture noundef readonly %qtls, ptr nocapture noundef writeonly %error_code, ptr nocapture noundef writeonly %error_msg, ptr nocapture noundef writeonly %error_state) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_quic_tls_get_error(ptr noundef readonly captures(none) %qtls, ptr noundef writeonly captures(none) %error_code, ptr noundef writeonly captures(none) %error_msg, ptr noundef writeonly captures(none) %error_state) local_unnamed_addr #3 {
 entry:
   %inerror = getelementptr inbounds nuw i8, ptr %qtls, i64 168
   %bf.load = load i8, ptr %inerror, align 8
@@ -516,7 +516,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_tls_is_cert_request(ptr nocapture noundef readonly %qtls) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_quic_tls_is_cert_request(ptr noundef readonly captures(none) %qtls) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %qtls, align 8, !nonnull !4, !noundef !4
   %1 = load i32, ptr %0, align 8
@@ -538,7 +538,7 @@ cond.end18:                                       ; preds = %entry, %cond.true12
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tls_has_bad_max_early_data(ptr nocapture noundef readonly %qtls) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tls_has_bad_max_early_data(ptr noundef readonly captures(none) %qtls) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qtls, align 8
   %call = tail call ptr @SSL_get_session(ptr noundef %0) #9
@@ -555,7 +555,7 @@ declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_ERR_STATE_save_to_mark(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr nocapture readnone %libctx, ptr nocapture readnone %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp, ptr noundef %kdfdigest, ptr nocapture readnone %prev, ptr noundef %transport, ptr nocapture readnone %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr nocapture readnone %settings, ptr nocapture readnone %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr nocapture noundef writeonly %retrl) #0 {
+define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr readnone captures(none) %md, ptr readnone captures(none) %comp, ptr noundef %kdfdigest, ptr readnone captures(none) %prev, ptr noundef %transport, ptr readnone captures(none) %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr readnone captures(none) %settings, ptr readnone captures(none) %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr noundef writeonly captures(none) %retrl) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str, i32 noundef 105) #9
   %cmp = icmp eq ptr %call, null
@@ -757,13 +757,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quic_unprocessed_read_pending(ptr nocapture readnone %rl) #4 {
+define internal noundef i32 @quic_unprocessed_read_pending(ptr readnone captures(none) %rl) #4 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quic_processed_read_pending(ptr nocapture readnone %rl) #4 {
+define internal noundef i32 @quic_processed_read_pending(ptr readnone captures(none) %rl) #4 {
 entry:
   ret i32 0
 }
@@ -798,7 +798,7 @@ do.end:                                           ; preds = %do.end.critedge, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @quic_get_max_records(ptr nocapture readnone %rl, i8 zeroext %type, i64 %len, i64 %maxfrag, ptr nocapture readnone %preffrag) #4 {
+define internal noundef i64 @quic_get_max_records(ptr readnone captures(none) %rl, i8 zeroext %type, i64 %len, i64 %maxfrag, ptr readnone captures(none) %preffrag) #4 {
 entry:
   ret i64 1
 }
@@ -1035,7 +1035,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr noundef %type, ptr noundef %data, ptr noundef %datalen, ptr nocapture readnone %epoch, ptr nocapture readnone %seq_num) #0 {
+define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %rl, ptr noundef writeonly captures(none) %rechandle, ptr noundef writeonly captures(none) %rversion, ptr noundef %type, ptr noundef %data, ptr noundef %datalen, ptr readnone captures(none) %epoch, ptr readnone captures(none) %seq_num) #0 {
 entry:
   %dummyrec = alloca [5 x i8], align 1
   %recread = getelementptr inbounds nuw i8, ptr %rl, i64 64
@@ -1198,7 +1198,7 @@ return:                                           ; preds = %if.end46, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @quic_get_alert_code(ptr nocapture noundef readonly %rl) #7 {
+define internal i32 @quic_get_alert_code(ptr noundef readonly captures(none) %rl) #7 {
 entry:
   %alert = getelementptr inbounds nuw i8, ptr %rl, i64 56
   %0 = load i32, ptr %alert, align 8
@@ -1206,7 +1206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @quic_set1_bio(ptr nocapture noundef %rl, ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @quic_set1_bio(ptr noundef captures(none) %rl, ptr noundef %bio) #0 {
 entry:
   %cmp.not = icmp eq ptr %bio, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1263,25 +1263,25 @@ return:                                           ; preds = %entry, %if.then7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @quic_set_plain_alerts(ptr nocapture readnone %rl, i32 %allow) #4 {
+define internal void @quic_set_plain_alerts(ptr readnone captures(none) %rl, i32 %allow) #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @quic_set_first_handshake(ptr nocapture readnone %rl, i32 %first) #4 {
+define internal void @quic_set_first_handshake(ptr readnone captures(none) %rl, i32 %first) #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @quic_set_max_pipelines(ptr nocapture readnone %rl, i64 %max_pipelines) #4 {
+define internal void @quic_set_max_pipelines(ptr readnone captures(none) %rl, i64 %max_pipelines) #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @quic_get_state(ptr nocapture noundef readonly %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #8 {
+define internal void @quic_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #8 {
 entry:
   %0 = load ptr, ptr %rl, align 8
   %inerror = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1323,19 +1323,19 @@ if.end11:                                         ; preds = %if.end11.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quic_set_options(ptr nocapture readnone %rl, ptr nocapture readnone %options) #4 {
+define internal noundef i32 @quic_set_options(ptr readnone captures(none) %rl, ptr readnone captures(none) %options) #4 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @quic_get_compression(ptr nocapture readnone %rl) #4 {
+define internal noalias noundef ptr @quic_get_compression(ptr readnone captures(none) %rl) #4 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @quic_set_max_frag_len(ptr nocapture readnone %rl, i64 %max_frag_len) #4 {
+define internal void @quic_set_max_frag_len(ptr readnone captures(none) %rl, i64 %max_frag_len) #4 {
 entry:
   ret void
 }
@@ -1399,13 +1399,13 @@ do.end:                                           ; preds = %do.end.critedge, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quic_alloc_buffers(ptr nocapture readnone %rl) #4 {
+define internal noundef i32 @quic_alloc_buffers(ptr readnone captures(none) %rl) #4 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quic_free_buffers(ptr nocapture readnone %rl) #4 {
+define internal noundef i32 @quic_free_buffers(ptr readnone captures(none) %rl) #4 {
 entry:
   ret i32 1
 }

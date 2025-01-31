@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"J\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_RawNativeLibraries_load0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_RawNativeLibraries_load0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @handleID, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %initIDs.exit
@@ -61,7 +61,7 @@ declare ptr @JVM_LoadLibrary(ptr noundef, i8 noundef zeroext) local_unnamed_addr
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_loader_RawNativeLibraries_unload0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_jdk_internal_loader_RawNativeLibraries_unload0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @handleID, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %initIDs.exit

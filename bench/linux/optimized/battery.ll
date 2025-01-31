@@ -287,13 +287,13 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -494,7 +494,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local zeroext i1 @acpi_has_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @battery_notify(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @battery_notify(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -176
   switch i64 %1, label %32 [
     i64 2, label %5
@@ -556,7 +556,7 @@ declare dso_local i32 @register_pm_notifier(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_dev_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_battery_notify(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_battery_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1744,13 +1744,13 @@ declare dso_local i32 @dmi_name_in_vendors(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @dmi_get_system_info(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @dmi_walk(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @find_battery(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @find_battery(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 22
   br i1 %4, label %5, label %33
@@ -1799,10 +1799,10 @@ define internal void @find_battery(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -2156,10 +2156,10 @@ declare dso_local ptr @power_supply_get_drvdata(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @power_supply_is_system_supplied() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_alarm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_alarm_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @power_supply_get_drvdata(ptr noundef %5) #11
@@ -2172,7 +2172,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_ala
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @acpi_battery_alarm_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef returned %3) #0 align 16 {
+define internal noundef i64 @acpi_battery_alarm_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef returned %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 0, ptr %5, align 8, !annotation !21
@@ -2225,10 +2225,10 @@ define internal noundef i64 @acpi_battery_alarm_store(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_set_wakeup_capable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -2299,7 +2299,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef r
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @acpi_battery_init_async(ptr nocapture readnone %0, i64 %1) #4 section ".init.text" align 16 {
+define internal void @acpi_battery_init_async(ptr readnone captures(none) %0, i64 %1) #4 section ".init.text" align 16 {
   %3 = tail call zeroext i1 @acpi_quirk_skip_acpi_ac_and_battery() #11
   br i1 %3, label %9, label %4
 
@@ -2328,19 +2328,19 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_bus_register_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_bix_broken_package_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
+define internal noundef i32 @battery_bix_broken_package_quirk(ptr readnone captures(none) %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_bix_broken_package, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_notification_delay_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
+define internal noundef i32 @battery_notification_delay_quirk(ptr readnone captures(none) %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_notification_delay_ms, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_ac_is_broken_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
+define internal noundef i32 @battery_ac_is_broken_quirk(ptr readnone captures(none) %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_ac_is_broken, align 4
   ret i32 0
 }

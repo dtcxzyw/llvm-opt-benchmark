@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_txfc_init(ptr nocapture noundef writeonly %txfc, ptr noundef %conn_txfc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_txfc_init(ptr noundef writeonly captures(none) %txfc, ptr noundef %conn_txfc) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %conn_txfc, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -28,14 +28,14 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_txfc_get_parent(ptr nocapture noundef readonly %txfc) local_unnamed_addr #1 {
+define ptr @ossl_quic_txfc_get_parent(ptr noundef readonly captures(none) %txfc) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %txfc, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_txfc_bump_cwm(ptr nocapture noundef %txfc, i64 noundef %cwm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_txfc_bump_cwm(ptr noundef captures(none) %txfc, i64 noundef %cwm) local_unnamed_addr #0 {
 entry:
   %cwm1 = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm1, align 8
@@ -52,7 +52,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_txfc_get_credit_local(ptr nocapture noundef readonly %txfc, i64 noundef %consumed) local_unnamed_addr #1 {
+define i64 @ossl_quic_txfc_get_credit_local(ptr noundef readonly captures(none) %txfc, i64 noundef %consumed) local_unnamed_addr #1 {
 entry:
   %cwm = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm, align 8
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @ossl_quic_txfc_get_credit(ptr nocapture noundef readonly %txfc, i64 noundef %consumed) local_unnamed_addr #2 {
+define i64 @ossl_quic_txfc_get_credit(ptr noundef readonly captures(none) %txfc, i64 noundef %consumed) local_unnamed_addr #2 {
 entry:
   %cwm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i, align 8
@@ -91,7 +91,7 @@ if.end5:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit_local(ptr nocapture noundef %txfc, i64 noundef %num_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit_local(ptr noundef captures(none) %txfc, i64 noundef %num_bytes) local_unnamed_addr #0 {
 entry:
   %cwm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i, align 8
@@ -118,7 +118,7 @@ if.end4:                                          ; preds = %if.then3, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit(ptr nocapture noundef %txfc, i64 noundef %num_bytes) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit(ptr noundef captures(none) %txfc, i64 noundef %num_bytes) local_unnamed_addr #3 {
 entry:
   %cwm.i.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i.i, align 8
@@ -177,7 +177,7 @@ return:                                           ; preds = %ossl_quic_txfc_cons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -128, 128) i32 @ossl_quic_txfc_has_become_blocked(ptr nocapture noundef %txfc, i32 noundef %clear) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @ossl_quic_txfc_has_become_blocked(ptr noundef captures(none) %txfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
   %has_become_blocked = getelementptr inbounds nuw i8, ptr %txfc, i64 24
   %0 = load i8, ptr %has_become_blocked, align 8
@@ -194,7 +194,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_txfc_get_cwm(ptr nocapture noundef readonly %txfc) local_unnamed_addr #1 {
+define i64 @ossl_quic_txfc_get_cwm(ptr noundef readonly captures(none) %txfc) local_unnamed_addr #1 {
 entry:
   %cwm = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm, align 8
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_txfc_get_swm(ptr nocapture noundef readonly %txfc) local_unnamed_addr #1 {
+define i64 @ossl_quic_txfc_get_swm(ptr noundef readonly captures(none) %txfc) local_unnamed_addr #1 {
 entry:
   %swm = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %0 = load i64, ptr %swm, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_init(ptr nocapture noundef writeonly %rxfc, ptr noundef %conn_rxfc, i64 noundef %initial_window_size, i64 noundef %max_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_init(ptr noundef writeonly captures(none) %rxfc, ptr noundef %conn_rxfc, i64 noundef %initial_window_size, i64 noundef %max_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %conn_rxfc, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -255,7 +255,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 0, 2) i32 @ossl_quic_rxfc_init_standalone(ptr nocapture noundef writeonly initializes((0, 92)) %rxfc, i64 noundef %initial_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @ossl_quic_rxfc_init_standalone(ptr noundef writeonly captures(none) initializes((0, 92)) %rxfc, i64 noundef %initial_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #4 {
 return:
   %swm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   store i64 0, ptr %swm.i, align 8
@@ -286,7 +286,7 @@ return:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_rxfc_get_parent(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
+define ptr @ossl_quic_rxfc_get_parent(ptr noundef readonly captures(none) %rxfc) local_unnamed_addr #1 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %0 = load ptr, ptr %parent, align 8
@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_rxfc_set_max_window_size(ptr nocapture noundef writeonly initializes((48, 56)) %rxfc, i64 noundef %max_window_size) local_unnamed_addr #4 {
+define void @ossl_quic_rxfc_set_max_window_size(ptr noundef writeonly captures(none) initializes((48, 56)) %rxfc, i64 noundef %max_window_size) local_unnamed_addr #4 {
 entry:
   %max_window_size1 = getelementptr inbounds nuw i8, ptr %rxfc, i64 48
   store i64 %max_window_size, ptr %max_window_size1, align 8
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr nocapture noundef %rxfc, i64 noundef %end, i32 noundef %is_fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef captures(none) %rxfc, i64 noundef %end, i32 noundef %is_fin) local_unnamed_addr #3 {
 entry:
   %standalone = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   %0 = load i8, ptr %standalone, align 1
@@ -413,7 +413,7 @@ return:                                           ; preds = %on_rx_controlled_by
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef %num_bytes, i64 %rtt.coerce) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_on_retire(ptr noundef captures(none) %rxfc, i64 noundef %num_bytes, i64 %rtt.coerce) local_unnamed_addr #5 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %0 = load ptr, ptr %parent, align 8
@@ -459,7 +459,7 @@ return:                                           ; preds = %if.end6, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
+define internal fastcc void @rxfc_on_retire(ptr noundef captures(none) %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
 entry:
   %epoch_start = getelementptr inbounds nuw i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8
@@ -616,14 +616,14 @@ rxfc_update_cwm.exit:                             ; preds = %rxfc_cwm_bump_desir
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_rxfc_get_cwm(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
+define i64 @ossl_quic_rxfc_get_cwm(ptr noundef readonly captures(none) %rxfc) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %rxfc, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_rxfc_get_swm(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
+define i64 @ossl_quic_rxfc_get_swm(ptr noundef readonly captures(none) %rxfc) local_unnamed_addr #1 {
 entry:
   %swm = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   %0 = load i64, ptr %swm, align 8
@@ -631,7 +631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_rxfc_get_rwm(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
+define i64 @ossl_quic_rxfc_get_rwm(ptr noundef readonly captures(none) %rxfc) local_unnamed_addr #1 {
 entry:
   %rwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %0 = load i64, ptr %rwm, align 8
@@ -639,7 +639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 256) i32 @ossl_quic_rxfc_has_cwm_changed(ptr nocapture noundef %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef captures(none) %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
   %has_cwm_changed = getelementptr inbounds nuw i8, ptr %rxfc, i64 89
   %0 = load i8, ptr %has_cwm_changed, align 1
@@ -656,7 +656,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 256) i32 @ossl_quic_rxfc_get_error(ptr nocapture noundef %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @ossl_quic_rxfc_get_error(ptr noundef captures(none) %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
   %error_code = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   %0 = load i8, ptr %error_code, align 8
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr nocapture noundef readonly %rxfc, ptr noundef writeonly %final_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr noundef readonly captures(none) %rxfc, ptr noundef writeonly %final_size) local_unnamed_addr #0 {
 entry:
   %is_fin = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   %0 = load i8, ptr %is_fin, align 2
@@ -702,7 +702,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #6
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

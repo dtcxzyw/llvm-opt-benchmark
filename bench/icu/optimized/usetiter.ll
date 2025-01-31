@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7518UnicodeSetIterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7518UnicodeSetIterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7518UnicodeSetIterator16getStaticClassIDEvE7classID
 }
@@ -89,7 +89,7 @@ lpad:                                             ; preds = %call.i.i.i.noexc, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518UnicodeSetIterator5resetERKNS_10UnicodeSetE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 56)) %this, ptr noundef nonnull align 8 dereferenceable(200) %uSet) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518UnicodeSetIterator5resetERKNS_10UnicodeSetE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 56)) %this, ptr noundef nonnull align 8 dereferenceable(200) %uSet) local_unnamed_addr #1 align 2 {
 if.end.i:
   %set = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %uSet, ptr %set, align 8
@@ -134,7 +134,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518UnicodeSetIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 8), (16, 64)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518UnicodeSetIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 8), (16, 64)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518UnicodeSetIteratorE, i64 16), ptr %this, align 8
   %set = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -159,7 +159,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518UnicodeSetIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24), (32, 56)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518UnicodeSetIterator5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24), (32, 56)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %set = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %set, align 8
@@ -247,7 +247,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %nextElement = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %nextElement, align 4
@@ -324,7 +324,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518UnicodeSetIterator9loadRangeEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((40, 48)) %this, i32 noundef %iRange) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518UnicodeSetIterator9loadRangeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((40, 48)) %this, i32 noundef %iRange) local_unnamed_addr #1 align 2 {
 entry:
   %set = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %set, align 8
@@ -341,7 +341,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator9nextRangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator9nextRangeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %string = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %string, align 8
@@ -423,7 +423,7 @@ declare noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeStartEi(ptr noundef nonnul
 declare noundef i32 @_ZNK6icu_7510UnicodeSet11getRangeEndEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7518UnicodeSetIterator9getStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7518UnicodeSetIterator9getStringEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %string = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %string, align 8

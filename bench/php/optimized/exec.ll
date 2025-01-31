@@ -52,7 +52,7 @@ define hidden noundef i32 @zm_startup_exec(i32 noundef %0, i32 noundef %1) local
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_exec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @php_exec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = tail call noalias ptr @popen(ptr noundef %1, ptr noundef nonnull @.str)
@@ -407,7 +407,7 @@ strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %122
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -432,13 +432,13 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_exec(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_exec(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @php_exec_ex(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
+define internal fastcc void @php_exec_ex(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq i32 %2, 0
   %5 = select i1 %.not, i32 3, i32 2
@@ -646,13 +646,13 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_system(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_system(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @php_exec_ex(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_passthru(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_passthru(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @php_exec_ex(ptr noundef %0, ptr noundef %1, i32 noundef 3)
   ret void
 }
@@ -695,7 +695,7 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
   %.0166181 = phi i64 [ %52, %51 ], [ 0, %10 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 %.0166181
   %17 = sub nuw i64 %2, %.0166181
-  %18 = tail call i32 @mblen(ptr noundef %16, i64 noundef %17) #10
+  %18 = tail call i32 @mblen(ptr noundef nonnull %16, i64 noundef %17) #10
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %51, label %20
 
@@ -706,7 +706,7 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %15, i64 %.0162182
   %24 = zext nneg i32 %18 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %16, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %16, i64 %24, i1 false)
   %25 = add i64 %.0162182, %24
   %26 = add nsw i32 %18, -1
   %27 = zext nneg i32 %26 to i64
@@ -900,13 +900,13 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @mblen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
@@ -946,7 +946,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
   %.0153161 = phi i64 [ %43, %42 ], [ 0, %10 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 %.0153161
   %18 = sub nuw i64 %2, %.0153161
-  %19 = tail call i32 @mblen(ptr noundef %17, i64 noundef %18) #10
+  %19 = tail call i32 @mblen(ptr noundef nonnull %17, i64 noundef %18) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %42, label %21
 
@@ -957,7 +957,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %16, i64 %.0152162
   %25 = zext nneg i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %17, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %17, i64 %25, i1 false)
   %26 = add i64 %.0152162, %25
   %27 = add nsw i32 %19, -1
   %28 = zext nneg i32 %27 to i64
@@ -1103,7 +1103,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_escapeshellcmd(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_escapeshellcmd(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1195,7 +1195,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_escapeshellarg(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_escapeshellarg(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1267,7 +1267,7 @@ define hidden void @zif_escapeshellarg(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_shell_exec(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_shell_exec(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1375,7 +1375,7 @@ define hidden void @zif_shell_exec(ptr noundef %0, ptr nocapture noundef writeon
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_proc_nice(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_proc_nice(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4

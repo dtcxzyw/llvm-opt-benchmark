@@ -245,7 +245,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_alarmtimer_suspend(ptr noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_alarmtimer_suspend(ptr nocapture readnone %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_alarmtimer_suspend(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_alarmtimer_suspend, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -266,21 +266,21 @@ define dso_local noundef i32 @__traceiter_alarmtimer_suspend(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_alarmtimer_suspend(ptr nocapture readnone %0, i64 %1, i32 %2) #2 align 16 {
+define dso_local void @__probestub_alarmtimer_suspend(ptr readnone captures(none) %0, i64 %1, i32 %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_alarmtimer_fired(ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_alarmtimer_fired(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_alarmtimer_fired(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_alarmtimer_fired, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -301,7 +301,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_fired(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_alarmtimer_fired(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_alarmtimer_fired(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #2 align 16 {
   ret void
 }
 
@@ -309,7 +309,7 @@ define dso_local void @__probestub_alarmtimer_fired(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_alarmtimer_start(ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_alarmtimer_start(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_alarmtimer_start(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_alarmtimer_start, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -330,7 +330,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_start(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_alarmtimer_start(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_alarmtimer_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #2 align 16 {
   ret void
 }
 
@@ -338,7 +338,7 @@ define dso_local void @__probestub_alarmtimer_start(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_alarmtimer_cancel(ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_alarmtimer_cancel(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_alarmtimer_cancel(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_alarmtimer_cancel, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -359,7 +359,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_cancel(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_alarmtimer_cancel(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_alarmtimer_cancel(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #2 align 16 {
   ret void
 }
 
@@ -587,7 +587,7 @@ define dso_local ptr @alarmtimer_get_rtcdev() #1 align 16 {
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @alarm_expires_remaining(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local i64 @alarm_expires_remaining(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -847,7 +847,7 @@ define dso_local range(i32 0, -2147483648) i32 @alarm_cancel(ptr noundef %0) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @alarm_forward(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i64 @alarm_forward(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %1, %5
@@ -893,7 +893,7 @@ define dso_local i64 @alarm_forward(ptr nocapture noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @alarm_forward_now(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local i64 @alarm_forward_now(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -945,7 +945,7 @@ define dso_local i64 @alarm_forward_now(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @alarm_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @alarm_clock_getres(i32 %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %4 = load ptr, ptr @rtcdev, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtcdev_lock, i64 noundef %3) #12
@@ -1054,7 +1054,7 @@ define internal noundef range(i32 -95, 1) i32 @alarm_timer_create(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.alarm, align 8
   %5 = icmp eq i32 %0, 9
   %6 = select i1 %5, i32 1, i32 -1
@@ -1223,7 +1223,7 @@ define internal void @alarm_timer_rearm(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @alarm_timer_forward(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define internal i64 @alarm_timer_forward(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1271,7 +1271,7 @@ define internal i64 @alarm_timer_forward(ptr nocapture noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @alarm_timer_remaining(ptr nocapture noundef readonly %0, i64 noundef %1) #4 align 16 {
+define internal i64 @alarm_timer_remaining(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %4, %1
@@ -1318,7 +1318,7 @@ define internal void @alarm_timer_arm(ptr noundef initializes((144, 152)) %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alarm_timer_wait_running(ptr nocapture readnone %0) #1 align 16 {
+define internal void @alarm_timer_wait_running(ptr readnone captures(none) %0) #1 align 16 {
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !29
   ret void
 }
@@ -1358,7 +1358,7 @@ define internal i32 @alarmtimer_init() #5 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -1696,7 +1696,7 @@ define internal noundef range(i32 0, 2) i32 @alarm_handle_timer(ptr noundef %0, 
 declare dso_local i32 @posix_timer_event(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarmtimer_nsleep_wakeup(ptr nocapture noundef %0, i64 %1) #1 align 16 {
+define internal noundef i32 @alarmtimer_nsleep_wakeup(ptr noundef captures(none) %0, i64 %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -1928,7 +1928,7 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @alarm_timer_nsleep_restart(ptr nocapture noundef readonly %0) #1 section ".sched.text" align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @alarm_timer_nsleep_restart(ptr noundef readonly captures(none) %0) #1 section ".sched.text" align 16 {
   %2 = alloca %struct.alarm, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -1994,7 +1994,7 @@ define internal i64 @ktime_get_boottime() #11 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @get_boottime_timespec(ptr nocapture noundef writeonly initializes((0, 16)) %0) #1 align 16 {
+define internal void @get_boottime_timespec(ptr noundef writeonly captures(none) initializes((0, 16)) %0) #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #12
   %4 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %3) #12
@@ -2287,7 +2287,7 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarmtimer_resume(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef i32 @alarmtimer_resume(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %3 = load ptr, ptr @rtcdev, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtcdev_lock, i64 noundef %2) #12

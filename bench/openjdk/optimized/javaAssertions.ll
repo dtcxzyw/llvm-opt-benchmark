@@ -127,7 +127,7 @@ define hidden noundef i32 @_ZN14JavaAssertions10OptionList5countEPS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JavaAssertions9addOptionEPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14JavaAssertions9addOptionEPKcb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %4 = trunc i64 %3 to i32
   %5 = shl i64 %3, 32
@@ -196,15 +196,15 @@ define hidden void @_ZN14JavaAssertions9addOptionEPKcb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14JavaAssertions31createAssertionStatusDirectivesEP10JavaThread(ptr noundef %0) local_unnamed_addr #1 align 2 {
@@ -550,7 +550,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JavaAssertions14fillJavaArraysEPKNS_10OptionListEi14objArrayHandle15typeArrayHandleP10JavaThread(ptr noundef readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14JavaAssertions14fillJavaArraysEPKNS_10OptionListEi14objArrayHandle15typeArrayHandleP10JavaThread(ptr noundef readonly %0, i32 noundef %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit._crit_edge, label %.lr.ph
 
@@ -566,7 +566,7 @@ define hidden void @_ZN14JavaAssertions14fillJavaArraysEPKNS_10OptionListEi14obj
   %9 = load ptr, ptr %.01119, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
-  %12 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %9, i32 noundef %11) #10
+  %12 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %9, i32 noundef %11) #10
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %13
 
@@ -655,7 +655,7 @@ declare void @_ZN35java_lang_AssertionStatusDirectives9set_defltEP7oopDescb(ptr 
 declare ptr @_ZN16java_lang_String21externalize_classnameEP6SymbolP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14JavaAssertions13match_packageEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN14JavaAssertions13match_packageEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN14JavaAssertions9_packagesE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge2.thread, label %4
@@ -688,7 +688,7 @@ define hidden noundef ptr @_ZN14JavaAssertions13match_packageEPKc(ptr nocapture 
 10:                                               ; preds = %.critedge, %18
   %.034 = phi ptr [ %2, %.critedge ], [ %20, %18 ]
   %11 = load ptr, ptr %.034, align 8
-  %12 = tail call i32 @strncmp(ptr noundef %11, ptr noundef %0, i64 noundef %.1) #9
+  %12 = tail call i32 @strncmp(ptr noundef %11, ptr noundef nonnull %0, i64 noundef %.1) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -728,10 +728,10 @@ define hidden noundef ptr @_ZN14JavaAssertions13match_packageEPKc(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN14JavaAssertions7enabledEPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN14JavaAssertions7enabledEPKcb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %.07.i = load ptr, ptr @_ZN14JavaAssertions8_classesE, align 8
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %.loopexit24, label %.lr.ph.i
@@ -786,7 +786,7 @@ _ZN14JavaAssertions11match_classEPKc.exit:        ; preds = %.lr.ph.i
 17:                                               ; preds = %25, %.critedge.i
   %.034.i = phi ptr [ %9, %.critedge.i ], [ %27, %25 ]
   %18 = load ptr, ptr %.034.i, align 8
-  %19 = tail call i32 @strncmp(ptr noundef %18, ptr noundef readonly %0, i64 noundef %.1.i) #9
+  %19 = tail call i32 @strncmp(ptr noundef %18, ptr noundef nonnull readonly %0, i64 noundef %.1.i) #9
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 

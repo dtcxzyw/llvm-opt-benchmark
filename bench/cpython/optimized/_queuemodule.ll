@@ -74,7 +74,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @queue_traverse(ptr nocapture noundef readonly %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @queue_traverse(ptr noundef readonly captures(none) %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -107,7 +107,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @queue_clear(ptr nocapture noundef readonly %m) #0 {
+define internal noundef i32 @queue_clear(ptr noundef readonly captures(none) %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -160,7 +160,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @queue_free(ptr nocapture noundef readonly %m) #0 {
+define internal void @queue_free(ptr noundef readonly captures(none) %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val.i = load ptr, ptr %0, align 8
@@ -337,7 +337,7 @@ Py_DECREF.exit:                                   ; preds = %if.end9, %if.then1.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @simplequeue_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @simplequeue_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %lst = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %lst, align 8
@@ -369,7 +369,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @simplequeue_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @simplequeue_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %lst = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %lst, align 8
@@ -532,7 +532,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queue_SimpleQueue_empty(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_queue_SimpleQueue_empty(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
@@ -547,7 +547,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queue_SimpleQueue_get(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_queue_SimpleQueue_get(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -609,7 +609,7 @@ exit:                                             ; preds = %if.then16, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queue_SimpleQueue_get_nowait(ptr nocapture noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @_queue_SimpleQueue_get_nowait(ptr noundef captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -629,7 +629,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_queue_SimpleQueue_put(ptr nocapture noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_queue_SimpleQueue_put(ptr noundef captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -698,7 +698,7 @@ exit:                                             ; preds = %if.then1.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_queue_SimpleQueue_put_nowait(ptr nocapture noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_queue_SimpleQueue_put_nowait(ptr noundef captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -741,7 +741,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queue_SimpleQueue_qsize(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_queue_SimpleQueue_qsize(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
@@ -778,7 +778,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr nocapture noundef %self, ptr noundef %cls, i32 noundef range(i32 0, -2147483648) %block, ptr noundef %timeout_obj) unnamed_addr #0 {
+define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef captures(none) %self, ptr noundef %cls, i32 noundef range(i32 0, -2147483648) %block, ptr noundef %timeout_obj) unnamed_addr #0 {
 entry:
   %timeout = alloca i64, align 8
   %call = tail call ptr @PyThreadState_Get() #2

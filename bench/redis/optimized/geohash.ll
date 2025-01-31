@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @geohashGetCoordRange(ptr nocapture noundef writeonly initializes((0, 16)) %long_range, ptr nocapture noundef writeonly initializes((0, 16)) %lat_range) local_unnamed_addr #0 {
+define dso_local void @geohashGetCoordRange(ptr noundef writeonly captures(none) initializes((0, 16)) %long_range, ptr noundef writeonly captures(none) initializes((0, 16)) %lat_range) local_unnamed_addr #0 {
 entry:
   %max = getelementptr inbounds nuw i8, ptr %long_range, i64 8
   store double 1.800000e+02, ptr %max, align 8
@@ -357,7 +357,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
@@ -451,7 +451,7 @@ geohashDecode.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr nocapture noundef readonly %area, ptr noundef writeonly %xy) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %area, ptr noundef writeonly %xy) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %xy, null
   br i1 %tobool.not, label %return, label %if.end
@@ -582,7 +582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef initializes((0, 128)) %neighbors) local_unnamed_addr #1 {
+define dso_local void @geohashNeighbors(ptr noundef readonly captures(none) %hash, ptr noundef captures(none) initializes((0, 128)) %neighbors) local_unnamed_addr #1 {
 entry:
   %east = getelementptr inbounds nuw i8, ptr %neighbors, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)

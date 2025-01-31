@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.error_commit_ts_disabled = private unnamed_addr constant [25 x i8] c"error_commit_ts_disabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @commitTsShared, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
@@ -196,7 +196,7 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = udiv i32 %0, 819
   %5 = zext nneg i32 %4 to i64
   %6 = urem i32 %0, 819
@@ -401,7 +401,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_xact_commit_timestamp(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_xact_commit_timestamp(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -498,7 +498,7 @@ declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -667,7 +667,7 @@ declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_commit_ts_buffers(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_commit_ts_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.4, ptr noundef %0) #9
   ret i1 %4
 }
@@ -1015,7 +1015,7 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @commit_ts_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1134,10 +1134,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

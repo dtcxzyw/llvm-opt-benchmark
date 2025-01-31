@@ -105,7 +105,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.81 = private unnamed_addr constant [6 x i8] c"cache\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17MyFatalBreakAPPLEPKcPKvmPv(ptr noundef %errstr, ptr nocapture noundef readnone %private_info, i64 noundef %cb, ptr nocapture noundef readnone %user_data) local_unnamed_addr #0 {
+define dso_local void @_Z17MyFatalBreakAPPLEPKcPKvmPv(ptr noundef %errstr, ptr noundef readnone captures(none) %private_info, i64 noundef %cb, ptr noundef readnone captures(none) %user_data) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %errstr, ptr noundef nonnull dereferenceable(1) @.str) #10
   %tobool.not = icmp eq ptr %call, null
@@ -113,12 +113,12 @@ entry:
 
 do.body:                                          ; preds = %entry
   tail call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 84)
-  tail call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.3, ptr noundef %errstr)
+  tail call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.3, ptr noundef nonnull %errstr)
   br label %if.end
 
 do.body1:                                         ; preds = %entry
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 88)
-  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef %errstr)
+  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull %errstr)
   br label %if.end
 
 if.end:                                           ; preds = %do.body1, %do.body
@@ -126,7 +126,7 @@ if.end:                                           ; preds = %do.body1, %do.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @b3OutputWarningMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #2
 
@@ -216,7 +216,7 @@ if.end4:                                          ; preds = %if.then3, %_Z22b3Op
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @b3OpenCLUtils_getSdkVendorName() local_unnamed_addr #4 {
@@ -298,7 +298,7 @@ return:                                           ; preds = %_Z22b3OpenCLUtils_c
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo(ptr noundef %platform, ptr noundef %platformInfo) local_unnamed_addr #0 align 2 {
@@ -339,7 +339,7 @@ if.end13:                                         ; preds = %if.then11, %if.end7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @b3OpenCLUtils_printPlatformInfo(ptr noundef %platform) local_unnamed_addr #0 {
@@ -388,7 +388,7 @@ _ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %platform, i64 noundef %deviceType, ptr noundef writeonly %pErrNum, ptr noundef readnone %pGLContext, ptr nocapture readnone %pGLDC, i32 noundef %preferredDeviceIndex, i32 %preferredPlatformIndex) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %platform, i64 noundef %deviceType, ptr noundef writeonly %pErrNum, ptr noundef readnone %pGLContext, ptr readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 %preferredPlatformIndex) local_unnamed_addr #0 {
 entry:
   %ciErrNum = alloca i32, align 4
   %devices = alloca [16 x ptr], align 16
@@ -474,7 +474,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %deviceType, ptr noundef %pErrNum, ptr noundef %pGLContext, ptr nocapture noundef readnone %pGLDC, i32 noundef %preferredDeviceIndex, i32 noundef %preferredPlatformIndex, ptr noundef writeonly %retPlatformId) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %deviceType, ptr noundef %pErrNum, ptr noundef %pGLContext, ptr noundef readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 noundef %preferredPlatformIndex, ptr noundef writeonly %retPlatformId) local_unnamed_addr #0 {
 entry:
   %numPlatforms = alloca i32, align 4
   %pbuf = alloca [128 x i8], align 16
@@ -1200,7 +1200,7 @@ for.body:                                         ; preds = %if.then61, %for.bod
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then61 ]
   %arrayidx69 = getelementptr inbounds nuw [4 x ptr], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 0, i64 %indvars.iv
   %19 = load ptr, ptr %arrayidx69, align 8
-  %call70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %relativeFileName, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %19, ptr noundef %clFileNameForCaching) #12
+  %call70 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %relativeFileName, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %19, ptr noundef nonnull %clFileNameForCaching) #12
   %call72 = call noalias ptr @fopen(ptr noundef nonnull %relativeFileName, ptr noundef nonnull @.str.63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool66.not = icmp eq ptr %call72, null
@@ -1261,7 +1261,7 @@ if.end103:                                        ; preds = %cond.end95
   %call111 = call noalias ptr @malloc(i64 noundef %conv110) #11
   %call112 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call111, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull @.str.58, ptr noundef nonnull %cond) #12
   %24 = load ptr, ptr @__clewBuildProgram, align 8
-  %call113 = call i32 %24(ptr noundef %call97, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef %call111, ptr noundef null, ptr noundef null)
+  %call113 = call i32 %24(ptr noundef %call97, i32 noundef 1, ptr noundef nonnull %device.addr, ptr noundef nonnull %call111, ptr noundef null, ptr noundef null)
   store i32 %call113, ptr %localErrNum, align 4
   %cmp114.not = icmp eq i32 %call113, 0
   br i1 %cmp114.not, label %if.end129, label %if.then115
@@ -1342,34 +1342,34 @@ return:                                           ; preds = %if.end53, %if.end15
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #8
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %clContext, ptr noundef %device, ptr noundef %kernelSource, ptr noundef %kernelName, ptr noundef %pErrNum, ptr noundef %prog, ptr noundef %additionalMacros) local_unnamed_addr #0 {
@@ -1428,7 +1428,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #9

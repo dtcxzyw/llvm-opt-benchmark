@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @siphash(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local i64 @siphash(ptr noundef readonly %in, i64 noundef %inlen, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %k, i64 8
@@ -190,7 +190,7 @@ sw.epilog:                                        ; preds = %for.end, %sw.bb61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @siphash_nocase(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local i64 @siphash_nocase(ptr noundef readonly %in, i64 noundef %inlen, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %k, i64 8

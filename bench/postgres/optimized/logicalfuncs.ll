@@ -498,7 +498,7 @@ define dso_local noundef i64 @pg_logical_slot_peek_binary_changes(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_logical_emit_message_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -564,7 +564,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare i64 @LogLogicalMessage(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_logical_emit_message_text(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_logical_emit_message_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @pg_logical_emit_message_bytea(ptr noundef %0)
   ret i64 %2
 }
@@ -618,7 +618,7 @@ declare void @wal_segment_open(ptr noundef, i64 noundef, ptr noundef) #1
 declare void @wal_segment_close(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @LogicalOutputPrepareWrite(ptr nocapture noundef readonly %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
+define internal void @LogicalOutputPrepareWrite(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   tail call void @resetStringInfo(ptr noundef %6) #7
@@ -626,7 +626,7 @@ define internal void @LogicalOutputPrepareWrite(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @LogicalOutputWrite(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i1 zeroext %3) #0 {
+define internal void @LogicalOutputWrite(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i1 zeroext %3) #0 {
   %5 = alloca [3 x i64], align 16
   %6 = alloca [3 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -695,7 +695,7 @@ declare void @pg_re_throw() local_unnamed_addr #4
 declare void @resetStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 

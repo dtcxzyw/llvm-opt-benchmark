@@ -1560,7 +1560,7 @@ declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef range(i64 3, 17) %ref_len, ptr nocapture noundef nonnull readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly captures(none) %ref, i64 noundef range(i64 3, 17) %ref_len, ptr noundef nonnull readonly captures(none) %iov, i64 noundef %iov_len) unnamed_addr #2 {
 entry:
   %cmp14.not = icmp eq i64 %iov_len, 0
   br i1 %cmp14.not, label %return, label %for.body
@@ -1628,7 +1628,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @test_random() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef) local_unnamed_addr #1
 
@@ -1641,7 +1641,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef initializes((0, 8)) %readbytes, ptr noundef %fin) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %qrs, ptr noundef writeonly captures(none) %buf, i64 noundef %size, ptr noundef captures(none) initializes((0, 8)) %readbytes, ptr noundef %fin) unnamed_addr #0 {
 entry:
   %record = alloca ptr, align 8
   %rec_len = alloca i64, align 8
@@ -1723,13 +1723,13 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

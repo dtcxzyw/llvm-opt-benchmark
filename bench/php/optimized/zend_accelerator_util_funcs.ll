@@ -59,7 +59,7 @@ define hidden noundef ptr @create_persistent_script() local_unnamed_addr #0 {
 declare noalias ptr @_emalloc_512() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -221,7 +221,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_free_delayed_early_binding_list(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -608,7 +608,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_build_delayed_early_binding_list(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
@@ -745,7 +745,7 @@ declare noalias ptr @_emalloc_256() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1540,7 +1540,7 @@ zend_accel_do_delayed_early_binding.exit:         ; preds = %.thread112.i, %372
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @zend_map_ptr_extend(i64 noundef) local_unnamed_addr #1
 
@@ -2029,7 +2029,7 @@ zend_adler32.exit92:                              ; preds = %._crit_edge.i56, %.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

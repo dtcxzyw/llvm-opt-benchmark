@@ -101,7 +101,7 @@ declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @DSA_up_ref(ptr noundef %dsa) local_unnamed_addr #0 {
@@ -114,7 +114,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr nocapture noundef %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captures(none) %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %seed = alloca [32 x i8], align 16
   %md = alloca [32 x i8], align 16
@@ -546,7 +546,7 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @BN_CTX_new() local_unnamed_addr #1
 
@@ -603,7 +603,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DSAparams_dup(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden noundef ptr @DSAparams_dup(ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %calloc.i = tail call dereferenceable_or_null(152) ptr @calloc(i64 1, i64 152)
   %cmp.i = icmp eq ptr %calloc.i, null
@@ -656,7 +656,7 @@ return:                                           ; preds = %DSA_new.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_generate_key(ptr nocapture noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_generate_key(ptr noundef captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %prk = alloca %struct.bignum_st, align 8
   %call = tail call ptr @BN_CTX_new() #8
@@ -953,7 +953,7 @@ if.end84:                                         ; preds = %err, %if.then83
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %out_kinv, ptr nocapture noundef %out_r) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef captures(none) %out_kinv, ptr noundef captures(none) %out_r) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.bignum_st, align 8
   %kq = alloca %struct.bignum_st, align 8
@@ -1102,7 +1102,7 @@ declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden i32 @DSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly captures(none) %sig, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %valid = alloca i32, align 4
   %call = call i32 @DSA_do_check_signature(ptr noundef nonnull %valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %dsa)
@@ -1113,7 +1113,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr nocapture noundef writeonly initializes((0, 4)) %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr noundef writeonly captures(none) initializes((0, 4)) %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly captures(none) %sig, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %u1 = alloca %struct.bignum_st, align 8
   %u2 = alloca %struct.bignum_st, align 8
@@ -1299,7 +1299,7 @@ declare i32 @BN_MONT_CTX_set_locked(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr nocapture noundef writeonly initializes((0, 4)) %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr noundef writeonly captures(none) initializes((0, 4)) %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %out_sig.addr = alloca ptr, align 8
   store ptr %out_sig, ptr %out_sig.addr, align 8
@@ -1341,7 +1341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_check_signature(ptr noundef writeonly captures(none) %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %der = alloca ptr, align 8
@@ -1407,7 +1407,7 @@ DSA_SIG_free.exit:                                ; preds = %err, %if.end.i9
 declare ptr @d2i_DSA_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DSA_size(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden i32 @DSA_size(ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %0 = load ptr, ptr %q, align 8
@@ -1467,7 +1467,7 @@ return:                                           ; preds = %der_len_len.exit17,
 declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DSA_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr nocapture noundef readnone %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden i32 @DSA_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr noundef readnone captures(none) %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %index = alloca i32, align 4
   %call = call i32 @CRYPTO_get_ex_new_index(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) #8
@@ -1596,7 +1596,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7

@@ -59,7 +59,7 @@ $_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb0EDsDiEclEPFiPKDimPvNS0_18Write
 @_ZN2EA4StdC12SprintfLocalL13kStringNull32E = internal constant [7 x i32] [i32 40, i32 110, i32 117, i32 108, i32 108, i32 41, i32 0], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext8, i32 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext8, i32 noundef %0) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nCount, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -124,10 +124,10 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext16, i32 noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext16, i32 noundef %0) local_unnamed_addr #2 {
 entry:
   %mnMaxCount = getelementptr inbounds nuw i8, ptr %pContext16, i64 16
   %1 = load i64, ptr %mnMaxCount, align 8
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext32, i32 noundef %0) local_unnamed_addr #2 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext32, i32 noundef %0) local_unnamed_addr #2 {
 entry:
   %mnMaxCount = getelementptr inbounds nuw i8, ptr %pContext32, i64 16
   %1 = load i64, ptr %mnMaxCount, align 8
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext8, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext8, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 1, i64 noundef %nCount, ptr noundef %pContext8)
   %cmp = icmp eq i64 %call, %nCount
@@ -175,10 +175,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext16, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext16, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 2, i64 noundef %nCount, ptr noundef %pContext16)
   %cmp = icmp eq i64 %call, %nCount
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef %pData, i64 noundef %nCount, ptr noalias nocapture noundef %pContext32, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext32, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 4, i64 noundef %nCount, ptr noundef %pContext32)
   %cmp = icmp eq i64 %call, %nCount
@@ -198,7 +198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal18PlatformLogWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias nocapture noundef readonly %pData, i64 noundef %nCount, ptr noalias nocapture noundef readnone %pContext8, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal18PlatformLogWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef readnone captures(none) %pContext8, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %buffer = alloca [512 x i8], align 16
   %tobool.not = icmp eq i64 %nCount, 0
@@ -239,7 +239,7 @@ if.end10:                                         ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN2EA4StdC12SprintfLocal13EASprintfInitEv() local_unnamed_addr #5 {
@@ -4675,7 +4675,7 @@ return:                                           ; preds = %while.body230, %ret
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr nocapture noundef readonly %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef readonly captures(none) %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
 entry:
   %nSpace.i = alloca i8, align 1
   %nFill.i = alloca i8, align 1
@@ -6713,7 +6713,7 @@ return:                                           ; preds = %while.body236, %ret
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr nocapture noundef readonly %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef readonly captures(none) %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
 entry:
   %nSpace.i = alloca i16, align 2
   %nFill.i = alloca i16, align 2
@@ -8734,7 +8734,7 @@ return:                                           ; preds = %while.body223, %ret
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr nocapture noundef readonly %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef readonly captures(none) %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(40) %fd, ptr noundef %pBufferData, i32 noundef %nWriteCount) unnamed_addr #6 {
 entry:
   %nSpace.i = alloca i32, align 4
   %nFill.i = alloca i32, align 4
@@ -9883,13 +9883,13 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

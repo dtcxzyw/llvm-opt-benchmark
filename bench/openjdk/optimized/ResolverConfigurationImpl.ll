@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_net_dns_ResolverConfigurationImpl_fallbackDomain0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_net_dns_ResolverConfigurationImpl_fallbackDomain0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 1025) #3
   %5 = icmp eq i32 %4, 0

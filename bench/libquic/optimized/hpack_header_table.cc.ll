@@ -66,7 +66,7 @@ $_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_
 @_ZN3net16HpackHeaderTableD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16HpackHeaderTableD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net16HpackHeaderTable11EntryHasherclEPKNS_10HpackEntryE(ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK3net16HpackHeaderTable11EntryHasherclEPKNS_10HpackEntryE(ptr nonnull readnone align 1 captures(none) %this, ptr noundef readonly captures(none) %entry1) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp3 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp6 = alloca %"class.base::BasicStringPiece", align 8
@@ -127,7 +127,7 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net16HpackHeaderTable9EntriesEqclEPKNS_10HpackEntryES4_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net16HpackHeaderTable9EntriesEqclEPKNS_10HpackEntryES4_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp6 = alloca %"class.base::BasicStringPiece", align 8
@@ -470,7 +470,7 @@ _ZNSt13unordered_setIPN3net10HpackEntryENS0_16HpackHeaderTable11EntryHasherENS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3net16HpackHeaderTable10GetByIndexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, i64 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN3net16HpackHeaderTable10GetByIndexEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, i64 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i64 %index, 0
   br i1 %cmp, label %return, label %if.end
@@ -739,7 +739,7 @@ cleanup:                                          ; preds = %invoke.cont14, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN3net10HpackEntryC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(120), ptr, i64, ptr, i64) unnamed_addr #1
 
@@ -747,7 +747,7 @@ declare void @_ZN3net10HpackEntryC1EN4base16BasicStringPieceINSt7__cxx1112basic_
 declare void @_ZN3net10HpackEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr nocapture noundef readonly %entry1) local_unnamed_addr #5 align 2 {
+define dso_local noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, ptr noundef readonly captures(none) %entry1) local_unnamed_addr #5 align 2 {
 entry:
   %type_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 104
   %0 = load i32, ptr %type_.i, align 8
@@ -1205,7 +1205,7 @@ for.end:                                          ; preds = %_ZNSt5dequeIN3net10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net16HpackHeaderTable22EvictionCountToReclaimEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, i64 noundef %reclaim_size) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK3net16HpackHeaderTable22EvictionCountToReclaimEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, i64 noundef %reclaim_size) local_unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_finish.i, align 8, !noalias !37
@@ -1287,7 +1287,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16HpackHeaderTable11EvictionSetEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt15_Deque_iteratorINS_10HpackEntryERSB_PSB_ESF_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1, ptr nocapture noundef writeonly %begin_out, ptr nocapture noundef writeonly %end_out) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net16HpackHeaderTable11EvictionSetEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PSt15_Deque_iteratorINS_10HpackEntryERSB_PSB_ESF_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1, ptr noundef writeonly captures(none) %begin_out, ptr noundef writeonly captures(none) %end_out) local_unnamed_addr #0 align 2 {
 entry:
   %max_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i64, ptr %max_size_.i, align 8
@@ -1425,7 +1425,7 @@ _ZStmiRKSt15_Deque_iteratorIN3net10HpackEntryERS1_PS1_El.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net16HpackHeaderTable21EvictionCountForEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK3net16HpackHeaderTable21EvictionCountForEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %max_size_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i64, ptr %max_size_, align 8
@@ -1879,7 +1879,7 @@ return:                                           ; preds = %_ZNK3net16HpackHead
 declare void @_ZN3net10HpackEntryC1EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_bm(ptr noundef nonnull align 8 dereferenceable(120), ptr, i64, ptr, i64, i1 noundef zeroext, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK3net16HpackHeaderTable18DebugLogTableStateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK3net16HpackHeaderTable18DebugLogTableStateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -2053,7 +2053,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_PKN3net10HpackEntryEESaISF_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 {
@@ -2828,7 +2828,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SH_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k, ptr noundef nonnull align 8 dereferenceable(8) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3645,10 +3645,10 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

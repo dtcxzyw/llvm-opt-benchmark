@@ -6479,7 +6479,7 @@ declare void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -11362,7 +11362,7 @@ declare void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 d
 declare void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator8load_keyE11XMMRegister8RegisteriS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator8load_keyE11XMMRegister8RegisteriS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -11390,7 +11390,7 @@ define hidden void @_ZN13StubGenerator8load_keyE11XMMRegister8RegisteriS0_(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator11inc_counterE8Register11XMMRegisteriR5Label(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator11inc_counterE8Register11XMMRegisteriR5Label(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN9Assembler6pextrqE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 %1, i32 %2, i32 noundef 0) #7
@@ -11444,7 +11444,7 @@ declare void @_ZN9Assembler6pextrbE7Address11XMMRegisteri(ptr noundef nonnull al
 declare void @_ZN9Assembler16evbroadcasti64x2E11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator11ev_load_keyE11XMMRegister8RegisteriS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator11ev_load_keyE11XMMRegister8RegisteriS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -11482,7 +11482,7 @@ declare void @_ZN9Assembler7evpxorqE11XMMRegisterS0_S0_i(ptr noundef nonnull ali
 declare void @_ZN9Assembler8evalignqE11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator8roundDecE11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator8roundDecE11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 1, i32 1, i32 %1, i32 noundef 2) #7
@@ -11504,7 +11504,7 @@ define hidden void @_ZN13StubGenerator8roundDecE11XMMRegister(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator12roundDeclastE11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator12roundDeclastE11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 1, i32 1, i32 %1, i32 noundef 2) #7
@@ -11538,7 +11538,7 @@ declare void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 
 declare void @_ZN9Assembler10aesdeclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator8load_keyE11XMMRegister8RegisteriS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator8load_keyE11XMMRegister8RegisteriS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.AddressLiteral, align 8
   %8 = alloca %class.ExternalAddress, align 8
@@ -14254,7 +14254,7 @@ declare void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 derefere
 declare void @_ZN9Assembler6pinsrqE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator8roundEncE11XMMRegisteri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator8roundEncE11XMMRegisteri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not10 = icmp slt i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -14279,7 +14279,7 @@ define hidden void @_ZN13StubGenerator8roundEncE11XMMRegisteri(ptr nocapture nou
 declare void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator12lastroundEncE11XMMRegisteri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator12lastroundEncE11XMMRegisteri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not10 = icmp slt i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -14304,7 +14304,7 @@ define hidden void @_ZN13StubGenerator12lastroundEncE11XMMRegisteri(ptr nocaptur
 declare void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator8roundDecE11XMMRegisteri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator8roundDecE11XMMRegisteri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not10 = icmp slt i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -14327,7 +14327,7 @@ define hidden void @_ZN13StubGenerator8roundDecE11XMMRegisteri(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator12lastroundDecE11XMMRegisteri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator12lastroundDecE11XMMRegisteri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not10 = icmp slt i32 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -14352,7 +14352,7 @@ define hidden void @_ZN13StubGenerator12lastroundDecE11XMMRegisteri(ptr nocaptur
 declare void @_ZN14MacroAssembler6pshufbE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator11ev_load_keyE11XMMRegister8RegisteriS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator11ev_load_keyE11XMMRegister8RegisteriS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.AddressLiteral, align 8
   %8 = alloca %class.ExternalAddress, align 8
@@ -14392,7 +14392,7 @@ define hidden void @_ZN13StubGenerator11ev_load_keyE11XMMRegister8RegisteriS1_(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator9ev_add128E11XMMRegisterS0_S0_i9KRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 %5, i32 %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator9ev_add128E11XMMRegisterS0_S0_i9KRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN9Assembler6vpaddqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %1, i32 %2, i32 %3, i32 noundef %4) #7
@@ -14456,7 +14456,7 @@ declare void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull align 8 d
 declare void @_ZN9Assembler6pextrbE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator12gfmul_avx512E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator12gfmul_avx512E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.AddressLiteral, align 8
   %5 = alloca %class.ExternalAddress, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16246,7 +16246,7 @@ declare void @_ZN14MacroAssembler6vpadddE11XMMRegisterS0_14AddressLiterali8Regis
 declare void @_ZN9Assembler4cmplE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator10gfmul_avx2E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator10gfmul_avx2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.AddressLiteral, align 8
   %5 = alloca %class.ExternalAddress, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17485,7 +17485,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
 declare void @_ZN14MacroAssembler7vmovdquE11XMMRegister14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator17ghash_last_8_avx2E8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator17ghash_last_8_avx2E8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.AddressLiteral, align 8
@@ -17619,7 +17619,7 @@ define hidden void @_ZN13StubGenerator17ghash_last_8_avx2E8Register(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8RegisterS1_S1_S1_S1_S1_S0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8, i32 %9) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8RegisterS1_S1_S1_S1_S1_S0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8, i32 %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %class.Address, align 8
   %12 = alloca %class.AddressLiteral, align 8
   %13 = alloca %class.ExternalAddress, align 8
@@ -18273,13 +18273,13 @@ declare void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull alig
 declare void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

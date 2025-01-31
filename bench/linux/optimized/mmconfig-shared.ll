@@ -101,7 +101,7 @@ define dso_local noundef ptr @pci_mmconfig_add(i32 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @pci_mmconfig_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #2 align 16 {
@@ -221,7 +221,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local ptr @pci_mmconfig_lookup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
@@ -1043,7 +1043,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #3
 declare dso_local void @pci_mmcfg_arch_unmap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -1380,7 +1380,7 @@ define internal ptr @pci_mmcfg_nvidia_mcp55() #0 section ".init.text" align 16 {
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @acpi_mcfg_valid_entry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @acpi_mcfg_valid_entry(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr %1, align 1
   %4 = icmp ult i64 %3, 4294967295
   br i1 %4, label %30, label %sub_0
@@ -1474,13 +1474,13 @@ declare dso_local i32 @insert_resource(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local zeroext i1 @e820__mapped_all(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_get_devices(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16388) i32 @find_mboard_resource(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture readnone %3) #2 align 16 {
+define internal range(i32 0, 16388) i32 @find_mboard_resource(ptr noundef %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #2 align 16 {
   %5 = tail call i32 @acpi_walk_resources(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull @check_mcfg_resource, ptr noundef %2) #11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
@@ -1493,7 +1493,7 @@ define internal range(i32 0, 16388) i32 @find_mboard_resource(ptr noundef %0, i3
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16388) i32 @check_mcfg_resource(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i32 0, 16388) i32 @check_mcfg_resource(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #11
   %4 = load i32, ptr %0, align 1

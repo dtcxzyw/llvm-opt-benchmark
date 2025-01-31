@@ -178,10 +178,10 @@ define dso_local range(i32 -22, 1) i32 @rpcauth_register(ptr noundef %0) #1 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @rpcauth_unregister(ptr noundef %0) #1 align 16 {
@@ -424,7 +424,7 @@ define dso_local void @rpcauth_release(ptr noundef %0) local_unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @rpcauth_init_credcache(ptr nocapture noundef writeonly %0) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @rpcauth_init_credcache(ptr noundef writeonly captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #16
   %4 = icmp eq ptr %3, null
@@ -593,10 +593,10 @@ define dso_local void @rpcauth_clear_credcache(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpcauth_destroy_credcache(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @rpcauth_destroy_credcache(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1086,7 +1086,7 @@ define dso_local ptr @rpcauth_lookupcred(ptr noundef %0, i32 noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpcauth_init_cred(ptr noundef initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local void @rpcauth_init_cred(ptr noundef initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %5, ptr %5, align 8
@@ -1168,7 +1168,7 @@ define dso_local i32 @rpcauth_marshcred(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rpcauth_wrap_req_encode(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @rpcauth_wrap_req_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1210,7 +1210,7 @@ define dso_local i32 @rpcauth_checkverf(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpcauth_unwrap_resp_decode(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define dso_local i32 @rpcauth_unwrap_resp_decode(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1504,7 +1504,7 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpcauth_invalcred(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @rpcauth_invalcred(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1522,7 +1522,7 @@ define dso_local void @rpcauth_invalcred(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local range(i32 0, 2) i32 @rpcauth_uptodatecred(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 2) i32 @rpcauth_uptodatecred(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1578,7 +1578,7 @@ declare dso_local i32 @rpc_init_authunix() local_unnamed_addr #7 section ".init.
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal range(i64 0, 184467440737095517) i64 @rpcauth_cache_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 16 {
+define internal range(i64 0, 184467440737095517) i64 @rpcauth_cache_shrink_count(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 align 16 {
   %3 = load i64, ptr @number_cred_unused, align 8
   %4 = load i32, ptr @sysctl_vfs_cache_pressure, align 4
   %5 = sext i32 %4 to i64
@@ -1588,7 +1588,7 @@ define internal range(i64 0, 184467440737095517) i64 @rpcauth_cache_shrink_count
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rpcauth_cache_shrink_scan(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal i64 @rpcauth_cache_shrink_scan(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3264
   %5 = icmp eq i32 %4, 3264
@@ -1629,7 +1629,7 @@ define dso_local void @rpcauth_remove_module() local_unnamed_addr #1 align 16 {
 declare dso_local void @shrinker_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %4 = icmp eq ptr %0, null
@@ -1664,7 +1664,7 @@ define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i32 @param_get_hashtbl_sz(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal noundef i32 @param_get_hashtbl_sz(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1677,7 +1677,7 @@ define internal noundef i32 @param_get_hashtbl_sz(ptr nocapture noundef writeonl
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #3

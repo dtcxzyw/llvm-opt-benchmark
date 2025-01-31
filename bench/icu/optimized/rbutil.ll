@@ -19,7 +19,7 @@ if.then2:                                         ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %spec.select to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %filename to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call3 = tail call ptr @strncpy(ptr noundef %dirname, ptr noundef %filename, i64 noundef %sub.ptr.sub) #8
+  %call3 = tail call ptr @strncpy(ptr noundef %dirname, ptr noundef nonnull %filename, i64 noundef %sub.ptr.sub) #8
   %add.ptr = getelementptr inbounds i8, ptr %dirname, i64 %sub.ptr.sub
   store i8 0, ptr %add.ptr, align 1
   br label %if.end7
@@ -36,7 +36,7 @@ if.end7:                                          ; preds = %if.else, %if.then2
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @get_basename(ptr noundef %basename, ptr noundef readonly %filename) local_unnamed_addr #3 {
@@ -61,10 +61,10 @@ if.end9:                                          ; preds = %if.then8, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @itostr(ptr nocapture noundef %buffer, i32 noundef %i, i32 noundef %radix, i32 noundef %pad) local_unnamed_addr #4 {
+define dso_local i32 @itostr(ptr noundef captures(none) %buffer, i32 noundef %i, i32 noundef %radix, i32 noundef %pad) local_unnamed_addr #4 {
 entry:
   %spec.select = tail call i32 @llvm.abs.i32(i32 %i, i1 true)
   %0 = add i32 %pad, -2
@@ -164,7 +164,7 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

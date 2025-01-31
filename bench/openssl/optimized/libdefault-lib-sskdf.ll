@@ -572,7 +572,7 @@ return:                                           ; preds = %if.then33, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sskdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sskdf_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @sskdf_settable_ctx_params.known_settable_ctx_params
 }
@@ -675,7 +675,7 @@ return:                                           ; preds = %if.end39, %if.end48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @sskdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sskdf_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @sskdf_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -804,7 +804,7 @@ declare void @ossl_prov_digest_reset(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -872,17 +872,17 @@ land.lhs.true.us:                                 ; preds = %land.lhs.true.lr.ph
   %out.041.us = phi ptr [ %add.ptr.us, %for.inc.us ], [ %derived_key, %land.lhs.true.lr.ph ]
   %len.040.us = phi i64 [ %sub.us, %for.inc.us ], [ %derived_key_len, %land.lhs.true.lr.ph ]
   %counter.039.us = phi i64 [ %inc.us, %for.inc.us ], [ 1, %land.lhs.true.lr.ph ]
-  %call37.us = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef nonnull %c, i64 noundef 4) #7
+  %call37.us = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef nonnull %c, i64 noundef 4) #7
   %tobool38.not.us = icmp eq i32 %call37.us, 0
   br i1 %tobool38.not.us, label %end, label %land.lhs.true39.us
 
 land.lhs.true39.us:                               ; preds = %land.lhs.true.us
-  %call40.us = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %z, i64 noundef %z_len) #7
+  %call40.us = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %z, i64 noundef %z_len) #7
   %tobool41.not.us = icmp eq i32 %call40.us, 0
   br i1 %tobool41.not.us, label %end, label %land.lhs.true48.us
 
 land.lhs.true48.us:                               ; preds = %land.lhs.true39.us
-  %call49.us = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %info, i64 noundef %info_len) #7
+  %call49.us = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %info, i64 noundef %info_len) #7
   %tobool50.not.us = icmp eq i32 %call49.us, 0
   br i1 %tobool50.not.us, label %end, label %if.end52.us
 
@@ -891,7 +891,7 @@ if.end52.us:                                      ; preds = %land.lhs.true48.us
   br i1 %cmp53.not.us, label %if.else, label %if.then55.us
 
 if.then55.us:                                     ; preds = %if.end52.us
-  %call56.us = call i32 @EVP_DigestFinal_ex(ptr noundef %call9, ptr noundef %out.041.us, ptr noundef null) #7
+  %call56.us = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call9, ptr noundef %out.041.us, ptr noundef null) #7
   %tobool57.not.us = icmp eq i32 %call56.us, 0
   br i1 %tobool57.not.us, label %end, label %if.end59.us
 
@@ -914,7 +914,7 @@ for.inc.us:                                       ; preds = %if.end59.us
   store i8 %conv28.us, ptr %arrayidx29, align 1
   %conv31.us = trunc i64 %inc.us to i8
   store i8 %conv31.us, ptr %arrayidx32, align 1
-  %call33.us = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %call9, ptr noundef %call10) #7
+  %call33.us = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #7
   %tobool34.not.us = icmp eq i32 %call33.us, 0
   br i1 %tobool34.not.us, label %end, label %land.lhs.true.us
 
@@ -922,17 +922,17 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %out.041 = phi ptr [ %add.ptr, %for.inc ], [ %derived_key, %land.lhs.true.lr.ph ]
   %len.040 = phi i64 [ %sub, %for.inc ], [ %derived_key_len, %land.lhs.true.lr.ph ]
   %counter.039 = phi i64 [ %inc, %for.inc ], [ 1, %land.lhs.true.lr.ph ]
-  %call4033 = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %z, i64 noundef %z_len) #7
+  %call4033 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %z, i64 noundef %z_len) #7
   %tobool41.not34 = icmp eq i32 %call4033, 0
   br i1 %tobool41.not34, label %end, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %land.lhs.true
-  %call46 = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef nonnull %c, i64 noundef 4) #7
+  %call46 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef nonnull %c, i64 noundef 4) #7
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %end, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %lor.lhs.false44
-  %call49 = call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %info, i64 noundef %info_len) #7
+  %call49 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %info, i64 noundef %info_len) #7
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %end, label %if.end52
 
@@ -941,7 +941,7 @@ if.end52:                                         ; preds = %land.lhs.true48
   br i1 %cmp53.not, label %if.else, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
-  %call56 = call i32 @EVP_DigestFinal_ex(ptr noundef %call9, ptr noundef %out.041, ptr noundef null) #7
+  %call56 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call9, ptr noundef %out.041, ptr noundef null) #7
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %end, label %if.end59
 
@@ -953,7 +953,7 @@ if.end59:                                         ; preds = %if.then55
 if.else:                                          ; preds = %if.end52, %if.end52.us
   %.us-phi51 = phi i64 [ %len.040.us, %if.end52.us ], [ %len.040, %if.end52 ]
   %.us-phi52 = phi ptr [ %out.041.us, %if.end52.us ], [ %out.041, %if.end52 ]
-  %call65 = call i32 @EVP_DigestFinal_ex(ptr noundef %call9, ptr noundef nonnull %mac, ptr noundef null) #7
+  %call65 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call9, ptr noundef nonnull %mac, ptr noundef null) #7
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %end, label %if.end68
 
@@ -975,7 +975,7 @@ for.inc:                                          ; preds = %if.end59
   store i8 %conv28, ptr %arrayidx29, align 1
   %conv31 = trunc i64 %inc to i8
   store i8 %conv31, ptr %arrayidx32, align 1
-  %call33 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %call9, ptr noundef %call10) #7
+  %call33 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %end, label %land.lhs.true
 
@@ -1000,7 +1000,7 @@ declare i32 @EVP_MAC_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVP_MAC_final(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1049,10 +1049,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

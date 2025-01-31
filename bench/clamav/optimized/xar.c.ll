@@ -364,7 +364,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   br i1 %or.cond3, label %122, label %124
 
 122:                                              ; preds = %117
-  %123 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef %0, i32 noundef %118, ptr noundef nonnull %120)
+  %123 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef nonnull %0, i32 noundef %118, ptr noundef nonnull %120)
   store ptr null, ptr %9, align 8
   %.not321 = icmp eq i32 %123, 0
   br i1 %.not321, label %124, label %xar_hash_final.exit376
@@ -507,7 +507,7 @@ xar_hash_update.exit.us:                          ; preds = %.split.us, %.split.
   %174 = load i32, ptr %58, align 8
   %175 = sub i32 8192, %174
   %176 = sext i32 %175 to i64
-  %177 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %176, i64 noundef 0, i64 noundef 0) #9
+  %177 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef nonnull %0, i64 noundef %176, i64 noundef 0, i64 noundef 0) #9
   %.not329.us = icmp eq i32 %177, 0
   br i1 %.not329.us, label %178, label %.loopexit
 
@@ -571,7 +571,7 @@ xar_hash_update.exit:                             ; preds = %191, %190, %190, %1
   %199 = load i32, ptr %58, align 8
   %200 = sub i32 8192, %199
   %201 = sext i32 %200 to i64
-  %202 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %201, i64 noundef 0, i64 noundef 0) #9
+  %202 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef nonnull %0, i64 noundef %201, i64 noundef 0, i64 noundef 0) #9
   %.not329 = icmp eq i32 %202, 0
   br i1 %.not329, label %203, label %.loopexit
 
@@ -793,7 +793,7 @@ xar_hash_update.exit365:                          ; preds = %281, %280, %280, %x
 
 287:                                              ; preds = %xar_hash_update.exit365
   %288 = add i64 %273, %.0229
-  %289 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %288, i64 noundef 0, i64 noundef 0) #9
+  %289 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef nonnull %0, i64 noundef %288, i64 noundef 0, i64 noundef 0) #9
   %290 = icmp ne i32 %289, 0
   %291 = icmp eq i32 %263, 2
   %or.cond16 = or i1 %291, %290
@@ -817,7 +817,7 @@ xar_hash_update.exit365:                          ; preds = %281, %280, %280, %x
   %..351 = call i64 @llvm.umin.i64(i64 %297, i64 %.351)
   %.0 = select i1 %.not334, i64 %.351, i64 %..351
   %298 = load ptr, ptr %30, align 8
-  %299 = call ptr %298(ptr noundef %26, i64 noundef %128, i64 noundef %.0, i32 noundef 0) #9
+  %299 = call ptr %298(ptr noundef nonnull %26, i64 noundef %128, i64 noundef %.0, i32 noundef 0) #9
   %.not335 = icmp eq ptr %299, null
   br i1 %.not335, label %300, label %304
 
@@ -1012,7 +1012,7 @@ xar_hash_check.exit374.thread:                    ; preds = %346, %344, %xar_has
   %.9 = phi i32 [ %.10, %350 ], [ %.7216, %341 ]
   %352 = load i32, ptr %2, align 4
   %353 = load ptr, ptr %9, align 8
-  %354 = call i32 @cli_magic_scan_desc(i32 noundef %352, ptr noundef %353, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
+  %354 = call i32 @cli_magic_scan_desc(i32 noundef %352, ptr noundef %353, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #9
   %.not342 = icmp eq i32 %354, 0
   br i1 %.not342, label %xar_hash_final.exit368.thread433, label %.loopexit452
 
@@ -1051,7 +1051,7 @@ xar_hash_final.exit368.thread433:                 ; preds = %326, %351, %xar_has
   %.6 = phi i32 [ 14, %311 ], [ 12, %300 ], [ 20, %228 ], [ 12, %233 ], [ 12, %257 ], [ 14, %286 ], [ 14, %.split530.us ], [ 12, %161 ], [ %108, %107 ], [ %354, %351 ], [ %363, %362 ]
   %365 = load i32, ptr %2, align 4
   %366 = load ptr, ptr %9, align 8
-  %367 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef %0, i32 noundef %365, ptr noundef %366)
+  %367 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef nonnull %0, i32 noundef %365, ptr noundef %366)
   %.not345 = icmp eq ptr %.1232, null
   br i1 %.not345, label %xar_hash_final.exit375, label %368
 
@@ -1142,7 +1142,7 @@ xar_hash_final.exit376:                           ; preds = %122, %374, %372, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1161,7 +1161,7 @@ declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 11) i32 @xar_cleanup_temp_file(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 11) i32 @xar_cleanup_temp_file(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %7
 
@@ -1350,7 +1350,7 @@ xar_cleanup_temp_file.exit:                       ; preds = %53, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %7, ptr nocapture noundef nonnull initializes((0, 4)) %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5, ptr noundef nonnull captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7, ptr noundef nonnull captures(none) initializes((0, 4)) %8) unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
@@ -1641,7 +1641,7 @@ declare i32 @cli_LzmaDecode(ptr noundef) local_unnamed_addr #2
 declare ptr @cli_hex2str(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1650,7 +1650,7 @@ declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #2
 declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -1671,7 +1671,7 @@ declare i32 @xmlTextReaderNext(ptr noundef) local_unnamed_addr #2
 declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #9
   %5 = icmp eq i32 %4, 1
@@ -1735,7 +1735,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xar_get_checksum_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @xar_get_checksum_values(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #9
   store i32 0, ptr %2, align 4
   %5 = icmp eq ptr %4, null
@@ -1836,7 +1836,7 @@ declare ptr @xmlTextReaderGetAttribute(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @xmlTextReaderConstValue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @xmlStrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1861,7 +1861,7 @@ declare i64 @llvm.bswap.i64(i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

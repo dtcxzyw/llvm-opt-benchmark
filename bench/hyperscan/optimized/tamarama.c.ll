@@ -78,7 +78,7 @@ return:                                           ; preds = %if.end, %loadActive
 declare signext i8 @nfaCheckFinalState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_QR(ptr noundef %n, ptr noundef captures(none) %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %end = getelementptr inbounds nuw i8, ptr %q1, i64 12
@@ -117,7 +117,7 @@ do.end7:                                          ; preds = %entry, %if.then, %w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @updateQueues(ptr noundef %t, ptr nocapture noundef %q1, ptr noundef nonnull initializes((8, 81), (88, 108), (112, 128)) %q2) unnamed_addr #0 {
+define internal fastcc void @updateQueues(ptr noundef %t, ptr noundef captures(none) %q1, ptr noundef nonnull initializes((8, 81), (88, 108), (112, 128)) %q2) unnamed_addr #0 {
 entry:
   %end = getelementptr inbounds nuw i8, ptr %q2, i64 12
   store i32 0, ptr %end, align 4
@@ -400,7 +400,7 @@ do.end38:                                         ; preds = %sw.bb5.i.i.i, %sw.b
 declare signext i8 @nfaQueueExecRose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %n, ptr nocapture noundef %q) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %n, ptr noundef captures(none) %q) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -526,7 +526,7 @@ return:                                           ; preds = %loadActiveIdx.exit,
 declare signext i8 @nfaReportCurrentMatches(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_inAccept(ptr noundef %n, i32 noundef %report, ptr nocapture noundef %q) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef captures(none) %q) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -652,7 +652,7 @@ return:                                           ; preds = %loadActiveIdx.exit,
 declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %n, ptr nocapture noundef %q) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %n, ptr noundef captures(none) %q) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -778,7 +778,7 @@ return:                                           ; preds = %loadActiveIdx.exit,
 declare signext i8 @nfaInAnyAcceptState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecTamarama_queueInitState(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
+define hidden noundef signext i8 @nfaExecTamarama_queueInitState(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %streamState = getelementptr inbounds nuw i8, ptr %q, i64 24
@@ -821,7 +821,7 @@ storeActiveIdx.exit:                              ; preds = %entry, %sw.bb.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_queueCompressState(ptr noundef %n, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_queueCompressState(ptr noundef %n, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -996,7 +996,7 @@ return:                                           ; preds = %loadActiveIdx.exit,
 declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nfaExecTamarama_zombie_status(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %loc) local_unnamed_addr #0 {
+define hidden i32 @nfaExecTamarama_zombie_status(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %loadActiveIdx.exit,
 declare i32 @nfaGetZombieStatus(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -1189,7 +1189,7 @@ if.end8:                                          ; preds = %entry, %if.then7, %
 declare signext i8 @nfaQueueExec_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copyBack(ptr nocapture noundef readonly %t, ptr nocapture noundef initializes((80, 81)) %q, ptr nocapture noundef nonnull %q1) unnamed_addr #3 {
+define internal fastcc void @copyBack(ptr noundef readonly captures(none) %t, ptr noundef captures(none) initializes((80, 81)) %q, ptr noundef nonnull captures(none) %q1) unnamed_addr #3 {
 entry:
   %report_current = getelementptr inbounds nuw i8, ptr %q1, i64 80
   %0 = load i8, ptr %report_current, align 8
@@ -1372,7 +1372,7 @@ for.end:                                          ; preds = %if.end69, %if.end33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %q1 = alloca %struct.mq, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
@@ -1443,7 +1443,7 @@ declare signext i8 @nfaQueueExec2_raw(ptr noundef, ptr noundef, i64 noundef) loc
 declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @copyQueueItems(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %sub, ptr nocapture noundef %q1, ptr nocapture noundef nonnull %q2, i32 noundef %activeIdx) unnamed_addr #4 {
+define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %sub, ptr noundef captures(none) %q1, ptr noundef nonnull captures(none) %q2, i32 noundef %activeIdx) unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %t, i64 32
   %idxprom = zext i32 %activeIdx to i64
@@ -1635,7 +1635,7 @@ while.end:                                        ; preds = %if.end21, %if.end21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

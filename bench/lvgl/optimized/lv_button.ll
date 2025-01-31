@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_button_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_button_constructor, ptr null, ptr null, ptr null, ptr @.str, i32 1073741823, i32 1073741823, i8 4, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_button_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_button_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #2
   tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #2
   ret void

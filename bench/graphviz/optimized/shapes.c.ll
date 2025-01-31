@@ -292,7 +292,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4) #25
+  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4) #25
   call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 7, i32 noundef 0) #25
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   br label %1945
@@ -545,7 +545,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   %148 = getelementptr inbounds %struct.pointf_s, ptr %142, i64 %2
   %149 = getelementptr i8, ptr %146, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %142, i64 noundef %141, i32 noundef %4) #25
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %142, i64 noundef %141, i32 noundef %4) #25
   tail call void @free(ptr noundef %142) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -696,7 +696,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   %239 = getelementptr inbounds nuw i8, ptr %231, i64 80
   %240 = getelementptr inbounds nuw i8, ptr %55, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %231, i64 noundef %230, i32 noundef %4) #25
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %231, i64 noundef %230, i32 noundef %4) #25
   tail call void @free(ptr noundef %231) #25
   %241 = load double, ptr %106, align 8
   %242 = getelementptr inbounds nuw i8, ptr %55, i64 176
@@ -820,7 +820,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   %331 = getelementptr inbounds nuw i8, ptr %259, i64 176
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %332, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %259, i64 noundef %258, i32 noundef %4) #25
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %259, i64 noundef %258, i32 noundef %4) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false)
   %333 = load double, ptr %268, align 8
   %334 = load double, ptr %279, align 8
@@ -3070,7 +3070,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
@@ -3081,14 +3081,14 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 declare void @gvrender_beziercurve(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @gvrender_polygon(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 declare void @gvrender_polyline(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @shapeOf(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 5) i32 @shapeOf(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4395,7 +4395,7 @@ gv_alloc.exit:                                    ; preds = %1
 declare void @epsf_init(ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @isPolygon(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define zeroext i1 @isPolygon(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4416,7 +4416,7 @@ define zeroext i1 @isPolygon(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @find_user_shape(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define noundef ptr @find_user_shape(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @UserShape, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -4446,7 +4446,7 @@ define noundef ptr @find_user_shape(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bind_shape(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @bind_shape(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str) #25
   %4 = tail call ptr @safefile(ptr noundef %3) #25
   %.not = icmp eq ptr %4, null
@@ -4572,7 +4572,7 @@ gv_alloc.exit.i:                                  ; preds = %gv_recalloc.exit.i
   %55 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre.i
   store ptr %50, ptr %55, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) @Shapes, i64 32, i1 false)
-  %56 = tail call noalias ptr @strdup(ptr noundef readonly %.0) #25
+  %56 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %.0) #25
   store ptr %56, ptr %50, align 8
   %57 = load ptr, ptr @Lib, align 8
   %58 = icmp eq ptr %57, null
@@ -4604,7 +4604,7 @@ declare ptr @safefile(ptr noundef) local_unnamed_addr #5
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @resolvePort(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @resolvePort(ptr dead_on_unwind noalias writable writeonly sret(%struct.port) align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @agraphof(ptr noundef %1) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -4822,7 +4822,7 @@ closestSide.exit:                                 ; preds = %closestSide.exit.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 
@@ -5248,7 +5248,7 @@ invflip_angle.exit:                               ; preds = %invflip_side.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @resolvePorts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @resolvePorts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.port, align 8
   %3 = alloca %struct.port, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5313,7 +5313,7 @@ define void @gv_initShapes() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @poly_inside(ptr noundef %0, double %1, double %2) #0 {
@@ -5921,7 +5921,7 @@ define internal zeroext i1 @star_inside(ptr noundef readonly %0, double %1, doub
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #12 {
@@ -5942,7 +5942,7 @@ declare i32 @late_int(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_
 declare double @late_double(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.maxnum.f64(double, double) #4
@@ -5976,7 +5976,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 declare double @llvm.ceil.f64(double) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @parse_reclbl(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
@@ -6530,7 +6530,7 @@ gv_alloc.exit202:                                 ; preds = %98
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @size_reclbl(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc { double, double } @size_reclbl(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -6643,7 +6643,7 @@ define internal fastcc { double, double } @size_reclbl(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, double %2, i1 noundef zeroext %3) unnamed_addr #16 {
+define internal fastcc void @resize_reclbl(ptr noundef captures(none) %0, double %1, double %2, i1 noundef zeroext %3) unnamed_addr #16 {
   %5 = load double, ptr %0, align 8
   %6 = fsub double %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6735,7 +6735,7 @@ define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pos_reclbl(ptr nocapture noundef initializes((16, 48), (81, 82)) %0, double %1, double %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #16 {
+define internal fastcc void @pos_reclbl(ptr noundef captures(none) initializes((16, 48), (81, 82)) %0, double %1, double %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 %3, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6874,7 +6874,7 @@ define internal fastcc void @pos_reclbl(ptr nocapture noundef initializes((16, 4
 declare ptr @make_label(ptr noundef, ptr noundef, i32 noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_field(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_field(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -6913,13 +6913,13 @@ define internal fastcc void @free_field(ptr nocapture noundef %0) unnamed_addr #
 declare void @free_label(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @poly_free(ptr nocapture noundef readonly %0) #18 {
+define internal void @poly_free(ptr noundef readonly captures(none) %0) #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6939,7 +6939,7 @@ define internal void @poly_free(ptr nocapture noundef readonly %0) #18 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @poly_port(ptr dead_on_unwind noalias writable writeonly sret(%struct.port) align 8 captures(none) initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.port, align 8
   %6 = alloca i8, align 1
   %7 = alloca %union.inside_t, align 8
@@ -7021,7 +7021,7 @@ define internal void @poly_port(ptr dead_on_unwind noalias nocapture writable wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @poly_path(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #19 {
+define internal noundef i32 @poly_path(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #19 {
   ret i32 0
 }
 
@@ -7325,7 +7325,7 @@ findFill.exit:                                    ; preds = %106, %110
   br i1 %.not260.us, label %165, label %159
 
 159:                                              ; preds = %157
-  %160 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #25
+  %160 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %.0227) #25
   %161 = icmp sgt i32 %160, 1
   br i1 %161, label %162, label %165
 
@@ -7605,7 +7605,7 @@ findFill.exit:                                    ; preds = %106, %110
   br i1 %.not254, label %279, label %273
 
 273:                                              ; preds = %271
-  %274 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #25
+  %274 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %.0227) #25
   %275 = icmp sgt i32 %274, 1
   br i1 %275, label %276, label %279
 
@@ -7693,7 +7693,7 @@ findFill.exit:                                    ; preds = %106, %110
   %316 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %315, ptr noundef nonnull @.str.13) #25
   %317 = load ptr, ptr @N_imagepos, align 8
   %318 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull @.str.93) #25
-  call void @gvrender_usershape(ptr noundef %0, ptr noundef %.0225273.ph, ptr noundef %39, i64 noundef %35, i1 noundef zeroext %314, ptr noundef %316, ptr noundef %318) #25
+  call void @gvrender_usershape(ptr noundef %0, ptr noundef nonnull %.0225273.ph, ptr noundef %39, i64 noundef %35, i1 noundef zeroext %314, ptr noundef %316, ptr noundef %318) #25
   br label %.thread270
 
 .thread270:                                       ; preds = %251, %247, %253, %249, %313
@@ -7783,7 +7783,7 @@ declare void @emit_label(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 declare void @gvrender_end_anchor(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @N_style, align 8
   %4 = tail call ptr @late_nnstring(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @.str.94) #25
   %5 = load i8, ptr %4, align 1
@@ -8208,7 +8208,7 @@ findFillDflt.exit:                                ; preds = %73, %77
   br i1 %exitcond.not, label %._crit_edge.us, label %91
 
 ._crit_edge.us:                                   ; preds = %103
-  call void @gvrender_ellipse(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %.08299.us) #25
+  call void @gvrender_ellipse(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %.08299.us) #25
   %105 = add nuw i64 %.080100.us, 1
   %exitcond105.not = icmp eq i64 %105, %.081
   br i1 %exitcond105.not, label %.split102.us, label %.lr.ph.us
@@ -8217,7 +8217,7 @@ findFillDflt.exit:                                ; preds = %73, %77
   %.080100 = phi i64 [ %106, %.split ], [ 0, %89 ]
   %.08299 = phi i32 [ 0, %.split ], [ 1, %89 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call void @gvrender_ellipse(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %.08299) #25
+  call void @gvrender_ellipse(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %.08299) #25
   %106 = add nuw i64 %.080100, 1
   %exitcond107.not = icmp eq i64 %106, %.081
   br i1 %exitcond107.not, label %.split102.us, label %.split
@@ -8260,7 +8260,7 @@ define internal { double, double } @cylinder_size(double %0, double %1) #19 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cylinder_vertices(ptr nocapture noundef initializes((0, 112)) %0, ptr nocapture noundef readonly %1) #20 {
+define internal void @cylinder_vertices(ptr noundef captures(none) initializes((0, 112)) %0, ptr noundef readonly captures(none) %1) #20 {
   %3 = load double, ptr %1, align 8
   %4 = fmul double %3, 5.000000e-01
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8345,7 +8345,7 @@ define internal void @cylinder_vertices(ptr nocapture noundef initializes((0, 11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @record_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @record_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -8355,7 +8355,7 @@ define internal void @record_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @record_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @record_port(ptr dead_on_unwind noalias writable writeonly sret(%struct.port) align 8 captures(none) initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.port, align 8
   %6 = load i8, ptr %2, align 1
   %7 = icmp eq i8 %6, 0
@@ -8409,7 +8409,7 @@ define internal void @record_port(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @record_inside(ptr nocapture noundef readonly %0, double %1, double %2) #0 {
+define internal zeroext i1 @record_inside(ptr noundef readonly captures(none) %0, double %1, double %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -8477,7 +8477,7 @@ define internal zeroext i1 @record_inside(ptr nocapture noundef readonly %0, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @record_path(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef i32 @record_path(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca %struct.boxf, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i8, ptr %7, align 8
@@ -8819,7 +8819,7 @@ findFill.exit:                                    ; preds = %67, %71
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @map_rec_port(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc ptr @map_rec_port(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8867,7 +8867,7 @@ declare void @flip_rec_boxf(ptr dead_on_unwind writable sret(%struct.boxf) align
 declare void @gvrender_box(ptr noundef, ptr noundef byval(%struct.boxf) align 8, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gen_fields(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @gen_fields(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.pointf_s], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -8997,7 +8997,7 @@ define internal fastcc void @gen_fields(ptr noundef %0, ptr noundef %1, ptr noca
 declare void @epsf_free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @epsf_inside(ptr nocapture noundef readonly %0, double %1, double %2) #0 {
+define internal zeroext i1 @epsf_inside(ptr noundef readonly captures(none) %0, double %1, double %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @agraphof(ptr noundef %4) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9039,7 +9039,7 @@ define internal zeroext i1 @epsf_inside(ptr nocapture noundef readonly %0, doubl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @epsf_gencode(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @epsf_gencode(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 240
@@ -9158,7 +9158,7 @@ define internal { double, double } @star_size(double %0, double %1) #19 {
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal void @star_vertices(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #21 {
+define internal void @star_vertices(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) #21 {
   %.sroa.0.0.copyload = load double, ptr %1, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
@@ -9222,7 +9222,7 @@ define internal void @star_vertices(ptr nocapture noundef writeonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @compassPoint(ptr noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #0 {
@@ -9296,10 +9296,10 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #23
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

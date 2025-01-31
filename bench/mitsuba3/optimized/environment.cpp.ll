@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv = private unnamed_addr constant [9 x i32] [i32 8, i32 8, i32 8, i32 4, i32 4, i32 4, i32 8, i32 8, i32 8], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = and i8 %2, 1
   %4 = icmp eq i8 %3, 0

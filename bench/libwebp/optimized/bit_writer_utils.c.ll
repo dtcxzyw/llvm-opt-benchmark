@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kNewRange = internal unnamed_addr constant [128 x i8] c"\7F\7F\BF\7F\9F\BF\DF\7F\8F\9F\AF\BF\CF\DF\EF\7F\87\8F\97\9F\A7\AF\B7\BF\C7\CF\D7\DF\E7\EF\F7\7F\83\87\8B\8F\93\97\9B\9F\A3\A7\AB\AF\B3\B7\BB\BF\C3\C7\CB\CF\D3\D7\DB\DF\E3\E7\EB\EF\F3\F7\FB\7F\81\83\85\87\89\8B\8D\8F\91\93\95\97\99\9B\9D\9F\A1\A3\A5\A7\A9\AB\AD\AF\B1\B3\B5\B7\B9\BB\BD\BF\C1\C3\C5\C7\C9\CB\CD\CF\D1\D3\D5\D7\D9\DB\DD\DF\E1\E3\E5\E7\E9\EB\ED\EF\F1\F3\F5\F7\F9\FB\FD\7F", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @VP8PutBit(ptr nocapture noundef %0, i32 noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef i32 @VP8PutBit(ptr noundef captures(none) %0, i32 noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = mul nsw i32 %4, %2
   %6 = ashr i32 %5, 8
@@ -60,7 +60,7 @@ define hidden noundef i32 @VP8PutBit(ptr nocapture noundef %0, i32 noundef retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Flush(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Flush(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 8
@@ -184,7 +184,7 @@ BitWriterResize.exit:                             ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @VP8PutBitUniform(ptr nocapture noundef %0, i32 noundef returned %1) local_unnamed_addr #0 {
+define hidden noundef i32 @VP8PutBitUniform(ptr noundef captures(none) %0, i32 noundef returned %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = ashr i32 %3, 1
   %.not = icmp eq i32 %1, 0
@@ -231,7 +231,7 @@ define hidden noundef i32 @VP8PutBitUniform(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8PutBits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @VP8PutBits(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = shl nuw i32 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -289,7 +289,7 @@ VP8PutBitUniform.exit:                            ; preds = %17, %19, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8PutSignedBits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @VP8PutSignedBits(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %4 = load i32, ptr %0, align 8
   %5 = ashr i32 %4, 1
@@ -450,7 +450,7 @@ VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr nocapture noundef initializes((0, 44)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr noundef captures(none) initializes((0, 44)) %0, i64 noundef %1) local_unnamed_addr #0 {
   store i32 254, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -499,7 +499,7 @@ BitWriterResize.exit:                             ; preds = %18, %13, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @VP8BitWriterFinish(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @VP8BitWriterFinish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = sub i32 8, %3
@@ -548,7 +548,7 @@ VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8BitWriterAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8BitWriterAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, -8
@@ -617,7 +617,7 @@ BitWriterResize.exit:                             ; preds = %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8BitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
@@ -638,10 +638,10 @@ define hidden void @VP8BitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr nocapture noundef initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr noundef captures(none) initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %3 = and i64 %1, -1024
   %4 = add i64 %3, 1024
@@ -672,7 +672,7 @@ VP8LBitWriterResize.exit:                         ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((40, 44)) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((40, 44)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -773,7 +773,7 @@ define hidden void @VP8LBitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LBitWriterReset(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 12), (24, 32), (40, 44)) %1) local_unnamed_addr #4 {
+define hidden void @VP8LBitWriterReset(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 12), (24, 32), (40, 44)) %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   store i64 %3, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -800,7 +800,7 @@ define hidden void @VP8LBitWriterReset(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LBitWriterSwap(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define hidden void @VP8LBitWriterSwap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.VP8LBitWriter, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -809,7 +809,7 @@ define hidden void @VP8LBitWriterSwap(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LPutBitsFlushBits(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @VP8LPutBitsFlushBits(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -891,7 +891,7 @@ VP8LBitWriterResize.exit.thread:                  ; preds = %8, %28, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LPutBitsInternal(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %56
 
@@ -997,7 +997,7 @@ VP8LBitWriterResize.exit.thread:                  ; preds = %18, %37, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @VP8LBitWriterFinish(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @VP8LBitWriterFinish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 7

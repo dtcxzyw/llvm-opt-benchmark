@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @KW_PCDATA = internal constant [7 x i8] c"PCDATA\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInit(ptr nocapture noundef writeonly initializes((0, 8), (16, 28)) %state) local_unnamed_addr #0 {
+define hidden void @PyExpat_XmlPrologStateInit(ptr noundef writeonly captures(none) initializes((0, 8), (16, 28)) %state) local_unnamed_addr #0 {
 entry:
   store ptr @prolog0, ptr %state, align 8
   %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @prolog0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @prolog0(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return.sink.split
@@ -101,7 +101,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %state) local_unnamed_addr #0 {
+define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %state) local_unnamed_addr #0 {
 entry:
   store ptr @externalSubset0, ptr %state, align 8
   %documentEntity = getelementptr inbounds nuw i8, ptr %state, i64 20
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @externalSubset0(ptr nocapture noundef initializes((0, 8)) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 61) i32 @externalSubset0(ptr noundef captures(none) initializes((0, 8)) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   store ptr @externalSubset1, ptr %state, align 8
   %cmp = icmp eq i32 %tok, 12
@@ -128,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @prolog1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @prolog1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @doctype0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -211,13 +211,13 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @error(ptr nocapture readnone %state, i32 %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #3 {
+define internal noundef i32 @error(ptr readnone captures(none) %state, i32 %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #3 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @doctype1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @doctype1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -265,7 +265,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @internalSubset(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 61) i32 @internalSubset(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @prolog2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @prolog2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   %0 = add i32 %tok, -11
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @doctype3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -432,7 +432,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @doctype2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -459,7 +459,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -490,7 +490,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -518,7 +518,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -546,7 +546,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation0(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @notation0(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -573,7 +573,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @doctype5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -600,7 +600,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -627,7 +627,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @entity2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -680,7 +680,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity7(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @entity7(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -733,7 +733,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity9(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -760,7 +760,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity8(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity8(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -787,7 +787,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @declClose(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal i32 @declClose(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %sw.bb
@@ -827,7 +827,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity10(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity10(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -861,7 +861,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @externalSubset1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 61) i32 @externalSubset1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.default [
     i32 33, label %sw.bb
@@ -906,7 +906,7 @@ return:                                           ; preds = %sw.bb5, %entry, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @condSect0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @condSect0(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -949,7 +949,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @condSect1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @condSect1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -982,7 +982,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @condSect2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @condSect2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1009,7 +1009,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1036,7 +1036,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1063,7 +1063,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @entity5(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @entity5(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1108,7 +1108,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @entity6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @entity6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1139,7 +1139,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist1(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist1(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1175,7 +1175,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @attlist2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1239,7 +1239,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @attlist8(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @attlist8(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1326,7 +1326,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1355,7 +1355,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist9(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist9(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1382,7 +1382,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1409,7 +1409,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist7(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1440,7 +1440,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @attlist4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @attlist4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1471,7 +1471,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @element1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @element2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @element2(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1589,7 +1589,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element6(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element7(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1779,7 +1779,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1807,7 +1807,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @element5(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @element5(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1843,7 +1843,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 60) i32 @notation1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 60) i32 @notation1(ptr noundef captures(none) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1886,7 +1886,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation3(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @notation3(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1917,7 +1917,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @notation2(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1944,7 +1944,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @notation4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1984,7 +1984,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 60) i32 @doctype4(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
+define internal range(i32 -1, 60) i32 @doctype4(ptr noundef captures(none) %state, i32 noundef %tok, ptr readnone captures(none) %ptr, ptr readnone captures(none) %end, ptr readnone captures(none) %enc) #2 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return

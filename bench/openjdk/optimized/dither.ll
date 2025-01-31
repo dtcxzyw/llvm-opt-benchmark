@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @std_img_oda_blue = global [8 x [8 x i8]] zeroinitializer, align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define void @initInverseGrayLut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit56, label %4
 
@@ -157,10 +157,10 @@ define hidden void @freeICMColorData(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @initCubemap(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden noundef ptr @initCubemap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.CubeStateInfo, align 8
   %5 = mul nsw i32 %2, %2
   %6 = mul nsw i32 %5, %2
@@ -330,7 +330,7 @@ define hidden noundef ptr @initCubemap(ptr nocapture noundef readonly %0, i32 no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
   %2 = alloca %struct.CubeStateInfo, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -589,7 +589,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @initDitherTables(ptr nocapture noundef initializes((48, 72)) %0) local_unnamed_addr #4 {
+define hidden void @initDitherTables(ptr noundef captures(none) initializes((48, 72)) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @std_odas_computed, align 4
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -610,7 +610,7 @@ define hidden void @initDitherTables(ptr nocapture noundef initializes((48, 72))
 }
 
 ; Function Attrs: nounwind uwtable
-define void @make_dither_arrays(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define void @make_dither_arrays(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = sitofp i32 %0 to double
   %4 = tail call double @pow(double noundef %3, double noundef 0x3FD5555555555555) #11
   %5 = fdiv double 2.560000e+02, %4
@@ -679,10 +679,10 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 declare void @make_sgn_ordered_dither_array(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

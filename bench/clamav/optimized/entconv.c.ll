@@ -982,7 +982,7 @@ u16_normalize.exit.thread10:                      ; preds = %16, %u16_normalize.
 ; Function Attrs: nounwind uwtable
 define noundef ptr @entity_norm(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %4 = tail call ptr @cli_hashtab_find(ptr noundef nonnull @entities_htable, ptr noundef %1, i64 noundef %3) #17
+  %4 = tail call ptr @cli_hashtab_find(ptr noundef nonnull @entities_htable, ptr noundef nonnull %1, i64 noundef %3) #17
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %34, label %5
 
@@ -1065,10 +1065,10 @@ u16_normalize.exit.thread:                        ; preds = %32, %17, %13, %u16_
 declare ptr @cli_hashtab_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @encoding_detect_bom(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @encoding_detect_bom(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 4
   br i1 %3, label %detect_encoding.exit, label %4
 
@@ -1644,7 +1644,7 @@ in_iconv_u16.exit:                                ; preds = %95, %160
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
@@ -1881,7 +1881,7 @@ declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1897,7 +1897,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @cli_utf16toascii(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %4, label %5
 
@@ -1945,7 +1945,7 @@ define ptr @cli_utf16toascii(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_utf16_to_utf8(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = mul i64 %1, 3
   %5 = lshr i64 %4, 1
   %6 = add nuw i64 %5, 2
@@ -2147,7 +2147,7 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not42 = icmp eq i32 %1, 0
   br i1 %.not42, label %.loopexit32, label %.lr.ph
 
@@ -2341,7 +2341,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @cli_hashtab_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #13
@@ -2350,10 +2350,10 @@ declare i16 @llvm.bswap.i16(i16) #13
 declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

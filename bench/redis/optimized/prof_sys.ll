@@ -25,13 +25,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @opt_prof_prefix = external global [1 x i8], align 1
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @bt_init(ptr nocapture noundef readnone %bt, ptr nocapture noundef readnone %vec) local_unnamed_addr #0 {
+define hidden void @bt_init(ptr noundef readnone captures(none) %bt, ptr noundef readnone captures(none) %vec) local_unnamed_addr #0 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @prof_backtrace(ptr nocapture noundef readnone %tsd, ptr nocapture noundef readnone %bt) local_unnamed_addr #0 {
+define hidden void @prof_backtrace(ptr noundef readnone captures(none) %tsd, ptr noundef readnone captures(none) %bt) local_unnamed_addr #0 {
 entry:
   unreachable
 }
@@ -47,7 +47,7 @@ entry:
 declare void @prof_backtrace_hook_set(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define internal void @prof_backtrace_impl(ptr nocapture readnone %vec, ptr nocapture readnone %len, i32 %max_len) #0 {
+define internal void @prof_backtrace_impl(ptr readnone captures(none) %vec, ptr readnone captures(none) %len, i32 %max_len) #0 {
 entry:
   unreachable
 }
@@ -149,7 +149,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 declare i64 @malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @prof_fdump_impl(ptr nocapture noundef readnone %tsd) local_unnamed_addr #5 {
+define hidden void @prof_fdump_impl(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #5 {
 entry:
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_dump_filename_mtx, i64 64)) #8
   %cmp.i.not.i = icmp ne i32 %call.i.i, 0
@@ -159,7 +159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @prof_prefix_set(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @prof_prefix_set(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %prefix) local_unnamed_addr #0 {
 entry:
   unreachable
 }

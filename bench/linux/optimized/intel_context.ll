@@ -53,7 +53,7 @@ define dso_local ptr @intel_context_create(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_context_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -137,7 +137,7 @@ define dso_local void @intel_context_init(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_context_alloc_state(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -614,7 +614,7 @@ define internal fastcc i32 @i915_gem_object_lock(ptr noundef %0, ptr noundef %1)
 declare dso_local i32 @i915_active_acquire(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc void @intel_engine_pm_might_get(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @intel_engine_pm_might_get(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32
@@ -725,7 +725,7 @@ define dso_local i32 @__intel_context_do_pin(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @i915_gem_ww_ctx_init(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -805,7 +805,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__i915_sw_fence_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @sw_fence_dummy_notify(ptr nocapture readnone %0, i32 %1) #6 align 16 {
+define internal noundef i32 @sw_fence_dummy_notify(ptr readnone captures(none) %0, i32 %1) #6 align 16 {
   ret i32 0
 }
 
@@ -1039,7 +1039,7 @@ define dso_local range(i32 -12, 1) i32 @i915_context_module_init() local_unnamed
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_context_enter_engine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_context_enter_engine(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 352
@@ -1078,7 +1078,7 @@ define dso_local void @intel_context_enter_engine(ptr nocapture noundef readonly
 declare dso_local void @intel_timeline_enter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_context_exit_engine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_context_exit_engine(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @intel_timeline_exit(ptr noundef %3) #11
@@ -1439,7 +1439,7 @@ define dso_local i64 @intel_context_get_total_runtime_ns(ptr noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @intel_context_get_avg_runtime_ns(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local i64 @intel_context_get_avg_runtime_ns(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 3

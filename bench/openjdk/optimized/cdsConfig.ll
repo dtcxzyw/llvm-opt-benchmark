@@ -563,7 +563,7 @@ declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare noundef ptr @_ZN2os14file_separatorEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
@@ -601,7 +601,7 @@ define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly 
 declare noundef ptr @_ZN2os14path_separatorEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_ZN2os14path_separatorEv() #9
   %5 = load i8, ptr %4, align 1
   %6 = sext i8 %5 to i32
@@ -612,7 +612,7 @@ define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr no
   br i1 %or.cond, label %10, label %11
 
 10:                                               ; preds = %3
-  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.6, ptr noundef %0) #9
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #9
   br label %11
 
 11:                                               ; preds = %3, %10
@@ -621,7 +621,7 @@ define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr no
   %14 = sub i64 %12, %13
   %15 = add i64 %14, 1
   %16 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %15, i8 noundef zeroext 9, i32 noundef 0) #9
-  %17 = tail call ptr @strncpy(ptr noundef %16, ptr noundef %0, i64 noundef %14) #9
+  %17 = tail call ptr @strncpy(ptr noundef %16, ptr noundef nonnull %0, i64 noundef %14) #9
   %18 = getelementptr inbounds i8, ptr %16, i64 %14
   store i8 0, ptr %18, align 1
   store ptr %16, ptr %1, align 8
@@ -631,7 +631,7 @@ define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr no
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %11
-  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.7, ptr noundef %0) #9
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.7, ptr noundef nonnull %0) #9
   br label %23
 
 23:                                               ; preds = %22, %11
@@ -649,7 +649,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() local_unnamed_addr #2 align 2 {
@@ -792,7 +792,7 @@ _ZN9CDSConfig28stop_using_full_module_graphEPKc.exit: ; preds = %_ZN9CDSConfig30
   br i1 %.not8, label %.loopexit, label %16
 
 16:                                               ; preds = %_ZN9CDSConfig28stop_using_full_module_graphEPKc.exit
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.21, ptr noundef %0, ptr noundef %1)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.21, ptr noundef nonnull %0, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %16, %_ZN9CDSConfig28stop_using_full_module_graphEPKc.exit
@@ -800,7 +800,7 @@ _ZN9CDSConfig28stop_using_full_module_graphEPKc.exit: ; preds = %_ZN9CDSConfig30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9CDSConfig30stop_dumping_full_module_graphEPKc(ptr noundef %0) local_unnamed_addr #2 align 2 {

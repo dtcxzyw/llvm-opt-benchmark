@@ -114,7 +114,7 @@ lpad5:                                            ; preds = %if.then3.i.i, %if.t
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btHashedSimplePairCache10growTablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btHashedSimplePairCache10growTablesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_capacity.i, align 8
@@ -441,7 +441,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btHashedSimplePairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btHashedSimplePairCacheD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btHashedSimplePairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -549,7 +549,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btHashedSimplePairCache14removeAllPairsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((12, 20), (44, 52), (76, 84)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btHashedSimplePairCache14removeAllPairsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((12, 20), (44, 52), (76, 84)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -670,7 +670,7 @@ _ZN20btAlignedObjectArrayI12btSimplePairE7reserveEi.exit: ; preds = %_ZN20btAlig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN23btHashedSimplePairCache8findPairEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN23btHashedSimplePairCache8findPairEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %indexB, 16
   %or.i = or i32 %shl.i, %indexA
@@ -736,7 +736,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN23btHashedSimplePairCache15internalAddPairEii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN23btHashedSimplePairCache15internalAddPairEii(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %indexB, 16
   %or.i = or i32 %shl.i, %indexA
@@ -909,7 +909,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN23btHashedSimplePairCache21removeOverlappingPairEii(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN23btHashedSimplePairCache21removeOverlappingPairEii(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) unnamed_addr #4 align 2 {
 entry:
   %shl.i = shl i32 %indexB, 16
   %or.i = or i32 %shl.i, %indexA
@@ -1095,7 +1095,7 @@ return:                                           ; preds = %while.body.i, %retu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN23btHashedSimplePairCache18addOverlappingPairEii(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %indexA, i32 noundef %indexB) unnamed_addr #0 comdat align 2 {

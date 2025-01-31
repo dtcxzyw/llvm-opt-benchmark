@@ -185,19 +185,19 @@ define dso_local void @cfg80211_conn_work(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cfg80211_conn_do_work(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @cfg80211_conn_do_work(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.cfg80211_auth_request, align 8
   %4 = alloca %struct.cfg80211_assoc_request, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1026,7 +1026,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_scan_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_scan_done(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1099,7 +1099,7 @@ define dso_local void @cfg80211_sme_scan_done(ptr nocapture noundef readonly %0)
 declare dso_local void @cfg80211_put_bss(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_rx_auth(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_rx_auth(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.cfg80211_connect_resp_params, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
@@ -1196,7 +1196,7 @@ define dso_local void @cfg80211_sme_rx_auth(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @cfg80211_sme_rx_assoc_resp(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @cfg80211_sme_rx_assoc_resp(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !10
@@ -1251,7 +1251,7 @@ define dso_local noundef zeroext i1 @cfg80211_sme_rx_assoc_resp(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_deauth(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_deauth(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1271,7 +1271,7 @@ define dso_local void @cfg80211_sme_deauth(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_auth_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_auth_timeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
@@ -1300,7 +1300,7 @@ define dso_local void @cfg80211_sme_auth_timeout(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_disassoc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_disassoc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
@@ -1329,7 +1329,7 @@ define dso_local void @cfg80211_sme_disassoc(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_assoc_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_assoc_timeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
@@ -1358,7 +1358,7 @@ define dso_local void @cfg80211_sme_assoc_timeout(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_sme_abandon_assoc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_sme_abandon_assoc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
@@ -1387,7 +1387,7 @@ define dso_local void @cfg80211_sme_abandon_assoc(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_wdev_release_link_bsses(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @cfg80211_wdev_release_link_bsses(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -1475,7 +1475,7 @@ define dso_local void @cfg80211_wdev_release_link_bsses(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @disconnect_work(ptr nocapture readnone %0) #0 align 16 {
+define internal void @disconnect_work(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @rtnl_lock() #12
   %2 = tail call i32 @rtnl_is_locked() #12
   %3 = icmp ne i32 %2, 0
@@ -1562,7 +1562,7 @@ define internal void @disconnect_work(ptr nocapture readnone %0) #0 align 16 {
 declare dso_local void @nl80211_send_connect_result(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfg80211_wdev_release_bsses(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfg80211_wdev_release_bsses(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
@@ -1646,7 +1646,7 @@ define internal fastcc void @cfg80211_wdev_release_bsses(ptr nocapture noundef %
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfg80211_connect_result_release_bsses(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @cfg80211_connect_result_release_bsses(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -1740,7 +1740,7 @@ declare dso_local void @regulatory_hint_country_ie(ptr noundef, i32 noundef, ptr
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_connect_done(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @cfg80211_connect_done(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2140,7 +2140,7 @@ define dso_local void @cfg80211_connect_done(ptr nocapture noundef readonly %0, 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__cfg80211_roamed(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @__cfg80211_roamed(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
@@ -2427,7 +2427,7 @@ define dso_local void @__cfg80211_roamed(ptr nocapture noundef %0, ptr noundef %
 declare dso_local void @nl80211_send_roamed(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_roamed(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @cfg80211_roamed(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2772,7 +2772,7 @@ define dso_local void @cfg80211_roamed(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__cfg80211_port_authorized(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local void @__cfg80211_port_authorized(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %7 [
@@ -2847,7 +2847,7 @@ define dso_local void @__cfg80211_port_authorized(ptr nocapture noundef readonly
 declare dso_local void @nl80211_send_port_authorized(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_port_authorized(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i32 noundef %4) #0 align 16 {
+define dso_local void @cfg80211_port_authorized(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -3267,7 +3267,7 @@ declare dso_local void @nl80211_send_disconnected(ptr noundef, ptr noundef, i16 
 declare dso_local void @cfg80211_schedule_channels_check(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cfg80211_disconnected(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5) #0 align 16 {
+define dso_local void @cfg80211_disconnected(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -4537,7 +4537,7 @@ declare dso_local i32 @__SCT__tp_func_rdev_connect(ptr noundef, ptr noundef, ptr
 declare dso_local i32 @__SCT__tp_func_rdev_disconnect(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

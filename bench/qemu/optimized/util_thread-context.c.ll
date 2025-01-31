@@ -150,7 +150,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @thread_context_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @thread_context_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -229,7 +229,7 @@ if.end11:                                         ; preds = %if.end, %while.end
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @thread_context_get_thread_id(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @thread_context_get_thread_id(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @thread_context_get_cpu_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @thread_context_get_cpu_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %bitmap = alloca ptr, align 8
   %nbits = alloca i64, align 8
@@ -333,7 +333,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @thread_context_set_cpu_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @thread_context_set_cpu_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %host_cpus = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.THREAD_CONTEXT) #8
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end, %out, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @thread_context_set_node_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @thread_context_set_node_affinity(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %host_nodes = alloca ptr, align 8
   %call = tail call i32 @numa_num_possible_cpus() #8

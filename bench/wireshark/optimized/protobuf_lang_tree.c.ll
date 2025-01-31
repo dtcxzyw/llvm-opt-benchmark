@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [5 x i8] c"/../\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pbl_reinit_descriptor_pool(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @pbl_reinit_descriptor_pool(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %pbl_free_pool.exit, label %6
@@ -118,7 +118,7 @@ declare void @g_queue_push_tail(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @pbl_printf(ptr nocapture noundef readonly %0, ...) #3 {
+define internal void @pbl_printf(ptr noundef readonly captures(none) %0, ...) #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i32 @vprintf(ptr noundef %0, ptr noundef nonnull %2) #14
@@ -372,7 +372,7 @@ define hidden range(i32 0, 2) i32 @pbl_add_proto_file_to_be_parsed(ptr noundef %
 declare i32 @g_path_is_absolute(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %3 = add i64 %2, 1
   %4 = tail call noalias ptr @g_malloc_n(i64 noundef %3, i64 noundef 1) #15
@@ -643,7 +643,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %
 
 ._crit_edge.thread:                               ; preds = %10, %45, %._crit_edge
   %.15091 = phi ptr [ %.150, %45 ], [ %.150, %._crit_edge ], [ null, %10 ]
-  tail call void @g_free(ptr noundef %13) #14
+  tail call void @g_free(ptr noundef nonnull %13) #14
   br label %46
 
 46:                                               ; preds = %3, %6, %._crit_edge.thread
@@ -652,7 +652,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @pbl_method_descriptor_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @pbl_method_descriptor_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
@@ -718,7 +718,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %27 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef null) #14
+  %27 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %23, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef null) #14
   %28 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef nonnull %20, ptr noundef %27, i32 noundef %2)
   tail call void @g_free(ptr noundef %27) #14
   %.not4468 = icmp eq ptr %28, null
@@ -731,7 +731,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr
 
 .lr.ph._crit_edge:                                ; preds = %.loopexit, %.lr.ph.preheader
   %.lcssa66 = phi ptr [ %28, %.lr.ph.preheader ], [ %39, %.loopexit ]
-  tail call void @g_free(ptr noundef %23) #14
+  tail call void @g_free(ptr noundef nonnull %23) #14
   br label %.thread
 
 .preheader:                                       ; preds = %.preheader.preheader, %32
@@ -750,14 +750,14 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr
 .loopexit:                                        ; preds = %32
   %37 = getelementptr i8, ptr %23, i64 %33
   store i8 0, ptr %37, align 1
-  %38 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef null) #14
+  %38 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %23, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef null) #14
   %39 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef nonnull %20, ptr noundef %38, i32 noundef %2)
   tail call void @g_free(ptr noundef %38) #14
   %.not44 = icmp eq ptr %39, null
   br i1 %.not44, label %.preheader.preheader, label %.lr.ph._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.preheader, %21
-  tail call void @g_free(ptr noundef %23) #14
+  tail call void @g_free(ptr noundef nonnull %23) #14
   %40 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef nonnull %20, ptr noundef nonnull %1, i32 noundef %2)
   br label %.thread
 
@@ -781,7 +781,7 @@ define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @pbl_message_descriptor_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @pbl_message_descriptor_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
@@ -886,21 +886,21 @@ define hidden ptr @pbl_field_descriptor_full_name(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @pbl_field_descriptor_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @pbl_field_descriptor_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_number(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @pbl_field_descriptor_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i32 @pbl_field_descriptor_type(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -940,7 +940,7 @@ define hidden i32 @pbl_field_descriptor_type(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_repeated(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_repeated(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %.not = icmp ne i32 %3, 0
@@ -949,7 +949,7 @@ define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_repeated(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_packed(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @pbl_field_descriptor_is_packed(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1051,7 +1051,7 @@ define hidden ptr @pbl_field_descriptor_TypeName(i32 noundef %0) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @pbl_field_descriptor_message_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_field_descriptor_message_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2
@@ -1072,7 +1072,7 @@ define hidden noundef ptr @pbl_field_descriptor_message_type(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @pbl_field_descriptor_enum_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_field_descriptor_enum_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 14
@@ -1092,70 +1092,70 @@ define hidden noundef ptr @pbl_field_descriptor_enum_type(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_is_required(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_is_required(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_has_default_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_has_default_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_default_value_int32(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_default_value_int32(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @pbl_field_descriptor_default_value_int64(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @pbl_field_descriptor_default_value_int64(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_default_value_uint32(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_default_value_uint32(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @pbl_field_descriptor_default_value_uint64(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @pbl_field_descriptor_default_value_uint64(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @pbl_field_descriptor_default_value_float(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden float @pbl_field_descriptor_default_value_float(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @pbl_field_descriptor_default_value_double(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden double @pbl_field_descriptor_default_value_double(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_field_descriptor_default_value_bool(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_field_descriptor_default_value_bool(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @pbl_field_descriptor_default_value_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define hidden ptr @pbl_field_descriptor_default_value_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -1165,7 +1165,7 @@ define hidden ptr @pbl_field_descriptor_default_value_string(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_field_descriptor_default_value_enum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @pbl_field_descriptor_default_value_enum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1302,7 +1302,7 @@ define hidden ptr @pbl_enum_descriptor_value(ptr noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @pbl_enum_descriptor_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @pbl_enum_descriptor_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
@@ -1357,7 +1357,7 @@ define hidden ptr @pbl_enum_descriptor_FindValueByNumber(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @pbl_enum_value_descriptor_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @pbl_enum_value_descriptor_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
@@ -1370,14 +1370,14 @@ define hidden ptr @pbl_enum_value_descriptor_full_name(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @pbl_enum_value_descriptor_number(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @pbl_enum_value_descriptor_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pbl_foreach_message(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @pbl_foreach_message(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._GHashTableIter, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1404,7 +1404,7 @@ declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pbl_traverse_sub_tree(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pbl_traverse_sub_tree(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1781,7 +1781,7 @@ pbl_get_option_by_name.exit.thread:               ; preds = %7, %31, %42, %45, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2175,18 +2175,18 @@ declare i32 @g_direct_hash(ptr noundef) #8
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @g_file_test(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2195,7 +2195,7 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #2
 declare i32 @str_to_val(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #11
@@ -2207,10 +2207,10 @@ declare void @llvm.va_end.p0(ptr) #11
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

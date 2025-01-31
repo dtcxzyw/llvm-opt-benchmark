@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [8 x i8] c"%s: %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @qemu_hexdump_line(ptr nocapture noundef writeonly %line, i32 noundef %b, ptr nocapture noundef readonly %bufptr, i32 noundef %len, i1 noundef zeroext %ascii) local_unnamed_addr #0 {
+define dso_local void @qemu_hexdump_line(ptr noundef writeonly captures(none) %line, i32 noundef %b, ptr noundef readonly captures(none) %bufptr, i32 noundef %len, i1 noundef zeroext %ascii) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len, i32 16)
   %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line, i64 noundef 6, ptr noundef nonnull @.str, i32 noundef %b) #3
@@ -89,13 +89,13 @@ if.end35:                                         ; preds = %for.body19, %if.the
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @qemu_hexdump(ptr nocapture noundef %fp, ptr noundef %prefix, ptr nocapture noundef readonly %bufptr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @qemu_hexdump(ptr noundef captures(none) %fp, ptr noundef %prefix, ptr noundef readonly captures(none) %bufptr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %line = alloca [75 x i8], align 16
   %cmp5.not = icmp eq i64 %size, 0
@@ -191,7 +191,7 @@ for.end:                                          ; preds = %qemu_hexdump_line.e
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2

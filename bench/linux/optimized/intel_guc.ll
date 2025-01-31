@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_notify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1548
@@ -67,13 +67,13 @@ define dso_local void @intel_guc_notify(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_init_send_regs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_init_send_regs(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -393,7 +393,7 @@ define dso_local void @intel_guc_init_late(ptr noundef %0) local_unnamed_addr #0
 declare dso_local void @intel_guc_ads_init_late(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_write_params(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_write_params(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   tail call void @intel_uncore_forcewake_get(ptr noundef %3, i32 noundef 2) #7
@@ -428,7 +428,7 @@ declare dso_local void @intel_uncore_forcewake_get(ptr noundef, i32 noundef) loc
 declare dso_local void @intel_uncore_forcewake_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_dump_time_info(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_dump_time_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -632
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8928
@@ -947,7 +947,7 @@ declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #2
 declare dso_local void @intel_guc_slpc_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 -632
   %8 = getelementptr i8, ptr %0, i64 -608
@@ -1256,7 +1256,7 @@ define dso_local noundef i32 @intel_guc_crash_process_msg(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_to_host_process_recv_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_to_host_process_recv_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %44, label %5, !prof !17
 
@@ -1412,7 +1412,7 @@ define dso_local noundef i32 @intel_guc_suspend(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @intel_guc_resume(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef i32 @intel_guc_resume(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 16 {
   ret i32 0
 }
 
@@ -1522,7 +1522,7 @@ declare dso_local i32 @i915_ggtt_pin(ptr noundef, ptr noundef, i32 noundef, i32 
 declare dso_local ptr @i915_vma_make_unshrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_allocate_and_map_vma(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_allocate_and_map_vma(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %6 = tail call ptr @intel_guc_allocate_vma(ptr noundef %0, i32 noundef %1)
@@ -1761,7 +1761,7 @@ declare dso_local void @intel_uc_fw_dump(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @drm_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_write_barrier(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_write_barrier(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184

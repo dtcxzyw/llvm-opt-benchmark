@@ -162,7 +162,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_bus_reset(ptr nocapture noundef %bus) local_unnamed_addr #0 {
+define dso_local void @virtio_bus_reset(ptr noundef captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -221,7 +221,7 @@ if.end:                                           ; preds = %if.then, %virtio_bu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_bus_stop_ioeventfd(ptr nocapture noundef %bus) local_unnamed_addr #0 {
+define dso_local void @virtio_bus_stop_ioeventfd(ptr noundef captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %ioeventfd_started = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load i8, ptr %ioeventfd_started, align 8
@@ -292,7 +292,7 @@ if.end7:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @virtio_bus_get_vdev_id(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local zeroext i16 @virtio_bus_get_vdev_id(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -316,7 +316,7 @@ if.end:                                           ; preds = %virtio_bus_get_devi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @virtio_bus_get_vdev_config_len(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local i64 @virtio_bus_get_vdev_config_len(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -340,7 +340,7 @@ if.end:                                           ; preds = %virtio_bus_get_devi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_bus_get_vdev_bad_features(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local i32 @virtio_bus_get_vdev_bad_features(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -376,7 +376,7 @@ return:                                           ; preds = %if.end, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_bus_get_vdev_config(ptr nocapture noundef readonly %bus, ptr noundef %config) local_unnamed_addr #0 {
+define dso_local void @virtio_bus_get_vdev_config(ptr noundef readonly captures(none) %bus, ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -410,7 +410,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_bus_set_vdev_config(ptr nocapture noundef readonly %bus, ptr noundef %config) local_unnamed_addr #0 {
+define dso_local void @virtio_bus_set_vdev_config(ptr noundef readonly captures(none) %bus, ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -718,7 +718,7 @@ declare i32 @event_notifier_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_bus_cleanup_host_notifier(ptr nocapture noundef readonly %bus, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @virtio_bus_cleanup_host_notifier(ptr noundef readonly captures(none) %bus, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 80
   %bus.val = load ptr, ptr %0, align 8
@@ -795,7 +795,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #5
   %get_dev_path = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -817,7 +817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noalias noundef ptr @virtio_bus_get_fw_dev_path(ptr nocapture readnone %dev) #4 {
+define internal noalias noundef ptr @virtio_bus_get_fw_dev_path(ptr readnone captures(none) %dev) #4 {
 entry:
   ret ptr null
 }

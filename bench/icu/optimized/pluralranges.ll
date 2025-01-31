@@ -277,7 +277,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -694,7 +694,7 @@ _ZN6icu_7515MaybeStackArrayINS_20StandardPluralRanges25StandardPluralRangeTriple
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7520StandardPluralRanges4copyER10UErrorCode(ptr noalias sret(%"class.icu_75::StandardPluralRanges") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7520StandardPluralRanges4copyER10UErrorCode(ptr noalias sret(%"class.icu_75::StandardPluralRanges") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stackArray.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %stackArray.i.i, ptr %agg.result, align 8
@@ -761,7 +761,7 @@ nrvo.skipdtor:                                    ; preds = %if.then7, %do.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNO6icu_7520StandardPluralRanges9toPointerER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::LocalPointer") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNO6icu_7520StandardPluralRanges9toPointerER10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::LocalPointer") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #12
   %new.isnull = icmp eq ptr %call, null
@@ -824,7 +824,7 @@ invoke.cont:                                      ; preds = %if.then.i, %new.con
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7520StandardPluralRanges14addPluralRangeENS_14StandardPlural4FormES2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %first, i32 noundef %second, i32 noundef %result) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7520StandardPluralRanges14addPluralRangeENS_14StandardPlural4FormES2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %first, i32 noundef %second, i32 noundef %result) local_unnamed_addr #8 align 2 {
 entry:
   %fTriplesLen = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %fTriplesLen, align 8
@@ -843,7 +843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520StandardPluralRanges11setCapacityEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %length, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7520StandardPluralRanges11setCapacityEiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %length, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -892,7 +892,7 @@ if.end9:                                          ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7520StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i32 noundef %first, i32 noundef %second) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_7520StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, i32 noundef %first, i32 noundef %second) local_unnamed_addr #9 align 2 {
 entry:
   %fTriplesLen = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %fTriplesLen, align 8
@@ -982,7 +982,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_120PluralRangesDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6icu_7512_GLOBAL__N_120PluralRangesDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i48 = alloca i32, align 4
   %agg.tmp.i49 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1244,10 +1244,10 @@ declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

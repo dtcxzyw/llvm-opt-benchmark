@@ -61,7 +61,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @.str.19 = private unnamed_addr constant [5 x i8] c"(iO)\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z20pycvSetMouseCallbackP7_objectS0_S0_(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z20pycvSetMouseCallbackP7_objectS0_S0_(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x ptr], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -390,7 +390,7 @@ _ZN14PyAllowThreadsD2Ev.exit26:                   ; preds = %86, %80
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -503,7 +503,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_Z18pyRaiseCVExceptionRKN2cv9ExceptionE(ptr noundef nonnull align 8 dereferenceable(148)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z18pycvCreateTrackbarP7_objectS0_(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z18pycvCreateTrackbarP7_objectS0_(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -947,7 +947,7 @@ _ZL10_Py_DECREFP7_object.exit8:                   ; preds = %_ZL10_Py_DECREFP7_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z16pycvCreateButtonP7_objectS0_S0_(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z16pycvCreateButtonP7_objectS0_S0_(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca [6 x ptr], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

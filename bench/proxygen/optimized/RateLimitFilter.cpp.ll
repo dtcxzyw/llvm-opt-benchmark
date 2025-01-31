@@ -461,7 +461,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15RateLimitFilter21createRateLimitFilterENS0_4TypeEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i8 noundef zeroext %type, ptr noundef %timer, ptr noundef %httpSessionStats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15RateLimitFilter21createRateLimitFilterENS0_4TypeEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i8 noundef zeroext %type, ptr noundef %timer, ptr noundef %httpSessionStats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i8 %type, label %return [
     i8 0, label %sw.bb
@@ -702,10 +702,10 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704), ptr noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter15setSessionStatsEPNS_16HTTPSessionStatsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((160, 168)) %this, ptr noundef %httpSessionStats) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter15setSessionStatsEPNS_16HTTPSessionStatsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(168) initializes((160, 168)) %this, ptr noundef %httpSessionStats) local_unnamed_addr #7 align 2 {
 entry:
   %httpSessionStats_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %httpSessionStats, ptr %httpSessionStats_, align 8
@@ -713,7 +713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter9setParamsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((140, 152)) %this, i32 noundef %maxEventsInInterval, i64 %timeoutDuration.coerce) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter9setParamsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(168) initializes((140, 152)) %this, i32 noundef %maxEventsInInterval, i64 %timeoutDuration.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %maxEventsInInterval_ = getelementptr inbounds nuw i8, ptr %this, i64 140
   store i32 %maxEventsInInterval, ptr %maxEventsInInterval_, align 4
@@ -723,7 +723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter18attachThreadLocalsEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((152, 160)) %this, ptr noundef %timer) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter18attachThreadLocalsEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(168) initializes((152, 160)) %this, ptr noundef %timer) local_unnamed_addr #7 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %timer, ptr %timer_, align 8
@@ -745,13 +745,13 @@ entry:
 declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen15RateLimitFilter16callbackCanceledEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen15RateLimitFilter16callbackCanceledEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn72_N8proxygen15RateLimitFilter16callbackCanceledEv(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
+define void @_ZThn72_N8proxygen15RateLimitFilter16callbackCanceledEv(ptr readnone captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
@@ -1219,10 +1219,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
@@ -3996,10 +3996,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

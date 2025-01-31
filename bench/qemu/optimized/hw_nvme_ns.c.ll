@@ -144,7 +144,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [6 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_get_info, ptr @.str.88, ptr @.str.89, i32 199, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_get_info, ptr @.str.90, ptr @.str.89, i32 199, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.88, ptr @.str.91, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.90, ptr @.str.91, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.88, ptr @.str.91, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.90, ptr @.str.91, i32 81, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_ns_init_format(ptr nocapture noundef %ns) local_unnamed_addr #0 {
+define dso_local void @nvme_ns_init_format(ptr noundef captures(none) %ns) local_unnamed_addr #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %id_ns1 = getelementptr inbounds nuw i8, ptr %ns, i64 272
@@ -214,7 +214,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @bdrv_get_info(ptr noundef, ptr noundef) #2
 
@@ -1320,7 +1320,7 @@ return:                                           ; preds = %if.then29.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_ns_drain(ptr nocapture noundef readonly %ns) local_unnamed_addr #0 {
+define dso_local void @nvme_ns_drain(ptr noundef readonly captures(none) %ns) local_unnamed_addr #0 {
 entry:
   %blkconf = getelementptr inbounds nuw i8, ptr %ns, i64 160
   %0 = load ptr, ptr %blkconf, align 8
@@ -1627,7 +1627,7 @@ if.end:                                           ; preds = %for.end84.i, %entry
 declare i32 @blk_flush(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_ns_cleanup(ptr nocapture noundef readonly %ns) local_unnamed_addr #0 {
+define dso_local void @nvme_ns_cleanup(ptr noundef readonly captures(none) %ns) local_unnamed_addr #0 {
 entry:
   %zoned = getelementptr inbounds nuw i8, ptr %ns, i64 8705
   %0 = load i8, ptr %zoned, align 1
@@ -1719,14 +1719,14 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @qemu_strsep(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @qemu_strtoui(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
@@ -1908,7 +1908,7 @@ if.end45:                                         ; preds = %if.end44, %if.end24
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1931,7 +1931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_ns_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @nvme_ns_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.45, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -2117,7 +2117,7 @@ for.body57:                                       ; preds = %for.cond54.preheade
   ]
 
 if.then63:                                        ; preds = %for.body57
-  tail call void @nvme_attach_ns(ptr noundef nonnull %12, ptr noundef %call) #14
+  tail call void @nvme_attach_ns(ptr noundef nonnull %12, ptr noundef nonnull %call) #14
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.body57, %for.body57, %if.then63
@@ -2197,13 +2197,13 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

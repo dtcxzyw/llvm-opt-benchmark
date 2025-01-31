@@ -91,7 +91,7 @@ declare void @bdrv_set_dirty_bitmap(ptr noundef, i64 noundef, i64 noundef) local
 declare ptr @block_copy_dirty_bitmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @backup_job_create(ptr noundef %job_id, ptr noundef %bs, ptr noundef %target, i64 noundef %speed, i32 noundef %sync_mode, ptr noundef %sync_bitmap, i32 noundef %bitmap_mode, i1 noundef zeroext %compress, ptr noundef %filter_node_name, ptr nocapture noundef readonly %perf, i32 noundef %on_source_error, i32 noundef %on_target_error, i32 noundef %creation_flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %txn, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @backup_job_create(ptr noundef %job_id, ptr noundef %bs, ptr noundef %target, i64 noundef %speed, i32 noundef %sync_mode, ptr noundef %sync_bitmap, i32 noundef %bitmap_mode, i1 noundef zeroext %compress, ptr noundef %filter_node_name, ptr noundef readonly captures(none) %perf, i32 noundef %on_source_error, i32 noundef %on_target_error, i32 noundef %creation_flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %txn, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bcs = alloca ptr, align 8
   store ptr null, ptr %bcs, align 8
@@ -377,7 +377,7 @@ declare i64 @block_copy_cluster_size(ptr noundef) local_unnamed_addr #1
 declare ptr @block_job_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @block_copy_set_copy_opts(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -396,7 +396,7 @@ declare ptr @bdrv_reclaim_dirty_bitmap(ptr noundef, ptr noundef) local_unnamed_a
 declare void @bdrv_cbw_drop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @backup_run(ptr noundef %job, ptr nocapture readnone %errp) #0 {
+define internal i32 @backup_run(ptr noundef %job, ptr readnone captures(none) %errp) #0 {
 entry:
   %count = alloca i64, align 8
   %bcs.i = getelementptr inbounds nuw i8, ptr %job, i64 616
@@ -440,8 +440,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  call void @job_pause_point(ptr noundef %job) #5
-  %call3 = call zeroext i1 @job_is_cancelled(ptr noundef %job) #5
+  call void @job_pause_point(ptr noundef nonnull %job) #5
+  %call3 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #5
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -476,8 +476,8 @@ while.cond.preheader:                             ; preds = %if.end12
   br i1 %call1718, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  call void @job_yield(ptr noundef %job) #5
-  %call17 = call zeroext i1 @job_is_cancelled(ptr noundef %job) #5
+  call void @job_yield(ptr noundef nonnull %job) #5
+  %call17 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #5
   br i1 %call17, label %return, label %while.body, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end12
@@ -490,7 +490,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @backup_pause(ptr nocapture noundef %job) #0 {
+define internal void @backup_pause(ptr noundef captures(none) %job) #0 {
 entry:
   %bg_bcs_call = getelementptr inbounds nuw i8, ptr %job, i64 632
   %0 = load ptr, ptr %bg_bcs_call, align 8
@@ -516,7 +516,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare void @block_job_user_resume(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @backup_commit(ptr nocapture noundef readonly %job) #0 {
+define internal void @backup_commit(ptr noundef readonly captures(none) %job) #0 {
 entry:
   %sync_bitmap = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
@@ -551,7 +551,7 @@ if.end:                                           ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @backup_abort(ptr nocapture noundef readonly %job) #0 {
+define internal void @backup_abort(ptr noundef readonly captures(none) %job) #0 {
 entry:
   %sync_bitmap = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
@@ -608,7 +608,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @backup_cancel(ptr nocapture noundef readonly %job, i1 zeroext %force) #0 {
+define internal noundef zeroext i1 @backup_cancel(ptr noundef readonly captures(none) %job, i1 zeroext %force) #0 {
 entry:
   %target_bs = getelementptr inbounds nuw i8, ptr %job, i64 536
   %0 = load ptr, ptr %target_bs, align 8
@@ -619,7 +619,7 @@ entry:
 declare void @block_job_free(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @backup_set_speed(ptr nocapture noundef readonly %job, i64 noundef %speed) #0 {
+define internal void @backup_set_speed(ptr noundef readonly captures(none) %job, i64 noundef %speed) #0 {
 entry:
   %bcs = getelementptr inbounds nuw i8, ptr %job, i64 616
   %0 = load ptr, ptr %bcs, align 8

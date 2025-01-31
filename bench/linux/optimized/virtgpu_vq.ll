@@ -89,7 +89,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_virtio_gpu_cmd_queue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace402, ptr @trace_virtio_gpu_cmd_queue.__UNIQUE_ID___addressable___SCK__tp_func_virtio_gpu_cmd_queue401, ptr @trace_virtio_gpu_cmd_response.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace416, ptr @trace_virtio_gpu_cmd_response.__UNIQUE_ID___addressable___SCK__tp_func_virtio_gpu_cmd_response415], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_ctrl_ack(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_ctrl_ack(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 792
@@ -103,13 +103,13 @@ define dso_local void @virtio_gpu_ctrl_ack(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cursor_ack(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cursor_ack(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 792
@@ -123,7 +123,7 @@ define dso_local void @virtio_gpu_cursor_ack(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @virtio_gpu_alloc_vbufs(ptr nocapture noundef writeonly initializes((62008, 62016)) %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @virtio_gpu_alloc_vbufs(ptr noundef writeonly captures(none) initializes((62008, 62016)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 216, i32 noundef 8, i32 noundef 0, ptr noundef null) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   store ptr %2, ptr %3, align 8
@@ -136,7 +136,7 @@ define dso_local range(i32 -12, 1) i32 @virtio_gpu_alloc_vbufs(ptr nocapture nou
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_free_vbufs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_free_vbufs(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   %3 = load ptr, ptr %2, align 8
   tail call void @kmem_cache_destroy(ptr noundef %3) #12
@@ -366,7 +366,7 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @virtqueue_disable_cb(ptr noundef) local_unnamed_addr #2
@@ -570,7 +570,7 @@ declare dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @virtqueue_notify(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_create_resource(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_create_resource(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %7, i32 noundef 36288) #12
@@ -1058,7 +1058,7 @@ define dso_local void @virtio_gpu_cmd_unref_resource(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_unref_cb(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_unref_cb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -1264,7 +1264,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_get_display_info(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_get_display_info_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_get_display_info_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62064
@@ -1365,7 +1365,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_get_capset_info(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_get_capset_info_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_get_capset_info_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1408,7 +1408,7 @@ define internal void @virtio_gpu_cmd_get_capset_info_cb(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_capset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_capset(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62496
   %6 = load i32, ptr %5, align 8
@@ -1584,7 +1584,7 @@ thread-pre-split:                                 ; preds = %60, %34
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_capset_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_capset_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1698,7 +1698,7 @@ define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_edids(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_get_edid_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_get_edid_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -1889,7 +1889,7 @@ define dso_local void @virtio_gpu_cmd_context_detach_resource(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_resource_create_3d(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_resource_create_3d(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %7, i32 noundef 36288) #12
@@ -1968,7 +1968,7 @@ define dso_local void @virtio_gpu_cmd_resource_create_3d(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2063,7 +2063,7 @@ define dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 62008
@@ -2176,7 +2176,7 @@ define dso_local void @virtio_gpu_cmd_submit(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_object_attach(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_object_attach(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 62008
@@ -2218,7 +2218,7 @@ define dso_local void @virtio_gpu_object_attach(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr nocapture noundef initializes((3808, 3812)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captures(none) initializes((3808, 3812)) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [1 x ptr], align 8
   %4 = alloca %struct.scatterlist, align 8
   %5 = alloca i32, align 4
@@ -2406,7 +2406,7 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_resource_assign_uuid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -2460,7 +2460,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_resource_assign_u
 declare dso_local void @virtio_gpu_array_put_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_resource_uuid_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_resource_uuid_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2547,7 +2547,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_map(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_cmd_resource_map_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @virtio_gpu_cmd_resource_map_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2578,7 +2578,7 @@ define internal void @virtio_gpu_cmd_resource_map_cb(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_unmap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_unmap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %4, i32 noundef 36288) #12
@@ -2613,7 +2613,7 @@ define dso_local void @virtio_gpu_cmd_unmap(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_resource_create_blob(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_resource_create_blob(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62008
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %7, i32 noundef 36288) #12
@@ -2676,7 +2676,7 @@ define dso_local void @virtio_gpu_cmd_resource_create_blob(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_cmd_set_scanout_blob(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_cmd_set_scanout_blob(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 4
@@ -2852,7 +2852,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local ptr @drm_do_get_edid(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 -22, 1) i32 @virtio_get_edid_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3) #10 align 16 {
+define internal noundef range(i32 -22, 1) i32 @virtio_get_edid_block(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) #10 align 16 {
   %5 = shl i32 %2, 7
   %6 = zext i32 %5 to i64
   %7 = add i64 %3, %6

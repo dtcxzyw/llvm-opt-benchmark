@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN22ShenandoahSimpleBitMapD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22ShenandoahSimpleBitMapD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahSimpleBitMapC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahSimpleBitMapC2Em(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = add i64 %1, 63
@@ -40,7 +40,7 @@ _ZN22ShenandoahSimpleBitMap9clear_allEv.exit:     ; preds = %.lr.ph.i, %2
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahSimpleBitMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahSimpleBitMapD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -57,7 +57,7 @@ define hidden void @_ZN22ShenandoahSimpleBitMapD2Ev(ptr nocapture noundef nonnul
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = ashr i64 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -92,7 +92,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = ashr i64 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -131,7 +131,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -172,7 +172,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_conse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -214,7 +214,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_cons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_set_bitsEllm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_set_bitsEllm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = sub i64 %2, %3
   %6 = icmp sgt i64 %1, %5
   br i1 %6, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, label %7
@@ -379,7 +379,7 @@ _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_set_bitsEllm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_set_bitsEllm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = add i64 %3, %1
   %6 = icmp slt i64 %2, %5
   br i1 %6, label %.loopexit69, label %7

@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.42 = private unnamed_addr constant [25 x i8] c"Library path found at %s\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @win_utf8to16(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @win_utf8to16(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.win_utf8to16, ptr noundef nonnull @.str.2, i32 noundef 55) #16
   unreachable
 }
@@ -64,23 +64,23 @@ define dso_local noalias noundef nonnull ptr @win_utf8to16(ptr nocapture noundef
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @win_utf16to8(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @win_utf16to8(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.win_utf16to8, ptr noundef nonnull @.str.2, i32 noundef 76) #16
   unreachable
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @dir_make(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @dir_make(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i32 @mkdir(ptr noundef %0, i32 noundef 493) #17
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @dir_make_recursive(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @dir_make_recursive(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %3 = icmp ugt i64 %2, 1
   br i1 %3, label %.lr.ph, label %.loopexit
@@ -107,13 +107,13 @@ define dso_local noundef zeroext i1 @dir_make_recursive(ptr nocapture noundef %0
   br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %1, %6
-  %12 = tail call i32 @mkdir(ptr noundef readonly %0, i32 noundef 493) #17
+  %12 = tail call i32 @mkdir(ptr noundef nonnull readonly %0, i32 noundef 493) #17
   %13 = icmp eq i32 %12, 0
   ret i1 %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @dir_change(ptr noundef %0) local_unnamed_addr #5 {
@@ -152,7 +152,7 @@ define dso_local ptr @filename(ptr noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %33, label %.preheader
@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
 23:                                               ; preds = %16, %13, %19, %10
   %24 = getelementptr i8, ptr %0, i64 %.033
   %25 = getelementptr i8, ptr %24, i64 1
-  %26 = tail call ptr @str_copy(ptr noundef %25, i64 noundef %12) #17
+  %26 = tail call ptr @str_copy(ptr noundef nonnull %25, i64 noundef %12) #17
   store ptr %26, ptr %1, align 8
   %.not40 = icmp eq ptr %2, null
   br i1 %.not40, label %33, label %27
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @str_copy(ptr noundef %0, i64 noundef %.033) #17
+  %30 = tail call ptr @str_copy(ptr noundef nonnull %0, i64 noundef %.033) #17
   store ptr %30, ptr %2, align 8
   br label %33
 
@@ -258,21 +258,21 @@ define dso_local ptr @file_expand_path(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noalias noundef ptr @file_open_read(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @file_open_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   ret ptr %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @file_touch(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @file_touch(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.6)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -288,10 +288,10 @@ define dso_local noundef zeroext i1 @file_touch(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local nonnull ptr @file_read_all(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -369,21 +369,21 @@ define dso_local nonnull ptr @file_read_all(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #3
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @file_read_binary(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @file_read_binary(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8
   %4 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   %5 = icmp eq ptr %4, null
@@ -496,7 +496,7 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
   tail call void @scratch_buffer_clear() #17
   %20 = getelementptr inbounds nuw [5 x ptr], ptr @__const.find_rel_exe_dir.attempts, i64 0, i64 %.01518
   %21 = load ptr, ptr %20, align 8
-  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.18, ptr noundef %3, ptr noundef %21, ptr noundef %0) #17
+  tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %0) #17
   %22 = tail call ptr @scratch_buffer_to_string() #17
   %23 = call i32 @stat(ptr noundef %22, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %23, 0
@@ -525,17 +525,17 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
 declare ptr @find_executable_path() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @scratch_buffer_clear() local_unnamed_addr #8
 
 declare void @scratch_buffer_printf(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @scratch_buffer_to_string() local_unnamed_addr #8
 
@@ -571,52 +571,52 @@ define dso_local ptr @find_lib_dir() local_unnamed_addr #5 {
   br label %15
 
 15:                                               ; preds = %10, %14, %7
-  %16 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.19)
+  %16 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.19)
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %41
 
 17:                                               ; preds = %15
-  %18 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.15)
+  %18 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.15)
   %.not32 = icmp eq ptr %18, null
   br i1 %.not32, label %19, label %41
 
 19:                                               ; preds = %17
-  %20 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.20)
+  %20 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.20)
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %21, label %41
 
 21:                                               ; preds = %19
-  %22 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.14)
+  %22 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.14)
   %.not34 = icmp eq ptr %22, null
   br i1 %.not34, label %23, label %41
 
 23:                                               ; preds = %21
-  %24 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.21)
+  %24 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.21)
   %.not35 = icmp eq ptr %24, null
   br i1 %.not35, label %25, label %41
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.16)
+  %26 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.16)
   %.not36 = icmp eq ptr %26, null
   br i1 %.not36, label %27, label %41
 
 27:                                               ; preds = %25
-  %28 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.22)
+  %28 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.22)
   %.not37 = icmp eq ptr %28, null
   br i1 %.not37, label %29, label %41
 
 29:                                               ; preds = %27
-  %30 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.13)
+  %30 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.13)
   %.not38 = icmp eq ptr %30, null
   br i1 %.not38, label %31, label %41
 
 31:                                               ; preds = %29
-  %32 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.23)
+  %32 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.23)
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %41
 
 33:                                               ; preds = %31
-  %34 = tail call fastcc ptr @lib_find(ptr noundef %1, ptr noundef nonnull @.str.17)
+  %34 = tail call fastcc ptr @lib_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.17)
   %.not40 = icmp eq ptr %34, null
   br i1 %.not40, label %35, label %41
 
@@ -685,10 +685,10 @@ define internal fastcc ptr @lib_find(ptr noundef %0, ptr noundef %1) unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = tail call zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %6, label %5
 
@@ -767,10 +767,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #13 {
+define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -793,7 +793,7 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr nocapture nound
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %sext = shl i64 %8, 32
   %14 = ashr exact i64 %sext, 32
-  %15 = tail call i32 @strncmp(ptr noundef %13, ptr noundef %7, i64 noundef %14) #18
+  %15 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %7, i64 noundef %14) #18
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %._crit_edge, label %17
 
@@ -808,10 +808,10 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local zeroext i1 @file_is_dir(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local zeroext i1 @file_is_dir(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %3, 0
@@ -824,7 +824,7 @@ define dso_local zeroext i1 @file_is_dir(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local zeroext i1 @file_exists(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local zeroext i1 @file_exists(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %3, 0
@@ -873,14 +873,14 @@ define dso_local ptr @file_append_path(ptr noundef %0, ptr noundef %1) local_unn
 declare ptr @str_cat(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @file_delete_file(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @file_delete_file(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i32 @unlink(ptr noundef %0) #17
   %.not = icmp eq i32 %2, 0
   ret i1 %.not
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @file_delete_all_files_in_dir_with_suffix(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
@@ -952,13 +952,13 @@ define dso_local ptr @execute_cmd(ptr noundef %0, i1 noundef zeroext %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local void @file_add_wildcard_files(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.stat, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %8 = icmp eq i64 %7, 0
   %spec.select = select i1 %8, i64 2, i64 %7
   %spec.select54 = select i1 %8, ptr @.str.33, ptr %1
-  %9 = tail call ptr @opendir(ptr noundef %spec.select54)
+  %9 = tail call ptr @opendir(ptr noundef nonnull %spec.select54)
   %10 = getelementptr i8, ptr %spec.select54, i64 %spec.select
   %11 = getelementptr i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1
@@ -1014,7 +1014,7 @@ define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr nou
   %35 = getelementptr inbounds i8, ptr %19, i64 %34
   %sext.i.us = shl i64 %30, 32
   %36 = ashr exact i64 %sext.i.us, 32
-  %37 = tail call i32 @strncmp(ptr noundef nonnull readonly %35, ptr noundef %29, i64 noundef %36) #18
+  %37 = tail call i32 @strncmp(ptr noundef nonnull readonly %35, ptr noundef nonnull %29, i64 noundef %36) #18
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %file_has_suffix_in_list.exit.us, label %39
 
@@ -1085,7 +1085,7 @@ expand_.exit.us:                                  ; preds = %56, %52
   store i32 %71, ptr %.1.i.us, align 4
   %72 = getelementptr inbounds nuw i8, ptr %.1.i.us, i64 8
   store ptr %72, ptr %0, align 8
-  %73 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %19) #17
+  %73 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %19) #17
   %74 = load ptr, ptr %0, align 8
   %.not51.us = icmp eq ptr %74, null
   br i1 %.not51.us, label %80, label %75
@@ -1104,7 +1104,7 @@ expand_.exit.us:                                  ; preds = %56, %52
   br label %.backedge.us
 
 file_has_suffix_in_list.exit.thread.us:           ; preds = %39, %25
-  %82 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %19) #17
+  %82 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %19) #17
   %83 = call i32 @stat(ptr noundef %82, ptr noundef nonnull %6) #17
   %.not52.us = icmp eq i32 %83, 0
   br i1 %.not52.us, label %84, label %.backedge.us
@@ -1143,7 +1143,7 @@ file_has_suffix_in_list.exit.thread.us:           ; preds = %39, %25
   ]
 
 file_has_suffix_in_list.exit.thread.us59:         ; preds = %.lr.ph.split.split.us
-  %94 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %93) #17
+  %94 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %93) #17
   %95 = call i32 @stat(ptr noundef %94, ptr noundef nonnull %6) #17
   br label %.backedge.us63
 
@@ -1174,7 +1174,7 @@ file_has_suffix_in_list.exit.thread.us59:         ; preds = %.lr.ph.split.split.
   br i1 %.not50, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !17
 
 file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
-  %104 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %102) #17
+  %104 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %102) #17
   %105 = call i32 @stat(ptr noundef %104, ptr noundef nonnull %6) #17
   %.not52 = icmp eq i32 %105, 0
   br i1 %.not52, label %106, label %.backedge
@@ -1200,26 +1200,26 @@ file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @str_trim(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @execute_cmd_failable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call noalias ptr @popen(ptr noundef %0, ptr noundef nonnull @.str.37)
   %.not = icmp eq ptr %4, null
@@ -1268,10 +1268,10 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #8
 

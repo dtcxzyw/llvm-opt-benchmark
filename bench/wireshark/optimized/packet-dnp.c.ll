@@ -1388,7 +1388,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_dnp3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_dnp3_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i8 %6 to i32
@@ -1406,7 +1406,7 @@ define internal range(i32 0, 65536) i32 @get_dnp3_message_len(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dnp3_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_dnp3_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -1719,7 +1719,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
   %167 = load i32, ptr @hf_dnp3_data_chunk_crc, align 4
   %168 = load i32, ptr @hf_dnp3_data_chunk_crc_status, align 4
   %169 = zext i16 %166 to i32
-  %170 = call ptr @proto_tree_add_checksum(ptr noundef %152, ptr noundef %0, i32 noundef %164, i32 noundef %167, i32 noundef %168, ptr noundef nonnull @ei_dnp3_data_chunk_crc_incorrect, ptr noundef %1, i32 noundef %169, i32 noundef -2147483648, i32 noundef 1) #6
+  %170 = call ptr @proto_tree_add_checksum(ptr noundef %152, ptr noundef %0, i32 noundef %164, i32 noundef %167, i32 noundef %168, ptr noundef nonnull @ei_dnp3_data_chunk_crc_incorrect, ptr noundef nonnull %1, i32 noundef %169, i32 noundef -2147483648, i32 noundef 1) #6
   %171 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %164) #6
   %172 = add i32 %164, 2
   %.not345 = icmp eq i16 %171, %166
@@ -1917,7 +1917,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph245.i:                                      ; preds = %255, %.lr.ph245.i
   %.0174243.i = phi i32 [ %259, %.lr.ph245.i ], [ 2, %255 ]
-  %259 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.0174243.i, ptr noundef %257, i32 noundef 1, ptr noundef %5, ptr noundef %7)
+  %259 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.0174243.i, ptr noundef %257, i32 noundef 1, ptr noundef %5, ptr noundef %7)
   %.not196.i = icmp ugt i32 %259, %258
   br i1 %.not196.i, label %dissect_dnp3_al.exit, label %.lr.ph245.i, !llvm.loop !6
 
@@ -1931,7 +1931,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 .lr.ph240.i:                                      ; preds = %260, %278
   %.0239.i = phi i8 [ %.1.i, %278 ], [ 0, %260 ]
   %.1175238.i = phi i32 [ %264, %278 ], [ 2, %260 ]
-  %264 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.1175238.i, ptr noundef %262, i32 noundef 1, ptr noundef %5, ptr noundef %7)
+  %264 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.1175238.i, ptr noundef %262, i32 noundef 1, ptr noundef %5, ptr noundef %7)
   %265 = load i16, ptr %5, align 2
   %.off.i = add i16 %265, -15361
   %switch.i = icmp ult i16 %.off.i, 4
@@ -2014,7 +2014,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph233.i:                                      ; preds = %298, %.lr.ph233.i
   %.3232.i = phi i32 [ %302, %.lr.ph233.i ], [ 2, %298 ]
-  %302 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.3232.i, ptr noundef %300, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %302 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.3232.i, ptr noundef %300, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not191.i = icmp ugt i32 %302, %301
   br i1 %.not191.i, label %dissect_dnp3_al.exit, label %.lr.ph233.i, !llvm.loop !10
 
@@ -2027,7 +2027,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph230.i:                                      ; preds = %303, %.lr.ph230.i
   %.4229.i = phi i32 [ %307, %.lr.ph230.i ], [ 2, %303 ]
-  %307 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.4229.i, ptr noundef %305, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %307 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.4229.i, ptr noundef %305, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not190.i = icmp ugt i32 %307, %306
   br i1 %.not190.i, label %dissect_dnp3_al.exit, label %.lr.ph230.i, !llvm.loop !11
 
@@ -2040,7 +2040,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph227.i:                                      ; preds = %308, %.lr.ph227.i
   %.5226.i = phi i32 [ %312, %.lr.ph227.i ], [ 2, %308 ]
-  %312 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.5226.i, ptr noundef %310, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %312 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.5226.i, ptr noundef %310, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not189.i = icmp ugt i32 %312, %311
   br i1 %.not189.i, label %dissect_dnp3_al.exit, label %.lr.ph227.i, !llvm.loop !12
 
@@ -2053,7 +2053,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph224.i:                                      ; preds = %313, %.lr.ph224.i
   %.6223.i = phi i32 [ %317, %.lr.ph224.i ], [ 2, %313 ]
-  %317 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.6223.i, ptr noundef %315, i32 noundef 1, ptr noundef %5, ptr noundef %7)
+  %317 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.6223.i, ptr noundef %315, i32 noundef 1, ptr noundef %5, ptr noundef %7)
   %.not188.i = icmp ugt i32 %317, %316
   br i1 %.not188.i, label %dissect_dnp3_al.exit, label %.lr.ph224.i, !llvm.loop !13
 
@@ -2066,7 +2066,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph221.i:                                      ; preds = %318, %.lr.ph221.i
   %.7220.i = phi i32 [ %322, %.lr.ph221.i ], [ 2, %318 ]
-  %322 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.7220.i, ptr noundef %320, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %322 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.7220.i, ptr noundef %320, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not187.i = icmp ugt i32 %322, %321
   br i1 %.not187.i, label %dissect_dnp3_al.exit, label %.lr.ph221.i, !llvm.loop !14
 
@@ -2079,7 +2079,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph218.i:                                      ; preds = %323, %.lr.ph218.i
   %.8217.i = phi i32 [ %327, %.lr.ph218.i ], [ 2, %323 ]
-  %327 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.8217.i, ptr noundef %325, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %327 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.8217.i, ptr noundef %325, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not186.i = icmp ugt i32 %327, %326
   br i1 %.not186.i, label %dissect_dnp3_al.exit, label %.lr.ph218.i, !llvm.loop !15
 
@@ -2092,7 +2092,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph212.i:                                      ; preds = %328, %.lr.ph212.i
   %.9211.i = phi i32 [ %332, %.lr.ph212.i ], [ 2, %328 ]
-  %332 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.9211.i, ptr noundef %330, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %332 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.9211.i, ptr noundef %330, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not183.i = icmp ugt i32 %332, %331
   br i1 %.not183.i, label %dissect_dnp3_al.exit, label %.lr.ph212.i, !llvm.loop !16
 
@@ -2105,7 +2105,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
 
 .lr.ph.i:                                         ; preds = %333, %.lr.ph.i
   %.10209.i = phi i32 [ %337, %.lr.ph.i ], [ 2, %333 ]
-  %337 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.10209.i, ptr noundef %335, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %337 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.10209.i, ptr noundef %335, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not182.i = icmp ugt i32 %337, %336
   br i1 %.not182.i, label %dissect_dnp3_al.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -2137,7 +2137,7 @@ dnp3_al_process_iin.exit.i:                       ; preds = %344, %338
 
 .lr.ph215.i:                                      ; preds = %348, %.lr.ph215.i
   %.11214.i = phi i32 [ %352, %.lr.ph215.i ], [ 4, %348 ]
-  %352 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef %1, i32 noundef %.11214.i, ptr noundef %350, i32 noundef 0, ptr noundef %5, ptr noundef %7)
+  %352 = call fastcc i32 @dnp3_al_process_object(ptr noundef %197, ptr noundef nonnull %1, i32 noundef %.11214.i, ptr noundef %350, i32 noundef 0, ptr noundef %5, ptr noundef %7)
   %.not185.i = icmp ugt i32 %352, %351
   br i1 %.not185.i, label %dissect_dnp3_al.exit, label %.lr.ph215.i, !llvm.loop !18
 
@@ -2227,7 +2227,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2258,7 +2258,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dnp3_al_process_object(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc i32 @dnp3_al_process_object(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nstime_t, align 8
@@ -4484,7 +4484,7 @@ default.unreachable77:                            ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dnp3_al_get_timestamp(ptr nocapture noundef nonnull writeonly initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dnp3_al_get_timestamp(ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %2) #6
   %5 = add i32 %2, 2
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #6
@@ -4513,7 +4513,7 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dnp3_udp_check_header(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %.thread.i
@@ -4552,7 +4552,7 @@ check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dnp3_udp_check_header_heur(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dnp3_udp_check_header_heur(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %check_dnp3_header.exit
@@ -4579,10 +4579,10 @@ check_dnp3_header.exit:                           ; preds = %12, %4, %7
 declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

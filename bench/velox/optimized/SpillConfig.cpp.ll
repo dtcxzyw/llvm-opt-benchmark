@@ -8,7 +8,7 @@ $__clang_call_terminate = comdat any
 @_ZN8facebook5velox6common11SpillConfigC1ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_ = unnamed_addr alias void (ptr, ptr, ptr, i64, i64, i64, ptr, i32, i32, i8, i8, i32, i64, i32, ptr, ptr), ptr @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 32)) %this, ptr nocapture noundef %_getSpillDirPathCb, ptr noundef %_fileNamePrefix, i64 noundef %_maxFileSize, i64 noundef %_writeBufferSize, i64 noundef %_minSpillRunSize, ptr noundef %_executor, i32 noundef %_minSpillableReservationPct, i32 noundef %_spillableReservationGrowthPct, i8 noundef zeroext %_startPartitionBit, i8 noundef zeroext %_joinPartitionBits, i32 noundef %_maxSpillLevel, i64 noundef %_writerFlushThresholdSize, i32 noundef %_testSpillPct, ptr noundef nonnull align 8 dereferenceable(32) %_compressionKind, ptr noundef nonnull align 8 dereferenceable(32) %_fileCreateConfig) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 32)) %this, ptr noundef captures(none) %_getSpillDirPathCb, ptr noundef %_fileNamePrefix, i64 noundef %_maxFileSize, i64 noundef %_writeBufferSize, i64 noundef %_minSpillRunSize, ptr noundef %_executor, i32 noundef %_minSpillableReservationPct, i32 noundef %_spillableReservationGrowthPct, i8 noundef zeroext %_startPartitionBit, i8 noundef zeroext %_joinPartitionBits, i32 noundef %_maxSpillLevel, i64 noundef %_writerFlushThresholdSize, i32 noundef %_testSpillPct, ptr noundef nonnull align 8 dereferenceable(32) %_compressionKind, ptr noundef nonnull align 8 dereferenceable(32) %_fileCreateConfig) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %_getSpillDirPathCb, i64 24
@@ -118,7 +118,7 @@ declare void @llvm.trap() #3
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef range(i32 0, 256) i32 @_ZNK8facebook5velox6common11SpillConfig14joinSpillLevelEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 256) i32 @_ZNK8facebook5velox6common11SpillConfig14joinSpillLevelEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
 entry:
   %joinPartitionBits = getelementptr inbounds nuw i8, ptr %this, i64 105
   %0 = load i8, ptr %joinPartitionBits, align 1
@@ -161,7 +161,7 @@ if.end16:                                         ; preds = %if.end10
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox6common11SpillConfig25exceedJoinSpillLevelLimitEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox6common11SpillConfig25exceedJoinSpillLevelLimitEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
 entry:
   %conv = zext i8 %startBitOffset to i32
   %joinPartitionBits = getelementptr inbounds nuw i8, ptr %this, i64 105
@@ -223,10 +223,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

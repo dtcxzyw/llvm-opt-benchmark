@@ -66,7 +66,7 @@ declare void @lzma_next_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr noalias nocapture readnone %2, ptr noalias nocapture readnone %3, i64 %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 %8) #0 {
+define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1, ptr noalias readnone captures(none) %2, ptr noalias readnone captures(none) %3, i64 %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 %8) #0 {
   %10 = load i64, ptr %6, align 8
   %11 = icmp ult i64 %10, %7
   br i1 %11, label %.lr.ph, label %._crit_edge

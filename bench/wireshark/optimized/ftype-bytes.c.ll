@@ -168,7 +168,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   br label %51
 
 44:                                               ; preds = %27, %24, %31, %36, %21, %17
-  %45 = tail call i32 @hex_str_to_bytes(ptr noundef %.1, ptr noundef %18, i32 noundef 0) #8
+  %45 = tail call i32 @hex_str_to_bytes(ptr noundef nonnull %.1, ptr noundef %18, i32 noundef 0) #8
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %51
 
@@ -177,7 +177,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   br i1 %.not36, label %49, label %47
 
 47:                                               ; preds = %46
-  %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef %.1) #8
+  %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %.1) #8
   store ptr %48, ptr %1, align 8
   br label %49
 
@@ -191,7 +191,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @g_byte_array_new() local_unnamed_addr #1
 
@@ -199,7 +199,7 @@ declare ptr @g_byte_array_new() local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -251,14 +251,14 @@ define hidden void @ftype_register_bytes() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @bytes_fvalue_new(ptr nocapture noundef writeonly initializes((8, 16)) %0) #5 {
+define internal void @bytes_fvalue_new(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bytes_fvalue_copy(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @bytes_fvalue_copy(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_bytes_ref(ptr noundef %4) #8
@@ -268,7 +268,7 @@ define internal void @bytes_fvalue_copy(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bytes_fvalue_free(ptr nocapture noundef %0) #0 {
+define internal void @bytes_fvalue_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -284,7 +284,7 @@ define internal void @bytes_fvalue_free(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
+define internal noundef zeroext i1 @bytes_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef %3)
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12
@@ -310,7 +310,7 @@ bytes_fvalue_free.exit:                           ; preds = %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_from_string(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @bytes_from_string(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @g_byte_array_new() #8
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %7, label %9
@@ -340,7 +340,7 @@ bytes_fvalue_free.exit:                           ; preds = %9, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_from_charconst(ptr nocapture noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
+define internal noundef zeroext i1 @bytes_from_charconst(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = icmp ugt i64 %1, 255
@@ -390,7 +390,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_from_uinteger64(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @bytes_from_uinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i8, align 1
   %6 = icmp ugt i64 %2, 255
   br i1 %6, label %7, label %byte_array_from_charconst.exit.i
@@ -436,7 +436,7 @@ bytes_from_charconst.exit:                        ; preds = %bytes_fvalue_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_from_sinteger64(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @bytes_from_sinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i8, align 1
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %10
@@ -495,7 +495,7 @@ bytes_from_uinteger64.exit:                       ; preds = %bytes_fvalue_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal ptr @bytes_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -552,7 +552,7 @@ bytes_to_dfilter_repr.exit:                       ; preds = %15, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bytes_fvalue_set(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @bytes_fvalue_set(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -570,7 +570,7 @@ bytes_fvalue_free.exit:                           ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_fvalue_get(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @bytes_fvalue_get(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_bytes_ref(ptr noundef %3) #8
@@ -578,7 +578,7 @@ define internal ptr @bytes_fvalue_get(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -589,7 +589,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 {
+define internal noundef i32 @cmp_contains(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -608,7 +608,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 {
+define internal noundef i32 @cmp_matches(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -621,7 +621,7 @@ define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bytes_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @bytes_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @g_bytes_hash(ptr noundef %3) #8
@@ -629,7 +629,7 @@ define internal i32 @bytes_hash(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @bytes_is_zero(ptr nocapture noundef readonly %0) #0 {
+define internal noundef zeroext i1 @bytes_is_zero(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -654,7 +654,7 @@ define internal noundef zeroext i1 @bytes_is_zero(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @g_bytes_get_size(ptr noundef %3) #8
@@ -663,7 +663,7 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
@@ -674,7 +674,7 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bytes_bitwise_and(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @bytes_bitwise_and(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
@@ -724,7 +724,7 @@ define internal noundef i32 @bytes_bitwise_and(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ax25_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @ax25_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6
@@ -778,7 +778,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @vines_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @vines_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6
@@ -832,7 +832,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ether_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @ether_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6
@@ -886,7 +886,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @oid_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @g_byte_array_new() #8
   %6 = tail call i32 @oid_str_to_bytes(ptr noundef %1, ptr noundef %5) #8
   %.not = icmp ne i32 %6, 0
@@ -926,7 +926,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @oid_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
+define internal ptr @oid_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
@@ -938,7 +938,7 @@ define internal ptr @oid_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rel_oid_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @rel_oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @g_byte_array_new() #8
   %6 = tail call i32 @rel_oid_str_to_bytes(ptr noundef %1, ptr noundef %5, i32 noundef 0) #8
   %.not = icmp ne i32 %6, 0
@@ -978,7 +978,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rel_oid_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
+define internal ptr @rel_oid_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
@@ -990,7 +990,7 @@ define internal ptr @rel_oid_to_repr(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @system_id_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @system_id_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %bytes_from_literal.exit, label %6
@@ -1033,7 +1033,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @system_id_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
+define internal ptr @system_id_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
@@ -1045,7 +1045,7 @@ define internal ptr @system_id_to_repr(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @fcwwn_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @fcwwn_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %bytes_from_literal.exit, label %6
@@ -1137,10 +1137,10 @@ declare ptr @print_system_id(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

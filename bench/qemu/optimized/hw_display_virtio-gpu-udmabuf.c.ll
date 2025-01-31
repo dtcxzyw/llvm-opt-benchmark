@@ -53,7 +53,7 @@ declare ptr @object_resolve_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @find_memory_backend_type(ptr noundef %obj, ptr nocapture noundef writeonly %opaque) #0 {
+define internal noundef i32 @find_memory_backend_type(ptr noundef %obj, ptr noundef writeonly captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.1) #9
   %tobool.not = icmp eq ptr %call, null
@@ -86,7 +86,7 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_gpu_init_udmabuf(ptr nocapture noundef initializes((72, 76)) %res) local_unnamed_addr #0 {
+define dso_local void @virtio_gpu_init_udmabuf(ptr noundef captures(none) initializes((72, 76)) %res) local_unnamed_addr #0 {
 entry:
   %offset.i = alloca i64, align 8
   %dmabuf_fd = getelementptr inbounds nuw i8, ptr %res, i64 72
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %virtio_gpu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_gpu_fini_udmabuf(ptr nocapture noundef %res) local_unnamed_addr #0 {
+define dso_local void @virtio_gpu_fini_udmabuf(ptr noundef captures(none) %res) local_unnamed_addr #0 {
 entry:
   %remapped = getelementptr inbounds nuw i8, ptr %res, i64 80
   %0 = load ptr, ptr %remapped, align 8
@@ -294,7 +294,7 @@ if.end:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr nocapture noundef readonly %res, ptr nocapture noundef readonly %fb, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr noundef readonly captures(none) %res, ptr noundef readonly captures(none) %fb, ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %scanout1 = getelementptr inbounds nuw i8, ptr %g, i64 864
   %idxprom = zext i32 %scanout_id to i64
@@ -464,13 +464,13 @@ declare i32 @qemu_pixman_to_drm_format(i32 noundef) local_unnamed_addr #1
 declare void @dpy_gl_release_dmabuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

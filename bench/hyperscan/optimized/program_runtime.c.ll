@@ -32486,7 +32486,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #3
@@ -32500,7 +32500,7 @@ declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) loca
 declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %ci, i64 noundef %begin_loc, i64 noundef %end_loc, ptr nocapture noundef nonnull writeonly %miracle_loc) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %ci, i64 noundef %begin_loc, i64 noundef %end_loc, ptr noundef nonnull writeonly captures(none) %miracle_loc) unnamed_addr #4 {
 entry:
   %temp.i372.sroa.0 = alloca <2 x i64>, align 16
   %temp.i247.sroa.0 = alloca <2 x i64>, align 16
@@ -32876,7 +32876,7 @@ return:                                           ; preds = %if.then17.i, %for.e
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
@@ -32888,7 +32888,7 @@ declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @roseNfaEarliestSom(i64 noundef %start, i64 %end, i32 %id, ptr nocapture noundef %context) #7 {
+define internal noundef i32 @roseNfaEarliestSom(i64 noundef %start, i64 %end, i32 %id, ptr noundef captures(none) %context) #7 {
 entry:
   %0 = load i64, ptr %context, align 8
   %.start = tail call i64 @llvm.umin.i64(i64 %0, i64 %start)
@@ -32944,10 +32944,10 @@ declare i16 @llvm.ctpop.i16(i16) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #8

@@ -923,7 +923,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ompi_comm_extended_cid_block_new(ptr nocapture noundef writeonly %0) unnamed_addr #2 {
+define internal fastcc void @ompi_comm_extended_cid_block_new(ptr noundef writeonly captures(none) %0) unnamed_addr #2 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 209), align 1
   %3 = icmp ult i8 %2, 4
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 208), align 8
@@ -955,12 +955,12 @@ define internal fastcc void @ompi_comm_extended_cid_block_new(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @ompi_comm_request_init() local_unnamed_addr #1
 
@@ -1669,10 +1669,10 @@ declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @ompi_attr_set_predefined_keyvals_for_wm() local_unnamed_addr #1
 
@@ -1718,7 +1718,7 @@ define void @ompi_comm_assert_subscribe(ptr noundef %0, i32 noundef %1) local_un
 declare i32 @opal_infosubscribe_subscribe(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_no_any_source(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_no_any_source(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1731,7 +1731,7 @@ define internal nonnull ptr @ompi_comm_set_no_any_source(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_no_any_tag(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_no_any_tag(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1744,7 +1744,7 @@ define internal nonnull ptr @ompi_comm_set_no_any_tag(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_allow_overtake(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_allow_overtake(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1757,7 +1757,7 @@ define internal nonnull ptr @ompi_comm_set_allow_overtake(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_exact_length(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_exact_length(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1770,7 +1770,7 @@ define internal nonnull ptr @ompi_comm_set_exact_length(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_lazy_barrier(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_lazy_barrier(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1783,7 +1783,7 @@ define internal nonnull ptr @ompi_comm_set_lazy_barrier(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @ompi_comm_set_active_poll(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @ompi_comm_set_active_poll(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i1 @opal_str_to_bool(ptr noundef %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
@@ -1828,10 +1828,10 @@ declare i32 @opal_hash_table_remove_value_ptr(ptr noundef, ptr noundef, i64 noun
 declare zeroext i1 @opal_str_to_bool(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

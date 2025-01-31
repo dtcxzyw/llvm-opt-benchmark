@@ -20,14 +20,14 @@ $_ZN5o3dgc12BinaryStream15WriteFloat32BinEf = comdat any
 @_ZN5o3dgc20DynamicVectorEncoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5o3dgc20DynamicVectorEncoderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorEncoderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((0, 60)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %this, i8 0, i64 60, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorEncoderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorEncoderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) unnamed_addr #1 align 2 {
 entry:
   %m_quantVectors = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_quantVectors, align 8
@@ -56,7 +56,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder6EncodeERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder6EncodeERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((56, 60)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %params, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -122,7 +122,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmmNS_15O3DGCStreamTypeE.exit: ; preds = %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder12EncodeHeaderERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder12EncodeHeaderERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((56, 60)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %params, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
 entry:
   %m_streamTypeMode.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %m_streamTypeMode.i, align 8
@@ -403,7 +403,7 @@ if.end:                                           ; preds = %_ZN5o3dgc12BinarySt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder13EncodePayloadERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder13EncodePayloadERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %params, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
 entry:
   %encodedBytes = alloca i64, align 8
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 16
@@ -1142,7 +1142,7 @@ if.end:                                           ; preds = %_ZN5o3dgc12BinarySt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i64 noundef %num, i64 noundef %dim, i64 noundef %M, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %encodedBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i64 noundef %num, i64 noundef %dim, i64 noundef %M, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %encodedBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ace = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel0 = alloca %"class.o3dgc::Static_Bit_Model", align 4
@@ -1413,7 +1413,7 @@ declare void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 der
 declare void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef readonly %floatArray, i64 noundef %numFloatArray, i64 noundef %dimFloatArray, i64 noundef %stride, ptr nocapture noundef readonly %minFloatArray, ptr nocapture noundef readonly %maxFloatArray, i64 noundef %nQBits) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_m(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, ptr noundef readonly captures(none) %floatArray, i64 noundef %numFloatArray, i64 noundef %dimFloatArray, i64 noundef %stride, ptr noundef readonly captures(none) %minFloatArray, ptr noundef readonly captures(none) %maxFloatArray, i64 noundef %nQBits) local_unnamed_addr #3 align 2 {
 entry:
   %mul = mul i64 %dimFloatArray, %numFloatArray
   %m_maxNumVectors = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1967,7 +1967,7 @@ if.end:                                           ; preds = %_ZN5o3dgc6VectorIhE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #4
 
@@ -2329,7 +2329,7 @@ if.end:                                           ; preds = %_ZN5o3dgc6VectorIhE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

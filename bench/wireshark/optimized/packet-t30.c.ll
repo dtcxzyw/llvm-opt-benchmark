@@ -1212,7 +1212,7 @@ t30_get_string_numbers.exit:                      ; preds = %.preheader.i
   %16 = call ptr @g_strchomp(ptr noundef %15) #7
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
   %18 = trunc i64 %17 to i32
-  %19 = call ptr @get_utf_8_string(ptr noundef %8, ptr noundef %16, i32 noundef %18) #7
+  %19 = call ptr @get_utf_8_string(ptr noundef %8, ptr noundef nonnull %16, i32 noundef %18) #7
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6)
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %28, label %20
@@ -1448,7 +1448,7 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1459,7 +1459,7 @@ declare ptr @g_strchug(ptr noundef) local_unnamed_addr #0
 declare ptr @get_utf_8_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1474,10 +1474,10 @@ declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr no
 declare i8 @llvm.bitreverse.i8(i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -252,7 +252,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -558,7 +558,7 @@ _ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_.exit:  ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK6icu_7510CharString9cloneDataER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noalias noundef ptr @_ZNK6icu_7510CharString9cloneDataER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -591,7 +591,7 @@ return:                                           ; preds = %entry, %do.body, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -648,7 +648,7 @@ return:                                           ; preds = %if.end17, %if.then4
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull readonly align 8 dereferenceable(60) %s, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull readonly align 8 dereferenceable(60) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -680,7 +680,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %capacity, i32 noundef %desiredCapacityHint, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %capacity, i32 noundef %desiredCapacityHint, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -795,7 +795,7 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2147483647) i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i8 noundef signext %c) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, i8 noundef signext %c) local_unnamed_addr #7 align 2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
@@ -827,7 +827,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7510CharString8containsENS_11StringPieceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr nocapture readonly %s.coerce0, i32 %s.coerce1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7510CharString8containsENS_11StringPieceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, ptr readonly captures(none) %s.coerce0, i32 %s.coerce1) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.i.not = icmp eq i32 %s.coerce1, 0
   br i1 %cmp.i.not, label %return, label %if.end
@@ -883,7 +883,7 @@ if.end5:                                          ; preds = %if.then3, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i8 noundef signext %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i8 noundef signext %c, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
@@ -1032,7 +1032,7 @@ return:                                           ; preds = %if.end9, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
@@ -1066,7 +1066,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString12appendNumberEiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i32 noundef %number, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString12appendNumberEiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i32 noundef %number, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %number, 0
   br i1 %cmp, label %if.then, label %if.end4
@@ -1207,7 +1207,7 @@ return:                                           ; preds = %_ZN6icu_7510CharStr
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7510CharString15getAppendBufferEiiRiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %minCapacity, i32 noundef %desiredCapacityHint, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %resultCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7510CharString15getAppendBufferEiiRiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %minCapacity, i32 noundef %desiredCapacityHint, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %resultCapacity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %if.end27, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -1338,7 +1338,7 @@ _ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef %uchars, i32 noundef %ucharsLen, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef %uchars, i32 noundef %ucharsLen, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1439,13 +1439,13 @@ return:                                           ; preds = %entry, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7510CharString13getDirSepCharEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %this) local_unnamed_addr #12 align 2 {
+define noundef signext i8 @_ZNK6icu_7510CharString13getDirSepCharEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #12 align 2 {
 entry:
   ret i8 47
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString27ensureEndsWithFileSeparatorER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString27ensureEndsWithFileSeparatorER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -1492,7 +1492,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

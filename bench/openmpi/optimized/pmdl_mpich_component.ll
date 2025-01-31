@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_pmdl_mpich_module = external global %struct.pmix_pmdl_module_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef i32 @component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   store i32 40, ptr %1, align 4
   store ptr @pmix_pmdl_mpich_module, ptr %0, align 8
   ret i32 0

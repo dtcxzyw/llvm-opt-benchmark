@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [84 x i8] c"udata_swapDataHeader(): header size mismatch - headerSize %d infoSize %d length %d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i16 @udata_readInt16_75(ptr nocapture noundef readonly %ds, i16 noundef signext %x) local_unnamed_addr #0 {
+define noundef signext i16 @udata_readInt16_75(ptr noundef readonly captures(none) %ds, i16 noundef signext %x) local_unnamed_addr #0 {
 entry:
   %readUInt16 = getelementptr inbounds nuw i8, ptr %ds, i64 8
   %0 = load ptr, ptr %readUInt16, align 8
@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udata_readInt32_75(ptr nocapture noundef readonly %ds, i32 noundef %x) local_unnamed_addr #0 {
+define noundef i32 @udata_readInt32_75(ptr noundef readonly captures(none) %ds, i32 noundef %x) local_unnamed_addr #0 {
 entry:
   %readUInt32 = getelementptr inbounds nuw i8, ptr %ds, i64 16
   %0 = load ptr, ptr %readUInt32, align 8
@@ -89,7 +89,7 @@ do.body:                                          ; preds = %while.end
   %add.ptr19 = getelementptr inbounds nuw i8, ptr %inData, i64 %idx.ext
   %sub20 = sub nsw i32 %length, %stringsLength.0.lcssa
   %conv21 = sext i32 %sub20 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr19, i64 %conv21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr19, i64 %conv21, i1 false)
   br label %if.end22
 
 if.end22:                                         ; preds = %do.body, %while.end
@@ -104,10 +104,10 @@ return:                                           ; preds = %if.end22, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @udata_printError_75(ptr nocapture noundef readonly %ds, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define void @udata_printError_75(ptr noundef readonly captures(none) %ds, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %printError = getelementptr inbounds nuw i8, ptr %ds, i64 80
@@ -274,7 +274,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   %swapInvChars = getelementptr inbounds nuw i8, ptr %ds, i64 72
   %14 = load ptr, ptr %swapInvChars, align 8
   %add.ptr79 = getelementptr inbounds nuw i8, ptr %outData, i64 %add
-  %call80 = tail call noundef i32 %14(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %length.addr.0.lcssa, ptr noundef nonnull %add.ptr79, ptr noundef nonnull %pErrorCode)
+  %call80 = tail call noundef i32 %14(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %length.addr.0.lcssa, ptr noundef nonnull %add.ptr79, ptr noundef nonnull %pErrorCode)
   br label %return
 
 return:                                           ; preds = %if.end48, %for.end, %entry, %lor.lhs.false, %if.then45, %if.then23, %if.then9
@@ -373,7 +373,7 @@ return:                                           ; preds = %if.then51, %if.else
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i16 @_ZL21uprv_readDirectUInt16t(i16 noundef returned zeroext %x) #4 {
@@ -402,14 +402,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL22uprv_writeDirectUInt16Ptt(ptr nocapture noundef writeonly initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
+define internal void @_ZL22uprv_writeDirectUInt16Ptt(ptr noundef writeonly captures(none) initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
 entry:
   store i16 %x, ptr %p, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL20uprv_writeSwapUInt16Ptt(ptr nocapture noundef writeonly initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
+define internal void @_ZL20uprv_writeSwapUInt16Ptt(ptr noundef writeonly captures(none) initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
 entry:
   %or = tail call i16 @llvm.bswap.i16(i16 %x)
   store i16 %or, ptr %p, align 2
@@ -417,14 +417,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL22uprv_writeDirectUInt32Pjj(ptr nocapture noundef writeonly initializes((0, 4)) %p, i32 noundef %x) #5 {
+define internal void @_ZL22uprv_writeDirectUInt32Pjj(ptr noundef writeonly captures(none) initializes((0, 4)) %p, i32 noundef %x) #5 {
 entry:
   store i32 %x, ptr %p, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL20uprv_writeSwapUInt32Pjj(ptr nocapture noundef writeonly initializes((0, 4)) %p, i32 noundef %x) #5 {
+define internal void @_ZL20uprv_writeSwapUInt32Pjj(ptr noundef writeonly captures(none) initializes((0, 4)) %p, i32 noundef %x) #5 {
 entry:
   %or5 = tail call i32 @llvm.bswap.i32(i32 %x)
   store i32 %or5, ptr %p, align 4

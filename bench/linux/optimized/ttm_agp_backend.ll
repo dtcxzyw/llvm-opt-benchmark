@@ -24,7 +24,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_agp_tt_c
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_agp_bind398, ptr @__UNIQUE_ID___addressable_ttm_agp_destroy401, ptr @__UNIQUE_ID___addressable_ttm_agp_is_bound400, ptr @__UNIQUE_ID___addressable_ttm_agp_tt_create402, ptr @__UNIQUE_ID___addressable_ttm_agp_unbind399], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_agp_bind(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @ttm_agp_bind(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr @ttm_glob, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -105,7 +105,7 @@ declare dso_local i32 @agp_bind_memory(ptr noundef, i64 noundef) local_unnamed_a
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_agp_unbind(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ttm_agp_unbind(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

@@ -43,7 +43,7 @@ define noalias noundef ptr @Msat_IntVecAllocArray(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Msat_IntVecAllocArrayCopy(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define noalias noundef ptr @Msat_IntVecAllocArrayCopy(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
@@ -58,10 +58,10 @@ define noalias noundef ptr @Msat_IntVecAllocArrayCopy(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noalias noundef ptr @Msat_IntVecDup(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -91,7 +91,7 @@ define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @Msat_IntVecDupArray(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define noalias noundef ptr @Msat_IntVecDupArray(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -108,7 +108,7 @@ define noalias noundef ptr @Msat_IntVecDupArray(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Msat_IntVecFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Msat_IntVecFree(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -123,10 +123,10 @@ define void @Msat_IntVecFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_IntVecFill(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Msat_IntVecFill(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp slt i32 %5, %1
@@ -175,7 +175,7 @@ Msat_IntVecGrow.exit:                             ; preds = %3, %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Msat_IntVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Msat_IntVecGrow(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp slt i32 %4, %1
@@ -207,27 +207,27 @@ define void @Msat_IntVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @Msat_IntVecReleaseArray(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #8 {
+define ptr @Msat_IntVecReleaseArray(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Msat_IntVecReadArray(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define ptr @Msat_IntVecReadArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_IntVecReadSize(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @Msat_IntVecReadSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Msat_IntVecReadEntry(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define i32 @Msat_IntVecReadEntry(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i32, ptr %3, i64 %4
@@ -236,7 +236,7 @@ define i32 @Msat_IntVecReadEntry(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Msat_IntVecWriteEntry(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define void @Msat_IntVecWriteEntry(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
@@ -245,7 +245,7 @@ define void @Msat_IntVecWriteEntry(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Msat_IntVecReadEntryLast(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @Msat_IntVecReadEntryLast(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -257,24 +257,24 @@ define i32 @Msat_IntVecReadEntryLast(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_IntVecShrink(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @Msat_IntVecShrink(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_IntVecClear(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #13 {
+define void @Msat_IntVecClear(ptr noundef writeonly captures(none) initializes((8, 12)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Msat_IntVecPush(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Msat_IntVecPush(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -343,7 +343,7 @@ Msat_IntVecGrow.exit10:                           ; preds = %.Msat_IntVecGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -437,7 +437,7 @@ Msat_IntVecPush.exit:                             ; preds = %.Msat_IntVecGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_IntVecPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Msat_IntVecPushUniqueOrder(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = tail call i32 @Msat_IntVecPushUnique(ptr noundef %0, i32 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -476,7 +476,7 @@ define void @Msat_IntVecPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Msat_IntVecPop(ptr nocapture noundef %0) local_unnamed_addr #14 {
+define i32 @Msat_IntVecPop(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -489,7 +489,7 @@ define i32 @Msat_IntVecPop(ptr nocapture noundef %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Msat_IntVecSort(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @Msat_IntVecSort(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not = icmp eq i32 %1, 0
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -501,10 +501,10 @@ define void @Msat_IntVecSort(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %3)
@@ -512,7 +512,7 @@ define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
@@ -520,7 +520,7 @@ define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare1(ptr nocapture noun
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #18

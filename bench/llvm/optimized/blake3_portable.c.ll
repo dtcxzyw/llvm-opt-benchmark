@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @llvm_blake3_compress_in_place_portable(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden void @llvm_blake3_compress_in_place_portable(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %1, align 1
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -1036,7 +1036,7 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @llvm_blake3_compress_xof_portable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly initializes((0, 64)) %5) local_unnamed_addr #0 {
+define hidden void @llvm_blake3_compress_xof_portable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly initializes((0, 64)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %1, align 1
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -2315,7 +2315,7 @@ define hidden void @llvm_blake3_compress_xof_portable(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @llvm_blake3_hash_many_portable(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i1 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #1 {
+define hidden void @llvm_blake3_hash_many_portable(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i1 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #1 {
   %11 = alloca [8 x i32], align 16
   %.not123 = icmp eq i64 %1, 0
   br i1 %.not123, label %._crit_edge, label %.lr.ph
@@ -2501,7 +2501,7 @@ define hidden void @llvm_blake3_hash_many_portable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3

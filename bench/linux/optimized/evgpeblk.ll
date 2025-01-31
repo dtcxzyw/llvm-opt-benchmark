@@ -107,7 +107,7 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ut_acquire_mutex(i32 noundef) local_unnamed_addr #2
@@ -128,7 +128,7 @@ declare dso_local void @acpi_os_release_lock(ptr noundef, i64 noundef) local_unn
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 16 {
@@ -395,7 +395,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -410,7 +410,7 @@ declare dso_local i32 @acpi_ns_walk_namespace(i32 noundef, ptr noundef, i32 noun
 declare dso_local i32 @acpi_ev_match_gpe_method(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %104, label %5
 

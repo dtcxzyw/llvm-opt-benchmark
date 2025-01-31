@@ -274,10 +274,10 @@ return:                                           ; preds = %trace_vhost_vdpa_dm
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
@@ -378,7 +378,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_vdpa_set_vring_ready(ptr nocapture noundef readonly %v, i32 noundef %idx) local_unnamed_addr #0 {
+define dso_local i32 @vhost_vdpa_set_vring_ready(ptr noundef readonly captures(none) %v, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %state = alloca %struct.vhost_vring_state, align 4
@@ -727,7 +727,7 @@ trace_vhost_vdpa_memslots_limit.exit:             ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_set_log_base(ptr noundef %dev, i64 noundef %base, ptr nocapture noundef readonly %log) #0 {
+define internal i32 @vhost_vdpa_set_log_base(ptr noundef %dev, i64 noundef %base, ptr noundef readonly captures(none) %log) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %base.addr = alloca i64, align 8
@@ -816,7 +816,7 @@ return:                                           ; preds = %cond.true.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @vhost_vdpa_set_mem_table(ptr noundef %dev, ptr nocapture noundef readonly %mem) #0 {
+define internal range(i32 -22, 1) i32 @vhost_vdpa_set_mem_table(ptr noundef %dev, ptr noundef readonly captures(none) %mem) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1337,7 +1337,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -14, 1) i32 @vhost_vdpa_set_backend_cap(ptr nocapture noundef %dev) #0 {
+define internal range(i32 -14, 1) i32 @vhost_vdpa_set_backend_cap(ptr noundef captures(none) %dev) #0 {
 entry:
   %features = alloca i64, align 8
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
@@ -1625,7 +1625,7 @@ trace_vhost_vdpa_get_vq_index.exit:               ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_get_config(ptr noundef %dev, ptr noundef %config, i32 noundef %config_len, ptr nocapture readnone %errp) #0 {
+define internal i32 @vhost_vdpa_get_config(ptr noundef %dev, ptr noundef %config, i32 noundef %config_len, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2383,7 +2383,7 @@ return:                                           ; preds = %vhost_vdpa_svqs_sta
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_vdpa_vq_get_addr(ptr noundef %dev, ptr nocapture noundef writeonly %addr, ptr noundef %vq) #0 {
+define internal noundef i32 @vhost_vdpa_vq_get_addr(ptr noundef %dev, ptr noundef writeonly captures(none) %addr, ptr noundef %vq) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
@@ -2515,7 +2515,7 @@ trace_vhost_vdpa_get_device_id.exit:              ; preds = %vhost_vdpa_call.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vhost_vdpa_force_iommu(ptr nocapture readnone %dev) #6 {
+define internal noundef zeroext i1 @vhost_vdpa_force_iommu(ptr readnone captures(none) %dev) #6 {
 entry:
   ret i1 true
 }
@@ -2616,7 +2616,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -2626,7 +2626,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2915,7 +2915,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_vdpa_listener_region_add(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
+define internal void @vhost_vdpa_listener_region_add(ptr noundef %listener, ptr noundef readonly captures(none) %section) #0 {
 entry:
   %_now.i.i56 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3253,7 +3253,7 @@ return:                                           ; preds = %if.end55.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_vdpa_listener_region_del(ptr noundef %listener, ptr nocapture noundef readonly %section) #0 {
+define internal void @vhost_vdpa_listener_region_del(ptr noundef %listener, ptr noundef readonly captures(none) %section) #0 {
 entry:
   %_now.i.i64 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3568,7 +3568,7 @@ return:                                           ; preds = %int128_get64.exit98
 declare i64 @qemu_target_page_size() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @vhost_vdpa_listener_skipped_section(ptr nocapture noundef readonly %section, i64 noundef %iova_min, i64 noundef %iova_max, i32 noundef %page_mask) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @vhost_vdpa_listener_skipped_section(ptr noundef readonly captures(none) %section, i64 noundef %iova_min, i64 noundef %iova_max, i32 noundef %page_mask) unnamed_addr #0 {
 entry:
   %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
@@ -3773,7 +3773,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 declare i32 @memory_region_iommu_attrs_to_index(ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_vdpa_iommu_map_notify(ptr nocapture noundef readonly %n, ptr noundef %iotlb) #0 {
+define internal void @vhost_vdpa_iommu_map_notify(ptr noundef readonly captures(none) %n, ptr noundef %iotlb) #0 {
 entry:
   %vaddr = alloca ptr, align 8
   %read_only = alloca i8, align 1
@@ -3952,7 +3952,7 @@ declare ptr @vhost_svq_new(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vhost_vdpa_host_notifiers_uninit(ptr nocapture noundef readonly %dev, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef readonly captures(none) %dev, i32 noundef %n) unnamed_addr #0 {
 entry:
   tail call void @memory_region_transaction_begin() #12
   %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
@@ -4516,10 +4516,10 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -79,7 +79,7 @@ define dso_local i32 @archive_read_open_fd(ptr noundef %0, i32 noundef %1, i64 n
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -93,14 +93,14 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @archive_read_extract_set_skip_file(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i64 @file_read(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
@@ -133,7 +133,7 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef rea
 declare i32 @archive_read_set_skip_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 0
@@ -181,7 +181,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_
 declare i32 @archive_read_set_seek_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr %1, align 8
   %6 = tail call i64 @lseek(i32 noundef %5, i64 noundef %2, i32 noundef %3) #10
   %7 = icmp sgt i64 %6, -1
@@ -210,7 +210,7 @@ define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef 
 declare i32 @archive_read_set_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture noundef %1) #7 {
+define internal noundef i32 @file_close(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #10
@@ -223,7 +223,7 @@ declare i32 @archive_read_set_callback_data(ptr noundef, ptr noundef) local_unna
 declare i32 @archive_read_open1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #9

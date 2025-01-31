@@ -485,14 +485,14 @@ If_ManImproveNodeFaninCost.exit.i24.i.i:          ; preds = %209, %205
 
 If_ManImproveNodeFaninCompact_int.exit.i:         ; preds = %If_ManImproveNodeFaninCost.exit.i.i.i, %If_ManImproveNodeFaninCost.exit.i24.i.i
   %.lcssa.sink.i.i = phi ptr [ %191, %If_ManImproveNodeFaninCost.exit.i24.i.i ], [ %158, %If_ManImproveNodeFaninCost.exit.i.i.i ]
-  call void @If_ManImproveNodeFaninUpdate(ptr readnone poison, ptr noundef nonnull %.lcssa.sink.i.i, ptr noundef nonnull %13, ptr noundef nonnull %30)
+  call void @If_ManImproveNodeFaninUpdate(ptr nonnull readnone poison, ptr noundef nonnull %.lcssa.sink.i.i, ptr noundef nonnull %13, ptr noundef nonnull %30)
   %.val.i.i26.i = load i32, ptr %15, align 4
   %216 = icmp sgt i32 %.val.i.i26.i, 0
   br i1 %216, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !8
 
 If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFaninCompact_int.exit.i, %thread-pre-split.i.i, %215, %If_ManImproveNodePrepare.exit.i.i
   %.val17.i.i.i = phi i32 [ %.val.i.i2643.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i2644.i, %215 ], [ %.val.i.i2644.i, %thread-pre-split.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ]
-  %217 = call float @If_CutAreaRef(ptr noundef %0, ptr noundef nonnull %47) #13
+  %217 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
   %.val94.i.i = load i32, ptr %31, align 4
   %218 = icmp sgt i32 %.val94.i.i, 0
   br i1 %218, label %.lr.ph.i.i, label %.critedge.i.i
@@ -512,7 +512,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
   br i1 %224, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %If_ManImproveCutCost.exit70.i.i
-  %225 = call float @If_CutAreaDeref(ptr noundef %0, ptr noundef nonnull %47) #13
+  %225 = call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
   %226 = load i64, ptr %56, align 4
   %227 = shl i32 %.val17.i.i.i, 24
   %228 = zext i32 %227 to i64
@@ -567,10 +567,10 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
   %.06.lcssa.i.i.i.i = phi i32 [ 0, %.critedge.i.i.i ], [ %245, %240 ]
   %246 = getelementptr inbounds nuw i8, ptr %43, i64 104
   store i32 %.06.lcssa.i.i.i.i, ptr %246, align 4
-  %247 = call float @If_CutAreaRef(ptr noundef %0, ptr noundef nonnull %47) #13
-  %248 = call float @If_CutDelay(ptr noundef %0, ptr noundef nonnull %43, ptr noundef nonnull %47) #13
+  %247 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
+  %248 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull %47) #13
   store float %248, ptr %49, align 4
-  %249 = call float @If_CutAreaRefed(ptr noundef %0, ptr noundef nonnull %47) #13
+  %249 = call float @If_CutAreaRefed(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
   %250 = fcmp ogt float %249, %54
   br i1 %250, label %258, label %251
 
@@ -584,7 +584,7 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
   br i1 %257, label %258, label %If_ManImproveNodeExpand.exit.i
 
 258:                                              ; preds = %251, %If_ManImproveNodeUpdate.exit.i.i
-  %259 = call float @If_CutAreaDeref(ptr noundef %0, ptr noundef nonnull %47) #13
+  %259 = call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
   %.val17.i75.i.i = load i32, ptr %23, align 4
   %260 = load i64, ptr %56, align 4
   %261 = shl i32 %.val17.i75.i.i, 24
@@ -639,8 +639,8 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
 If_ManImproveNodeUpdate.exit92.i.i:               ; preds = %274, %.critedge.i77.i.i
   %.06.lcssa.i.i86.i.i = phi i32 [ 0, %.critedge.i77.i.i ], [ %279, %274 ]
   store i32 %.06.lcssa.i.i86.i.i, ptr %246, align 4
-  %280 = call float @If_CutAreaRef(ptr noundef %0, ptr noundef nonnull %47) #13
-  %281 = call float @If_CutAreaRefed(ptr noundef %0, ptr noundef nonnull %47) #13
+  %280 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
+  %281 = call float @If_CutAreaRefed(ptr noundef nonnull %0, ptr noundef nonnull %47) #13
   store float %48, ptr %49, align 4
   br label %If_ManImproveNodeExpand.exit.i
 
@@ -768,7 +768,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #13
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
   call void @free(ptr noundef %9) #13
   br label %16
 
@@ -785,7 +785,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @If_ManImproveCutCost(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i32 @If_ManImproveCutCost(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, 0
@@ -906,7 +906,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 24
   %.val = load ptr, ptr %3, align 8
   %4 = load i32, ptr %.val, align 8
@@ -929,7 +929,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -973,7 +973,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_ManImproveNodeFaninUpdate(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1308,7 +1308,7 @@ Vec_PtrPush.exit38:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val, 0
@@ -1404,7 +1404,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val, 0
@@ -1483,7 +1483,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %25, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val, 0
@@ -1562,7 +1562,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %25, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 4
   %.val.i = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val.i, 0
@@ -1735,13 +1735,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
@@ -1757,7 +1757,7 @@ declare float @If_CutAreaRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @If_CutOrder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -1769,10 +1769,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

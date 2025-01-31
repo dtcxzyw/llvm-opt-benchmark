@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gia_AcecMark_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Gia_AcecMark_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val15 = load ptr, ptr %4, align 8
   %5 = sext i32 %1 to i64
@@ -57,7 +57,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gia_AcecMarkFadd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Gia_AcecMarkFadd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr i8, ptr %0, i64 32
   %.val11 = load ptr, ptr %4, align 8
@@ -92,7 +92,7 @@ define void @Gia_AcecMarkFadd(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gia_AcecMarkHadd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Gia_AcecMarkHadd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr i8, ptr %0, i64 32
   %.val14 = load ptr, ptr %4, align 8
@@ -126,7 +126,7 @@ define void @Gia_AcecMarkHadd(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_AcecCollectXors_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @Gia_AcecCollectXors_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %.val17 = load i64, ptr %1, align 4
   %5 = and i64 %.val17, 2147483648
   %.not.i.i18 = icmp ne i64 %5, 0
@@ -244,7 +244,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_AcecCollectXors(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define noalias noundef ptr @Gia_AcecCollectXors(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -462,7 +462,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_BitStart.exit, 
   br i1 %133, label %108, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %108, %.preheader168
-  tail call void @Gia_ManCleanMark01(ptr noundef %0) #11
+  tail call void @Gia_ManCleanMark01(ptr noundef nonnull %0) #11
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr i8, ptr %135, i64 4
@@ -650,10 +650,10 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   store i64 %222, ptr %220, align 4
   %223 = getelementptr inbounds nuw i8, ptr %205, i64 12
   %224 = load i32, ptr %223, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %224, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef nonnull readonly %0, i32 noundef %224, i32 noundef 1)
   %225 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %226 = load i32, ptr %225, align 4
-  tail call void @Gia_AcecMark_rec(ptr noundef readonly %0, i32 noundef %226, i32 noundef 1)
+  tail call void @Gia_AcecMark_rec(ptr noundef nonnull readonly %0, i32 noundef %226, i32 noundef 1)
   %227 = add nuw nsw i32 %202, 1
   %.val134 = load i32, ptr %80, align 4
   %228 = sdiv i32 %.val134, 5
@@ -920,7 +920,7 @@ declare ptr @Gia_ManDetectFullAdders(ptr noundef, i32 noundef, ptr noundef) loca
 declare ptr @Gia_ManDetectHalfAdders(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @Gia_ManCleanMark01(ptr noundef) local_unnamed_addr #2
 
@@ -1061,19 +1061,19 @@ Vec_IntFree.exit24:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8

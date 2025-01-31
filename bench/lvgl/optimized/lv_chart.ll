@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_chart_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_chart_constructor, ptr @lv_chart_destructor, ptr @lv_chart_event, ptr null, ptr @.str, i32 536871012, i32 260, i8 -128, i8 10, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_chart_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_chart_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @lv_ll_init(ptr noundef nonnull %3, i32 noundef 32) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -57,7 +57,7 @@ define internal void @lv_chart_constructor(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_chart_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_chart_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !17
@@ -126,7 +126,7 @@ define internal void @lv_chart_destructor(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_chart_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_chart_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_draw_line_dsc_t, align 8
@@ -708,14 +708,14 @@ define noundef ptr @lv_chart_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_chart_set_type(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -870,7 +870,7 @@ define void @lv_chart_set_point_count(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @new_points_alloc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @new_points_alloc(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8, !tbaa !68
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
@@ -1105,7 +1105,7 @@ define void @lv_chart_set_div_line_count(ptr noundef %0, i8 noundef zeroext %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_chart_get_type(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_chart_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -1114,14 +1114,14 @@ define range(i32 0, 8) i32 @lv_chart_get_type(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_chart_get_point_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_chart_get_point_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4, !tbaa !15
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_chart_get_x_start_point(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i32 @lv_chart_get_x_start_point(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1135,7 +1135,7 @@ define i32 @lv_chart_get_x_start_point(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1438,7 +1438,7 @@ declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #2
 declare void @lv_ll_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @lv_chart_remove_series(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1523,7 +1523,7 @@ define void @lv_chart_set_series_color(ptr noundef %0, ptr noundef writeonly %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i24 @lv_chart_get_series_color(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i24 @lv_chart_get_series_color(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1537,7 +1537,7 @@ define i24 @lv_chart_get_series_color(ptr nocapture noundef readnone %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_chart_set_x_start_point(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @lv_chart_set_x_start_point(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1612,7 +1612,7 @@ declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_cursor_pos(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @lv_chart_set_cursor_pos(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1662,7 +1662,7 @@ define void @lv_chart_set_cursor_point(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @lv_chart_get_cursor_point(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i64 @lv_chart_get_cursor_point(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2058,7 +2058,7 @@ define void @lv_chart_set_ext_x_array(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_chart_get_y_array(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @lv_chart_get_y_array(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2072,7 +2072,7 @@ define ptr @lv_chart_get_y_array(ptr nocapture noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_chart_get_x_array(ptr nocapture noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @lv_chart_get_x_array(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2085,7 +2085,7 @@ define ptr @lv_chart_get_x_array(ptr nocapture noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_chart_get_pressed_point(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_chart_get_pressed_point(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !16
   ret i32 %3

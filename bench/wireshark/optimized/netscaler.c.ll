@@ -483,7 +483,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -949,7 +949,7 @@ nstrace_read_page.exit:                           ; preds = %234
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_seek_read_v10(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v10(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v10, align 4
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1072,7 +1072,7 @@ define internal range(i32 0, 2) i32 @nstrace_seek_read_v10(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_read_v20(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_read_v20(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -3608,7 +3608,7 @@ nstrace_read_page.exit:                           ; preds = %1406
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_seek_read_v20(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v20(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v20, align 1
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4556,7 +4556,7 @@ define internal range(i32 0, 2) i32 @nstrace_seek_read_v20(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -5319,7 +5319,7 @@ nstrace_ensure_buflen.exit395:                    ; preds = %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_seek_read_v30(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nstrace_seek_read_v30(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nspr_hd_v20, align 1
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5562,7 +5562,7 @@ define internal range(i32 0, 2) i32 @nstrace_seek_read_v30(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nstrace_close(ptr nocapture noundef readonly %0) #0 {
+define internal void @nstrace_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -5576,7 +5576,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nstrace_read_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_read_page(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -5639,10 +5639,10 @@ declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -5817,12 +5817,12 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @file_eof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5834,7 +5834,7 @@ define internal noundef range(i32 -8, 1) i32 @nstrace_10_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_10_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @nstrace_10_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @nstrace_dump, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
@@ -5853,7 +5853,7 @@ define internal noundef i32 @nstrace_10_dump_open(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @nstrace_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @nstrace_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
@@ -6215,7 +6215,7 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_add_signature(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nstrace_add_abstime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nstrace_add_abstime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nspr_abstime_v10, align 2
   %6 = alloca %struct.nspr_abstime_v20, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6353,7 +6353,7 @@ define internal noundef range(i32 -8, 1) i32 @nstrace_20_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_20_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @nstrace_20_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @nstrace_dump, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
@@ -6379,7 +6379,7 @@ define internal noundef range(i32 -8, 1) i32 @nstrace_30_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_30_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @nstrace_30_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @nstrace_dump, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
@@ -6405,7 +6405,7 @@ define internal noundef range(i32 -8, 1) i32 @nstrace_35_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nstrace_35_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @nstrace_35_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @nstrace_dump, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13

@@ -74,7 +74,7 @@ define internal void @ompi_request_construct(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ompi_request_destruct(ptr nocapture readnone %0) #2 {
+define internal void @ompi_request_destruct(ptr readnone captures(none) %0) #2 {
   ret void
 }
 
@@ -218,17 +218,17 @@ declare i32 @opal_pointer_array_init(ptr noundef, i32 noundef, i32 noundef, i32 
 declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ompi_request_null_free(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @ompi_request_null_free(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ompi_request_null_cancel(ptr nocapture readnone %0, i32 %1) #2 {
+define internal noundef i32 @ompi_request_null_cancel(ptr readnone captures(none) %0, i32 %1) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ompi_request_empty_free(ptr nocapture noundef writeonly initializes((0, 8)) %0) #4 {
+define internal noundef i32 @ompi_request_empty_free(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #4 {
   store ptr @ompi_request_null, ptr %0, align 8
   ret i32 0
 }
@@ -314,7 +314,7 @@ opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %opal_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @ompi_request_persistent_noop_create(ptr noundef writeonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #10
   %4 = load i32, ptr @opal_class_init_epoch, align 4
@@ -370,10 +370,10 @@ opal_obj_new.exit.thread:                         ; preds = %7, %opal_obj_new.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_request_persistent_noop_free(ptr nocapture noundef %0) #3 {
+define internal noundef i32 @ompi_request_persistent_noop_free(ptr noundef captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store volatile i32 0, ptr %3, align 8
@@ -456,10 +456,10 @@ declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_obj_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr null, ptr @lv_obj_constructor, ptr @lv_obj_destructor, ptr @lv_obj_event, ptr null, ptr @.str, i32 130, i32 130, i8 10, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_obj_constructor(ptr nocapture readnone %0, ptr nocapture noundef initializes((56, 60)) %1) #0 {
+define internal void @lv_obj_constructor(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((56, 60)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -61,7 +61,7 @@ define internal void @lv_obj_constructor(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_obj_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_obj_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_event_mark_deleted(ptr noundef %1) #8
   tail call void @lv_obj_enable_style_refresh(i1 noundef zeroext false) #8
   tail call void @lv_obj_remove_style_all(ptr noundef %1) #8
@@ -110,7 +110,7 @@ lv_obj_get_group.exit:                            ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_obj_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_obj_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_draw_rect_dsc_t, align 8
@@ -1011,14 +1011,14 @@ define nonnull ptr @lv_obj_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_add_flag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1109,7 +1109,7 @@ lv_obj_get_group.exit.thread:                     ; preds = %18, %lv_obj_get_gro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_obj_has_flag(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define zeroext i1 @lv_obj_has_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !15
   %5 = and i32 %4, %1
@@ -1122,7 +1122,7 @@ declare zeroext i1 @lv_obj_is_layout_positioned(ptr noundef) local_unnamed_addr 
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_obj_has_state(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define zeroext i1 @lv_obj_has_state(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i16, ptr %3, align 4, !tbaa !24
   %5 = and i16 %4, %1
@@ -1131,7 +1131,7 @@ define zeroext i1 @lv_obj_has_state(ptr nocapture noundef readonly %0, i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_obj_get_group(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_obj_get_group(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not = icmp eq ptr %3, null
@@ -1223,7 +1223,7 @@ define void @lv_obj_remove_flag(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_obj_has_flag_any(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define zeroext i1 @lv_obj_has_flag_any(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !15
   %5 = and i32 %4, %1
@@ -1500,7 +1500,7 @@ lv_style_get_prop_inlined.exit.thread:            ; preds = %43, %.preheader106,
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !68
   %110 = and i32 %109, 16711680
-  tail call void @lv_obj_style_create_transition(ptr noundef %0, i32 noundef %110, i16 noundef zeroext %4, i16 noundef zeroext %1, ptr noundef %107) #8
+  tail call void @lv_obj_style_create_transition(ptr noundef nonnull %0, i32 noundef %110, i16 noundef zeroext %4, i16 noundef zeroext %1, ptr noundef %107) #8
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !82
@@ -1514,16 +1514,16 @@ lv_style_get_prop_inlined.exit.thread:            ; preds = %43, %.preheader106,
   ]
 
 111:                                              ; preds = %._crit_edge124
-  tail call void @lv_obj_refresh_style(ptr noundef %0, i32 noundef 983040, i8 noundef zeroext -1) #8
+  tail call void @lv_obj_refresh_style(ptr noundef nonnull %0, i32 noundef 983040, i8 noundef zeroext -1) #8
   br label %114
 
 112:                                              ; preds = %._crit_edge124
-  tail call void @lv_obj_refresh_style(ptr noundef %0, i32 noundef 983040, i8 noundef zeroext -1) #8
+  tail call void @lv_obj_refresh_style(ptr noundef nonnull %0, i32 noundef 983040, i8 noundef zeroext -1) #8
   br label %114
 
 113:                                              ; preds = %._crit_edge124
-  tail call void @lv_obj_invalidate(ptr noundef %0) #8
-  tail call void @lv_obj_refresh_ext_draw_size(ptr noundef %0) #8
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
+  tail call void @lv_obj_refresh_ext_draw_size(ptr noundef nonnull %0) #8
   br label %114
 
 114:                                              ; preds = %9, %._crit_edge124, %112, %113, %111, %2
@@ -1585,14 +1585,14 @@ lv_obj_add_state.exit:                            ; preds = %lv_obj_add_state.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @lv_obj_get_state(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i16 @lv_obj_get_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i16, ptr %2, align 4, !tbaa !24
   ret i16 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_allocate_spec_attr(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @lv_obj_allocate_spec_attr(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = icmp eq ptr %3, null
@@ -1641,7 +1641,7 @@ define zeroext i1 @lv_obj_check_type(ptr noundef readonly %0, ptr noundef readno
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_has_class(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define zeroext i1 @lv_obj_has_class(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1657,7 +1657,7 @@ define zeroext i1 @lv_obj_has_class(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_obj_get_class(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_obj_get_class(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !83
   ret ptr %2
 }
@@ -1710,7 +1710,7 @@ define noundef zeroext i1 @lv_obj_is_valid(ptr noundef %0) local_unnamed_addr #0
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @obj_valid_child(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @obj_valid_child(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp eq ptr %4, null
@@ -1765,14 +1765,14 @@ define internal void @null_on_delete_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_obj_set_user_data(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @lv_obj_set_user_data(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_obj_get_user_data(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_obj_get_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   ret ptr %3

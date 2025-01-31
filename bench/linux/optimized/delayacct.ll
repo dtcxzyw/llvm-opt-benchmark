@@ -105,7 +105,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_kernel_delayacct_sysctls_init305, ptr @__setup_delayacct_setup_enable], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @delayacct_setup_enable(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @delayacct_setup_enable(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i32 1, ptr @delayacct_on, align 4
   ret i32 1
 }
@@ -158,7 +158,7 @@ define internal noundef i32 @kernel_delayacct_sysctls_init() #3 section ".init.t
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_tsk_init(ptr nocapture noundef writeonly initializes((2544, 2552)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_tsk_init(ptr noundef writeonly captures(none) initializes((2544, 2552)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @delayacct_cache, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 3520) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2544
@@ -175,7 +175,7 @@ define dso_local void @__delayacct_tsk_init(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__delayacct_blkio_start() local_unnamed_addr #1 align 16 {
@@ -193,7 +193,7 @@ define dso_local void @__delayacct_blkio_start() local_unnamed_addr #1 align 16 
 declare dso_local i64 @local_clock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_blkio_end(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_blkio_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -221,7 +221,7 @@ define dso_local void @__delayacct_blkio_end(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @delayacct_add_tsk(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef i32 @delayacct_add_tsk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1536
   %4 = load i64, ptr %3, align 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1544
@@ -399,10 +399,10 @@ define dso_local noundef i32 @delayacct_add_tsk(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -411,7 +411,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__delayacct_blkio_ticks(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i64 @__delayacct_blkio_ticks(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 16
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #6
@@ -470,7 +470,7 @@ define dso_local void @__delayacct_freepages_end() local_unnamed_addr #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_thrashing_start(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1248
@@ -498,7 +498,7 @@ define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_thrashing_end(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_thrashing_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load i8, ptr %0, align 1, !range !6, !noundef !7
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %25
@@ -663,7 +663,7 @@ define dso_local void @__delayacct_wpcopy_end() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_irq(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_irq(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
@@ -693,7 +693,7 @@ declare dso_local void @static_key_disable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sysctl_delayacct(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define internal i32 @sysctl_delayacct(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6

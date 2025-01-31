@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -549890064384, 549873283072) i64 @_ZN11MapDatabase17getBlockAsIntegerERKN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 -549890064384, 549873283072) i64 @_ZN11MapDatabase17getBlockAsIntegerERKN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %pos) local_unnamed_addr #0 align 2 {
 entry:
   %Z = getelementptr inbounds nuw i8, ptr %pos, i64 4
   %0 = load i16, ptr %Z, align 2, !tbaa !4

@@ -27,7 +27,7 @@ $_ZSt10noshowbaseRSt8ios_base = comdat any
 @_ZN4absl7uint128C1Ee = dso_local unnamed_addr alias void (ptr, x86_fp80), ptr @_ZN4absl7uint128C2Ee
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local void @_ZN4absl7uint128C2Ef(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) initializes((0, 16)) %this, float noundef %v) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl7uint128C2Ef(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) initializes((0, 16)) %this, float noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef 64) #6
   %cmp.i = fcmp ult float %v, %call.i.i
@@ -52,7 +52,7 @@ _ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIfEENS_7uint128ET_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local void @_ZN4absl7uint128C2Ed(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) initializes((0, 16)) %this, double noundef %v) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl7uint128C2Ed(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) initializes((0, 16)) %this, double noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 64) #6
   %cmp.i = fcmp ult double %v, %call.i
@@ -77,7 +77,7 @@ _ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIdEENS_7uint128ET_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local void @_ZN4absl7uint128C2Ee(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) initializes((0, 16)) %this, x86_fp80 noundef %v) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl7uint128C2Ee(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) initializes((0, 16)) %this, x86_fp80 noundef %v) unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef 0xK3FFF8000000000000000, i32 noundef 64) #6
   %cmp.i = fcmp ult x86_fp80 %v, %call.i.i
@@ -102,7 +102,7 @@ _ZN4absl12_GLOBAL__N_120MakeUint128FromFloatIeEENS_7uint128ET_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl7uint1288ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4absl7uint1288ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
   %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -464,7 +464,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl6int1288ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl6int1288ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #6

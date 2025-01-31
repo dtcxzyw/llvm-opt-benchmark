@@ -233,7 +233,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 33554656, ptr %5, align 4
@@ -327,7 +327,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(6) @.str.128) #5
   %66 = icmp eq i32 %65, 0
   %67 = select i1 %66, ptr @.str.125, ptr @.str.126
-  %68 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %35, i32 noundef %64, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef %63, ptr noundef nonnull @.str.127, ptr noundef nonnull %67, ptr noundef %63) #4
+  %68 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %35, i32 noundef %64, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %63, ptr noundef nonnull @.str.127, ptr noundef nonnull %67, ptr noundef nonnull %63) #4
   %69 = load i32, ptr @hf_hsrp_virt_ip_addr, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %69, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #4
   br label %91
@@ -563,7 +563,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %221, ptr noundef nonnull dereferenceable(6) @.str.128) #5
   %224 = icmp eq i32 %223, 0
   %225 = select i1 %224, ptr @.str.125, ptr @.str.126
-  %226 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %219, i32 noundef %222, ptr noundef %0, i32 noundef %217, i32 noundef 8, ptr noundef %221, ptr noundef nonnull @.str.127, ptr noundef nonnull %225, ptr noundef %221) #4
+  %226 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %219, i32 noundef %222, ptr noundef %0, i32 noundef %217, i32 noundef 8, ptr noundef nonnull %221, ptr noundef nonnull @.str.127, ptr noundef nonnull %225, ptr noundef nonnull %221) #4
   br label %235
 
 227:                                              ; preds = %210
@@ -631,7 +631,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -682,7 +682,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

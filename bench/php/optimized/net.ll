@@ -128,7 +128,7 @@ thread-pre-split:                                 ; preds = %14, %4
 declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -136,7 +136,7 @@ declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @zif_net_get_interfaces(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -186,7 +186,7 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   %25 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #7
-  %28 = call ptr @zend_hash_str_find(ptr noundef %24, ptr noundef %26, i64 noundef %27) #6
+  %28 = call ptr @zend_hash_str_find(ptr noundef %24, ptr noundef nonnull %26, i64 noundef %27) #6
   %.not45 = icmp eq ptr %28, null
   br i1 %.not45, label %29, label %35
 
@@ -197,7 +197,7 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %25, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
-  %34 = call ptr @zend_hash_str_add(ptr noundef %31, ptr noundef %32, i64 noundef %33, ptr noundef nonnull %5) #6
+  %34 = call ptr @zend_hash_str_add(ptr noundef %31, ptr noundef nonnull %32, i64 noundef %33, ptr noundef nonnull %5) #6
   br label %35
 
 35:                                               ; preds = %29, %23
@@ -366,10 +366,10 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

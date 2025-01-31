@@ -51,7 +51,7 @@ define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 24:                                               ; preds = %20
   %sext = shl i64 %21, 32
   %25 = ashr exact i64 %sext, 32
-  %26 = tail call i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %25, ptr noundef nonnull %1) #5
+  %26 = tail call i64 @lib_fwrite_unlocked(ptr noundef nonnull %0, i64 noundef %25, ptr noundef nonnull %1) #5
   %27 = trunc i64 %26 to i32
   %spec.select = tail call i32 @llvm.smax.i32(i32 %27, i32 -1)
   br label %.loopexit
@@ -66,7 +66,7 @@ declare i64 @lib_fwrite_unlocked(ptr noundef, i64 noundef, ptr noundef) local_un
 declare i64 @lib_fflush_unlocked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -117,7 +117,7 @@ define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 24:                                               ; preds = %20
   %sext.i = shl i64 %21, 32
   %25 = ashr exact i64 %sext.i, 32
-  %26 = tail call i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %25, ptr noundef nonnull %1) #5
+  %26 = tail call i64 @lib_fwrite_unlocked(ptr noundef nonnull %0, i64 noundef %25, ptr noundef nonnull %1) #5
   %27 = trunc i64 %26 to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %27, i32 -1)
   br label %fputs_unlocked.exit
@@ -129,10 +129,10 @@ fputs_unlocked.exit:                              ; preds = %.lr.ph.i, %13, %16,
 }
 
 ; Function Attrs: nofree nounwind
-declare void @flockfile(ptr nocapture noundef) local_unnamed_addr #3
+declare void @flockfile(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare void @funlockfile(ptr nocapture noundef) local_unnamed_addr #3
+declare void @funlockfile(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

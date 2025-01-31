@@ -879,7 +879,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @generic_attribute_dissector(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4) #2 {
+define internal void @generic_attribute_dissector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
@@ -892,7 +892,7 @@ define internal void @generic_attribute_dissector(ptr noundef %0, ptr nocapture 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @partition_id_attribute_dissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 {
+define internal void @partition_id_attribute_dissector(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
@@ -901,7 +901,7 @@ define internal void @partition_id_attribute_dissector(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #2 {
+define internal fastcc ptr @dissect_osd_partition_id(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #2 {
   %9 = alloca [2 x i32], align 4
   %10 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef 0) #4
@@ -1066,7 +1066,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -1180,7 +1180,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %67, %64, %61, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -1300,7 +1300,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1674,7 +1674,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -1797,7 +1797,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %76, %73, %70, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -1920,7 +1920,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %76, %73, %70, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -2040,7 +2040,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -2158,7 +2158,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %72, %69, %66, %63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -2275,7 +2275,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %70, %67, %64, %61, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2459,7 +2459,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %110, %107, %104, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2628,7 +2628,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %100, %97, %94, %91,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2780,7 +2780,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -2932,7 +2932,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3055,7 +3055,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %76, %73, %70, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3174,7 +3174,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %72, %69, %66, %63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -3329,7 +3329,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %93, %90, %87, %84, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3453,7 +3453,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %78, %75, %72, %69, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3573,7 +3573,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %74, %71, %68, %65, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3688,7 +3688,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %69, %66, %63, %60, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i32 %5, 0
   %or.cond = and i1 %11, %12
@@ -3800,7 +3800,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %66, %63, %60, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -3950,7 +3950,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %92, %89, %86, %83, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
+define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr readnone captures(none) %8, ptr noundef %9) #2 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64

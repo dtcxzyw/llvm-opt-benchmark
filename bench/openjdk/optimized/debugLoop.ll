@@ -212,7 +212,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @reader(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.jdwpPacket, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -429,7 +429,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @debugMonitorWait(ptr noundef) local_unnamed_addr #1
 

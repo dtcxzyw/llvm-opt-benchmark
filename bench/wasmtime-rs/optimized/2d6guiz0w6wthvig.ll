@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.389debbece966da0c804bc9f1edf11c6.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.389debbece966da0c804bc9f1edf11c6.2, [16 x i8] c"&\00\00\00\00\00\00\00Z\00\00\00\22\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9155ed01a0b508b6E"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9155ed01a0b508b6E"(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, [3 x i64] }, {} }, align 8
   %5 = alloca { { { i64, [3 x i64] }, {} } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -74,7 +74,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$closure$u7d$$u7d$17ha75bcab2df0617a9E"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nocapture readnone align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$closure$u7d$$u7d$17ha75bcab2df0617a9E"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr readnone align 1 captures(none) %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -119,7 +119,7 @@ define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$closure$u7d$$u7d$17h2468c7d98c7ba785E"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr nocapture readonly align 1 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$closure$u7d$$u7d$17h2468c7d98c7ba785E"(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr readonly align 1 captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
@@ -185,7 +185,7 @@ define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
@@ -242,10 +242,10 @@ declare void @_ZN5quote9__private10push_colon17h72cbb3c95548b4eeE(ptr align 8) u
 declare void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

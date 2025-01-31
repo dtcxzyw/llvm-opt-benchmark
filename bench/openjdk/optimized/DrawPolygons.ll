@@ -143,7 +143,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 74:                                               ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 1776
   %76 = load ptr, ptr %75, align 8
-  %77 = call ptr %76(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #4
+  %77 = call ptr %76(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef null) #4
   %.not139 = icmp eq ptr %77, null
   br i1 %.not139, label %.thread172, label %78
 
@@ -151,7 +151,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1776
   %81 = load ptr, ptr %80, align 8
-  %82 = call ptr %81(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #4
+  %82 = call ptr %81(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef null) #4
   %.not141 = icmp eq ptr %82, null
   br i1 %.not141, label %.thread172, label %83
 
@@ -226,7 +226,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   %121 = load ptr, ptr %0, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1784
   %123 = load ptr, ptr %122, align 8
-  call void %123(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %77, i32 noundef 2) #4
+  call void %123(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %77, i32 noundef 2) #4
   br label %124
 
 124:                                              ; preds = %120, %.thread172
@@ -237,7 +237,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1784
   %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.0122156177, i32 noundef 2) #4
+  call void %128(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %.0122156177, i32 noundef 2) #4
   br label %.thread187
 
 .thread187:                                       ; preds = %55, %124, %125
@@ -269,7 +269,7 @@ declare ptr @SurfaceData_GetOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @GrPrim_Sg2dGetClip(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @RefineBounds(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %8, label %41
 
@@ -367,7 +367,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, i32 noundef %10, i8 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i8 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4

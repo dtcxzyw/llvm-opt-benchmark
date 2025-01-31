@@ -73,7 +73,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14MergeOperators22CreateBytesXOROperatorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14MergeOperators22CreateBytesXOROperatorEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 16)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN7rocksdb16BytesXOROperatorEED2Ev.exit:
   %call5.i.i.i2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12, !noalias !4
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 8
@@ -92,14 +92,14 @@ _ZNSt10shared_ptrIN7rocksdb16BytesXOROperatorEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef %existing_value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef %new_value, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef %existing_value, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %new_value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %existing_value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef %new_value) local_unnamed_addr #0 align 2 {
+define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %existing_value, null
   %size_.i = getelementptr inbounds nuw i8, ptr %value, i64 8
@@ -555,7 +555,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -656,7 +656,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1

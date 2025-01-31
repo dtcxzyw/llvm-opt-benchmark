@@ -4877,7 +4877,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_artnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_artnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5100,7 +5100,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
   %141 = load ptr, ptr %5, align 8
   %142 = call ptr @g_match_info_fetch(ptr noundef %141, i32 noundef 3) #5
   %143 = load i32, ptr @hf_artnet_poll_reply_node_report_status_code, align 4
-  %144 = call i64 @strtol(ptr nocapture noundef %138, ptr noundef null, i32 noundef 16) #5
+  %144 = call i64 @strtol(ptr noundef captures(none) %138, ptr noundef null, i32 noundef 16) #5
   %145 = trunc i64 %144 to i32
   %146 = and i32 %145, 65535
   %147 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %146) #5
@@ -5122,7 +5122,7 @@ dissect_artnet_poll.exit:                         ; preds = %33, %51, %65
 
 proto_item_set_generated.exit.i:                  ; preds = %151, %148, %136
   %155 = load i32, ptr @hf_artnet_poll_reply_node_report_response_counter, align 4
-  %156 = call i64 @strtoul(ptr nocapture noundef %140, ptr noundef null, i32 noundef 10) #5
+  %156 = call i64 @strtoul(ptr noundef captures(none) %140, ptr noundef null, i32 noundef 10) #5
   %157 = trunc i64 %156 to i32
   %158 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %155, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %157) #5
   %.not.i360.i = icmp eq ptr %158, null
@@ -6830,7 +6830,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_artnet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_artnet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %11, label %7
@@ -6905,10 +6905,10 @@ declare i32 @g_match_info_get_match_count(ptr noundef) local_unnamed_addr #1
 declare ptr @g_match_info_fetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6943,10 +6943,10 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

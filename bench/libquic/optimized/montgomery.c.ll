@@ -25,7 +25,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @BN_init(ptr noundef) local_unnamed_addr #2
 
@@ -49,7 +49,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @BN_MONT_CTX_copy(ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
@@ -234,7 +234,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_MONT_CTX_set_locked(ptr nocapture noundef %pmont, ptr noundef %lock, ptr noundef %mod, ptr noundef %bn_ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_MONT_CTX_set_locked(ptr noundef captures(none) %pmont, ptr noundef %lock, ptr noundef %mod, ptr noundef %bn_ctx) local_unnamed_addr #0 {
 entry:
   tail call void @CRYPTO_MUTEX_lock_read(ptr noundef %lock) #5
   %0 = load ptr, ptr %pmont, align 8
@@ -379,7 +379,7 @@ return:                                           ; preds = %if.then, %err, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %r, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %r, ptr noundef %a, ptr noundef readonly captures(none) %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #5
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #5
@@ -402,7 +402,7 @@ err:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr noundef readonly captures(none) %mont) unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds nuw i8, ptr %mont, i64 24
   %top = getelementptr inbounds nuw i8, ptr %mont, i64 32

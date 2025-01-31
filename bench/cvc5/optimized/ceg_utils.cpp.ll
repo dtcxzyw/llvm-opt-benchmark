@@ -1096,7 +1096,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers10SolvedForm8pop_backENS0_12NodeTemplateILb1EEES5_RNS2_14TermPropertiesE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readnone %pv, ptr nocapture noundef readnone %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pv_prop) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers10SolvedForm8pop_backENS0_12NodeTemplateILb1EEES5_RNS2_14TermPropertiesE(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef readnone captures(none) %pv, ptr noundef readnone captures(none) %n, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pv_prop) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8

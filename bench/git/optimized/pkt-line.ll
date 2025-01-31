@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @set_packet_header(ptr nocapture noundef writeonly initializes((0, 4)) %buf, i32 noundef %size) local_unnamed_addr #3 {
+define dso_local void @set_packet_header(ptr noundef writeonly captures(none) initializes((0, 4)) %buf, i32 noundef %size) local_unnamed_addr #3 {
 entry:
   %shr = lshr i32 %size, 12
   %and = and i32 %shr, 15
@@ -529,7 +529,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef nonnull %err) unnamed_addr #0 {
@@ -550,7 +550,7 @@ if.end3.i:                                        ; preds = %if.then
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.9, %if.then ]
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #18
-  tail call void @strbuf_add(ptr noundef nonnull %err, ptr noundef %retval.0.i, i64 noundef %call.i7) #15
+  tail call void @strbuf_add(ptr noundef nonnull %err, ptr noundef nonnull %retval.0.i, i64 noundef %call.i7) #15
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -694,7 +694,7 @@ entry:
   %0 = load i64, ptr %len, align 8
   tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef 4) #15
   %call.i11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #18
-  tail call void @strbuf_add(ptr noundef %out, ptr noundef %prefix, i64 noundef %call.i11) #15
+  tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull %prefix, i64 noundef %call.i11) #15
   tail call void @strbuf_vaddf(ptr noundef %out, ptr noundef %fmt, ptr noundef nonnull %args) #15
   %1 = load i64, ptr %len, align 8
   %sub = sub i64 %1, %0
@@ -807,7 +807,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(ptr noundef %src_in, i64 noundef %len, i32 noundef %fd_out, ptr noundef %packet_counter) local_unnamed_addr #0 {
@@ -894,7 +894,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @packet_length(ptr nocapture noundef readonly %lenbuf_hex, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i32 @packet_length(ptr noundef readonly captures(none) %lenbuf_hex, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %size, 4
   br i1 %cmp, label %if.then, label %if.end
@@ -940,7 +940,7 @@ if.end:                                           ; preds = %entry
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %fd, ptr noundef %src_buffer, ptr nocapture noundef %src_len, ptr noundef %buffer, i32 noundef %size, ptr nocapture noundef writeonly %pktlen, i32 noundef %options) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %fd, ptr noundef %src_buffer, ptr noundef captures(none) %src_len, ptr noundef %buffer, i32 noundef %size, ptr noundef writeonly captures(none) %pktlen, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %linelen = alloca [4 x i8], align 1
   %tracebuf = alloca %struct.strbuf, align 8
@@ -1189,7 +1189,7 @@ return:                                           ; preds = %if.end92, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2147483644) i32 @get_packet_data(i32 noundef %fd, ptr noundef %src_buf, ptr nocapture noundef %src_size, ptr noundef %dst, i32 noundef range(i32 0, 2147483644) %size, i32 noundef %options) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2147483644) i32 @get_packet_data(i32 noundef %fd, ptr noundef %src_buf, ptr noundef captures(none) %src_size, ptr noundef %dst, i32 noundef range(i32 0, 2147483644) %size, i32 noundef %options) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %fd, -1
   %tobool = icmp ne ptr %src_buf, null
@@ -1343,7 +1343,7 @@ declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) 
 declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -1567,7 +1567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1681,7 +1681,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @packet_writer_init(ptr nocapture noundef initializes((0, 4)) %writer, i32 noundef %dest_fd) local_unnamed_addr #9 {
+define dso_local void @packet_writer_init(ptr noundef captures(none) initializes((0, 4)) %writer, i32 noundef %dest_fd) local_unnamed_addr #9 {
 entry:
   store i32 %dest_fd, ptr %writer, align 4
   %use_sideband = getelementptr inbounds nuw i8, ptr %writer, i64 4
@@ -1692,7 +1692,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @packet_writer_write(ptr nocapture noundef readonly %writer, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @packet_writer_write(ptr noundef readonly captures(none) %writer, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1733,7 +1733,7 @@ packet_write_fmt_1.exit:                          ; preds = %strbuf_setlen.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @packet_writer_error(ptr nocapture noundef readonly %writer, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @packet_writer_error(ptr noundef readonly captures(none) %writer, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1774,7 +1774,7 @@ packet_write_fmt_1.exit:                          ; preds = %strbuf_setlen.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @packet_writer_delim(ptr nocapture noundef readonly %writer) local_unnamed_addr #0 {
+define dso_local void @packet_writer_delim(ptr noundef readonly captures(none) %writer) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %writer, align 4
   tail call fastcc void @packet_trace(ptr noundef nonnull @.str.2, i32 noundef 4, i32 noundef 1)
@@ -1792,7 +1792,7 @@ packet_delim.exit:                                ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @packet_writer_flush(ptr nocapture noundef readonly %writer) local_unnamed_addr #0 {
+define dso_local void @packet_writer_flush(ptr noundef readonly captures(none) %writer) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %writer, align 4
   tail call fastcc void @packet_trace(ptr noundef nonnull @.str, i32 noundef 4, i32 noundef 1)
@@ -1837,10 +1837,10 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -1855,10 +1855,10 @@ declare void @llvm.va_end.p0(ptr) #12
 declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

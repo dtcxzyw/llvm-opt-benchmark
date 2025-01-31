@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [6 x i8] c"abort\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_trace_err(ptr nocapture noundef initializes((3088, 3096)) %J, i32 noundef %e) local_unnamed_addr #0 {
+define hidden void @lj_trace_err(ptr noundef captures(none) initializes((3088, 3096)) %J, i32 noundef %e) local_unnamed_addr #0 {
 entry:
   %errinfo = getelementptr inbounds nuw i8, ptr %J, i64 3088
   store i64 -1, ptr %errinfo, align 8
@@ -38,7 +38,7 @@ entry:
 declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_trace_err_info(ptr nocapture noundef readonly %J, i32 noundef %e) local_unnamed_addr #0 {
+define hidden void @lj_trace_err_info(ptr noundef readonly captures(none) %J, i32 noundef %e) local_unnamed_addr #0 {
 entry:
   %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_trace_alloc(ptr noundef %L, ptr nocapture noundef readonly %T) local_unnamed_addr #2 {
+define hidden ptr @lj_trace_alloc(ptr noundef %L, ptr noundef readonly captures(none) %T) local_unnamed_addr #2 {
 entry:
   %nins = getelementptr inbounds nuw i8, ptr %T, i64 12
   %0 = load i32, ptr %nins, align 4
@@ -113,10 +113,10 @@ entry:
 declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_trace_free(ptr nocapture noundef %g, ptr noundef %T) local_unnamed_addr #2 {
+define hidden void @lj_trace_free(ptr noundef captures(none) %g, ptr noundef %T) local_unnamed_addr #2 {
 entry:
   %traceno = getelementptr inbounds nuw i8, ptr %T, i64 104
   %0 = load i16, ptr %traceno, align 8
@@ -175,7 +175,7 @@ if.end9:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_trace_reenableproto(ptr nocapture noundef %pt) local_unnamed_addr #5 {
+define hidden void @lj_trace_reenableproto(ptr noundef captures(none) %pt) local_unnamed_addr #5 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %pt, i64 61
   %0 = load i8, ptr %flags, align 1
@@ -232,7 +232,7 @@ if.end28:                                         ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_trace_flush(ptr nocapture noundef readonly %J, i32 noundef %traceno) local_unnamed_addr #6 {
+define hidden void @lj_trace_flush(ptr noundef readonly captures(none) %J, i32 noundef %traceno) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq i32 %traceno, 0
   br i1 %cmp.not, label %if.end6, label %land.lhs.true
@@ -268,7 +268,7 @@ if.end6:                                          ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @trace_flushroot(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %T) unnamed_addr #6 {
+define internal fastcc void @trace_flushroot(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(none) %T) unnamed_addr #6 {
 entry:
   %startpt = getelementptr inbounds nuw i8, ptr %T, i64 64
   %0 = load i64, ptr %startpt, align 8
@@ -391,7 +391,7 @@ if.end29:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_trace_flushproto(ptr nocapture noundef readonly %g, ptr nocapture noundef readonly %pt) local_unnamed_addr #6 {
+define hidden void @lj_trace_flushproto(ptr noundef readonly captures(none) %g, ptr noundef readonly captures(none) %pt) local_unnamed_addr #6 {
 entry:
   %trace = getelementptr inbounds nuw i8, ptr %pt, i64 62
   %0 = load i16, ptr %trace, align 2
@@ -518,7 +518,7 @@ return:                                           ; preds = %for.end, %if.then25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare hidden void @lj_mcode_free(ptr noundef) local_unnamed_addr #3
 
@@ -674,7 +674,7 @@ while.end:                                        ; preds = %while.body, %cond.e
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @trace_state(ptr noundef %L, ptr nocapture readnone %dummy, ptr noundef %ud) #2 {
+define internal noundef ptr @trace_state(ptr noundef %L, ptr readnone captures(none) %dummy, ptr noundef %ud) #2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %ud, i64 236
   %top89 = getelementptr inbounds nuw i8, ptr %L, i64 40
@@ -1548,7 +1548,7 @@ for.end.i:                                        ; preds = %cond.end.i, %if.the
   store ptr %incdec.ptr148.i, ptr %top.i101, align 8
   %173 = load i64, ptr %errinfo.i, align 8
   store i64 %173, ptr %172, align 8
-  tail call void @lj_vmevent_call(ptr noundef %100, i64 noundef %call60.i) #13
+  tail call void @lj_vmevent_call(ptr noundef nonnull %100, i64 noundef %call60.i) #13
   br label %if.end150.i
 
 if.end150.i:                                      ; preds = %for.end.i, %if.then59.i, %if.then48.i
@@ -2162,7 +2162,7 @@ return:                                           ; preds = %sw.bb108, %sw.defau
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @trace_exit_cp(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr nocapture noundef initializes((16, 24)) %ud) #2 {
+define internal noalias noundef ptr @trace_exit_cp(ptr noundef readonly captures(none) %L, ptr readnone captures(none) %dummy, ptr noundef captures(none) initializes((16, 24)) %ud) #2 {
 entry:
   %cframe = getelementptr inbounds nuw i8, ptr %L, i64 80
   %0 = load ptr, ptr %cframe, align 8
@@ -2183,7 +2183,7 @@ entry:
 declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden i64 @lj_trace_unwind(ptr noundef %J, i64 noundef %addr, ptr nocapture noundef writeonly %ep) local_unnamed_addr #10 {
+define hidden i64 @lj_trace_unwind(ptr noundef %J, i64 noundef %addr, ptr noundef writeonly captures(none) %ep) local_unnamed_addr #10 {
 entry:
   %vmstate = getelementptr inbounds i8, ptr %J, i64 -544
   %0 = load volatile i32, ptr %vmstate, align 8

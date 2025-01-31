@@ -53,7 +53,7 @@ $_ZN12outputStream10rotate_logEbPS_ = comdat any
 @_ZN10CompileLogD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10CompileLogD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompileLogC2EPKcP8_IO_FILEl(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompileLogC2EPKcP8_IO_FILEl(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(152) %0, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -121,10 +121,10 @@ declare void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull alig
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10CompileLogD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
@@ -157,7 +157,7 @@ define hidden void @_ZN10CompileLogD2Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
@@ -196,7 +196,7 @@ _ZN10CompileLogD2Ev.exit:                         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompileLog7see_tagEPKcb(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture readnone %1, i1 zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompileLog7see_tagEPKcb(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr readnone captures(none) %1, i1 zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load i64, ptr %5, align 8
@@ -226,7 +226,7 @@ define hidden void @_ZN10CompileLog7see_tagEPKcb(ptr noundef nonnull align 8 der
 declare void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompileLog7pop_tagEPKc(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompileLog7pop_tagEPKc(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %3) #11
   ret void
@@ -597,7 +597,7 @@ declare noundef ptr @_ZNK8ciSymbol22as_klass_external_nameEv(ptr noundef nonnull
 declare noundef ptr @_ZNK7ciKlass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10CompileLog16clear_identitiesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) initializes((424, 428)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10CompileLog16clear_identitiesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(440) initializes((424, 428)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 0, ptr %2, align 8
   ret void
@@ -638,7 +638,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %18 = load i64, ptr %17, align 8
   %19 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %1, i64 noundef %6, ptr noundef nonnull @.str.21, i64 noundef %18) #11
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
-  tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %20) #11
+  tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i64 noundef %20) #11
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22, i64 noundef 2) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %21 = getelementptr inbounds nuw i8, ptr %.098, i64 160
@@ -651,7 +651,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %.07080 = tail call i64 @llvm.umin.i64(i64 %.06985, i64 %6)
   %sext = shl i64 %.07080, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = tail call i64 @read(i32 noundef %15, ptr noundef %1, i64 noundef %23) #11
+  %24 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %23) #11
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %._crit_edge, label %26
 
@@ -660,17 +660,17 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %24) #11
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i64 noundef %24) #11
   %.not78 = icmp eq i64 %27, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %26, %.lr.ph, %16
-  %31 = tail call i64 @read(i32 noundef %15, ptr noundef %1, i64 noundef %8) #11
+  %31 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
   %32 = icmp sgt i64 %31, 0
   br i1 %32, label %.lr.ph95, label %._crit_edge96.thread
 
 .loopexit:                                        ; preds = %55
-  %33 = tail call i64 @read(i32 noundef %15, ptr noundef %1, i64 noundef %8) #11
+  %33 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %.lr.ph95, label %._crit_edge96, !llvm.loop !11
 
@@ -783,12 +783,12 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 

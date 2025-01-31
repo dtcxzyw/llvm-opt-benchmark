@@ -359,7 +359,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_print_freqs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @gpu_common_print_freqs(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %1, 5
   %.not = icmp eq ptr %3, null
   %7 = select i1 %.not, ptr @.str.19, ptr %3
@@ -416,7 +416,7 @@ define void @gpu_common_print_freqs(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @gpu_common_underscorify_tolower(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @gpu_common_underscorify_tolower(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %.not11 = icmp eq i8 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -446,7 +446,7 @@ define void @gpu_common_underscorify_tolower(ptr nocapture noundef %0) local_unn
 declare i32 @tolower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -523,7 +523,7 @@ define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -562,7 +562,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not31, label %20, label %43
 
 20:                                               ; preds = %18
-  %21 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %16, ptr noundef null, i32 noundef 10) #8
+  %21 = call i64 @strtoul(ptr noundef nonnull readonly captures(none) %16, ptr noundef null, i32 noundef 10) #8
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %4, align 4
   %.not32 = icmp eq i32 %22, 0
@@ -602,7 +602,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   br i1 %.not28, label %36, label %43
 
 36:                                               ; preds = %34
-  %37 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %.034, ptr noundef null, i32 noundef 10) #8
+  %37 = call i64 @strtoul(ptr noundef nonnull readonly captures(none) %.034, ptr noundef null, i32 noundef 10) #8
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %2, align 4
   %.not29 = icmp eq i32 %38, 0
@@ -635,7 +635,7 @@ declare ptr @slurm_get_gpu_freq_def() local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @gpu_common_sort_freq_descending(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @gpu_common_sort_freq_descending(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %3)
@@ -643,7 +643,7 @@ define range(i32 -1, 2) i32 @gpu_common_sort_freq_descending(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -694,7 +694,7 @@ define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #7

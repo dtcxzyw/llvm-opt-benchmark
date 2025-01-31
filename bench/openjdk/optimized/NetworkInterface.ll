@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [25 x i8] c"ioctl(SIOCGIFMTU) failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -250,7 +250,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr nocapture n
 declare void @initInetAddressIDs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %5
@@ -318,7 +318,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
-  %bcmp = call i32 @bcmp(ptr nonnull %9, ptr %36, i64 %34)
+  %bcmp = call i32 @bcmp(ptr nonnull %9, ptr nonnull %36, i64 %34)
   %40 = icmp eq i32 %bcmp, 0
   br i1 %40, label %44, label %41
 
@@ -456,13 +456,13 @@ openSocket.exit30:                                ; preds = %21
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -875,7 +875,7 @@ define internal fastcc void @freeif(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %16, label %5
 
@@ -912,7 +912,7 @@ define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddress0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #14
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
@@ -1379,7 +1379,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_net_NetworkInterface_getByInetAddress0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_net_NetworkInterface_getByInetAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #14
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
@@ -1478,7 +1478,7 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isUp0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isUp0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @getFlags0(ptr noundef %0, ptr noundef %2)
   %6 = and i32 %5, 65
   %7 = icmp eq i32 %6, 65
@@ -1574,7 +1574,7 @@ getFlags.exit:                                    ; preds = %24, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isP2P0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isP2P0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @getFlags0(ptr noundef %0, ptr noundef %2)
   %6 = trunc i32 %5 to i8
   %7 = lshr i8 %6, 4
@@ -1583,7 +1583,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isP2P0(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isLoopback0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isLoopback0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @getFlags0(ptr noundef %0, ptr noundef %2)
   %6 = trunc i32 %5 to i8
   %7 = lshr i8 %6, 3
@@ -1592,7 +1592,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isLoopback0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_supportsMulticast0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_supportsMulticast0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @getFlags0(ptr noundef %0, ptr noundef %2)
   %6 = lshr i32 %5, 12
   %7 = trunc i32 %6 to i8
@@ -1601,7 +1601,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_supportsMultica
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = alloca [16 x i8], align 16
   %8 = alloca i8, align 1
@@ -1680,7 +1680,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocap
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.ifreq, align 8
   %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
   %6 = icmp slt i32 %5, 0
@@ -1742,7 +1742,7 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ifreq, align 8
   %6 = alloca i8, align 1
   %.not = icmp eq ptr %2, null
@@ -1842,10 +1842,10 @@ declare i32 @getInet6Address_scopeid(ptr noundef, ptr noundef) local_unnamed_add
 declare void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #6
@@ -1859,7 +1859,7 @@ declare zeroext i8 @setInet6Address_scopeid(ptr noundef, ptr noundef, i32 nounde
 declare zeroext i8 @setInet6Address_scopeifname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
@@ -1871,10 +1871,10 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr noundef readonly %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
   %9 = alloca %struct.ifreq, align 8
   %10 = alloca %struct.ifreq, align 8
   %11 = alloca %struct.ifreq, align 8
@@ -2132,30 +2132,30 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

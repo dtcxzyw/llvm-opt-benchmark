@@ -296,10 +296,10 @@ define dso_local noundef range(i32 0, 6) i32 @phy_interface_num_ports(i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -397,7 +397,7 @@ define dso_local ptr @phy_lookup_setting(i32 noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @phy_speeds(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local i64 @phy_speeds(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -4
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %.loopexit, label %.preheader
@@ -480,12 +480,12 @@ define dso_local void @phy_set_max_speed(ptr noundef %0, i32 noundef %1) #1 alig
 declare dso_local void @phy_advertise_supported(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @of_set_phy_supported(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local void @of_set_phy_supported(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @of_set_phy_eee_broken(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local void @of_set_phy_eee_broken(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   ret void
 }
 
@@ -585,7 +585,7 @@ define dso_local void @phy_resolve_aneg_linkmode(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @phy_check_downshift(ptr noundef %0) #1 align 16 {
@@ -856,7 +856,7 @@ define dso_local i32 @phy_write_mmd(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__phy_package_read_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local i32 @__phy_package_read_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
@@ -903,7 +903,7 @@ define dso_local i32 @__phy_package_read_mmd(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_package_read_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local i32 @phy_package_read_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
@@ -960,7 +960,7 @@ define dso_local i32 @phy_package_read_mmd(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__phy_package_write_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local i32 @__phy_package_write_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 8
@@ -1007,7 +1007,7 @@ define dso_local i32 @__phy_package_write_mmd(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_package_write_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local i32 @phy_package_write_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 8
@@ -1064,7 +1064,7 @@ define dso_local i32 @phy_package_write_mmd(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_modify_changed(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local i32 @phy_modify_changed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1152
@@ -1080,7 +1080,7 @@ define dso_local i32 @phy_modify_changed(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__phy_modify(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 792
@@ -1091,7 +1091,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__phy_modify(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @phy_modify(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @phy_modify(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1152

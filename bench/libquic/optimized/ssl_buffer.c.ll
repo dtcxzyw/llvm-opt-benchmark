@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_buffer.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @ssl_read_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden ptr @ssl_read_buffer(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 65536) i64 @ssl_read_buffer_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i64 0, 65536) i64 @ssl_read_buffer_len(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -241,7 +241,7 @@ return:                                           ; preds = %if.end18.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @ssl_read_buffer_discard(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden void @ssl_read_buffer_discard(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -266,7 +266,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @ERR_clear_system_error() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @ssl_read_buffer_consume(ptr nocapture noundef readonly %ssl, i64 noundef %len) local_unnamed_addr #4 {
+define hidden void @ssl_read_buffer_consume(ptr noundef readonly captures(none) %ssl, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -296,7 +296,7 @@ consume_buffer.exit:                              ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @ssl_read_buffer_clear(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden void @ssl_read_buffer_clear(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -308,7 +308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @ssl_write_buffer_is_pending(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl_write_buffer_is_pending(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -320,7 +320,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %ssl, ptr nocapture noundef writeonly %out_ptr, i64 noundef %max_len) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %ssl, ptr noundef writeonly captures(none) %out_ptr, i64 noundef %max_len) local_unnamed_addr #1 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -404,7 +404,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 declare i64 @ssl_seal_prefix_len(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @ssl_write_buffer_set_len(ptr nocapture noundef readonly %ssl, i64 noundef %len) local_unnamed_addr #4 {
+define hidden void @ssl_write_buffer_set_len(ptr noundef readonly captures(none) %ssl, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -429,7 +429,7 @@ if.end:                                           ; preds = %entry
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr nocapture noundef %ssl) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef captures(none) %ssl) local_unnamed_addr #1 {
 entry:
   %wbio = getelementptr inbounds nuw i8, ptr %ssl, i64 24
   %0 = load ptr, ptr %wbio, align 8
@@ -554,7 +554,7 @@ return:                                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @ssl_write_buffer_clear(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden void @ssl_write_buffer_clear(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -570,10 +570,10 @@ declare i64 @ssl_record_prefix_len(ptr noundef) local_unnamed_addr #3
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8

@@ -38,14 +38,14 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cObject = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @exported_object_registry_mark(ptr nocapture readnone %0) #0 {
+define internal void @exported_object_registry_mark(ptr readnone captures(none) %0) #0 {
   %2 = load ptr, ptr @exported_object_table, align 8
   %3 = tail call i32 @rb_st_foreach(ptr noundef %2, ptr noundef nonnull @exported_object_registry_mark_key_i, i64 noundef 0) #16
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @exported_object_registry_free(ptr nocapture readnone %0) #0 {
+define internal void @exported_object_registry_free(ptr readnone captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -121,7 +121,7 @@ declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) lo
 declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -159,7 +159,7 @@ define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @rb_memory_view_is_column_major_contiguous(p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @rb_memory_view_fill_contiguous_strides(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 {
+define dso_local void @rb_memory_view_fill_contiguous_strides(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   br i1 %3, label %.preheader, label %.preheader21
 
 .preheader21:                                     ; preds = %5
@@ -237,7 +237,7 @@ define dso_local void @rb_memory_view_fill_contiguous_strides(i64 noundef %0, i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr nocapture noundef writeonly initializes((0, 25), (32, 104)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr noundef writeonly captures(none) initializes((0, 25), (32, 104)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = zext i1 %4 to i8
   store i64 %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -579,7 +579,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 1)) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 1)) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly %6) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store i32 0, ptr %3, align 4
   store i64 1, ptr %4, align 8
@@ -781,7 +781,7 @@ define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr
 declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_memory_view_item_size_from_format(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -790,7 +790,7 @@ define dso_local i64 @rb_memory_view_item_size_from_format(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define dso_local ptr @rb_memory_view_get_item_pointer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -933,7 +933,7 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @extract_item_member(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @extract_item_member(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %union.anon.14, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1322,7 +1322,7 @@ define dso_local void @rb_memory_view_prepare_item_desc(ptr noundef %0) local_un
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1844,7 +1844,7 @@ declare i64 @rb_exc_new(i64 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @rb_float_new(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
@@ -1862,7 +1862,7 @@ declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_add
 declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exported_object_add_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
+define internal noundef i32 @exported_object_add_ref(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i32 noundef %3) #12 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %5
 
@@ -1878,7 +1878,7 @@ define internal noundef i32 @exported_object_add_ref(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @exported_object_dec_ref(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #12 {
+define internal range(i32 0, 3) i32 @exported_object_dec_ref(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i32 noundef %3) #12 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %5
 
@@ -1906,10 +1906,10 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

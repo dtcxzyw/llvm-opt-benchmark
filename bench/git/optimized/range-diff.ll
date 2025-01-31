@@ -105,7 +105,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.59 = private unnamed_addr constant [26 x i8] c"^ ## (.*) ##$\0A^.?@@ (.*)$\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @show_range_diff(ptr noundef %range1, ptr noundef %range2, ptr nocapture noundef readonly %range_diff_opts) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @show_range_diff(ptr noundef %range1, ptr noundef %range2, ptr noundef readonly captures(none) %range_diff_opts) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %dashes.i = alloca %struct.strbuf, align 8
@@ -875,7 +875,7 @@ if.end29:                                         ; preds = %_.exit15, %_.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1192,7 +1192,7 @@ if.then90:                                        ; preds = %if.else86
 if.else93:                                        ; preds = %if.else86
   %29 = load ptr, ptr %patch, align 8
   %call.i90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #16
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %29, i64 noundef %call.i90) #14
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %29, i64 noundef %call.i90) #14
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then85, %if.else93, %if.then90, %if.then81
@@ -1237,7 +1237,7 @@ if.then121:                                       ; preds = %if.else119
 if.then124:                                       ; preds = %if.then121
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.35, i64 noundef 16) #14
   %call.i93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line.0172) #16
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %line.0172, i64 noundef %call.i93) #14
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %line.0172, i64 noundef %call.i93) #14
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.36, i64 noundef 2) #14
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.37, i64 noundef 22) #14
   br label %for.inc
@@ -1573,7 +1573,7 @@ declare i32 @setup_revisions(i32 noundef, ptr noundef, ptr noundef, ptr noundef)
 declare void @clear_commit_marks(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @release_revisions(ptr noundef) local_unnamed_addr #2
 
@@ -1581,7 +1581,7 @@ declare void @release_revisions(ptr noundef) local_unnamed_addr #2
 declare ptr @gettext(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @strvec_pushl(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1653,12 +1653,12 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @release_patch(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -1668,7 +1668,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @patch_util_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %ha, ptr nocapture noundef readonly %hb, ptr noundef readonly %keydata) #8 {
+define internal i32 @patch_util_cmp(ptr readnone captures(none) %cmp_data, ptr noundef readonly captures(none) %ha, ptr noundef readonly captures(none) %hb, ptr noundef readonly %keydata) #8 {
 entry:
   %diff = getelementptr inbounds nuw i8, ptr %ha, i64 16
   %0 = load ptr, ptr %diff, align 8
@@ -1695,7 +1695,7 @@ declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
@@ -1707,7 +1707,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #7
 declare i32 @xdi_diff_outf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @diffsize_hunk(ptr nocapture noundef %data, i64 %ob, i64 %on, i64 %nb, i64 %nn, ptr nocapture readnone %func, i64 %funclen) #9 {
+define internal void @diffsize_hunk(ptr noundef captures(none) %data, i64 %ob, i64 %on, i64 %nb, i64 %nn, ptr readnone captures(none) %func, i64 %funclen) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %inc.i = add nsw i32 %0, 1
@@ -1716,7 +1716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @diffsize_consume(ptr nocapture noundef %data, ptr nocapture readnone %line, i64 %len) #9 {
+define internal noundef i32 @diffsize_consume(ptr noundef captures(none) %data, ptr readnone captures(none) %line, i64 %len) #9 {
 entry:
   %0 = load i32, ptr %data, align 4
   %inc = add nsw i32 %0, 1
@@ -1729,7 +1729,7 @@ declare i32 @decimal_width(i64 noundef) local_unnamed_addr #2
 declare void @repo_diff_setup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @output_prefix_cb(ptr nocapture readnone %opt, ptr noundef readnone returned %data) #10 {
+define internal noundef ptr @output_prefix_cb(ptr readnone captures(none) %opt, ptr noundef readnone returned %data) #10 {
 entry:
   ret ptr %data
 }
@@ -1737,7 +1737,7 @@ entry:
 declare void @diff_setup_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_pair_header(ptr nocapture noundef nonnull readonly %diffopt, i32 noundef %patch_no_width, ptr noundef nonnull initializes((8, 16)) %buf, ptr noundef nonnull %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
+define internal fastcc void @output_pair_header(ptr noundef nonnull readonly captures(none) %diffopt, i32 noundef %patch_no_width, ptr noundef nonnull initializes((8, 16)) %buf, ptr noundef nonnull %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %a_util, null
   %oid1 = getelementptr inbounds nuw i8, ptr %a_util, i64 60
@@ -1804,7 +1804,7 @@ if.then4.i:                                       ; preds = %if.end27
 strbuf_setlen.exit:                               ; preds = %if.end27, %if.then4.i
   %cond33 = select i1 %cmp28, ptr %call4, ptr %color.0
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond33) #16
-  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %cond33, i64 noundef %call.i) #14
+  tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %cond33, i64 noundef %call.i) #14
   br i1 %tobool.not, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %strbuf_setlen.exit
@@ -1972,7 +1972,7 @@ declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) local_unnamed_add
 declare void @pp_commit_easy(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @diff_queue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1987,10 +1987,10 @@ declare void @fill_filespec(ptr noundef, ptr noundef, i32 noundef, i16 noundef z
 declare ptr @null_oid() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

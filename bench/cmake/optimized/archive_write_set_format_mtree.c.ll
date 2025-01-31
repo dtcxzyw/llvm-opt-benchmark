@@ -225,10 +225,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_mtree_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @archive_write_mtree_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -352,7 +352,7 @@ attr_counter_set_free.exit:                       ; preds = %.preheader.i13.i, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -20, 1) i32 @archive_write_mtree_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #4 {
+define internal range(i32 -20, 1) i32 @archive_write_mtree_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 1
@@ -775,7 +775,7 @@ define internal range(i32 -30, 1) i32 @archive_write_mtree_header(ptr noundef %0
   br i1 %98, label %.split.us.i, label %get_path_component.exit.us.i
 
 get_path_component.exit.us.i:                     ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %58, i64 %.0.i.us.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %58, i64 %.0.i.us.i, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.us.i
   store i8 0, ptr %99, align 1
   br label %get_path_component.exit.thread.i
@@ -803,14 +803,14 @@ get_path_component.exit.us.i:                     ; preds = %97
   br i1 %110, label %.split.us.i, label %get_path_component.exit.i
 
 get_path_component.exit.i:                        ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %.0115.i, i64 %.0.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0115.i, i64 %.0.i.i, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.i
   store i8 0, ptr %111, align 1
   %112 = icmp eq i64 %.0.i.i, 0
   br i1 %112, label %get_path_component.exit.thread.i, label %113
 
 .split.us.i:                                      ; preds = %109, %97
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.41) #14
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.41) #14
   br label %315
 
 113:                                              ; preds = %get_path_component.exit.i
@@ -857,7 +857,7 @@ mtree_entry_find_child.exit.i:                    ; preds = %113, %117
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %139 = load ptr, ptr %138, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.42, ptr noundef %137, ptr noundef %139) #14
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.42, ptr noundef %137, ptr noundef %139) #14
   br label %315
 
 .outer.i:                                         ; preds = %132
@@ -919,13 +919,13 @@ get_path_component.exit.thread.i:                 ; preds = %mtree_entry_find_ch
   call void @archive_entry_set_mode(ptr noundef nonnull %163, i32 noundef 16877) #14
   %166 = call i64 @time(ptr noundef null) #14
   call void @archive_entry_set_mtime(ptr noundef nonnull %163, i64 noundef %166, i64 noundef 0) #14
-  %167 = call fastcc i32 @mtree_entry_new(ptr noundef %0, ptr noundef nonnull %163, ptr noundef %3)
+  %167 = call fastcc i32 @mtree_entry_new(ptr noundef nonnull %0, ptr noundef nonnull %163, ptr noundef %3)
   call void @archive_entry_free(ptr noundef nonnull %163) #14
   %168 = icmp slt i32 %167, -20
   br i1 %168, label %mtree_entry_create_virtual_dir.exit.thread.i, label %sub_0.i
 
 mtree_entry_create_virtual_dir.exit.thread.i:     ; preds = %165, %161
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.43) #14
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.43) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @archive_string_free(ptr noundef nonnull %5) #14
   br label %315
@@ -1009,7 +1009,7 @@ get_path_component.exit141.i:                     ; preds = %202, %193
 
 205:                                              ; preds = %200
   call void @archive_string_free(ptr noundef nonnull %5) #14
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.41) #14
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.41) #14
   br label %315
 
 ._crit_edge.i:                                    ; preds = %get_path_component.exit141.i, %get_path_component.exit.thread.i
@@ -1091,7 +1091,7 @@ get_path_component.exit141.i:                     ; preds = %202, %193
 mtree_entry_exchange_same_entry.exit.thread.i:    ; preds = %.thread157.i
   %246 = getelementptr inbounds nuw i8, ptr %.0116.i, i64 104
   %247 = load ptr, ptr %246, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.44, ptr noundef %247) #14
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.44, ptr noundef %247) #14
   %.pre = load ptr, ptr %6, align 8
   br label %315
 
@@ -2241,7 +2241,7 @@ write_mtree_entry_tree.exit.thread:               ; preds = %265, %301, %286, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @archive_write_mtree_data(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -2382,7 +2382,7 @@ sum_update.exit:                                  ; preds = %73, %70, %11, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_mtree_finish_entry(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @archive_write_mtree_finish_entry(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2534,10 +2534,10 @@ sum_final.exit:                                   ; preds = %69, %72
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2546,7 +2546,7 @@ declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @mtree_entry_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @mtree_entry_new(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.archive_string, align 8
   %5 = tail call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 1, i64 noundef 336) #15
   %6 = icmp eq ptr %5, null
@@ -3058,7 +3058,7 @@ mtree_entry_setup_filenames.exit:                 ; preds = %23, %130, %134
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @mtree_entry_cmp_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @mtree_entry_cmp_node(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3068,7 +3068,7 @@ define internal i32 @mtree_entry_cmp_node(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @mtree_entry_cmp_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @mtree_entry_cmp_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #16
@@ -3080,7 +3080,7 @@ declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #1
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @archive_entry_nlink(ptr noundef) local_unnamed_addr #1
 
@@ -3117,10 +3117,10 @@ declare void @__archive_rb_tree_init(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @archive_string_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3136,7 +3136,7 @@ declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnam
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @archive_entry_new() local_unnamed_addr #1
 
@@ -3158,7 +3158,7 @@ declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local
 declare ptr @__archive_rb_tree_iterate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_mtree_entry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @write_mtree_entry(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
@@ -4924,7 +4924,7 @@ mtree_quote.exit142:                              ; preds = %283, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_dot_dot_entry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @write_dot_dot_entry(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5205,7 +5205,7 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
   %82 = ptrtoint ptr %.0.lcssa134 to i64
   %83 = ptrtoint ptr %.276 to i64
   %84 = sub i64 %82, %83
-  %85 = tail call ptr @archive_strncat(ptr noundef nonnull %81, ptr noundef %.276, i64 noundef %84) #14
+  %85 = tail call ptr @archive_strncat(ptr noundef nonnull %81, ptr noundef nonnull %.276, i64 noundef %84) #14
   %86 = tail call ptr @archive_strncat(ptr noundef nonnull %81, ptr noundef nonnull @.str.76, i64 noundef 3) #14
   %87 = icmp sgt i32 %.080, -16
   br i1 %87, label %.lr.ph122.preheader, label %._crit_edge123
@@ -5242,10 +5242,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

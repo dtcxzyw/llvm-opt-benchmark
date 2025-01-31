@@ -272,7 +272,7 @@ define dso_local void @symtab_destroy() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @symtab_init(i32 noundef %0) local_unnamed_addr #2 {
@@ -333,7 +333,7 @@ define dso_local void @symtab_init(i32 noundef %0) local_unnamed_addr #2 {
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %22
   %.06.lcssa.i = phi i32 [ -2128831035, %22 ], [ %30, %.lr.ph.i ]
-  %31 = call ptr @symtab_add(ptr noundef %23, i32 noundef %25, i32 noundef %.06.lcssa.i, ptr noundef nonnull %2)
+  %31 = call ptr @symtab_add(ptr noundef nonnull %23, i32 noundef %25, i32 noundef %.06.lcssa.i, ptr noundef nonnull %2)
   %32 = load i32, ptr %2, align 4
   %cond = icmp eq i32 %32, 136
   br i1 %cond, label %33, label %34
@@ -783,15 +783,15 @@ fnv1a.exit35:                                     ; preds = %34
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @token_type_to_string(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = load i64, ptr @symtab.2, align 8
   %7 = and i64 %6, %5
@@ -887,7 +887,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @symtab_find(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define dso_local ptr @symtab_find(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = zext i32 %2 to i64
   %6 = load i64, ptr @symtab.2, align 8
   %7 = and i64 %6, %5
@@ -968,7 +968,7 @@ define dso_local ptr @symtab_preset(ptr noundef %0, i32 noundef %1) local_unname
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   %.06.lcssa.i = phi i32 [ -2128831035, %2 ], [ %10, %.lr.ph.i ]
-  %11 = call ptr @symtab_add(ptr noundef %0, i32 noundef %5, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3)
+  %11 = call ptr @symtab_add(ptr noundef nonnull %0, i32 noundef %5, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3)
   ret ptr %11
 }
 
@@ -977,7 +977,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #5
 declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stable_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @stable_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
   %5 = tail call ptr @calloc_arena(i64 noundef %4) #12
@@ -995,7 +995,7 @@ define dso_local void @stable_init(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stable_clear(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #8 {
+define dso_local void @stable_clear(ptr noundef captures(none) initializes((0, 4)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1008,7 +1008,7 @@ define dso_local void @stable_clear(ptr nocapture noundef initializes((0, 4)) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stable_set(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local ptr @stable_set(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1152,7 +1152,7 @@ stable_resize.exit:                               ; preds = %69, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @stable_get(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local ptr @stable_get(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1204,7 +1204,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @htable_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @htable_init(ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
   %5 = tail call ptr @calloc_arena(i64 noundef %4) #12
@@ -1234,7 +1234,7 @@ define dso_local void @htable_init(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @htable_set(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local ptr @htable_set(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 8
   %6 = xor i64 %5, %4
@@ -1290,7 +1290,7 @@ define dso_local ptr @htable_set(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @htable_get(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local ptr @htable_get(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 8
   %5 = xor i64 %4, %3
@@ -1328,7 +1328,7 @@ define dso_local ptr @htable_get(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11

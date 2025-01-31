@@ -709,7 +709,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.681 = private unnamed_addr constant [3 x i8] c" \00\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_ime_pinyin_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   br label %3
 
 3:                                                ; preds = %2, %16
@@ -920,7 +920,7 @@ pinyin_k9_init_data.exit:                         ; preds = %87
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_ime_pinyin_destructor(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @lv_ime_pinyin_destructor(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = tail call zeroext i1 @lv_obj_is_valid(ptr noundef %4) #6
@@ -954,14 +954,14 @@ define noundef ptr @lv_ime_pinyin_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_ime_pinyin_set_keyboard(ptr noundef initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1337,7 +1337,7 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ime_pinyin_set_dict(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %1, align 8, !tbaa !24
@@ -1411,7 +1411,7 @@ init_pinyin_dict.exit:                            ; preds = %8, %27, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ime_pinyin_set_mode(ptr nocapture noundef initializes((260, 264)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_ime_pinyin_set_mode(ptr noundef captures(none) initializes((260, 264)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %1, ptr %3, align 4, !tbaa !10
   %4 = icmp eq i32 %1, 1
@@ -1459,21 +1459,21 @@ declare void @lv_keyboard_set_map(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare void @lv_keyboard_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_kb(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !31
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_cand_panel(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_dict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   ret ptr %3
@@ -1605,7 +1605,7 @@ declare ptr @lv_keyboard_get_textarea(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_buttonmatrix_get_selected_button(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pinyin_page_proc(ptr nocapture noundef %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @pinyin_page_proc(ptr noundef captures(none) %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i16, ptr %3, align 8, !tbaa !19
   %5 = udiv i16 %4, 6
@@ -2416,7 +2416,7 @@ define internal fastcc void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #2
 

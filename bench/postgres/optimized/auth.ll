@@ -1229,7 +1229,7 @@ radius_add_attribute.exit.i.i:                    ; preds = %529, %527, %525
   %552 = getelementptr inbounds nuw i8, ptr %548, i64 2
   %sext.i.i = shl i64 %536, 32
   %553 = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %552, ptr readonly align 1 %495, i64 %553, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %552, ptr nonnull readonly align 1 %495, i64 %553, i1 false)
   %554 = zext i8 %550 to i16
   %555 = load i16, ptr %469, align 2
   %556 = add i16 %555, %554
@@ -1281,7 +1281,7 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
   %583 = add i64 %582, 16
   %584 = call ptr @palloc(i64 noundef %583) #16
   %585 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr readonly align 1 %486, i64 %585, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr nonnull readonly align 1 %486, i64 %585, i1 false)
   %586 = icmp sgt i32 %580, 15
   br i1 %586, label %.lr.ph178.preheader.i.i, label %._crit_edge.i.i
 
@@ -1684,7 +1684,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 796:                                              ; preds = %792, %785
   %797 = getelementptr i8, ptr %789, i64 %786
   %798 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %797, ptr readonly align 1 %486, i64 %798, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %797, ptr nonnull readonly align 1 %486, i64 %798, i1 false)
   %799 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
   %800 = add i64 %799, %786
   %801 = call zeroext i1 @pg_md5_binary(ptr noundef nonnull %789, i64 noundef %800, ptr noundef nonnull %5, ptr noundef nonnull %16) #16
@@ -1733,7 +1733,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 817:                                              ; preds = %815
   %818 = load i8, ptr %4, align 4
   %819 = zext i8 %818 to i32
-  %820 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71, ptr noundef %485, i32 noundef %819, ptr noundef %495) #16
+  %820 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71, ptr noundef %485, i32 noundef %819, ptr noundef nonnull %495) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3251, ptr noundef nonnull @__func__.PerformRadiusTransaction) #16
   br label %.backedge.i.i
 
@@ -2039,7 +2039,7 @@ declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @hba_authname(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sendAuthRequest(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @sendAuthRequest(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %6, 0
@@ -2113,7 +2113,7 @@ declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
@@ -2198,7 +2198,7 @@ declare i32 @plain_crypt_verify(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_authn_id(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_authn_id(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @MyClientConnectionInfo, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -2254,7 +2254,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 declare i32 @pq_getmessage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2290,7 +2290,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [80 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %5 = icmp ult i64 %4, 2
@@ -2429,10 +2429,10 @@ declare ptr @getpwuid(i32 noundef) local_unnamed_addr #1
 declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -2444,7 +2444,7 @@ declare i16 @llvm.bswap.i16(i16) #5
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2454,16 +2454,16 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

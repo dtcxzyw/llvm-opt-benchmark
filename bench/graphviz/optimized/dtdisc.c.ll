@@ -127,7 +127,7 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %72 = tail call i32 @dtstrhash(ptr noundef %71, i32 noundef %63) #4
   %73 = getelementptr inbounds nuw i8, ptr %.04355, i64 8
   store i32 %72, ptr %73, align 8
-  %74 = tail call ptr %10(ptr noundef %0, ptr noundef nonnull %.04355, i32 noundef 32) #4
+  %74 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %.04355, i32 noundef 32) #4
   %.not51 = icmp eq ptr %51, null
   br i1 %.not51, label %.loopexit, label %50
 
@@ -146,7 +146,7 @@ declare i32 @dtstrhash(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @llvm.umax.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

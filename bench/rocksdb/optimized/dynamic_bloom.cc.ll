@@ -35,7 +35,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12DynamicBloomC2EPNS_9AllocatorEjjmPNS_6LoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((4, 8)) %this, ptr noundef %allocator, i32 noundef %total_bits, i32 noundef %num_probes, i64 noundef %huge_page_tlb_size, ptr noundef %logger) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb12DynamicBloomC2EPNS_9AllocatorEjjmPNS_6LoggerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((4, 8)) %this, ptr noundef %allocator, i32 noundef %total_bits, i32 noundef %num_probes, i64 noundef %huge_page_tlb_size, ptr noundef %logger) unnamed_addr #2 align 2 {
 entry:
   %kNumDoubleProbes = getelementptr inbounds nuw i8, ptr %this, i64 4
   %cmp = icmp eq i32 %num_probes, 1
@@ -83,7 +83,7 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4

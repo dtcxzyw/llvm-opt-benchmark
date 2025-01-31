@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @colo_rewriter_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @colo_rewriter_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #9
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @filter_rewriter_get_vnet_hdr, ptr noundef nonnull @filter_rewriter_set_vnet_hdr) #9
@@ -79,7 +79,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @filter_rewriter_get_vnet_hdr(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @filter_rewriter_get_vnet_hdr(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 27, ptr noundef nonnull @__func__.FILTER_REWRITER) #9
   %vnet_hdr = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @filter_rewriter_set_vnet_hdr(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @filter_rewriter_set_vnet_hdr(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 27, ptr noundef nonnull @__func__.FILTER_REWRITER) #9
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @colo_rewriter_setup(ptr noundef %nf, ptr nocapture readnone %errp) #0 {
+define internal void @colo_rewriter_setup(ptr noundef %nf, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 27, ptr noundef nonnull @__func__.FILTER_REWRITER) #9
   %call1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @connection_key_hash, ptr noundef nonnull @connection_key_equal, ptr noundef nonnull @g_free, ptr noundef null) #9
@@ -147,7 +147,7 @@ if.end:                                           ; preds = %filter_rewriter_flu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 2) i64 @colo_rewriter_receive_iov(ptr noundef %nf, ptr noundef %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
+define internal range(i64 0, 2) i64 @colo_rewriter_receive_iov(ptr noundef %nf, ptr noundef %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr readnone captures(none) %sent_cb) #0 {
 entry:
   %_now.i.i30.i = alloca %struct.timeval, align 8
   %_now.i.i.i40 = alloca %struct.timeval, align 8
@@ -660,7 +660,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @colo_rewriter_handle_event(ptr noundef %nf, i32 noundef %event, ptr nocapture readnone %errp) #0 {
+define internal void @colo_rewriter_handle_event(ptr noundef %nf, i32 noundef %event, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 27, ptr noundef nonnull @__func__.FILTER_REWRITER) #9
   switch i32 %event, label %sw.epilog [
@@ -745,7 +745,7 @@ declare void @net_checksum_calculate(ptr noundef, i32 noundef, i32 noundef) loca
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -754,7 +754,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @reset_seq_offset(ptr nocapture readnone %key, ptr nocapture noundef writeonly initializes((64, 68)) %value, ptr nocapture readnone %user_data) #6 {
+define internal void @reset_seq_offset(ptr readnone captures(none) %key, ptr noundef writeonly captures(none) initializes((64, 68)) %value, ptr readnone captures(none) %user_data) #6 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %value, i64 64
   store i32 0, ptr %offset, align 8
@@ -764,7 +764,7 @@ entry:
 declare ptr @g_hash_table_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @offset_is_nonzero(ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture readnone %user_data) #7 {
+define internal range(i32 0, 2) i32 @offset_is_nonzero(ptr readnone captures(none) %key, ptr noundef readonly captures(none) %value, ptr readnone captures(none) %user_data) #7 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %value, i64 64
   %0 = load i32, ptr %offset, align 8
@@ -774,10 +774,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

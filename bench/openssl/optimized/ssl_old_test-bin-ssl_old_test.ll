@@ -1318,7 +1318,7 @@ bad.sink.split:                                   ; preds = %if.end73, %if.end55
   %.lcssa1060.sink = phi ptr [ %8, %if.else564 ], [ %8, %if.end559 ], [ %27, %if.end73 ]
   %.str.73.sink = phi ptr [ %.str.73..str.74, %if.else564 ], [ @.str.72, %if.end559 ], [ @.str.17, %if.end73 ]
   %.sink = load ptr, ptr @bio_err, align 8
-  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef %.lcssa1060.sink) #22
+  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef nonnull %.lcssa1060.sink) #22
   br label %bad
 
 bad:                                              ; preds = %if.then517, %if.then506, %if.then477, %if.then466, %if.then455, %if.then444, %if.then433, %if.then412, %if.then401, %if.then390, %if.then379, %if.then368, %if.then357, %if.then346, %if.then335, %if.then324, %if.then313, %if.then302, %if.then287, %if.then271, %if.then190, %if.then179, %if.then168, %if.then157, %if.then125, %if.then112, %if.then69, %bad.sink.split
@@ -2567,7 +2567,7 @@ end:                                              ; preds = %if.end552, %if.end5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2580,30 +2580,30 @@ declare i32 @SSL_CONF_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @SSL_CONF_CTX_set1_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @SSL_CONF_cmd_argv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2770,7 +2770,7 @@ declare ptr @SSL_COMP_get_compression_methods() local_unnamed_addr #2
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2886,7 +2886,7 @@ if.end17:                                         ; preds = %if.end11.thread9, %
 declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @app_verify_callback(ptr noundef %ctx, ptr nocapture noundef readonly %arg) #8 {
+define internal i32 @app_verify_callback(ptr noundef %ctx, ptr noundef readonly captures(none) %arg) #8 {
 entry:
   %buf = alloca [256 x i8], align 16
   %app_verify = getelementptr inbounds nuw i8, ptr %arg, i64 8
@@ -2928,7 +2928,7 @@ declare i32 @SSL_CTX_set_session_id_context(ptr noundef, ptr noundef, i32 nounde
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @psk_client_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %identity, i32 noundef %max_identity_len, ptr noundef %psk, i32 noundef %max_psk_len) #8 {
+define internal range(i32 0, -2147483648) i32 @psk_client_callback(ptr readnone captures(none) %ssl, ptr readnone captures(none) %hint, ptr noundef %identity, i32 noundef %max_identity_len, ptr noundef %psk, i32 noundef %max_psk_len) #8 {
 entry:
   %conv = zext i32 %max_identity_len to i64
   %call = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %identity, i64 noundef %conv, ptr noundef nonnull @.str.266) #22
@@ -2958,7 +2958,7 @@ out_err:                                          ; preds = %if.end4, %entry
 declare void @SSL_CTX_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psk_server_callback(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %identity, ptr noundef %psk, i32 noundef %max_psk_len) #8 {
+define internal i32 @psk_server_callback(ptr readnone captures(none) %ssl, ptr noundef readonly captures(none) %identity, ptr noundef %psk, i32 noundef %max_psk_len) #8 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %identity, ptr noundef nonnull dereferenceable(16) @.str.266) #25
   %cmp.not = icmp eq i32 %call, 0
@@ -2984,7 +2984,7 @@ declare i32 @SSL_CTX_use_psk_identity_hint(ptr noundef, ptr noundef) local_unnam
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 1)) %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_client_npn(ptr readnone captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 1)) %outlen, ptr readnone captures(none) %in, i32 %inlen, ptr readnone captures(none) %arg) #9 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @NEXT_PROTO_STRING, i64 1), ptr %out, align 8
   store i8 9, ptr %outlen, align 1
@@ -2994,7 +2994,7 @@ entry:
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cb_server_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %len, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_server_npn(ptr readnone captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 4)) %len, ptr readnone captures(none) %arg) #9 {
 entry:
   store ptr @NEXT_PROTO_STRING, ptr %data, align 8
   store i32 10, ptr %len, align 4
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cb_server_rejects_npn(ptr nocapture readnone %s, ptr nocapture readnone %data, ptr nocapture readnone %len, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @cb_server_rejects_npn(ptr readnone captures(none) %s, ptr readnone captures(none) %data, ptr readnone captures(none) %len, ptr readnone captures(none) %arg) #10 {
 entry:
   ret i32 3
 }
@@ -3010,7 +3010,7 @@ entry:
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @serverinfo_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #11 {
+define internal noundef i32 @serverinfo_cli_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr readnone captures(none) %in, i64 %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #11 {
 entry:
   %switch.selectcmp = icmp eq i32 %ext_type, 62208
   %switch.select = select i1 %switch.selectcmp, ptr @serverinfo_tack_seen, ptr @serverinfo_other_seen
@@ -3025,7 +3025,7 @@ entry:
 declare i32 @SSL_CTX_use_serverinfo_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_0_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_cli_add_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr readnone captures(none) %out, ptr readnone captures(none) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #12 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1000
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3039,13 +3039,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @custom_ext_0_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_0_cli_parse_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %in, i64 %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #10 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_1_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_1_cli_add_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1001
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3061,13 +3061,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @custom_ext_1_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_1_cli_parse_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %in, i64 %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #10 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_2_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_2_cli_add_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1002
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3083,7 +3083,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_2_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_2_cli_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr readnone captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #12 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1002
   %cmp1.not = icmp ne i64 %inlen, 0
@@ -3099,7 +3099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_3_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_3_cli_add_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1003
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3115,7 +3115,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_3_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_3_cli_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1003
   %cmp1.not = icmp ne i64 %inlen, 4
@@ -3142,27 +3142,27 @@ if.end6:                                          ; preds = %if.then5, %2
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_0_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_srv_add_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %out, ptr readnone captures(none) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #12 {
 entry:
   store i1 true, ptr @custom_ext_error, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_0_srv_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_srv_parse_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %in, i64 %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #12 {
 entry:
   store i1 true, ptr @custom_ext_error, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @custom_ext_1_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_1_srv_add_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %out, ptr readnone captures(none) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #10 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_1_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_1_srv_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1001
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3187,7 +3187,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @custom_ext_2_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_2_srv_add_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #9 {
 entry:
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
@@ -3195,7 +3195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_2_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_2_srv_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1002
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3220,7 +3220,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @custom_ext_3_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_3_srv_add_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #9 {
 entry:
   store ptr @custom_ext_srv_string, ptr %out, align 8
   store i64 4, ptr %outlen, align 8
@@ -3228,7 +3228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_3_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_3_srv_parse_cb(ptr readnone captures(none) %s, i32 noundef %ext_type, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %al, ptr readnone captures(none) %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1003
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3255,7 +3255,7 @@ if.end6:                                          ; preds = %if.then5, %2
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @cb_server_alpn(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %arg) #8 {
+define internal range(i32 0, 4) i32 @cb_server_alpn(ptr readnone captures(none) %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %arg) #8 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arg) #25
   %cmp.i = icmp ugt i64 %call.i, 65534
@@ -3313,7 +3313,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.end1
 
 if.then:                                          ; preds = %if.then12.i, %entry, %if.end.i
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.217, ptr noundef %arg) #23
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.217, ptr noundef nonnull %arg) #23
   tail call void @abort() #24
   unreachable
 
@@ -3354,7 +3354,7 @@ return:                                           ; preds = %if.end, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @next_protos_parse(ptr nocapture noundef nonnull writeonly %outlen, ptr nocapture noundef readonly %in) unnamed_addr #8 {
+define internal fastcc ptr @next_protos_parse(ptr noundef nonnull writeonly captures(none) %outlen, ptr noundef readonly captures(none) %in) unnamed_addr #8 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #25
   %cmp = icmp ugt i64 %call, 65534
@@ -3463,7 +3463,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @servername_cb(ptr noundef %s, ptr nocapture readnone %ad, ptr nocapture readnone %arg) #8 {
+define internal range(i32 0, 4) i32 @servername_cb(ptr noundef %s, ptr readnone captures(none) %ad, ptr readnone captures(none) %arg) #8 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #22
   %0 = load ptr, ptr @sn_server2, align 8
@@ -3628,14 +3628,14 @@ for.cond:                                         ; preds = %if.end276, %if.end3
   %c_write.0 = phi i32 [ 1, %if.end31 ], [ %c_write.2, %if.end276 ]
   %s_write.0 = phi i32 [ 0, %if.end31 ], [ %s_write.3, %if.end276 ]
   %max_frag.0 = phi i32 [ 5120, %if.end31 ], [ %max_frag.2, %if.end276 ]
-  %call35 = tail call i64 @BIO_ctrl(ptr noundef %call17, i32 noundef 10, i64 noundef 0, ptr noundef null) #22
+  %call35 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call17, i32 noundef 10, i64 noundef 0, ptr noundef null) #22
   %2 = and i64 %call35, 4294967295
   %tobool37 = icmp ne i64 %2, 0
   %tobool38 = icmp ne i32 %s_r.0, 0
   %or.cond2 = select i1 %tobool37, i1 %tobool38, i1 false
   %tobool40 = icmp ne i32 %s_w.0, 0
   %or.cond3 = select i1 %or.cond2, i1 true, i1 %tobool40
-  %call43 = tail call i64 @BIO_ctrl(ptr noundef %call15, i32 noundef 10, i64 noundef 0, ptr noundef null) #22
+  %call43 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call15, i32 noundef 10, i64 noundef 0, ptr noundef null) #22
   %3 = and i64 %call43, 4294967295
   %tobool45 = icmp ne i64 %3, 0
   %tobool47 = icmp ne i32 %c_r.0, 0
@@ -3695,20 +3695,20 @@ if.then83:                                        ; preds = %if.end79
 if.then85:                                        ; preds = %if.then83
   %cond93.v = tail call i64 @llvm.smin.i64(i64 %cw_num.0, i64 %cond)
   %cond93 = trunc i64 %cond93.v to i32
-  %call94 = tail call i32 @BIO_write(ptr noundef %call15, ptr noundef nonnull %call, i32 noundef %cond93) #22
+  %call94 = tail call i32 @BIO_write(ptr noundef nonnull %call15, ptr noundef nonnull %call, i32 noundef %cond93) #22
   %cmp95 = icmp slt i32 %call94, 0
   br i1 %cmp95, label %if.then97, label %if.else111
 
 if.then97:                                        ; preds = %if.then85
-  %call98 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 8) #22
+  %call98 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 8) #22
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %if.else, label %if.then100
 
 if.then100:                                       ; preds = %if.then97
-  %call101 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 1) #22
+  %call101 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 1) #22
   %tobool102.not = icmp ne i32 %call101, 0
   %spec.select = zext i1 %tobool102.not to i32
-  %call105 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 2) #22
+  %call105 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 2) #22
   %tobool106.not = icmp ne i32 %call105, 0
   %spec.select130 = zext i1 %tobool106.not to i32
   br label %if.end174
@@ -3750,20 +3750,20 @@ if.then124:                                       ; preds = %if.end120
   br label %if.end174
 
 if.else131:                                       ; preds = %if.then83
-  %call133 = tail call i32 @BIO_read(ptr noundef %call15, ptr noundef nonnull %call, i32 noundef %conv132) #22
+  %call133 = tail call i32 @BIO_read(ptr noundef nonnull %call15, ptr noundef nonnull %call, i32 noundef %conv132) #22
   %cmp134 = icmp slt i32 %call133, 0
   br i1 %cmp134, label %if.then136, label %if.else151
 
 if.then136:                                       ; preds = %if.else131
-  %call137 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 8) #22
+  %call137 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 8) #22
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %if.else148, label %if.then139
 
 if.then139:                                       ; preds = %if.then136
-  %call140 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 1) #22
+  %call140 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 1) #22
   %tobool141.not = icmp ne i32 %call140, 0
   %spec.select119 = zext i1 %tobool141.not to i32
-  %call144 = tail call i32 @BIO_test_flags(ptr noundef %call15, i32 noundef 2) #22
+  %call144 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call15, i32 noundef 2) #22
   %tobool145.not = icmp ne i32 %call144, 0
   %spec.select131 = zext i1 %tobool145.not to i32
   br label %if.end174
@@ -3821,20 +3821,20 @@ if.then179:                                       ; preds = %if.end174
   br i1 %tobool180.not, label %if.then181, label %if.else223
 
 if.then181:                                       ; preds = %if.then179
-  %call183 = tail call i32 @BIO_read(ptr noundef %call17, ptr noundef nonnull %call2, i32 noundef %conv132) #22
+  %call183 = tail call i32 @BIO_read(ptr noundef nonnull %call17, ptr noundef nonnull %call2, i32 noundef %conv132) #22
   %cmp184 = icmp slt i32 %call183, 0
   br i1 %cmp184, label %if.then186, label %if.else201
 
 if.then186:                                       ; preds = %if.then181
-  %call187 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 8) #22
+  %call187 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 8) #22
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %if.else198, label %if.then189
 
 if.then189:                                       ; preds = %if.then186
-  %call190 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 1) #22
+  %call190 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 1) #22
   %tobool191.not = icmp ne i32 %call190, 0
   %spec.select123 = zext i1 %tobool191.not to i32
-  %call194 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 2) #22
+  %call194 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 2) #22
   %tobool195.not = icmp ne i32 %call194, 0
   %spec.select132 = zext i1 %tobool195.not to i32
   br label %if.end276
@@ -3880,20 +3880,20 @@ if.then219:                                       ; preds = %if.end210
 if.else223:                                       ; preds = %if.then179
   %cond231.v = tail call i64 @llvm.smin.i64(i64 %sw_num.0, i64 %cond)
   %cond231 = trunc i64 %cond231.v to i32
-  %call232 = tail call i32 @BIO_write(ptr noundef %call17, ptr noundef nonnull %call2, i32 noundef %cond231) #22
+  %call232 = tail call i32 @BIO_write(ptr noundef nonnull %call17, ptr noundef nonnull %call2, i32 noundef %cond231) #22
   %cmp233 = icmp slt i32 %call232, 0
   br i1 %cmp233, label %if.then235, label %if.else250
 
 if.then235:                                       ; preds = %if.else223
-  %call236 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 8) #22
+  %call236 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 8) #22
   %tobool237.not = icmp eq i32 %call236, 0
   br i1 %tobool237.not, label %if.else247, label %if.then238
 
 if.then238:                                       ; preds = %if.then235
-  %call239 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 1) #22
+  %call239 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 1) #22
   %tobool240.not = icmp ne i32 %call239, 0
   %spec.select126 = zext i1 %tobool240.not to i32
-  %call243 = tail call i32 @BIO_test_flags(ptr noundef %call17, i32 noundef 2) #22
+  %call243 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call17, i32 noundef 2) #22
   %tobool244.not = icmp ne i32 %call243, 0
   %spec.select133 = zext i1 %tobool244.not to i32
   br label %if.end276
@@ -4034,7 +4034,7 @@ if.end326:                                        ; preds = %err, %land.lhs.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @doit_biopair(ptr noundef %s_ssl, ptr noundef %c_ssl, i64 noundef %count, ptr nocapture noundef %s_time, ptr nocapture noundef %c_time) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @doit_biopair(ptr noundef %s_ssl, ptr noundef %c_ssl, i64 noundef %count, ptr noundef captures(none) %s_time, ptr noundef captures(none) %c_time) local_unnamed_addr #8 {
 entry:
   %server = alloca ptr, align 8
   %server_io = alloca ptr, align 8
@@ -4107,12 +4107,12 @@ if.end26:                                         ; preds = %if.then19, %if.then
 if.then27:                                        ; preds = %if.end26
   %i.0127 = call i64 @llvm.umin.i64(i64 %cw_num.0, i64 8192)
   %i.0 = trunc nuw nsw i64 %i.0127 to i32
-  %call32 = call i32 @BIO_write(ptr noundef %call11, ptr noundef nonnull %cbuf, i32 noundef %i.0) #22
+  %call32 = call i32 @BIO_write(ptr noundef nonnull %call11, ptr noundef nonnull %cbuf, i32 noundef %i.0) #22
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %if.then35, label %if.else41
 
 if.then35:                                        ; preds = %if.then27
-  %call36 = call i32 @BIO_test_flags(ptr noundef %call11, i32 noundef 8) #22
+  %call36 = call i32 @BIO_test_flags(ptr noundef nonnull %call11, i32 noundef 8) #22
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %if.end54
 
@@ -4149,12 +4149,12 @@ if.end54:                                         ; preds = %if.end50, %if.then3
   br i1 %cmp55, label %if.then57, label %if.end82
 
 if.then57:                                        ; preds = %if.end54
-  %call59 = call i32 @BIO_read(ptr noundef %call11, ptr noundef nonnull %cbuf, i32 noundef 8192) #22
+  %call59 = call i32 @BIO_read(ptr noundef nonnull %call11, ptr noundef nonnull %cbuf, i32 noundef 8192) #22
   %cmp60 = icmp slt i32 %call59, 0
   br i1 %cmp60, label %if.then62, label %if.else68
 
 if.then62:                                        ; preds = %if.then57
-  %call63 = call i32 @BIO_test_flags(ptr noundef %call11, i32 noundef 8) #22
+  %call63 = call i32 @BIO_test_flags(ptr noundef nonnull %call11, i32 noundef 8) #22
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.then65, label %if.end82
 
@@ -4214,12 +4214,12 @@ if.end97:                                         ; preds = %if.then90, %if.then
 if.then100:                                       ; preds = %if.end97
   %i85.0128 = call i64 @llvm.umin.i64(i64 %sw_num.0, i64 8192)
   %i85.0 = trunc nuw nsw i64 %i85.0128 to i32
-  %call108 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull %sbuf, i32 noundef %i85.0) #22
+  %call108 = call i32 @BIO_write(ptr noundef nonnull %call6, ptr noundef nonnull %sbuf, i32 noundef %i85.0) #22
   %cmp109 = icmp slt i32 %call108, 0
   br i1 %cmp109, label %if.then111, label %if.else117
 
 if.then111:                                       ; preds = %if.then100
-  %call112 = call i32 @BIO_test_flags(ptr noundef %call6, i32 noundef 8) #22
+  %call112 = call i32 @BIO_test_flags(ptr noundef nonnull %call6, i32 noundef 8) #22
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %if.then114, label %if.end131
 
@@ -4256,12 +4256,12 @@ if.end131:                                        ; preds = %if.end126, %if.then
   br i1 %cmp132, label %if.then134, label %if.end159
 
 if.then134:                                       ; preds = %if.end131
-  %call136 = call i32 @BIO_read(ptr noundef %call6, ptr noundef nonnull %sbuf, i32 noundef 8192) #22
+  %call136 = call i32 @BIO_read(ptr noundef nonnull %call6, ptr noundef nonnull %sbuf, i32 noundef 8192) #22
   %cmp137 = icmp slt i32 %call136, 0
   br i1 %cmp137, label %if.then139, label %if.else145
 
 if.then139:                                       ; preds = %if.then134
-  %call140 = call i32 @BIO_test_flags(ptr noundef %call6, i32 noundef 8) #22
+  %call140 = call i32 @BIO_test_flags(ptr noundef nonnull %call6, i32 noundef 8) #22
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %if.then142, label %if.end159
 
@@ -4522,7 +4522,7 @@ if.end334:                                        ; preds = %err, %land.lhs.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @doit_localhost(ptr noundef %s_ssl, ptr noundef %c_ssl, i32 noundef %family, i64 noundef %count, ptr nocapture noundef %s_time, ptr nocapture noundef %c_time) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @doit_localhost(ptr noundef %s_ssl, ptr noundef %c_ssl, i32 noundef %family, i64 noundef %count, ptr noundef captures(none) %s_time, ptr noundef captures(none) %c_time) local_unnamed_addr #8 {
 entry:
   %addr_str = alloca [40 x i8], align 16
   %cbuf = alloca [8192 x i8], align 16
@@ -4564,12 +4564,12 @@ while.body:                                       ; preds = %if.end18, %if.end47
   br i1 %tobool23.not95, label %if.then26, label %if.end35
 
 if.then26:                                        ; preds = %while.body
-  %call27 = call i64 @BIO_ctrl(ptr noundef %call11, i32 noundef 101, i64 noundef 0, ptr noundef null) #22
+  %call27 = call i64 @BIO_ctrl(ptr noundef nonnull %call11, i32 noundef 101, i64 noundef 0, ptr noundef null) #22
   %cmp28 = icmp slt i64 %call27, 1
   br i1 %cmp28, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %if.then26
-  %call30 = call i32 @BIO_test_flags(ptr noundef %call11, i32 noundef 8) #22
+  %call30 = call i32 @BIO_test_flags(ptr noundef nonnull %call11, i32 noundef 8) #22
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end35
 
@@ -4608,7 +4608,7 @@ if.end53:                                         ; preds = %while.end
 
 if.end58:                                         ; preds = %if.end53
   call void @SSL_set_connect_state(ptr noundef %c_ssl) #22
-  call void @SSL_set_bio(ptr noundef %c_ssl, ptr noundef %call11, ptr noundef %call11) #22
+  call void @SSL_set_bio(ptr noundef %c_ssl, ptr noundef nonnull %call11, ptr noundef nonnull %call11) #22
   %call59 = call i64 @BIO_ctrl(ptr noundef nonnull %call55, i32 noundef 109, i64 noundef 0, ptr noundef %c_ssl) #22
   call void @SSL_set_accept_state(ptr noundef %s_ssl) #22
   call void @SSL_set_bio(ptr noundef %s_ssl, ptr noundef %call48, ptr noundef %call48) #22
@@ -4934,7 +4934,7 @@ if.end273:                                        ; preds = %err, %land.lhs.true
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @protocol_from_string(ptr nocapture noundef nonnull readonly %value) unnamed_addr #15 {
+define internal fastcc i32 @protocol_from_string(ptr noundef nonnull readonly captures(none) %value) unnamed_addr #15 {
 entry:
   br label %for.body
 
@@ -5110,7 +5110,7 @@ declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #2
 declare i64 @clock() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #2
 
@@ -5569,13 +5569,13 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -5584,10 +5584,10 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [36 x i8] c"01\0A02\0A03\0A04\0A05\0A06\0A07\0A08\0A09\0A10\0A11\0A12\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @my_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #2
   tail call void @lv_obj_move_to_index(ptr noundef %1, i32 noundef 0) #2
   tail call void @lv_obj_set_flex_flow(ptr noundef %1, i32 noundef 0) #2

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [5 x i8] c"type\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_debug_scope_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_debug_scope_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -95,7 +95,7 @@ define dso_local void @llvm_debug_scope_push(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @llvm_debug_scope_pop(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @llvm_debug_scope_pop(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -106,7 +106,7 @@ define dso_local void @llvm_debug_scope_pop(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @llvm_debug_current_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @llvm_debug_current_scope(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -157,7 +157,7 @@ define dso_local void @llvm_emit_debug_global_var(ptr noundef %0, ptr noundef %1
   %19 = tail call ptr @LLVMDIBuilderCreateExpression(ptr noundef %18, ptr noundef null, i64 noundef 0) #8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i32, ptr %20, align 8
-  %22 = tail call ptr @LLVMDIBuilderCreateGlobalVariableExpression(ptr noundef %4, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %10, i64 noundef %11, ptr noundef %6, i32 noundef %12, ptr noundef %15, i32 noundef %17, ptr noundef %19, ptr noundef null, i32 noundef %21) #8
+  %22 = tail call ptr @LLVMDIBuilderCreateGlobalVariableExpression(ptr noundef %4, ptr noundef %6, ptr noundef nonnull %7, i64 noundef %8, ptr noundef nonnull %10, i64 noundef %11, ptr noundef %6, i32 noundef %12, ptr noundef %15, i32 noundef %17, ptr noundef %19, ptr noundef null, i32 noundef %21) #8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %22, ptr %23, align 8
   %24 = tail call ptr @llvm_get_ref(ptr noundef %0, ptr noundef nonnull %1) #8
@@ -167,15 +167,15 @@ define dso_local void @llvm_emit_debug_global_var(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @LLVMDIBuilderCreateGlobalVariableExpression(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_debug_type(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_debug_type(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -191,7 +191,7 @@ declare void @LLVMGlobalSetMetadata(ptr noundef, i32 noundef, ptr noundef) local
 declare ptr @llvm_get_ref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_function(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_function(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -224,7 +224,7 @@ define dso_local void @llvm_emit_debug_function(ptr nocapture noundef %0, ptr no
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 184), align 8
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
-  %29 = tail call ptr @LLVMDIBuilderCreateFunction(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %22, i64 noundef %23, ptr noundef %18, i32 noundef %spec.store.select, ptr noundef %15, i32 noundef %25, i32 noundef 1, i32 noundef %spec.store.select, i32 noundef %spec.select, i32 noundef %28) #8
+  %29 = tail call ptr @LLVMDIBuilderCreateFunction(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %19, i64 noundef %20, ptr noundef nonnull %22, i64 noundef %23, ptr noundef %18, i32 noundef %spec.store.select, ptr noundef %15, i32 noundef %25, i32 noundef 1, i32 noundef %spec.store.select, i32 noundef %spec.select, i32 noundef %28) #8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -241,7 +241,7 @@ declare ptr @LLVMDIBuilderCreateFunction(ptr noundef, ptr noundef, ptr noundef, 
 declare void @LLVMSetSubprogram(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_local_var(ptr nocapture noundef %0, ptr nocapture noundef initializes((96, 104)) %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_local_var(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((96, 104)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -374,7 +374,7 @@ llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_location(ptr nocapture noundef %0, i64 %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_location(ptr noundef captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %.sroa.4.0.extract.shift = lshr i64 %1, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -447,7 +447,7 @@ declare ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef, i32 noundef, i32 noun
 declare ptr @LLVMGetInsertBlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_parameter(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((96, 104)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_parameter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((96, 104)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   %spec.select = select i1 %.not, ptr @.str.1, ptr %4
@@ -616,7 +616,7 @@ declare ptr @llvm_get_debug_file(ptr noundef, i16 noundef zeroext) local_unnamed
 declare ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_get_debug_type_internal(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @llvm_get_debug_type_internal(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -740,7 +740,7 @@ common.ret74:                                     ; preds = %13, %3, %69, %67, %
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
   %44 = zext nneg i32 %43 to i64
-  %45 = tail call ptr @LLVMDIBuilderCreateBasicType(ptr noundef %.val72, ptr noundef %39, i64 noundef %40, i64 noundef %44, i32 noundef 4, i32 noundef 0) #8
+  %45 = tail call ptr @LLVMDIBuilderCreateBasicType(ptr noundef %.val72, ptr noundef nonnull %39, i64 noundef %40, i64 noundef %44, i32 noundef 4, i32 noundef 0) #8
   store ptr %45, ptr %4, align 8
   br label %common.ret74
 
@@ -817,7 +817,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #4
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -951,7 +951,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef initializes((48, 56)) %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr noundef captures(none) initializes((48, 56)) %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
@@ -959,14 +959,14 @@ define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture 
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = tail call ptr @LLVMDIBuilderCreateBasicType(ptr noundef %.304.val, ptr noundef %4, i64 noundef %5, i64 noundef %9, i32 noundef %1, i32 noundef 0) #8
+  %10 = tail call ptr @LLVMDIBuilderCreateBasicType(ptr noundef %.304.val, ptr noundef nonnull %4, i64 noundef %5, i64 noundef %9, i32 noundef %1, i32 noundef 0) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %10, ptr %11, align 8
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_vector_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_vector_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -1076,7 +1076,7 @@ define internal fastcc ptr @llvm_debug_vector_type(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr nocapture noundef writeonly initializes((48, 56)) %0) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr noundef writeonly captures(none) initializes((48, 56)) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_voidptr, align 8
   %3 = tail call i32 @type_size(ptr noundef %2) #8
   %4 = shl i32 %3, 3
@@ -1088,7 +1088,7 @@ define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_pointer_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_pointer_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -1110,7 +1110,7 @@ define internal fastcc ptr @llvm_debug_pointer_type(ptr nocapture noundef readon
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9
-  %21 = tail call ptr @LLVMDIBuilderCreatePointerType(ptr noundef %12, ptr noundef %7, i64 noundef %15, i32 noundef %17, i32 noundef 0, ptr noundef %19, i64 noundef %20) #8
+  %21 = tail call ptr @LLVMDIBuilderCreatePointerType(ptr noundef %12, ptr noundef %7, i64 noundef %15, i32 noundef %17, i32 noundef 0, ptr noundef nonnull %19, i64 noundef %20) #8
   br label %22
 
 22:                                               ; preds = %2, %10
@@ -1119,7 +1119,7 @@ define internal fastcc ptr @llvm_debug_pointer_type(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @llvm_debug_enum_type(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1147,7 +1147,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %26 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
   %27 = shl i32 %26, 3
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
-  %29 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %12, i32 noundef %13, ptr noundef %16, i64 noundef %17, ptr noundef %2, ptr noundef %19, i32 noundef %spec.store.select.i, i32 noundef %22, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef %7, i64 noundef %28) #8
+  %29 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %12, i32 noundef %13, ptr noundef nonnull %16, i64 noundef %17, ptr noundef %2, ptr noundef %19, i32 noundef %spec.store.select.i, i32 noundef %22, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef nonnull %7, i64 noundef %28) #8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -1186,7 +1186,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %50 = load ptr, ptr %11, align 8
   %51 = load ptr, ptr %46, align 8
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
-  %53 = tail call ptr @LLVMDIBuilderCreateEnumerator(ptr noundef %50, ptr noundef %51, i64 noundef %52, i64 noundef %49, i32 noundef %41) #8
+  %53 = tail call ptr @LLVMDIBuilderCreateEnumerator(ptr noundef %50, ptr noundef nonnull %51, i64 noundef %52, i64 noundef %49, i32 noundef %41) #8
   %.not.i = icmp eq ptr %.06069, null
   br i1 %.not.i, label %54, label %57
 
@@ -1268,13 +1268,13 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %98 = tail call i32 @llvm.umax.i32(i32 %83, i32 1)
   %99 = load ptr, ptr %18, align 8
   %100 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef %99)
-  %101 = tail call ptr @LLVMDIBuilderCreateEnumerationType(ptr noundef %84, ptr noundef %2, ptr noundef %86, i64 noundef %87, ptr noundef %88, i32 noundef %98, i64 noundef %97, i32 noundef %95, ptr noundef %.060.lcssa, i32 noundef %.059, ptr noundef %100) #8
+  %101 = tail call ptr @LLVMDIBuilderCreateEnumerationType(ptr noundef %84, ptr noundef %2, ptr noundef nonnull %86, i64 noundef %87, ptr noundef %88, i32 noundef %98, i64 noundef %97, i32 noundef %95, ptr noundef %.060.lcssa, i32 noundef %.059, ptr noundef %100) #8
   tail call void @LLVMMetadataReplaceAllUsesWith(ptr noundef %29, ptr noundef %101) #8
   ret ptr %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_func_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_func_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @type_get_resolved_prototype(ptr noundef %1) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1703,7 +1703,7 @@ expand_.exit138:                                  ; preds = %191, %195
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_structlike_type(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1732,7 +1732,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   %27 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
   %28 = shl i32 %27, 3
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
-  %30 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %13, i32 noundef %14, ptr noundef %17, i64 noundef %18, ptr noundef %2, ptr noundef %20, i32 noundef %spec.store.select.i, i32 noundef %23, i64 noundef %26, i32 noundef %28, i32 noundef 0, ptr noundef %7, i64 noundef %29) #8
+  %30 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %13, i32 noundef %14, ptr noundef nonnull %17, i64 noundef %18, ptr noundef %2, ptr noundef %20, i32 noundef %spec.store.select.i, i32 noundef %23, i64 noundef %26, i32 noundef %28, i32 noundef 0, ptr noundef nonnull %7, i64 noundef %29) #8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -1884,7 +1884,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
 .thread:                                          ; preds = %108, %114
   %117 = phi ptr [ %115, %114 ], [ @.str.7, %108 ]
   %118 = phi i64 [ %116, %114 ], [ 0, %108 ]
-  %119 = tail call ptr @LLVMDIBuilderCreateUnionType(ptr noundef %91, ptr noundef %2, ptr noundef nonnull %spec.select97, i64 noundef %97, ptr noundef %98, i32 noundef %99, i64 noundef %102, i32 noundef %104, i32 noundef 0, ptr noundef %.079.lcssa, i32 noundef %.076, i32 noundef %111, ptr noundef %117, i64 noundef %118) #8
+  %119 = tail call ptr @LLVMDIBuilderCreateUnionType(ptr noundef %91, ptr noundef %2, ptr noundef nonnull %spec.select97, i64 noundef %97, ptr noundef %98, i32 noundef %99, i64 noundef %102, i32 noundef %104, i32 noundef 0, ptr noundef %.079.lcssa, i32 noundef %.076, i32 noundef %111, ptr noundef nonnull %117, i64 noundef %118) #8
   tail call void @LLVMMetadataReplaceAllUsesWith(ptr noundef %30, ptr noundef %119) #8
   br label %130
 
@@ -1918,7 +1918,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_typedef_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_typedef_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1935,7 +1935,7 @@ define internal fastcc ptr @llvm_debug_typedef_type(ptr nocapture noundef readon
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
-  %16 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %7, ptr noundef %12, ptr noundef %14, i64 noundef %15, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
+  %16 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %7, ptr noundef %12, ptr noundef nonnull %14, i64 noundef %15, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   br label %70
 
 17:                                               ; preds = %2
@@ -1983,7 +1983,7 @@ define internal fastcc ptr @llvm_debug_typedef_type(ptr nocapture noundef readon
   %48 = tail call i32 @type_abi_alignment(ptr noundef nonnull %1) #8
   %49 = shl i32 %48, 3
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
-  %51 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %36, i32 noundef %37, ptr noundef %31, i64 noundef %39, ptr noundef null, ptr noundef %41, i32 noundef %spec.store.select.i, i32 noundef %44, i64 noundef %47, i32 noundef %49, i32 noundef 0, ptr noundef %31, i64 noundef %50) #8
+  %51 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %36, i32 noundef %37, ptr noundef nonnull %31, i64 noundef %39, ptr noundef null, ptr noundef %41, i32 noundef %spec.store.select.i, i32 noundef %44, i64 noundef %47, i32 noundef %49, i32 noundef 0, ptr noundef nonnull %31, i64 noundef %50) #8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %51, ptr %52, align 8
   br label %53
@@ -2001,7 +2001,7 @@ define internal fastcc ptr @llvm_debug_typedef_type(ptr nocapture noundef readon
   %63 = load ptr, ptr %58, align 8
   %64 = tail call i32 @llvm.umax.i32(i32 %55, i32 1)
   %65 = tail call i32 @type_abi_alignment(ptr noundef nonnull %1) #8
-  %66 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %57, ptr noundef %60, ptr noundef %61, i64 noundef %62, ptr noundef %63, i32 noundef %64, ptr noundef %63, i32 noundef %65) #8
+  %66 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %57, ptr noundef %60, ptr noundef nonnull %61, i64 noundef %62, ptr noundef %63, i32 noundef %64, ptr noundef %63, i32 noundef %65) #8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %68 = load ptr, ptr %67, align 8
   %.not37 = icmp eq ptr %68, null
@@ -2018,7 +2018,7 @@ define internal fastcc ptr @llvm_debug_typedef_type(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_array_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %4
 
@@ -2124,7 +2124,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   %67 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
   %68 = shl i32 %67, 3
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #9
-  %70 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %55, i32 noundef %56, ptr noundef %53, i64 noundef %58, ptr noundef null, ptr noundef %60, i32 noundef 0, i32 noundef %63, i64 noundef %66, i32 noundef %68, i32 noundef 0, ptr noundef %53, i64 noundef %69) #8
+  %70 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %55, i32 noundef %56, ptr noundef nonnull %53, i64 noundef %58, ptr noundef null, ptr noundef %60, i32 noundef 0, i32 noundef %63, i64 noundef %66, i32 noundef %68, i32 noundef 0, ptr noundef nonnull %53, i64 noundef %69) #8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %70, ptr %71, align 8
   br label %72
@@ -2164,7 +2164,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_subarray_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_subarray_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2186,7 +2186,7 @@ define internal fastcc ptr @llvm_debug_subarray_type(ptr nocapture noundef reado
   %20 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
   %21 = shl i32 %20, 3
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
-  %23 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %8, i32 noundef %9, ptr noundef %5, i64 noundef %11, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef %16, i64 noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef %5, i64 noundef %22) #8
+  %23 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %8, i32 noundef %9, ptr noundef nonnull %5, i64 noundef %11, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef %16, i64 noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef nonnull %5, i64 noundef %22) #8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2222,7 +2222,7 @@ define internal fastcc ptr @llvm_debug_subarray_type(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_errunion_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_errunion_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @type_iptr, align 8
@@ -2234,12 +2234,12 @@ define internal fastcc ptr @llvm_debug_errunion_type(ptr nocapture noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #9
-  %14 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %4, ptr noundef %10, ptr noundef %12, i64 noundef %13, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
+  %14 = tail call ptr @LLVMDIBuilderCreateTypedef(ptr noundef %4, ptr noundef %10, ptr noundef nonnull %12, i64 noundef %13, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_any_type(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_any_type(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2261,7 +2261,7 @@ define internal fastcc ptr @llvm_debug_any_type(ptr nocapture noundef readonly %
   %20 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
   %21 = shl i32 %20, 3
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
-  %23 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %8, i32 noundef %9, ptr noundef %5, i64 noundef %11, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef %16, i64 noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef %5, i64 noundef %22) #8
+  %23 = tail call ptr @LLVMDIBuilderCreateReplaceableCompositeType(ptr noundef %8, i32 noundef %9, ptr noundef nonnull %5, i64 noundef %11, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef %16, i64 noundef %19, i32 noundef %21, i32 noundef 0, ptr noundef nonnull %5, i64 noundef %22) #8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr @type_voidptr, align 8
@@ -2333,7 +2333,7 @@ declare ptr @LLVMDIBuilderCreateSubroutineType(ptr noundef, ptr noundef, ptr nou
 declare ptr @LLVMDIBuilderCreateUnionType(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_get_debug_struct(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @llvm_get_debug_struct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %char0 = load i8, ptr %2, align 1
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %8
@@ -2373,7 +2373,7 @@ define internal fastcc ptr @llvm_get_debug_struct(ptr nocapture noundef readonly
   %29 = and i16 %28, 255
   %30 = zext nneg i16 %29 to i32
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
-  %32 = tail call ptr @LLVMDIBuilderCreateStructType(ptr noundef %16, ptr noundef %6, ptr noundef %21, i64 noundef %22, ptr noundef %.0, i32 noundef %.024, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %2, i64 noundef %31) #8
+  %32 = tail call ptr @LLVMDIBuilderCreateStructType(ptr noundef %16, ptr noundef %6, ptr noundef nonnull %21, i64 noundef %22, ptr noundef %.0, i32 noundef %.024, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %2, i64 noundef %31) #8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null

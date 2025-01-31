@@ -282,7 +282,7 @@ define dso_local ptr @type_quoted_error_string(ptr noundef readonly %0) local_un
 declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_to_error_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @type_to_error_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.pre = load i32, ptr %0, align 8
   br label %tailrecurse
 
@@ -482,7 +482,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #2
 declare ptr @scratch_buffer_copy() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @type_append_func_to_scratch(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @type_append_func_to_scratch(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %3)
@@ -536,7 +536,7 @@ define internal fastcc void @type_append_func_to_scratch(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @type_is_matching_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local zeroext i1 @type_is_matching_int(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -572,7 +572,7 @@ define dso_local zeroext i1 @type_is_matching_int(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_size(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @type_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @type_iptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %4
@@ -755,7 +755,7 @@ common.ret82:                                     ; preds = %18, %26, %84, %71, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @type_get_resolved_prototype(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @type_get_resolved_prototype(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 8
@@ -774,7 +774,7 @@ define dso_local noundef ptr @type_get_resolved_prototype(ptr nocapture noundef 
 declare void @c_abi_func_create(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_flat_is_numlike(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_flat_is_numlike(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -824,7 +824,7 @@ define dso_local zeroext i1 @type_flat_is_numlike(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_flat_is_floatlike(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_flat_is_floatlike(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -874,7 +874,7 @@ define dso_local zeroext i1 @type_flat_is_floatlike(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_flat_is_intlike(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_flat_is_intlike(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -924,7 +924,7 @@ define dso_local zeroext i1 @type_flat_is_intlike(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_flat_is_boolintlike(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_flat_is_boolintlike(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -974,7 +974,7 @@ define dso_local zeroext i1 @type_flat_is_boolintlike(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @type_is_int128(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @type_is_int128(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -985,7 +985,7 @@ define dso_local zeroext i1 @type_is_int128(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @type_is_abi_aggregate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @type_is_abi_aggregate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -1072,7 +1072,7 @@ define dso_local noundef zeroext i1 @type_is_abi_aggregate(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @type_find_largest_union_element(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1118,7 +1118,7 @@ define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @type_is_ordered(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @type_is_ordered(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -1169,7 +1169,7 @@ define dso_local noundef zeroext i1 @type_is_ordered(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @type_is_comparable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @type_is_comparable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -1268,7 +1268,7 @@ define dso_local noundef zeroext i1 @type_is_comparable(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @type_mangle_introspect_name_to_buffer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @type_mangle_introspect_name_to_buffer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -1535,10 +1535,10 @@ declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr 
 declare void @scratch_buffer_append_unsigned_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define dso_local noundef zeroext i1 @type_func_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ...) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @type_func_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ...) local_unnamed_addr #7 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -1651,7 +1651,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_abi_alignment(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -2605,7 +2605,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_is_structurally_equivalent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_is_structurally_equivalent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %16, %2
@@ -2844,7 +2844,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
@@ -2930,7 +2930,7 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @type_is_user_defined(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local zeroext i1 @type_is_user_defined(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %.off = add i32 %2, -24
   %switch = icmp ult i32 %.off, 9
@@ -2948,7 +2948,7 @@ define dso_local zeroext i1 @type_is_user_defined(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @type_get_indexed_type(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @type_get_indexed_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -3228,7 +3228,7 @@ create_type_cache.exit:                           ; preds = %35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @type_is_valid_for_vector(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @type_is_valid_for_vector(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -3282,7 +3282,7 @@ define dso_local noundef zeroext i1 @type_is_valid_for_vector(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @type_is_valid_for_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @type_is_valid_for_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -3369,7 +3369,7 @@ define dso_local noundef zeroext i1 @type_is_valid_for_array(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @type_get_vector_bool(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @type_get_vector_bool(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -3483,7 +3483,7 @@ define dso_local noundef ptr @type_new_func(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_get_func(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @type_get_func(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i16, ptr %3, align 1
   %5 = and i16 %4, 56
@@ -4097,7 +4097,7 @@ func_create_new_func_proto.exit:                  ; preds = %compare_func_param.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr @max_alignment_vector, align 4
@@ -4880,7 +4880,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @type_is_scalar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @type_is_scalar(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -4973,7 +4973,7 @@ define dso_local noundef zeroext i1 @type_is_scalar(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @type_find_parent_type(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local ptr @type_find_parent_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %26 [
     i32 32, label %3
@@ -5098,7 +5098,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_array_element_is_equivalent(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @type_array_element_is_equivalent(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br i1 %3, label %.preheader, label %31
 
 .preheader:                                       ; preds = %4, %17
@@ -5595,7 +5595,7 @@ type_is_subtype.exit:                             ; preds = %108, %105, %118, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 8
   %6 = load i32, ptr %1, align 8
   switch i32 %6, label %29 [
@@ -5742,7 +5742,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @type_may_have_sub_elements(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @type_may_have_sub_elements(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 31
   br i1 %3, label %4, label %8
@@ -5865,7 +5865,7 @@ define dso_local ptr @type_decay_array_pointer(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6738,7 +6738,7 @@ define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -6849,7 +6849,7 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @type_append_name_to_scratch(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @type_append_name_to_scratch(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -6985,7 +6985,7 @@ common.ret12:                                     ; preds = %29, %25, %18, %6, %
 declare void @scratch_buffer_append_signed_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @flatten_raw_function_type(ptr noundef readonly %0) unnamed_addr #0 {
@@ -7095,7 +7095,7 @@ declare ptr @scratch_buffer_interned() local_unnamed_addr #2
 declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

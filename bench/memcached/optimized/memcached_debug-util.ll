@@ -62,10 +62,10 @@ for.end:                                          ; preds = %for.inc
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @uriencode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %srclen, i64 noundef %dstlen) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(none) %dst, i64 noundef %srclen, i64 noundef %dstlen) local_unnamed_addr #3 {
 entry:
   %cmp17 = icmp eq i64 %srclen, 0
   br i1 %cmp17, label %for.end, label %for.body
@@ -114,10 +114,10 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 8)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -171,13 +171,13 @@ return:                                           ; preds = %if.end, %if.then15,
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 8)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 8)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -267,10 +267,10 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 4)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   store ptr null, ptr %endptr, align 8
@@ -323,10 +323,10 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 4)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -366,10 +366,10 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %str, ptr noundef writeonly captures(none) initializes((0, 8)) %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -408,10 +408,10 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @safe_strcpy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %dstmax) local_unnamed_addr #8 {
+define dso_local zeroext i1 @safe_strcpy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %dstmax) local_unnamed_addr #8 {
 entry:
   %sub = add i64 %dstmax, -1
   %cmp10.not = icmp eq i64 %sub, 0
@@ -471,7 +471,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define dso_local void @vperror(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #10 {
+define dso_local void @vperror(ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #10 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -495,10 +495,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define dso_local i64 @ntohll(i64 noundef %val) local_unnamed_addr #11 {

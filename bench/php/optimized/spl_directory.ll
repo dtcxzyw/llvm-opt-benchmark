@@ -300,7 +300,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.186 = private unnamed_addr constant [16 x i8] c"2 * 1024 * 1024\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @spl_filesystem_object_get_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @spl_filesystem_object_get_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -365,13 +365,13 @@ define ptr @spl_filesystem_object_get_path(ptr nocapture noundef readonly %0) lo
 declare ptr @_php_glob_stream_get_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DirectoryIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_object_construct(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4098) %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_object_construct(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4098) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.zend_error_handling, align 8
@@ -505,7 +505,7 @@ define internal fastcc void @spl_filesystem_object_construct(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DirectoryIterator_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -605,7 +605,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -647,7 +647,7 @@ define hidden void @zim_DirectoryIterator_key(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -689,7 +689,7 @@ define hidden void @zim_DirectoryIterator_current(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DirectoryIterator_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -336
@@ -894,7 +894,7 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_seek(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DirectoryIterator_seek(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -991,7 +991,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1033,7 +1033,7 @@ define hidden void @zim_DirectoryIterator_valid(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getPath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getPath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1132,7 +1132,7 @@ define hidden void @zim_SplFileInfo_getPath(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getFilename(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getFilename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1324,7 +1324,7 @@ define hidden void @zim_SplFileInfo_getFilename(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_getFilename(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_getFilename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1379,10 +1379,10 @@ define hidden void @zim_DirectoryIterator_getFilename(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getExtension(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1607,7 +1607,7 @@ define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly 
 declare ptr @php_basename(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_getExtension(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_getExtension(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1722,7 +1722,7 @@ define hidden void @zim_DirectoryIterator_getExtension(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getBasename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1883,7 +1883,7 @@ define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_getBasename(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_getBasename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1936,7 +1936,7 @@ define hidden void @zim_DirectoryIterator_getBasename(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getPathname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getPathname(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -2010,7 +2010,7 @@ spl_filesystem_object_get_pathname.exit.thread:   ; preds = %.critedge, %13, %sp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_FilesystemIterator_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -2225,7 +2225,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_object_get_file_name
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_FilesystemIterator_current(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -2709,7 +2709,7 @@ default.unreachable110:                           ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DirectoryIterator_isDot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DirectoryIterator_isDot(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2772,7 +2772,7 @@ spl_filesystem_is_dot.exit.thread:                ; preds = %.tail.i, %15, %spl_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileInfo___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2799,7 +2799,7 @@ define hidden void @zim_SplFileInfo___construct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_info_set_filename(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_info_set_filename(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2970,7 +2970,7 @@ define internal fastcc void @spl_filesystem_info_set_filename(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getPerms(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getPerms(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3018,7 +3018,7 @@ declare void @php_stat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @zend_restore_error_handling(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getInode(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getInode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3060,7 +3060,7 @@ define hidden void @zim_SplFileInfo_getInode(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getSize(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getSize(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3102,7 +3102,7 @@ define hidden void @zim_SplFileInfo_getSize(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getOwner(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getOwner(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3144,7 +3144,7 @@ define hidden void @zim_SplFileInfo_getOwner(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getGroup(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getGroup(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3186,7 +3186,7 @@ define hidden void @zim_SplFileInfo_getGroup(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getATime(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getATime(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3228,7 +3228,7 @@ define hidden void @zim_SplFileInfo_getATime(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getMTime(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getMTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3270,7 +3270,7 @@ define hidden void @zim_SplFileInfo_getMTime(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getCTime(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getCTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3312,7 +3312,7 @@ define hidden void @zim_SplFileInfo_getCTime(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3354,7 +3354,7 @@ define hidden void @zim_SplFileInfo_getType(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isWritable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isWritable(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3396,7 +3396,7 @@ define hidden void @zim_SplFileInfo_isWritable(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isReadable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isReadable(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3438,7 +3438,7 @@ define hidden void @zim_SplFileInfo_isReadable(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isExecutable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isExecutable(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3480,7 +3480,7 @@ define hidden void @zim_SplFileInfo_isExecutable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isFile(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isFile(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3522,7 +3522,7 @@ define hidden void @zim_SplFileInfo_isFile(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isDir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isDir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3564,7 +3564,7 @@ define hidden void @zim_SplFileInfo_isDir(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_isLink(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_isLink(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.zend_error_handling, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3606,7 +3606,7 @@ define hidden void @zim_SplFileInfo_isLink(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getLinkTarget(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getLinkTarget(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3722,7 +3722,7 @@ declare ptr @expand_filepath_with_mode(ptr noundef, ptr noundef, ptr noundef, i6
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
@@ -3731,7 +3731,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getRealPath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getRealPath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3829,7 +3829,7 @@ define hidden void @zim_SplFileInfo_getRealPath(ptr nocapture noundef readonly %
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_openFile(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_openFile(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -3840,7 +3840,7 @@ define hidden void @zim_SplFileInfo_openFile(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_setFileClass(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileInfo_setFileClass(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3869,7 +3869,7 @@ define hidden void @zim_SplFileInfo_setFileClass(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_setInfoClass(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileInfo_setInfoClass(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3898,7 +3898,7 @@ define hidden void @zim_SplFileInfo_setInfoClass(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getFileInfo(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileInfo_getFileInfo(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3929,7 +3929,7 @@ define hidden void @zim_SplFileInfo_getFileInfo(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo_getPathInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo_getPathInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4109,7 +4109,7 @@ spl_filesystem_object_get_pathname.exit.thread:   ; preds = %17, %20, %spl_files
 declare i64 @php_dirname(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileInfo___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -4892,7 +4892,7 @@ spl_filesystem_object_get_debug_info.exit:        ; preds = %270, %381, %385, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileInfo__bad_state_ex(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileInfo__bad_state_ex(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4914,13 +4914,13 @@ define hidden void @zim_SplFileInfo__bad_state_ex(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_FilesystemIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 4097)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_FilesystemIterator_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -336
@@ -5088,7 +5088,7 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_FilesystemIterator_getFlags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -5117,7 +5117,7 @@ define hidden void @zim_FilesystemIterator_getFlags(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FilesystemIterator_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_FilesystemIterator_setFlags(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -5304,7 +5304,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5448,10 +5448,10 @@ define hidden void @zim_RecursiveDirectoryIterator_getChildren(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveDirectoryIterator_getSubPath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_RecursiveDirectoryIterator_getSubPath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -5505,7 +5505,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getSubPath(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveDirectoryIterator_getSubPathname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_RecursiveDirectoryIterator_getSubPathname(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -5564,19 +5564,19 @@ define hidden void @zim_RecursiveDirectoryIterator_getSubPathname(ptr nocapture 
 declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveDirectoryIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_RecursiveDirectoryIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_GlobIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_GlobIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_GlobIterator_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_GlobIterator_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -5621,7 +5621,7 @@ define hidden void @zim_GlobIterator_count(ptr nocapture noundef readonly %0, pt
 declare i32 @_php_glob_stream_get_count(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.zend_error_handling, align 8
@@ -5726,7 +5726,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 %spec.select87, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 1 %41, i64 %spec.select87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %41, i64 %spec.select87, i1 false)
   %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %spec.select87
   store i8 0, ptr %62, align 1
   %63 = getelementptr inbounds i8, ptr %7, i64 -368
@@ -5738,7 +5738,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapture noundef initializes((40, 44)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr noundef captures(none) initializes((40, 44)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %4, align 8
@@ -5944,7 +5944,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapt
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i64 %108, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %115, ptr align 1 %107, i64 %108, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %115, ptr nonnull align 1 %107, i64 %108, i1 false)
   %116 = getelementptr inbounds [1 x i8], ptr %115, i64 0, i64 %108
   store i8 0, ptr %116, align 1
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5985,7 +5985,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplTempFileObject___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplTempFileObject___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.zend_error_handling, align 8
   store i64 2097152, ptr %3, align 8
@@ -6116,7 +6116,7 @@ define hidden void @zim_SplTempFileObject___construct(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6141,7 +6141,7 @@ define hidden void @zim_SplFileObject_rewind(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_file_rewind(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_file_rewind(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6205,7 +6205,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %19, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_eof(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_eof(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6247,7 +6247,7 @@ define hidden void @zim_SplFileObject_eof(ptr nocapture noundef readonly %0, ptr
 declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -6311,7 +6311,7 @@ define hidden void @zim_SplFileObject_valid(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fgets(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -6525,7 +6525,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %9, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -6641,7 +6641,7 @@ define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @spl_filesystem_file_read_line_ex(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -6726,7 +6726,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6754,7 +6754,7 @@ define hidden void @zim_SplFileObject_key(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
@@ -6816,7 +6816,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_setFlags(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -6837,7 +6837,7 @@ define hidden void @zim_SplFileObject_setFlags(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_getFlags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6866,7 +6866,7 @@ define hidden void @zim_SplFileObject_getFlags(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_setMaxLineLen(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_setMaxLineLen(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -6906,7 +6906,7 @@ define hidden void @zim_SplFileObject_setMaxLineLen(ptr nocapture noundef readon
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_getMaxLineLen(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_getMaxLineLen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6934,7 +6934,7 @@ define hidden void @zim_SplFileObject_getMaxLineLen(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_hasChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_hasChildren(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6957,7 +6957,7 @@ define hidden void @zim_SplFileObject_hasChildren(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_getChildren(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_getChildren(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6975,7 +6975,7 @@ define hidden void @zim_SplFileObject_getChildren(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileObject_fgetcsv(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7208,7 +7208,7 @@ is_line_empty.exit.thread42:                      ; preds = %13, %23, %is_line_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fputcsv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7343,7 +7343,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
 declare i64 @php_fputcsv(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_setCsvControl(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7455,7 +7455,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_getCsvControl(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileObject_getCsvControl(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca [2 x i8], align 1
   %5 = alloca [2 x i8], align 1
@@ -7516,7 +7516,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare i32 @add_next_index_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_flock(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileObject_flock(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7561,7 +7561,7 @@ define hidden void @zim_SplFileObject_flock(ptr nocapture noundef readonly %0, p
 declare void @php_flock_common(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fflush(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fflush(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7604,7 +7604,7 @@ define hidden void @zim_SplFileObject_fflush(ptr nocapture noundef readonly %0, 
 declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_ftell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_ftell(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7655,7 +7655,7 @@ define hidden void @zim_SplFileObject_ftell(ptr nocapture noundef readonly %0, p
 declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fseek(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fseek(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7726,7 +7726,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %24, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fgetc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fgetc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -7823,7 +7823,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %19, %23
 declare i32 @_php_stream_getc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fpassthru(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fpassthru(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7865,7 +7865,7 @@ define hidden void @zim_SplFileObject_fpassthru(ptr nocapture noundef readonly %
 declare i64 @_php_stream_passthru(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fscanf(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileObject_fscanf(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7937,7 +7937,7 @@ declare i32 @php_sscanf_internal(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare void @zend_wrong_param_count() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fwrite(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fwrite(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -8024,7 +8024,7 @@ thread-pre-split:                                 ; preds = %21
 declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fread(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_fread(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -8094,7 +8094,7 @@ define hidden void @zim_SplFileObject_fread(ptr nocapture noundef readonly %0, p
 declare ptr @php_stream_read_to_str(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fstat(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_SplFileObject_fstat(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8133,7 +8133,7 @@ define hidden void @zim_SplFileObject_fstat(ptr nocapture noundef readonly %0, p
 declare void @php_fstat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_ftruncate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject_ftruncate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -8197,7 +8197,7 @@ declare i32 @_php_stream_set_option(ptr noundef, i32 noundef, i32 noundef, ptr n
 declare i32 @_php_stream_truncate_set_size(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_seek(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplFileObject_seek(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -8300,7 +8300,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %.lr.ph, %26, %51, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplFileObject___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -9814,7 +9814,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %99, %95, %43, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_filesystem_dir_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal noundef ptr @spl_filesystem_dir_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -9849,7 +9849,7 @@ define internal noundef ptr @spl_filesystem_dir_get_iterator(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_filesystem_tree_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal noundef ptr @spl_filesystem_tree_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -10129,7 +10129,7 @@ declare ptr @_php_stream_opendir(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @_php_stream_readdir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -10144,7 +10144,7 @@ declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noun
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -10189,7 +10189,7 @@ declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line_ex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line_ex(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -10366,7 +10366,7 @@ define internal void @spl_filesystem_dir_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @spl_filesystem_dir_it_valid(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 -1, 1) i32 @spl_filesystem_dir_it_valid(ptr noundef readonly captures(none) %0) #12 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 120
@@ -10383,7 +10383,7 @@ define internal nonnull ptr @spl_filesystem_dir_it_current_data(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @spl_filesystem_dir_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #14 {
+define internal void @spl_filesystem_dir_it_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #14 {
   %3 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 88
@@ -10396,7 +10396,7 @@ define internal void @spl_filesystem_dir_it_current_key(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_filesystem_dir_it_move_forward(ptr nocapture noundef readonly %0) #0 {
+define internal void @spl_filesystem_dir_it_move_forward(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 88
@@ -10501,7 +10501,7 @@ spl_filesystem_dir_read.exit:                     ; preds = %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_filesystem_dir_it_rewind(ptr nocapture noundef readonly %0) #0 {
+define internal void @spl_filesystem_dir_it_rewind(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 72
@@ -10657,7 +10657,7 @@ define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_filesystem_tree_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @spl_filesystem_tree_it_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -11077,16 +11077,16 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
 declare ptr @zend_std_get_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #16

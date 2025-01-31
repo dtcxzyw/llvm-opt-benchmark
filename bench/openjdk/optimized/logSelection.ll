@@ -34,7 +34,7 @@ $_ZN9QuickSort9partitionI12LogSelection20SimilarityComparatorEEmPT_mmT0_ = comda
 @_ZN12LogSelectionC1EPKN6LogTag4typeEbN8LogLevel4typeE = hidden unnamed_addr alias void (ptr, ptr, i1, i32), ptr @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12LogSelectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12LogSelectionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %2, align 4
@@ -46,7 +46,7 @@ define hidden void @_ZN12LogSelectionC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
 .lr.ph:
   %4 = zext i1 %2 to i8
   store i64 0, ptr %0, align 8
@@ -223,7 +223,7 @@ _ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %50, %48, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -276,7 +276,7 @@ _ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread: ; preds = %_ZNK9LogTagSet8co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, %4
@@ -335,7 +335,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12LogSelectionneERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK12LogSelectionneERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not.i = icmp eq i64 %3, %4
@@ -394,7 +394,7 @@ _ZNK12LogSelectioneqERKS_.exit:                   ; preds = %24, %2, %5, %12, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwind noalias nocapture writable sret(%class.LogSelection) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwind noalias writable sret(%class.LogSelection) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [5 x i32], align 16
   %5 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 17) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
@@ -480,7 +480,7 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br label %36
 
 36:                                               ; preds = %35, %33
-  %37 = tail call noundef i32 @_ZN6LogTag11from_stringEPKc(ptr noundef %.059.i) #10, !noalias !12
+  %37 = tail call noundef i32 @_ZN6LogTag11from_stringEPKc(ptr noundef nonnull %.059.i) #10, !noalias !12
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %48
 
@@ -489,8 +489,8 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not76.i, label %47, label %40
 
 40:                                               ; preds = %39
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, ptr noundef %.059.i) #10, !noalias !12
-  %41 = tail call noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %.059.i) #10, !noalias !12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, ptr noundef nonnull %.059.i) #10, !noalias !12
+  %41 = tail call noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef nonnull %.059.i) #10, !noalias !12
   %.not77.i = icmp eq i32 %41, 0
   br i1 %.not77.i, label %46, label %42
 
@@ -518,7 +518,7 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br i1 %.not75.i, label %52, label %51
 
 51:                                               ; preds = %50
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, ptr noundef %5, i64 noundef 5) #10, !noalias !12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i64 noundef 5) #10, !noalias !12
   br label %52
 
 52:                                               ; preds = %51, %50
@@ -581,7 +581,7 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
 
 _ZL14parse_internalPcP12outputStream.exit:        ; preds = %19, %24, %47, %52, %69, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  tail call void @_ZN2os4freeEPv(ptr noundef %5) #10
+  tail call void @_ZN2os4freeEPv(ptr noundef nonnull %5) #10
   ret void
 }
 
@@ -590,7 +590,7 @@ declare noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef, i8 nound
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12LogSelection11consists_ofEPKN6LogTag4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK12LogSelection11consists_ofEPKN6LogTag4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %1, align 4
   %.not13 = icmp eq i32 %3, 0
   %.pre = load i64, ptr %0, align 8
@@ -636,27 +636,27 @@ _ZL8containsN6LogTag4typeEPKS0_m.exit.thread:     ; preds = %6, %.lr.ph, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK12LogSelection5ntagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK12LogSelection5ntagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr %0, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK12LogSelection5levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK12LogSelection5levelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK12LogSelection17tag_sets_selectedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK12LogSelection17tag_sets_selectedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12LogSelection16describe_tags_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK12LogSelection16describe_tags_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -697,7 +697,7 @@ define hidden void @_ZNK12LogSelection16describe_tags_onEP12outputStream(ptr noc
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12LogSelection11describe_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK12LogSelection11describe_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %0, align 8
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -742,7 +742,7 @@ _ZNK12LogSelection16describe_tags_onEP12outputStream.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK12LogSelection10similarityERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef double @_ZNK12LogSelection10similarityERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   %.pre = load i64, ptr %1, align 8
@@ -1087,10 +1087,10 @@ _ZNK12LogSelection16describe_tags_onEP12outputStream.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9QuickSort4sortI12LogSelection20SimilarityComparatorEEvPT_mT0_(ptr noundef %0, i64 noundef %1, ptr %2) local_unnamed_addr #3 comdat align 2 {
@@ -1127,7 +1127,7 @@ declare noundef i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr noundef) local_unnamed_ad
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef i32 @_ZN6LogTag11from_stringEPKc(ptr noundef) local_unnamed_addr #4
 
@@ -1898,10 +1898,10 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, 
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

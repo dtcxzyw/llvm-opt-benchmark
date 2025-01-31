@@ -62,7 +62,7 @@ declare dso_local i32 @memblock_phys_free(i64 noundef, i64 noundef) local_unname
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef initializes((16, 32)) %1) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr noundef captures(none) initializes((16, 32)) %1) local_unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %9
@@ -165,7 +165,7 @@ declare dso_local void @efi_memmap_unmap() local_unnamed_addr #2 section ".init.
 declare dso_local i32 @__efi_memmap_init(ptr noundef) local_unnamed_addr #2 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -192,7 +192,7 @@ define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr nocapture nound
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @efi_memmap_insert(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
@@ -358,7 +358,7 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #1

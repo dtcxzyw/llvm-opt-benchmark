@@ -91,7 +91,7 @@ if.end58:                                         ; preds = %if.then2, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly %p, ptr noundef readnone %limit, ptr nocapture noundef writeonly %value) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly %p, ptr noundef readnone %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %cmp113 = icmp ult ptr %p, %limit
   br i1 %cmp113, label %for.body, label %return
@@ -128,7 +128,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly %p, ptr noundef readnone %limit, ptr nocapture noundef writeonly %value) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly %p, ptr noundef readnone %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %cmp113 = icmp ult ptr %p, %limit
   br i1 %cmp113, label %for.body, label %return

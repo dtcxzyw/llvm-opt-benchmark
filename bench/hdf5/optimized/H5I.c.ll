@@ -1442,7 +1442,7 @@ define ptr @H5Isearch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unna
 declare i32 @H5I_iterate(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5I__search_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 2) i32 @H5I__search_cb(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1522,7 +1522,7 @@ define range(i32 -1, -2147483648) i32 @H5Iiterate(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5I__iterate_pub_cb(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @H5I__iterate_pub_cb(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8

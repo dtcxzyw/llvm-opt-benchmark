@@ -256,7 +256,7 @@ define dso_local void @Init_prism() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @pm_version() local_unnamed_addr #2
 
@@ -1163,14 +1163,14 @@ declare void @Init_prism_api_node() local_unnamed_addr #2
 declare void @Init_prism_pack() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull initializes((24, 28)) %3) unnamed_addr #0 {
@@ -1777,7 +1777,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %53, %RB_SYMBOL_P.ex
   %70 = tail call i64 @rb_sym2id(i64 noundef %54) #8
   %71 = tail call ptr @rb_id2name(i64 noundef %70) #8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #9
-  tail call void @pm_string_constant_init(ptr noundef %69, ptr noundef %71, i64 noundef %72) #8
+  tail call void @pm_string_constant_init(ptr noundef %69, ptr noundef nonnull %71, i64 noundef %72) #8
   %73 = add nuw i64 %.08598, 1
   %exitcond.not = icmp eq i64 %73, %.0.i91
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !46
@@ -2043,7 +2043,7 @@ parser_data_loc.exit:                             ; preds = %64, %72
 declare void @pm_parser_register_encoding_changed_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parse_lex_encoding_changed_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @parse_lex_encoding_changed_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2117,7 +2117,7 @@ declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parse_lex_token(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @parse_lex_token(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2149,7 +2149,7 @@ declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #2
 declare i64 @pm_ast_new(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @parser_comments(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @parser_comments(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca [1 x i64], align 8
   %5 = tail call i64 @rb_ary_new() #8
@@ -2205,7 +2205,7 @@ define internal fastcc i64 @parser_comments(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @parser_magic_comments(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @parser_magic_comments(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca [3 x i64], align 16
   %5 = alloca [2 x i64], align 16
@@ -2274,7 +2274,7 @@ define internal fastcc i64 @parser_magic_comments(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @parser_errors(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @parser_errors(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca [3 x i64], align 16
   %6 = tail call i64 @rb_ary_new() #8
@@ -2370,7 +2370,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i20, %.lr.ph
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @parser_warnings(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @parser_warnings(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca [3 x i64], align 16
   %6 = tail call i64 @rb_ary_new() #8
@@ -2578,10 +2578,10 @@ declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
 declare ptr @pm_encoding_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -191,10 +191,10 @@ define dso_local i32 @intel_guc_wait_for_pending_msg(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
@@ -209,7 +209,7 @@ declare dso_local i64 @io_schedule_timeout(i64 noundef) local_unnamed_addr #3
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_guc_wait_for_idle(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
@@ -327,7 +327,7 @@ define dso_local void @intel_guc_busyness_unpark(ptr noundef %0) local_unnamed_a
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @guc_update_pm_timestamp(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @guc_update_pm_timestamp(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -608
@@ -804,7 +804,7 @@ define dso_local void @intel_guc_submission_reset_prepare(ptr noundef %0) local_
 declare dso_local void @intel_gt_park_heartbeats(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @disable_submission(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @disable_submission(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -928,7 +928,7 @@ define dso_local void @wake_up_all_tlb_invalidate(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @intel_guc_tlb_invalidation_is_available(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef zeroext i1 @intel_guc_tlb_invalidation_is_available(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -632
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7168
@@ -2365,7 +2365,7 @@ declare dso_local ptr @i915_sched_engine_create(i32 noundef) local_unnamed_addr 
 declare dso_local void @i915_schedule(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @guc_sched_engine_disabled(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal zeroext i1 @guc_sched_engine_disabled(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2385,7 +2385,7 @@ define internal void @guc_sched_engine_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_bump_inflight_request_prio(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @guc_bump_inflight_request_prio(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.context_policy, align 4
   %4 = alloca [3 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2558,7 +2558,7 @@ update_context_prio.exit:                         ; preds = %99, %93, %84, %70, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_retire_inflight_request_prio(ptr nocapture noundef %0) #0 align 16 {
+define internal void @guc_retire_inflight_request_prio(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca %struct.context_policy, align 4
   %3 = alloca [3 x i32], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3396,7 +3396,7 @@ define dso_local void @intel_guc_submission_disable(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_guc_sched_disable_gucid_threshold_max(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local i32 @intel_guc_sched_disable_gucid_threshold_max(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %3 = load i32, ptr %2, align 8
   %4 = sdiv i32 %3, -16
@@ -3498,7 +3498,7 @@ define dso_local void @intel_guc_submission_init_early(ptr noundef initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @destroyed_worker_func(ptr noundef %0) #0 align 16 {
@@ -3788,7 +3788,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_tlb_invalidation_done(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_tlb_invalidation_done(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %26, label %5
 
@@ -4084,7 +4084,7 @@ define dso_local range(i32 -15, -16) i32 @intel_guc_invalidate_tlb_guc(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_deregister_done_process_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_deregister_done_process_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %16, !prof !15
 
@@ -4884,7 +4884,7 @@ define internal fastcc void @__guc_context_destroy(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_sched_done_process_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_sched_done_process_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp ult i32 %2, 2
   br i1 %4, label %5, label %16, !prof !15
 
@@ -5120,7 +5120,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_sched_done_process_msg
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %16, label %5, !prof !8
 
@@ -5440,7 +5440,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_error_capture_process_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_error_capture_process_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %16, label %5, !prof !8
 
@@ -5505,7 +5505,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @intel_guc_capture_process(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @intel_guc_lookup_engine(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #5 align 16 {
+define dso_local ptr @intel_guc_lookup_engine(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #5 align 16 {
   %4 = zext i8 %1 to i64
   %5 = getelementptr [6 x i8], ptr @guc_class_engine_class_map, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -5518,7 +5518,7 @@ define dso_local ptr @intel_guc_lookup_engine(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -71, 1) i32 @intel_guc_engine_failure_process_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -71, 1) i32 @intel_guc_engine_failure_process_msg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 3
   br i1 %4, label %16, label %5, !prof !8
 
@@ -6294,7 +6294,7 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_guc_virtual_engine_has_heartbeat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @intel_guc_virtual_engine_has_heartbeat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6547,7 +6547,7 @@ declare dso_local void @lrc_init_regs(ptr noundef, ptr noundef, i1 noundef zeroe
 declare dso_local i32 @lrc_update_regs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal ptr @guc_virtual_get_sibling(ptr nocapture noundef readonly %0, i32 noundef %1) #9 align 16 {
+define internal ptr @guc_virtual_get_sibling(ptr noundef readonly captures(none) %0, i32 noundef %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6860,7 +6860,7 @@ define internal fastcc range(i32 -18, -19) i32 @try_context_registration(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 688
@@ -8054,12 +8054,12 @@ define internal void @guc_engine_reset_prepare(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @guc_rewind_nop(ptr nocapture readnone %0, i1 zeroext %1) #13 align 16 {
+define internal void @guc_rewind_nop(ptr readnone captures(none) %0, i1 zeroext %1) #13 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @guc_reset_nop(ptr nocapture readnone %0) #13 align 16 {
+define internal void @guc_reset_nop(ptr readnone captures(none) %0) #13 align 16 {
   ret void
 }
 
@@ -8079,14 +8079,14 @@ declare dso_local ptr @gen12_emit_fini_breadcrumb_xcs(ptr noundef, ptr noundef) 
 declare dso_local i32 @gen12_emit_flush_xcs(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @guc_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #14 align 16 {
+define internal void @guc_set_default_submission(ptr noundef writeonly captures(none) initializes((928, 936)) %0) #14 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr @guc_submit_request, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @guc_engine_busyness(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
+define internal i64 @guc_engine_busyness(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca %struct.intel_engine_guc_stats, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5376
@@ -8224,7 +8224,7 @@ define internal i32 @guc_context_alloc(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_context_revoke(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
+define internal void @guc_context_revoke(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -9236,7 +9236,7 @@ define internal void @guc_context_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @guc_create_virtual(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 align 16 {
+define internal noundef ptr @guc_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(6256) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 6256) #23
   %6 = icmp eq ptr %5, null
@@ -9483,7 +9483,7 @@ define internal noundef ptr @guc_create_virtual(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @guc_create_parallel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal ptr @guc_create_parallel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = zext i32 %1 to i64
   %5 = shl nuw nsw i64 %4, 3
   %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 3264) #25
@@ -10055,10 +10055,10 @@ declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare dso_local void @__bitmap_clear(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define internal void @virtual_guc_bump_serial(ptr nocapture noundef readonly %0) #16 align 16 {
+define internal void @virtual_guc_bump_serial(ptr noundef readonly captures(none) %0) #16 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10553,7 +10553,7 @@ define internal void @guc_virtual_context_unpin(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_virtual_context_enter(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @guc_virtual_context_enter(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -10618,7 +10618,7 @@ define internal void @guc_virtual_context_enter(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_virtual_context_exit(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @guc_virtual_context_exit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -11349,7 +11349,7 @@ define internal fastcc noundef range(i32 -28, 2) i32 @pin_guc_id(ptr noundef %0,
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -11, 1) i32 @steal_guc_id(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -11, 1) i32 @steal_guc_id(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -11597,7 +11597,7 @@ declare dso_local void @intel_engine_wait_for_pending_mi_fw(ptr noundef) local_u
 declare dso_local i64 @intel_gt_clock_interval_to_ns(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cs_irq_handler(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define internal void @cs_irq_handler(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = and i16 %1, 1
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %10, label %5
@@ -11614,7 +11614,7 @@ define internal void @cs_irq_handler(ptr nocapture noundef readonly %0, i16 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @guc_irq_enable_breadcrumbs(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @guc_irq_enable_breadcrumbs(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -11654,7 +11654,7 @@ define internal zeroext i1 @guc_irq_enable_breadcrumbs(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_irq_disable_breadcrumbs(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @guc_irq_disable_breadcrumbs(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104

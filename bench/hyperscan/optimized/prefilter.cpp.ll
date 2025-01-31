@@ -117,7 +117,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213prefilterTreeERSt10unique_ptrINS_9ComponentESt14default_deleteIS1_EERKNS_9ParseModeE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %root, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213prefilterTreeERSt10unique_ptrINS_9ComponentESt14default_deleteIS1_EERKNS_9ParseModeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %root, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %vis = alloca %"class.ue2::PrefilterVisitor", align 8
   %0 = load ptr, ptr %root, align 8
@@ -1195,7 +1195,7 @@ _ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev.exit: ; preds = %entry, %_ZNSt11_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_19AsciiComponentClassE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_19AsciiComponentClassE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1205,7 +1205,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_22ComponentBackReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #10 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_22ComponentBackReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #18
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN3ue212_GLOBAL__N_119SafeReferentVisitor6UnsafeE, ptr null) #22
@@ -1213,7 +1213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_17ComponentBoundaryE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_17ComponentBoundaryE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1223,7 +1223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_13ComponentByteE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_13ComponentByteE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_22ComponentCondReferenceE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #10 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_22ComponentCondReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #18
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN3ue212_GLOBAL__N_119SafeReferentVisitor6UnsafeE, ptr null) #22
@@ -1241,7 +1241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_12ComponentEUSE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_12ComponentEUSE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1251,7 +1251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_15ComponentRepeatE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_15ComponentRepeatE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1282,7 +1282,7 @@ _ZNSt5stackImSt5dequeImSaImEEE4pushERKm.exit:     ; preds = %if.then.i.i, %if.el
 declare void @_ZN3ue228DefaultConstComponentVisitor3preERKNS_17ComponentSequenceE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_21ComponentWordBoundaryE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_21ComponentWordBoundaryE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1292,7 +1292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_18UTF8ComponentClassE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #9 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor3preERKNS_18UTF8ComponentClassE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %numPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %numPositions, align 8
@@ -1302,7 +1302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor4postERKNS_15ComponentRepeatE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitor4postERKNS_15ComponentRepeatE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !13
@@ -1360,7 +1360,7 @@ _ZNSt5stackImSt5dequeImSaImEEE3popEv.exit:        ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseImSaImEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1688,7 +1688,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -1789,7 +1789,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr sret(%"class.std::unique_ptr.21") align 8, i32 noundef, i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(6)) local_unnamed_addr #4
 
@@ -1797,13 +1797,13 @@ declare void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(
 declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

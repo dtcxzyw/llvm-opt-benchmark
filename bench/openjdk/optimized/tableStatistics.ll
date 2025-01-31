@@ -37,7 +37,7 @@ define hidden void @_ZN19TableRateStatisticsC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19TableRateStatisticsD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN19TableRateStatisticsD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -104,7 +104,7 @@ define hidden void @_ZN19TableRateStatistics5stampEv(ptr noundef nonnull align 8
 declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = uitofp i64 %3 to double
@@ -120,7 +120,7 @@ define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -135,7 +135,7 @@ define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN15TableStatisticsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 44), (48, 96)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -143,7 +143,7 @@ define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 align 2 {
   store i64 %2, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -219,7 +219,7 @@ declare noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 deref
 declare noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #2 align 2 {
   %7 = alloca %class.NumberSeq, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -346,12 +346,12 @@ _ZN15TableStatisticsC2E9NumberSeqmmm.exit:        ; preds = %47, %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN15TableStatisticsD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15TableStatisticsD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %2) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -412,10 +412,10 @@ define hidden void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr nocapture 
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

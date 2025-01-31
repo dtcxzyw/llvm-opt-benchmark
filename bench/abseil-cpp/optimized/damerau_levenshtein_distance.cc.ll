@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array.0" = type { [102 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLevenshteinDistanceESt17basic_string_viewIcSt11char_traitsIcEES4_h(i64 %s1.coerce0, ptr nocapture readonly %s1.coerce1, i64 %s2.coerce0, ptr nocapture readonly %s2.coerce1, i8 noundef zeroext %cutoff) local_unnamed_addr #0 {
+define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLevenshteinDistanceESt17basic_string_viewIcSt11char_traitsIcEES4_h(i64 %s1.coerce0, ptr readonly captures(none) %s1.coerce1, i64 %s2.coerce0, ptr readonly captures(none) %s2.coerce1, i8 noundef zeroext %cutoff) local_unnamed_addr #0 {
 entry:
   %d = alloca %"struct.std::array", align 1
   %ref.tmp = alloca [5 x i8], align 1

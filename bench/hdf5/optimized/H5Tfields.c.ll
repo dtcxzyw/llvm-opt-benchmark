@@ -127,7 +127,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5T_get_nmembers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5T_get_nmembers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -234,7 +234,7 @@ define noalias ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias ptr @H5T__get_member_name(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -300,7 +300,7 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
 declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Tget_member_index(i64 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @H5Tget_member_index(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -435,10 +435,10 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -709,13 +709,13 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40

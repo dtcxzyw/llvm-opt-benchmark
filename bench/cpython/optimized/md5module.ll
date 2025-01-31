@@ -62,7 +62,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_md5_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_md5_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #3
   %0 = load ptr, ptr %call.i, align 8
@@ -421,7 +421,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @MD5_traverse(ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @MD5_traverse(ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %ptr, i64 8
   %ptr.val3 = load ptr, ptr %0, align 8
@@ -448,7 +448,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_copy(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @MD5Type_copy(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -512,7 +512,7 @@ return:                                           ; preds = %if.then.i6.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @MD5Type_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
@@ -556,7 +556,7 @@ MD5Type_digest_impl.exit:                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5Type_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @MD5Type_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [16 x i8], align 16
   %digest_hex.i = alloca [32 x i8], align 16
@@ -781,21 +781,21 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5_get_block_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @MD5_get_block_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #3
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MD5_get_name(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @MD5_get_name(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull @.str.1, i64 noundef 3) #3
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @md5_get_digest_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @md5_get_digest_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 16) #3
   ret ptr %call
@@ -804,10 +804,10 @@ entry:
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

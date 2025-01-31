@@ -79,7 +79,7 @@ entry:
 declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_cdata_newx(ptr nocapture noundef readonly %cts, i32 noundef %id, i32 noundef %sz, i32 noundef %info) local_unnamed_addr #0 {
+define hidden ptr @lj_cdata_newx(ptr noundef readonly captures(none) %cts, i32 noundef %id, i32 noundef %sz, i32 noundef %info) local_unnamed_addr #0 {
 entry:
   %0 = and i32 %info, 1835008
   %or.cond = icmp eq i32 %0, 0
@@ -147,7 +147,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_cdata_free(ptr nocapture noundef %g, ptr noundef %cd) local_unnamed_addr #0 {
+define hidden void @lj_cdata_free(ptr noundef captures(none) %g, ptr noundef %cd) local_unnamed_addr #0 {
 entry:
   %marked = getelementptr inbounds nuw i8, ptr %cd, i64 8
   %0 = load i8, ptr %marked, align 8
@@ -326,7 +326,7 @@ if.end19:                                         ; preds = %if.then10, %if.else
 declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_cdata_index(ptr noundef %cts, ptr noundef %cd, ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %pp, ptr noundef %qual) local_unnamed_addr #0 {
+define hidden ptr @lj_cdata_index(ptr noundef %cts, ptr noundef %cd, ptr noundef readonly captures(none) %key, ptr noundef writeonly captures(none) %pp, ptr noundef %qual) local_unnamed_addr #0 {
 entry:
   %idx = alloca i64, align 8
   %ofs = alloca i32, align 4

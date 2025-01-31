@@ -210,10 +210,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -225,7 +225,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @RAND_seed(ptr nocapture readnone %buf, i32 %num) #0 {
+define hidden void @RAND_seed(ptr readnone captures(none) %buf, i32 %num) #0 {
 entry:
   %unused = alloca i8, align 1
   %call = call i32 @RAND_bytes(ptr noundef nonnull %unused, i64 noundef 1)
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, -2147483648) i32 @RAND_load_file(ptr nocapture noundef readnone %path, i64 noundef %num) local_unnamed_addr #5 {
+define hidden range(i32 0, -2147483648) i32 @RAND_load_file(ptr noundef readnone captures(none) %path, i64 noundef %num) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i64 %num, 0
   %cmp1 = icmp samesign ult i64 %num, 2147483648
@@ -244,19 +244,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @RAND_file_name(ptr nocapture noundef readnone %buf, i64 noundef %num) local_unnamed_addr #5 {
+define hidden noalias noundef ptr @RAND_file_name(ptr noundef readnone captures(none) %buf, i64 noundef %num) local_unnamed_addr #5 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @RAND_add(ptr nocapture readnone %buf, i32 %num, double %entropy) #5 {
+define hidden void @RAND_add(ptr readnone captures(none) %buf, i32 %num, double %entropy) #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @RAND_egd(ptr nocapture noundef readnone %path) local_unnamed_addr #5 {
+define hidden noundef i32 @RAND_egd(ptr noundef readnone captures(none) %path) local_unnamed_addr #5 {
 entry:
   ret i32 255
 }
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @RAND_set_rand_method(ptr nocapture noundef readnone %method) local_unnamed_addr #5 {
+define hidden void @RAND_set_rand_method(ptr noundef readnone captures(none) %method) local_unnamed_addr #5 {
 entry:
   ret void
 }
@@ -292,7 +292,7 @@ declare i32 @CRYPTO_rdrand(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @RAND_cleanup() #1
 
@@ -300,10 +300,10 @@ declare void @RAND_cleanup() #1
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

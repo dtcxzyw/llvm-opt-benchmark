@@ -1066,7 +1066,7 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1517,7 +1517,7 @@ declare void @RangeDelete(i32 noundef) local_unnamed_addr #1
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineDomain(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineDomain(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
@@ -1943,7 +1943,7 @@ list_length.exit:                                 ; preds = %1, %9
   br i1 %219, label %.lr.ph299, label %._crit_edge296
 
 ._crit_edge296:                                   ; preds = %216, %.lr.ph295, %._crit_edge
-  call void @ReleaseSysCache(ptr noundef %37) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %37) #8
   ret { i64, i32 } %196
 }
 
@@ -1972,7 +1972,7 @@ declare ptr @deparse_expression(ptr noundef, ptr noundef, i1 noundef zeroext, i1
 declare ptr @nodeToString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @domainAddConstraint(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @domainAddConstraint(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -2061,7 +2061,7 @@ define internal fastcc noundef ptr @domainAddConstraint(i32 noundef %0, i32 noun
 declare void @CommandCounterIncrement() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineEnum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineEnum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2120,7 +2120,7 @@ define dso_local { i64, i32 } @DefineEnum(ptr nocapture noundef readonly %0) loc
 declare void @EnumValuesCreate(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterEnum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterEnum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @makeTypeNameFromNameList(ptr noundef %3) #8
@@ -2221,7 +2221,7 @@ declare void @AddEnumLabel(i32 noundef, ptr noundef, ptr noundef, i1 noundef zer
 declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.ObjectAddress, align 8
@@ -3101,12 +3101,12 @@ define dso_local { i64, i32 } @AlterDomainDefault(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @checkDomainOwner(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @checkDomainOwner(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -3702,7 +3702,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 declare void @CacheInvalidateHeapTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @makeTypeNameFromNameList(ptr noundef %0) #8
   %5 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %4) #8
   %6 = tail call ptr @table_open(i32 noundef 1247, i32 noundef 3) #8
@@ -4010,7 +4010,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   br i1 %111, label %.lr.ph100, label %._crit_edge63
 
 ._crit_edge63:                                    ; preds = %103, %.lr.ph62, %10
-  call void @FreeExecutorState(ptr noundef %5) #8
+  call void @FreeExecutorState(ptr noundef nonnull %5) #8
   ret void
 }
 
@@ -4121,7 +4121,7 @@ declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @RenameType(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @RenameType(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4949,7 +4949,7 @@ declare i64 @changeDependencyFor(i32 noundef, i32 noundef, i32 noundef, i32 noun
 declare void @add_exact_object_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterType(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.AlterTypeRecurseParams, align 4
   %3 = tail call ptr @table_open(i32 noundef 1247, i32 noundef 3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5398,7 +5398,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -5635,7 +5635,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 143:                                              ; preds = %.lr.ph
   %144 = load i32, ptr %140, align 4
-  call fastcc void @AlterTypeRecurse(i32 noundef %144, i1 noundef zeroext false, ptr noundef nonnull %134, ptr noundef %3, ptr noundef %4)
+  call fastcc void @AlterTypeRecurse(i32 noundef %144, i1 noundef zeroext false, ptr noundef nonnull %134, ptr noundef nonnull %3, ptr noundef %4)
   br label %.backedge
 
 .backedge:                                        ; preds = %143, %.lr.ph
@@ -5714,7 +5714,7 @@ declare zeroext i1 @ConstraintNameIsUsed(i32 noundef, i32 noundef, ptr noundef) 
 declare ptr @ChooseConstraintName(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @replace_domain_constraint_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal ptr @replace_domain_constraint_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -5771,10 +5771,10 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

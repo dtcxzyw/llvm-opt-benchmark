@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -46,7 +46,7 @@ _ZN7msdfgen13saveTiffFloatILi1EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -87,7 +87,7 @@ _ZN7msdfgen13saveTiffFloatILi3EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -129,10 +129,10 @@ _ZN7msdfgen13saveTiffFloatILi4EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit: ; preds
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr nocapture noundef nonnull %file, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef nonnull captures(none) %file, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels) unnamed_addr #0 {
 entry:
   %value.addr.i377 = alloca i32, align 4
   %value.addr.i374 = alloca i32, align 4
@@ -658,16 +658,16 @@ if.end126:                                        ; preds = %for.body.i362, %if.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

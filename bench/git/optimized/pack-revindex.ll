@@ -98,7 +98,7 @@ return:                                           ; preds = %entry, %cleanup
 declare i32 @open_pack_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @load_revindex_from_disk(ptr noundef %revindex_name, i32 noundef %num_objects, ptr nocapture noundef writeonly %data_p, ptr nocapture noundef writeonly %len_p) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @load_revindex_from_disk(ptr noundef %revindex_name, i32 noundef %num_objects, ptr noundef writeonly captures(none) %data_p, ptr noundef writeonly captures(none) %len_p) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.18, i32 noundef 0) #10
@@ -283,7 +283,7 @@ if.end74:                                         ; preds = %if.end, %if.then72
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
@@ -791,7 +791,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -827,7 +827,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %ofs, ptr noundef writeonly captures(none) %pos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %revindex.i = getelementptr inbounds nuw i8, ptr %p, i64 192
@@ -987,7 +987,7 @@ return:                                           ; preds = %pack_pos_to_index.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pack_pos_to_index(ptr nocapture noundef readonly %p, i32 noundef %pos) local_unnamed_addr #0 {
+define dso_local i32 @pack_pos_to_index(ptr noundef readonly captures(none) %p, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
   %revindex = getelementptr inbounds nuw i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
@@ -1059,7 +1059,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i64 @nth_packed_object_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pack_pos_to_midx(ptr nocapture noundef readonly %m, i32 noundef %pos) local_unnamed_addr #0 {
+define dso_local i32 @pack_pos_to_midx(ptr noundef readonly captures(none) %m, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
   %revindex_data = getelementptr inbounds nuw i8, ptr %m, i64 24
   %0 = load ptr, ptr %revindex_data, align 8
@@ -1104,7 +1104,7 @@ if.end2:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @midx_to_pack_pos(ptr noundef %m, i32 noundef %at, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @midx_to_pack_pos(ptr noundef %m, i32 noundef %at, ptr noundef writeonly captures(none) %pos) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.midx_pack_key, align 8
   %revindex_data = getelementptr inbounds nuw i8, ptr %m, i64 24
@@ -1181,7 +1181,7 @@ declare i32 @nth_midxed_pack_int_id(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @nth_midxed_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @midx_pair_to_pack_pos(ptr noundef %m, i32 noundef %pack_int_id, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @midx_pair_to_pack_pos(ptr noundef %m, i32 noundef %pack_int_id, i64 noundef %ofs, ptr noundef writeonly captures(none) %pos) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.midx_pack_key, align 8
   store i32 %pack_int_id, ptr %key, align 8
@@ -1237,7 +1237,7 @@ midx_key_to_pack_pos.exit:                        ; preds = %_.exit.i, %if.end.i
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1247,7 +1247,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #5
 declare i32 @git_open_cloexec(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1258,7 +1258,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #4
@@ -1268,7 +1268,7 @@ declare i32 @midx_preferred_pack(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @midx_pack_order_cmp(ptr nocapture noundef readonly %va, ptr noundef %vb) #0 {
+define internal range(i32 -1, 2) i32 @midx_pack_order_cmp(ptr noundef readonly captures(none) %va, ptr noundef %vb) #0 {
 entry:
   %midx1 = getelementptr inbounds nuw i8, ptr %va, i64 24
   %0 = load ptr, ptr %midx1, align 8
@@ -1355,7 +1355,7 @@ return:                                           ; preds = %if.else28, %if.end2
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

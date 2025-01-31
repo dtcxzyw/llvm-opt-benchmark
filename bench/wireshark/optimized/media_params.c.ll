@@ -162,7 +162,7 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.critedge4.i, %.loo
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %ws_get_next_media_type_parameter.exit
-  %61 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.080102.i, ptr noundef %2, i64 noundef %7) #4
+  %61 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.080102.i, ptr noundef nonnull %2, i64 noundef %7) #4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %65, label %63
 
@@ -260,7 +260,7 @@ ws_get_next_media_type_parameter.exit.thread:     ; preds = %18, %ws_get_next_me
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

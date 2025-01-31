@@ -232,7 +232,7 @@ $_ZTIN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE = comdat any
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene19CBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEERKNS6_11dimension2dIfEENS_5video6SColorESG_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (20, 44), (48, 56)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef readnone %parent, ptr nocapture noundef readnone %mgr, i32 noundef %id, ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %position, ptr noundef nonnull align 4 dereferenceable(8) %size, i32 %colorTop.coerce, i32 %colorBottom.coerce) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEERKNS6_11dimension2dIfEENS_5video6SColorESG_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (20, 44), (48, 56)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef readnone captures(none) %parent, ptr noundef readnone captures(none) %mgr, i32 noundef %id, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %position, ptr noundef nonnull align 4 dereferenceable(8) %size, i32 %colorTop.coerce, i32 %colorBottom.coerce) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -447,10 +447,10 @@ _ZN3irr4core5arrayItE8set_usedEj.exit:            ; preds = %if.then.i.i.i76, %i
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEERKNS6_11dimension2dIfEENS_5video6SColorESG_(ptr noundef nonnull align 8 dereferenceable(56) initializes((56, 64), (96, 97), (104, 204), (280, 300)) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, i32 %colorTop.coerce, i32 %colorBottom.coerce) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEERKNS6_11dimension2dIfEENS_5video6SColorESG_(ptr noundef nonnull align 8 dereferenceable(56) initializes((56, 64), (96, 97), (104, 204), (280, 300)) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %position, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size, i32 %colorTop.coerce, i32 %colorBottom.coerce) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 280
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -724,7 +724,7 @@ _ZN3irr4core5arrayItE8set_usedEj.exit:            ; preds = %if.then.i.i.i73, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene19CBillboardSceneNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1258,7 +1258,7 @@ cleanup:                                          ; preds = %_ZN3irr5video9SMate
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene19CBillboardSceneNode10updateMeshEPKNS0_16ICameraSceneNodeE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %camera) local_unnamed_addr #6 align 2 {
@@ -1507,7 +1507,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit162:     ; preds = %if.end.i149, %_ZN3i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
 define void @_ZTv0_n56_N3irr5scene19CBillboardSceneNode6renderEv(ptr noundef %this) unnamed_addr #3 align 2 {
@@ -1563,7 +1563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 44)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #9 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((8, 44)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size) unnamed_addr #9 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %size, align 4, !tbaa.struct !95
@@ -1620,7 +1620,7 @@ if.end14:                                         ; preds = %if.then11, %if.end
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n312_N3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE(ptr nocapture noundef %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #11 align 2 {
+define void @_ZTv0_n312_N3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE(ptr noundef captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %size) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -312
@@ -1678,7 +1678,7 @@ _ZN3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene19CBillboardSceneNode7setSizeEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 44)) %this, float noundef %height, float noundef %bottomEdgeWidth, float noundef %topEdgeWidth) unnamed_addr #12 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNode7setSizeEfff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((8, 44)) %this, float noundef %height, float noundef %bottomEdgeWidth, float noundef %topEdgeWidth) unnamed_addr #12 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %bottomEdgeWidth, ptr %Size, align 8, !tbaa !113
@@ -1731,7 +1731,7 @@ if.end17:                                         ; preds = %if.then13, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n320_N3irr5scene19CBillboardSceneNode7setSizeEfff(ptr nocapture noundef %this, float noundef %height, float noundef %bottomEdgeWidth, float noundef %topEdgeWidth) unnamed_addr #11 align 2 {
+define void @_ZTv0_n320_N3irr5scene19CBillboardSceneNode7setSizeEfff(ptr noundef captures(none) %this, float noundef %height, float noundef %bottomEdgeWidth, float noundef %topEdgeWidth) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -320
@@ -1788,7 +1788,7 @@ _ZN3irr5scene19CBillboardSceneNode7setSizeEfff.exit: ; preds = %if.then13.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5scene19CBillboardSceneNode11getMaterialEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 %i) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5scene19CBillboardSceneNode11getMaterialEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 %i) unnamed_addr #13 align 2 {
 entry:
   %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Buffer, align 8, !tbaa !55
@@ -1797,7 +1797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZTv0_n192_N3irr5scene19CBillboardSceneNode11getMaterialEj(ptr nocapture noundef readonly %this, i32 %i) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZTv0_n192_N3irr5scene19CBillboardSceneNode11getMaterialEj(ptr noundef readonly captures(none) %this, i32 %i) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -192
@@ -1810,13 +1810,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3irr5scene19CBillboardSceneNode16getMaterialCountEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK3irr5scene19CBillboardSceneNode16getMaterialCountEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZTv0_n200_NK3irr5scene19CBillboardSceneNode16getMaterialCountEv(ptr nocapture readonly %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZTv0_n200_NK3irr5scene19CBillboardSceneNode16getMaterialCountEv(ptr readonly captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i32 1
 }
@@ -1840,7 +1840,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %height, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %bottomEdgeWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %topEdgeWidth) unnamed_addr #9 align 2 {
+define void @_ZNK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %height, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %bottomEdgeWidth, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %topEdgeWidth) unnamed_addr #9 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %Height = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -1855,7 +1855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n336_NK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %height, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %bottomEdgeWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %topEdgeWidth) unnamed_addr #11 align 2 {
+define void @_ZTv0_n336_NK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_(ptr noundef readonly captures(none) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %height, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %bottomEdgeWidth, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %topEdgeWidth) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -336
@@ -1874,7 +1874,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %overallColor) unnamed_addr #14 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %overallColor) unnamed_addr #14 align 2 {
 entry:
   %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Buffer, align 8, !tbaa !55
@@ -1894,7 +1894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n344_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %overallColor) unnamed_addr #14 align 2 {
+define void @_ZTv0_n344_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE(ptr noundef readonly captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %overallColor) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -344
@@ -1918,7 +1918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %topColor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bottomColor) unnamed_addr #14 align 2 {
+define void @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %topColor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %bottomColor) unnamed_addr #14 align 2 {
 entry:
   %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Buffer, align 8, !tbaa !55
@@ -1939,7 +1939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n352_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %topColor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bottomColor) unnamed_addr #14 align 2 {
+define void @_ZTv0_n352_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_(ptr noundef readonly captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %topColor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %bottomColor) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -352
@@ -1964,7 +1964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %topColor, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %bottomColor) unnamed_addr #11 align 2 {
+define void @_ZNK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %topColor, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %bottomColor) unnamed_addr #11 align 2 {
 entry:
   %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Buffer, align 8, !tbaa !55
@@ -1980,7 +1980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZTv0_n360_NK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %topColor, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %bottomColor) unnamed_addr #11 align 2 {
+define void @_ZTv0_n360_NK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_(ptr noundef readonly captures(none) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %topColor, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %bottomColor) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -360
@@ -3802,7 +3802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14_M_copy_assignERKS6_(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(33) %__other) local_unnamed_addr #0 comdat align 2 {
@@ -5397,7 +5397,7 @@ if.end41:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @compute_assignment(i32 noundef %column_count, i32 noundef %row_count, ptr nocapture noundef readonly %cost, ptr nocapture noundef %column2row, ptr nocapture noundef %row2column) local_unnamed_addr #0 {
+define dso_local void @compute_assignment(i32 noundef %column_count, i32 noundef %row_count, ptr noundef readonly captures(none) %cost, ptr noundef captures(none) %column2row, ptr noundef captures(none) %row2column) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %column_count, 2
   %conv1 = sext i32 %row_count to i64
@@ -588,12 +588,12 @@ return:                                           ; preds = %for.end401, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4

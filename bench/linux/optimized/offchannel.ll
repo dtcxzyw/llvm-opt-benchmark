@@ -161,10 +161,10 @@ define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_stop_queues_by_reason(ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -688,7 +688,7 @@ define dso_local void @ieee80211_remain_on_channel_expired(ptr noundef %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_remain_on_channel(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_remain_on_channel(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr i8, ptr %1, i64 -16
   %7 = getelementptr i8, ptr %1, i64 1240
   %8 = load ptr, ptr %7, align 8
@@ -697,7 +697,7 @@ define dso_local i32 @ieee80211_remain_on_channel(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i16, ptr %9, align 8
@@ -1022,7 +1022,7 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_cancel_remain_on_channel(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_cancel_remain_on_channel(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 1240
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @ieee80211_cancel_roc(ptr noundef %5, i64 noundef %2, i1 noundef zeroext false)
@@ -1201,7 +1201,7 @@ ieee80211_start_next_roc.exit:                    ; preds = %23, %16, %6, %82, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 -16
   %6 = getelementptr i8, ptr %1, i64 1240
   %7 = load ptr, ptr %6, align 8
@@ -1711,7 +1711,7 @@ declare dso_local void @ieee80211_tx_skb_tid(ptr noundef, ptr noundef, i32 nound
 declare dso_local void @ieee80211_free_txskb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_mgmt_tx_cancel_wait(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_mgmt_tx_cancel_wait(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !33
 
@@ -1756,7 +1756,7 @@ define dso_local void @ieee80211_roc_setup(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_hw_roc_start(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
+define internal void @ieee80211_hw_roc_start(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -1787,7 +1787,7 @@ define internal void @ieee80211_hw_roc_start(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_hw_roc_done(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = getelementptr i8, ptr %1, i64 -40
   %5 = load ptr, ptr %4, align 8
@@ -1884,7 +1884,7 @@ ieee80211_start_next_roc.exit:                    ; preds = %36, %37, %45, %52, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_roc_work(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_roc_work(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -5544
   tail call fastcc void @__ieee80211_roc_work(ptr noundef %3)
   ret void
@@ -2466,7 +2466,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @ieee80211_recalc_idle(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_handle_roc_started(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_handle_roc_started(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %5 = icmp eq i8 %4, 0
@@ -2582,7 +2582,7 @@ declare dso_local ptr @__netdev_alloc_skb(ptr noundef, i32 noundef, i32 noundef)
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2603,7 +2603,7 @@ declare dso_local void @cfg80211_remain_on_channel_expired(ptr noundef, i64 noun
 declare dso_local void @cfg80211_tx_mgmt_expired(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @cfg80211_mgmt_tx_status_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2615,7 +2615,7 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11

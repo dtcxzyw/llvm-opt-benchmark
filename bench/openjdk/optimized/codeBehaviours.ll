@@ -30,7 +30,7 @@ define hidden noundef zeroext i1 @_ZN28DefaultICProtectionBehaviour4lockEP7nmeth
 declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28DefaultICProtectionBehaviour6unlockEP7nmethod(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN28DefaultICProtectionBehaviour6unlockEP7nmethod(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @CompiledIC_lock, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #2
   ret void
@@ -39,7 +39,7 @@ define hidden void @_ZN28DefaultICProtectionBehaviour6unlockEP7nmethod(ptr nocap
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28DefaultICProtectionBehaviour7is_safeEP7nmethod(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28DefaultICProtectionBehaviour7is_safeEP7nmethod(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %8, label %5

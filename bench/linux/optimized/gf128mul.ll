@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gf128mul_4k_
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_gf128mul_4k_bbe312, ptr @__UNIQUE_ID___addressable_gf128mul_4k_lle311, ptr @__UNIQUE_ID___addressable_gf128mul_64k_bbe308, ptr @__UNIQUE_ID___addressable_gf128mul_bbe305, ptr @__UNIQUE_ID___addressable_gf128mul_free_64k307, ptr @__UNIQUE_ID___addressable_gf128mul_init_4k_bbe310, ptr @__UNIQUE_ID___addressable_gf128mul_init_4k_lle309, ptr @__UNIQUE_ID___addressable_gf128mul_init_64k_bbe306, ptr @__UNIQUE_ID___addressable_gf128mul_lle304, ptr @__UNIQUE_ID___addressable_gf128mul_x8_ble303, ptr @__UNIQUE_ID_description315, ptr @__UNIQUE_ID_file313, ptr @__UNIQUE_ID_license314], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @gf128mul_x8_ble(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -53,13 +53,13 @@ define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca [19 x %struct.be128], align 16
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %3, i8 0, i64 304, i1 false)
@@ -254,13 +254,13 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @gf128mul_bbe(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define dso_local void @gf128mul_bbe(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = alloca [8 x %struct.be128], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -470,7 +470,7 @@ define dso_local void @gf128mul_bbe(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 128) #12
   %4 = icmp eq ptr %3, null
@@ -639,7 +639,7 @@ define dso_local void @gf128mul_free_64k(ptr noundef %0) #6 align 16 {
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define dso_local void @gf128mul_64k_bbe(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
@@ -678,7 +678,7 @@ define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4096) #12
   %4 = icmp eq ptr %3, null
@@ -753,7 +753,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4096) #12
   %4 = icmp eq ptr %3, null
@@ -826,7 +826,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @gf128mul_4k_lle(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr i8, ptr %0, i64 15
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -873,7 +873,7 @@ define dso_local void @gf128mul_4k_lle(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @gf128mul_4k_bbe(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define dso_local void @gf128mul_4k_bbe(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x %struct.be128], ptr %1, i64 0, i64 %4

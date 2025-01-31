@@ -68,7 +68,7 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph38.i:                                       ; preds = %._crit_edge.i, %._crit_edge34.i
   %.136.i = phi ptr [ %36, %._crit_edge34.i ], [ %26, %._crit_edge.i ]
-  %27 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.136.i) #10
+  %27 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.136.i) #10
   %.not2630.i = icmp eq ptr %27, null
   br i1 %.not2630.i, label %._crit_edge34.i, label %.lr.ph33.i
 
@@ -82,12 +82,12 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   store double %31, ptr %34, align 8
-  %35 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02431.i) #10
+  %35 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02431.i) #10
   %.not26.i = icmp eq ptr %35, null
   br i1 %.not26.i, label %._crit_edge34.i, label %.lr.ph33.i
 
 ._crit_edge34.i:                                  ; preds = %.lr.ph33.i, %.lr.ph38.i
-  %36 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.136.i) #10
+  %36 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.136.i) #10
   %.not25.i = icmp eq ptr %36, null
   br i1 %.not25.i, label %circular_init_node_edge.exit, label %.lr.ph38.i
 
@@ -475,7 +475,7 @@ declare i32 @getPackInfo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loc
 declare i32 @packSubgraphs(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @circo_layout(ptr noundef %0) local_unnamed_addr #0 {
@@ -636,7 +636,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 declare void @neato_init_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {
@@ -674,10 +674,10 @@ declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

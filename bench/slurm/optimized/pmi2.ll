@@ -481,18 +481,18 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_finalize(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_finalize(i32 noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @client_resp_new() #6
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %4, ptr noundef nonnull @.str.10, i32 noundef 0) #6
   %5 = tail call i32 @client_resp_send(ptr noundef %4, i32 noundef %0) #6
@@ -624,7 +624,7 @@ define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_job_getid(i32 noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_job_getid(i32 noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #6
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -652,13 +652,13 @@ define internal i32 @_handle_job_getid(i32 noundef %0, i32 %1, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_job_connect(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_job_connect(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.45) #6
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_job_disconnect(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_job_disconnect(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.46) #6
   ret i32 0
 }
@@ -742,7 +742,7 @@ define internal i32 @_handle_kvs_put(i32 noundef %0, i32 %1, ptr noundef %2) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_kvs_fence(i32 %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_kvs_fence(i32 %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #6
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %11

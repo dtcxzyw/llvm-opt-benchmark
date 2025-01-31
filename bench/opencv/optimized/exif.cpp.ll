@@ -638,7 +638,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 78) i32 @_ZNK2cv10ExifReader9getFormatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 78) i32 @_ZNK2cv10ExifReader9getFormatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -674,7 +674,7 @@ thread-pre-split:                                 ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2cv10ExifReader12checkTagMarkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv10ExifReader12checkTagMarkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -721,7 +721,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %17, %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK2cv10ExifReader14getStartOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK2cv10ExifReader14getStartOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -782,7 +782,7 @@ _ZNK2cv10ExifReader6getU32Em.exit:                ; preds = %17, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 0, 65536) i64 @_ZNK2cv10ExifReader14getNumDirEntryEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 0, 65536) i64 @_ZNK2cv10ExifReader14getNumDirEntryEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -830,7 +830,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %19, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv10ExifReader14parseExifEntryEm(ptr dead_on_unwind noalias writable sret(%"struct.cv::ExifEntry_t") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv10ExifReader14parseExifEntryEm(ptr dead_on_unwind noalias writable sret(%"struct.cv::ExifEntry_t") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1327,7 +1327,7 @@ _ZN2cv11ExifEntry_tD2Ev.exit:                     ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZNK2cv10ExifReader6getU16Em(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i16 @_ZNK2cv10ExifReader6getU16Em(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1374,7 +1374,7 @@ define hidden noundef zeroext i16 @_ZNK2cv10ExifReader6getU16Em(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK2cv10ExifReader6getU32Em(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK2cv10ExifReader6getU32Em(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1441,7 +1441,7 @@ define hidden noundef i32 @_ZNK2cv10ExifReader6getU32Em(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZNK2cv10ExifReader10getExifTagEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i16 @_ZNK2cv10ExifReader10getExifTagEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1488,7 +1488,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %19, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader9getStringB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader9getStringB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = add i64 %2, 7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1662,7 +1662,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZNK2cv10ExifReader14getOrientationEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i16 @_ZNK2cv10ExifReader14getOrientationEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1710,7 +1710,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %20, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader13getResolutionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader13getResolutionEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add i64 %2, 11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1784,7 +1784,7 @@ _ZNK2cv10ExifReader6getU32Em.exit:                ; preds = %31, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZNK2cv10ExifReader17getResolutionUnitEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i16 @_ZNK2cv10ExifReader17getResolutionUnitEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1832,7 +1832,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %20, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader13getWhitePointEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader13getWhitePointEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add i64 %2, 11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1934,7 +1934,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %_ZNK2cv10ExifReader
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader22getPrimaryChromaticiesEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader22getPrimaryChromaticiesEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add i64 %2, 11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2122,7 +2122,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %84, %86
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader14getYCbCrCoeffsEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader14getYCbCrCoeffsEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add i64 %2, 11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2310,7 +2310,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %84, %86
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZNK2cv10ExifReader11getYCbCrPosEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i16 @_ZNK2cv10ExifReader11getYCbCrPosEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2358,7 +2358,7 @@ _ZNK2cv10ExifReader6getU16Em.exit:                ; preds = %20, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10ExifReader8getRefBWEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10ExifReader8getRefBWEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add i64 %2, 11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2551,7 +2551,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -2560,7 +2560,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZNK2cv10ExifReader12getURationalEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden i64 @_ZNK2cv10ExifReader12getURationalEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = add i64 %1, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2874,7 +2874,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiN2cv11ExifEntry_tEESt10_Select1stIS4_ESt4lessIiESaIS4_EE17_M_emplace_uniqueIJS0_ItS3_EEEES0_ISt17_Rb_tree_iteratorIS4_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3112,7 +3112,7 @@ define internal void @_GLOBAL__sub_I_exif.cpp() #16 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

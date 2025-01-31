@@ -88,7 +88,7 @@ $_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17
 @_ZN8QuantLib5GMRESC1ESt8functionIFNS_5ArrayERKS2_EEmdS6_ = unnamed_addr alias void (ptr, ptr, i64, double, ptr), ptr @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef %A, i64 noundef %maxIter, double noundef %relTol, ptr nocapture noundef %preConditioner) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef captures(none) %A, i64 noundef %maxIter, double noundef %relTol, ptr noundef captures(none) %preConditioner) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -352,7 +352,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -471,7 +471,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -479,7 +479,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib5GMRES5solveERKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib5GMRES5solveERKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -674,7 +674,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib5GMRES9solveImplERKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib5GMRES9solveImplERKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x7 = alloca %"class.QuantLib::Array", align 8
   %r = alloca %"class.QuantLib::Array", align 8
@@ -1997,7 +1997,7 @@ if.then.i.i.i.i.i.i540:                           ; preds = %if.then.i536
 ehcleanup375.thread:                              ; preds = %for.body.i.i.i.preheader.i469
   %200 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625.sink.split
+  br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625
 
 lpad339:                                          ; preds = %invoke.cont336
   %201 = landingpad { ptr, i32 }
@@ -2012,7 +2012,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 ehcleanup375.thread840:                           ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i547, %lpad339
   store ptr null, ptr %agg.tmp333, align 8, !tbaa !46
-  br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625.sink.split
+  br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625
 
 lpad348:                                          ; preds = %if.end.i508, %if.then.i496
   %203 = landingpad { ptr, i32 }
@@ -2061,26 +2061,19 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit559:                   ; preds = %nrvo.skipdtor371, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i558
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xm) #21
-  %cmp.not.i.i560 = icmp eq ptr %y.sroa.0.0, null
-  br i1 %cmp.not.i.i560, label %_ZN8QuantLib5ArrayD2Ev.exit562, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i561
-
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i561: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit559
   call void @_ZdaPv(ptr noundef nonnull %y.sroa.0.0) #23
-  br label %_ZN8QuantLib5ArrayD2Ev.exit562
-
-_ZN8QuantLib5ArrayD2Ev.exit562:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit559, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i561
   %210 = load ptr, ptr %errors81, align 8, !tbaa !32
   %cmp.not4.i.i563 = icmp eq ptr %210, %errors81
   br i1 %cmp.not4.i.i563, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %while.body.i.i564
 
-while.body.i.i564:                                ; preds = %_ZN8QuantLib5ArrayD2Ev.exit562, %while.body.i.i564
-  %__cur.05.i.i565 = phi ptr [ %211, %while.body.i.i564 ], [ %210, %_ZN8QuantLib5ArrayD2Ev.exit562 ]
+while.body.i.i564:                                ; preds = %_ZN8QuantLib5ArrayD2Ev.exit559, %while.body.i.i564
+  %__cur.05.i.i565 = phi ptr [ %211, %while.body.i.i564 ], [ %210, %_ZN8QuantLib5ArrayD2Ev.exit559 ]
   %211 = load ptr, ptr %__cur.05.i.i565, align 8, !tbaa !32
   call void @_ZdlPvm(ptr noundef nonnull %__cur.05.i.i565, i64 noundef 24) #23
   %cmp.not.i.i566 = icmp eq ptr %211, %errors81
   br i1 %cmp.not.i.i566, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %while.body.i.i564, !llvm.loop !47
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %while.body.i.i564, %_ZN8QuantLib5ArrayD2Ev.exit562
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %while.body.i.i564, %_ZN8QuantLib5ArrayD2Ev.exit559
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %errors81) #21
   %sub.ptr.lhs.cast.i.i571 = ptrtoint ptr %z.sroa.17.0 to i64
   %sub.ptr.rhs.cast.i.i572 = ptrtoint ptr %z.sroa.0.0 to i64
@@ -2194,29 +2187,20 @@ ehcleanup373:                                     ; preds = %while.body.i.i.i525
   %.pn100 = phi { ptr, i32 } [ %.pn98, %ehcleanup358 ], [ %192, %lpad9.i ], [ %206, %lpad365 ], [ %206, %while.body.i.i553 ], [ %192, %while.body.i.i.i525 ]
   %222 = load ptr, ptr %xm, align 8, !tbaa !46
   %cmp.not.i.i621 = icmp eq ptr %222, null
-  br i1 %cmp.not.i.i621, label %ehcleanup375, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622
+  br i1 %cmp.not.i.i621, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622: ; preds = %ehcleanup373
   call void @_ZdaPv(ptr noundef nonnull %222) #23
-  br label %ehcleanup375
-
-ehcleanup375:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622, %ehcleanup373
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xm) #21
-  %cmp.not.i.i624 = icmp eq ptr %y.sroa.0.0, null
-  br i1 %cmp.not.i.i624, label %ehcleanup383, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625
-
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625.sink.split: ; preds = %ehcleanup375.thread, %ehcleanup375.thread840
-  %.pn100.pn778.ph = phi { ptr, i32 } [ %201, %ehcleanup375.thread840 ], [ %200, %ehcleanup375.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xm) #21
   br label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625
 
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625: ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625.sink.split, %ehcleanup375
-  %.pn100.pn778 = phi { ptr, i32 } [ %.pn100, %ehcleanup375 ], [ %.pn100.pn778.ph, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625.sink.split ]
+_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625: ; preds = %ehcleanup375.thread840, %ehcleanup375.thread, %ehcleanup373, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622
+  %.pn100.pn778 = phi { ptr, i32 } [ %.pn100, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i622 ], [ %.pn100, %ehcleanup373 ], [ %201, %ehcleanup375.thread840 ], [ %200, %ehcleanup375.thread ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xm) #21
   call void @_ZdaPv(ptr noundef nonnull %y.sroa.0.0) #23
   br label %ehcleanup383
 
-ehcleanup383:                                     ; preds = %lpad269, %ehcleanup375, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625, %lpad97, %ehcleanup262
-  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn104.pn.pn.pn, %ehcleanup262 ], [ %92, %lpad97 ], [ %168, %lpad269 ], [ %.pn100, %ehcleanup375 ], [ %.pn100.pn778, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625 ]
+ehcleanup383:                                     ; preds = %lpad269, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625, %lpad97, %ehcleanup262
+  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn104.pn.pn.pn, %ehcleanup262 ], [ %92, %lpad97 ], [ %168, %lpad269 ], [ %.pn100.pn778, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i625 ]
   %223 = load ptr, ptr %errors81, align 8, !tbaa !32
   %cmp.not4.i.i627 = icmp eq ptr %223, %errors81
   br i1 %cmp.not4.i.i627, label %ehcleanup389, label %while.body.i.i628
@@ -2369,7 +2353,7 @@ _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib5GMRES16solveWithRestartEmRKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %restart, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib5GMRES16solveWithRestartEmRKNS_5ArrayES3_(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::GMRESResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %restart, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errors = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp = alloca %"struct.QuantLib::GMRESResult", align 8
@@ -3980,7 +3964,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
@@ -3991,17 +3975,17 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9

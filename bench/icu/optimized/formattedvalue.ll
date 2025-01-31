@@ -258,7 +258,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -495,27 +495,27 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPositionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPositionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPositionD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPositionD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((20, 25)) %this, i32 noundef %category) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((20, 25)) %this, i32 noundef %category) local_unnamed_addr #7 align 2 {
 entry:
   %fConstraint = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %fConstraint, align 8
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 12), (20, 25)) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((8, 12), (20, 25)) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #7 align 2 {
 entry:
   %fConstraint = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 2, ptr %fConstraint, align 8
@@ -537,14 +537,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8)) %this, i64 noundef %context) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 8)) %this, i64 noundef %context) local_unnamed_addr #7 align 2 {
 entry:
   store i64 %context, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7524ConstrainedFieldPosition12matchesFieldEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #9 align 2 {
 entry:
   %fConstraint = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %fConstraint, align 8
@@ -584,7 +584,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 24)) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((8, 24)) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #7 align 2 {
 entry:
   %fCategory = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %category, ptr %fCategory, align 4
@@ -598,13 +598,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7514FormattedValueD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7514FormattedValueD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7514FormattedValueD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6icu_7514FormattedValueD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
@@ -614,7 +614,7 @@ entry:
 declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucfpos_open_75(ptr nocapture noundef writeonly %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucfpos_open_75(ptr noundef writeonly captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #17
   %new.isnull = icmp eq ptr %call, null
@@ -646,13 +646,13 @@ return:                                           ; preds = %new.notnull, %if.th
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_reset_75(ptr noundef %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_reset_75(ptr noundef %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -682,7 +682,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainCategory_75(ptr noundef %ptr, i32 noundef %category, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainCategory_75(ptr noundef %ptr, i32 noundef %category, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -714,7 +714,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainField_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainField_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -748,7 +748,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getCategory_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getCategory_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -779,7 +779,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getField_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getField_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -810,7 +810,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_getIndexes_75(ptr noundef readonly %ptr, ptr nocapture noundef writeonly %pStart, ptr nocapture noundef writeonly %pLimit, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_getIndexes_75(ptr noundef readonly %ptr, ptr noundef writeonly captures(none) %pStart, ptr noundef writeonly captures(none) %pLimit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -844,7 +844,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly %ptr, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -875,7 +875,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setInt64IterationContext_75(ptr noundef %ptr, i64 noundef %context, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_setInt64IterationContext_75(ptr noundef %ptr, i64 noundef %context, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -905,7 +905,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext range(i8 0, 2) i8 @ucfpos_matchesField_75(ptr noundef readonly %ptr, i32 noundef %category, i32 noundef %field, ptr nocapture noundef %ec) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @ucfpos_matchesField_75(ptr noundef readonly %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -965,7 +965,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setState_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr nocapture noundef %ec) local_unnamed_addr #15 {
+define void @ucfpos_setState_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1

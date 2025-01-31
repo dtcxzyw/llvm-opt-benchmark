@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @shakti_uart_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @shakti_uart_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -264,7 +264,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @shakti_uart_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @shakti_uart_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.shakti_uart_realize) #6
   %chr = getelementptr inbounds nuw i8, ptr %call, i64 1128
@@ -279,7 +279,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @shakti_uart_can_receive(ptr nocapture noundef readonly %opaque) #2 {
+define internal range(i32 0, 2) i32 @shakti_uart_can_receive(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %uart_status = getelementptr inbounds nuw i8, ptr %opaque, i64 1100
   %0 = load i32, ptr %uart_status, align 4
@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @shakti_uart_receive(ptr nocapture noundef initializes((1096, 1100)) %opaque, ptr nocapture noundef readonly %buf, i32 %size) #3 {
+define internal void @shakti_uart_receive(ptr noundef captures(none) initializes((1096, 1100)) %opaque, ptr noundef readonly captures(none) %buf, i32 %size) #3 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %conv = zext i8 %0 to i32
@@ -307,7 +307,7 @@ entry:
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

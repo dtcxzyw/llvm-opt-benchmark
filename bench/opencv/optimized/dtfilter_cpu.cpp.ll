@@ -10167,7 +10167,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc11DTFilterCPU19setSingleFilterCallEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(812) initializes((28, 29)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv8ximgproc11DTFilterCPU19setSingleFilterCallEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(812) initializes((28, 29)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %3, ptr %4, align 4
@@ -10224,7 +10224,7 @@ define hidden void @_ZN2cv8ximgproc11DTFilterCPU15getWExtendedMatEiiiiii(ptr dea
 declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadERKNS_5RangeES4_i(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadERKNS_5RangeES4_i(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %5, label %7
 
@@ -10258,7 +10258,7 @@ define hidden i64 @_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadERKNS_5Rang
 declare noundef i32 @_ZN2cv13getNumThreadsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadEiRKNS_5RangeEi(i32 noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden i64 @_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadEiRKNS_5RangeEi(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %5, label %_ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadERKNS_5RangeES4_i.exit
 
@@ -17648,7 +17648,7 @@ _ZNSt6vectorIN2cv3VecIfLi1EEESaIS2_EED2Ev.exit42: ; preds = %_ZNSt6vectorIN2cv3V
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
@@ -21980,7 +21980,7 @@ define internal void @_GLOBAL__sub_I_dtfilter_cpu.cpp() #14 section ".text.start
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
@@ -21991,10 +21991,10 @@ declare double @ldexp(double, i32) local_unnamed_addr #17
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

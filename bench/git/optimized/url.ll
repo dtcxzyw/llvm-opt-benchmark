@@ -122,7 +122,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call ptr @memchr(ptr noundef %url, i32 noundef 58, i64 noundef %conv.i) #8
+  %call.i = tail call ptr @memchr(ptr noundef nonnull %url, i32 noundef 58, i64 noundef %conv.i) #8
   %cmp.i = icmp ult ptr %url, %call.i
   br i1 %cmp.i, label %if.then.i, label %url_decode_mem.exit
 
@@ -130,7 +130,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %url to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @strbuf_add(ptr noundef nonnull %out.i, ptr noundef %url, i64 noundef %sub.ptr.sub.i) #9
+  call void @strbuf_add(ptr noundef nonnull %out.i, ptr noundef nonnull %url, i64 noundef %sub.ptr.sub.i) #9
   %sub.ptr.sub4.neg.i = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
   %0 = trunc i64 %sub.ptr.sub4.neg.i to i32
   %conv6.i = add i32 %0, %conv
@@ -175,10 +175,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -186,7 +186,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @url_decode_internal(ptr nocapture noundef %query, i32 noundef %len, ptr noundef readonly %stop_at, ptr noundef nonnull %out, i32 noundef range(i32 0, 2) %decode_plus) unnamed_addr #2 {
+define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %query, i32 noundef %len, ptr noundef readonly %stop_at, ptr noundef nonnull %out, i32 noundef range(i32 0, 2) %decode_plus) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %query, align 8
   %tobool.not59 = icmp eq i32 %len, 0
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @url_decode_parameter_name(ptr nocapture noundef %query) local_unnamed_addr #2 {
+define dso_local ptr @url_decode_parameter_name(ptr noundef captures(none) %query) local_unnamed_addr #2 {
 entry:
   %out = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
@@ -357,7 +357,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @url_decode_parameter_value(ptr nocapture noundef %query) local_unnamed_addr #2 {
+define dso_local ptr @url_decode_parameter_value(ptr noundef captures(none) %query) local_unnamed_addr #2 {
 entry:
   %out = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
@@ -369,7 +369,7 @@ entry:
 define dso_local void @end_url_with_slash(ptr noundef %buf, ptr noundef %url) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef %url, i64 noundef %call.i) #9
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull %url, i64 noundef %call.i) #9
   %len.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -417,12 +417,12 @@ strbuf_complete.exit:                             ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @str_end_url_with_slash(ptr noundef %url, ptr nocapture noundef %dest) local_unnamed_addr #2 {
+define dso_local void @str_end_url_with_slash(ptr noundef %url, ptr noundef captures(none) %dest) local_unnamed_addr #2 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %url, i64 noundef %call.i.i) #9
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %url, i64 noundef %call.i.i) #9
   %len.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -474,7 +474,7 @@ end_url_with_slash.exit:                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -484,10 +484,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

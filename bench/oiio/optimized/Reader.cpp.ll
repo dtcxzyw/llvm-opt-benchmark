@@ -46,7 +46,7 @@ entry:
 declare void @_ZN6cineon6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2048)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon6ReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6ReaderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %codec.i = getelementptr inbounds nuw i8, ptr %this, i64 2064
@@ -120,7 +120,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon6Reader5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6Reader5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %codec = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %0 = load ptr, ptr %codec, align 8
@@ -269,7 +269,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZN6cineon17ElementReadStreamC1EPNS_8InStreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon6Reader11SetInStreamEPNS_8InStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((2056, 2064)) %this, ptr noundef %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6Reader11SetInStreamEPNS_8InStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) initializes((2056, 2064)) %this, ptr noundef %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd2 = getelementptr inbounds nuw i8, ptr %this, i64 2056
   store ptr %fd, ptr %fd2, align 8
@@ -708,7 +708,7 @@ sw.epilog:                                        ; preds = %_ZN6cineon9SwapByte
 declare void @_ZN6cineon5CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon6Reader12ReadUserDataEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2080) %this, ptr noundef %data) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN6cineon6Reader12ReadUserDataEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2080) %this, ptr noundef %data) local_unnamed_addr #4 align 2 {
 entry:
   %userSize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %userSize.i, align 8
@@ -753,7 +753,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

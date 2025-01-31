@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [7 x i8] c"(JJJ)V\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store ptr %0, ptr @jvm_j2pkcs11, align 8
   ret i32 65540
 }
@@ -163,7 +163,7 @@ define hidden ptr @fetchClass(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_sun_security_pkcs11_wrapper_PKCS11_finalizeLibrary(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @Java_sun_security_pkcs11_wrapper_PKCS11_finalizeLibrary(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret void
 }
 
@@ -199,7 +199,7 @@ declare ptr @getFunctionList(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @makeCKInitArgsAdapter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @ckAssertReturnValueOK(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -246,7 +246,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetInfo(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckInfoPtrToJInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -742,7 +742,7 @@ ckMechanismInfoPtrToJMechanismInfo.exit:          ; preds = %37, %26, %20, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

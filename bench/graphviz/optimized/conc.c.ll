@@ -1021,12 +1021,12 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %.not124, label %.critedge, label %42
 
 .critedge:                                        ; preds = %42, %infuse.exit128
-  %87 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.097140) #2
+  %87 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.097140) #2
   %.not122 = icmp eq ptr %87, null
   br i1 %.not122, label %._crit_edge141, label %.preheader130
 
 ._crit_edge141:                                   ; preds = %.critedge, %infuse.exit
-  %88 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0100143) #2
+  %88 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0100143) #2
   %.not111 = icmp eq ptr %88, null
   br i1 %.not111, label %._crit_edge146, label %.lr.ph145
 
@@ -1176,7 +1176,7 @@ infuse.exit128:                                   ; preds = %69, %77
   %186 = getelementptr inbounds nuw i8, ptr %.096, i64 %.idx
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 56
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call i32 @agcontains(ptr noundef %0, ptr noundef %188) #2
+  %189 = tail call i32 @agcontains(ptr noundef nonnull %0, ptr noundef %188) #2
   %.not118 = icmp eq i32 %189, 0
   br i1 %.not118, label %.critedge126, label %190
 
@@ -1188,7 +1188,7 @@ infuse.exit128:                                   ; preds = %69, %77
   %194 = getelementptr inbounds i8, ptr %.096, i64 %.idx119
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 56
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call i32 @agcontains(ptr noundef %0, ptr noundef %196) #2
+  %197 = tail call i32 @agcontains(ptr noundef nonnull %0, ptr noundef %196) #2
   %.not120 = icmp eq i32 %197, 0
   %198 = trunc nuw nsw i64 %indvars.iv172 to i32
   %spec.select = select i1 %.not120, i32 %.0101148, i32 %198

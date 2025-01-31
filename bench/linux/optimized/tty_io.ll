@@ -259,7 +259,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [32 x ptr] [ptr @__UNIQUE_ID___addressable___tty_alloc_driver399, ptr @__UNIQUE_ID___addressable_do_SAK394, ptr @__UNIQUE_ID___addressable_start_tty362, ptr @__UNIQUE_ID___addressable_stop_tty361, ptr @__UNIQUE_ID___addressable_tty_class_init405, ptr @__UNIQUE_ID___addressable_tty_dev_name_to_number356, ptr @__UNIQUE_ID___addressable_tty_devnum403, ptr @__UNIQUE_ID___addressable_tty_do_resize383, ptr @__UNIQUE_ID___addressable_tty_driver_kref_put400, ptr @__UNIQUE_ID___addressable_tty_get_icount385, ptr @__UNIQUE_ID___addressable_tty_get_tiocm384, ptr @__UNIQUE_ID___addressable_tty_hangup358, ptr @__UNIQUE_ID___addressable_tty_hung_up_p360, ptr @__UNIQUE_ID___addressable_tty_init_termios367, ptr @__UNIQUE_ID___addressable_tty_kclose379, ptr @__UNIQUE_ID___addressable_tty_kopen_exclusive381, ptr @__UNIQUE_ID___addressable_tty_kopen_shared382, ptr @__UNIQUE_ID___addressable_tty_kref_put374, ptr @__UNIQUE_ID___addressable_tty_name355, ptr @__UNIQUE_ID___addressable_tty_put_char395, ptr @__UNIQUE_ID___addressable_tty_register_device396, ptr @__UNIQUE_ID___addressable_tty_register_device_attr397, ptr @__UNIQUE_ID___addressable_tty_register_driver401, ptr @__UNIQUE_ID___addressable_tty_release_struct380, ptr @__UNIQUE_ID___addressable_tty_save_termios373, ptr @__UNIQUE_ID___addressable_tty_standard_install368, ptr @__UNIQUE_ID___addressable_tty_std_termios354, ptr @__UNIQUE_ID___addressable_tty_unregister_device398, ptr @__UNIQUE_ID___addressable_tty_unregister_driver402, ptr @__UNIQUE_ID___addressable_tty_vhangup359, ptr @__UNIQUE_ID___addressable_tty_wakeup357, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched105], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @tty_alloc_file(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tty_alloc_file(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 32) #21
   %4 = icmp eq ptr %3, null
@@ -276,10 +276,10 @@ define dso_local noundef range(i32 -12, 1) i32 @tty_alloc_file(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tty_add_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -304,7 +304,7 @@ define dso_local void @tty_add_file(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_free_file(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @tty_free_file(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -345,7 +345,7 @@ define dso_local ptr @tty_driver_name(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22
   %4 = load i8, ptr %0, align 1
@@ -446,10 +446,10 @@ declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
@@ -1104,7 +1104,7 @@ declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @redirected_tty_write(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local i64 @redirected_tty_write(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @redirect_lock) #22
   %3 = load ptr, ptr @redirect, align 8
   %4 = icmp eq ptr %3, null
@@ -1374,7 +1374,7 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @tty_write(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i64 @tty_write(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc i64 @file_tty_write(ptr noundef %3, ptr noundef %1)
   ret i64 %4
@@ -1526,7 +1526,7 @@ define dso_local void @tty_init_termios(ptr noundef initializes((264, 308)) %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @tty_termios_input_baud_rate(ptr noundef) local_unnamed_addr #2
@@ -2173,7 +2173,7 @@ define internal fastcc void @release_tty(ptr noundef %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_save_termios(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @tty_save_termios(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -2281,7 +2281,7 @@ define dso_local void @tty_release_struct(ptr noundef %0, i32 noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_release(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef i32 @tty_release(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2847,7 +2847,7 @@ define dso_local ptr @tty_kopen_shared(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_do_resize(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef i32 @tty_do_resize(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @mutex_lock(ptr noundef nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -2922,7 +2922,7 @@ define dso_local i32 @tty_get_icount(ptr noundef %0, ptr noundef initializes((0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
@@ -3684,7 +3684,7 @@ define internal fastcc i32 @tiocsetd(ptr noundef nonnull %0, ptr noundef %1) unn
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @tty_devnum(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local i32 @tty_devnum(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -3790,7 +3790,7 @@ declare dso_local i64 @tty_jobctrl_ioctl(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local ptr @tty_ldisc_ref_wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i64 -25, -4) i64 @hung_up_tty_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
+define internal noundef range(i64 -25, -4) i64 @hung_up_tty_ioctl(ptr readnone captures(none) %0, i32 noundef %1, i64 %2) #3 align 16 {
   %4 = icmp eq i32 %1, 21520
   %5 = select i1 %4, i64 -25, i64 -5
   ret i64 %5
@@ -4067,7 +4067,7 @@ declare dso_local i32 @group_send_sig_info(i32 noundef, ptr noundef, ptr noundef
 declare dso_local i32 @iterate_fd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @this_tty(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #4 align 16 {
+define internal i32 @this_tty(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4161,13 +4161,13 @@ define dso_local i32 @tty_put_char(ptr noundef %0, i8 noundef zeroext %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tty_register_device(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @tty_register_device(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr @tty_register_device_attr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tty_register_device_attr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4373,7 +4373,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_unregister_device(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @tty_unregister_device(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %4, 20
@@ -4829,7 +4829,7 @@ declare dso_local void @proc_tty_register_driver(ptr noundef) local_unnamed_addr
 declare dso_local void @unregister_chrdev_region(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_unregister_driver(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @tty_unregister_driver(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = shl i32 %3, 20
@@ -4854,13 +4854,13 @@ define dso_local void @tty_unregister_driver(ptr nocapture noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @tty_default_fops(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #12 align 16 {
+define dso_local void @tty_default_fops(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #12 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(264) @tty_fops, i64 264, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noalias noundef ptr @tty_devnode(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #12 align 16 {
+define internal noalias noundef ptr @tty_devnode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #12 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -4994,29 +4994,29 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @hung_up_tty_read(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef i64 @hung_up_tty_read(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret i64 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @hung_up_tty_write(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef i64 @hung_up_tty_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret i64 -5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @hung_up_tty_poll(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef i32 @hung_up_tty_poll(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret i32 349
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i64 -25, -4) i64 @hung_up_tty_compat_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 %2) #3 align 16 {
+define internal noundef range(i64 -25, -4) i64 @hung_up_tty_compat_ioctl(ptr readnone captures(none) %0, i32 noundef %1, i64 %2) #3 align 16 {
   %4 = icmp eq i32 %1, 21520
   %5 = select i1 %4, i64 -25, i64 -5
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @hung_up_tty_fasync(i32 %0, ptr nocapture readnone %1, i32 %2) #3 align 16 {
+define internal noundef i32 @hung_up_tty_fasync(i32 %0, ptr readnone captures(none) %1, i32 %2) #3 align 16 {
   ret i32 -25
 }
 
@@ -5266,7 +5266,7 @@ declare dso_local i64 @msleep_interruptible(i32 noundef) local_unnamed_addr #2
 declare dso_local ptr @__get_task_comm(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @tty_read(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i64 @tty_read(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [64 x i8], align 16
   %5 = load ptr, ptr %0, align 8
@@ -5430,7 +5430,7 @@ define internal i64 @tty_read(ptr nocapture noundef readonly %0, ptr noundef %1)
 declare dso_local i64 @_copy_to_iter(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -6231,7 +6231,7 @@ declare dso_local i64 @iter_file_splice_write(ptr noundef, ptr noundef, ptr noun
 declare dso_local i64 @copy_splice_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tty_show_fdinfo(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @tty_show_fdinfo(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -6486,7 +6486,7 @@ declare dso_local i32 @proc_dobool(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare dso_local i32 @proc_dointvec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_cons_active(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [16 x ptr], align 16
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #22
@@ -6658,10 +6658,10 @@ declare dso_local void @console_unlock() local_unnamed_addr #2
 declare dso_local void @console_list_unlock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias writeonly, ptr noalias nocapture readonly) local_unnamed_addr #19
+declare ptr @stpcpy(ptr noalias writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -6670,7 +6670,7 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias nocapture readonly) local_unnamed_addr #19
+declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #19
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -403,7 +403,7 @@ BufferGetPage.exit55.i:                           ; preds = %214, %210
 _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.i, %._crit_edge.i, %218
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %221 = call i64 @PageGetFreeSpace(ptr noundef %.092123) #6
+  %221 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.092123) #6
   %.not99 = icmp ult i64 %221, %14
   br i1 %.not99, label %222, label %_hash_vacuum_one_page.exit._crit_edge
 
@@ -735,7 +735,7 @@ declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_pgaddmultitup(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_hash_pgaddmultitup(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   tail call void @_hash_checkpage(ptr noundef %0, i32 noundef %1, i32 noundef 3) #6
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %7, label %13
@@ -816,10 +816,10 @@ declare void @llvm.assume(i1 noundef) #3
 declare i16 @llvm.umax.i16(i16, i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

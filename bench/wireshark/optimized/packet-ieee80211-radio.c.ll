@@ -2269,7 +2269,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2292,7 +2292,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #5 {
   %4 = shl i32 %0, 3
   %5 = add i32 %4, 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -2338,7 +2338,7 @@ declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @adjust_agg_tsf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @adjust_agg_tsf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2379,7 +2379,7 @@ declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #8

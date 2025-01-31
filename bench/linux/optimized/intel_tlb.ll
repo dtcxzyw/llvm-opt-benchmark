@@ -308,7 +308,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -320,7 +320,7 @@ declare dso_local i32 @intel_guc_invalidate_tlb_engines(ptr noundef) local_unnam
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_init_tlb(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -335,7 +335,7 @@ define dso_local void @intel_gt_init_tlb(ptr noundef %0) local_unnamed_addr #0 a
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @intel_gt_fini_tlb(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 16 {
+define dso_local void @intel_gt_fini_tlb(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 16 {
   ret void
 }
 

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BrotliReverseBits.kLut = internal unnamed_addr constant [16 x i64] [i64 0, i64 8, i64 4, i64 12, i64 2, i64 10, i64 6, i64 14, i64 1, i64 9, i64 5, i64 13, i64 3, i64 11, i64 7, i64 15], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @BrotliSetDepth(i32 noundef %p0, ptr nocapture noundef readonly %pool, ptr nocapture noundef writeonly %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliSetDepth(i32 noundef %p0, ptr noundef readonly captures(none) %pool, ptr noundef writeonly captures(none) %depth, i32 noundef %max_depth) local_unnamed_addr #0 {
 entry:
   %stack = alloca [16 x i32], align 16
   store i32 -1, ptr %stack, align 16
@@ -79,7 +79,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliCreateHuffmanTree(ptr nocapture noundef readonly %data, i64 noundef %length, i32 noundef %tree_limit, ptr nocapture noundef %tree, ptr nocapture noundef writeonly %depth) local_unnamed_addr #0 {
+define hidden void @BrotliCreateHuffmanTree(ptr noundef readonly captures(none) %data, i64 noundef %length, i32 noundef %tree_limit, ptr noundef captures(none) %tree, ptr noundef writeonly captures(none) %depth) local_unnamed_addr #0 {
 entry:
   %stack.i = alloca [16 x i32], align 16
   %cmp.not130 = icmp eq i64 %length, 0
@@ -378,7 +378,7 @@ for.end64:                                        ; preds = %BrotliSetDepth.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %length, ptr nocapture noundef %counts, ptr nocapture noundef %good_for_rle) local_unnamed_addr #0 {
+define hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef %length, ptr noundef captures(none) %counts, ptr noundef captures(none) %good_for_rle) local_unnamed_addr #0 {
 entry:
   %cmp133.not = icmp eq i64 %length, 0
   br i1 %cmp133.not, label %for.end208, label %for.body
@@ -683,10 +683,10 @@ for.end208:                                       ; preds = %while.body, %for.in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliWriteHuffmanTree(ptr nocapture noundef readonly %depth, i64 noundef %length, ptr nocapture noundef %tree_size, ptr nocapture noundef %tree, ptr nocapture noundef %extra_bits_data) local_unnamed_addr #0 {
+define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %depth, i64 noundef %length, ptr noundef captures(none) %tree_size, ptr noundef captures(none) %tree, ptr noundef captures(none) %extra_bits_data) local_unnamed_addr #0 {
 entry:
   %cmp86.not = icmp eq i64 %length, 0
   br i1 %cmp86.not, label %for.end43, label %for.body.lr.ph
@@ -1129,7 +1129,7 @@ for.end43:                                        ; preds = %if.end41, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliConvertBitDepthsToSymbols(ptr nocapture noundef readonly %depth, i64 noundef %len, ptr nocapture noundef writeonly %bits) local_unnamed_addr #0 {
+define hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef readonly captures(none) %depth, i64 noundef %len, ptr noundef writeonly captures(none) %bits) local_unnamed_addr #0 {
 entry:
   %bl_count = alloca [16 x i16], align 16
   %next_code = alloca [16 x i16], align 16
@@ -1229,10 +1229,10 @@ for.end28:                                        ; preds = %for.inc26, %for.con
 declare i32 @llvm.umax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2

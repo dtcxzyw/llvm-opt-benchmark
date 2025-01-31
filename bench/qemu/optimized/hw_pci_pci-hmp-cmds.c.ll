@@ -60,7 +60,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.DEVICE = private unnamed_addr constant [7 x i8] c"DEVICE\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_pci(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_pci(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qmp_query_pci(ptr noundef nonnull @error_abort) #3
   %tobool.not9 = icmp eq ptr %call, null
@@ -97,7 +97,7 @@ for.end7:                                         ; preds = %for.inc5, %entry
 declare ptr @qmp_query_pci(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
+define internal fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr noundef readonly captures(none) %dev) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %dev, align 8
   %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26, i64 noundef %0) #3
@@ -391,7 +391,7 @@ for.end:                                          ; preds = %for.inc
 declare ptr @get_class_desc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 

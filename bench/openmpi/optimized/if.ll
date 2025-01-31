@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [17 x i8] c"invalid-net-mask\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifnametoaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_ifnametoaddr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.09 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -48,13 +48,13 @@ define range(i32 -1, 1) i32 @opal_ifnametoaddr(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @opal_ifnametoindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @opal_ifnametoindex(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.07 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not8 = icmp eq ptr %.07, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -83,7 +83,7 @@ define i32 @opal_ifnametoindex(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 65536) i32 @opal_ifnametokindex(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @opal_ifnametokindex(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.07 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not8 = icmp eq ptr %.07, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -239,7 +239,7 @@ define range(i32 -13, 1) i32 @opal_ifaddrtoname(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -418,7 +418,7 @@ define i32 @opal_ifnext(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextoaddr(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.010 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not11 = icmp eq ptr %.010, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -449,7 +449,7 @@ define range(i32 -1, 1) i32 @opal_ifindextoaddr(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifkindextoaddr(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.010 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not11 = icmp eq ptr %.010, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -481,7 +481,7 @@ define range(i32 -1, 1) i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifindextomask(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomask(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.09 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -511,7 +511,7 @@ define range(i32 -1, 1) i32 @opal_ifindextomask(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifindextomac(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomac(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -540,7 +540,7 @@ define range(i32 -1, 1) i32 @opal_ifindextomac(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifindextomtu(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextomtu(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -570,7 +570,7 @@ define range(i32 -1, 1) i32 @opal_ifindextomtu(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_ifindextoflags(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @opal_ifindextoflags(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %.08 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
   %.not9 = icmp eq ptr %.08, getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 16)
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -749,7 +749,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   br label %59
 
 41:                                               ; preds = %10
-  %42 = tail call i64 @strtol(ptr nocapture noundef nonnull %11, ptr noundef null, i32 noundef 10) #16
+  %42 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #16
   %43 = trunc i64 %42 to i32
   %44 = add i32 %43, -32
   %or.cond = icmp ult i32 %44, -31
@@ -880,7 +880,7 @@ parse_ipv4_dots.exit54:                           ; preds = %67, %.split.loop.ex
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -916,7 +916,7 @@ define noundef zeroext i1 @opal_ifisloopback(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -42, 1) i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -42, 1) i32 @opal_ifmatches(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %.010.i = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_if_list, i64 32), align 8
@@ -1035,7 +1035,7 @@ opal_ifkindextoaddr.exit.thread:                  ; preds = %9, %opal_ifnametoki
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
@@ -1084,7 +1084,7 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare i32 @opal_argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -1093,10 +1093,10 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

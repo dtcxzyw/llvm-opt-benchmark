@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.buf_2d = type { ptr, ptr, i32, i32, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @av1_cdef_compute_sb_list(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden i32 @av1_cdef_compute_sb_list(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -128,7 +128,7 @@ is_8x8_block_skip.exit.us:                        ; preds = %50, %52
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cdef_copy_rect8_8bit_to_16bit_c(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden void @cdef_copy_rect8_8bit_to_16bit_c(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i32 %4, 0
   %8 = icmp sgt i32 %5, 0
   %or.cond = and i1 %7, %8
@@ -170,7 +170,7 @@ define hidden void @cdef_copy_rect8_8bit_to_16bit_c(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cdef_copy_rect8_16bit_to_16bit_c(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden void @cdef_copy_rect8_16bit_to_16bit_c(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i32 %4, 0
   %8 = icmp sgt i32 %5, 0
   %or.cond = and i1 %7, %8
@@ -211,7 +211,7 @@ define hidden void @cdef_copy_rect8_16bit_to_16bit_c(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_cdef_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @av1_cdef_frame(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca [19296 x i16], align 16
   %5 = alloca [3 x ptr], align 16
   %6 = alloca [3 x ptr], align 16
@@ -1565,7 +1565,7 @@ av1_cdef_compute_sb_list.exit.thread:             ; preds = %467, %150, %av1_cde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @av1_setup_dst_planes(ptr noundef, i8 noundef zeroext, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 

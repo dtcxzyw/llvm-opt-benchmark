@@ -98,19 +98,19 @@ define internal void @tkgen_begin_graph(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @tkgen_begin_node(ptr nocapture readnone %0) #1 {
+define internal void @tkgen_begin_node(ptr readnone captures(none) %0) #1 {
   store i32 1, ptr @first_periphery, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @tkgen_begin_edge(ptr nocapture readnone %0) #1 {
+define internal void @tkgen_begin_edge(ptr readnone captures(none) %0) #1 {
   store i32 -1, ptr @first_periphery, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tkgen_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @tkgen_textspan(ptr noundef %0, double %1, double %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -892,7 +892,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare void @gvprintpointf(ptr noundef, double, double) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5

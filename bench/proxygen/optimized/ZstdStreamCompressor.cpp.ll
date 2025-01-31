@@ -46,7 +46,7 @@ $_ZTIN8proxygen16StreamCompressorE = comdat any
 @_ZN8proxygen20ZstdStreamCompressorC1Eib = unnamed_addr alias void (ptr, i32, i1), ptr @_ZN8proxygen20ZstdStreamCompressorC2Eib
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) initializes((0, 22)) %this, i32 noundef %compressionLevel, i1 noundef zeroext %independentChunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(22) initializes((0, 22)) %this, i32 noundef %compressionLevel, i1 noundef zeroext %independentChunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %independentChunks to i8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 16), ptr %this, align 8
@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZN8proxygen20ZstdStreamCompressor8getCodecEv(ptr nocapture noundef nonnull align 8 dereferenceable(22) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZN8proxygen20ZstdStreamCompressor8getCodecEv(ptr noundef nonnull align 8 captures(none) dereferenceable(22) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %codec_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -109,7 +109,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 declare void @_ZN5folly2io14getStreamCodecENS0_9CodecTypeEi(ptr sret(%"class.std::unique_ptr") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20ZstdStreamCompressor8compressEPKN5folly5IOBufEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(22) %this, ptr noundef %in, i1 noundef zeroext %last) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20ZstdStreamCompressor8compressEPKN5folly5IOBufEb(ptr noalias writeonly sret(%"class.std::unique_ptr.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(22) %this, ptr noundef %in, i1 noundef zeroext %last) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %clone = alloca %"class.folly::IOBuf", align 8
@@ -444,10 +444,10 @@ declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.eh.typeid.for.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

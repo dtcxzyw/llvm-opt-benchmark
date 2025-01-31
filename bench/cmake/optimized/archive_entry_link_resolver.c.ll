@@ -30,10 +30,10 @@ define dso_local noalias noundef ptr @archive_entry_linkresolver_new() local_unn
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @archive_entry_linkresolver_set_strategy(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = and i32 %1, 16711680
   %4 = add nsw i32 %3, -65536
   %5 = lshr exact i32 %4, 16
@@ -260,7 +260,7 @@ next_entry.exit21:                                ; preds = %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -403,7 +403,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
+define dso_local void @archive_entry_linkify(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
   store ptr null, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -542,7 +542,7 @@ declare i32 @archive_entry_nlink(ptr noundef) local_unnamed_addr #5
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -661,7 +661,7 @@ declare void @archive_entry_copy_hardlink(ptr noundef, ptr noundef) local_unname
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @insert_entry(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @insert_entry(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %65, label %5
@@ -793,7 +793,7 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_entry_partial_links(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @archive_entry_partial_links(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

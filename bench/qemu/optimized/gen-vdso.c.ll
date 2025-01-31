@@ -1392,7 +1392,7 @@ perror_inf:                                       ; preds = %if.then27, %if.end1
   br label %return
 
 perror_outf:                                      ; preds = %sw.epilog85, %if.end12
-  tail call void @perror(ptr noundef %outf_name.1) #11
+  tail call void @perror(ptr noundef nonnull %outf_name.1) #11
   br label %return
 
 return:                                           ; preds = %sw.epilog85, %perror_outf, %perror_inf, %sw.default81, %sw.default69, %if.then62, %if.end30, %usage
@@ -1404,16 +1404,16 @@ return:                                           ; preds = %sw.epilog85, %perro
 declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -1422,19 +1422,19 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @elf32_search_symtab(ptr nocapture noundef nonnull readonly %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr nocapture noundef nonnull %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
+define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly captures(none) %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr noundef nonnull captures(none) %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
   %arrayidx = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom
@@ -1613,10 +1613,10 @@ declare i16 @llvm.bswap.i16(i16) #7
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @elf64_search_symtab(ptr nocapture noundef nonnull readonly %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr nocapture noundef nonnull %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
+define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly captures(none) %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr noundef nonnull captures(none) %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
   %arrayidx = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom
@@ -1797,7 +1797,7 @@ for.end:                                          ; preds = %for.inc, %if.end22.
 declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

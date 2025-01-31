@@ -80,7 +80,7 @@ define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8e5a1430972fb36E.llvm.10961338582784087609"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8e5a1430972fb36E.llvm.10961338582784087609"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
@@ -3627,7 +3627,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4tanh17h60c47266c26771e8E(i32 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07a5618E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 captures(none) %3, i64 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
@@ -3655,7 +3655,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 4 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 4 captures(none) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -3686,7 +3686,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 4 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 4 captures(none) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -3717,7 +3717,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a1965
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 4 captures(none) %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
@@ -3751,7 +3751,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced255dcaE.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 4 captures(none) %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
@@ -3785,7 +3785,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 4 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8afeaE.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 4 captures(none) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
@@ -3843,7 +3843,7 @@ _ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.1096133858278408
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3be05E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3be05E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 4 captures(none) %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %10 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
@@ -3907,7 +3907,7 @@ _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.1096133858278408
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a2869E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a2869E.llvm.10961338582784087609(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 4 captures(none) %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %9 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %10 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
@@ -3974,7 +3974,7 @@ _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.1096133858278408
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609(i32 noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly317h849ec80d23f8165cE.llvm.10961338582784087609(i32 noundef %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
 _ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.10961338582784087609.exit:
   %2 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %3 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
@@ -4003,7 +4003,7 @@ _ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.109613385827840
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609(i32 noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d98E.llvm.10961338582784087609(i32 noundef %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %3 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %0, i32 noundef %0)
   %4 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %3, i32 noundef %0)
   %5 = load i32, ptr %1, align 4, !noundef !4
@@ -4013,7 +4013,7 @@ define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
 _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
   %2 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %3 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
@@ -4063,7 +4063,7 @@ _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609(i32 noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %1) unnamed_addr #2 {
+define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca03E.llvm.10961338582784087609(i32 noundef %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %1) unnamed_addr #2 {
   %3 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %0, i32 noundef %0)
   %4 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %3, i32 noundef %0)
   %5 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %3, i32 noundef %3)
@@ -4074,7 +4074,7 @@ define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly717hab988b1e8a00ca0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609(i32 noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %1) unnamed_addr #2 {
+define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly817h529167d3a15e459aE.llvm.10961338582784087609(i32 noundef %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %1) unnamed_addr #2 {
   %3 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %0, i32 noundef %0)
   %4 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %3, i32 noundef %0)
   %5 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %3, i32 noundef %3)
@@ -4091,7 +4091,7 @@ define hidden noundef i32 @"_ZN9softposit5p32e23ops75_$LT$impl$u20$core..ops..ar
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #2 {
+define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..AddAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10add_assign17h4f2d721ddc9d80fbE.llvm.10961338582784087609"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !noundef !4
   br label %5
 
@@ -4109,7 +4109,7 @@ define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #2 {
+define hidden void @"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !noundef !4
   br label %5
 
@@ -4142,7 +4142,7 @@ declare noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P
 declare noundef i32 @"_ZN9softposit5p32e24math5round41_$LT$impl$u20$softposit..p32e2..P32E2$GT$5round17h0017071b2bac8556E"(i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef align 8 dereferenceable(64), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #6
@@ -4166,10 +4166,10 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8add_mags17hda683e6e3257785cE"(i32 noundef, i32 noundef) unnamed_addr #6
@@ -4187,7 +4187,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

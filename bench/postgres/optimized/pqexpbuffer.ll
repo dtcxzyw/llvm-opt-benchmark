@@ -43,7 +43,7 @@ initPQExpBuffer.exit:                             ; preds = %5, %6
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @initPQExpBuffer(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #2 {
+define void @initPQExpBuffer(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #15
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -89,7 +89,7 @@ termPQExpBuffer.exit:                             ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @termPQExpBuffer(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #3 {
+define void @termPQExpBuffer(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, @oom_buffer
   br i1 %.not, label %4, label %3
@@ -106,7 +106,7 @@ define void @termPQExpBuffer(ptr nocapture noundef initializes((8, 24)) %0) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @resetPQExpBuffer(ptr noundef %0) local_unnamed_addr #5 {
@@ -226,7 +226,7 @@ markPQExpBufferBroken.exit32:                     ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @printfPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #6 {
@@ -291,7 +291,7 @@ resetPQExpBuffer.exit:                            ; preds = %.preheader, %2, %17
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @appendPQExpBufferVA(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define noundef zeroext i1 @appendPQExpBufferVA(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -454,14 +454,14 @@ define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
 declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @appendPQExpBufferStr(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @appendPQExpBufferStr(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  tail call void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef %1, i64 noundef %3)
+  tail call void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @appendBinaryPQExpBuffer(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @appendBinaryPQExpBuffer(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %enlargePQExpBuffer.exit.thread, label %5
 
@@ -553,7 +553,7 @@ enlargePQExpBuffer.exit.thread:                   ; preds = %3, %5, %markPQExpBu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #6 {
@@ -647,7 +647,7 @@ enlargePQExpBuffer.exit.thread:                   ; preds = %2, %4, %markPQExpBu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -659,7 +659,7 @@ declare void @llvm.va_end.p0(ptr) #12
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

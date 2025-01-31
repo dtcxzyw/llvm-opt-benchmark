@@ -17,7 +17,7 @@ define void @devrandom_register() local_unnamed_addr #0 {
 declare i32 @register_driver(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef returned %2) #0 {
+define internal noundef i64 @x86_rngread(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = icmp ugt i64 %2, 8
   br i1 %4, label %.preheader24, label %.preheader23
 

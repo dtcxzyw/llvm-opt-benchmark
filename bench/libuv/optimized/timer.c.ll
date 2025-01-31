@@ -670,7 +670,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uv_timer_set_repeat(ptr nocapture noundef writeonly initializes((136, 144)) %handle, i64 noundef %repeat) local_unnamed_addr #2 {
+define void @uv_timer_set_repeat(ptr noundef writeonly captures(none) initializes((136, 144)) %handle, i64 noundef %repeat) local_unnamed_addr #2 {
 entry:
   %repeat1 = getelementptr inbounds nuw i8, ptr %handle, i64 136
   store i64 %repeat, ptr %repeat1, align 8
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @uv_timer_get_repeat(ptr nocapture noundef readonly %handle) local_unnamed_addr #3 {
+define i64 @uv_timer_get_repeat(ptr noundef readonly captures(none) %handle) local_unnamed_addr #3 {
 entry:
   %repeat = getelementptr inbounds nuw i8, ptr %handle, i64 136
   %0 = load i64, ptr %repeat, align 8
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %handle) local_unnamed_addr #4 {
+define i64 @uv_timer_get_due_in(ptr noundef readonly captures(none) %handle) local_unnamed_addr #4 {
 entry:
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
@@ -699,7 +699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture noundef readonly %loop) local_unnamed_addr #4 {
+define hidden range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr noundef readonly captures(none) %loop) local_unnamed_addr #4 {
 entry:
   %timer_heap.i = getelementptr inbounds nuw i8, ptr %loop, i64 520
   %call.val = load ptr, ptr %timer_heap.i, align 8
@@ -726,7 +726,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__run_timers(ptr nocapture noundef readonly %loop) local_unnamed_addr #5 {
+define hidden void @uv__run_timers(ptr noundef readonly captures(none) %loop) local_unnamed_addr #5 {
 entry:
   %timer_heap.i = getelementptr inbounds nuw i8, ptr %loop, i64 520
   %call.val7 = load ptr, ptr %timer_heap.i, align 8
@@ -780,7 +780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #7
@@ -789,13 +789,13 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7

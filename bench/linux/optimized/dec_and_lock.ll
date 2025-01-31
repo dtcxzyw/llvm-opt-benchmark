@@ -53,7 +53,7 @@ define dso_local noundef range(i32 0, 2) i32 @_atomic_dec_and_lock(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @_atomic_dec_and_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_atomic_dec_and_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = load volatile i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %._crit_edge, label %.lr.ph, !prof !5
@@ -140,7 +140,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @_atomic_dec_and_raw_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @_atomic_dec_and_raw_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = load volatile i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %._crit_edge, label %.lr.ph, !prof !5

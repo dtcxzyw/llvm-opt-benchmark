@@ -46,13 +46,13 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5HG__cache_heap_free_icr = private unnamed_addr constant [26 x i8] c"H5HG__cache_heap_free_icr\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5HG__cache_heap_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5HG__cache_heap_get_initial_load_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   store i64 4096, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5HG__cache_heap_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal range(i32 -1, 1) i32 @H5HG__cache_heap_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = alloca %struct.H5HG_heap_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store i64 0, ptr %6, align 8
@@ -77,7 +77,7 @@ define internal range(i32 -1, 1) i32 @H5HG__cache_heap_get_final_load_size(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5HG_heap_t_reg_free_list) #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -557,7 +557,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HG__cache_heap_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5HG__cache_heap_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -565,7 +565,7 @@ define internal noundef i32 @H5HG__cache_heap_image_len(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5HG__cache_heap_serialize(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef readonly %3) #3 {
+define internal noundef i32 @H5HG__cache_heap_serialize(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %6, i64 %2, i1 false)
@@ -590,7 +590,7 @@ define internal range(i32 -1, 1) i32 @H5HG__cache_heap_free_icr(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr nocapture noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = getelementptr i8, ptr %1, i64 %2
   %.ptr68 = getelementptr i8, ptr %5, i64 -1
   %6 = icmp ugt ptr %1, %.ptr68
@@ -790,21 +790,21 @@ declare ptr @H5F_get_shared(ptr noundef) local_unnamed_addr #4
 declare noalias ptr @H5FL_blk_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @H5FL_seq_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 declare ptr @H5FL_seq_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @H5F_cwfs_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @H5HG__free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

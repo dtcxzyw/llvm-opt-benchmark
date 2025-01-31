@@ -124,7 +124,7 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_HMAC_update(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_HMAC_update(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8

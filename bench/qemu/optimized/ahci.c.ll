@@ -173,7 +173,7 @@ do.end6:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @is_atapi(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local zeroext i1 @is_atapi(ptr noundef readonly captures(none) %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
@@ -250,7 +250,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare void @qpci_free_pc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_clean_mem(ptr nocapture noundef %ahci) local_unnamed_addr #0 {
+define dso_local void @ahci_clean_mem(ptr noundef captures(none) %ahci) local_unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca %struct.AHCICommandHeader, align 1
   %cmd.i = alloca %struct.AHCICommandHeader, align 1
@@ -368,7 +368,7 @@ for.end32:                                        ; preds = %for.inc30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_destroy_command(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot) local_unnamed_addr #0 {
+define dso_local void @ahci_destroy_command(ptr noundef captures(none) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.AHCICommandHeader, align 1
   %cmd = alloca %struct.AHCICommandHeader, align 1
@@ -493,7 +493,7 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 declare { i64, i8 } @qpci_iomap(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @qpci_device_enable(ptr noundef) local_unnamed_addr #2
 
@@ -921,7 +921,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #2
 declare void @qtest_memset(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 32) i32 @ahci_port_select(ptr nocapture noundef readonly %ahci) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @ahci_port_select(ptr noundef readonly captures(none) %ahci) local_unnamed_addr #0 {
 entry:
   %dev.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i, align 8
@@ -968,7 +968,7 @@ do.end:                                           ; preds = %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_clear(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local void @ahci_port_clear(ptr noundef readonly captures(none) %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
@@ -1007,7 +1007,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_error(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_error(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %0 = load i8, ptr %port1, align 1
@@ -1208,7 +1208,7 @@ do.end139:                                        ; preds = %if.else135, %do.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_interrupts(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_interrupts(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %errors = getelementptr inbounds nuw i8, ptr %cmd, i64 3
   %0 = load i8, ptr %errors, align 1
@@ -1264,7 +1264,7 @@ do.end22:                                         ; preds = %if.else18, %do.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_nonbusy(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_nonbusy(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %slot1 = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %0 = load i8, ptr %slot1, align 2
@@ -1402,7 +1402,7 @@ do.end104:                                        ; preds = %if.else100, %do.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_d2h_sanity(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 zeroext %slot) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_d2h_sanity(ptr noundef readonly captures(none) %ahci, i8 noundef zeroext %port, i8 zeroext %slot) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #17
   %0 = load ptr, ptr %ahci, align 8
@@ -1471,7 +1471,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 declare void @qtest_memread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_pio_sanity(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_pio_sanity(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #17
   %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
@@ -1550,7 +1550,7 @@ if.end52:                                         ; preds = %do.body13, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_cmd_sanity(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_port_check_cmd_sanity(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %cmdh = alloca %struct.AHCICommandHeader, align 1
   %port = getelementptr inbounds nuw i8, ptr %cmd, i64 1
@@ -1595,7 +1595,7 @@ if.end5:                                          ; preds = %do.body, %if.else, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_get_command_header(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_get_command_header(ptr noundef readonly captures(none) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i8 %port to i64
   %clb.idx = mul nuw nsw i64 %idxprom, 344
@@ -1612,7 +1612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_set_command_header(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_set_command_header(ptr noundef readonly captures(none) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.AHCICommandHeader, align 2
   %0 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
@@ -1646,12 +1646,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @qtest_memwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_write_fis(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_write_fis(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.RegH2DFIS, align 1
   %fis = getelementptr inbounds nuw i8, ptr %cmd, i64 72
@@ -1665,7 +1665,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 32) i32 @ahci_pick_cmd(ptr nocapture noundef %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @ahci_pick_cmd(ptr noundef captures(none) %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
@@ -2319,7 +2319,7 @@ command_table_init.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_adjust(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
+define dso_local void @ahci_command_adjust(ptr noundef captures(none) initializes((8, 16)) %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   tail call void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %xbytes, i32 noundef %prd_size)
   %buffer1.i = getelementptr inbounds nuw i8, ptr %cmd, i64 24
@@ -2329,7 +2329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_commit(ptr nocapture noundef %ahci, ptr nocapture noundef initializes((1, 2)) %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local void @ahci_command_commit(ptr noundef captures(none) %ahci, ptr noundef captures(none) initializes((1, 2)) %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %tmp.i55 = alloca %struct.RegH2DFIS, align 1
   %tmp.i = alloca %struct.AHCICommandHeader, align 2
@@ -2575,7 +2575,7 @@ for.end:                                          ; preds = %for.body, %do.end41
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_issue_async(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_command_issue_async(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
@@ -2628,7 +2628,7 @@ declare void @qtest_qmp_eventwait(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @qtest_qmp_send(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_wait(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_command_wait(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %port = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
@@ -2722,7 +2722,7 @@ while.end:                                        ; preds = %land.rhs14, %lor.rh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_verify(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_command_verify(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %cmdh.i = alloca %struct.AHCICommandHeader, align 1
   %slot1 = getelementptr inbounds nuw i8, ptr %cmd, i64 2
@@ -2808,7 +2808,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @ahci_guest_io_halt(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @ahci_guest_io_halt(ptr noundef captures(none) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext %ide_cmd)
   tail call void @ahci_command_set_sizes(ptr noundef %call, i64 noundef %bufsize, i32 noundef 0)
@@ -2858,7 +2858,7 @@ ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_guest_io_resume(ptr nocapture noundef readonly %ahci, ptr noundef %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_guest_io_resume(ptr noundef readonly captures(none) %ahci, ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ahci, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2879,7 +2879,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_guest_io(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
+define dso_local void @ahci_guest_io(ptr noundef captures(none) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext %ide_cmd)
   %buffer1.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -2942,7 +2942,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @ahci_command_set_buffer(ptr nocapture noundef writeonly initializes((24, 32)) %cmd, i64 noundef %buffer) local_unnamed_addr #6 {
+define dso_local void @ahci_command_set_buffer(ptr noundef writeonly captures(none) initializes((24, 32)) %cmd, i64 noundef %buffer) local_unnamed_addr #6 {
 entry:
   %buffer1 = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   store i64 %buffer, ptr %buffer1, align 8
@@ -2950,7 +2950,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_size(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %xbytes) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_size(ptr noundef captures(none) initializes((8, 16)) %cmd, i64 noundef %xbytes) local_unnamed_addr #0 {
 entry:
   %prd_size = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %0 = load i32, ptr %prd_size, align 8
@@ -2959,7 +2959,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_offset(ptr nocapture noundef %cmd, i64 noundef %lba_sect) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_offset(ptr noundef captures(none) %cmd, i64 noundef %lba_sect) local_unnamed_addr #0 {
 entry:
   %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
@@ -3121,7 +3121,7 @@ return:                                           ; preds = %if.else18.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_issue(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_command_issue(ptr noundef readonly captures(none) %ahci, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %props.i = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props.i, align 8
@@ -3275,7 +3275,7 @@ declare void @qtest_bufwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef)
 declare void @qtest_bufread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_enable_atapi_dma(ptr nocapture noundef %cmd) local_unnamed_addr #0 {
+define dso_local void @ahci_command_enable_atapi_dma(ptr noundef captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
@@ -3312,7 +3312,7 @@ do.end9:                                          ; preds = %do.end
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_test_ready(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i1 noundef zeroext %ready, i8 noundef zeroext %expected_sense) local_unnamed_addr #0 {
+define dso_local void @ahci_atapi_test_ready(ptr noundef captures(none) %ahci, i8 noundef zeroext %port, i1 noundef zeroext %ready, i8 noundef zeroext %expected_sense) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -3385,7 +3385,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_get_sense(ptr noundef %ahci, i8 noundef zeroext %port, ptr nocapture noundef writeonly initializes((0, 1)) %sense, ptr nocapture noundef writeonly initializes((0, 1)) %asc) local_unnamed_addr #0 {
+define dso_local void @ahci_atapi_get_sense(ptr noundef %ahci, i8 noundef zeroext %port, ptr noundef writeonly captures(none) initializes((0, 1)) %sense, ptr noundef writeonly captures(none) initializes((0, 1)) %asc) local_unnamed_addr #0 {
 entry:
   %opts = alloca %struct.AHCIOpts, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %opts, ptr noundef nonnull align 8 dereferenceable(80) @__const.ahci_atapi_get_sense.opts, i64 72, i1 false)
@@ -3404,7 +3404,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @copy_buffer(ptr nocapture noundef readonly %ahci, ptr nocapture readnone %cmd, ptr nocapture noundef readonly %opts) #0 {
+define internal noundef i32 @copy_buffer(ptr noundef readonly captures(none) %ahci, ptr readnone captures(none) %cmd, ptr noundef readonly captures(none) %opts) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %opts, i64 72
   %0 = load ptr, ptr %opaque, align 8
@@ -3421,7 +3421,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_eject(ptr nocapture noundef %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local void @ahci_atapi_eject(ptr noundef captures(none) %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -3482,7 +3482,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_load(ptr nocapture noundef %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local void @ahci_atapi_load(ptr noundef captures(none) %ahci, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -3543,7 +3543,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ahci_command_set_flags(ptr nocapture noundef %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
+define dso_local void @ahci_command_set_flags(ptr noundef captures(none) %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
 entry:
   %header = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %0 = load i16, ptr %header, align 8
@@ -3553,7 +3553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ahci_command_clr_flags(ptr nocapture noundef %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
+define dso_local void @ahci_command_clr_flags(ptr noundef captures(none) %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
 entry:
   %not = xor i16 %cmdh_flags, -1
   %header = getelementptr inbounds nuw i8, ptr %cmd, i64 40
@@ -3564,7 +3564,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_sizes(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_sizes(ptr noundef captures(none) initializes((8, 16)) %cmd, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %prd_size, 4194305
   br i1 %cmp, label %do.body4, label %if.else
@@ -3776,7 +3776,7 @@ size_to_prdtl.exit:                               ; preds = %do.body4.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_prd_size(ptr nocapture noundef %cmd, i32 noundef %prd_size) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_prd_size(ptr noundef captures(none) %cmd, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   %xbytes = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %0 = load i64, ptr %xbytes, align 8
@@ -3785,7 +3785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i8 @ahci_command_slot(ptr nocapture noundef readonly %cmd) local_unnamed_addr #9 {
+define dso_local zeroext i8 @ahci_command_slot(ptr noundef readonly captures(none) %cmd) local_unnamed_addr #9 {
 entry:
   %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %0 = load i8, ptr %slot, align 2
@@ -3804,7 +3804,7 @@ declare void @qpci_io_writel(ptr noundef, i64, i8, i64 noundef, i32 noundef) loc
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #12
@@ -3813,10 +3813,10 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i16 @llvm.bswap.i16(i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

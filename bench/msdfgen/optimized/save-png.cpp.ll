@@ -15,7 +15,7 @@ $__clang_call_terminate = comdat any
 @.str.3 = private unnamed_addr constant [17 x i8] c"File write error\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi1EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr noundef readonly captures(none) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.msdfgen::PngGuard", align 8
   %tobool = icmp ne ptr %pixels, null
@@ -177,7 +177,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi3EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi4EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr noundef readonly captures(none) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = icmp ne ptr %pixels, null
   %tobool1 = icmp ne i32 %width, 0
@@ -292,7 +292,7 @@ return:                                           ; preds = %entry, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bitmap, ptr noundef readonly captures(none) %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -318,7 +318,7 @@ entry:
 declare noalias ptr @png_create_write_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7msdfgenL14pngIgnoreErrorEP14png_struct_defPKc(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal void @_ZN7msdfgenL14pngIgnoreErrorEP14png_struct_defPKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
 entry:
   ret void
 }
@@ -326,7 +326,7 @@ entry:
 declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -341,7 +341,7 @@ declare void @longjmp(ptr noundef, i32 noundef) #5
 declare void @png_set_write_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7msdfgenL8pngWriteEP14png_struct_defPhm(ptr noundef %png, ptr nocapture noundef %data, i64 noundef %length) #0 {
+define internal void @_ZN7msdfgenL8pngWriteEP14png_struct_defPhm(ptr noundef %png, ptr noundef captures(none) %data, i64 noundef %length) #0 {
 entry:
   %call = tail call ptr @png_get_io_ptr(ptr noundef %png)
   %call1 = tail call i64 @fwrite(ptr noundef %data, i64 noundef 1, i64 noundef %length, ptr noundef %call)
@@ -415,7 +415,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @png_get_io_ptr(ptr noundef) local_unnamed_addr #1
 
@@ -423,15 +423,15 @@ declare ptr @png_get_io_ptr(ptr noundef) local_unnamed_addr #1
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

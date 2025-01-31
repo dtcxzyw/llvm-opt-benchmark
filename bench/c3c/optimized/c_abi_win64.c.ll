@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @type_iptr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @win64_classify(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -183,7 +183,7 @@ is_power_of_two.exit.thread:                      ; preds = %57
 declare ptr @abi_arg_ignore() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -335,7 +335,7 @@ declare ptr @abi_arg_new_direct_int_ext(ptr noundef) local_unnamed_addr #1
 declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @win64_reclassify_hva_arg(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define dso_local ptr @win64_reclassify_hva_arg(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -373,7 +373,7 @@ define dso_local ptr @win64_reclassify_hva_arg(ptr nocapture noundef %0, ptr noc
 declare ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -408,7 +408,7 @@ define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr nocapture
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.Regs, align 8
@@ -632,10 +632,10 @@ declare ptr @type_get_flexible_array(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

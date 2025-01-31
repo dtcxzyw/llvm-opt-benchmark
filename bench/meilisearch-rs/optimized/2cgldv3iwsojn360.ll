@@ -149,7 +149,7 @@ _ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit: ; preds = %14
 
 32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit, %22, %18, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !6
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !6
   %33 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !5
   %switch.not.i.i.i.i = icmp eq i8 %33, 3
   br i1 %switch.not.i.i.i.i, label %34, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
@@ -170,7 +170,7 @@ _ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit: ; preds = %14
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17head065c0ef7d9b13E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17head065c0ef7d9b13E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %.lr.ph.split.us
 
@@ -184,14 +184,14 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17head065c0ef7d9b13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  %6 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.7.llvm.10894476612218408692, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %6 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.7.llvm.10894476612218408692, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
           to label %9 unwind label %7
 
 7:                                                ; preds = %2
@@ -214,7 +214,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr no
 
 14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !18
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %3, ptr noundef nonnull %10), !noalias !18
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %10), !noalias !18
   %15 = load i8, ptr %3, align 8, !range !13, !alias.scope !27, !noalias !18, !noundef !5
   %switch.not.i.i.i.i.i = icmp eq i8 %15, 3
   br i1 %switch.not.i.i.i.i.i, label %16, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit.i"
@@ -244,7 +244,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr no
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable10 [
@@ -289,7 +289,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %3 = icmp eq ptr %1, null
@@ -327,7 +327,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h54ebb348ed0a1d6cE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h54ebb348ed0a1d6cE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %14, label %4
@@ -379,7 +379,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h38cee9e083803e7cE.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h38cee9e083803e7cE.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [64 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -452,7 +452,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$core..option..Option$LT$mei
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !50
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !50, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -486,7 +486,7 @@ define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !61
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !61, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -520,7 +520,7 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !72
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !72, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -554,7 +554,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !83
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !83, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -588,7 +588,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !94
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !94, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -622,7 +622,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !105
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !105, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -656,7 +656,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !116
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !116, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -690,7 +690,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !127
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !127, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -724,7 +724,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !138
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !49, !noalias !138, !noundef !5
   %9 = icmp eq i64 %8, 0
@@ -747,12 +747,12 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17hb86cf88485455286E.llvm.10894476612218408692"(ptr noalias nocapture nonnull readnone align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17hb86cf88485455286E.llvm.10894476612218408692"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$GT$17h4d768edb8326b6f6E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$GT$17h4d768edb8326b6f6E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
@@ -776,7 +776,7 @@ default.unreachable4:                             ; preds = %1
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !150
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !49, !noalias !150, !noundef !5
   %11 = icmp eq i64 %10, 0
@@ -799,7 +799,7 @@ default.unreachable4:                             ; preds = %1
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !159
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !range !49, !noalias !159, !noundef !5
   %21 = icmp eq i64 %20, 0
@@ -822,7 +822,7 @@ default.unreachable4:                             ; preds = %1
 
 28:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !168
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load i64, ptr %29, align 8, !range !49, !noalias !168, !noundef !5
   %31 = icmp eq i64 %30, 0
@@ -845,7 +845,7 @@ default.unreachable4:                             ; preds = %1
 
 38:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !177
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !49, !noalias !177, !noundef !5
   %41 = icmp eq i64 %40, 0
@@ -871,7 +871,7 @@ default.unreachable4:                             ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hbd6ced04c6286a6cE.llvm.10894476612218408692"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hbd6ced04c6286a6cE.llvm.10894476612218408692"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   %2 = alloca [16 x i8], align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -882,7 +882,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !186
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %2, ptr noundef nonnull %3), !noalias !186
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %3), !noalias !186
   %7 = load i8, ptr %2, align 8, !range !13, !alias.scope !193, !noalias !186, !noundef !5
   %switch.not.i.i.i.i = icmp eq i8 %7, 3
   br i1 %switch.not.i.i.i.i, label %8, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
@@ -917,7 +917,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f5c9d74c96a7
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf56744be4a307340E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf56744be4a307340E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %5 to i1
@@ -955,10 +955,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf56744be4a307
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false)
   %5 = load i64, ptr %4, align 8, !range !37, !noundef !5
   %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -984,7 +984,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h689397f4f8a2f533E.llvm.10894476612218408692"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h689397f4f8a2f533E.llvm.10894476612218408692"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.43, i64 noundef 5)
   ret i1 %3
 }
@@ -1113,7 +1113,7 @@ _ZN5alloc6string6String4push17h73faea9791f3dabaE.exit: ; preds = %"_ZN5alloc3vec
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h9a6435738387aa60E.llvm.10894476612218408692"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h9a6435738387aa60E.llvm.10894476612218408692"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !217, !noalias !226, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !217, !noalias !226, !noundef !5
@@ -1139,7 +1139,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h1520f6c87e10bb13E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h1520f6c87e10bb13E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1161,7 +1161,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h6b584c81f1d07e56E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h6b584c81f1d07e56E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1183,7 +1183,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h7aee3e2580638429E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h7aee3e2580638429E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1205,7 +1205,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h92abe1928cc2e894E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h92abe1928cc2e894E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1227,7 +1227,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17haaa2bc6a1ec56fc4E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17haaa2bc6a1ec56fc4E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1249,7 +1249,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17he682dfaec0d4cd22E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17he682dfaec0d4cd22E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1271,7 +1271,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17he9d6425b1bea96b0E.llvm.10894476612218408692"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17he9d6425b1bea96b0E.llvm.10894476612218408692"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1601,7 +1601,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h55b97abd9b2f0f97E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #8 {
+define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h55b97abd9b2f0f97E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #8 {
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1656,7 +1656,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h5a2c26dae60465a9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #8 {
+define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h5a2c26dae60465a9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #8 {
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1711,7 +1711,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h93cc5efbdf0ba74aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #8 {
+define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h93cc5efbdf0ba74aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #8 {
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1766,7 +1766,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17heae1134145736493E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %1) unnamed_addr #8 {
+define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17heae1134145736493E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #8 {
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1821,7 +1821,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h3dc9dfed4e9792baE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h3dc9dfed4e9792baE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1831,10 +1831,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN101_$LT$alloc..string..String$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h510f49dc91ee7a8fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN101_$LT$alloc..string..String$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h510f49dc91ee7a8fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !305
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !305
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !305
   %5 = load i64, ptr %4, align 8, !range !37, !noalias !305, !noundef !5
   %trunc.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1860,7 +1860,7 @@ define void @"_ZN101_$LT$alloc..string..String$u20$as$u20$meilisearch_types..des
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h4d53be0274dd12b9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h4d53be0274dd12b9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -1873,7 +1873,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 -9223372036854775808, ptr %10, align 8
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %16 unwind label %14
 
 13:                                               ; preds = %.body, %14
@@ -1951,7 +1951,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
   store i8 3, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !315
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %31
@@ -1981,7 +1981,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 
 45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !329
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load i64, ptr %46, align 8, !range !49, !noalias !329, !noundef !5
   %48 = icmp eq i64 %47, 0
@@ -2016,7 +2016,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082aecad5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i8 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082aecad5E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i8 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %9 = alloca [24 x i8], align 8
@@ -2033,13 +2033,13 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %16 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %4
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h337f085537fa9d01E.llvm.7205017296298784897"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noundef nonnull %3, ptr noundef nonnull %16)
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h337f085537fa9d01E.llvm.7205017296298784897"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull %3, ptr noundef nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  invoke void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.49, i64 noundef 2)
+  invoke void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.49, i64 noundef 2)
           to label %24 unwind label %22
 
 21:                                               ; preds = %26, %22
@@ -2072,7 +2072,7 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !351
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !351
-  invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
           to label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit unwind label %26
 
 26:                                               ; preds = %24
@@ -2084,7 +2084,7 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
 _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !340
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !352
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc18 unwind label %37
 
 .noexc18:                                         ; preds = %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit
@@ -2147,7 +2147,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN87_$LT$meilisearch_types..document_formats..PayloadType$u20$as$u20$core..fmt..Display$GT$3fmt17h58916fe162b9a7e1E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN87_$LT$meilisearch_types..document_formats..PayloadType$u20$as$u20$core..fmt..Display$GT$3fmt17h58916fe162b9a7e1E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !361, !noundef !5
   switch i8 %3, label %default.unreachable1 [
     i8 0, label %4
@@ -2176,7 +2176,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN95_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..fmt..Display$GT$3fmt17h239b331017aa511cE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @"_ZN95_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..fmt..Display$GT$3fmt17h239b331017aa511cE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -2218,7 +2218,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %2
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %23 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10), !noalias !363
+  %23 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10), !noalias !363
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !363
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -2268,14 +2268,14 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit34: ; preds = %24
   store i64 2, ptr %.sroa.852.0..sroa_idx, align 8
   %.sroa.1053.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %.sroa.1053.0..sroa_idx, align 8
-  %35 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val26, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9), !noalias !367
+  %35 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9), !noalias !367
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !367
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %79
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !370
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, i64 noundef 48, i1 noundef zeroext false), !noalias !370
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef 48, i1 noundef zeroext false), !noalias !370
   %37 = load i64, ptr %8, align 8, !range !37, !noalias !370, !noundef !5
   %trunc.i = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2388,7 +2388,7 @@ common.resume:                                    ; preds = %67, %54
   store i64 2, ptr %.sroa.846.0..sroa_idx, align 8
   %.sroa.1047.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.1047.0..sroa_idx, align 8
-  %66 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %66 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %69 unwind label %67
 
 67:                                               ; preds = %62, %60
@@ -2400,7 +2400,7 @@ common.resume:                                    ; preds = %67, %54
 69:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !381
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !384
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = load i64, ptr %70, align 8, !range !49, !noalias !384, !noundef !5
   %72 = icmp eq i64 %71, 0
@@ -2437,7 +2437,7 @@ common.resume:                                    ; preds = %67, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$$LP$meilisearch_types..document_formats..PayloadType$C$milli..documents..Error$RP$$GT$$GT$4from17hd64c692107b5d63eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$$LP$meilisearch_types..document_formats..PayloadType$C$milli..documents..Error$RP$$GT$$GT$4from17hd64c692107b5d63eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2473,7 +2473,7 @@ define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatErro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h829094190d6f7cd1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #10 {
+define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h829094190d6f7cd1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775799, ptr %0, align 8
@@ -2481,7 +2481,7 @@ define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatErro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i8 26, -116) i8 @"_ZN112_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hca70a8c489e5f488E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
+define noundef range(i8 26, -116) i8 @"_ZN112_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hca70a8c489e5f488E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !362, !noundef !5
   %3 = icmp eq i64 %2, -9223372036854775799
   br i1 %3, label %4, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
@@ -2518,7 +2518,7 @@ define noundef range(i8 26, -116) i8 @"_ZN112_$LT$meilisearch_types..document_fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i8 26, -116) i8 @"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
+define noundef range(i8 26, -116) i8 @"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 3
@@ -2549,7 +2549,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.108944766
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN17meilisearch_types5error115_$LT$impl$u20$core..fmt..Display$u20$for$u20$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$GT$3fmt17h5d45bcf4614c269fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN17meilisearch_types5error115_$LT$impl$u20$core..fmt..Display$u20$for$u20$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$GT$3fmt17h5d45bcf4614c269fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
@@ -2562,7 +2562,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN17meilisearch_types5error105_$LT$impl$u20$core..fmt..Display$u20$for$u20$meilisearch_types..error..deserr_codes..InvalidSimilarId$GT$3fmt17h0b7b633f97adf860E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN17meilisearch_types5error105_$LT$impl$u20$core..fmt..Display$u20$for$u20$meilisearch_types..error..deserr_codes..InvalidSimilarId$GT$3fmt17h0b7b633f97adf860E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
@@ -2575,13 +2575,13 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN17meilisearch_types9index_uid117_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid..IndexUid$GT$$u20$for$u20$alloc..string..String$GT$4from17h984d6ce815181c5aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define void @"_ZN17meilisearch_types9index_uid117_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid..IndexUid$GT$$u20$for$u20$alloc..string..String$GT$4from17h984d6ce815181c5aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #12 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !402
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h5296ae4b80d30165E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h5296ae4b80d30165E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -2589,7 +2589,7 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !406
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !410
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, i64 noundef 1, i1 noundef zeroext false), !noalias !410
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef 1, i1 noundef zeroext false), !noalias !410
   %6 = load i64, ptr %2, align 8, !range !37, !noalias !410, !noundef !5
   %trunc.i.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2611,7 +2611,7 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !406
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !406
-  call void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !415
+  call void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !415
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !406
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
@@ -2652,7 +2652,7 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern11matches_all17hc1e1764175e395efE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #13 {
+define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern11matches_all17hc1e1764175e395efE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load i64, ptr %2, align 8, !noundef !5
   %.not.i = icmp eq i64 %.val1, 1
@@ -2671,7 +2671,7 @@ define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern8is_exact17h50c092d3ead0b38eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #13 {
+define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern8is_exact17h50c092d3ead0b38eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
   %.not.i = icmp eq i64 %3, 0
@@ -2692,7 +2692,7 @@ define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern7matches17h4976f9266ddb5b07E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #14 {
+define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern7matches17h4976f9266ddb5b07E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !426, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2732,7 +2732,7 @@ _ZN17meilisearch_types17index_uid_pattern15IndexUidPattern11matches_str17hcd204d
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern11matches_str17hcd204d7441a06056E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #15 {
+define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern11matches_str17hcd204d7441a06056E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2767,7 +2767,7 @@ define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3ea72a1927126403E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
+define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3ea72a1927126403E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2778,7 +2778,7 @@ define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN105_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..borrow..Borrow$LT$str$GT$$GT$6borrow17h3d802d663dfea59aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
+define { ptr, i64 } @"_ZN105_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..borrow..Borrow$LT$str$GT$$GT$6borrow17h3d802d663dfea59aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2789,7 +2789,7 @@ define { ptr, i64 } @"_ZN105_$LT$meilisearch_types..index_uid_pattern..IndexUidP
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -2859,7 +2859,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread": ; preds = %31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  invoke void @"_ZN85_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hacc6e3d64e5f34f3E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %14)
+  invoke void @"_ZN85_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hacc6e3d64e5f34f3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %14)
           to label %33 unwind label %56
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit": ; preds = %31
@@ -2880,7 +2880,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !446
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !449
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load i64, ptr %36, align 8, !range !49, !noalias !449, !noundef !5
   %38 = icmp eq i64 %37, 0
@@ -2908,7 +2908,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 .noexc9:                                          ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !alias.scope !465, !noalias !466
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !467
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i64, ptr %45, align 8, !range !49, !noalias !467, !noundef !5
   %47 = icmp eq i64 %46, 0
@@ -2957,12 +2957,12 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h6da94f74d5e3eb21E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h6da94f74d5e3eb21E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !478
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !478
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !478
   %6 = load i64, ptr %4, align 8, !range !37, !noalias !478, !noundef !5
   %trunc.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2984,19 +2984,19 @@ define void @"_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
   store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..convert..TryFrom$LT$alloc..string..String$GT$$GT$8try_from17h58452ca114251129E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN17meilisearch_types17index_uid_pattern132_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$$u20$for$u20$alloc..string..String$GT$4from17ha8e618ba789a99feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define void @"_ZN17meilisearch_types17index_uid_pattern132_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$$u20$for$u20$alloc..string..String$GT$4from17ha8e618ba789a99feE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #12 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN103_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$core..fmt..Display$GT$3fmt17h163fb5be418a2662E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN103_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$core..fmt..Display$GT$3fmt17h163fb5be418a2662E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
@@ -3018,19 +3018,19 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !483
+  %6 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !483
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !483
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h19a3011269a4a4ddE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h19a3011269a4a4ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #16 {
   ret i8 52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithError$LT$milli..criterion..CriterionError$GT$$u20$for$u20$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$5merge17hdcf1790b919abcd5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithError$LT$milli..criterion..CriterionError$GT$$u20$for$u20$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$5merge17hdcf1790b919abcd5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -3111,7 +3111,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !496
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !496
   store i64 -9223372036854775808, ptr %11, align 8, !noalias !496
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %38 unwind label %36, !noalias !499
 
 35:                                               ; preds = %.body.i, %36
@@ -3189,7 +3189,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
   store i8 93, ptr %.sroa.4.0..sroa_idx.i3, align 8, !alias.scope !491, !noalias !506
   store i64 1, ptr %0, align 8, !alias.scope !491, !noalias !506
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !507
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %.noexc.i4 unwind label %36, !noalias !496
 
 .noexc.i4:                                        ; preds = %53
@@ -3219,7 +3219,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !522
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %67
@@ -3273,7 +3273,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !536
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %87 = load i64, ptr %86, align 8, !range !49, !noalias !536, !noundef !5
   %88 = icmp eq i64 %87, 0
@@ -3323,7 +3323,7 @@ define noundef ptr @_ZN17meilisearch_types10versioning19create_version_file17h82
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
+  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @_ZN17meilisearch_types10versioning13VERSION_MAJOR17h72ebb1f4da515421E, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3346,13 +3346,13 @@ define noundef ptr @_ZN17meilisearch_types10versioning19create_version_file17h82
   store i64 3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !558
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !558
-  invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit unwind label %11
 
 _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !547
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %9 = call noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  %9 = call noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret ptr %9
 
@@ -3404,14 +3404,14 @@ define noundef ptr @_ZN17meilisearch_types10versioning18check_version_file17h760
   %30 = alloca [24 x i8], align 8
   %31 = alloca [24 x i8], align 8
   %32 = alloca [24 x i8], align 8
-  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
+  call void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.77, i64 noundef 7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !559)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !562, !noalias !567, !nonnull !5, !noundef !5
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !562, !noalias !567, !noundef !5
-  invoke void @_ZN3std2fs14read_to_string5inner17h45819a5834290d5cE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %36)
+  invoke void @_ZN3std2fs14read_to_string5inner17h45819a5834290d5cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %36)
           to label %39 unwind label %37, !noalias !559
 
 37:                                               ; preds = %2
@@ -3422,7 +3422,7 @@ define noundef ptr @_ZN17meilisearch_types10versioning18check_version_file17h760
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !569
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32), !noalias !567
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32), !noalias !567
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %41 = load i64, ptr %40, align 8, !range !49, !noalias !569, !noundef !5
   %42 = icmp eq i64 %41, 0
@@ -3526,7 +3526,7 @@ default.unreachable:                              ; preds = %53
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65a06e1f2fd1a353E.llvm.7205017296298784897"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %28)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65a06e1f2fd1a353E.llvm.7205017296298784897"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %28)
           to label %73 unwind label %64
 
 .body:                                            ; preds = %124, %86, %71, %204, %.body33
@@ -3602,7 +3602,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22)
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i64 -9223372036854775807, ptr %92, align 8
-  %93 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %22)
+  %93 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %22)
           to label %205 unwind label %71
 
 94:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i"
@@ -3767,7 +3767,7 @@ default.unreachable:                              ; preds = %53
 
 133:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !597
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
           to label %.noexc unwind label %202
 
 .noexc:                                           ; preds = %133
@@ -3791,7 +3791,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !597
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !606
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
           to label %.noexc48 unwind label %153
 
 .noexc48:                                         ; preds = %143
@@ -3820,7 +3820,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !606
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !615
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
           to label %.noexc50 unwind label %71
 
 .noexc50:                                         ; preds = %155
@@ -3844,7 +3844,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !615
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !624
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
           to label %.noexc52 unwind label %64
 
 .noexc52:                                         ; preds = %165
@@ -3868,7 +3868,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !624
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !631
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
   %176 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %177 = load i64, ptr %176, align 8, !range !49, !noalias !631, !noundef !5
   %178 = icmp eq i64 %177, 0
@@ -3902,7 +3902,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %21, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %188 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %21)
+  %188 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
           to label %189 unwind label %124
 
 189:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
@@ -3915,7 +3915,7 @@ default.unreachable:                              ; preds = %53
 190:                                              ; preds = %205, %189
   %.sroa.0.1 = phi ptr [ %188, %189 ], [ %93, %205 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !640
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
           to label %.noexc54 unwind label %64
 
 .noexc54:                                         ; preds = %190
@@ -3960,7 +3960,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !640
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !647
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %208 = load i64, ptr %207, align 8, !range !49, !noalias !647, !noundef !5
   %209 = icmp eq i64 %208, 0
@@ -3993,7 +3993,7 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72: ; preds = %58, %5
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19)
   %218 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i64 -9223372036854775808, ptr %218, align 8
-  %219 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %19)
+  %219 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %19)
           to label %221 unwind label %226
 
 _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %59, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
@@ -4003,7 +4003,7 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %59,
 221:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !656
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noundef nonnull %55), !noalias !656
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %55), !noalias !656
   %222 = load i8, ptr %4, align 8, !range !13, !alias.scope !663, !noalias !656, !noundef !5
   %switch.not.i.i.i.i = icmp eq i8 %222, 3
   br i1 %switch.not.i.i.i.i, label %223, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
@@ -4030,11 +4030,11 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %59,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN85_$LT$usize$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h8b43c4bd80fb6d1fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN85_$LT$usize$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h8b43c4bd80fb6d1fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h43cdd8ff4cb029beE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h43cdd8ff4cb029beE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %6 = load i8, ptr %5, align 8, !range !666, !noundef !5
   %trunc = trunc nuw i8 %6 to i1
   br i1 %trunc, label %11, label %7
@@ -4049,7 +4049,7 @@ define void @"_ZN85_$LT$usize$u20$as$u20$meilisearch_types..deserr..query_params
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !667
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !667
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !667
   %12 = load i64, ptr %4, align 8, !range !37, !noalias !667, !noundef !5
   %trunc.i = trunc nuw i64 %12 to i1
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4079,7 +4079,7 @@ define void @"_ZN85_$LT$usize$u20$as$u20$meilisearch_types..deserr..query_params
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$u32$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h1f8b199183c73f80E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN83_$LT$u32$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h1f8b199183c73f80E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %trunc = trunc i64 %5 to i1
@@ -4095,7 +4095,7 @@ define void @"_ZN83_$LT$u32$u20$as$u20$meilisearch_types..deserr..query_params..
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !672
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !672
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !672
   %9 = load i64, ptr %4, align 8, !range !37, !noalias !672, !noundef !5
   %trunc.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4124,7 +4124,7 @@ define void @"_ZN83_$LT$u32$u20$as$u20$meilisearch_types..deserr..query_params..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN84_$LT$bool$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h160f53d27a010cf5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN84_$LT$bool$u20$as$u20$meilisearch_types..deserr..query_params..FromQueryParameter$GT$16from_query_param17h160f53d27a010cf5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   switch i64 %2, label %8 [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.i"
@@ -4151,7 +4151,7 @@ define void @"_ZN84_$LT$bool$u20$as$u20$meilisearch_types..deserr..query_params.
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit11.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.i", %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !685
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !685
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false), !noalias !685
   %9 = load i64, ptr %4, align 8, !range !37, !noalias !685, !noundef !5
   %trunc.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4180,7 +4180,7 @@ define void @"_ZN84_$LT$bool$u20$as$u20$meilisearch_types..deserr..query_params.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$17missing_index_uid17h76dbaad1aaa288afE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$17missing_index_uid17h76dbaad1aaa288afE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4204,7 +4204,7 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !690
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !690
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !690
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !696
 
 16:                                               ; preds = %.body.i, %17
@@ -4278,7 +4278,7 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !698
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !698
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !704
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !690
 
 .noexc.i:                                         ; preds = %34
@@ -4320,7 +4320,7 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$23missing_api_key_actions17h5235571f2cac731dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$23missing_api_key_actions17h5235571f2cac731dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4344,7 +4344,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !715
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !715
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !715
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !721
 
 16:                                               ; preds = %.body.i, %17
@@ -4418,7 +4418,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !723
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !723
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !729
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !715
 
 .noexc.i:                                         ; preds = %34
@@ -4460,7 +4460,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$26missing_api_key_expires_at17h1d68946c74a191fcE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$26missing_api_key_expires_at17h1d68946c74a191fcE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4484,7 +4484,7 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !740
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !740
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !740
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !746
 
 16:                                               ; preds = %.body.i, %17
@@ -4558,7 +4558,7 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !748
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !748
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !754
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !740
 
 .noexc.i:                                         ; preds = %34
@@ -4600,7 +4600,7 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$23missing_api_key_indexes17hff86abd34ac10ab5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$23missing_api_key_indexes17hff86abd34ac10ab5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4624,7 +4624,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !765
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !765
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !765
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !771
 
 16:                                               ; preds = %.body.i, %17
@@ -4698,7 +4698,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !773
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !773
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !779
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !765
 
 .noexc.i:                                         ; preds = %34
@@ -4740,7 +4740,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$20missing_swap_indexes17hb8b6e395b41b7bf8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$20missing_swap_indexes17hb8b6e395b41b7bf8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4764,7 +4764,7 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !790
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !790
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !790
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !796
 
 16:                                               ; preds = %.body.i, %17
@@ -4838,7 +4838,7 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !798
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !798
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !804
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !790
 
 .noexc.i:                                         ; preds = %34
@@ -4880,7 +4880,7 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$23missing_document_filter17hedeac6311b83b870E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$23missing_document_filter17hedeac6311b83b870E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -4904,7 +4904,7 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !815
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !815
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !815
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !821
 
 16:                                               ; preds = %.body.i, %17
@@ -4978,7 +4978,7 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !823
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !829
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !815
 
 .noexc.i:                                         ; preds = %34
@@ -5020,7 +5020,7 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$31missing_facet_search_facet_name17h79692600d2b1619bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$31missing_facet_search_facet_name17h79692600d2b1619bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -5044,7 +5044,7 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !840
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !840
   store i64 -9223372036854775808, ptr %9, align 8, !noalias !840
-  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
           to label %19 unwind label %17, !noalias !846
 
 16:                                               ; preds = %.body.i, %17
@@ -5118,7 +5118,7 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !848
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !848
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !854
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc.i unwind label %17, !noalias !840
 
 .noexc.i:                                         ; preds = %34
@@ -5160,732 +5160,732 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..ApiKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h152f41ce6f892d4fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..ApiKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h152f41ce6f892d4fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..ApiKeyNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haa091f39f50d77ddE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..ApiKeyNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haa091f39f50d77ddE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..BadParameter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdf3f5efa98a62754E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..BadParameter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdf3f5efa98a62754E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN106_$LT$meilisearch_types..error..deserr_codes..BadRequest$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a34e6a0b6c9f48eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN106_$LT$meilisearch_types..error..deserr_codes..BadRequest$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a34e6a0b6c9f48eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..DatabaseSizeLimitReached$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8c305632bfcedd97E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..DatabaseSizeLimitReached$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8c305632bfcedd97E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..DocumentNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h063a3f36f7d13c77E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..DocumentNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h063a3f36f7d13c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..DumpAlreadyProcessing$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h193317d0c5088c77E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..DumpAlreadyProcessing$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h193317d0c5088c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..DumpNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h236401cd76ebc2e4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..DumpNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h236401cd76ebc2e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..DumpProcessFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h204c7d4b35e29ee0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..DumpProcessFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h204c7d4b35e29ee0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..DuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h93ac9e600b989ffdE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..DuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h93ac9e600b989ffdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h117faa7f6236714bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h117faa7f6236714bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7e0ea0878e514d38E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7e0ea0878e514d38E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h222fb4d4718ae568E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h222fb4d4718ae568E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4d710ec1ff69987aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4d710ec1ff69987aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1669913202dad94eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1669913202dad94eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb42a23eeb3321a6fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb42a23eeb3321a6fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5eab8adf9d4aa7e2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5eab8adf9d4aa7e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a85ee8a7e029766E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a85ee8a7e029766E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h569ea6037c8fb91fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h569ea6037c8fb91fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h224b1bd8ca0c5866E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h224b1bd8ca0c5866E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..IndexAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h177dcbe7cfce5807E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..IndexAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h177dcbe7cfce5807E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..IndexCreationFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3d569897eebdb2e2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..IndexCreationFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3d569897eebdb2e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..IndexNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb4800d58ead363e4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..IndexNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb4800d58ead363e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc8f407b389c74b5eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc8f407b389c74b5eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN134_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyMultipleCandidatesFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8adf7757811cfd5fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN134_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyMultipleCandidatesFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8adf7757811cfd5fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN127_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyNoCandidateFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h179242184a7afcbaE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN127_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyNoCandidateFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h179242184a7afcbaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN104_$LT$meilisearch_types..error..deserr_codes..Internal$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec84f76641a2203bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN104_$LT$meilisearch_types..error..deserr_codes..Internal$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec84f76641a2203bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..InvalidApiKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5d447c9c09c3aff2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..InvalidApiKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5d447c9c09c3aff2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7ebed773f5572d09E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7ebed773f5572d09E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyDescription$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h326ec62fbe62d47eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyDescription$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h326ec62fbe62d47eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h77464334ba223518E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h77464334ba223518E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdb56848e12ded26dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdb56848e12ded26dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf61d8ec7f5763b1dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf61d8ec7f5763b1dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf54d7c24a6da0380E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf54d7c24a6da0380E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7aa0e3535bf2594eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7aa0e3535bf2594eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h72453f2b6c41e0b0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h72453f2b6c41e0b0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h664d4ed8096fd4d4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h664d4ed8096fd4d4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentCsvDelimiter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h49a7edd92d0d3284E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentCsvDelimiter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h49a7edd92d0d3284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFields$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84e74a17704ff32aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFields$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84e74a17704ff32aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..MissingDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hccd71d78b25c7c20E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..MissingDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hccd71d78b25c7c20E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbdf7fda6b9466c51E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbdf7fda6b9466c51E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentGeoField$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5006e9bd38523b36E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentGeoField$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5006e9bd38523b36E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidVectorDimensions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0613079f96dced54E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidVectorDimensions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0613079f96dced54E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidVectorsType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbeefef2714ebba05E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidVectorsType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbeefef2714ebba05E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h217bf1956ef55f83E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h217bf1956ef55f83E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h707c347c5c8d7612E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h707c347c5c8d7612E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0edb59e10a6668eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0edb59e10a6668eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidEmbedder$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2dfb8552c587eabeE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidEmbedder$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2dfb8552c587eabeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidHybridQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha8829d7e4119ab35E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidHybridQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha8829d7e4119ab35E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidIndexLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8d55e935f9784904E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidIndexLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8d55e935f9784904E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidIndexOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3323089e958b13e7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidIndexOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3323089e958b13e7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidIndexPrimaryKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha9bc832384d023efE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidIndexPrimaryKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha9bc832384d023efE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha626b5eecc8ef371E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha626b5eecc8ef371E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToSearchOn$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7233b238d92037ebE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToSearchOn$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7233b238d92037ebE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToCrop$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h136309f5753d5531E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToCrop$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h136309f5753d5531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToHighlight$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf0f09ee8c11d7c43E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToHighlight$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf0f09ee8c11d7c43E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h663803184ffca340E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h663803184ffca340E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h813ea6ea681668f3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h813ea6ea681668f3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropLength$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a895b42808f7e40E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropLength$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a895b42808f7e40E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropMarker$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h86256e6da550c542E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropMarker$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h86256e6da550c542E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFacets$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h474d53b1c025552bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFacets$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h474d53b1c025552bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb933792ad92d5cf5E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb933792ad92d5cf5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h007c1354de150c02E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h007c1354de150c02E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9903b5a2d43236a9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9903b5a2d43236a9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfeb9de01d94a414eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfeb9de01d94a414eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h32d6401f110eaf3bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h32d6401f110eaf3bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPostTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0773d2ad21787804E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPostTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0773d2ad21787804E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPreTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h48c31626fc75b8c5E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPreTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h48c31626fc75b8c5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHitsPerPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7a378a86b7dc1da3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHitsPerPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7a378a86b7dc1da3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec449228075f8137E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec449228075f8137E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSearchLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9828927bde767efaE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSearchLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9828927bde767efaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchMatchingStrategy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h83bbad4e840c3bccE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchMatchingStrategy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h83bbad4e840c3bccE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97489e40d4e351aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97489e40d4e351aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h6e4c44503caf43cdE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h6e4c44503caf43cdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fd51b2a4b99e798E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fd51b2a4b99e798E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..InvalidSearchQ$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h99b6f9d89e7aaa1cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..InvalidSearchQ$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h99b6f9d89e7aaa1cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0bbb86340d75738bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0bbb86340d75738bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h85e6af036cb905c1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h85e6af036cb905c1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchVector$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5bd5406dc7411ac5E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchVector$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5bd5406dc7411ac5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowMatchesPosition$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h078d0c77757e927eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowMatchesPosition$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h078d0c77757e927eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0d6b4e809eb790eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0d6b4e809eb790eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0285d30e3d76e2d2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0285d30e3d76e2d2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN132_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h731d4ed1aec1f001E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN132_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h731d4ed1aec1f001E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 82
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN133_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7fcef3aa90e51de2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN133_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7fcef3aa90e51de2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSort$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h79b519ec5543aec7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSort$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h79b519ec5543aec7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDisplayedAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9bfcf3b017769ee6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDisplayedAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9bfcf3b017769ee6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 85
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDistinctAttribute$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9cbd335fc058868fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDistinctAttribute$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9cbd335fc058868fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsProximityPrecision$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he7f7736fdff7ac8cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsProximityPrecision$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he7f7736fdff7ac8cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 87
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFaceting$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3b36336e8fe2a531E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFaceting$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3b36336e8fe2a531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFilterableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h51b258d3c234edf1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFilterableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h51b258d3c234edf1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsPagination$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h98c55c7ee7de611bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsPagination$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h98c55c7ee7de611bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchCutoffMs$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5ba5917899ad4508E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchCutoffMs$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5ba5917899ad4508E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsEmbedders$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5261712df876d2c3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsEmbedders$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5261712df876d2c3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h645f9465206d6e6bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h645f9465206d6e6bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 93
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h254038e88705b8e2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h254038e88705b8e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 94
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSortableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a548d3ea50cd133E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSortableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a548d3ea50cd133E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsStopWords$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9a3f26dae4fb717aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsStopWords$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9a3f26dae4fb717aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsNonSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfb5b5815913cf6a1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsNonSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfb5b5815913cf6a1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a5760217fcdd99eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a5760217fcdd99eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDictionary$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h94ee8df4e9457ccbE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDictionary$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h94ee8df4e9457ccbE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSynonyms$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16f0e5826e64e629E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSynonyms$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16f0e5826e64e629E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsTypoTolerance$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2034b32615a358e9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsTypoTolerance$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2034b32615a358e9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..InvalidState$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2d81704dc526cd7bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..InvalidState$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2d81704dc526cd7bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidStoreFile$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he51448219713dfa3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidStoreFile$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he51448219713dfa3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSwapDuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc326f49633bfede8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSwapDuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc326f49633bfede8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 104
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3c924a6e53b99056E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3c924a6e53b99056E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdc1b099aa2c78402E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdc1b099aa2c78402E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 106
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haae4b183ae50af89E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haae4b183ae50af89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h876db0d22ad99b01E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h876db0d22ad99b01E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 108
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h487ff4c83e16f074E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h487ff4c83e16f074E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd34b5631e18e01f5E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd34b5631e18e01f5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3216d6fd027ead4dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3216d6fd027ead4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 111
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidTaskCanceledBy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hae3abf88d5530494E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidTaskCanceledBy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hae3abf88d5530494E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskFrom$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc1651846eeb1e6d7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskFrom$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc1651846eeb1e6d7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84a6a181e4c2837dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84a6a181e4c2837dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 114
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidTaskStatuses$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h74be34e7142aefb9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidTaskStatuses$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h74be34e7142aefb9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskTypes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h90d8079f84aaa117E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskTypes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h90d8079f84aaa117E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskUids$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbd2cfd5e34302e2fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskUids$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbd2cfd5e34302e2fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN103_$LT$meilisearch_types..error..deserr_codes..IoError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0b901ac100d209d3E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN103_$LT$meilisearch_types..error..deserr_codes..IoError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0b901ac100d209d3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..FeatureNotEnabled$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91d3aa7c220b9e4dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..FeatureNotEnabled$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91d3aa7c220b9e4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MalformedPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84d60f83a24f1ce9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MalformedPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84d60f83a24f1ce9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MaxFieldsLimitExceeded$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hce1e51190bcfec86E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MaxFieldsLimitExceeded$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hce1e51190bcfec86E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc16bf6c1ef597284E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc16bf6c1ef597284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h290c9a1731a8ca89E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h290c9a1731a8ca89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 123
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc3672463b48b2b70E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc3672463b48b2b70E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..MissingAuthorizationHeader$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h97e227538e1a3bdeE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..MissingAuthorizationHeader$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h97e227538e1a3bdeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha6872edf4c3a73e8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha6872edf4c3a73e8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..MissingDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h96f167636a81d2d8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..MissingDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h96f167636a81d2d8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4258eade1593b04aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4258eade1593b04aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..MissingIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16ee3cbb201df0b8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..MissingIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16ee3cbb201df0b8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MissingMasterKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5cf4edd50b3bea93E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MissingMasterKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5cf4edd50b3bea93E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..MissingPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h650ef31f5057e915E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..MissingPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h650ef31f5057e915E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..MissingSearchHybrid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60b171be3caaa9abE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..MissingSearchHybrid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60b171be3caaa9abE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hba1225a92b2f8911E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hba1225a92b2f8911E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -123
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingTaskFilters$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7bfc5458c40df25cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingTaskFilters$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7bfc5458c40df25cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..NoSpaceLeftOnDevice$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd5591c757217cf73E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..NoSpaceLeftOnDevice$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd5591c757217cf73E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..PayloadTooLarge$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fbd001b54177b9cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..PayloadTooLarge$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fbd001b54177b9cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..TooManySearchRequests$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a39f5a4d218ef12E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..TooManySearchRequests$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a39f5a4d218ef12E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..TaskNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60759ecaed558773E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..TaskNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60759ecaed558773E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..TooManyOpenFiles$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hee09e8d71cdead8eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..TooManyOpenFiles$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hee09e8d71cdead8eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..TooManyVectors$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd2bf2b8b08180df9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..TooManyVectors$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd2bf2b8b08180df9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..UnretrievableDocument$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h786336d3fc5c7eaeE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..UnretrievableDocument$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h786336d3fc5c7eaeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..UnretrievableErrorCode$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1bec1648c45e9fd5E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..UnretrievableErrorCode$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1bec1648c45e9fd5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -114
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..UnsupportedMediaType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb8a98721739d8905E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..UnsupportedMediaType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb8a98721739d8905E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..VectorEmbeddingError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97d2b522b5a6febE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..VectorEmbeddingError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97d2b522b5a6febE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..NotFoundSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbc1c2e04a470be04E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..NotFoundSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbc1c2e04a470be04E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
   ret i8 -111
 }
 
@@ -5895,7 +5895,7 @@ define hidden void @"_ZN93_$LT$meilisearch_types..error..deserr_codes..BadReques
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN209_$LT$meilisearch_types..index_uid_pattern.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9expecting17ha734b3f7f31fd691E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN209_$LT$meilisearch_types..index_uid_pattern.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9expecting17ha734b3f7f31fd691E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.82, i64 noundef 28)
   ret i1 %3
 }
@@ -5942,7 +5942,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !866
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, i64 noundef 5, i1 noundef zeroext false), !noalias !866
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef 5, i1 noundef zeroext false), !noalias !866
   %21 = load i64, ptr %8, align 8, !range !37, !noalias !866, !noundef !5
   %trunc.i = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5981,7 +5981,7 @@ default.unreachable:                              ; preds = %2
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %31 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %31 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %52 unwind label %50
 
 32:                                               ; preds = %2
@@ -5992,7 +5992,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !874
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, i64 noundef 5, i1 noundef zeroext false), !noalias !874
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 5, i1 noundef zeroext false), !noalias !874
   %35 = load i64, ptr %6, align 8, !range !37, !noalias !874, !noundef !5
   %trunc.i26 = trunc nuw i64 %35 to i1
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6050,7 +6050,7 @@ default.unreachable:                              ; preds = %2
   store i64 4, ptr %.sroa.842.0..sroa_idx, align 8
   %.sroa.1043.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.1043.0..sroa_idx, align 8
-  %49 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %49 = invoke noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %68 unwind label %66
 
 50:                                               ; preds = %27
@@ -6062,7 +6062,7 @@ default.unreachable:                              ; preds = %2
 52:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !871
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !882
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %54 = load i64, ptr %53, align 8, !range !49, !noalias !882, !noundef !5
   %55 = icmp eq i64 %54, 0
@@ -6111,7 +6111,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !891
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !49, !noalias !891, !noundef !5
   %71 = icmp eq i64 %70, 0
@@ -6148,7 +6148,7 @@ declare { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$s
 declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed_addr #18
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h5e5b2720ad4bbb12E"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
@@ -6157,16 +6157,16 @@ declare hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter
 declare hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hf536dd68c4393b17E(ptr noalias noundef align 8 dereferenceable(16), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hc84fcaca444cdb5dE(ptr noalias noundef align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hc84fcaca444cdb5dE(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb25ec0889dbabb9eE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb25ec0889dbabb9eE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN70_$LT$deserr..errors..json..JsonError$u20$as$u20$core..fmt..Display$GT$3fmt17h17293b3ee1405bc3E"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -6184,19 +6184,19 @@ declare void @_ZN4core9panicking14panic_nounwind17h23e6f792ad66b857E(ptr noalias
 declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef, i64) unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h43303a79861e7c8bE"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -6211,10 +6211,10 @@ declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unn
 declare void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17ha13f48a7b8085527E"(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(40), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden void @"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error17hccba828a7f706aacE"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 8, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare hidden void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 8, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h19ab5c97e84a4522E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -6229,7 +6229,7 @@ declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displa
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h582abfc1952862d6E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h43cdd8ff4cb029beE"(ptr dead_on_unwind noalias nocapture noundef writable sret([16 x i8]) align 8 dereferenceable(16), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h43cdd8ff4cb029beE"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
@@ -6244,22 +6244,22 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb8767e85325df20dE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h337f085537fa9d01E.llvm.7205017296298784897"(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h337f085537fa9d01E.llvm.7205017296298784897"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65a06e1f2fd1a353E.llvm.7205017296298784897"(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(72)) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65a06e1f2fd1a353E.llvm.7205017296298784897"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN3std2fs14read_to_string5inner17h45819a5834290d5cE(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_ZN3std2fs14read_to_string5inner17h45819a5834290d5cE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #24
@@ -6268,10 +6268,10 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve
 declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6ec489b8e597aad6E.llvm.9153134991762065841(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN85_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hacc6e3d64e5f34f3E"(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @"_ZN85_$LT$meilisearch_types..index_uid..IndexUid$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hacc6e3d64e5f34f3E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_ZN3std4path4Path5_join17h28e226e2326aba56E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -6280,7 +6280,7 @@ declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displa
 declare { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h70c9c4cab7a194a7E() unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias nocapture noundef align 8 dereferenceable(72)) unnamed_addr #24
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #24
 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull) unnamed_addr #24
@@ -6295,13 +6295,13 @@ declare hidden void @"_ZN4core3ptr126drop_in_place$LT$std..io..Write..write_fmt.
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr dead_on_unwind noalias nocapture noundef writable sret([16 x i8]) align 8 dereferenceable(16), ptr noundef nonnull) unnamed_addr #2
+declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16), ptr noundef nonnull) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -6310,7 +6310,7 @@ declare hidden void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8a
 declare hidden void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17heec7950c8f95304bE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -6325,7 +6325,7 @@ declare hidden void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_ui
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

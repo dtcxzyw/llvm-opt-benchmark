@@ -8811,7 +8811,7 @@ if.end13:                                         ; preds = %if.then11, %if.end
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr nocapture noundef %s, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %input_size, i64 noundef %num_literals) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %input, i64 noundef range(i64 1, 0) %input_size, i64 noundef %num_literals) unnamed_addr #2 {
 entry:
   %conv = uitofp i64 %input_size to double
   %conv1 = uitofp i64 %num_literals to double
@@ -8927,7 +8927,7 @@ return:                                           ; preds = %entry, %ShannonEntr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1792, 2688)) %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1792, 2688)) %s, ptr noundef readonly captures(none) %literals, i64 noundef %num_literals, ptr noundef readonly captures(none) %commands, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %s, i8 0, i64 1024, i1 false)
   %cmd_depth = getelementptr inbounds nuw i8, ptr %s, i64 2304
@@ -9179,13 +9179,13 @@ for.end73:                                        ; preds = %for.inc71, %BuildAn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1

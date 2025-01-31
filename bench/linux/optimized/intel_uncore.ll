@@ -158,10 +158,10 @@ define dso_local ptr @intel_uncore_forcewake_domain_to_str(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_uncore_suspend(ptr noundef %0) local_unnamed_addr #1 align 16 {
@@ -647,7 +647,7 @@ forcewake_early_sanitize.exit:                    ; preds = %38, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_uncore_unclaimed_mmio(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @intel_uncore_unclaimed_mmio(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1168,7 +1168,7 @@ define dso_local void @intel_uncore_forcewake_user_put(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uncore_forcewake_put__locked(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_uncore_forcewake_put__locked(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1471,7 +1471,7 @@ define dso_local void @intel_uncore_forcewake_put_delayed(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uncore_forcewake_flush(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_uncore_forcewake_flush(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1632,7 +1632,7 @@ define internal noundef range(i32 0, 2) i32 @intel_uncore_fw_release_timer(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @assert_forcewakes_inactive(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @assert_forcewakes_inactive(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1684,12 +1684,12 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @assert_forcewakes_active(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local void @assert_forcewakes_active(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_uncore_setup_mmio(ptr nocapture noundef initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @intel_uncore_setup_mmio(ptr noundef captures(none) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 7168
@@ -1757,13 +1757,13 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local i32 @__drmm_add_action_or_reset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uncore_unmap_mmio(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal void @uncore_unmap_mmio(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   tail call void @iounmap(ptr noundef %1) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_uncore_init_early(ptr nocapture noundef writeonly initializes((8, 36)) %0, ptr noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local void @intel_uncore_init_early(ptr noundef writeonly captures(none) initializes((8, 36)) %0, ptr noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
@@ -3008,7 +3008,7 @@ fw_domains_put.exit:                              ; preds = %536
 declare dso_local zeroext i1 @intel_vgpu_active(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uncore_prune_engine_fw_domains(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_uncore_prune_engine_fw_domains(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3134,7 +3134,7 @@ define dso_local void @intel_uncore_prune_engine_fw_domains(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fw_domain_fini(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @fw_domain_fini(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = zext i32 %1 to i64
   %5 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %4
@@ -3227,7 +3227,7 @@ define internal fastcc void @fw_domain_fini(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uncore_fini_mmio(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_uncore_fini_mmio(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -3378,7 +3378,7 @@ define dso_local void @intel_uncore_fini_mmio(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
   %.fr21 = freeze i32 %1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %8
@@ -4047,7 +4047,7 @@ define dso_local i32 @intel_uncore_forcewake_for_reg(ptr noundef %0, i32 %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr noundef readonly captures(none) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -4177,7 +4177,7 @@ define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_uncore_arm_unclaimed_mmio_detection(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @intel_uncore_arm_unclaimed_mmio_detection(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4303,7 +4303,7 @@ declare dso_local void @hrtimer_start_range_ns(ptr noundef, i64 noundef, i64 nou
 declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vgpu_write8(ptr nocapture noundef readonly %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @vgpu_write8(ptr noundef readonly captures(none) %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i8 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4365,7 +4365,7 @@ define internal void @vgpu_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vgpu_write16(ptr nocapture noundef readonly %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @vgpu_write16(ptr noundef readonly captures(none) %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i16 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4427,7 +4427,7 @@ define internal void @vgpu_write16(ptr nocapture noundef readonly %0, i32 %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vgpu_write32(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @vgpu_write32(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i32 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4489,7 +4489,7 @@ define internal void @vgpu_write32(ptr nocapture noundef readonly %0, i32 %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @vgpu_read8(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i8 @vgpu_read8(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = icmp ult i32 %1, 262144
   br i1 %4, label %5, label %9
 
@@ -4551,7 +4551,7 @@ define internal zeroext i8 @vgpu_read8(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @vgpu_read16(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i16 @vgpu_read16(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = icmp ult i32 %1, 262144
   br i1 %4, label %5, label %9
 
@@ -4613,7 +4613,7 @@ define internal zeroext i16 @vgpu_read16(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vgpu_read32(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i32 @vgpu_read32(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = icmp ult i32 %1, 262144
   br i1 %4, label %5, label %9
 
@@ -4675,7 +4675,7 @@ define internal i32 @vgpu_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vgpu_read64(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i64 @vgpu_read64(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = icmp ult i32 %1, 262144
   br i1 %4, label %5, label %9
 
@@ -4736,7 +4736,7 @@ define internal i64 @vgpu_read64(ptr nocapture noundef readonly %0, i32 %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen5_write8(ptr nocapture noundef readonly %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen5_write8(ptr noundef readonly captures(none) %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i8 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4807,7 +4807,7 @@ define internal void @gen5_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen5_write16(ptr nocapture noundef readonly %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen5_write16(ptr noundef readonly captures(none) %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i16 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4878,7 +4878,7 @@ define internal void @gen5_write16(ptr nocapture noundef readonly %0, i32 %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen5_write32(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen5_write32(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i32 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -4949,7 +4949,7 @@ define internal void @gen5_write32(ptr nocapture noundef readonly %0, i32 %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @gen5_read8(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i8 @gen5_read8(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5020,7 +5020,7 @@ define internal zeroext i8 @gen5_read8(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @gen5_read16(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i16 @gen5_read16(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5091,7 +5091,7 @@ define internal zeroext i16 @gen5_read16(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gen5_read32(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i32 @gen5_read32(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5162,7 +5162,7 @@ define internal i32 @gen5_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @gen5_read64(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i64 @gen5_read64(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5232,7 +5232,7 @@ define internal i64 @gen5_read64(ptr nocapture noundef readonly %0, i32 %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen2_write8(ptr nocapture noundef readonly %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen2_write8(ptr noundef readonly captures(none) %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i8 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -5297,7 +5297,7 @@ define internal void @gen2_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen2_write16(ptr nocapture noundef readonly %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen2_write16(ptr noundef readonly captures(none) %0, i32 %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i16 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -5362,7 +5362,7 @@ define internal void @gen2_write16(ptr nocapture noundef readonly %0, i32 %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen2_write32(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @gen2_write32(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = zext i32 %2 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %27 [label %6], !srcloc !98
@@ -5427,7 +5427,7 @@ define internal void @gen2_write32(ptr nocapture noundef readonly %0, i32 %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i8 @gen2_read8(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i8 @gen2_read8(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5492,7 +5492,7 @@ define internal zeroext i8 @gen2_read8(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @gen2_read16(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal zeroext i16 @gen2_read16(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5557,7 +5557,7 @@ define internal zeroext i16 @gen2_read16(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gen2_read32(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i32 @gen2_read32(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -5622,7 +5622,7 @@ define internal i32 @gen2_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @gen2_read64(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
+define internal i64 @gen2_read64(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @assert_rpm_wakelock_held(ptr noundef %5)
@@ -6481,7 +6481,7 @@ ___force_wake_auto.exit:                          ; preds = %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fwtable_reg_read_fw_domains(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal i32 @fwtable_reg_read_fw_domains(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = add i32 %1, -1138688
   %4 = icmp ult i32 %3, -876544
   br i1 %4, label %5, label %7
@@ -7105,7 +7105,7 @@ ___force_wake_auto.exit:                          ; preds = %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fwtable_reg_write_fw_domains(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal i32 @fwtable_reg_write_fw_domains(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = add i32 %1, -1138688
   %4 = icmp ult i32 %3, -876544
   br i1 %4, label %5, label %9
@@ -7541,12 +7541,12 @@ define internal void @gen6_write32(ptr noundef %0, i32 %1, i32 noundef %2, i1 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @gen6_reg_write_fw_domains(ptr nocapture readnone %0, i32 %1) #5 align 16 {
+define internal noundef i32 @gen6_reg_write_fw_domains(ptr readnone captures(none) %0, i32 %1) #5 align 16 {
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_pmic_bus_access_notifier(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef i32 @i915_pmic_bus_access_notifier(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -80
   switch i64 %1, label %10 [
     i64 1, label %5
@@ -7671,7 +7671,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__fw_domain_init(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @fw_domains_get_with_thread_status(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define internal void @fw_domains_get_with_thread_status(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   tail call void @fw_domains_get_normal(ptr noundef %0, i32 noundef %1)
   %3 = tail call i64 @local_clock() #12
   %4 = tail call i64 @local_clock() #12
@@ -7738,7 +7738,7 @@ define internal void @fw_domains_get_with_thread_status(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @fw_domains_get_with_fallback(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define internal void @fw_domains_get_with_fallback(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -7869,7 +7869,7 @@ define internal void @fw_domains_get_with_fallback(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7994,7 +7994,7 @@ define internal fastcc range(i32 -110, 1) i32 @fw_domain_wait_ack_with_fallback(
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fw_domain_wait_ack_clear(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @fw_domain_wait_ack_clear(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = tail call i64 @local_clock() #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = tail call i64 @local_clock() #12
@@ -8113,7 +8113,7 @@ declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #3
 declare dso_local void @add_taint_for_CI(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fw_domain_wait_ack_set(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @fw_domain_wait_ack_set(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = tail call i64 @local_clock() #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = tail call i64 @local_clock() #12
@@ -8191,7 +8191,7 @@ declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @fw_domains_get_normal(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define internal void @fw_domains_get_normal(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -8318,7 +8318,7 @@ define internal void @fw_domains_get_normal(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @find_fw_domain(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @find_fw_domain(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = icmp ult i32 %1, 262144
   br i1 %3, label %4, label %8
 
@@ -8425,7 +8425,7 @@ define internal fastcc i32 @find_fw_domain(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__unclaimed_previous_reg_debug(ptr nocapture noundef readonly %0, i32 %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc void @__unclaimed_previous_reg_debug(ptr noundef readonly captures(none) %0, i32 %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = tail call fastcc zeroext i1 @check_for_unclaimed_mmio(ptr noundef %0)
   br i1 %4, label %5, label %15
 
@@ -8451,7 +8451,7 @@ define internal fastcc void @__unclaimed_previous_reg_debug(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @is_shadowed(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @is_shadowed(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -8541,7 +8541,7 @@ define internal fastcc noundef zeroext i1 @is_shadowed(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__gen6_gt_wait_for_fifo(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @__gen6_gt_wait_for_fifo(ptr noundef captures(none) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184

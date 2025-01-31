@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [19 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.6, ptr @.str.7, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.8, ptr @.str.7, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write, ptr @.str.9, ptr @.str.10, i32 861, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.9, ptr @.str.11, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.6, ptr @.str.7, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.8, ptr @.str.7, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.9, ptr @.str.11, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write_sectors, ptr @.str.9, ptr @.str.10, i32 175, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.9, ptr @.str.11, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.9, ptr @.str.7, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.6, ptr @.str.7, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.8, ptr @.str.7, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write_and_flush, ptr @.str.9, ptr @.str.10, i32 1045, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_flush, ptr @.str.9, ptr @.str.7, i32 111, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.6, ptr @.str.7, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.8, ptr @.str.7, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.6, ptr @.str.7, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.8, ptr @.str.7, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.9, ptr @.str.11, i32 47, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_parse_log(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 1)) %flushed, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vhdx_parse_log(ptr noundef %bs, ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 1)) %flushed, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %seq_valid.i = alloca i8, align 1
   %candidate.sroa.5.i = alloca [3 x i8], align 1
@@ -293,7 +293,7 @@ exit:                                             ; preds = %if.end39, %vhdx_log
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -306,7 +306,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef nonnull %logs) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull captures(none) %logs) unnamed_addr #0 {
 entry:
   %guid.i = alloca %struct.MSGUID, align 1
   %desc_entries = alloca ptr, align 8
@@ -435,7 +435,7 @@ if.end35:                                         ; preds = %if.end.i
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end35, %for.body
-  %call.i43 = call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef 4096) #8
+  %call.i43 = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 4096) #8
   %16 = load i32, ptr %arrayidx, align 1
   switch i32 %16, label %if.else16.i [
     i32 1668506980, label %if.then.i
@@ -566,7 +566,7 @@ exit:                                             ; preds = %if.end3.i, %while.b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_log_write_and_flush(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef readonly %data, i32 noundef %length, i64 noundef %offset) #0 {
+define dso_local i32 @vhdx_log_write_and_flush(ptr noundef %bs, ptr noundef %s, ptr noundef readonly captures(none) %data, i32 noundef %length, i64 noundef %offset) #0 {
 entry:
   %logs = alloca %struct.VHDXLogSequence, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %logs, i8 0, i64 128, i1 false)
@@ -607,7 +607,7 @@ exit:                                             ; preds = %if.end9, %if.end4, 
 declare i32 @bdrv_co_flush(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_log_write(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef readonly %data, i32 noundef %length, i64 noundef %offset) #0 {
+define internal i32 @vhdx_log_write(ptr noundef %bs, ptr noundef %s, ptr noundef readonly captures(none) %data, i32 noundef %length, i64 noundef %offset) #0 {
 entry:
   %qiov.i.i = alloca %struct.QEMUIOVector, align 8
   %qiov.i89 = alloca %struct.QEMUIOVector, align 8
@@ -833,10 +833,10 @@ if.end96:                                         ; preds = %if.else74, %if.end9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end96, %if.end35
-  %call105 = call i32 @vhdx_update_checksum(ptr noundef %call50, i64 noundef %conv49, i32 noundef 4) #8
+  %call105 = call i32 @vhdx_update_checksum(ptr noundef nonnull %call50, i64 noundef %conv49, i32 noundef 4) #8
   %opaque.i = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %20 = load ptr, ptr %opaque.i, align 8
-  %call.i94 = call i32 @vhdx_user_visible_write(ptr noundef %bs, ptr noundef %20) #8
+  %call.i94 = call i32 @vhdx_user_visible_write(ptr noundef nonnull %bs, ptr noundef %20) #8
   %cmp.i = icmp slt i32 %call.i94, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
@@ -927,10 +927,10 @@ exit:                                             ; preds = %if.then80, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, i64 noundef %seq, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %valid, ptr nocapture noundef nonnull writeonly %entry1) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef readonly captures(none) %s, ptr noundef nonnull captures(none) %log, i64 noundef %seq, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %valid, ptr noundef nonnull writeonly captures(none) %entry1) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %desc_buffer = alloca ptr, align 8
@@ -1107,7 +1107,7 @@ free_and_exit:                                    ; preds = %for.body, %vhdx_log
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_log_read_desc(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, ptr nocapture noundef nonnull %buffer, i1 noundef zeroext %convert_endian) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_log_read_desc(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(none) %s, ptr noundef nonnull captures(none) %log, ptr noundef nonnull captures(none) %buffer, i1 noundef zeroext %convert_endian) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %desc = alloca %struct.VHDXLogDescriptor, align 4
@@ -1424,7 +1424,7 @@ entry:
 declare i32 @vhdx_update_checksum(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_log_write_sectors(ptr noundef %bs, ptr nocapture noundef %log, ptr nocapture noundef %sectors_written, ptr noundef %buffer, i32 noundef %num_sectors) #0 {
+define internal i32 @vhdx_log_write_sectors(ptr noundef %bs, ptr noundef captures(none) %log, ptr noundef captures(none) %sectors_written, ptr noundef %buffer, i32 noundef %num_sectors) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1531,16 +1531,16 @@ entry:
 declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

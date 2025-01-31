@@ -39,7 +39,7 @@ $_ZTIN8proxygen14ConsistentHashE = comdat any
 @.str.2 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen14RendezvousHash5buildERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS9_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen14RendezvousHash5buildERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS9_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %nodes, align 8
@@ -183,7 +183,7 @@ for.end:                                          ; preds = %invoke.cont11, %ent
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8proxygen14RendezvousHash11computeHashEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8proxygen14RendezvousHash11computeHashEPKcm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %data, i64 noundef %len) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp4.not.i = icmp eq i64 %len, 0
   br i1 %cmp4.not.i, label %_ZN5folly4hash9fnv64_bufIcTnNSt9enable_ifIXsr6detailE18is_hashable_byte_vIT_EEiE4typeELi0EEEmPKS3_mm.exit, label %for.body.i
@@ -217,14 +217,14 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen14RendezvousHash3getEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK8proxygen14RendezvousHash3getEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef %returnRankIds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8proxygen14RendezvousHash20getNthByWeightedHashEmmPSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank, ptr noundef %returnRankIds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -722,7 +722,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit125:     ; preds = %if.end68, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK8proxygen14RendezvousHash11computeHashEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, i64 noundef %i) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK8proxygen14RendezvousHash11computeHashEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, i64 noundef %i) local_unnamed_addr #4 align 2 {
 entry:
   %not.i = xor i64 %i, -1
   %shl.i = shl i64 %i, 21
@@ -743,7 +743,7 @@ entry:
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen14RendezvousHash17selectNUnweightedEmm(ptr noalias sret(%"class.std::vector.18") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen14RendezvousHash17selectNUnweightedEmm(ptr noalias sret(%"class.std::vector.18") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %key, i64 noundef %rank) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -837,7 +837,7 @@ _ZNSt6vectorImSaImEED2Ev.exit13:                  ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8proxygen14RendezvousHash15getMaxErrorRateEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef double @_ZNK8proxygen14RendezvousHash15getMaxErrorRateEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret double 0.000000e+00
 }
@@ -887,7 +887,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_T0_T1_(ptr %__first.coerce, ptr %__nth.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) local_unnamed_addr #0 comdat {
@@ -1441,7 +1441,7 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
@@ -1453,7 +1453,7 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

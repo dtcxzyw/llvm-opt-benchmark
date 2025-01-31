@@ -332,7 +332,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = load volatile i32, ptr %0, align 4
   br label %5
 

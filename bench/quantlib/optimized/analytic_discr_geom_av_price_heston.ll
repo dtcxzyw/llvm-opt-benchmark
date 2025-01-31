@@ -497,7 +497,7 @@ $_ZTIN5boost3any6holderImEE = comdat any
 @_ZN8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngineC1EN5boost10shared_ptrINS_13HestonProcessEEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngineC2EN5boost10shared_ptrINS_13HestonProcessEEEd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -582,7 +582,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -719,7 +719,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngineC2EN5boost10shared_ptrINS_13HestonProcessEEEd(ptr noundef nonnull align 8 dereferenceable(624) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, double noundef %xiRightLimit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngineC2EN5boost10shared_ptrINS_13HestonProcessEEEd(ptr noundef nonnull align 8 dereferenceable(624) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %process, double noundef %xiRightLimit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i45 = alloca %"class.QuantLib::GaussJacobiPolynomial", align 8
   %ref.tmp.i26 = alloca %"class.boost::shared_ptr.41", align 8
@@ -1960,7 +1960,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1FERKSt7complexIdES4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z2, double noundef %tau) local_unnamed_addr #10 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1FERKSt7complexIdES4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z2, double noundef %tau) local_unnamed_addr #10 align 2 {
 entry:
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load double, ptr %kappa_, align 8, !tbaa !113
@@ -2067,7 +2067,7 @@ cleanup:                                          ; preds = %_ZStmlIdESt7complex
 declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine7F_tildeERKSt7complexIdES4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z2, double noundef %tau) local_unnamed_addr #10 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine7F_tildeERKSt7complexIdES4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z2, double noundef %tau) local_unnamed_addr #10 align 2 {
 entry:
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load double, ptr %kappa_, align 8, !tbaa !113
@@ -2164,7 +2164,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit99:           ; preds = %_ZStmlIdESt7complex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1zERKSt7complexIdES4_mm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %w, i64 noundef %k, i64 noundef %n) local_unnamed_addr #10 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1zERKSt7complexIdES4_mm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %w, i64 noundef %k, i64 noundef %n) local_unnamed_addr #10 align 2 {
 entry:
   %conv = uitofp i64 %k to double
   %conv2 = uitofp i64 %n to double
@@ -2254,7 +2254,7 @@ _ZSt3powIdESt7complexIT_ERKS2_i.exit:             ; preds = %if.then.i27.i, %com
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %w, i64 noundef %k, i64 noundef %kStar, i64 noundef %n) local_unnamed_addr #13 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %w, i64 noundef %k, i64 noundef %kStar, i64 noundef %n) local_unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp eq i64 %k, %kStar
   br i1 %cmp, label %return, label %if.else
@@ -2299,7 +2299,7 @@ return:                                           ; preds = %entry, %if.else6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1aERKSt7complexIdES4_ddmRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %w, double noundef %t, double noundef %T, i64 noundef %kStar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %t_n) local_unnamed_addr #14 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1aERKSt7complexIdES4_ddmRKSt6vectorIdSaIdEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %w, double noundef %t, double noundef %T, i64 noundef %kStar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %t_n) local_unnamed_addr #14 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %t_n, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !128
@@ -2406,7 +2406,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine11omega_tildeERKSt7complexIdES4_mmmRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %w, i64 noundef %k, i64 noundef %kStar, i64 noundef %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tauK) local_unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine11omega_tildeERKSt7complexIdES4_mmmRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %w, i64 noundef %k, i64 noundef %kStar, i64 noundef %n, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tauK) local_unnamed_addr #8 align 2 {
 entry:
   %k.addr = alloca i64, align 8
   %z_kp1 = alloca %"class.std::complex", align 8
@@ -2552,7 +2552,7 @@ cleanup:                                          ; preds = %_ZNK8QuantLib54Anal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2642,7 +2642,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine3PhiESt7complexIdES2_ddmRKSt6vectorIdSaIdEES7_(ptr noundef nonnull align 8 dereferenceable(624) %this, double %s.coerce0, double %s.coerce1, double %w.coerce0, double %w.coerce1, double noundef %t, double noundef %T, i64 noundef %kStar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %t_n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tauK) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine3PhiESt7complexIdES2_ddmRKSt6vectorIdSaIdEES7_(ptr noundef nonnull align 8 dereferenceable(624) %this, double %s.coerce0, double %s.coerce1, double %w.coerce0, double %w.coerce1, double noundef %t, double noundef %T, i64 noundef %kStar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %t_n, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tauK) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::complex", align 8
   %w = alloca %"class.std::complex", align 8
@@ -2827,7 +2827,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine9calculateEv(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
@@ -8199,7 +8199,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -10260,7 +10260,7 @@ declare { double, double } @clog(double noundef, double noundef) local_unnamed_a
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) local_unnamed_addr #8 comdat {
@@ -10858,7 +10858,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #25
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {

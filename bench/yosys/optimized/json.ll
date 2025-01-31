@@ -65,7 +65,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10PrettyJson11emit_to_logEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys10PrettyJson11emit_to_logEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN5Yosys10PrettyJson11emit_to_logEvE9LogTarget, i64 16), ptr %3, align 8
@@ -168,7 +168,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18AppendStringTarget, i64 16), ptr %4, align 8
@@ -271,7 +271,7 @@ _ZNSt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS2_EED2Ev.exit6:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -497,7 +497,7 @@ _ZN5Yosys10PrettyJson3rawEPKc.exit:               ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10PrettyJson3rawEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys10PrettyJson3rawEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -525,7 +525,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10PrettyJson5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys10PrettyJson5flushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -999,7 +999,7 @@ _ZN5Yosys10PrettyJson9end_valueEv.exit:           ; preds = %_ZN5Yosys10PrettyJs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10PrettyJson9end_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys10PrettyJson9end_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1856,7 +1856,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %16, %34, %47, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTarget4emitEPKc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTarget4emitEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef %1)
   ret void
 }
@@ -1867,7 +1867,7 @@ define linkonce_odr void @_ZN5Yosys10PrettyJson6Target5flushEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTargetD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTargetD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
@@ -1880,7 +1880,7 @@ define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTargetD0Ev(ptr 
 declare void @_ZN5Yosys3logEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN18AppendStringTarget4emitEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN18AppendStringTarget4emitEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1)
@@ -1888,7 +1888,7 @@ define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN18AppendStringTargetD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN18AppendStringTargetD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
@@ -1949,7 +1949,7 @@ declare void @_ZNK6json114Json4dumpERNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_json.cc() #10 section ".text.startup" {

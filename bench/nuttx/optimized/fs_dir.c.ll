@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dir_read = private unnamed_addr constant [10 x i8] [i8 2, i8 6, i8 4, i8 3, i8 5, i8 7, i8 9, i8 poison, i8 poison, i8 1], align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @dir_allocate(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @dir_allocate(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105,7 +105,7 @@ declare i32 @inode_addref(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dir_open(ptr nocapture noundef %0) #0 {
+define internal i32 @dir_open(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115,7 +115,7 @@ define internal i32 @dir_open(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @dir_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -161,7 +161,7 @@ define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 35) i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -2147483648, 35) i64 @dir_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -288,7 +288,7 @@ read_pseudodir.exit:                              ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal i32 @dir_seek(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.dirent, align 1
   switch i32 %2, label %59 [
     i32 0, label %5
@@ -418,7 +418,7 @@ seek_pseudodir.exit:                              ; preds = %52, %51, %seek_moun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -25, 1) i32 @dir_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #3 {
+define internal range(i32 -25, 1) i32 @dir_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #3 {
   switch i32 %1, label %11 [
     i32 771, label %4
     i32 1293, label %12
@@ -444,7 +444,7 @@ define internal range(i32 -25, 1) i32 @dir_ioctl(ptr nocapture noundef readonly 
 declare void @inode_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -454,10 +454,10 @@ declare i32 @inode_lock() local_unnamed_addr #1
 declare void @inode_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_text_console_get_label(ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
+define dso_local ptr @qemu_text_console_get_label(ptr noundef readonly captures(none) %c) local_unnamed_addr #2 {
 entry:
   %chr = getelementptr inbounds nuw i8, ptr %c, i64 312
   %0 = load ptr, ptr %chr, align 8
@@ -485,13 +485,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_text_console_finalize(ptr nocapture readnone %obj) #3 {
+define internal void @qemu_text_console_finalize(ptr readnone captures(none) %obj) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_text_console_class_init(ptr nocapture readnone %oc, ptr nocapture readnone %data) #0 {
+define internal void @qemu_text_console_class_init(ptr readnone captures(none) %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr @cursor_timer, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -530,7 +530,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @text_console_update(ptr noundef %opaque, ptr nocapture noundef writeonly %chardata) #0 {
+define internal void @text_console_update(ptr noundef %opaque, ptr noundef writeonly captures(none) %chardata) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.QEMU_TEXT_CONSOLE) #12
   %text_x = getelementptr inbounds nuw i8, ptr %call.i, i64 272
@@ -1010,7 +1010,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
@@ -1021,7 +1021,7 @@ declare i32 @pixman_image_get_height(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_console_surface(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vga_putcharxy(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef range(i32 0, 256) %ch, ptr nocapture noundef readonly %t_attrib) unnamed_addr #0 {
+define internal fastcc void @vga_putcharxy(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef range(i32 0, 256) %ch, ptr noundef readonly captures(none) %t_attrib) unnamed_addr #0 {
 entry:
   %fgcol = alloca %struct.pixman_color, align 8
   %bgcol = alloca %struct.pixman_color, align 8
@@ -1202,7 +1202,7 @@ declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @dpy_text_cursor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cursor_timer_cb(ptr nocapture readnone %opaque) #0 {
+define internal void @cursor_timer_cb(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load i8, ptr @cursor_visible_phase, align 1
   %lnot.i = and i8 %0, 1
@@ -1230,19 +1230,19 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_fixed_text_console_init(ptr nocapture readnone %obj) #3 {
+define internal void @qemu_fixed_text_console_init(ptr readnone captures(none) %obj) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_fixed_text_console_finalize(ptr nocapture readnone %obj) #3 {
+define internal void @qemu_fixed_text_console_finalize(ptr readnone captures(none) %obj) #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_fixed_text_console_class_init(ptr nocapture readnone %oc, ptr nocapture readnone %data) #3 {
+define internal void @qemu_fixed_text_console_class_init(ptr readnone captures(none) %oc, ptr readnone captures(none) %data) #3 {
 entry:
   ret void
 }
@@ -1258,7 +1258,7 @@ declare void @qemu_chr_be_write(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_vc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_vc_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #12
   %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -1275,7 +1275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vc_chr_parse(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %backend, ptr nocapture readnone %errp) #0 {
+define internal void @vc_chr_parse(ptr noundef %opts, ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %backend, ptr readnone captures(none) %errp) #0 {
 entry:
   store i32 16, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
@@ -1346,7 +1346,7 @@ if.end25:                                         ; preds = %if.then23, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vc_chr_open(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #0 {
+define internal void @vc_chr_open(ptr noundef %chr, ptr noundef readonly captures(none) %backend, ptr noundef writeonly captures(none) initializes((0, 1)) %be_opened, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
@@ -1483,8 +1483,8 @@ if.then51:                                        ; preds = %if.end28
   %call57 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef %16) #12
   %call58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #15
   %conv59 = trunc i64 %call58 to i32
-  %call60 = tail call i32 @qemu_chr_write(ptr noundef nonnull %chr, ptr noundef %call57, i32 noundef %conv59, i1 noundef zeroext true) #12
-  tail call void @g_free(ptr noundef %call57) #12
+  %call60 = tail call i32 @qemu_chr_write(ptr noundef nonnull %chr, ptr noundef nonnull %call57, i32 noundef %conv59, i1 noundef zeroext true) #12
+  tail call void @g_free(ptr noundef nonnull %call57) #12
   store i16 7, ptr %t_attrib, align 4
   br label %if.end84
 
@@ -1494,7 +1494,7 @@ if.end84:                                         ; preds = %if.then51, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vc_chr_write(ptr noundef %chr, ptr nocapture noundef readonly %buf, i32 noundef returned %len) #0 {
+define internal noundef i32 @vc_chr_write(ptr noundef %chr, ptr noundef readonly captures(none) %buf, i32 noundef returned %len) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2787,10 +2787,10 @@ declare ptr @qemu_create_displaysurface(i32 noundef, i32 noundef) local_unnamed_
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2972,7 +2972,7 @@ if.end103:                                        ; preds = %for.end, %qemu_cons
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @pixman_image_composite(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef signext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -3094,13 +3094,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

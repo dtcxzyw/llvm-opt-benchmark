@@ -64,7 +64,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_bitmap_to_ar
 @llvm.compiler.used = appending global [28 x ptr] [ptr @__UNIQUE_ID___addressable___bitmap_and316, ptr @__UNIQUE_ID___addressable___bitmap_andnot319, ptr @__UNIQUE_ID___addressable___bitmap_clear326, ptr @__UNIQUE_ID___addressable___bitmap_complement312, ptr @__UNIQUE_ID___addressable___bitmap_equal311, ptr @__UNIQUE_ID___addressable___bitmap_intersects321, ptr @__UNIQUE_ID___addressable___bitmap_or317, ptr @__UNIQUE_ID___addressable___bitmap_replace320, ptr @__UNIQUE_ID___addressable___bitmap_set325, ptr @__UNIQUE_ID___addressable___bitmap_shift_left314, ptr @__UNIQUE_ID___addressable___bitmap_shift_right313, ptr @__UNIQUE_ID___addressable___bitmap_subset322, ptr @__UNIQUE_ID___addressable___bitmap_weight323, ptr @__UNIQUE_ID___addressable___bitmap_weight_and324, ptr @__UNIQUE_ID___addressable___bitmap_xor318, ptr @__UNIQUE_ID___addressable_bitmap_alloc330, ptr @__UNIQUE_ID___addressable_bitmap_alloc_node332, ptr @__UNIQUE_ID___addressable_bitmap_bitremap329, ptr @__UNIQUE_ID___addressable_bitmap_cut315, ptr @__UNIQUE_ID___addressable_bitmap_find_next_zero_area_off327, ptr @__UNIQUE_ID___addressable_bitmap_free334, ptr @__UNIQUE_ID___addressable_bitmap_from_arr32337, ptr @__UNIQUE_ID___addressable_bitmap_remap328, ptr @__UNIQUE_ID___addressable_bitmap_to_arr32338, ptr @__UNIQUE_ID___addressable_bitmap_zalloc331, ptr @__UNIQUE_ID___addressable_bitmap_zalloc_node333, ptr @__UNIQUE_ID___addressable_devm_bitmap_alloc335, ptr @__UNIQUE_ID___addressable_devm_bitmap_zalloc336], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i1 @__bitmap_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @__bitmap_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ult i32 %2, 64
   br i1 %4, label %.loopexit3, label %5
 
@@ -116,7 +116,7 @@ define dso_local noundef zeroext i1 @__bitmap_equal(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @__bitmap_or_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @__bitmap_or_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = icmp ult i32 %3, 64
   br i1 %5, label %.loopexit3, label %6
 
@@ -171,7 +171,7 @@ define dso_local zeroext i1 @__bitmap_or_equal(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_complement(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 align 16 {
+define dso_local void @__bitmap_complement(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = zext i32 %2 to i64
   %5 = add nuw nsw i64 %4, 63
   %6 = lshr i64 %5, 6
@@ -194,7 +194,7 @@ define dso_local void @__bitmap_complement(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
@@ -285,10 +285,10 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_shift_left(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local void @__bitmap_shift_left(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
@@ -365,7 +365,7 @@ define dso_local void @__bitmap_shift_left(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @bitmap_cut(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
+define dso_local void @bitmap_cut(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
   %6 = zext i32 %4 to i64
   %7 = add nuw nsw i64 %6, 63
   %8 = lshr i64 %7, 6
@@ -447,10 +447,10 @@ define dso_local void @bitmap_cut(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local zeroext i1 @__bitmap_and(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define dso_local zeroext i1 @__bitmap_and(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 align 16 {
   %5 = icmp ult i32 %3, 64
   br i1 %5, label %.loopexit, label %6
 
@@ -504,7 +504,7 @@ define dso_local zeroext i1 @__bitmap_and(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_or(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define dso_local void @__bitmap_or(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 align 16 {
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
@@ -529,7 +529,7 @@ define dso_local void @__bitmap_or(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_xor(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define dso_local void @__bitmap_xor(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 align 16 {
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
@@ -554,7 +554,7 @@ define dso_local void @__bitmap_xor(ptr nocapture noundef writeonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local zeroext i1 @__bitmap_andnot(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define dso_local zeroext i1 @__bitmap_andnot(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 align 16 {
   %5 = icmp ult i32 %3, 64
   br i1 %5, label %.loopexit, label %6
 
@@ -610,7 +610,7 @@ define dso_local zeroext i1 @__bitmap_andnot(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_replace(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) #2 align 16 {
+define dso_local void @__bitmap_replace(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #2 align 16 {
   %6 = zext i32 %4 to i64
   %7 = add nuw nsw i64 %6, 63
   %8 = lshr i64 %7, 6
@@ -640,7 +640,7 @@ define dso_local void @__bitmap_replace(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i1 @__bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @__bitmap_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ult i32 %2, 64
   br i1 %4, label %.loopexit3, label %5
 
@@ -693,7 +693,7 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i1 @__bitmap_subset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @__bitmap_subset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ult i32 %2, 64
   br i1 %4, label %.loopexit3, label %5
 
@@ -748,7 +748,7 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @__bitmap_weight(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local i32 @__bitmap_weight(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp ult i32 %1, 64
   br i1 %3, label %.loopexit, label %4
 
@@ -795,7 +795,7 @@ define dso_local i32 @__bitmap_weight(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @__bitmap_weight_and(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #5 align 16 {
+define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #5 align 16 {
   %4 = icmp ult i32 %2, 64
   br i1 %4, label %.loopexit, label %5
 
@@ -848,7 +848,7 @@ define dso_local i32 @__bitmap_weight_and(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local void @__bitmap_set(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
@@ -900,7 +900,7 @@ define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @__bitmap_clear(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local void @__bitmap_clear(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
@@ -1490,7 +1490,7 @@ define dso_local ptr @devm_bitmap_zalloc(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @bitmap_from_arr32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 align 16 {
+define dso_local void @bitmap_from_arr32(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = add i32 %2, 31
   %5 = lshr i32 %4, 5
   %6 = icmp ult i32 %4, 32
@@ -1550,7 +1550,7 @@ define dso_local void @bitmap_from_arr32(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @bitmap_to_arr32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 align 16 {
+define dso_local void @bitmap_to_arr32(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = add i32 %2, 31
   %5 = lshr i32 %4, 5
   %6 = icmp ult i32 %4, 32

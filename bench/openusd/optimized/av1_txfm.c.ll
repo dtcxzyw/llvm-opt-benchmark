@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @av1_txfm_stage_num_list = hidden local_unnamed_addr constant [12 x i8] c"\04\06\08\0A\0C\07\08\0A\01\01\01\01", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_round_shift_array_c(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @av1_round_shift_array_c(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -70,7 +70,7 @@ define hidden void @av1_round_shift_array_c(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @av1_range_check_buf(i32 noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #1 {
+define hidden void @av1_range_check_buf(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #1 {
   ret void
 }
 

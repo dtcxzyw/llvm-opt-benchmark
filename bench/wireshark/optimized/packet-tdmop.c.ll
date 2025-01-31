@@ -108,7 +108,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -248,7 +248,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 95:                                               ; preds = %76
-  %96 = call i32 @call_data_dissector(ptr noundef %80, ptr noundef %1, ptr noundef %79) #3
+  %96 = call i32 @call_data_dissector(ptr noundef %80, ptr noundef nonnull %1, ptr noundef %79) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %84, %95
@@ -274,7 +274,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %103 = call noalias ptr @wmem_memdup(ptr noundef %101, ptr noundef nonnull %5, i64 noundef %102) #3
   %104 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %103, i32 noundef %.3, i32 noundef %.3) #3
   %105 = load ptr, ptr @lapd_handle, align 8
-  %106 = call i32 @call_dissector(ptr noundef %105, ptr noundef %104, ptr noundef %1, ptr noundef %2) #3
+  %106 = call i32 @call_dissector(ptr noundef %105, ptr noundef %104, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %53, %._crit_edge, %99, %16

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [9 x i8] c"OMPIO_%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.mca_sharedfp_sm_offset, align 8
   %8 = alloca i32, align 4
@@ -177,7 +177,7 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 104
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 %72(ptr noundef %0, ptr noundef %74) #10
+  %75 = call i32 %72(ptr noundef nonnull %0, ptr noundef %74) #10
   %.not88 = icmp eq i32 %75, 0
   br i1 %.not88, label %79, label %76
 
@@ -217,7 +217,7 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
   store ptr %90, ptr %91, align 8
   %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %90, i64 noundef 252, ptr noundef nonnull @.str.10, ptr noundef %26) #10
   call void @free(ptr noundef %26) #10
-  %93 = call ptr (ptr, i32, ...) @sem_open(ptr noundef %90, i32 noundef 64, i32 noundef 420, i32 noundef 1) #10
+  %93 = call ptr (ptr, i32, ...) @sem_open(ptr noundef nonnull %90, i32 noundef 64, i32 noundef 420, i32 noundef 1) #10
   %94 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %93, ptr %94, align 8
   %.not89 = icmp eq ptr %93, null
@@ -288,7 +288,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @opal_basename(ptr noundef) local_unnamed_addr #1
 
@@ -300,10 +300,10 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -317,7 +317,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @sem_open(ptr noundef, i32 noundef, ...) local_unnamed_addr #4
@@ -334,7 +334,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @sem_unlink(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_sm_file_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @mca_sharedfp_sm_file_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -400,10 +400,10 @@ define noundef i32 @mca_sharedfp_sm_file_close(ptr nocapture noundef readonly %0
 declare i32 @sem_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9

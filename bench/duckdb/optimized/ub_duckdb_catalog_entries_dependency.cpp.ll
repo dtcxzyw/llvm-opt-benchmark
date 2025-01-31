@@ -80,7 +80,7 @@ $_ZTIN6duckdb22DependencySubjectFlagsE = comdat any
 @_ZN6duckdb24DependencyDependentEntryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb24DependencyDependentEntryD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15DependencyEntryC2ERNS_7CatalogENS_19DependencyEntryTypeERKNS_21MangledDependencyNameERKNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(345) %this, ptr noundef nonnull align 8 dereferenceable(16) %catalog, i8 noundef zeroext %side, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(176) %info) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15DependencyEntryC2ERNS_7CatalogENS_19DependencyEntryTypeERKNS_21MangledDependencyNameERKNS_14DependencyInfoE(ptr noundef nonnull align 8 dereferenceable(345) %this, ptr noundef nonnull align 8 dereferenceable(16) %catalog, i8 noundef zeroext %side, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(176) %info) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -528,7 +528,7 @@ _ZN6duckdb16MangledEntryNameD2Ev.exit20:          ; preds = %if.then.i.i.i16, %_
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6duckdb15DependencyEntryD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define void @_ZN6duckdb15DependencyEntryD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #17
   unreachable
@@ -538,7 +538,7 @@ entry:
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZNK6duckdb15DependencyEntry4SideEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(345) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i8 @_ZNK6duckdb15DependencyEntry4SideEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(345) %this) local_unnamed_addr #8 align 2 {
 entry:
   %side = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %side, align 8, !tbaa !18
@@ -698,12 +698,12 @@ _ZN6duckdb16MangledEntryNameD2Ev.exit47:          ; preds = %if.then.i.i.i43, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 declare void @_ZN6duckdb21MangledDependencyNameC1ERKNS_16MangledEntryNameES3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb22DependencySubjectEntry16EntryMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
@@ -1201,7 +1201,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt7__cxx1112basi
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

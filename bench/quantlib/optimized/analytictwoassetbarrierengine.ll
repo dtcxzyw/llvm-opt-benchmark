@@ -215,7 +215,7 @@ $_ZTIN8QuantLib10Instrument7resultsE = comdat any
 @_ZN8QuantLib29AnalyticTwoAssetBarrierEngineC1EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_NS_6HandleINS_5QuoteEEE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib29AnalyticTwoAssetBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_NS_6HandleINS_5QuoteEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -300,7 +300,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -437,7 +437,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29AnalyticTwoAssetBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_NS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process1, ptr nocapture noundef %process2, ptr nocapture noundef %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29AnalyticTwoAssetBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_NS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %process1, ptr noundef captures(none) %process2, ptr noundef captures(none) %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8
@@ -2617,13 +2617,13 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %_ZNK8QuantLib29An
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine1BEdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(296) %this, double noundef %0, double noundef %1) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine1BEdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(296) %this, double noundef %0, double noundef %1) local_unnamed_addr #11 align 2 {
 entry:
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine4callEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine4callEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %nd = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
@@ -2706,7 +2706,7 @@ _ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12residualTimeEv.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine3putEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine3putEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %nd = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
@@ -2836,7 +2836,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11underlying1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11underlying1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %process1_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %process1_, align 8, !tbaa !39
@@ -2858,7 +2858,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11underlying2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11underlying2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %process2_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load ptr, ptr %process2_, align 8, !tbaa !39
@@ -2880,7 +2880,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine6strikeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine6strikeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payoff = alloca %"class.boost::shared_ptr.25", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -3133,7 +3133,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12residualTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12residualTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %process1_ = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -3174,7 +3174,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8ExerciseEEptEv.exit: ; preds = %_ZNK5boost10sh
 declare i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11volatility1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11volatility1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %process1_ = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -3435,7 +3435,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11volatility2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine11volatility2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %process2_ = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -3506,7 +3506,7 @@ _ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12residualTimeEv.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine7barrierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine7barrierEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #12 align 2 {
 entry:
   %barrier = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load double, ptr %barrier, align 8, !tbaa !89
@@ -3726,7 +3726,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12riskFreeRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12riskFreeRateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
@@ -4026,7 +4026,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare void @_ZNK8QuantLib18YieldTermStructure8zeroRateEdNS_11CompoundingENS_9FrequencyEb(ptr dead_on_unwind writable sret(%"class.QuantLib::InterestRate") align 8, ptr noundef nonnull align 8 dereferenceable(152), double noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
@@ -4135,7 +4135,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK8QuantLib29Anal
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
@@ -4243,7 +4243,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK8QuantLib29Anal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12costOfCarry1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12costOfCarry1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(296) %this)
   %call2 = tail call noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield1Ev(ptr noundef nonnull align 8 dereferenceable(296) %this)
@@ -4252,7 +4252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12costOfCarry2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12costOfCarry2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(296) %this)
   %call2 = tail call noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine14dividendYield2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this)
@@ -4261,7 +4261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2d1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2d1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp.i9 = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
@@ -4367,7 +4367,7 @@ _ZNK8QuantLib29AnalyticTwoAssetBarrierEngine12residualTimeEv.exit23: ; preds = %
 declare double @log(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2muEdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(296) %this, double noundef %b, double noundef %vol) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2muEdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(296) %this, double noundef %b, double noundef %vol) local_unnamed_addr #11 align 2 {
 entry:
   %mul = fmul double %vol, %vol
   %div = fmul double %mul, 5.000000e-01
@@ -4382,7 +4382,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #14
 declare double @sqrt(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2d2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2d2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %call = tail call noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine2d1Ev(ptr noundef nonnull align 8 dereferenceable(296) %this)
@@ -4916,7 +4916,7 @@ declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noun
 declare double @exp(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine1MEddd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(296) %this, double noundef %m_a, double noundef %m_b, double noundef %rho) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29AnalyticTwoAssetBarrierEngine1MEddd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(296) %this, double noundef %m_a, double noundef %m_b, double noundef %rho) local_unnamed_addr #8 align 2 {
 entry:
   %f = alloca %"class.QuantLib::BivariateCumulativeNormalDistributionDr78", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %f) #28
@@ -5407,7 +5407,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #20
@@ -5975,7 +5975,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -5983,7 +5983,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

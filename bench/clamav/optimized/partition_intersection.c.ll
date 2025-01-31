@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [56 x i8] c"PRTN_INTXN: could not allocate new node for checklist!\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @partition_intersection_list_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define noundef i32 @partition_intersection_list_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 21) i32 @partition_intersection_list_check(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
@@ -101,7 +101,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @partition_intersection_list_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @partition_intersection_list_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %.val.pr = load ptr, ptr %0, align 8
   %2 = icmp eq ptr %.val.pr, null
   br i1 %2, label %._crit_edge, label %.lr.ph
@@ -127,10 +127,10 @@ define noundef i32 @partition_intersection_list_free(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

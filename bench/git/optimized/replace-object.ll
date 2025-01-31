@@ -72,7 +72,7 @@ declare void @oidmap_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @for_each_replace_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @register_replace_ref(ptr nocapture noundef readonly %r, ptr noundef %refname, ptr nocapture noundef readonly %oid, i32 %flag, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @register_replace_ref(ptr noundef readonly captures(none) %r, ptr noundef %refname, ptr noundef readonly captures(none) %oid, i32 %flag, ptr readnone captures(none) %cb_data) #0 {
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %refname, i32 noundef 47) #9
   %tobool.not = icmp eq ptr %call, null
@@ -80,7 +80,7 @@ entry:
   %cond = select i1 %tobool.not, ptr %refname, ptr %add.ptr
   %call1 = tail call ptr @xmalloc(i64 noundef 96) #8
   %oid2 = getelementptr inbounds nuw i8, ptr %call1, i64 16
-  %call3 = tail call i32 @get_oid_hex(ptr noundef %cond, ptr noundef nonnull %oid2) #8
+  %call3 = tail call i32 @get_oid_hex(ptr noundef nonnull %cond, ptr noundef nonnull %oid2) #8
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end, label %if.then
 
@@ -96,7 +96,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.1, %if.then ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef %refname) #8
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef nonnull %refname) #8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -116,7 +116,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %call9 = tail call fastcc ptr @_(ptr noundef nonnull @.str.2)
-  tail call void (ptr, ...) @die(ptr noundef %call9, ptr noundef %refname) #10
+  tail call void (ptr, ...) @die(ptr noundef %call9, ptr noundef nonnull %refname) #10
   unreachable
 
 return:                                           ; preds = %if.end, %_.exit
@@ -221,14 +221,14 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @warning(ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @oidmap_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #1

@@ -61,7 +61,7 @@ $_ZTV9DwarfFile = comdat any
 @_ZN7ElfFileD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7ElfFileD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ElfSectionC2EP8_IO_FILERK10Elf64_Shdr(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 72)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ElfSectionC2EP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 captures(none) dereferenceable(76) initializes((0, 72)) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %4, align 8
   %5 = tail call noundef i32 @_ZN10ElfSection12load_sectionEP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -71,7 +71,7 @@ define hidden void @_ZN10ElfSectionC2EP8_IO_FILERK10Elf64_Shdr(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN10ElfSection12load_sectionEP8_IO_FILERK10Elf64_Shdr(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 64)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN10ElfSection12load_sectionEP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 captures(none) dereferenceable(76) initializes((0, 64)) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %4 = load i8, ptr @_ZN7ElfFile25_do_not_cache_elf_sectionE, align 1
   %5 = trunc i8 %4 to i1
@@ -123,7 +123,7 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %25, %6, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ElfSectionD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ElfSectionD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -140,12 +140,12 @@ define hidden void @_ZN10ElfSectionD2Ev(ptr nocapture noundef nonnull readonly a
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef %1, i32 noundef 0)
@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
@@ -163,10 +163,10 @@ define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -174,10 +174,10 @@ define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN16MarkedFileReaderC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16MarkedFileReaderC2EP8_IO_FILE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16MarkedFileReader, i64 16), ptr %0, align 8
@@ -188,10 +188,10 @@ define hidden void @_ZN16MarkedFileReaderC2EP8_IO_FILE(ptr nocapture noundef non
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN16MarkedFileReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN16MarkedFileReaderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16MarkedFileReader, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
@@ -209,7 +209,7 @@ define hidden void @_ZN16MarkedFileReaderD2Ev(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ElfFileC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 68), (72, 144)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN7ElfFileC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 68), (72, 144)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7ElfFile, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -243,10 +243,10 @@ _ZN7ElfFile9parse_elfEPKc.exit:                   ; preds = %11, %9, %2
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN7ElfFile9parse_elfEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN7ElfFile9parse_elfEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.4) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
@@ -263,7 +263,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN7ElfFile9parse_elfEPKc(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN7ElfFileD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7ElfFile, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -366,7 +366,7 @@ _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -407,7 +407,7 @@ define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @_ZN14ElfStringTableD1Ev(ptr noundef nonnull align 8 dereferenceable(108)) unnamed_addr #6
@@ -428,7 +428,7 @@ declare void @_ZN16ElfFuncDescTableD1Ev(ptr noundef nonnull align 8 dereferencea
 declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN7ElfFile11load_tablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN7ElfFile11load_tablesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -560,7 +560,7 @@ _ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread: ; preds = %37, %63, %42, %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ne i8 %2, 127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -595,7 +595,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr(ptr noc
 declare void @_ZN14ElfStringTableC1EP8_IO_FILER10Elf64_Shdri(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7ElfFile16add_string_tableEP14ElfStringTable(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN7ElfFile16add_string_tableEP14ElfStringTable(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -613,7 +613,7 @@ define hidden void @_ZN7ElfFile16add_string_tableEP14ElfStringTable(ptr nocaptur
 declare void @_ZN14ElfSymbolTableC1EP8_IO_FILER10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -629,7 +629,7 @@ define hidden void @_ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -699,7 +699,7 @@ _ZN7ElfFile16get_string_tableEi.exit:             ; preds = %23
 declare noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7ElfFile16get_string_tableEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN7ElfFile16get_string_tableEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
 
@@ -722,7 +722,7 @@ define hidden noundef ptr @_ZN7ElfFile16get_string_tableEi(ptr nocapture noundef
 declare noundef zeroext i1 @_ZN14ElfStringTable9string_atEmPci(ptr noundef nonnull align 8 dereferenceable(108), i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile15get_source_infoEjPcmPib(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile15get_source_infoEjPcmPib(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %struct.Elf64_Shdr, align 8
   %8 = tail call noundef zeroext i1 @_ZN7ElfFile15load_dwarf_fileEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   br i1 %8, label %20, label %9
@@ -767,7 +767,7 @@ _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile15load_dwarf_fileEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile15load_dwarf_fileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.ElfFile::DebugInfo", align 4
   %3 = alloca %"class.ElfFile::DwarfFilePath", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -827,7 +827,7 @@ _ZN7ElfFile33load_dwarf_file_from_env_var_pathERNS_13DwarfFilePathE.exit.thread:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK7ElfFile19is_valid_dwarf_fileEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK7ElfFile19is_valid_dwarf_fileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
   %3 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %3, label %4, label %10
@@ -850,7 +850,7 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile19is_valid_dwarf_fileEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.Elf64_Shdr, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 144, i8 noundef zeroext 9, i32 noundef 1) #15
   %5 = icmp eq ptr %4, null
@@ -919,7 +919,7 @@ _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %18, %22, %24, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjPcmPib(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjPcmPib(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.DwarfFile::DebugAranges", align 8
   %8 = alloca i32, align 4
   %9 = alloca %"class.DwarfFile::CompilationUnit", align 8
@@ -1042,7 +1042,7 @@ _ZN9DwarfFile12DebugArangesD2Ev.exit:             ; preds = %_ZN9DwarfFile15Comp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [24 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -1116,7 +1116,7 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.Elf64_Shdr, align 8
   %4 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br i1 %4, label %5, label %_ZN16MarkedFileReaderD2Ev.exit
@@ -1179,7 +1179,7 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %34, %5, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile35load_dwarf_file_from_same_directoryERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile35load_dwarf_file_from_same_directoryERNS_13DwarfFilePathE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1245,7 +1245,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread:   ; preds = %27, %20, %13, %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile33load_dwarf_file_from_env_var_pathERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile33load_dwarf_file_from_env_var_pathERNS_13DwarfFilePathE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.11) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
@@ -1272,7 +1272,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile33load_dwarf_file_from_env_var_path
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile40load_dwarf_file_from_debug_sub_directoryERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile40load_dwarf_file_from_debug_sub_directoryERNS_13DwarfFilePathE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1360,7 +1360,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread:   ; preds = %39, %26, %19, %13, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile34load_dwarf_file_from_usr_lib_debugERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile34load_dwarf_file_from_usr_lib_debugERNS_13DwarfFilePathE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN7ElfFile23USR_LIB_DEBUG_DIRECTORYE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %3) #15
@@ -1591,7 +1591,7 @@ _ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit: ; preds = %2, %6, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13DwarfFilePathE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [8192 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -1674,10 +1674,10 @@ _ZN7ElfFile12get_file_crcEP8_IO_FILE.exit:        ; preds = %._crit_edge.i, %29
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile36load_dwarf_file_from_env_path_folderERNS_13DwarfFilePathEPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile36load_dwarf_file_from_env_path_folderERNS_13DwarfFilePathEPKcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %2) #15
   %or.cond.i = icmp ugt i32 %6, 4096
@@ -1748,16 +1748,16 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread:   ; preds = %27, %14, %4, %_ZN7E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr nocapture noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr noundef captures(none) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca [8192 x i8], align 16
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = call noundef i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 8192, ptr noundef %0)
@@ -1848,7 +1848,7 @@ define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_unit_offsetEjPj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_unit_offsetEjPj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.DwarfFile::DebugAranges::AddressDescriptor", align 8
   %5 = alloca %struct.Elf64_Shdr, align 8
   %6 = alloca %"struct.DwarfFile::DebugAranges::DebugArangesSetHeader", align 4
@@ -1972,7 +1972,7 @@ _ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_line_offsetEPj(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_line_offsetEPj(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.Elf64_Shdr, align 8
   %4 = alloca i8, align 1
   %5 = alloca %"class.DwarfFile::DebugAbbrev", align 8
@@ -2095,7 +2095,7 @@ _ZN9DwarfFile11DebugAbbrevD2Ev.exit:              ; preds = %63, %61, %_ZN9Dwarf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram29find_filename_and_line_numberEPcmPi(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram29find_filename_and_line_numberEPcmPi(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram11read_headerEv(ptr noundef nonnull align 8 dereferenceable(113) %0)
   br i1 %5, label %6, label %8
 
@@ -2109,7 +2109,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram29find_filenam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges19read_section_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges19read_section_headerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -2143,7 +2143,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %14, %5, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK9DwarfFile21MarkedDwarfFileReader14has_bytes_leftEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK9DwarfFile21MarkedDwarfFileReader14has_bytes_leftEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, -1
@@ -2155,7 +2155,7 @@ define hidden noundef zeroext i1 @_ZNK9DwarfFile21MarkedDwarfFileReader14has_byt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerERNS0_21DebugArangesSetHeaderE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerERNS0_21DebugArangesSetHeaderE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -2242,7 +2242,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHeaderEjRb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHeaderEjRb(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.DwarfFile::DebugAranges::AddressDescriptor", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2304,7 +2304,7 @@ _ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %10, label %4
 
@@ -2323,7 +2323,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_posi
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwordEPj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwordEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 4
@@ -2336,7 +2336,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_wordEPt(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_wordEPt(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 2
@@ -2349,7 +2349,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_word
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_byteEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_byteEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
@@ -2381,7 +2381,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader13move_pos
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
@@ -2408,7 +2408,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_desc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges17does_match_offsetEjRKNS0_17AddressDescriptorE(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges17does_match_offsetEjRKNS0_17AddressDescriptorE(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = zext i32 %0 to i64
   %.not = icmp ule i64 %3, %4
@@ -2421,7 +2421,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges17does_match_offset
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_entryERKNS0_21DebugArangesSetHeaderERKNS0_17AddressDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_entryERKNS0_21DebugArangesSetHeaderERKNS0_17AddressDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2431,7 +2431,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_en
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_address_sizedEPm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_address_sizedEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
@@ -2444,7 +2444,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_add
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit11read_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit11read_headerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -2534,7 +2534,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread: ; preds = %5, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
@@ -2587,7 +2587,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %7, %28, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev19read_section_headerEj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev19read_section_headerEj(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.Elf64_Shdr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -2621,7 +2621,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %16, %6, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_offsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_offsetEm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
   %4 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
   %5 = alloca %"struct.DwarfFile::DebugAbbrev::AbbreviationDeclaration", align 8
@@ -2757,7 +2757,7 @@ _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8: ; preds = %54
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationERNS0_23AbbreviationDeclarationE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationERNS0_23AbbreviationDeclarationE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -2866,7 +2866,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev30is_wrong_or_unsupported_formatERKNS0_23AbbreviationDeclarationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev30is_wrong_or_unsupported_formatERKNS0_23AbbreviationDeclarationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp ne i64 %3, 17
@@ -2878,7 +2878,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev30is_wrong_or_unsupp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2957,7 +2957,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_spe
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_specificationERNS0_22AttributeSpecificationE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_specificationERNS0_22AttributeSpecificationE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -3052,7 +3052,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7: ; preds = %30, %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28is_terminating_specificationERKNS0_22AttributeSpecificationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28is_terminating_specificationERKNS0_22AttributeSpecificationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3408,7 +3408,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread: ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((16, 24)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @ftell(ptr noundef %3)
@@ -3431,7 +3431,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_t
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3539,7 +3539,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader26reset_to_previous_positionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader26reset_to_previous_positionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3550,7 +3550,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader26reset_to
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram11read_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram11read_headerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -3752,7 +3752,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread: ; preds = %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_number_programEPcmPi(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((88, 96)) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_number_programEPcmPi(ptr noundef nonnull align 8 captures(none) dereferenceable(113) initializes((88, 96)) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 1) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %8
@@ -3989,7 +3989,7 @@ _ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram12apply_opcodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram12apply_opcodeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4120,7 +4120,7 @@ _ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit: ; preds = %19, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 46
@@ -4196,7 +4196,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram24get_filename_from_headerEjPcm(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram24get_filename_from_headerEjPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -4376,7 +4376,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState12reset_fieldsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 40), (43, 47)) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState12reset_fieldsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 29), (32, 40), (43, 47)) %0) local_unnamed_addr #8 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -4409,7 +4409,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState12re
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extended_opcodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extended_opcodeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -4647,7 +4647,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9: ; preds = %113
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standard_opcodeEh(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standard_opcodeEh(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -5134,7 +5134,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i8 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %0, i8 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65
@@ -5229,7 +5229,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5271,7 +5271,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %6, %19, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %26 [
@@ -5314,7 +5314,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState18set_index_registerEjRKNS0_23LineNumberProgramHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState18set_index_registerEjRKNS0_23LineNumberProgramHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %1
@@ -5327,7 +5327,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState18se
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
@@ -5395,7 +5395,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %7, %26, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9DwarfFile17LineNumberProgram26print_and_store_prev_entryEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN9DwarfFile17LineNumberProgram26print_and_store_prev_entryEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -5407,7 +5407,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram26print_and_store_prev_entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenameEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenameEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -5492,7 +5492,7 @@ _ZN9DwarfFile17LineNumberProgram27write_filename_for_overflowEPcm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
@@ -5533,7 +5533,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram27write_filename_for_overflo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwordEPm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwordEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
@@ -5546,7 +5546,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((0, 8)) %1, i8 noundef signext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) initializes((0, 8)) %1, i8 noundef signext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   store i64 0, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5631,10 +5631,10 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

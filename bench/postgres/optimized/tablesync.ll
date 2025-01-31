@@ -646,7 +646,7 @@ define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef nonnull writeonly initializes((0, 1)) %0) unnamed_addr #1 {
+define internal fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %0) unnamed_addr #1 {
   store i8 0, ptr %0, align 1
   %.b12 = load i1, ptr @table_states_valid, align 1
   br i1 %.b12, label %._crit_edge22, label %2
@@ -692,7 +692,7 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef nonnul
   %19 = load ptr, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 1 dereferenceable(24) %19, i64 24, i1 false)
   %20 = load ptr, ptr @table_states_not_ready, align 8
-  %21 = tail call ptr @lappend(ptr noundef %20, ptr noundef %18) #12
+  %21 = tail call ptr @lappend(ptr noundef %20, ptr noundef nonnull %18) #12
   store ptr %21, ptr @table_states_not_ready, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %12, align 4
@@ -775,7 +775,7 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -871,7 +871,7 @@ define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @start_table_sync(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
+define internal fastcc void @start_table_sync(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [3 x i32], align 4
   %5 = alloca [4 x i32], align 16
@@ -2480,7 +2480,7 @@ declare ptr @addRangeTableEntryForRelation(ptr noundef, ptr noundef, i32 noundef
 declare ptr @BeginCopyFrom(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @copy_read_data(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #1 {
+define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @copybuf, align 8
@@ -2587,7 +2587,7 @@ declare i64 @CopyFrom(ptr noundef) local_unnamed_addr #3
 declare void @logicalrep_rel_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @quote_literal_cstr(ptr noundef) local_unnamed_addr #3
 
@@ -2633,10 +2633,10 @@ declare zeroext i1 @HasSubscriptionRelations(i32 noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

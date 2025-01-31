@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [14 x i8] c"[]{}(),;?*=!@\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @php_odbc_connstr_is_quoted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @php_odbc_connstr_is_quoted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, 123
   br i1 %.not, label %3, label %.loopexit
@@ -47,7 +47,7 @@ define noundef zeroext i1 @php_odbc_connstr_is_quoted(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @php_odbc_connstr_should_quote(ptr noundef readonly %0) local_unnamed_addr #2 {
@@ -57,10 +57,10 @@ define zeroext i1 @php_odbc_connstr_should_quote(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = shl i64 %2, 1
   %4 = add i64 %3, 3
@@ -68,7 +68,7 @@ define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @php_odbc_connstr_quote(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 123, ptr %0, align 1
   %5 = add i64 %2, -1

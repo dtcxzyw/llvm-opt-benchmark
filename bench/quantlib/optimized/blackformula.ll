@@ -312,7 +312,7 @@ $_ZZN5boost4math6detail9atanh_impIeNS0_8policies6policyINS3_13promote_floatILb0E
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -329,7 +329,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
@@ -1829,7 +1829,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12blackFormulaERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib12blackFormulaERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -2270,7 +2270,7 @@ unreachable:                                      ; preds = %invoke.cont52, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib29blackFormulaForwardDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib29blackFormulaForwardDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -2863,7 +2863,7 @@ unreachable:                                      ; preds = %invoke.cont118, %in
 declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib38blackFormulaImpliedStdDevApproximationERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib38blackFormulaImpliedStdDevApproximationERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -4439,7 +4439,7 @@ unreachable:                                      ; preds = %invoke.cont52, %inv
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib33blackFormulaImpliedStdDevChambersERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %blackAtmPrice, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib33blackFormulaImpliedStdDevChambersERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %blackAtmPrice, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -4987,7 +4987,7 @@ unreachable:                                      ; preds = %invoke.cont52, %inv
 declare double @exp(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib40blackFormulaImpliedStdDevApproximationRSERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %F, double noundef %marketValue, double noundef %df, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib40blackFormulaImpliedStdDevApproximationRSERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %F, double noundef %marketValue, double noundef %df, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -7663,7 +7663,7 @@ unreachable:                                      ; preds = %invoke.cont346, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib25blackFormulaImpliedStdDevERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddddddj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement, double noundef %guess, double noundef %accuracy, i32 noundef %maxIterations) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib25blackFormulaImpliedStdDevERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddddddj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement, double noundef %guess, double noundef %accuracy, i32 noundef %maxIterations) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -9010,7 +9010,7 @@ unreachable:                                      ; preds = %invoke.cont301, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib29blackFormulaImpliedStdDevLiRSERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddddddj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement, double noundef %guess, double noundef %omega, double noundef %accuracy, i32 noundef %maxIterations) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib29blackFormulaImpliedStdDevLiRSERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddddddj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %blackPrice, double noundef %discount, double noundef %displacement, double noundef %guess, double noundef %omega, double noundef %accuracy, i32 noundef %maxIterations) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -9089,7 +9089,7 @@ cleanup:                                          ; preds = %if.end9, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib30blackFormulaCashItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %displacement) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib30blackFormulaCashItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %displacement) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %phi.i = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
@@ -9218,7 +9218,7 @@ cleanup:                                          ; preds = %if.end9, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib31blackFormulaAssetItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %displacement) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib31blackFormulaAssetItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %displacement) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %phi.i = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
@@ -9299,7 +9299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib28blackFormulaStdDevDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib28blackFormulaStdDevDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -9319,7 +9319,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEptEv.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib34blackFormulaStdDevSecondDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib34blackFormulaStdDevSecondDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount, double noundef %displacement) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -9958,7 +9958,7 @@ unreachable:                                      ; preds = %invoke.cont123, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib21bachelierBlackFormulaERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib21bachelierBlackFormulaERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -10384,7 +10384,7 @@ unreachable:                                      ; preds = %invoke.cont52, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib38bachelierBlackFormulaForwardDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib38bachelierBlackFormulaForwardDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -11215,7 +11215,7 @@ unreachable:                                      ; preds = %invoke.cont107, %in
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #12
@@ -12243,7 +12243,7 @@ unreachable:                                      ; preds = %invoke.cont52, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib37bachelierBlackFormulaStdDevDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib37bachelierBlackFormulaStdDevDerivativeERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev, double noundef %discount) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -12480,7 +12480,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib40bachelierBlackFormulaAssetItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev) local_unnamed_addr #4 {
+define noundef double @_ZN8QuantLib40bachelierBlackFormulaAssetItmProbabilityERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %payoff, double noundef %forward, double noundef %stdDev) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !31
   %cmp.not.i = icmp eq ptr %0, null
@@ -12507,7 +12507,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
@@ -12827,7 +12827,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #30
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #30
   %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #26
-  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef 0, i64 noundef %call.i.i8) #26
+  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #26
   %cmp.not10 = icmp eq i64 %call2.i9, -1
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
@@ -12849,10 +12849,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #26
   %sub.i.i.i = sub nuw i64 %0, %call2.i11
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %call, i64 %sub.i.i.i)
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef %with, i64 noundef %call.i.i6)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %with, i64 noundef %call.i.i6)
   %add = add i64 %call2.i11, %call1
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #26
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef %add, i64 noundef %call.i.i) #26
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #26
   %cmp.not = icmp eq i64 %call2.i, -1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !76
 
@@ -13017,7 +13017,7 @@ declare void @_ZNSt12domain_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #15
@@ -15971,7 +15971,7 @@ declare void @llvm.assume(i1 noundef) #22
 declare double @llvm.log.f64(double) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23

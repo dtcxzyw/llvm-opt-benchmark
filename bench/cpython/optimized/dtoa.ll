@@ -2330,10 +2330,10 @@ return:                                           ; preds = %if.else22, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sd2b(ptr nocapture noundef nonnull readonly %d, i32 noundef %scale, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc ptr @sd2b(ptr noundef nonnull readonly captures(none) %d, i32 noundef %scale, ptr noundef nonnull captures(none) %e) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3299,7 +3299,7 @@ return:                                           ; preds = %if.else22.i38, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bigcomp(ptr nocapture noundef nonnull %rv, ptr nocapture noundef readonly %s0, ptr nocapture noundef nonnull readonly %bc) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bigcomp(ptr noundef nonnull captures(none) %rv, ptr noundef readonly captures(none) %s0, ptr noundef nonnull readonly captures(none) %bc) unnamed_addr #0 {
 entry:
   %p2 = alloca i32, align 4
   %nd1 = getelementptr inbounds nuw i8, ptr %bc, i64 4
@@ -3959,7 +3959,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_dg_dtoa(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_dg_dtoa(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
 entry:
   %0 = bitcast double %dd to i64
   %tobool.not = icmp slt i64 %0, 0
@@ -6161,7 +6161,7 @@ return:                                           ; preds = %if.else22.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 32) i32 @dshift(ptr nocapture noundef nonnull readonly %b, i32 noundef %p2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 32) i32 @dshift(ptr noundef nonnull readonly captures(none) %b, i32 noundef %p2) unnamed_addr #5 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %b, i64 24
   %wds = getelementptr inbounds nuw i8, ptr %b, i64 20
@@ -6559,7 +6559,7 @@ return:                                           ; preds = %if.then7.i, %cmp.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyDtoa_Init(ptr noalias sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef writeonly %interp) local_unnamed_addr #0 {
+define hidden void @_PyDtoa_Init(ptr noalias sret(%struct.PyStatus) align 8 %agg.result, ptr noundef writeonly captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %dtoa = getelementptr inbounds nuw i8, ptr %interp, i64 267792
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -6650,7 +6650,7 @@ declare void @PyStatus_NoMemory(ptr sret(%struct.PyStatus) align 8) local_unname
 declare void @PyStatus_Ok(ptr sret(%struct.PyStatus) align 8) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyDtoa_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyDtoa_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %dtoa = getelementptr inbounds nuw i8, ptr %interp, i64 267792
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -6715,7 +6715,7 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CopyFromErrorCallback(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @CopyFromErrorCallback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -163,16 +163,16 @@ limit_printout_length.exit:                       ; preds = %35, %37
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %63
-  %70 = tail call ptr @pstrdup(ptr noundef %65) #11
+  %70 = tail call ptr @pstrdup(ptr noundef nonnull %65) #11
   br label %limit_printout_length.exit34
 
 71:                                               ; preds = %63
-  %72 = tail call i32 @pg_mbcliplen(ptr noundef %65, i32 noundef %67, i32 noundef 100) #11
+  %72 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %65, i32 noundef %67, i32 noundef 100) #11
   %73 = add i32 %72, 4
   %74 = sext i32 %73 to i64
   %75 = tail call ptr @palloc(i64 noundef %74) #11
   %76 = sext i32 %72 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %65, i64 %76, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr nonnull align 1 %65, i64 %76, i1 false)
   %77 = getelementptr i8, ptr %75, i64 %76
   store i32 3026478, ptr %77, align 1
   br label %limit_printout_length.exit34
@@ -894,7 +894,7 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %312, %317
   br label %335
 
 335:                                              ; preds = %331, %329
-  %336 = call ptr @ExecGetRootToChildMap(ptr noundef %286, ptr noundef %6) #11
+  %336 = call ptr @ExecGetRootToChildMap(ptr noundef %286, ptr noundef nonnull %6) #11
   br i1 %189, label %339, label %337
 
 337:                                              ; preds = %335
@@ -1176,7 +1176,7 @@ CopyMultiInsertInfoNextFreeSlot.exit356:          ; preds = %346, %355
 482:                                              ; preds = %481, %480
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %483 = load ptr, ptr %115, align 8
-  call void @ExecASInsertTriggers(ptr noundef nonnull %6, ptr noundef %86, ptr noundef %483) #11
+  call void @ExecASInsertTriggers(ptr noundef nonnull %6, ptr noundef nonnull %86, ptr noundef %483) #11
   call void @AfterTriggerEndQuery(ptr noundef nonnull %6) #11
   %484 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %485 = load ptr, ptr %484, align 8
@@ -1303,7 +1303,7 @@ declare ptr @CreateExecutorState() local_unnamed_addr #1
 declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1365,7 +1365,7 @@ declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 declare ptr @ExecFindPartition(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopyMultiInsertInfoFlush(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2448,7 +2448,7 @@ list_length.exit:                                 ; preds = %355, %357
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
@@ -2504,10 +2504,10 @@ declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @pgstat_progress_update_multi_param(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2597,7 +2597,7 @@ declare void @pgstat_progress_end_command() local_unnamed_addr #1
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2622,10 +2622,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -291,7 +291,7 @@ declare void @_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats(ptr no
 declare void @_ZN22ThreadLocalAllocBuffer6resizeEv(ptr noundef nonnull align 8 dereferenceable(116)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @UseTLAB, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %47

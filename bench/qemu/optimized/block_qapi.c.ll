@@ -388,7 +388,7 @@ declare ptr @throttle_group_get_name(ptr noundef) local_unnamed_addr #1
 declare i64 @bdrv_write_threshold_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_query_image_info(ptr noundef %bs, ptr nocapture noundef writeonly %p_info, i1 noundef zeroext %flat, i1 noundef zeroext %skip_implicit_filters, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @bdrv_query_image_info(ptr noundef %bs, ptr noundef writeonly captures(none) %p_info, i1 noundef zeroext %flat, i1 noundef zeroext %skip_implicit_filters, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -454,7 +454,7 @@ cleanup:                                          ; preds = %if.end25, %if.end22
 declare void @qapi_free_BlockDeviceInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @bdrv_query_snapshot_info_list(ptr noundef %bs, ptr nocapture noundef writeonly %p_list, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_query_snapshot_info_list(ptr noundef %bs, ptr noundef writeonly captures(none) %p_list, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %head = alloca ptr, align 8
@@ -574,7 +574,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_do_query_node_info(ptr noundef %bs, ptr nocapture noundef %info, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @bdrv_do_query_node_info(ptr noundef %bs, ptr noundef captures(none) %info, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %err = alloca ptr, align 8
@@ -741,7 +741,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @qapi_free_ImageInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_query_block_graph_info(ptr noundef %bs, ptr nocapture noundef writeonly %p_info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @bdrv_query_block_graph_info(ptr noundef %bs, ptr noundef writeonly captures(none) %p_info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -966,7 +966,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_BlockInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_blockstats(i1 noundef zeroext %has_query_nodes, i1 noundef zeroext %query_nodes, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_blockstats(i1 noundef zeroext %has_query_nodes, i1 noundef zeroext %query_nodes, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %out_list.i7.i193.i = alloca ptr, align 8
   %out_list.i.i194.i = alloca ptr, align 8
@@ -1258,7 +1258,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %37 = load ptr, ptr %timed_stats.i, align 8
   store ptr %37, ptr %call84.i, align 8
   store ptr %call84.i, ptr %timed_stats.i, align 8
-  %call58.i = tail call ptr @block_acct_interval_next(ptr noundef %call.i, ptr noundef nonnull %call58237.i) #10
+  %call58.i = tail call ptr @block_acct_interval_next(ptr noundef nonnull %call.i, ptr noundef nonnull %call58237.i) #10
   %tobool59.not.i = icmp eq ptr %call58.i, null
   br i1 %tobool59.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
@@ -1806,7 +1806,7 @@ if.end25:                                         ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1815,7 +1815,7 @@ declare ptr @g_date_time_new_from_unix_local(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_date_time_format(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @size_to_str(i64 noundef) local_unnamed_addr #1
 
@@ -2101,7 +2101,7 @@ sw.epilog:                                        ; preds = %for.inc.i, %if.end.
 declare void @visit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_node_info_dump(ptr nocapture noundef readonly %info, i32 noundef %indentation, i1 noundef zeroext %protocol) local_unnamed_addr #0 {
+define dso_local void @bdrv_node_info_dump(ptr noundef readonly captures(none) %info, i32 noundef %indentation, i1 noundef zeroext %protocol) local_unnamed_addr #0 {
 entry:
   %sn = alloca %struct.QEMUSnapshotInfo, align 8
   %mul = shl i32 %indentation, 2
@@ -2317,7 +2317,7 @@ if.end84:                                         ; preds = %if.then82, %if.end8
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2398,17 +2398,17 @@ declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @qdict_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @qobject_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

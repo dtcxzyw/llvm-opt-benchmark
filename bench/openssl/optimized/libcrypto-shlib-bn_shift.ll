@@ -178,7 +178,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_lshift(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_lshift(ptr noundef %r, ptr noundef readonly captures(none) %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -206,7 +206,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %r, ptr nocapture noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_lshift_fixed_top(ptr noundef %r, ptr noundef readonly captures(none) %a, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %div = sdiv i32 %n, 64
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -311,7 +311,7 @@ return:                                           ; preds = %entry, %if.end45
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_rshift(ptr noundef %r, ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #0 {

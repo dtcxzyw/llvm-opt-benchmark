@@ -179,7 +179,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_job_remove_all_bdrv(ptr nocapture noundef %job) local_unnamed_addr #0 {
+define dso_local void @block_job_remove_all_bdrv(ptr noundef captures(none) %job) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
@@ -242,7 +242,7 @@ declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_graph_wrunlock_ctx(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr nocapture noundef readonly %job, ptr noundef readnone %bs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr noundef readonly captures(none) %job, ptr noundef readnone %bs) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
@@ -354,7 +354,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bdrv_op_block_all(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @block_job_is_internal(ptr nocapture noundef readonly %job) local_unnamed_addr #3 {
+define dso_local zeroext i1 @block_job_is_internal(ptr noundef readonly captures(none) %job) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %job, align 8
   %cmp = icmp eq ptr %0, null
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @block_job_driver(ptr nocapture noundef readonly %job) local_unnamed_addr #3 {
+define dso_local ptr @block_job_driver(ptr noundef readonly captures(none) %job) local_unnamed_addr #3 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver, align 8
@@ -935,7 +935,7 @@ declare ptr @job_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @bdrv_graph_wrunlock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_job_user_resume(ptr nocapture noundef %job) #0 {
+define dso_local void @block_job_user_resume(ptr noundef captures(none) %job) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
@@ -987,7 +987,7 @@ block_job_iostatus_reset.exit:                    ; preds = %do.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_job_event_cancelled_locked(ptr nocapture readnone %n, ptr noundef %opaque) #0 {
+define internal void @block_job_event_cancelled_locked(ptr readnone captures(none) %n, ptr noundef %opaque) #0 {
 entry:
   %progress_current = alloca i64, align 8
   %progress_total = alloca i64, align 8
@@ -1012,7 +1012,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_job_event_completed_locked(ptr nocapture readnone %n, ptr noundef %opaque) #0 {
+define internal void @block_job_event_completed_locked(ptr readnone captures(none) %n, ptr noundef %opaque) #0 {
 entry:
   %progress_current = alloca i64, align 8
   %progress_total = alloca i64, align 8
@@ -1050,7 +1050,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_job_event_pending_locked(ptr nocapture readnone %n, ptr noundef %opaque) #0 {
+define internal void @block_job_event_pending_locked(ptr readnone captures(none) %n, ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -1067,7 +1067,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_job_event_ready_locked(ptr nocapture readnone %n, ptr noundef %opaque) #0 {
+define internal void @block_job_event_ready_locked(ptr readnone captures(none) %n, ptr noundef %opaque) #0 {
 entry:
   %progress_current = alloca i64, align 8
   %progress_total = alloca i64, align 8
@@ -1092,7 +1092,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_job_on_idle_locked(ptr nocapture readnone %n, ptr nocapture readnone %opaque) #0 {
+define internal void @block_job_on_idle_locked(ptr readnone captures(none) %n, ptr readnone captures(none) %opaque) #0 {
 entry:
   tail call void @aio_wait_kick() #7
   ret void
@@ -1107,7 +1107,7 @@ declare void @bdrv_op_unblock(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @job_early_fail(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_job_iostatus_reset_locked(ptr nocapture noundef %job) local_unnamed_addr #0 {
+define dso_local void @block_job_iostatus_reset_locked(ptr noundef captures(none) %job) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
@@ -1230,7 +1230,7 @@ declare void @qapi_event_send_block_job_error(ptr noundef, i32 noundef, i32 noun
 declare void @job_pause_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @block_job_get_aio_context(ptr nocapture noundef readonly %job) local_unnamed_addr #0 {
+define dso_local ptr @block_job_get_aio_context(ptr noundef readonly captures(none) %job) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
@@ -1250,7 +1250,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @child_job_get_parent_desc(ptr nocapture noundef readonly %c) #0 {
+define internal noalias ptr @child_job_get_parent_desc(ptr noundef readonly captures(none) %c) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1261,7 +1261,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @child_job_drained_begin(ptr nocapture noundef readonly %c) #0 {
+define internal void @child_job_drained_begin(ptr noundef readonly captures(none) %c) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1270,7 +1270,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @child_job_drained_end(ptr nocapture noundef readonly %c) #0 {
+define internal void @child_job_drained_end(ptr noundef readonly captures(none) %c) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1279,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @child_job_drained_poll(ptr nocapture noundef readonly %c) #0 {
+define internal zeroext i1 @child_job_drained_poll(ptr noundef readonly captures(none) %c) #0 {
 for.body.us:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1318,7 +1318,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @child_job_change_aio_ctx(ptr nocapture noundef readonly %c, ptr noundef %ctx, ptr noundef %visited, ptr noundef %tran, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @child_job_change_aio_ctx(ptr noundef readonly captures(none) %c, ptr noundef %ctx, ptr noundef %visited, ptr noundef %tran, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1353,7 +1353,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @child_job_get_parent_aio_context(ptr nocapture noundef readonly %c) #0 {
+define internal ptr @child_job_get_parent_aio_context(ptr noundef readonly captures(none) %c) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %opaque = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -1382,7 +1382,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @tran_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @child_job_set_aio_ctx_commit(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @child_job_set_aio_ctx_commit(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %job1 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %job1, align 8

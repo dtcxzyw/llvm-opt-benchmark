@@ -80,7 +80,7 @@ define zeroext i8 @AWTIsHeadless() local_unnamed_addr #0 {
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.Dl_info, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %0, i32 noundef 65538) #6
@@ -188,16 +188,16 @@ AWTIsHeadless.exit.thread:                        ; preds = %AWTIsHeadless.exit,
 declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -207,7 +207,7 @@ declare i64 @JNU_CallStaticMethodByName(ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @AWT_OnLoad(ptr noundef %0, ptr poison)
   ret i32 65538
 }

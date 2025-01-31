@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"blob\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 40), align 8
@@ -41,7 +41,7 @@ define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_compress, i64 40), align 8
@@ -66,7 +66,7 @@ define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -87,7 +87,7 @@ define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocaptu
   %sext12 = add i64 %8, 73014444032
   %13 = ashr exact i64 %sext12, 32
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = call i64 @strtoul(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 10) #12
+  %15 = call i64 @strtoul(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 10) #12
   %16 = load ptr, ptr %4, align 8
   %17 = tail call noalias ptr @malloc(i64 noundef %15) #14
   store ptr %17, ptr %3, align 8
@@ -118,7 +118,7 @@ define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -139,7 +139,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocaptu
   %sext12 = add i64 %8, 73014444032
   %13 = ashr exact i64 %sext12, 32
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = call i64 @strtoul(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 10) #12
+  %15 = call i64 @strtoul(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 10) #12
   %16 = load ptr, ptr %4, align 8
   %17 = tail call noalias ptr @malloc(i64 noundef %15) #14
   store ptr %17, ptr %3, align 8
@@ -170,7 +170,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal range(i32 -1366, 1) i32 @copy(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
@@ -189,7 +189,7 @@ define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0
   %sext20 = add i64 %7, 73014444032
   %12 = ashr exact i64 %sext20, 32
   %13 = getelementptr inbounds i8, ptr %2, i64 %12
-  %14 = tail call i64 @strtoul(ptr nocapture noundef %13, ptr noundef null, i32 noundef 10) #12
+  %14 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #12
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
   %16 = add i64 %14, 28
   %17 = add i64 %16, %15
@@ -198,7 +198,7 @@ define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %2, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %2, i64 %17, i1 false)
   store ptr %18, ptr %0, align 8
   store i64 %17, ptr %1, align 8
   br label %21
@@ -209,7 +209,7 @@ define internal range(i32 -1366, 1) i32 @copy(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %26
@@ -228,7 +228,7 @@ define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noun
   %sext21 = add i64 %6, 73014444032
   %11 = ashr exact i64 %sext21, 32
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #12
+  %13 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #12
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #13
   %15 = add i64 %13, 28
   %16 = add i64 %15, %14
@@ -237,7 +237,7 @@ define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noun
   br i1 %18, label %26, label %19
 
 19:                                               ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %1, i64 %16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %16
@@ -254,7 +254,7 @@ define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1366, 1) i32 @unpack(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
@@ -275,7 +275,7 @@ define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr no
   %sext22 = add i64 %8, 73014444032
   %13 = ashr exact i64 %sext22, 32
   %14 = getelementptr inbounds i8, ptr %4, i64 %13
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #12
+  %15 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #12
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #13
   %17 = add i64 %15, 28
   %18 = add i64 %17, %16
@@ -284,7 +284,7 @@ define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr no
   br i1 %20, label %.sink.split, label %21
 
 21:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %4, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %4, i64 %18, i1 false)
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %18
   store ptr %23, ptr %3, align 8
@@ -331,7 +331,7 @@ define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i64 noundef %1) #12
   %6 = icmp slt i32 %5, 0
@@ -359,7 +359,7 @@ define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef no
   %sext22 = add i64 %18, 124554051584
   %21 = ashr exact i64 %sext22, 32
   %22 = getelementptr inbounds i8, ptr %12, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %0, i64 %1, i1 false)
   call void @free(ptr noundef %8) #12
   store ptr %12, ptr %2, align 8
   br label %23
@@ -370,7 +370,7 @@ define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -379,19 +379,19 @@ declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10

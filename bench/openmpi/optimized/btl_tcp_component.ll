@@ -963,7 +963,7 @@ mca_btl_tcp_component_verify.exit:                ; preds = %27, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define noundef ptr @mca_btl_tcp_component_init(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca %struct.pmix_value, align 8
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca i32, align 4
@@ -1858,12 +1858,12 @@ declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noun
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2503,10 +2503,10 @@ opal_obj_run_constructors.exit105:                ; preds = %.lr.ph.i102, %71
 declare i32 @opal_ifkindextoname(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #2
 
@@ -2516,7 +2516,7 @@ declare noalias ptr @opal_argv_split(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2525,13 +2525,13 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @opal_argv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -2547,7 +2547,7 @@ declare i32 @opal_ifindextoname(i32 noundef, ptr noundef, i32 noundef) local_unn
 declare noalias ptr @opal_argv_join(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i32 @opal_ethtool_get_speed(ptr noundef) local_unnamed_addr #2
 
@@ -2604,7 +2604,7 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #6
 declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_btl_tcp_component_event_async_handler(i32 noundef %0, i16 signext %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @mca_btl_tcp_component_event_async_handler(i32 noundef %0, i16 signext %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = call i64 @read(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 8) #15
   %6 = and i64 %5, 4294967295
@@ -2629,7 +2629,7 @@ define internal void @mca_btl_tcp_component_event_async_handler(i32 noundef %0, 
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @mca_btl_tcp_progress_thread_engine(ptr nocapture noundef readonly %0) #0 {
+define internal noalias noundef ptr @mca_btl_tcp_progress_thread_engine(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -2653,7 +2653,7 @@ define internal noalias noundef ptr @mca_btl_tcp_progress_thread_engine(ptr noca
 declare i32 @opal_thread_start(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_btl_tcp_component_accept_handler(i32 noundef %0, i16 signext %1, ptr nocapture readnone %2) #0 {
+define internal void @mca_btl_tcp_component_accept_handler(i32 noundef %0, i16 signext %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca i32, align 4
   br label %.backedge
@@ -2733,7 +2733,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %24, %2
 declare i32 @opal_fd_write(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3017,10 +3017,10 @@ declare i32 @PMIx_Put(i8 noundef zeroext, ptr noundef, ptr noundef) local_unname
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

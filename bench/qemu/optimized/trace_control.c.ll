@@ -129,7 +129,7 @@ return:                                           ; preds = %land.rhs.i, %while.
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_all(ptr nocapture noundef writeonly initializes((0, 32)) %iter) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_all(ptr noundef writeonly captures(none) initializes((0, 32)) %iter) local_unnamed_addr #3 {
 entry:
   %group_id = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @trace_event_iter_next(ptr nocapture noundef %iter) local_unnamed_addr #0 {
+define dso_local ptr @trace_event_iter_next(ptr noundef captures(none) %iter) local_unnamed_addr #0 {
 entry:
   %group = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %0 = load i64, ptr %group, align 8
@@ -214,10 +214,10 @@ return:                                           ; preds = %if.end25, %while.co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly initializes((0, 32)) %iter, ptr noundef %pattern) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_pattern(ptr noundef writeonly captures(none) initializes((0, 32)) %iter, ptr noundef %pattern) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly initializes((0, 32)) %iter, i64 noundef %group_id) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_group(ptr noundef writeonly captures(none) initializes((0, 32)) %iter, i64 noundef %group_id) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
@@ -241,7 +241,7 @@ entry:
 declare i32 @g_pattern_match_simple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @trace_list_events(ptr nocapture noundef %f) local_unnamed_addr #5 {
+define dso_local void @trace_list_events(ptr noundef captures(none) %f) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr @nevent_groups, align 8
   %cmp19.i9.not = icmp eq i64 %0, 0
@@ -278,7 +278,7 @@ while.end:                                        ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @trace_enable_events(ptr noundef %line_buf) local_unnamed_addr #0 {
@@ -629,7 +629,7 @@ declare ptr @loc_push_none(ptr noundef) local_unnamed_addr #1
 declare void @loc_set_file(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
@@ -640,24 +640,24 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

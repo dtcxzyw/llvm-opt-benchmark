@@ -4027,10 +4027,10 @@ _ZN7RegMask2ORERKS_.exit45:                       ; preds = %.lr.ph.i42, %362
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 5, 9) i32 @_ZN22MachCallStaticJavaNode15ret_addr_offsetEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 {
+define hidden noundef range(i32 5, 9) i32 @_ZN22MachCallStaticJavaNode15ret_addr_offsetEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -4064,7 +4064,7 @@ _ZL14clear_avx_sizev.exit:                        ; preds = %1, %_ZL19generate_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 15, 19) i32 @_ZN23MachCallDynamicJavaNode15ret_addr_offsetEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef range(i32 15, 19) i32 @_ZN23MachCallDynamicJavaNode15ret_addr_offsetEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -4229,17 +4229,17 @@ _ZL14clear_avx_sizev.exit:                        ; preds = %2, %_ZL19generate_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ConstantTable27calculate_table_base_offsetEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ConstantTable27calculate_table_base_offsetEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK20MachConstantBaseNode25requires_postalloc_expandEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK20MachConstantBaseNode25requires_postalloc_expandEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN20MachConstantBaseNode16postalloc_expandEP13GrowableArrayIP4NodeEP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZN20MachConstantBaseNode16postalloc_expandEP13GrowableArrayIP4NodeEP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 756) #24
@@ -4250,17 +4250,17 @@ define hidden void @_ZN20MachConstantBaseNode16postalloc_expandEP13GrowableArray
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK20MachConstantBaseNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK20MachConstantBaseNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20MachConstantBaseNode4sizeEP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20MachConstantBaseNode4sizeEP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14MachPrologNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14MachPrologNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = alloca %class.AddressLiteral, align 8
   %6 = alloca %class.RuntimeAddress, align 8
@@ -4377,12 +4377,12 @@ define hidden noundef i32 @_ZNK14MachPrologNode4sizeEP13PhaseRegAlloc(ptr nounde
 declare noundef i32 @_ZNK8MachNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14MachPrologNode5relocEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14MachPrologNode5relocEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14MachEpilogNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14MachEpilogNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4577,12 +4577,12 @@ define hidden noundef i32 @_ZNK14MachEpilogNode4sizeEP13PhaseRegAlloc(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14MachEpilogNode5relocEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14MachEpilogNode5relocEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14MachEpilogNode8pipelineEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK14MachEpilogNode8pipelineEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZN8MachNode14pipeline_classEv() #23
   ret ptr %2
 }
@@ -4590,7 +4590,7 @@ define hidden noundef ptr @_ZNK14MachEpilogNode8pipelineEv(ptr nocapture nonnull
 declare noundef ptr @_ZN8MachNode14pipeline_classEv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK17MachSpillCopyNode14implementationEP17C2_MacroAssemblerP13PhaseRegAllocbP12outputStream(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3, ptr nocapture noundef readnone %4) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK17MachSpillCopyNode14implementationEP17C2_MacroAssemblerP13PhaseRegAllocbP12outputStream(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #3 align 2 {
 _ZL8rc_classi.exit:
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -6225,7 +6225,7 @@ _ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit: ; preds = %356
 declare noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) local_unnamed_addr #3 {
+define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #3 {
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.Address, align 8
@@ -7067,7 +7067,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %19, %2, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11MachUEPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK11MachUEPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = load i64, ptr @InteriorEntryAlignment, align 8
   %5 = trunc i64 %4 to i32
   %6 = tail call noundef i32 @_ZN14MacroAssembler8ic_checkEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %5) #23
@@ -7119,7 +7119,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN7Matcher22is_short_branch_offsetEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1008) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN7Matcher22is_short_branch_offsetEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1008) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = sub nsw i32 %3, %2
   %6 = icmp eq i32 %1, 1061
   %7 = add i32 %5, 126
@@ -7204,37 +7204,37 @@ define hidden noundef zeroext i1 @_ZN7Matcher23use_asm_for_ldiv_by_conEl(i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind noalias writable writeonly sret(%class.RegMask) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_INT_RAX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind noalias writable writeonly sret(%class.RegMask) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_INT_RDX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind noalias writable writeonly sret(%class.RegMask) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_LONG_RAX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind noalias writable writeonly sret(%class.RegMask) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_LONG_RDX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher33method_handle_invoke_SP_save_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher33method_handle_invoke_SP_save_maskEv(ptr dead_on_unwind noalias writable writeonly sret(%class.RegMask) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_NO_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhaseOutput29pd_perform_mach_node_analysisEv(ptr nocapture noundef nonnull align 8 dereferenceable(700) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhaseOutput29pd_perform_mach_node_analysisEv(ptr noundef nonnull align 8 captures(none) dereferenceable(700) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @_ZN10VM_Version22_has_intel_jcc_erratumE, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %15
@@ -8667,7 +8667,7 @@ _ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %75, %72, %69, %82, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN7Matcher31vector_needs_partial_operationsEP4NodePK8TypeVect(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN7Matcher31vector_needs_partial_operationsEP4NodePK8TypeVect(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 {
   ret i1 false
 }
 
@@ -9500,7 +9500,7 @@ _ZL14is_bmi_patternP4NodeS0_.exit:                ; preds = %34
 declare noundef zeroext i1 @_ZN7Matcher21is_vshift_con_patternEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(1008), ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7Matcher28pd_clone_address_expressionsEP8AddPNodeRNS_6MStackER9VectorSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7Matcher28pd_clone_address_expressionsEP8AddPNodeRNS_6MStackER9VectorSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1008) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -9856,7 +9856,7 @@ define linkonce_odr hidden void @_ZN9VectorSet3setEj(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL11clone_shiftP4NodeP7MatcherRNS1_6MStackER9VectorSet(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(52) %0) #23
@@ -10086,7 +10086,7 @@ declare void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonn
 declare void @_ZN9Assembler13vextractf64x4E7Address11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32, i8 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11MachNopNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef nonnull %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK11MachNopNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, ptr noundef nonnull %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   tail call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %5) #23
@@ -10096,14 +10096,14 @@ define hidden void @_ZNK11MachNopNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 declare void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK11MachNopNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr nocapture readnone %1) unnamed_addr #11 align 2 {
+define hidden noundef i32 @_ZNK11MachNopNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, ptr readnone captures(none) %1) unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18MachBreakpointNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK18MachBreakpointNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN14MacroAssembler4int3Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   ret void
 }
@@ -10117,7 +10117,7 @@ define hidden noundef i32 @_ZNK18MachBreakpointNode4sizeEP13PhaseRegAlloc(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK9labelOper5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK9labelOper5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -10167,12 +10167,12 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9labelOper6opcodeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9labelOper6opcodeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK9sRegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK9sRegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10184,7 +10184,7 @@ define hidden noundef nonnull ptr @_ZNK9sRegIOper10in_RegMaskEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK9sRegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK9sRegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10196,7 +10196,7 @@ define hidden noundef nonnull ptr @_ZNK9sRegPOper10in_RegMaskEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK9sRegFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK9sRegFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10208,7 +10208,7 @@ define hidden noundef nonnull ptr @_ZNK9sRegFOper10in_RegMaskEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK9sRegDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK9sRegDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10220,7 +10220,7 @@ define hidden noundef nonnull ptr @_ZNK9sRegDOper10in_RegMaskEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK9sRegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK9sRegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10232,7 +10232,7 @@ define hidden noundef nonnull ptr @_ZNK9sRegLOper10in_RegMaskEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK10methodOper5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK10methodOper5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -10278,162 +10278,162 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10methodOper6opcodeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10methodOper6opcodeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i32 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK8kRegOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK8kRegOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTMASK_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK9rRegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK9rRegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rax_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rax_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rbx_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rbx_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rcx_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rcx_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RCX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rdx_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rdx_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rdi_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rdi_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RDI_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK19no_rax_rdx_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK19no_rax_rdx_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_NO_RAX_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK19no_rbp_r13_RegIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK19no_rbp_r13_RegIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_NO_RBP_R13_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12any_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12any_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_ANY_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK9rRegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK9rRegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK9rRegNOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK9rRegNOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK15no_rbp_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK15no_rbp_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_REG_NO_RBP_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rax_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rax_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rax_RegNOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rax_RegNOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rbx_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rbx_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_RBX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rsi_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rsi_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_RSI_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rbp_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rbp_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_RBP_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rdi_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rdi_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_RDI_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12r15_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12r15_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_R15_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK9rRegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK9rRegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK19no_rax_rdx_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK19no_rax_rdx_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_NO_RAX_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rax_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rax_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rcx_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rcx_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_RCX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12rdx_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12rdx_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_RDX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12r11_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12r11_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_R11_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK19no_rbp_r13_RegLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK19no_rbp_r13_RegLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_LONG_NO_RBP_R13_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK13rFlagsRegOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK13rFlagsRegOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK14rFlagsRegUOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK14rFlagsRegUOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK16rFlagsRegUCFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK16rFlagsRegUCFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_FLAGS_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8regFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8regFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
   %.not.i = icmp eq i64 %4, 0
@@ -10442,12 +10442,12 @@ define hidden noundef nonnull ptr @_ZNK8regFOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legRegFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legRegFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_FLOAT_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK10vlRegFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK10vlRegFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 8724152320
   %or.cond.i = icmp eq i64 %4, 8724152320
@@ -10456,7 +10456,7 @@ define hidden noundef nonnull ptr @_ZNK10vlRegFOper10in_RegMaskEi(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8regDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8regDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
   %.not.i = icmp eq i64 %4, 0
@@ -10465,12 +10465,12 @@ define hidden noundef nonnull ptr @_ZNK8regDOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legRegDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legRegDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_DOUBLE_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK10vlRegDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK10vlRegDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 8724152320
   %or.cond.i = icmp eq i64 %4, 8724152320
@@ -10479,22 +10479,22 @@ define hidden noundef nonnull ptr @_ZNK10vlRegDOper10in_RegMaskEi(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12indirectOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12indirectOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK14indOffset8Oper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK14indOffset8Oper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_ANY_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK15indOffset32Oper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK15indOffset32Oper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_ANY_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK18indIndexOffsetOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK18indIndexOffsetOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10515,7 +10515,7 @@ define hidden noundef nonnull ptr @_ZNK18indIndexOffsetOper10in_RegMaskEi(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK12indIndexOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK12indIndexOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10536,7 +10536,7 @@ define hidden noundef nonnull ptr @_ZNK12indIndexOper10in_RegMaskEi(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK17indIndexScaleOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK17indIndexScaleOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10557,7 +10557,7 @@ define hidden noundef nonnull ptr @_ZNK17indIndexScaleOper10in_RegMaskEi(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK20indPosIndexScaleOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK20indPosIndexScaleOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10578,7 +10578,7 @@ define hidden noundef nonnull ptr @_ZNK20indPosIndexScaleOper10in_RegMaskEi(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK23indIndexScaleOffsetOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK23indIndexScaleOffsetOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10599,7 +10599,7 @@ define hidden noundef nonnull ptr @_ZNK23indIndexScaleOffsetOper10in_RegMaskEi(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK21indPosIndexOffsetOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK21indPosIndexOffsetOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10620,7 +10620,7 @@ define hidden noundef nonnull ptr @_ZNK21indPosIndexOffsetOper10in_RegMaskEi(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK26indPosIndexScaleOffsetOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK26indPosIndexScaleOffsetOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10641,27 +10641,27 @@ define hidden noundef nonnull ptr @_ZNK26indPosIndexScaleOffsetOper10in_RegMaskE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK26indCompressedOopOffsetOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK26indCompressedOopOffsetOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK18indirectNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK18indirectNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK20indOffset8NarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK20indOffset8NarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK21indOffset32NarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK21indOffset32NarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK24indIndexOffsetNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK24indIndexOffsetNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10682,7 +10682,7 @@ define hidden noundef nonnull ptr @_ZNK24indIndexOffsetNarrowOper10in_RegMaskEi(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK18indIndexNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK18indIndexNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10703,7 +10703,7 @@ define hidden noundef nonnull ptr @_ZNK18indIndexNarrowOper10in_RegMaskEi(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK23indIndexScaleNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK23indIndexScaleNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10724,7 +10724,7 @@ define hidden noundef nonnull ptr @_ZNK23indIndexScaleNarrowOper10in_RegMaskEi(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK29indIndexScaleOffsetNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK29indIndexScaleOffsetNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   switch i32 %1, label %4 [
     i32 0, label %6
     i32 1, label %3
@@ -10745,17 +10745,17 @@ define hidden noundef nonnull ptr @_ZNK29indIndexScaleOffsetNarrowOper10in_RegMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK27indPosIndexOffsetNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK27indPosIndexOffsetNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK32indPosIndexScaleOffsetNarrowOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK32indPosIndexScaleOffsetNarrowOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_INT_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK14stackSlotPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK14stackSlotPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10767,7 +10767,7 @@ define hidden noundef nonnull ptr @_ZNK14stackSlotPOper10in_RegMaskEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK14stackSlotIOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK14stackSlotIOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10779,7 +10779,7 @@ define hidden noundef nonnull ptr @_ZNK14stackSlotIOper10in_RegMaskEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK14stackSlotFOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK14stackSlotFOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10791,7 +10791,7 @@ define hidden noundef nonnull ptr @_ZNK14stackSlotFOper10in_RegMaskEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK14stackSlotDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK14stackSlotDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10803,7 +10803,7 @@ define hidden noundef nonnull ptr @_ZNK14stackSlotDOper10in_RegMaskEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK14stackSlotLOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK14stackSlotLOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -10815,22 +10815,22 @@ define hidden noundef nonnull ptr @_ZNK14stackSlotLOper10in_RegMaskEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK9rxmm0Oper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK9rxmm0Oper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_XMM0_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK7vecOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK7vecOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK10legVecOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK10legVecOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_ZN7RegMask5EmptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8vecSOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8vecSOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13287555072
   %5 = icmp eq i64 %4, 13287555072
@@ -10839,12 +10839,12 @@ define hidden noundef nonnull ptr @_ZNK8vecSOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legVecSOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legVecSOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTORS_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8vecDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8vecDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13287555072
   %5 = icmp eq i64 %4, 13287555072
@@ -10853,12 +10853,12 @@ define hidden noundef nonnull ptr @_ZNK8vecDOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legVecDOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legVecDOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTORD_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8vecXOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8vecXOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13287555072
   %5 = icmp eq i64 %4, 13287555072
@@ -10867,12 +10867,12 @@ define hidden noundef nonnull ptr @_ZNK8vecXOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legVecXOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legVecXOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTORX_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8vecYOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8vecYOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13287555072
   %5 = icmp eq i64 %4, 13287555072
@@ -10881,12 +10881,12 @@ define hidden noundef nonnull ptr @_ZNK8vecYOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legVecYOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legVecYOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTORY_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZNK8vecZOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZNK8vecZOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
   %.not.i = icmp eq i64 %4, 0
@@ -10895,17 +10895,17 @@ define hidden noundef nonnull ptr @_ZNK8vecZOper10in_RegMaskEi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11legVecZOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11legVecZOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_VECTORZ_REG_LEGACY_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK15no_rax_RegPOper10in_RegMaskEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK15no_rax_RegPOper10in_RegMaskEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #4 align 2 {
   ret ptr @_PTR_NO_RAX_REG_mask
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12MoveVL2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12MoveVL2FNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -11022,7 +11022,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 declare void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MoveLEG2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13MoveLEG2FNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, ptr %2, align 8
   ret void
@@ -11133,7 +11133,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12MoveVL2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12MoveVL2DNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -11248,7 +11248,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MoveLEG2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13MoveLEG2DNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, ptr %2, align 8
   ret void
@@ -11359,7 +11359,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22countLeadingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22countLeadingZerosINode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11470,7 +11470,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22countLeadingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22countLeadingZerosLNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -11581,7 +11581,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23countTrailingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23countTrailingZerosINode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11692,7 +11692,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23countTrailingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23countTrailingZerosLNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -11803,7 +11803,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13popCountINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13popCountINode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11914,7 +11914,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13popCountLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13popCountLNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12025,7 +12025,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13cmovI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13cmovI_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12136,7 +12136,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14cmovI_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14cmovI_regUNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12247,7 +12247,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16cmovI_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN16cmovI_regUCFNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12358,7 +12358,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13cmovL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13cmovL_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12469,7 +12469,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14cmovL_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14cmovL_regUNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12580,7 +12580,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16cmovL_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN16cmovL_regUCFNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12691,7 +12691,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13addI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13addI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12802,7 +12802,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13addL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13addL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12913,7 +12913,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13subI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13subI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13024,7 +13024,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13subL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13subL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13135,7 +13135,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13mulI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13mulI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13246,7 +13246,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17mulI_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17mulI_rReg_immNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13357,7 +13357,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13mulL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13mulL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13468,7 +13468,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17mulL_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17mulL_rReg_immNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13579,7 +13579,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18salI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18salI_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13690,7 +13690,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18sarI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18sarI_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13801,7 +13801,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18shrI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18shrI_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13912,7 +13912,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18salL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18salL_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14023,7 +14023,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18sarL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18sarL_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14134,7 +14134,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18shrL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18shrL_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14245,7 +14245,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7i2bNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN7i2bNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14350,7 +14350,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7i2sNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN7i2sNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14455,7 +14455,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rolI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rolI_immI8Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14572,7 +14572,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rorI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rorI_immI8Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14689,7 +14689,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rolL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rolL_immI8Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14806,7 +14806,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rorL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rorL_immI8Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14923,7 +14923,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21compressBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN21compressBitsL_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -15034,7 +15034,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19expandBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19expandBitsL_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -15145,7 +15145,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13andI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13andI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15256,7 +15256,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20andI_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN20andI_rReg_imm255Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15367,7 +15367,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22andI2L_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22andI2L_rReg_imm255Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15478,7 +15478,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22andI_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22andI_rReg_imm65535Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15589,7 +15589,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andI2L_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andI2L_rReg_imm65535Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15700,7 +15700,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andnI_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andnI_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15811,7 +15811,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN26andnI_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN26andnI_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15922,7 +15922,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12orI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN12orI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -16033,7 +16033,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13xorI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13xorI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -16144,7 +16144,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13andL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13andL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16255,7 +16255,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andnL_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andnL_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16366,7 +16366,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN26andnL_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN26andnL_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16477,7 +16477,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12orL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN12orL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16588,7 +16588,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13xorL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13xorL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16699,7 +16699,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN18cmpF_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN18cmpF_cc_reg_CFNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16814,7 +16814,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN18cmpD_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN18cmpD_cc_reg_CFNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16929,7 +16929,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12cmpF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12cmpF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17044,7 +17044,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12cmpD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12cmpD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17159,7 +17159,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19convI2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19convI2L_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17270,7 +17270,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23convI2L_reg_reg_zexNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23convI2L_reg_reg_zexNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17381,7 +17381,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19MoveF2I_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN19MoveF2I_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17496,7 +17496,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19MoveD2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN19MoveD2L_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17611,7 +17611,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19MoveI2F_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19MoveI2F_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17722,7 +17722,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compI_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17833,7 +17833,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17testI_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17testI_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17944,7 +17944,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compU_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compU_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -18055,7 +18055,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18166,7 +18166,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17testL_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17testL_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18277,7 +18277,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15compUL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN15compUL_rRegNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18721,7 +18721,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12addF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12addF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18836,7 +18836,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16addF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16addF_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18951,7 +18951,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12addD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12addD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19066,7 +19066,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16addD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16addD_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19181,7 +19181,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12subF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12subF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19296,7 +19296,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16subF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16subF_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19411,7 +19411,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12subD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12subD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19526,7 +19526,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16subD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16subD_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19641,7 +19641,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12mulF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12mulF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19756,7 +19756,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16mulF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16mulF_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19871,7 +19871,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12mulD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12mulD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19986,7 +19986,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16mulD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16mulD_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20101,7 +20101,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12divF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12divF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20216,7 +20216,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16divF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16divF_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20331,7 +20331,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12divD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12divD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20446,7 +20446,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16divD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16divD_reg_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20561,7 +20561,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReplI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13ReplI_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -20678,7 +20678,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReplL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13ReplL_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -20795,7 +20795,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14vReplF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN14vReplF_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -20916,7 +20916,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14vReplD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN14vReplD_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -21037,7 +21037,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21compressBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN21compressBitsI_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -21148,7 +21148,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19expandBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19expandBitsI_regNode16use_cisc_RegMaskEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -21259,7 +21259,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpDirNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN10jmpDirNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21270,151 +21270,7 @@ define hidden void @_ZN10jmpDirNode9label_setEP5Labelj(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpDirNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpConNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpConNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpLoopEndNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpLoopEndNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11jmpConUNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11jmpConUNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13jmpConUCFNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13jmpConUCFNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpConUCF2Node9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpConUCF2Node10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %2, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpDir_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %2, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpDir_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN10jmpDirNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21427,7 +21283,7 @@ define hidden void @_ZN16jmpDir_shortNode10save_labelEPP5LabelPj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpCon_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN10jmpConNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21438,7 +21294,7 @@ define hidden void @_ZN16jmpCon_shortNode9label_setEP5Labelj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpCon_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN10jmpConNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21451,7 +21307,7 @@ define hidden void @_ZN16jmpCon_shortNode10save_labelEPP5LabelPj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpLoopEnd_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN14jmpLoopEndNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21462,7 +21318,7 @@ define hidden void @_ZN20jmpLoopEnd_shortNode9label_setEP5Labelj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpLoopEnd_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN14jmpLoopEndNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21475,7 +21331,7 @@ define hidden void @_ZN20jmpLoopEnd_shortNode10save_labelEPP5LabelPj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17jmpConU_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN11jmpConUNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21486,7 +21342,7 @@ define hidden void @_ZN17jmpConU_shortNode9label_setEP5Labelj(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17jmpConU_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN11jmpConUNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21499,7 +21355,7 @@ define hidden void @_ZN17jmpConU_shortNode10save_labelEPP5LabelPj(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19jmpConUCF_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN13jmpConUCFNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21510,7 +21366,7 @@ define hidden void @_ZN19jmpConUCF_shortNode9label_setEP5Labelj(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19jmpConUCF_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN13jmpConUCFNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21523,7 +21379,7 @@ define hidden void @_ZN19jmpConUCF_shortNode10save_labelEPP5LabelPj(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpConUCF2_shortNode9label_setEP5Labelj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define hidden void @_ZN14jmpConUCF2Node9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21534,7 +21390,7 @@ define hidden void @_ZN20jmpConUCF2_shortNode9label_setEP5Labelj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpConUCF2_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN14jmpConUCF2Node10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21547,7 +21403,151 @@ define hidden void @_ZN20jmpConUCF2_shortNode10save_labelEPP5LabelPj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24CallStaticJavaDirectNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN16jmpDir_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN16jmpDir_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN16jmpCon_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN16jmpCon_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN20jmpLoopEnd_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN20jmpLoopEnd_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN17jmpConU_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN17jmpConU_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN19jmpConUCF_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN19jmpConUCF_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN20jmpConUCF2_shortNode9label_setEP5Labelj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %2, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN20jmpConUCF2_shortNode10save_labelEPP5LabelPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %1, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %2, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN24CallStaticJavaDirectNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21556,7 +21556,7 @@ define hidden void @_ZN24CallStaticJavaDirectNode10method_setEl(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN25CallDynamicJavaDirectNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN25CallDynamicJavaDirectNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21565,7 +21565,7 @@ define hidden void @_ZN25CallDynamicJavaDirectNode10method_setEl(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN21CallRuntimeDirectNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN21CallRuntimeDirectNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21574,7 +21574,7 @@ define hidden void @_ZN21CallRuntimeDirectNode10method_setEl(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18CallLeafDirectNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN18CallLeafDirectNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21583,7 +21583,7 @@ define hidden void @_ZN18CallLeafDirectNode10method_setEl(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24CallLeafDirectVectorNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN24CallLeafDirectVectorNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21592,7 +21592,7 @@ define hidden void @_ZN24CallLeafDirectVectorNode10method_setEl(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22CallLeafNoFPDirectNode10method_setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN22CallLeafNoFPDirectNode10method_setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i64 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21601,2222 +21601,2222 @@ define hidden void @_ZN22CallLeafNoFPDirectNode10method_setEl(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadB2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadB2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10loadUBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10loadUBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadUB2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadUB2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17loadUB2L_immINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17loadUB2L_immINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadS2BNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadS2BNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadS2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadS2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10loadUSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10loadUSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadUS2BNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadUS2BNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadUS2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadUS2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21loadUS2L_immI_255Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21loadUS2L_immI_255Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17loadUS2L_immINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17loadUS2L_immINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadI2BNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadI2BNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadI2UBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadI2UBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadI2SNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadI2SNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadI2USNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadI2USNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11loadI2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11loadI2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20loadI2L_immI_255Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20loadI2L_immI_255Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22loadI2L_immI_65535Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22loadI2L_immI_65535Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18loadI2L_immU31Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18loadI2L_immU31Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadUI2LNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadUI2LNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13loadRangeNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13loadRangeNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13loadKlassNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13loadKlassNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14loadNKlassNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14loadNKlassNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17loadD_partialNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17loadD_partialNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadDNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadDNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadConPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadConPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13loadConP0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13loadConP0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14loadConP31Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14loadConP31Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadConFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadConFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13loadConF0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13loadConF0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12loadConDNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12loadConDNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13loadConD0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13loadConD0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17prefetchAllocNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17prefetchAllocNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20prefetchAllocNTANode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20prefetchAllocNTANode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19prefetchAllocT0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19prefetchAllocT0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19prefetchAllocT2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19prefetchAllocT2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeCNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeCNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storePNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storePNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmP0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmP0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13storeImmPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13storeImmPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15storeNKlassNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15storeNKlassNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmN0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmN0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13storeImmNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13storeImmNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18storeImmNKlassNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18storeImmNKlassNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmI0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmI0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13storeImmINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13storeImmINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmL0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmL0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13storeImmLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13storeImmLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmC0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmC0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15storeImmI16Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15storeImmI16Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeImmB0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeImmB0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13storeImmBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13storeImmBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19storeImmCM0_regNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19storeImmCM0_regNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15storeImmCM0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15storeImmCM0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11storeF0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11storeF0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14storeF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14storeF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeDNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeDNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15storeD0_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15storeD0_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11storeD0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11storeD0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK26countLeadingZerosI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK26countLeadingZerosI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK26countLeadingZerosL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK26countLeadingZerosL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK27countTrailingZerosI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK27countTrailingZerosI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK27countTrailingZerosL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK27countTrailingZerosL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17popCountI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17popCountI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17popCountL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17popCountL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13cmovI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13cmovI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14cmovI_memUNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14cmovI_memUNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16cmovI_memUCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16cmovI_memUCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13cmovL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13cmovL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14cmovL_memUNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14cmovL_memUNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16cmovL_memUCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16cmovL_memUCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17addI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17addI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19addI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19addI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17addI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17addI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19addI_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19addI_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12incI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12incI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12decI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12decI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17addL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17addL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19addL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19addL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17addL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17addL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19addL_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19addL_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12incL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12incL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12decL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12decL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapP_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapP_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapL_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapL_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapI_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapI_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapB_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapB_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapS_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapS_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compareAndSwapNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compareAndSwapNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compareAndSwapN_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compareAndSwapN_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangeBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangeBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangeSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangeSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangeINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangeINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangeLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangeLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangeNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangeNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compareAndExchangePNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compareAndExchangePNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddB_reg_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddB_reg_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddB_imm_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddB_imm_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xaddBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xaddBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddS_reg_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddS_reg_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddS_imm_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddS_imm_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xaddSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xaddSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddI_reg_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddI_reg_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddI_imm_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddI_imm_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xaddINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xaddINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddL_reg_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddL_reg_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20xaddL_imm_no_resNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20xaddL_imm_no_resNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xaddLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xaddLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgBNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgBNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgSNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgSNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgINode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgINode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9xchgNNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9xchgNNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17subI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17subI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17subI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17subI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17subL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17subL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17subL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17subL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12negI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12negI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12negL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12negL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14mulI_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14mulI_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14mulL_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14mulL_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16salI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16salI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15salI_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15salI_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17salI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17salI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16sarI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16sarI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15sarI_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15sarI_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17sarI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17sarI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16shrI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16shrI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15shrI_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15shrI_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17shrI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17shrI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16salL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16salL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15salL_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15salL_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17salL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17salL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16sarL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16sarL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15sarL_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15sarL_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17sarL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17sarL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16shrL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16shrL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15shrL_mem_CLNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15shrL_mem_CLNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17shrL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17shrL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18rolI_mem_immI8Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18rolI_mem_immI8Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18rorI_mem_immI8Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18rorI_mem_immI8Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18rolL_mem_immI8Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18rolL_mem_immI8Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18rorL_mem_immI8Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18rorL_mem_immI8Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compressBitsL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compressBitsL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19expandBitsL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19expandBitsL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17andI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17andI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19andI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19andI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17andB_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17andB_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19andB_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19andB_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17andI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17andI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19andI_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19andI_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16andI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16andI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23andnI_rReg_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23andnI_rReg_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK25andnI_rReg_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK25andnI_rReg_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18blsiI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18blsiI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsiI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsiI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsmskI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsmskI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22blsmskI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22blsmskI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18blsrI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18blsrI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsrI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsrI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16orI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16orI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18orI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18orI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16orB_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16orB_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18orB_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18orB_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16orI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16orI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18orI_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18orI_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15orI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15orI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17xorI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17xorI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19xorI_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19xorI_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17xorB_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17xorB_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19xorB_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19xorB_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17xorI_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17xorI_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19xorI_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19xorI_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16xorI_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16xorI_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17andL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17andL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19andL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19andL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17andL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17andL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19andL_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19andL_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16andL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16andL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16btrL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16btrL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23andnL_rReg_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23andnL_rReg_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK25andnL_rReg_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK25andnL_rReg_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18blsiL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18blsiL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsiL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsiL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsmskL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsmskL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22blsmskL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22blsmskL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18blsrL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18blsrL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20blsrL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20blsrL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16orL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16orL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18orL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18orL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16orL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16orL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18orL_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18orL_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15orL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15orL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16btsL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16btsL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17xorL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17xorL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19xorL_rReg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19xorL_rReg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17xorL_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17xorL_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19xorL_mem_rReg_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19xorL_mem_rReg_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16xorL_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16xorL_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17cmpF_cc_memCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17cmpF_cc_memCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17cmpF_cc_immCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17cmpF_cc_immCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17cmpD_cc_memCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17cmpD_cc_memCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17cmpD_cc_immCFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17cmpD_cc_immCFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12cmpF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12cmpF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12cmpF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12cmpF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12cmpD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12cmpD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12cmpD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12cmpD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convF2D_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convF2D_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convD2F_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convD2F_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convI2F_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convI2F_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convI2D_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convI2D_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convL2F_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convL2F_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19convL2D_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19convL2D_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23convI2L_reg_mem_zexNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23convI2L_reg_mem_zexNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compI_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compI_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17testI_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17testI_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19testI_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19testI_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compU_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compU_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compP_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compP_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compP_mem_rRegNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compP_mem_rRegNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13testP_regNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13testP_regNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13testP_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13testP_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18testP_mem_reg0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18testP_mem_reg0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compN_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compN_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17compN_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17compN_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23compN_mem_imm_klassNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23compN_mem_imm_klassNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13testN_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13testN_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18testN_mem_reg0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18testN_mem_reg0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18compL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18compL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17testL_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17testL_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19testL_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19testL_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18testL_reg_mem2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18testL_reg_mem2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20testL_reg_mem2_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20testL_reg_mem2_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19compUL_rReg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19compUL_rReg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17compB_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17compB_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18testUB_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18testUB_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17testB_mem_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17testB_mem_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK33partialSubtypeCheckConstSuperNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK33partialSubtypeCheckConstSuperNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK31partialSubtypeCheck_vs_ZeroNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK31partialSubtypeCheck_vs_ZeroNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22safePoint_poll_tlsNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22safePoint_poll_tlsNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK24CallStaticJavaDirectNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(176) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK24CallStaticJavaDirectNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(176) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK25CallDynamicJavaDirectNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK25CallDynamicJavaDirectNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21CallRuntimeDirectNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21CallRuntimeDirectNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18CallLeafDirectNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18CallLeafDirectNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK24CallLeafDirectVectorNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK24CallLeafDirectVectorNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22CallLeafNoFPDirectNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22CallLeafNoFPDirectNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK7RetNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK7RetNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18TailCalljmpIndNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18TailCalljmpIndNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14tailjmpIndNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14tailjmpIndNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20RethrowExceptionNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20RethrowExceptionNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12addF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12addF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14addF_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14addF_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12addF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12addF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addF_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addF_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18addF_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18addF_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addF_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addF_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12addD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12addD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14addD_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14addD_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12addD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12addD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addD_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addD_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18addD_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18addD_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16addD_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16addD_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12subF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12subF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12subF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12subF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16subF_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16subF_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16subF_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16subF_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12subD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12subD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12subD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12subD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16subD_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16subD_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16subD_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16subD_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14mulF_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14mulF_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulF_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulF_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18mulF_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18mulF_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulF_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulF_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14mulD_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14mulD_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12mulD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12mulD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulD_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulD_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18mulD_reg_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18mulD_reg_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16mulD_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16mulD_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12divF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12divF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12divF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12divF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16divF_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16divF_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16divF_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16divF_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12divD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12divD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12divD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12divD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16divD_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16divD_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16divD_reg_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16divD_reg_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20convF2HF_mem_regNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20convF2HF_mem_regNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vconvF2HF_mem_regNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vconvF2HF_mem_regNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vconvHF2F_reg_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vconvHF2F_reg_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14roundD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14roundD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vroundD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vroundD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16vround8D_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16vround8D_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK9loadVNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK9loadVNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10storeVNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10storeVNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10gatherNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10gatherNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12evgatherNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12evgatherNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19evgather_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19evgather_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23vgather_subwordLE8BNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23vgather_subwordLE8BNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23vgather_subwordGT8BNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23vgather_subwordGT8BNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK27vgather_subwordLE8B_offNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK27vgather_subwordLE8B_offNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK27vgather_subwordGT8B_offNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK27vgather_subwordGT8B_offNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK35vgather_masked_subwordLE8B_avx3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK35vgather_masked_subwordLE8B_avx3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK35vgather_masked_subwordGT8B_avx3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK35vgather_masked_subwordGT8B_avx3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK39vgather_masked_subwordLE8B_off_avx3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK39vgather_masked_subwordLE8B_off_avx3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK39vgather_masked_subwordGT8B_off_avx3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK39vgather_masked_subwordGT8B_off_avx3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK35vgather_masked_subwordLE8B_avx2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK35vgather_masked_subwordLE8B_avx2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK35vgather_masked_subwordGT8B_avx2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK35vgather_masked_subwordGT8B_avx2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK39vgather_masked_subwordLE8B_off_avx2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK39vgather_masked_subwordLE8B_off_avx2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK39vgather_masked_subwordGT8B_off_avx2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK39vgather_masked_subwordGT8B_off_avx2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11scatterNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11scatterNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18scatter_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18scatter_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplB_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplB_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplS_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplS_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplF_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplF_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14ReplF_zeroNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14ReplF_zeroNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13ReplD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13ReplD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14ReplD_zeroNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14ReplD_zeroNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22minmax_reduction2FNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22minmax_reduction2FNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK24minmax_reduction2F_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK24minmax_reduction2F_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21minmax_reductionFNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21minmax_reductionFNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23minmax_reductionF_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23minmax_reductionF_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22minmax_reduction2DNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22minmax_reduction2DNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK24minmax_reduction2D_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK24minmax_reduction2D_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21minmax_reductionDNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21minmax_reductionDNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23minmax_reductionD_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23minmax_reductionD_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddB_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddB_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddB_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddB_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddS_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddS_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddS_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddS_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddI_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddI_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddL_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddL_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddF_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddF_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vaddD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vaddD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vaddD_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vaddD_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubB_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubB_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubS_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubS_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vsubD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vsubD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vmulS_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vmulS_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vmulS_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vmulS_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vmulI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vmulI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vmulI_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vmulI_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14evmulL_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14evmulL_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16evmulL_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16evmulL_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vmulF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vmulF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vmulF_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vmulF_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vmulD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vmulD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15vmulD_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15vmulD_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vdivF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vdivF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vdivD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vdivD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17copySignD_immNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17copySignD_immNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21compressBitsI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21compressBitsI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19expandBitsI_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19expandBitsI_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14vsqrtF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14vsqrtF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14vsqrtD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14vsqrtD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12vand_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12vand_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14vand_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14vand_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11vor_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11vor_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vor_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vor_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12vxor_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12vxor_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14vxor_mem_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14vxor_mem_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vfmaF_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vfmaF_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13vfmaD_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13vfmaD_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17vpternlog_memNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17vpternlog_memNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK32vmasked_load_avx_non_subwordNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK32vmasked_load_avx_non_subwordNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vmasked_load_evexNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vmasked_load_evexNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK33vmasked_store_avx_non_subwordNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK33vmasked_store_avx_non_subwordNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK22vmasked_store_evexNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK22vmasked_store_evexNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vadd_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vadd_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vadd_mem_masked_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vadd_mem_masked_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vadd_mem_masked_1Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vadd_mem_masked_1Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vadd_mem_masked_2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vadd_mem_masked_2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vadd_mem_masked_3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vadd_mem_masked_3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vadd_mem_masked_4Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vadd_mem_masked_4Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vxor_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vxor_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18vor_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18vor_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vand_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vand_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vsub_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vsub_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vsub_mem_masked_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vsub_mem_masked_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vsub_mem_masked_1Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vsub_mem_masked_1Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vsub_mem_masked_2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vsub_mem_masked_2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vsub_mem_masked_3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vsub_mem_masked_3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vsub_mem_masked_4Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vsub_mem_masked_4Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vmul_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vmul_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vmul_mem_masked_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vmul_mem_masked_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vmul_mem_masked_1Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vmul_mem_masked_1Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vmul_mem_masked_2Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vmul_mem_masked_2Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vmul_mem_masked_3Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vmul_mem_masked_3Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vdiv_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vdiv_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vdiv_mem_masked_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vdiv_mem_masked_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20vmaxv_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20vmaxv_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20vminv_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20vminv_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19vfma_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19vfma_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21vfma_mem_masked_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21vfma_mem_masked_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK24vternlogd_mem_maskedNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK24vternlogd_mem_maskedNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK30compareAndSwapP_shenandoahNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK30compareAndSwapP_shenandoahNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK32compareAndSwapP_shenandoah_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK32compareAndSwapP_shenandoah_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK30compareAndSwapN_shenandoahNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK30compareAndSwapN_shenandoahNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK32compareAndSwapN_shenandoah_0Node5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK32compareAndSwapN_shenandoah_0Node5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK34compareAndExchangeN_shenandoahNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK34compareAndExchangeN_shenandoahNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK34compareAndExchangeP_shenandoahNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK34compareAndExchangeP_shenandoahNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10xLoadPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10xLoadPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10zLoadPNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10zLoadPNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19zLoadPNullCheckNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19zLoadPNullCheckNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11zStorePNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11zStorePNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15zStorePNullNode5relocEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15zStorePNullNode5relocEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK12MoveF2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK12MoveF2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3907) #24
@@ -23824,7 +23824,7 @@ define hidden void @_ZNK12MoveF2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK13MoveF2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK13MoveF2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3917) #24
@@ -23832,7 +23832,7 @@ define hidden void @_ZNK13MoveF2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK12MoveVL2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK12MoveVL2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3927) #24
@@ -23840,7 +23840,7 @@ define hidden void @_ZNK12MoveVL2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK13MoveLEG2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK13MoveLEG2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3937) #24
@@ -23848,7 +23848,7 @@ define hidden void @_ZNK13MoveLEG2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK12MoveD2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK12MoveD2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3947) #24
@@ -23856,7 +23856,7 @@ define hidden void @_ZNK12MoveD2VLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK13MoveD2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK13MoveD2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3957) #24
@@ -23864,7 +23864,7 @@ define hidden void @_ZNK13MoveD2LEGNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK12MoveVL2DNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK12MoveVL2DNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3967) #24
@@ -23872,7 +23872,7 @@ define hidden void @_ZNK12MoveVL2DNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK13MoveLEG2DNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK13MoveLEG2DNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 3977) #24
@@ -27168,7 +27168,7 @@ define hidden void @_ZNK12loadConFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler6movfltE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12loadConFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12loadConFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -27341,7 +27341,7 @@ define hidden void @_ZNK12loadConDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler6movdblE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12loadConDNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12loadConDNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -29367,7 +29367,7 @@ define hidden void @_ZNK11cacheWBNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 declare void @_ZN14MacroAssembler8cache_wbE7Address(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18cacheWBPreSyncNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK18cacheWBPreSyncNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext true) #23
   ret void
 }
@@ -29375,7 +29375,7 @@ define hidden void @_ZNK18cacheWBPreSyncNode4emitEP17C2_MacroAssemblerP13PhaseRe
 declare void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK19cacheWBPostSyncNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19cacheWBPostSyncNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext false) #23
   ret void
 }
@@ -30261,67 +30261,67 @@ define hidden void @_ZNK17popCountL_memNode4emitEP17C2_MacroAssemblerP13PhaseReg
 declare void @_ZN9Assembler7popcntqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK18membar_acquireNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK18membar_acquireNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18membar_acquireNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18membar_acquireNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK20membar_acquire_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK20membar_acquire_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20membar_acquire_0Node4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20membar_acquire_0Node4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK23membar_acquire_lockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK23membar_acquire_lockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23membar_acquire_lockNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23membar_acquire_lockNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK18membar_releaseNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK18membar_releaseNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK18membar_releaseNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK18membar_releaseNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK20membar_release_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK20membar_release_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20membar_release_0Node4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20membar_release_0Node4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK23membar_release_lockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK23membar_release_lockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23membar_release_lockNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23membar_release_lockNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK19membar_volatileNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19membar_volatileNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 2) #23
   ret void
 }
@@ -30329,32 +30329,32 @@ define hidden void @_ZNK19membar_volatileNode4emitEP17C2_MacroAssemblerP13PhaseR
 declare void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK31unnecessary_membar_volatileNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK31unnecessary_membar_volatileNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK31unnecessary_membar_volatileNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK31unnecessary_membar_volatileNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK21membar_storestoreNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK21membar_storestoreNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK21membar_storestoreNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK21membar_storestoreNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK23membar_storestore_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK23membar_storestore_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK23membar_storestore_0Node4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK23membar_storestore_0Node4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
@@ -30803,7 +30803,7 @@ declare void @_ZN14MacroAssembler3leaE8Register14AddressLiteral(ptr noundef nonn
 declare void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19jumpXtnd_offsetNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN19jumpXtnd_offsetNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -30959,7 +30959,7 @@ _ZN13GrowableArrayIP5LabelED2Ev.exit:             ; preds = %_ZN13GrowableArrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17jumpXtnd_addrNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN17jumpXtnd_addrNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -31083,7 +31083,7 @@ _ZN13GrowableArrayIP5LabelED2Ev.exit:             ; preds = %_ZN13GrowableArrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12jumpXtndNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12jumpXtndNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -34525,62 +34525,62 @@ define hidden void @_ZNK17addP_rReg_immNode4emitEP17C2_MacroAssemblerP13PhaseReg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK15checkCastPPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK15checkCastPPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK15checkCastPPNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK15checkCastPPNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castPPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castPPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castPPNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castPPNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castIINode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castIINode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castIINode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castIINode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castLLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castLLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castLLNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castLLNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castFFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castFFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castFFNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castFFNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castDDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castDDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castDDNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castDDNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
@@ -45107,7 +45107,7 @@ define hidden void @_ZNK17cmpF_cc_immCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
 declare void @_ZN14MacroAssembler7ucomissE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17cmpF_cc_immCFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN17cmpF_cc_immCFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -45310,7 +45310,7 @@ define hidden void @_ZNK17cmpD_cc_immCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
 declare void @_ZN14MacroAssembler7ucomisdE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17cmpD_cc_immCFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN17cmpD_cc_immCFNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -45520,7 +45520,7 @@ define hidden void @_ZNK12cmpF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12cmpF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12cmpF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -45730,7 +45730,7 @@ define hidden void @_ZNK12cmpD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12cmpD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12cmpD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -52804,7 +52804,7 @@ define hidden void @_ZNK15cmovI_reg_lNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10jmpDirNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK10jmpDirNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -52818,12 +52818,12 @@ define hidden void @_ZNK10jmpDirNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 declare void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10jmpDirNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10jmpDirNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10jmpConNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK10jmpConNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -52854,12 +52854,12 @@ define hidden void @_ZNK10jmpConNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 declare void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10jmpConNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10jmpConNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14jmpLoopEndNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14jmpLoopEndNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -52888,12 +52888,12 @@ define hidden void @_ZNK14jmpLoopEndNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14jmpLoopEndNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK14jmpLoopEndNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11jmpConUNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK11jmpConUNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -52922,12 +52922,12 @@ define hidden void @_ZNK11jmpConUNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK11jmpConUNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK11jmpConUNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13jmpConUCFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK13jmpConUCFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -52956,12 +52956,12 @@ define hidden void @_ZNK13jmpConUCFNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13jmpConUCFNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13jmpConUCFNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14jmpConUCF2Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14jmpConUCF2Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
@@ -53027,7 +53027,7 @@ define hidden void @_ZNK14jmpConUCF2Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK23partialSubtypeCheckNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK23partialSubtypeCheckNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -53187,7 +53187,7 @@ declare void @_ZN14MacroAssembler29lookup_secondary_supers_tableE8RegisterS0_S0_
 declare void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK31partialSubtypeCheck_vs_ZeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK31partialSubtypeCheck_vs_ZeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -53214,7 +53214,7 @@ define hidden void @_ZNK31partialSubtypeCheck_vs_ZeroNode4emitEP17C2_MacroAssemb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK16jmpDir_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK16jmpDir_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -53228,12 +53228,12 @@ define hidden void @_ZNK16jmpDir_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16jmpDir_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16jmpDir_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK16jmpCon_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK16jmpCon_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -53262,12 +53262,12 @@ define hidden void @_ZNK16jmpCon_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16jmpCon_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK16jmpCon_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20jmpLoopEnd_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK20jmpLoopEnd_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -53296,12 +53296,12 @@ define hidden void @_ZNK20jmpLoopEnd_shortNode4emitEP17C2_MacroAssemblerP13Phase
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20jmpLoopEnd_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20jmpLoopEnd_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK17jmpConU_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK17jmpConU_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -53330,12 +53330,12 @@ define hidden void @_ZNK17jmpConU_shortNode4emitEP17C2_MacroAssemblerP13PhaseReg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17jmpConU_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK17jmpConU_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK19jmpConUCF_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19jmpConUCF_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -53364,12 +53364,12 @@ define hidden void @_ZNK19jmpConUCF_shortNode4emitEP17C2_MacroAssemblerP13PhaseR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19jmpConUCF_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19jmpConUCF_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20jmpConUCF2_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK20jmpConUCF2_shortNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.Label, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
@@ -53435,7 +53435,7 @@ define hidden void @_ZNK20jmpConUCF2_shortNode4emitEP17C2_MacroAssemblerP13Phase
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK20jmpConUCF2_shortNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK20jmpConUCF2_shortNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 4
 }
 
@@ -53753,7 +53753,7 @@ define hidden void @_ZNK23mask_all_evexI_GT32Node4emitEP17C2_MacroAssemblerP13Ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK24CallStaticJavaDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK24CallStaticJavaDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.AddressLiteral, align 8
   %5 = alloca %class.RuntimeAddress, align 8
   %6 = alloca %class.RelocationHolder, align 8
@@ -53931,7 +53931,7 @@ declare noundef ptr @_ZN18CompiledDirectCall19emit_to_interp_stubEP14MacroAssemb
 declare void @_ZN14MacroAssembler13post_call_nopEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK25CallDynamicJavaDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK25CallDynamicJavaDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -54002,7 +54002,7 @@ _ZNK16MachCallJavaNode21resolved_method_indexEP17C2_MacroAssembler.exit: ; preds
 declare void @_ZN14MacroAssembler7ic_callEPhi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21CallRuntimeDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK21CallRuntimeDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -54046,7 +54046,7 @@ _ZL19generate_vzeroupperP7Compile.exit.thread6:   ; preds = %3, %_ZL19generate_v
 declare void @_ZN14MacroAssembler4callE8Register(ptr noundef nonnull align 8 dereferenceable(40), i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18CallLeafDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK18CallLeafDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -54088,7 +54088,7 @@ _ZL19generate_vzeroupperP7Compile.exit.thread6:   ; preds = %3, %_ZL19generate_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK24CallLeafDirectVectorNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK24CallLeafDirectVectorNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -54102,7 +54102,7 @@ define hidden void @_ZNK24CallLeafDirectVectorNode4emitEP17C2_MacroAssemblerP13P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22CallLeafNoFPDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK22CallLeafNoFPDirectNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -54144,7 +54144,7 @@ _ZL19generate_vzeroupperP7Compile.exit.thread6:   ; preds = %3, %_ZL19generate_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK7RetNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK7RetNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 0) #23
   ret void
 }
@@ -54193,17 +54193,17 @@ define hidden void @_ZNK14tailjmpIndNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK19CreateExceptionNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19CreateExceptionNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK19CreateExceptionNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK19CreateExceptionNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20RethrowExceptionNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK20RethrowExceptionNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %class.AddressLiteral, align 8
   %5 = alloca %class.RuntimeAddress, align 8
   %6 = load ptr, ptr @_ZN11OptoRuntime13_rethrow_JavaE, align 8
@@ -54220,12 +54220,12 @@ define hidden void @_ZNK20RethrowExceptionNode4emitEP17C2_MacroAssemblerP13Phase
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK12tlsLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK12tlsLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12tlsLoadPNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK12tlsLoadPNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
@@ -54670,7 +54670,7 @@ switch.early.test:                                ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShouldNotReachHereNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK22ShouldNotReachHereNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -54873,7 +54873,7 @@ define hidden void @_ZNK12addF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5addssE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12addF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12addF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55103,7 +55103,7 @@ define hidden void @_ZNK16addF_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vaddssE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16addF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16addF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55301,7 +55301,7 @@ define hidden void @_ZNK12addD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5addsdE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12addD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12addD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55531,7 +55531,7 @@ define hidden void @_ZNK16addD_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vaddsdE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16addD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16addD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55671,7 +55671,7 @@ define hidden void @_ZNK12subF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5subssE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12subF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12subF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55835,7 +55835,7 @@ define hidden void @_ZNK16subF_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vsubssE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16subF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16subF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -55975,7 +55975,7 @@ define hidden void @_ZNK12subD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5subsdE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12subD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12subD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -56139,7 +56139,7 @@ define hidden void @_ZNK16subD_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vsubsdE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16subD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16subD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -56337,7 +56337,7 @@ define hidden void @_ZNK12mulF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5mulssE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12mulF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12mulF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -56567,7 +56567,7 @@ define hidden void @_ZNK16mulF_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vmulssE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16mulF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16mulF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -56765,7 +56765,7 @@ define hidden void @_ZNK12mulD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5mulsdE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12mulD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12mulD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -56995,7 +56995,7 @@ define hidden void @_ZNK16mulD_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vmulsdE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16mulD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16mulD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -57135,7 +57135,7 @@ define hidden void @_ZNK12divF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5divssE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12divF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12divF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -57299,7 +57299,7 @@ define hidden void @_ZNK16divF_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vdivssE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16divF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16divF_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -57439,7 +57439,7 @@ define hidden void @_ZNK12divD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler5divsdE11XMMRegister14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12divD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN12divD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -57603,7 +57603,7 @@ define hidden void @_ZNK16divD_reg_immNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN14MacroAssembler6vdivsdE11XMMRegisterS0_14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16divD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16divD_reg_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -58328,7 +58328,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
 declare void @_ZN9Assembler9vcvtph2psE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK20reinterpret_maskNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK20reinterpret_maskNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -58556,7 +58556,7 @@ _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %15, %16
 declare void @_ZN9Assembler9evpmovm2qE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK15reinterpretNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK15reinterpretNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -58990,7 +58990,7 @@ define hidden void @_ZNK14roundD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 declare void @_ZN14MacroAssembler7roundsdE11XMMRegister14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32 noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14roundD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN14roundD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -59234,7 +59234,7 @@ define hidden void @_ZNK16vround8D_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 declare void @_ZN9Assembler11vrndscalepdE11XMMRegister7Addressii(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14onspinwaitNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14onspinwaitNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN9Assembler5pauseEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   ret void
 }
@@ -59344,7 +59344,7 @@ define hidden void @_ZNK12fmaF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 declare void @_ZN14MacroAssembler4fmafE11XMMRegisterS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK15MoveVec2LegNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK15MoveVec2LegNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 3996) #24
@@ -59352,7 +59352,7 @@ define hidden void @_ZNK15MoveVec2LegNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK15MoveLeg2VecNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK15MoveLeg2VecNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 4005) #24
@@ -64070,7 +64070,7 @@ define hidden void @_ZNK13ReplI_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 declare void @_ZN17C2_MacroAssembler20load_constant_vectorE9BasicType11XMMRegister15InternalAddressi(ptr noundef nonnull align 8 dereferenceable(40), i8 noundef zeroext, i32, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReplI_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReplI_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -64639,7 +64639,7 @@ define hidden void @_ZNK13ReplL_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReplL_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReplL_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -65008,7 +65008,7 @@ define hidden void @_ZNK13ReplF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReplF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReplF_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -65444,7 +65444,7 @@ define hidden void @_ZNK13ReplD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReplD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReplD_immNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -92493,7 +92493,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
 declare void @_ZN17C2_MacroAssembler22vector_round_float_avxE11XMMRegisterS0_14AddressLiteralS1_i8RegisterS0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, ptr noundef, i32 noundef, i32, i32, i32, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20vround_float_avxNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN20vround_float_avxNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -92663,7 +92663,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
 declare void @_ZN17C2_MacroAssembler23vector_round_float_evexE11XMMRegisterS0_14AddressLiteralS1_i8RegisterS0_S0_9KRegisterS3_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, ptr noundef, i32 noundef, i32, i32, i32, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21vround_float_evexNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN21vround_float_evexNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -92833,7 +92833,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
 declare void @_ZN17C2_MacroAssembler24vector_round_double_evexE11XMMRegisterS0_14AddressLiteralS1_i8RegisterS0_S0_9KRegisterS3_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, ptr noundef, i32 noundef, i32, i32, i32, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19vround_reg_evexNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN19vround_reg_evexNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -93688,7 +93688,7 @@ declare void @_ZN14MacroAssembler8vmovddupE11XMMRegister14AddressLiterali8Regist
 declare void @_ZN14MacroAssembler12vbroadcastsdE11XMMRegister14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef, i32 noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9vcmpuNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN9vcmpuNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -97297,12 +97297,12 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
 declare void @_ZN9Assembler9evpmovm2bE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK18vmaskcast_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK18vmaskcast_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK13vmaskcastNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK13vmaskcastNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -97551,7 +97551,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK16loadShuffleBNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK16loadShuffleBNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -103511,7 +103511,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %19, %20
 declare void @_ZN17C2_MacroAssembler23vector_reverse_bit_gfniE9BasicType11XMMRegisterS1_14AddressLiteraliS1_8Register(ptr noundef nonnull align 8 dereferenceable(40), i8 noundef zeroext, i32, i32, ptr noundef, i32 noundef, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21vreverse_reg_gfniNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN21vreverse_reg_gfniNode13eval_constantEP7Compile(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.ConstantTable::Constant", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %5 = load ptr, ptr %4, align 8
@@ -112896,32 +112896,32 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %30, %31
 declare void @_ZN17C2_MacroAssembler10evpternlogE11XMMRegisteri9KRegisterS0_7Addressb9BasicTypei(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef, i32, i32, ptr noundef, i1 noundef zeroext, i8 noundef zeroext, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castMMNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castMMNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castMMNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castMMNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK10castVVNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK10castVVNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK10castVVNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10castVVNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK13castVVLegNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK13castVVLegNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK13castVVLegNode4sizeEP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13castVVLegNode4sizeEP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1) unnamed_addr #4 align 2 {
   ret i32 0
 }
 
@@ -115300,7 +115300,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115309,7 +115309,7 @@ define hidden noundef ptr @_ZNK9loadBNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadB2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadB2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115318,7 +115318,7 @@ define hidden noundef ptr @_ZNK11loadB2LNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10loadUBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10loadUBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115327,7 +115327,7 @@ define hidden noundef ptr @_ZNK10loadUBNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadUB2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadUB2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115336,7 +115336,7 @@ define hidden noundef ptr @_ZNK12loadUB2LNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17loadUB2L_immINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17loadUB2L_immINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115345,7 +115345,7 @@ define hidden noundef ptr @_ZNK17loadUB2L_immINode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115354,7 +115354,7 @@ define hidden noundef ptr @_ZNK9loadSNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadS2BNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadS2BNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115363,7 +115363,7 @@ define hidden noundef ptr @_ZNK11loadS2BNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadS2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadS2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115372,7 +115372,7 @@ define hidden noundef ptr @_ZNK11loadS2LNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10loadUSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10loadUSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115381,7 +115381,7 @@ define hidden noundef ptr @_ZNK10loadUSNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadUS2BNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadUS2BNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115390,7 +115390,7 @@ define hidden noundef ptr @_ZNK12loadUS2BNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadUS2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadUS2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115399,7 +115399,7 @@ define hidden noundef ptr @_ZNK12loadUS2LNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21loadUS2L_immI_255Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21loadUS2L_immI_255Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115408,7 +115408,7 @@ define hidden noundef ptr @_ZNK21loadUS2L_immI_255Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17loadUS2L_immINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17loadUS2L_immINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115417,7 +115417,7 @@ define hidden noundef ptr @_ZNK17loadUS2L_immINode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115426,7 +115426,7 @@ define hidden noundef ptr @_ZNK9loadINode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadI2BNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadI2BNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115435,7 +115435,7 @@ define hidden noundef ptr @_ZNK11loadI2BNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadI2UBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadI2UBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115444,7 +115444,7 @@ define hidden noundef ptr @_ZNK12loadI2UBNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadI2SNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadI2SNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115453,7 +115453,7 @@ define hidden noundef ptr @_ZNK11loadI2SNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadI2USNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadI2USNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115462,7 +115462,7 @@ define hidden noundef ptr @_ZNK12loadI2USNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11loadI2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11loadI2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115471,7 +115471,7 @@ define hidden noundef ptr @_ZNK11loadI2LNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20loadI2L_immI_255Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20loadI2L_immI_255Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115480,7 +115480,7 @@ define hidden noundef ptr @_ZNK20loadI2L_immI_255Node14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22loadI2L_immI_65535Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22loadI2L_immI_65535Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115489,7 +115489,7 @@ define hidden noundef ptr @_ZNK22loadI2L_immI_65535Node14memory_operandEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18loadI2L_immU31Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18loadI2L_immU31Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115498,7 +115498,7 @@ define hidden noundef ptr @_ZNK18loadI2L_immU31Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12loadUI2LNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12loadUI2LNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115507,7 +115507,7 @@ define hidden noundef ptr @_ZNK12loadUI2LNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115516,7 +115516,7 @@ define hidden noundef ptr @_ZNK9loadLNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13loadRangeNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13loadRangeNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115525,7 +115525,7 @@ define hidden noundef ptr @_ZNK13loadRangeNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115534,7 +115534,7 @@ define hidden noundef ptr @_ZNK9loadPNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115543,7 +115543,7 @@ define hidden noundef ptr @_ZNK9loadNNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13loadKlassNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13loadKlassNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115552,7 +115552,7 @@ define hidden noundef ptr @_ZNK13loadKlassNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14loadNKlassNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14loadNKlassNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115561,7 +115561,7 @@ define hidden noundef ptr @_ZNK14loadNKlassNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115570,7 +115570,7 @@ define hidden noundef ptr @_ZNK9loadFNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17loadD_partialNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17loadD_partialNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115579,7 +115579,7 @@ define hidden noundef ptr @_ZNK17loadD_partialNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadDNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadDNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115588,7 +115588,7 @@ define hidden noundef ptr @_ZNK9loadDNode14memory_operandEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17prefetchAllocNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17prefetchAllocNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115597,7 +115597,7 @@ define hidden noundef ptr @_ZNK17prefetchAllocNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20prefetchAllocNTANode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20prefetchAllocNTANode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115606,7 +115606,7 @@ define hidden noundef ptr @_ZNK20prefetchAllocNTANode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19prefetchAllocT0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19prefetchAllocT0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115615,7 +115615,7 @@ define hidden noundef ptr @_ZNK19prefetchAllocT0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19prefetchAllocT2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19prefetchAllocT2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115624,7 +115624,7 @@ define hidden noundef ptr @_ZNK19prefetchAllocT2Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115633,7 +115633,7 @@ define hidden noundef ptr @_ZNK10storeBNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeCNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeCNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115642,7 +115642,7 @@ define hidden noundef ptr @_ZNK10storeCNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115651,7 +115651,7 @@ define hidden noundef ptr @_ZNK10storeINode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115660,7 +115660,7 @@ define hidden noundef ptr @_ZNK10storeLNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storePNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storePNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115669,7 +115669,7 @@ define hidden noundef ptr @_ZNK10storePNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmP0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmP0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115678,7 +115678,7 @@ define hidden noundef ptr @_ZNK14storeImmP0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13storeImmPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13storeImmPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115687,7 +115687,7 @@ define hidden noundef ptr @_ZNK13storeImmPNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115696,7 +115696,7 @@ define hidden noundef ptr @_ZNK10storeNNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15storeNKlassNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15storeNKlassNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115705,7 +115705,7 @@ define hidden noundef ptr @_ZNK15storeNKlassNode14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmN0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmN0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115714,7 +115714,7 @@ define hidden noundef ptr @_ZNK14storeImmN0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13storeImmNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13storeImmNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115723,7 +115723,7 @@ define hidden noundef ptr @_ZNK13storeImmNNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18storeImmNKlassNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18storeImmNKlassNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115732,7 +115732,7 @@ define hidden noundef ptr @_ZNK18storeImmNKlassNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmI0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmI0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115741,7 +115741,7 @@ define hidden noundef ptr @_ZNK14storeImmI0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13storeImmINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13storeImmINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115750,7 +115750,7 @@ define hidden noundef ptr @_ZNK13storeImmINode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmL0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmL0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115759,7 +115759,7 @@ define hidden noundef ptr @_ZNK14storeImmL0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13storeImmLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13storeImmLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115768,7 +115768,7 @@ define hidden noundef ptr @_ZNK13storeImmLNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmC0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmC0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115777,7 +115777,7 @@ define hidden noundef ptr @_ZNK14storeImmC0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15storeImmI16Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15storeImmI16Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115786,7 +115786,7 @@ define hidden noundef ptr @_ZNK15storeImmI16Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeImmB0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeImmB0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115795,7 +115795,7 @@ define hidden noundef ptr @_ZNK14storeImmB0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13storeImmBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13storeImmBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115804,7 +115804,7 @@ define hidden noundef ptr @_ZNK13storeImmBNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19storeImmCM0_regNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19storeImmCM0_regNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115813,7 +115813,7 @@ define hidden noundef ptr @_ZNK19storeImmCM0_regNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15storeImmCM0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15storeImmCM0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115822,7 +115822,7 @@ define hidden noundef ptr @_ZNK15storeImmCM0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115831,7 +115831,7 @@ define hidden noundef ptr @_ZNK10storeFNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11storeF0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11storeF0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115840,7 +115840,7 @@ define hidden noundef ptr @_ZNK11storeF0Node14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14storeF_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14storeF_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115849,7 +115849,7 @@ define hidden noundef ptr @_ZNK14storeF_immNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeDNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeDNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115858,7 +115858,7 @@ define hidden noundef ptr @_ZNK10storeDNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15storeD0_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15storeD0_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115867,7 +115867,7 @@ define hidden noundef ptr @_ZNK15storeD0_immNode14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11storeD0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11storeD0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115876,7 +115876,7 @@ define hidden noundef ptr @_ZNK11storeD0Node14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11cacheWBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11cacheWBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115885,7 +115885,7 @@ define hidden noundef ptr @_ZNK11cacheWBNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK26countLeadingZerosI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK26countLeadingZerosI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115894,7 +115894,7 @@ define hidden noundef ptr @_ZNK26countLeadingZerosI_memNode14memory_operandEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK26countLeadingZerosL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK26countLeadingZerosL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115903,7 +115903,7 @@ define hidden noundef ptr @_ZNK26countLeadingZerosL_memNode14memory_operandEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27countTrailingZerosI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK27countTrailingZerosI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115912,7 +115912,7 @@ define hidden noundef ptr @_ZNK27countTrailingZerosI_memNode14memory_operandEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27countTrailingZerosL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK27countTrailingZerosL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115921,7 +115921,7 @@ define hidden noundef ptr @_ZNK27countTrailingZerosL_memNode14memory_operandEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17popCountI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17popCountI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115930,7 +115930,7 @@ define hidden noundef ptr @_ZNK17popCountI_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17popCountL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17popCountL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -115939,7 +115939,7 @@ define hidden noundef ptr @_ZNK17popCountL_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13cmovI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13cmovI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115948,7 +115948,7 @@ define hidden noundef ptr @_ZNK13cmovI_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14cmovI_memUNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14cmovI_memUNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115957,7 +115957,7 @@ define hidden noundef ptr @_ZNK14cmovI_memUNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16cmovI_memUCFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16cmovI_memUCFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115966,7 +115966,7 @@ define hidden noundef ptr @_ZNK16cmovI_memUCFNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13cmovL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13cmovL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115975,7 +115975,7 @@ define hidden noundef ptr @_ZNK13cmovL_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14cmovL_memUNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14cmovL_memUNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115984,7 +115984,7 @@ define hidden noundef ptr @_ZNK14cmovL_memUNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16cmovL_memUCFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16cmovL_memUCFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -115993,7 +115993,7 @@ define hidden noundef ptr @_ZNK16cmovL_memUCFNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17addI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17addI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116002,7 +116002,7 @@ define hidden noundef ptr @_ZNK17addI_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19addI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19addI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116011,7 +116011,7 @@ define hidden noundef ptr @_ZNK19addI_rReg_mem_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17addI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17addI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116020,7 +116020,7 @@ define hidden noundef ptr @_ZNK17addI_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19addI_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19addI_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116029,7 +116029,7 @@ define hidden noundef ptr @_ZNK19addI_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16addI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16addI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116038,7 +116038,7 @@ define hidden noundef ptr @_ZNK16addI_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12incI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12incI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116047,7 +116047,7 @@ define hidden noundef ptr @_ZNK12incI_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12decI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12decI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116056,394 +116056,7 @@ define hidden noundef ptr @_ZNK12decI_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17addL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19addL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17addL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19addL_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16addL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12incL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12decL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapP_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapL_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapI_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapB_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapS_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compareAndSwapNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compareAndSwapN_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangeBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangeSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangeINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangeLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangeNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compareAndExchangePNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddB_reg_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddB_imm_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xaddBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddS_reg_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddS_imm_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xaddSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddI_reg_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddI_imm_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xaddINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddL_reg_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xaddL_imm_no_resNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xaddLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgBNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgSNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgINode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9xchgNNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17subI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17addL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116452,7 +116065,7 @@ define hidden noundef ptr @_ZNK17subI_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17subI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19addL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116461,7 +116074,376 @@ define hidden noundef ptr @_ZNK17subI_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17subL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17addL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19addL_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16addL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12incL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12decL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapP_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapL_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapI_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapB_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapS_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compareAndSwapNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compareAndSwapN_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangeBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangeSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangeINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangeLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangeNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23compareAndExchangePNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddB_reg_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddB_imm_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xaddBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddS_reg_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddS_imm_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xaddSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddI_reg_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddI_imm_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xaddINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddL_reg_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20xaddL_imm_no_resNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xaddLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgBNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgSNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgINode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK9xchgNNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17subI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116470,7 +116452,7 @@ define hidden noundef ptr @_ZNK17subL_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17subL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17subI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116479,25 +116461,7 @@ define hidden noundef ptr @_ZNK17subL_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12negI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12negL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12mulI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17subL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116506,7 +116470,7 @@ define hidden noundef ptr @_ZNK12mulI_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14mulI_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17subL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116515,7 +116479,7 @@ define hidden noundef ptr @_ZNK14mulI_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16mulI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12negI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116524,7 +116488,16 @@ define hidden noundef ptr @_ZNK16mulI_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12mulL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12negL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12mulI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116533,7 +116506,7 @@ define hidden noundef ptr @_ZNK12mulL_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14mulL_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14mulI_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116542,7 +116515,7 @@ define hidden noundef ptr @_ZNK14mulL_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16mulL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16mulI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116551,205 +116524,7 @@ define hidden noundef ptr @_ZNK16mulL_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16salI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15salI_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17salI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16sarI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15sarI_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17sarI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16shrI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15shrI_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17shrI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16salL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15salL_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17salL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16sarL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15sarL_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17sarL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16shrL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15shrL_mem_CLNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17shrL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18rolI_mem_immI8Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18rorI_mem_immI8Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18rolL_mem_immI8Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18rorL_mem_immI8Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compressBitsL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12mulL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116758,7 +116533,223 @@ define hidden noundef ptr @_ZNK21compressBitsL_memNode14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19expandBitsL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14mulL_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16mulL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16salI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15salI_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17salI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16sarI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15sarI_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17sarI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16shrI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15shrI_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17shrI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16salL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15salL_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17salL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16sarL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15sarL_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17sarL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16shrL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15shrL_mem_CLNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17shrL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18rolI_mem_immI8Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18rorI_mem_immI8Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18rolL_mem_immI8Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18rorL_mem_immI8Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compressBitsL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116767,7 +116758,7 @@ define hidden noundef ptr @_ZNK19expandBitsL_memNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17andI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19expandBitsL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116776,7 +116767,16 @@ define hidden noundef ptr @_ZNK17andI_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19andI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17andI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19andI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116785,7 +116785,7 @@ define hidden noundef ptr @_ZNK19andI_rReg_mem_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17andB_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17andB_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116794,7 +116794,7 @@ define hidden noundef ptr @_ZNK17andB_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19andB_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19andB_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116803,7 +116803,7 @@ define hidden noundef ptr @_ZNK19andB_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17andI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17andI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116812,7 +116812,7 @@ define hidden noundef ptr @_ZNK17andI_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19andI_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19andI_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116821,7 +116821,7 @@ define hidden noundef ptr @_ZNK19andI_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16andI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16andI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116830,7 +116830,7 @@ define hidden noundef ptr @_ZNK16andI_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23andnI_rReg_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK23andnI_rReg_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -116839,7 +116839,7 @@ define hidden noundef ptr @_ZNK23andnI_rReg_rReg_memNode14memory_operandEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK25andnI_rReg_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK25andnI_rReg_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116848,7 +116848,7 @@ define hidden noundef ptr @_ZNK25andnI_rReg_rReg_mem_0Node14memory_operandEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18blsiI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18blsiI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116857,7 +116857,7 @@ define hidden noundef ptr @_ZNK18blsiI_rReg_memNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsiI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsiI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116866,7 +116866,7 @@ define hidden noundef ptr @_ZNK20blsiI_rReg_mem_0Node14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsmskI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsmskI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116875,7 +116875,7 @@ define hidden noundef ptr @_ZNK20blsmskI_rReg_memNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22blsmskI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22blsmskI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116884,7 +116884,7 @@ define hidden noundef ptr @_ZNK22blsmskI_rReg_mem_0Node14memory_operandEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18blsrI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18blsrI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116893,7 +116893,7 @@ define hidden noundef ptr @_ZNK18blsrI_rReg_memNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsrI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsrI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116902,7 +116902,7 @@ define hidden noundef ptr @_ZNK20blsrI_rReg_mem_0Node14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16orI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16orI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116911,7 +116911,7 @@ define hidden noundef ptr @_ZNK16orI_rReg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18orI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18orI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116920,7 +116920,7 @@ define hidden noundef ptr @_ZNK18orI_rReg_mem_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16orB_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16orB_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116929,7 +116929,7 @@ define hidden noundef ptr @_ZNK16orB_mem_rRegNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18orB_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18orB_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116938,7 +116938,7 @@ define hidden noundef ptr @_ZNK18orB_mem_rReg_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16orI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16orI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116947,7 +116947,7 @@ define hidden noundef ptr @_ZNK16orI_mem_rRegNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18orI_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18orI_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116956,7 +116956,7 @@ define hidden noundef ptr @_ZNK18orI_mem_rReg_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15orI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15orI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116965,7 +116965,7 @@ define hidden noundef ptr @_ZNK15orI_mem_immNode14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17xorI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17xorI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -116974,7 +116974,7 @@ define hidden noundef ptr @_ZNK17xorI_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19xorI_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19xorI_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116983,7 +116983,7 @@ define hidden noundef ptr @_ZNK19xorI_rReg_mem_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17xorB_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17xorB_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -116992,7 +116992,7 @@ define hidden noundef ptr @_ZNK17xorB_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19xorB_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19xorB_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117001,7 +117001,7 @@ define hidden noundef ptr @_ZNK19xorB_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17xorI_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17xorI_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117010,7 +117010,7 @@ define hidden noundef ptr @_ZNK17xorI_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19xorI_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19xorI_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117019,7 +117019,7 @@ define hidden noundef ptr @_ZNK19xorI_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16xorI_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16xorI_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117028,7 +117028,7 @@ define hidden noundef ptr @_ZNK16xorI_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17andL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17andL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117037,7 +117037,7 @@ define hidden noundef ptr @_ZNK17andL_rReg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19andL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19andL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117046,7 +117046,7 @@ define hidden noundef ptr @_ZNK19andL_rReg_mem_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17andL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17andL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117055,7 +117055,7 @@ define hidden noundef ptr @_ZNK17andL_mem_rRegNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19andL_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19andL_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117064,7 +117064,7 @@ define hidden noundef ptr @_ZNK19andL_mem_rReg_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16andL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16andL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117073,7 +117073,7 @@ define hidden noundef ptr @_ZNK16andL_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16btrL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16btrL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117082,7 +117082,7 @@ define hidden noundef ptr @_ZNK16btrL_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23andnL_rReg_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK23andnL_rReg_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -117091,7 +117091,7 @@ define hidden noundef ptr @_ZNK23andnL_rReg_rReg_memNode14memory_operandEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK25andnL_rReg_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK25andnL_rReg_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117100,61 +117100,7 @@ define hidden noundef ptr @_ZNK25andnL_rReg_rReg_mem_0Node14memory_operandEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18blsiL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsiL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsmskL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22blsmskL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18blsrL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20blsrL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16orL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18blsiL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117163,7 +117109,7 @@ define hidden noundef ptr @_ZNK16orL_rReg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18orL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsiL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117172,7 +117118,7 @@ define hidden noundef ptr @_ZNK18orL_rReg_mem_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16orL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsmskL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117181,7 +117127,7 @@ define hidden noundef ptr @_ZNK16orL_mem_rRegNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18orL_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22blsmskL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117190,7 +117136,7 @@ define hidden noundef ptr @_ZNK18orL_mem_rReg_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15orL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18blsrL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117199,7 +117145,7 @@ define hidden noundef ptr @_ZNK15orL_mem_immNode14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16btsL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20blsrL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117208,52 +117154,7 @@ define hidden noundef ptr @_ZNK16btsL_mem_immNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17xorL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19xorL_rReg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17xorL_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19xorL_mem_rReg_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16xorL_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17cmpF_cc_memCFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16orL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117262,7 +117163,52 @@ define hidden noundef ptr @_ZNK17cmpF_cc_memCFNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17cmpD_cc_memCFNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18orL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16orL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18orL_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15orL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16btsL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17xorL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117271,7 +117217,43 @@ define hidden noundef ptr @_ZNK17cmpD_cc_memCFNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12cmpF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19xorL_rReg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17xorL_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19xorL_mem_rReg_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16xorL_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17cmpF_cc_memCFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117280,7 +117262,7 @@ define hidden noundef ptr @_ZNK12cmpF_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12cmpD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17cmpD_cc_memCFNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117289,70 +117271,7 @@ define hidden noundef ptr @_ZNK12cmpD_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convF2D_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convD2F_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convI2F_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convI2D_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convL2F_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19convL2D_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23convI2L_reg_mem_zexNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compI_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12cmpF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117361,7 +117280,7 @@ define hidden noundef ptr @_ZNK18compI_rReg_memNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17testI_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12cmpD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117370,7 +117289,7 @@ define hidden noundef ptr @_ZNK17testI_reg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19testI_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convF2D_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117379,34 +117298,7 @@ define hidden noundef ptr @_ZNK19testI_reg_mem_0Node14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compU_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compP_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compP_mem_rRegNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13testP_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convD2F_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117415,7 +117307,7 @@ define hidden noundef ptr @_ZNK13testP_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18testP_mem_reg0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convI2F_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117424,25 +117316,43 @@ define hidden noundef ptr @_ZNK18testP_mem_reg0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compN_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convI2D_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17compN_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convL2F_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23compN_mem_imm_klassNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19convL2D_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23convI2L_reg_mem_zexNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18compI_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117451,25 +117361,7 @@ define hidden noundef ptr @_ZNK23compN_mem_imm_klassNode14memory_operandEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13testN_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18testN_mem_reg0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18compL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17testI_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117478,7 +117370,16 @@ define hidden noundef ptr @_ZNK18compL_rReg_memNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17testL_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19testI_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18compU_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117487,16 +117388,7 @@ define hidden noundef ptr @_ZNK17testL_reg_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19testL_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18testL_reg_mem2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18compP_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117505,16 +117397,7 @@ define hidden noundef ptr @_ZNK18testL_reg_mem2Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20testL_reg_mem2_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19compUL_rReg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18compP_mem_rRegNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117523,7 +117406,7 @@ define hidden noundef ptr @_ZNK19compUL_rReg_memNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17compB_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13testP_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117532,7 +117415,7 @@ define hidden noundef ptr @_ZNK17compB_mem_immNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18testUB_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18testP_mem_reg0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117541,16 +117424,7 @@ define hidden noundef ptr @_ZNK18testUB_mem_immNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17testB_mem_immNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12addF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18compN_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117559,16 +117433,7 @@ define hidden noundef ptr @_ZNK12addF_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14addF_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16addF_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17compN_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117577,16 +117442,7 @@ define hidden noundef ptr @_ZNK16addF_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18addF_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12addD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK23compN_mem_imm_klassNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117595,7 +117451,7 @@ define hidden noundef ptr @_ZNK12addD_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14addD_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13testN_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117604,7 +117460,16 @@ define hidden noundef ptr @_ZNK14addD_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16addD_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18testN_mem_reg0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18compL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117613,16 +117478,7 @@ define hidden noundef ptr @_ZNK16addD_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18addD_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12subF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17testL_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117631,7 +117487,16 @@ define hidden noundef ptr @_ZNK12subF_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16subF_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19testL_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18testL_reg_mem2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117640,7 +117505,16 @@ define hidden noundef ptr @_ZNK16subF_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12subD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20testL_reg_mem2_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19compUL_rReg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117649,7 +117523,34 @@ define hidden noundef ptr @_ZNK12subD_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16subD_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17compB_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18testUB_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK17testB_mem_immNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12addF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117658,7 +117559,16 @@ define hidden noundef ptr @_ZNK16subD_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12mulF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14addF_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16addF_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117667,7 +117577,7 @@ define hidden noundef ptr @_ZNK12mulF_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14mulF_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18addF_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117676,7 +117586,7 @@ define hidden noundef ptr @_ZNK14mulF_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16mulF_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12addD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117685,7 +117595,7 @@ define hidden noundef ptr @_ZNK16mulF_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18mulF_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14addD_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117694,7 +117604,7 @@ define hidden noundef ptr @_ZNK18mulF_reg_mem_0Node14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12mulD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16addD_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117703,7 +117613,7 @@ define hidden noundef ptr @_ZNK12mulD_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14mulD_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18addD_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117712,7 +117622,7 @@ define hidden noundef ptr @_ZNK14mulD_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16mulD_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12subF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117721,16 +117631,7 @@ define hidden noundef ptr @_ZNK16mulD_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18mulD_reg_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12divF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16subF_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117739,7 +117640,7 @@ define hidden noundef ptr @_ZNK12divF_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16divF_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12subD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117748,7 +117649,7 @@ define hidden noundef ptr @_ZNK16divF_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12divD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16subD_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117757,7 +117658,7 @@ define hidden noundef ptr @_ZNK12divD_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16divD_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12mulF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -117766,7 +117667,7 @@ define hidden noundef ptr @_ZNK16divD_reg_memNode14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20convF2HF_mem_regNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14mulF_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -117775,268 +117676,7 @@ define hidden noundef ptr @_ZNK20convF2HF_mem_regNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vconvF2HF_mem_regNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vconvHF2F_reg_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vroundD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16vround8D_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK9loadVNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10storeVNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10gatherNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12evgatherNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19evgather_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23vgather_subwordLE8BNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK23vgather_subwordGT8BNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27vgather_subwordLE8B_offNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27vgather_subwordGT8B_offNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK35vgather_masked_subwordLE8B_avx3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK35vgather_masked_subwordGT8B_avx3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK39vgather_masked_subwordLE8B_off_avx3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK39vgather_masked_subwordGT8B_off_avx3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK35vgather_masked_subwordLE8B_avx2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK35vgather_masked_subwordGT8B_avx2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK39vgather_masked_subwordLE8B_off_avx2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK39vgather_masked_subwordGT8B_off_avx2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11scatterNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18scatter_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplB_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplS_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13ReplD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddB_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16mulF_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118045,7 +117685,7 @@ define hidden noundef ptr @_ZNK13vaddB_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddB_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18mulF_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118054,7 +117694,7 @@ define hidden noundef ptr @_ZNK15vaddB_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddS_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12mulD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118063,7 +117703,7 @@ define hidden noundef ptr @_ZNK13vaddS_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddS_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK14mulD_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118072,7 +117712,7 @@ define hidden noundef ptr @_ZNK15vaddS_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16mulD_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118081,7 +117721,7 @@ define hidden noundef ptr @_ZNK13vaddI_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddI_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18mulD_reg_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118090,7 +117730,7 @@ define hidden noundef ptr @_ZNK15vaddI_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12divF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118099,7 +117739,34 @@ define hidden noundef ptr @_ZNK13vaddL_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddL_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16divF_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12divD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16divD_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK20convF2HF_mem_regNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118108,16 +117775,7 @@ define hidden noundef ptr @_ZNK15vaddL_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddF_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vconvF2HF_mem_regNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118126,16 +117784,7 @@ define hidden noundef ptr @_ZNK15vaddF_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vaddD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vaddD_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vconvHF2F_reg_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118144,70 +117793,7 @@ define hidden noundef ptr @_ZNK15vaddD_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubB_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubS_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vsubD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vmulS_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vmulS_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15vroundD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118216,16 +117802,7 @@ define hidden noundef ptr @_ZNK15vmulS_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vmulI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vmulI_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK16vround8D_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118234,16 +117811,7 @@ define hidden noundef ptr @_ZNK15vmulI_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14evmulL_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK16evmulL_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK9loadVNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118252,16 +117820,7 @@ define hidden noundef ptr @_ZNK16evmulL_mem_0Node14memory_operandEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vmulF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vmulF_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10storeVNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118270,16 +117829,7 @@ define hidden noundef ptr @_ZNK15vmulF_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vmulD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15vmulD_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10gatherNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118288,43 +117838,7 @@ define hidden noundef ptr @_ZNK15vmulD_mem_0Node14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vdivF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vdivD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21compressBitsI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19expandBitsI_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14vsqrtF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12evgatherNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118333,7 +117847,7 @@ define hidden noundef ptr @_ZNK14vsqrtF_memNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14vsqrtD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19evgather_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118342,7 +117856,187 @@ define hidden noundef ptr @_ZNK14vsqrtD_memNode14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12vand_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK23vgather_subwordLE8BNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK23vgather_subwordGT8BNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK27vgather_subwordLE8B_offNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK27vgather_subwordGT8B_offNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK35vgather_masked_subwordLE8B_avx3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK35vgather_masked_subwordGT8B_avx3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK39vgather_masked_subwordLE8B_off_avx3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK39vgather_masked_subwordGT8B_off_avx3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK35vgather_masked_subwordLE8B_avx2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK35vgather_masked_subwordGT8B_avx2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK39vgather_masked_subwordLE8B_off_avx2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK39vgather_masked_subwordGT8B_off_avx2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK11scatterNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK18scatter_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplB_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplS_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13ReplD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vaddB_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118351,7 +118045,7 @@ define hidden noundef ptr @_ZNK12vand_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14vand_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15vaddB_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118360,7 +118054,7 @@ define hidden noundef ptr @_ZNK14vand_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11vor_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13vaddS_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118369,7 +118063,7 @@ define hidden noundef ptr @_ZNK11vor_memNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vor_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15vaddS_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118378,7 +118072,7 @@ define hidden noundef ptr @_ZNK13vor_mem_0Node14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12vxor_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13vaddI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118387,7 +118081,7 @@ define hidden noundef ptr @_ZNK12vxor_memNode14memory_operandEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14vxor_mem_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15vaddI_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118396,7 +118090,313 @@ define hidden noundef ptr @_ZNK14vxor_mem_0Node14memory_operandEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vfmaF_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13vaddL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vaddL_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vaddF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vaddF_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vaddD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vaddD_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubB_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubS_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vsubD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vmulS_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vmulS_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vmulI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vmulI_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK14evmulL_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK16evmulL_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vmulF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vmulF_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vmulD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK15vmulD_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vdivF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vdivD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK21compressBitsI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK19expandBitsI_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK14vsqrtF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK14vsqrtD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12vand_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK14vand_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK11vor_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vor_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK12vxor_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK14vxor_mem_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZNK13vfmaF_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118405,7 +118405,7 @@ define hidden noundef ptr @_ZNK13vfmaF_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK13vfmaD_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK13vfmaD_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118414,7 +118414,7 @@ define hidden noundef ptr @_ZNK13vfmaD_memNode14memory_operandEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK17vpternlog_memNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK17vpternlog_memNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118423,7 +118423,7 @@ define hidden noundef ptr @_ZNK17vpternlog_memNode14memory_operandEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK32vmasked_load_avx_non_subwordNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK32vmasked_load_avx_non_subwordNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118432,7 +118432,7 @@ define hidden noundef ptr @_ZNK32vmasked_load_avx_non_subwordNode14memory_operan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vmasked_load_evexNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vmasked_load_evexNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118441,7 +118441,7 @@ define hidden noundef ptr @_ZNK21vmasked_load_evexNode14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK33vmasked_store_avx_non_subwordNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK33vmasked_store_avx_non_subwordNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118450,7 +118450,7 @@ define hidden noundef ptr @_ZNK33vmasked_store_avx_non_subwordNode14memory_opera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22vmasked_store_evexNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22vmasked_store_evexNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118459,7 +118459,7 @@ define hidden noundef ptr @_ZNK22vmasked_store_evexNode14memory_operandEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vadd_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vadd_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118468,7 +118468,7 @@ define hidden noundef ptr @_ZNK19vadd_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vadd_mem_masked_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vadd_mem_masked_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118477,7 +118477,7 @@ define hidden noundef ptr @_ZNK21vadd_mem_masked_0Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vadd_mem_masked_1Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vadd_mem_masked_1Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118486,7 +118486,7 @@ define hidden noundef ptr @_ZNK21vadd_mem_masked_1Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vadd_mem_masked_2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vadd_mem_masked_2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118495,7 +118495,7 @@ define hidden noundef ptr @_ZNK21vadd_mem_masked_2Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vadd_mem_masked_3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vadd_mem_masked_3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118504,7 +118504,7 @@ define hidden noundef ptr @_ZNK21vadd_mem_masked_3Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vadd_mem_masked_4Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vadd_mem_masked_4Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118513,7 +118513,7 @@ define hidden noundef ptr @_ZNK21vadd_mem_masked_4Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vxor_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vxor_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118522,7 +118522,7 @@ define hidden noundef ptr @_ZNK19vxor_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK18vor_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK18vor_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118531,7 +118531,7 @@ define hidden noundef ptr @_ZNK18vor_mem_maskedNode14memory_operandEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vand_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vand_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118540,7 +118540,7 @@ define hidden noundef ptr @_ZNK19vand_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vsub_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vsub_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118549,7 +118549,7 @@ define hidden noundef ptr @_ZNK19vsub_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vsub_mem_masked_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vsub_mem_masked_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118558,7 +118558,7 @@ define hidden noundef ptr @_ZNK21vsub_mem_masked_0Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vsub_mem_masked_1Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vsub_mem_masked_1Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118567,7 +118567,7 @@ define hidden noundef ptr @_ZNK21vsub_mem_masked_1Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vsub_mem_masked_2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vsub_mem_masked_2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118576,7 +118576,7 @@ define hidden noundef ptr @_ZNK21vsub_mem_masked_2Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vsub_mem_masked_3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vsub_mem_masked_3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118585,7 +118585,7 @@ define hidden noundef ptr @_ZNK21vsub_mem_masked_3Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vsub_mem_masked_4Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vsub_mem_masked_4Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118594,7 +118594,7 @@ define hidden noundef ptr @_ZNK21vsub_mem_masked_4Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vmul_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vmul_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118603,7 +118603,7 @@ define hidden noundef ptr @_ZNK19vmul_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vmul_mem_masked_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vmul_mem_masked_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118612,7 +118612,7 @@ define hidden noundef ptr @_ZNK21vmul_mem_masked_0Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vmul_mem_masked_1Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vmul_mem_masked_1Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118621,7 +118621,7 @@ define hidden noundef ptr @_ZNK21vmul_mem_masked_1Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vmul_mem_masked_2Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vmul_mem_masked_2Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118630,7 +118630,7 @@ define hidden noundef ptr @_ZNK21vmul_mem_masked_2Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vmul_mem_masked_3Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vmul_mem_masked_3Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118639,7 +118639,7 @@ define hidden noundef ptr @_ZNK21vmul_mem_masked_3Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vdiv_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vdiv_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118648,7 +118648,7 @@ define hidden noundef ptr @_ZNK19vdiv_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vdiv_mem_masked_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vdiv_mem_masked_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118657,7 +118657,7 @@ define hidden noundef ptr @_ZNK21vdiv_mem_masked_0Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20vmaxv_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20vmaxv_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118666,7 +118666,7 @@ define hidden noundef ptr @_ZNK20vmaxv_mem_maskedNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20vminv_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20vminv_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -118675,7 +118675,7 @@ define hidden noundef ptr @_ZNK20vminv_mem_maskedNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19vfma_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19vfma_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118684,7 +118684,7 @@ define hidden noundef ptr @_ZNK19vfma_mem_maskedNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21vfma_mem_masked_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK21vfma_mem_masked_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118693,7 +118693,7 @@ define hidden noundef ptr @_ZNK21vfma_mem_masked_0Node14memory_operandEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK24vternlogd_mem_maskedNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK24vternlogd_mem_maskedNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -118702,7 +118702,7 @@ define hidden noundef ptr @_ZNK24vternlogd_mem_maskedNode14memory_operandEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK30compareAndSwapP_shenandoahNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK30compareAndSwapP_shenandoahNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118711,7 +118711,7 @@ define hidden noundef ptr @_ZNK30compareAndSwapP_shenandoahNode14memory_operandE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK32compareAndSwapP_shenandoah_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK32compareAndSwapP_shenandoah_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118720,7 +118720,7 @@ define hidden noundef ptr @_ZNK32compareAndSwapP_shenandoah_0Node14memory_operan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK30compareAndSwapN_shenandoahNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK30compareAndSwapN_shenandoahNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118729,7 +118729,7 @@ define hidden noundef ptr @_ZNK30compareAndSwapN_shenandoahNode14memory_operandE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK32compareAndSwapN_shenandoah_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK32compareAndSwapN_shenandoah_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118738,7 +118738,7 @@ define hidden noundef ptr @_ZNK32compareAndSwapN_shenandoah_0Node14memory_operan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK34compareAndExchangeN_shenandoahNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK34compareAndExchangeN_shenandoahNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118747,7 +118747,7 @@ define hidden noundef ptr @_ZNK34compareAndExchangeN_shenandoahNode14memory_oper
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK34compareAndExchangeP_shenandoahNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK34compareAndExchangeP_shenandoahNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118756,7 +118756,7 @@ define hidden noundef ptr @_ZNK34compareAndExchangeP_shenandoahNode14memory_oper
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10xLoadPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10xLoadPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118765,7 +118765,7 @@ define hidden noundef ptr @_ZNK10xLoadPNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK24xCompareAndExchangePNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK24xCompareAndExchangePNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118774,7 +118774,7 @@ define hidden noundef ptr @_ZNK24xCompareAndExchangePNode14memory_operandEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20xCompareAndSwapPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20xCompareAndSwapPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118783,7 +118783,7 @@ define hidden noundef ptr @_ZNK20xCompareAndSwapPNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22xCompareAndSwapP_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22xCompareAndSwapP_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118792,7 +118792,7 @@ define hidden noundef ptr @_ZNK22xCompareAndSwapP_0Node14memory_operandEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10xXChgPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10xXChgPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118801,7 +118801,7 @@ define hidden noundef ptr @_ZNK10xXChgPNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10zLoadPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10zLoadPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118810,7 +118810,7 @@ define hidden noundef ptr @_ZNK10zLoadPNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK19zLoadPNullCheckNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK19zLoadPNullCheckNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118819,7 +118819,7 @@ define hidden noundef ptr @_ZNK19zLoadPNullCheckNode14memory_operandEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11zStorePNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11zStorePNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118828,7 +118828,7 @@ define hidden noundef ptr @_ZNK11zStorePNode14memory_operandEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15zStorePNullNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15zStorePNullNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118837,7 +118837,7 @@ define hidden noundef ptr @_ZNK15zStorePNullNode14memory_operandEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK24zCompareAndExchangePNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK24zCompareAndExchangePNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118846,7 +118846,7 @@ define hidden noundef ptr @_ZNK24zCompareAndExchangePNode14memory_operandEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20zCompareAndSwapPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK20zCompareAndSwapPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118855,7 +118855,7 @@ define hidden noundef ptr @_ZNK20zCompareAndSwapPNode14memory_operandEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22zCompareAndSwapP_0Node14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK22zCompareAndSwapP_0Node14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118864,7 +118864,7 @@ define hidden noundef ptr @_ZNK22zCompareAndSwapP_0Node14memory_operandEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10zXChgPNode14memory_operandEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10zXChgPNode14memory_operandEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118873,7 +118873,7 @@ define hidden noundef ptr @_ZNK10zXChgPNode14memory_operandEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK7Compile16sync_stack_slotsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK7Compile16sync_stack_slotsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
   ret i32 2
 }
 
@@ -118883,7 +118883,7 @@ define hidden noundef i32 @_ZN7Matcher24stack_alignment_in_bytesEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483032, -2147483648) i32 @_ZNK7Matcher11return_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1008) %0) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483032, -2147483648) i32 @_ZNK7Matcher11return_addrEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1008) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = tail call noundef i32 @_ZN13SharedRuntime23in_preserve_stack_slotsEv() #23
   %4 = load ptr, ptr %2, align 8
@@ -118905,7 +118905,7 @@ define hidden noundef range(i32 -2147483032, -2147483648) i32 @_ZNK7Matcher11ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK7Compile26varargs_C_out_slots_killedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK7Compile26varargs_C_out_slots_killedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
   ret i32 0
 }
 
@@ -118951,7 +118951,7 @@ define hidden noundef i32 @_ZN7Matcher29interpreter_frame_pointer_regEv() local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK7Matcher15c_frame_pointerEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1008) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK7Matcher15c_frame_pointerEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1008) %0) local_unnamed_addr #4 align 2 {
   ret i32 62
 }
 
@@ -118961,7 +118961,7 @@ define hidden noundef i32 @_ZN7Matcher25number_of_saved_registersEv() local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN7Compile21needs_deep_clone_jvmsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN7Compile21needs_deep_clone_jvmsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2316) %0) local_unnamed_addr #4 align 2 {
   ret i1 false
 }
 
@@ -122243,7 +122243,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i32 noundef) unnamed_addr #7
 
@@ -123055,10 +123055,10 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 declare i32 @llvm.ctpop.i32(i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #20

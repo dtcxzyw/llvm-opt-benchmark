@@ -85,7 +85,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sha2_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_sha2_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -140,7 +140,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sha2_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @_sha2_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -239,14 +239,14 @@ do.end21:                                         ; preds = %do.body15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_sha2_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @_sha2_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %call = tail call i32 @_sha2_clear(ptr noundef %module)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha2_sha256(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_sha2_sha256(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buf.i = alloca %struct.Py_buffer, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -456,7 +456,7 @@ exit:                                             ; preds = %if.end24, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha2_sha224(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_sha2_sha224(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buf.i = alloca %struct.Py_buffer, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -665,7 +665,7 @@ exit:                                             ; preds = %if.end24, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_sha2_sha512(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_sha2_sha512(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buf.i = alloca %struct.Py_buffer, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -886,7 +886,7 @@ exit:                                             ; preds = %if.end24, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_sha2_sha384(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_sha2_sha384(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buf.i = alloca %struct.Py_buffer, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -1236,7 +1236,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SHA2_traverse(ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @SHA2_traverse(ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %ptr, i64 8
   %ptr.val3 = load ptr, ptr %0, align 8
@@ -1263,7 +1263,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @SHA256Type_copy(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @SHA256Type_copy(ptr noundef %self, ptr noundef readonly captures(none) %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1348,7 +1348,7 @@ return:                                           ; preds = %if.then.i16.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA256Type_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @SHA256Type_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
@@ -1395,7 +1395,7 @@ SHA256Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA256Type_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @SHA256Type_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
@@ -1593,14 +1593,14 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA256_get_block_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA256_get_block_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #3
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA256_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA256_get_name(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %digestsize = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
@@ -1611,7 +1611,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA256_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA256_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %digestsize = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
@@ -1656,7 +1656,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 declare void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @SHA512Type_copy(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @SHA512Type_copy(ptr noundef %self, ptr noundef readonly captures(none) %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1742,7 +1742,7 @@ return:                                           ; preds = %if.then.i16.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA512Type_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @SHA512Type_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -1789,7 +1789,7 @@ SHA512Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA512Type_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @SHA512Type_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -1979,14 +1979,14 @@ declare ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef) local_unna
 declare void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA512_get_block_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA512_get_block_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 128) #3
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA512_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA512_get_name(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %digestsize = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
@@ -1997,7 +1997,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA512_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA512_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %digestsize = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
@@ -2007,10 +2007,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

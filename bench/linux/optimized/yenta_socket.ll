@@ -150,7 +150,7 @@ declare dso_local void @pci_unregister_driver(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @yenta_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -391,7 +391,7 @@ define internal void @yenta_close(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -409,7 +409,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_config_init(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_config_init(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = load ptr, ptr %0, align 8
@@ -464,7 +464,7 @@ define internal fastcc void @yenta_config_init(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_allocate_resources(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 7, i32 noundef 256, i32 noundef 44, i32 noundef 48), !range !10
   %3 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 8, i32 noundef 256, i32 noundef 52, i32 noundef 56), !range !10
   %4 = add nuw nsw i32 %3, %2
@@ -591,7 +591,7 @@ define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_interrogate(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_interrogate(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -620,7 +620,7 @@ define internal fastcc void @yenta_interrogate(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef nonnull initializes((396, 400)) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_get_socket_capabilities(ptr noundef nonnull captures(none) initializes((396, 400)) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 396
@@ -748,7 +748,7 @@ declare dso_local i32 @timer_shutdown_sync(ptr noundef) local_unnamed_addr #1
 declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_free_resources(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 1368
   %4 = load i64, ptr %3, align 8
@@ -842,7 +842,7 @@ declare dso_local void @pci_disable_device(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
@@ -947,7 +947,7 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_sock_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @yenta_sock_suspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -959,7 +959,7 @@ define internal noundef i32 @yenta_sock_suspend(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #2 align 16 {
+define internal noundef i32 @yenta_get_status(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -1034,7 +1034,7 @@ define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr i8, ptr %0, i64 -64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1246,7 +1246,7 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = load i8, ptr %1, align 8
   %4 = zext i8 %3 to i32
   %5 = icmp ugt i8 %3, 1
@@ -1383,7 +1383,7 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = getelementptr i8, ptr %0, i64 -64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
@@ -1600,10 +1600,10 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_set_power(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -1760,7 +1760,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 7, 11) %1, i32 noundef range(i32 256, 8705) %2, i32 noundef range(i32 28, 53) %3, i32 noundef range(i32 32, 57) %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 7, 11) %1, i32 noundef range(i32 256, 8705) %2, i32 noundef range(i32 28, 53) %3, i32 noundef range(i32 32, 57) %4) unnamed_addr #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.pci_bus_region, align 8
@@ -1908,7 +1908,7 @@ declare dso_local void @pcibios_bus_to_resource(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pci_claim_resource(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 32, 4194305) %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 32, 4194305) %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2022,7 +2022,7 @@ declare dso_local ptr @pci_bus_resource_n(ptr noundef, i32 noundef) local_unname
 declare dso_local i32 @allocate_resource(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ti_override(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2051
@@ -2075,7 +2075,7 @@ define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ti_save_state(ptr nocapture noundef initializes((1384, 1404)) %0) #2 align 16 {
+define internal void @ti_save_state(ptr noundef captures(none) initializes((1384, 1404)) %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -2147,7 +2147,7 @@ define internal void @ti_save_state(ptr nocapture noundef initializes((1384, 140
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ti_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @ti_restore_state(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -2189,7 +2189,7 @@ define internal void @ti_restore_state(ptr nocapture noundef readonly %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @ti_init(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2051
@@ -2218,7 +2218,7 @@ define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ti113x_override(ptr noundef captures(none) %0) #2 align 16 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
@@ -2864,7 +2864,7 @@ define internal noundef i32 @ti1250_override(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ricoh_override(ptr noundef captures(none) %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
@@ -2941,7 +2941,7 @@ define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ricoh_save_state(ptr nocapture noundef initializes((1384, 1404)) %0) #2 align 16 {
+define internal void @ricoh_save_state(ptr noundef captures(none) initializes((1384, 1404)) %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
@@ -2996,7 +2996,7 @@ define internal void @ricoh_save_state(ptr nocapture noundef initializes((1384, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @ricoh_restore_state(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %4 = load i32, ptr %3, align 8
@@ -3061,7 +3061,7 @@ define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @topic95_override(ptr noundef captures(none) %0) #2 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
@@ -3113,14 +3113,14 @@ define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @topic97_override(ptr nocapture noundef writeonly initializes((440, 448)) %0) #7 align 16 {
+define internal noundef i32 @topic97_override(ptr noundef writeonly captures(none) initializes((440, 448)) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr @topic97_zoom_video, ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @o2micro_override(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
@@ -3221,7 +3221,7 @@ define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @o2micro_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @o2micro_restore_state(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = tail call i32 @o2micro_override(ptr noundef %0)
   ret void
 }
@@ -3262,7 +3262,7 @@ define internal noundef i32 @ene_override(ptr noundef initializes((456, 464)) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ti_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal void @ti_zoom_video(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
@@ -3281,7 +3281,7 @@ define internal void @ti_zoom_video(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal void @ti1250_zoom_video(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 -64
@@ -3339,7 +3339,7 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
 declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %3) #11, !srcloc !5
@@ -3427,7 +3427,7 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 declare dso_local i32 @probe_irq_mask(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal noundef i32 @ti12xx_power_hook(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3647,7 +3647,7 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @yenta_probe_handler(i32 %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @yenta_probe_handler(i32 %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #11, !srcloc !6
@@ -3680,7 +3680,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9
@@ -3733,7 +3733,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ti12xx_untie_interrupts(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @ti12xx_untie_interrupts(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9
@@ -3759,7 +3759,7 @@ declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 62
@@ -3895,7 +3895,7 @@ yenta_get_status.exit:                            ; preds = %48, %55, %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ricoh_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal void @ricoh_zoom_video(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
@@ -3914,7 +3914,7 @@ define internal void @ricoh_zoom_video(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @topic97_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal void @topic97_zoom_video(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -3961,10 +3961,10 @@ define internal void @topic97_zoom_video(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ene_tune_bridge(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
+define internal void @ene_tune_bridge(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4034,7 +4034,7 @@ declare dso_local void @pcmcia_parse_events(ptr noundef, i32 noundef) local_unna
 declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44) #11

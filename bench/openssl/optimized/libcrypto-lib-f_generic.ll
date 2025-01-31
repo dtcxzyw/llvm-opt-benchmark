@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ONE = internal constant [1 x %struct.gf_s] [%struct.gf_s { [8 x i64] [i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0] }], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_serialize(ptr nocapture noundef writeonly %serial, ptr nocapture noundef readonly %x, i32 noundef %with_hibit) local_unnamed_addr #0 {
+define void @gf_serialize(ptr noundef writeonly captures(none) %serial, ptr noundef readonly captures(none) %x, i32 noundef %with_hibit) local_unnamed_addr #0 {
 entry:
   %red = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %red, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
@@ -126,7 +126,7 @@ for.end:                                          ; preds = %if.end9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_strong_reduce(ptr nocapture noundef %a) local_unnamed_addr #0 {
+define void @gf_strong_reduce(ptr noundef captures(none) %a) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %a, i64 56
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -206,7 +206,7 @@ for.end34:                                        ; preds = %for.body15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, 1) i64 @gf_hibit(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
+define range(i64 -1, 1) i64 @gf_hibit(ptr noundef readonly captures(none) %x) local_unnamed_addr #1 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i5.i
@@ -354,7 +354,7 @@ gf_strong_reduce.exit:                            ; preds = %for.body15.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_add(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define void @gf_add(ptr noundef captures(none) %d, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   br label %for.body.i5
 
@@ -429,7 +429,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -1, 1) i64 @gf_lobit(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @gf_lobit(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %y = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %y, ptr noundef nonnull align 16 dereferenceable(64) %x, i64 64, i1 false)
@@ -514,7 +514,7 @@ gf_strong_reduce.exit:                            ; preds = %for.body15.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -1, 1) i64 @gf_deserialize(ptr nocapture noundef %x, ptr nocapture noundef readonly %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %x, ptr noundef readonly captures(none) %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #0 {
 entry:
   %not = xor i8 %hi_nmask, -1
   br label %while.cond.preheader
@@ -602,7 +602,7 @@ cond.end36:                                       ; preds = %for.end, %cond.fals
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @gf_sub(ptr nocapture noundef %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define void @gf_sub(ptr noundef captures(none) %d, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   br label %for.body.i6
 
@@ -680,7 +680,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, 1) i64 @gf_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define range(i64 -1, 1) i64 @gf_eq(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   %c = alloca [1 x %struct.gf_s], align 16
   br label %for.body.i6.i
@@ -842,7 +842,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, 1) i64 @gf_isr(ptr nocapture noundef writeonly %a, ptr noundef %x) local_unnamed_addr #2 {
+define range(i64 -1, 1) i64 @gf_isr(ptr noundef writeonly captures(none) %a, ptr noundef %x) local_unnamed_addr #2 {
 entry:
   %tmp.i42 = alloca [1 x %struct.gf_s], align 16
   %tmp.i36 = alloca [1 x %struct.gf_s], align 16
@@ -978,13 +978,13 @@ declare void @ossl_gf_sqr(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @ossl_gf_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

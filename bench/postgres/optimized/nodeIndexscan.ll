@@ -218,7 +218,7 @@ reorderqueue_pop.exit:                            ; preds = %75, %50
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexEvalRuntimeKeys(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecIndexEvalRuntimeKeys(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -292,7 +292,7 @@ declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
@@ -377,7 +377,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.02630 = add i32 %1, -1
   %3 = icmp sgt i32 %.02630, -1
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -423,7 +423,7 @@ define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndIndexScan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndIndexScan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -452,7 +452,7 @@ declare void @index_endscan(ptr noundef) local_unnamed_addr #1
 declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexMarkPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecIndexMarkPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -517,7 +517,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @index_markpos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexRestrPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecIndexRestrPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -741,7 +741,7 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
   %110 = tail call ptr @palloc(i64 noundef %58) #8
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 336
   store ptr %110, ptr %111, align 8
-  %112 = tail call ptr @pairingheap_allocate(ptr noundef nonnull @reorderqueue_cmp, ptr noundef %4) #8
+  %112 = tail call ptr @pairingheap_allocate(ptr noundef nonnull @reorderqueue_cmp, ptr noundef nonnull %4) #8
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 312
   store ptr %112, ptr %113, align 8
   br label %114
@@ -815,7 +815,7 @@ declare ptr @ExecInitExprList(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexBuildScanKeys(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr noundef writeonly %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
+define dso_local void @ExecIndexBuildScanKeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -1656,7 +1656,7 @@ declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @pairingheap_allocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reorderqueue_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @reorderqueue_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1731,12 +1731,12 @@ declare void @ScanKeyEntryInitialize(ptr noundef, i32 noundef, i16 noundef signe
 declare i32 @get_opfamily_proc(i32 noundef, i32 noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexScanEstimate(ptr nocapture noundef initializes((368, 376)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexScanEstimate(ptr noundef captures(none) initializes((368, 376)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1764,7 +1764,7 @@ declare i64 @index_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexScanInitializeDSM(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexScanInitializeDSM(ptr noundef captures(none) initializes((304, 312)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1829,7 +1829,7 @@ declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @index_beginscan_parallel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexScanReInitializeDSM(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexScanReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   tail call void @index_parallelrescan(ptr noundef %4) #8
@@ -1839,7 +1839,7 @@ define dso_local void @ExecIndexScanReInitializeDSM(ptr nocapture noundef readon
 declare void @index_parallelrescan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexScanInitializeWorker(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexScanInitializeWorker(ptr noundef captures(none) initializes((304, 312)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1893,7 +1893,7 @@ declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @IndexNextWithReorder(ptr nocapture noundef %0) #0 {
+define internal ptr @IndexNextWithReorder(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
@@ -2436,7 +2436,7 @@ cmp_orderbyvals.exit104.thread:                   ; preds = %223, %.thread127, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @IndexRecheck(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal zeroext i1 @IndexRecheck(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -2470,7 +2470,7 @@ ExecQualAndReset.exit:                            ; preds = %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @IndexNext(ptr nocapture noundef %0) #0 {
+define internal ptr @IndexNext(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2626,10 +2626,10 @@ declare void @pairingheap_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

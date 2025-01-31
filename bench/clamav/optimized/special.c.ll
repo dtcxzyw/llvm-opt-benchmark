@@ -169,7 +169,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #7
@@ -294,7 +294,7 @@ riff_read_chunk.exit.thread:                      ; preds = %riff_read_chunk.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [17576 x i8], align 16
   %7 = alloca [3 x i16], align 2
@@ -565,10 +565,10 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 declare i32 @tolower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [10 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 35156
   %4 = load i32, ptr %3, align 4
@@ -796,7 +796,7 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #5

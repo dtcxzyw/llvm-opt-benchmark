@@ -47,7 +47,7 @@ define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber6acceptERNS_7VisitorE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5printB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5printB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   tail call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %4) #8

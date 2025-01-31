@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext range(i8 0, 2) i8 @JAWT_GetAWT(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @JAWT_GetAWT(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %19, label %4
 

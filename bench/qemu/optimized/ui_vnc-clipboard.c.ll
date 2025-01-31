@@ -213,7 +213,7 @@ declare i32 @read_u32(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @qemu_clipboard_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_clipboard_provide(ptr noundef %vs, ptr nocapture noundef readonly %info) unnamed_addr #0 {
+define internal fastcc void @vnc_clipboard_provide(ptr noundef %vs, ptr noundef readonly captures(none) %info) unnamed_addr #0 {
 entry:
   %stream.i = alloca %struct.z_stream_s, align 8
   %size = getelementptr inbounds nuw i8, ptr %info, i64 40
@@ -378,7 +378,7 @@ if.end10:                                         ; preds = %entry, %if.then3, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_clipboard_send(ptr noundef %vs, i32 noundef range(i32 1, 3) %count, ptr nocapture noundef nonnull readonly %dwords) unnamed_addr #0 {
+define internal fastcc void @vnc_clipboard_send(ptr noundef %vs, i32 noundef range(i32 1, 3) %count, ptr noundef nonnull readonly captures(none) %dwords) unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -409,7 +409,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_clipboard_notify(ptr noundef %notifier, ptr nocapture noundef readonly %data) #0 {
+define internal void @vnc_clipboard_notify(ptr noundef %notifier, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %flags.i = alloca i32, align 4
   %0 = load i32, ptr %data, align 8
@@ -472,7 +472,7 @@ sw.epilog:                                        ; preds = %entry, %vnc_clipboa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_clipboard_request(ptr nocapture noundef readonly %info, i32 noundef %type) #0 {
+define internal void @vnc_clipboard_request(ptr noundef readonly captures(none) %info, i32 noundef %type) #0 {
 entry:
   %flags = alloca i32, align 4
   %cmp.not = icmp eq i32 %type, 0
@@ -493,7 +493,7 @@ return:                                           ; preds = %entry, %if.end2
 declare void @qemu_clipboard_peer_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
@@ -509,7 +509,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @vnc_write_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
@@ -532,10 +532,10 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare ptr @qemu_clipboard_info_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

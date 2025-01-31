@@ -22239,7 +22239,7 @@ cli_stack_destroy.exit:                           ; preds = %.lr.ph.i, %10613
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @globaltypesize(i16 noundef zeroext %0) unnamed_addr #2 {
@@ -22314,14 +22314,14 @@ tailrecurse:                                      ; preds = %8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #4
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc ptr @ptr_torealptr(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
@@ -22383,7 +22383,7 @@ define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 @ptr_register_glob(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 @ptr_register_glob(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %ptr_register_glob_fixedid.exit, label %4
 
@@ -22433,20 +22433,20 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %10,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #4
 
 declare void @cli_event_error_str(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @cli_safer_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 

@@ -23,7 +23,7 @@ $_ZNK3ue221ComponentWordBoundary6acceptERNS_21ConstComponentVisitorE = comdat an
 @_ZN3ue221ComponentWordBoundaryD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue221ComponentWordBoundaryD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue221ComponentWordBoundaryC2EjbRKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(27) %this, i32 noundef %loc_in, i1 noundef zeroext %neg, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue221ComponentWordBoundaryC2EjbRKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(27) %this, i32 noundef %loc_in, i1 noundef zeroext %neg, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(6) %mode) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %neg to i8
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -69,7 +69,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @_ZNK3ue221ComponentWordBoundary5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZNK3ue221ComponentWordBoundary5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
   %pos_begin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -113,7 +113,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue221ComponentWordBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221ComponentWordBoundary5firstEv(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %position = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -141,13 +141,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue221ComponentWordBoundary5emptyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue221ComponentWordBoundary5emptyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue221ComponentWordBoundary10repeatableEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue221ComponentWordBoundary10repeatableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i1 false
 }
@@ -187,7 +187,7 @@ entry:
 declare void @_ZN3ue29Component15recordPosBoundsEjj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue221ComponentWordBoundary14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_12PositionInfoESaIS4_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN3ue221ComponentWordBoundary14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_12PositionInfoESaIS4_EE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -233,7 +233,7 @@ declare noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr n
 declare noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ed25519_sqrtadm1 = internal constant [5 x i64] [i64 2241493124984347, i64 425987919032274, i64 2207028919301688, i64 1220490630685848, i64 974799131293748], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_fe25519_frombytes(ptr nocapture noundef writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define hidden void @_sodium_fe25519_frombytes(ptr noundef writeonly captures(none) initializes((0, 40)) %h, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %s.val = load i64, ptr %s, align 1
   %and = and i64 %s.val, 2251799813685247
@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_fe25519_tobytes(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define hidden void @_sodium_fe25519_tobytes(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %h, align 8
   %conv.i = zext i64 %0 to i128
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden void @_sodium_fe25519_invert(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %z) local_unnamed_addr #1 {
+define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %z) local_unnamed_addr #1 {
 entry:
   %t0 = alloca [5 x i64], align 16
   %t1 = alloca [5 x i64], align 16
@@ -1567,7 +1567,7 @@ for.end103:                                       ; preds = %for.body98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_mul(ptr nocapture noundef writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #0 {
+define internal fastcc void @fe25519_mul(ptr noundef writeonly captures(none) initializes((0, 40)) %h, ptr noundef readonly captures(none) %f, ptr noundef readonly captures(none) %g) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %f, align 8
   %conv = zext i64 %0 to i128
@@ -1691,7 +1691,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden i32 @_sodium_ge25519_frombytes(ptr noundef initializes((0, 120)) %h, ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define hidden i32 @_sodium_ge25519_frombytes(ptr noundef initializes((0, 120)) %h, ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %s.i172 = alloca [32 x i8], align 16
   %s.i170 = alloca [32 x i8], align 16
@@ -2209,7 +2209,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_pow22523(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %z) unnamed_addr #1 {
+define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %z) unnamed_addr #1 {
 entry:
   %t0 = alloca [5 x i64], align 16
   %t1 = alloca [5 x i64], align 16
@@ -3652,7 +3652,7 @@ for.end92:                                        ; preds = %for.body87
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -1, 1) i32 @_sodium_ge25519_frombytes_negate_vartime(ptr nocapture noundef initializes((0, 120)) %h, ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @_sodium_ge25519_frombytes_negate_vartime(ptr noundef captures(none) initializes((0, 120)) %h, ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %s.i329 = alloca [32 x i8], align 16
   %s.i327 = alloca [32 x i8], align 16
@@ -4338,7 +4338,7 @@ return:                                           ; preds = %if.then, %if.end78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p1p1_to_p2(ptr nocapture noundef writeonly initializes((0, 120)) %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_p1p1_to_p2(ptr noundef writeonly captures(none) initializes((0, 120)) %r, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %T = getelementptr inbounds nuw i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
@@ -4352,7 +4352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p1p1_to_p3(ptr nocapture noundef writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_p1p1_to_p3(ptr noundef writeonly captures(none) initializes((0, 160)) %r, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %T = getelementptr inbounds nuw i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
@@ -4368,7 +4368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p2_to_p3(ptr nocapture noundef writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_p2_to_p3(ptr noundef writeonly captures(none) initializes((0, 160)) %r, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef nonnull readonly align 8 dereferenceable(40) %p, i64 40, i1 false)
   %Y = getelementptr inbounds nuw i8, ptr %r, i64 40
@@ -4378,12 +4378,12 @@ entry:
   %Z7 = getelementptr inbounds nuw i8, ptr %p, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z, ptr noundef nonnull readonly align 8 dereferenceable(40) %Z7, i64 40, i1 false)
   %T = getelementptr inbounds nuw i8, ptr %r, i64 120
-  tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef %p, ptr noundef nonnull %Y4)
+  tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %p, ptr noundef nonnull %Y4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p3_tobytes(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #1 {
+define hidden void @_sodium_ge25519_p3_tobytes(ptr noundef captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #1 {
 entry:
   %recip = alloca [5 x i64], align 16
   %x = alloca [5 x i64], align 16
@@ -4462,7 +4462,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_tobytes(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #1 {
+define hidden void @_sodium_ge25519_tobytes(ptr noundef captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #1 {
 entry:
   %recip = alloca [5 x i64], align 16
   %x = alloca [5 x i64], align 16
@@ -4541,7 +4541,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_double_scalarmult_vartime(ptr nocapture noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define hidden void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef captures(none) %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %A, ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   %q.i = alloca %struct.ge25519_p2, align 8
   %aslide = alloca [256 x i8], align 16
@@ -5401,7 +5401,7 @@ for.body24.lr.ph:                                 ; preds = %for.end
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %if.end77
   %indvars.iv = phi i64 [ %98, %for.body24.lr.ph ], [ %indvars.iv.next, %if.end77 ]
-  call fastcc void @ge25519_p2_dbl(ptr noundef %t, ptr noundef %r)
+  call fastcc void @ge25519_p2_dbl(ptr noundef %t, ptr noundef nonnull %r)
   %arrayidx26 = getelementptr [256 x i8], ptr %aslide, i64 0, i64 %indvars.iv
   %99 = load i8, ptr %arrayidx26, align 1
   %cmp28 = icmp sgt i8 %99, 0
@@ -5794,7 +5794,7 @@ if.then68:                                        ; preds = %if.else62
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else62, %if.then68, %if.then55
-  call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i491, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i492, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5806,7 +5806,7 @@ for.end80:                                        ; preds = %for.inc, %if.end77,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ge25519_add_cached(ptr nocapture noundef nonnull initializes((0, 80)) %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
+define internal fastcc void @ge25519_add_cached(ptr noundef nonnull captures(none) initializes((0, 80)) %r, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) unnamed_addr #0 {
 entry:
   %Y = getelementptr inbounds nuw i8, ptr %p, i64 40
   %0 = load i64, ptr %Y, align 8
@@ -6017,7 +6017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ge25519_p2_dbl(ptr nocapture noundef nonnull writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc void @ge25519_p2_dbl(ptr noundef nonnull writeonly captures(none) initializes((0, 160)) %r, ptr noundef readonly captures(none) %p) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %p, align 8
   %conv.i = zext i64 %0 to i128
@@ -6475,7 +6475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ge25519_add_precomp(ptr nocapture noundef nonnull initializes((0, 80)) %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
+define internal fastcc void @ge25519_add_precomp(ptr noundef nonnull captures(none) initializes((0, 80)) %r, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) unnamed_addr #0 {
 entry:
   %Y = getelementptr inbounds nuw i8, ptr %p, i64 40
   %0 = load i64, ptr %Y, align 8
@@ -6688,7 +6688,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ge25519_scalarmult(ptr nocapture noundef %h, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define hidden void @_sodium_ge25519_scalarmult(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %q.i388 = alloca %struct.ge25519_p2, align 8
   %q.i265 = alloca %struct.ge25519_p2, align 8
@@ -7464,7 +7464,7 @@ for.body60:                                       ; preds = %for.end51, %for.bod
   %arrayidx62 = getelementptr [64 x i8], ptr %e, i64 0, i64 %indvars.iv496
   %88 = load i8, ptr %arrayidx62, align 1
   call fastcc void @ge25519_cmov8_cached(ptr noundef %t, ptr noundef %pi, i8 noundef signext %88)
-  call fastcc void @ge25519_add_cached(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
+  call fastcc void @ge25519_add_cached(ptr noundef %r, ptr noundef nonnull %h, ptr noundef nonnull %t)
   call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
@@ -7481,7 +7481,7 @@ for.body60:                                       ; preds = %for.end51, %for.bod
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i455, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i458, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
   call fastcc void @ge25519_p2_dbl(ptr noundef %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i452, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i453, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i479, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i456)
@@ -7492,8 +7492,8 @@ for.body60:                                       ; preds = %for.end51, %for.bod
 for.end64:                                        ; preds = %for.body60
   %89 = load i8, ptr %e, align 16
   call fastcc void @ge25519_cmov8_cached(ptr noundef %t, ptr noundef %pi, i8 noundef signext %89)
-  call fastcc void @ge25519_add_cached(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
+  call fastcc void @ge25519_add_cached(ptr noundef %r, ptr noundef nonnull %h, ptr noundef nonnull %t)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i454)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i452, ptr noundef nonnull readonly %Y5.i456, ptr noundef nonnull readonly %Z.i457)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i453, ptr noundef nonnull readonly %Z.i457, ptr noundef nonnull readonly %T.i454)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i479, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i456)
@@ -7669,7 +7669,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ge25519_scalarmult_base(ptr nocapture noundef %h, ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
+define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %a) local_unnamed_addr #2 {
 entry:
   %q.i = alloca %struct.ge25519_p2, align 8
   %e = alloca [64 x i8], align 16
@@ -7736,8 +7736,8 @@ for.body49:                                       ; preds = %for.end40, %for.bod
   %9 = load i8, ptr %arrayidx51, align 1
   %10 = trunc nuw nsw i64 %8 to i32
   call fastcc void @ge25519_cmov8_base(ptr noundef %t, i32 noundef %10, i8 noundef signext %9)
-  call fastcc void @ge25519_add_precomp(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
+  call fastcc void @ge25519_add_precomp(ptr noundef %r, ptr noundef nonnull %h, ptr noundef nonnull %t)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
@@ -7768,7 +7768,7 @@ for.end54:                                        ; preds = %for.body49
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i33, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i36, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef %r, ptr noundef nonnull %s)
-  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
@@ -7781,8 +7781,8 @@ for.body58:                                       ; preds = %for.end54, %for.bod
   %12 = load i8, ptr %arrayidx61, align 2
   %13 = trunc nuw nsw i64 %11 to i32
   call fastcc void @ge25519_cmov8_base(ptr noundef %t, i32 noundef %13, i8 noundef signext %12)
-  call fastcc void @ge25519_add_precomp(ptr noundef %r, ptr noundef %h, ptr noundef nonnull %t)
-  call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
+  call fastcc void @ge25519_add_precomp(ptr noundef %r, ptr noundef nonnull %h, ptr noundef nonnull %t)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %h, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i31)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i, ptr noundef nonnull readonly %Z.i31, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %Y5.i)
@@ -7944,7 +7944,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p3_add(ptr nocapture noundef writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_p3_add(ptr noundef writeonly captures(none) initializes((0, 160)) %r, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %q_cached = alloca %struct.ge25519_cached, align 8
   %p1p1 = alloca %struct.ge25519_p1p1, align 8
@@ -8038,7 +8038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_p3_sub(ptr nocapture noundef writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_p3_sub(ptr noundef writeonly captures(none) initializes((0, 160)) %r, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %q_neg = alloca %struct.ge25519_p3, align 8
   %0 = load i64, ptr %q, align 8
@@ -8132,7 +8132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden i32 @_sodium_ge25519_is_on_curve(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define hidden i32 @_sodium_ge25519_is_on_curve(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %x2 = alloca [5 x i64], align 16
@@ -8642,7 +8642,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden i32 @_sodium_ge25519_is_on_main_subgroup(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define hidden i32 @_sodium_ge25519_is_on_main_subgroup(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %q.i.i43.i = alloca %struct.ge25519_p2, align 8
@@ -8720,8 +8720,8 @@ entry:
   %T14.i.i.i = getelementptr inbounds nuw i8, ptr %_10.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i.i, ptr noundef nonnull readonly %p1p1.i.i, ptr noundef nonnull readonly %Y5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i.i)
-  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11.i, ptr noundef readonly %p, ptr noundef nonnull %_10.i)
-  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100.i, ptr noundef readonly %p, ptr noundef nonnull %_11.i)
+  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11.i, ptr noundef nonnull readonly %p, ptr noundef nonnull %_10.i)
+  call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100.i, ptr noundef nonnull readonly %p, ptr noundef nonnull %_11.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_110.i, ptr noundef nonnull %_10.i, ptr noundef nonnull %_100.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1000.i, ptr noundef nonnull %_10.i, ptr noundef nonnull %_110.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1011.i, ptr noundef nonnull %_11.i, ptr noundef nonnull %_1000.i)
@@ -8948,7 +8948,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @_sodium_ge25519_is_canonical(ptr nocapture noundef readonly %s) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @_sodium_ge25519_is_canonical(ptr noundef readonly captures(none) %s) local_unnamed_addr #3 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 31
   %0 = load i8, ptr %arrayidx, align 1
@@ -8981,7 +8981,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden i32 @_sodium_ge25519_has_small_order(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define hidden i32 @_sodium_ge25519_has_small_order(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %s.i50 = alloca [32 x i8], align 16
   %s.i10 = alloca [32 x i8], align 16
@@ -9500,7 +9500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_sc25519_mul(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden void @_sodium_sc25519_mul(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %a, align 1
   %1 = zext i16 %0 to i64
@@ -10539,7 +10539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_sc25519_muladd(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define hidden void @_sodium_sc25519_muladd(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %c) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %a, align 1
   %1 = zext i16 %0 to i64
@@ -11670,7 +11670,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden void @_sodium_sc25519_invert(ptr nocapture noundef initializes((0, 32)) %recip, ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define hidden void @_sodium_sc25519_invert(ptr noundef captures(none) initializes((0, 32)) %recip, ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %_10 = alloca [32 x i8], align 16
   %_100 = alloca [32 x i8], align 16
@@ -12524,7 +12524,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @_sodium_sc25519_is_canonical(ptr nocapture noundef readonly %s) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @_sodium_sc25519_is_canonical(ptr noundef readonly captures(none) %s) local_unnamed_addr #3 {
 entry:
   br label %do.body
 
@@ -12558,7 +12558,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden void @_sodium_ge25519_clear_cofactor(ptr nocapture noundef initializes((120, 160)) %p3) local_unnamed_addr #0 {
+define hidden void @_sodium_ge25519_clear_cofactor(ptr noundef captures(none) initializes((120, 160)) %p3) local_unnamed_addr #0 {
 entry:
   %q.i = alloca %struct.ge25519_p2, align 8
   %p1 = alloca %struct.ge25519_p1p1, align 8
@@ -12586,7 +12586,7 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef %p1, ptr noundef nonnull %p2)
-  call fastcc void @fe25519_mul(ptr noundef %p3, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %p3, ptr noundef nonnull readonly %p1, ptr noundef nonnull readonly %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y4.i.i, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z7.i.i, ptr noundef nonnull readonly %Z.i, ptr noundef nonnull readonly %T.i)
   %T14.i = getelementptr inbounds nuw i8, ptr %p3, i64 120
@@ -12595,7 +12595,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ge25519_from_uniform(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define hidden void @_sodium_ge25519_from_uniform(ptr noundef captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %p3 = alloca %struct.ge25519_p3, align 8
   %x = alloca [5 x i64], align 16
@@ -12744,10 +12744,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @ge25519_elligator2(ptr noundef nonnull initializes((0, 40)) %x, ptr noundef nonnull initializes((0, 40)) %y, ptr nocapture noundef nonnull readonly %r, ptr nocapture noundef nonnull writeonly %notsquare_p) unnamed_addr #2 {
+define internal fastcc void @ge25519_elligator2(ptr noundef nonnull initializes((0, 40)) %x, ptr noundef nonnull initializes((0, 40)) %y, ptr noundef nonnull readonly captures(none) %r, ptr noundef nonnull writeonly captures(none) %notsquare_p) unnamed_addr #2 {
 entry:
   %s.i.i.i = alloca [32 x i8], align 16
   %s.i.i.i.i = alloca [32 x i8], align 16
@@ -14257,7 +14257,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @ge25519_mont_to_ed(ptr nocapture noundef nonnull initializes((0, 40)) %xed, ptr noundef nonnull initializes((0, 40)) %yed, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) unnamed_addr #2 {
+define internal fastcc void @ge25519_mont_to_ed(ptr noundef nonnull captures(none) initializes((0, 40)) %xed, ptr noundef nonnull initializes((0, 40)) %yed, ptr noundef nonnull readonly captures(none) %x, ptr noundef nonnull readonly captures(none) %y) unnamed_addr #2 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %one = alloca [5 x i64], align 16
@@ -14418,7 +14418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ge25519_from_hash(ptr nocapture noundef %s, ptr nocapture noundef readonly %h) local_unnamed_addr #2 {
+define hidden void @_sodium_ge25519_from_hash(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #2 {
 entry:
   %fl.i = alloca [32 x i8], align 16
   %gl.i = alloca [32 x i8], align 16
@@ -14725,7 +14725,7 @@ fe25519_reduce64.exit:                            ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden i32 @_sodium_ristretto255_frombytes(ptr noundef %h, ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define hidden i32 @_sodium_ristretto255_frombytes(ptr noundef %h, ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %s.i255 = alloca [32 x i8], align 16
   %s.i = alloca [32 x i8], align 16
@@ -15193,7 +15193,7 @@ return:                                           ; preds = %ristretto255_is_can
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull initializes((0, 40)) %x, ptr nocapture noundef nonnull readonly %u, ptr nocapture noundef nonnull readonly %v) unnamed_addr #2 {
+define internal fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull initializes((0, 40)) %x, ptr noundef nonnull readonly captures(none) %u, ptr noundef nonnull readonly captures(none) %v) unnamed_addr #2 {
 entry:
   %negf.i.i = alloca [5 x i64], align 16
   %s.i.i = alloca [32 x i8], align 16
@@ -15864,7 +15864,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ristretto255_p3_tobytes(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #2 {
+define hidden void @_sodium_ristretto255_p3_tobytes(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #2 {
 entry:
   %negf.i.i = alloca [5 x i64], align 16
   %negf.i = alloca [5 x i64], align 16
@@ -16366,7 +16366,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden void @_sodium_ristretto255_from_hash(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #2 {
+define hidden void @_sodium_ristretto255_from_hash(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef readonly captures(none) %h) local_unnamed_addr #2 {
 entry:
   %r0 = alloca [5 x i64], align 16
   %r1 = alloca [5 x i64], align 16
@@ -16436,7 +16436,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @ristretto255_elligator(ptr nocapture noundef nonnull writeonly initializes((0, 160)) %p, ptr nocapture noundef nonnull readonly %t) unnamed_addr #2 {
+define internal fastcc void @ristretto255_elligator(ptr noundef nonnull writeonly captures(none) initializes((0, 160)) %p, ptr noundef nonnull readonly captures(none) %t) unnamed_addr #2 {
 entry:
   %negf.i.i = alloca [5 x i64], align 16
   %c = alloca [5 x i64], align 16
@@ -16943,12 +16943,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @ge25519_p3_dbladd(ptr nocapture noundef nonnull %r, i32 noundef range(i32 6, 127) %n, ptr nocapture noundef nonnull readonly %q) unnamed_addr #1 {
+define internal fastcc void @ge25519_p3_dbladd(ptr noundef nonnull captures(none) %r, i32 noundef range(i32 6, 127) %n, ptr noundef nonnull readonly captures(none) %q) unnamed_addr #1 {
 entry:
   %p2 = alloca %struct.ge25519_p2, align 8
   %p1p1 = alloca %struct.ge25519_p1p1, align 8
@@ -16988,7 +16988,7 @@ for.end:                                          ; preds = %for.body
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_sqmul(ptr nocapture noundef nonnull %s, i32 noundef range(i32 2, 121) %n, ptr nocapture noundef nonnull readonly %a) unnamed_addr #1 {
+define internal fastcc void @fe25519_sqmul(ptr noundef nonnull captures(none) %s, i32 noundef range(i32 2, 121) %n, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #1 {
 entry:
   %arrayidx1.i = getelementptr i8, ptr %s, i64 8
   %arrayidx3.i = getelementptr i8, ptr %s, i64 16
@@ -17091,10 +17091,10 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

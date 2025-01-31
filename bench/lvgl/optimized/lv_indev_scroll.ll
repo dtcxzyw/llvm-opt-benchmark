@@ -384,10 +384,10 @@ init_scroll_limits.exit:                          ; preds = %111, %115
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lv_point_t, align 8
   %3 = alloca %struct.lv_point_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -720,7 +720,7 @@ declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_point_transform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -999,9 +999,9 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %45, %40
   %59 = icmp sgt i32 %spec.select135, %58
   %60 = sub nsw i32 %58, %51
   %.1134 = select i1 %59, i32 %60, i32 %spec.select
-  %61 = tail call fastcc i32 @find_snap_point_y(ptr noundef %3, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1134)
+  %61 = tail call fastcc i32 @find_snap_point_y(ptr noundef nonnull %3, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1134)
   %62 = add nsw i32 %.1134, %61
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef 0, i32 noundef %62, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %62, i32 noundef 1) #5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 2
@@ -1072,9 +1072,9 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   %101 = icmp sgt i32 %spec.select137, %100
   %102 = sub nsw i32 %100, %93
   %.1 = select i1 %101, i32 %102, i32 %spec.select136
-  %103 = tail call fastcc i32 @find_snap_point_x(ptr noundef %3, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1)
+  %103 = tail call fastcc i32 @find_snap_point_x(ptr noundef nonnull %3, i32 noundef -536870911, i32 noundef 536870911, i32 noundef %.1)
   %104 = add nsw i32 %.1, %103
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef %104, i32 noundef 0, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef %104, i32 noundef 0, i32 noundef 1) #5
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = load i8, ptr %105, align 8
   %107 = and i8 %106, 2
@@ -1098,8 +1098,8 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   br i1 %117, label %118, label %.critedge
 
 118:                                              ; preds = %116
-  %119 = tail call i32 @lv_obj_get_scroll_top(ptr noundef %3) #5
-  %120 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef %3) #5
+  %119 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %3) #5
+  %120 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %3) #5
   %121 = icmp sgt i32 %119, 0
   %122 = icmp sgt i32 %120, 0
   %or.cond = select i1 %121, i1 true, i1 %122
@@ -1110,7 +1110,7 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %123
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef 0, i32 noundef %119, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %119, i32 noundef 1) #5
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %127 = load i8, ptr %126, align 8
   %128 = and i8 %127, 2
@@ -1123,7 +1123,7 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
 
 131:                                              ; preds = %129
   %132 = sub nsw i32 0, %120
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef 0, i32 noundef %132, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %132, i32 noundef 1) #5
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load i8, ptr %133, align 8
   %135 = and i8 %134, 2
@@ -1135,8 +1135,8 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   br i1 %136, label %137, label %.critedge116
 
 137:                                              ; preds = %.critedge
-  %138 = tail call i32 @lv_obj_get_scroll_left(ptr noundef %3) #5
-  %139 = tail call i32 @lv_obj_get_scroll_right(ptr noundef %3) #5
+  %138 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %3) #5
+  %139 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %3) #5
   %140 = icmp sgt i32 %138, 0
   %141 = icmp sgt i32 %139, 0
   %or.cond8 = select i1 %140, i1 true, i1 %141
@@ -1147,7 +1147,7 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %142
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef %138, i32 noundef 0, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef %138, i32 noundef 0, i32 noundef 1) #5
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = load i8, ptr %145, align 8
   %147 = and i8 %146, 2
@@ -1160,7 +1160,7 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
 
 150:                                              ; preds = %148
   %151 = sub nsw i32 0, %139
-  tail call void @lv_obj_scroll_by(ptr noundef %3, i32 noundef %151, i32 noundef 0, i32 noundef 1) #5
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %3, i32 noundef %151, i32 noundef 0, i32 noundef 1) #5
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %153 = load i8, ptr %152, align 8
   %154 = and i8 %153, 2
@@ -1168,7 +1168,7 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   br i1 %.not112, label %.critedge116, label %162
 
 .critedge116:                                     ; preds = %137, %148, %150, %144, %.critedge
-  %155 = tail call i32 @lv_obj_send_event(ptr noundef %3, i32 noundef 14, ptr noundef nonnull %0) #5
+  %155 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %3, i32 noundef 14, ptr noundef nonnull %0) #5
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %157 = load i8, ptr %156, align 8
   %158 = and i8 %157, 2
@@ -1462,7 +1462,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

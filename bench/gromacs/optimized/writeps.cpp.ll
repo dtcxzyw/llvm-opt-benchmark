@@ -105,10 +105,10 @@ define noundef ptr @_Z17enumValueToString5Fonts(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7ps_openRKNSt10filesystem7__cxx114pathEffff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.t_psdata) align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_Z7ps_openRKNSt10filesystem7__cxx114pathEffff(ptr dead_on_unwind noalias writable writeonly sret(%struct.t_psdata) align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -155,7 +155,7 @@ declare noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr nou
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -178,14 +178,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z12ps_linewidthP8t_psdatai(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @_Z12ps_linewidthP8t_psdatai(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i32 noundef %1) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8ps_colorP8t_psdatafff(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
+define void @_Z8ps_colorP8t_psdatafff(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca [12 x i8], align 1
   %6 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3)
   %7 = trunc i64 %6 to i32
@@ -196,7 +196,7 @@ define void @_Z8ps_colorP8t_psdatafff(ptr nocapture noundef %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -9223372036854775808, 384307168202282325) i64 @_ZL10search_colP8t_psdatafff(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 -9223372036854775808, 384307168202282325) i64 @_ZL10search_colP8t_psdatafff(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [12 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -339,7 +339,7 @@ _ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds = %46, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
@@ -348,7 +348,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [12 x i8], align 1
   %4 = load double, ptr %1, align 8
   %5 = fptrunc double %4 to float
@@ -369,7 +369,7 @@ define void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr nocapture noundef initializes((32, 36)) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr noundef captures(none) initializes((32, 36)) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -381,7 +381,7 @@ define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, float noundef %2) local_unnamed_addr #2 {
+define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, float noundef %2) local_unnamed_addr #2 {
   %4 = alloca [12 x i8], align 1
   %5 = fcmp ogt float %2, 2.000000e+00
   br i1 %5, label %9, label %.preheader
@@ -440,7 +440,7 @@ define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10ps_rgb_boxP8t_psdataP5t_rgb(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @_Z10ps_rgb_boxP8t_psdataP5t_rgb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fptrunc double %4 to float
@@ -456,7 +456,7 @@ define void @_Z10ps_rgb_boxP8t_psdataP5t_rgb(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z15ps_init_rgb_boxP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z15ps_init_rgb_boxP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %2 to double
   %6 = fpext float %1 to double
@@ -469,7 +469,7 @@ define void @_Z15ps_init_rgb_boxP8t_psdataff(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9ps_linetoP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z9ps_linetoP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
@@ -478,7 +478,7 @@ define void @_Z9ps_linetoP8t_psdataff(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_linerelP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z10ps_linerelP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
@@ -487,7 +487,7 @@ define void @_Z10ps_linerelP8t_psdataff(ptr nocapture noundef readonly %0, float
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9ps_movetoP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z9ps_movetoP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
@@ -496,7 +496,7 @@ define void @_Z9ps_movetoP8t_psdataff(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_moverelP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z10ps_moverelP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
@@ -505,7 +505,7 @@ define void @_Z10ps_moverelP8t_psdataff(ptr nocapture noundef readonly %0, float
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z7ps_lineP8t_psdataffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @_Z7ps_lineP8t_psdataffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
@@ -520,7 +520,7 @@ define void @_Z7ps_lineP8t_psdataffff(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z6ps_boxP8t_psdataffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @_Z6ps_boxP8t_psdataffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
@@ -547,7 +547,7 @@ define void @_Z6ps_boxP8t_psdataffff(ptr nocapture noundef readonly %0, float no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_fillboxP8t_psdataffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @_Z10ps_fillboxP8t_psdataffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
@@ -574,7 +574,7 @@ define void @_Z10ps_fillboxP8t_psdataffff(ptr nocapture noundef readonly %0, flo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z6ps_arcP8t_psdatafffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 {
+define void @_Z6ps_arcP8t_psdatafffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 {
   %7 = load ptr, ptr %0, align 8
   %8 = fpext float %1 to double
   %9 = fpext float %2 to double
@@ -586,7 +586,7 @@ define void @_Z6ps_arcP8t_psdatafffff(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_fillarcP8t_psdatafffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 {
+define void @_Z10ps_fillarcP8t_psdatafffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 {
   %7 = load ptr, ptr %0, align 8
   %8 = fpext float %1 to double
   %9 = fpext float %2 to double
@@ -598,7 +598,7 @@ define void @_Z10ps_fillarcP8t_psdatafffff(ptr nocapture noundef readonly %0, fl
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z11ps_arcsliceP8t_psdataffffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #7 {
+define void @_Z11ps_arcsliceP8t_psdataffffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #7 {
   %8 = load ptr, ptr %0, align 8
   %9 = fpext float %1 to double
   %10 = fpext float %2 to double
@@ -611,7 +611,7 @@ define void @_Z11ps_arcsliceP8t_psdataffffff(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #7 {
+define void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #7 {
   %8 = load ptr, ptr %0, align 8
   %9 = fpext float %1 to double
   %10 = fpext float %2 to double
@@ -624,7 +624,7 @@ define void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9ps_circleP8t_psdatafff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
+define void @_Z9ps_circleP8t_psdatafff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = load ptr, ptr %0, align 8
   %6 = fpext float %1 to double
   %7 = fpext float %2 to double
@@ -634,7 +634,7 @@ define void @_Z9ps_circleP8t_psdatafff(ptr nocapture noundef readonly %0, float 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z7ps_fontP8t_psdata5Fontsf(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z7ps_fontP8t_psdata5Fontsf(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq i32 %1, 12
   br i1 %4, label %5, label %8
 
@@ -657,7 +657,7 @@ define void @_Z7ps_fontP8t_psdata5Fontsf(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_strfontP8t_psdataPcf(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z10ps_strfontP8t_psdataPcf(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.45, ptr noundef %1) #17
   %6 = load ptr, ptr %0, align 8
@@ -667,7 +667,7 @@ define void @_Z10ps_strfontP8t_psdataPcf(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z7ps_textP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #10 {
+define void @_Z7ps_textP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #10 {
   %5 = load ptr, ptr %0, align 8
   %6 = fpext float %1 to double
   %7 = fpext float %2 to double
@@ -679,7 +679,7 @@ define void @_Z7ps_textP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z7ps_flipP8t_psdatab(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define void @_Z7ps_flipP8t_psdatab(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   br i1 %1, label %4, label %6
 
@@ -696,7 +696,7 @@ define void @_Z7ps_flipP8t_psdatab(ptr nocapture noundef readonly %0, i1 noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z9ps_rotateP8t_psdataf(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
+define void @_Z9ps_rotateP8t_psdataf(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = fpext float %1 to double
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, double noundef %4) #17
@@ -704,7 +704,7 @@ define void @_Z9ps_rotateP8t_psdataf(ptr nocapture noundef readonly %0, float no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = icmp eq i32 %4, 1
   %8 = load ptr, ptr %0, align 8
@@ -852,7 +852,7 @@ declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align
 declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #5
@@ -866,7 +866,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z12ps_translateP8t_psdataff(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z12ps_translateP8t_psdataff(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
@@ -875,7 +875,7 @@ define void @_Z12ps_translateP8t_psdataff(ptr nocapture noundef readonly %0, flo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z12ps_setoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define void @_Z12ps_setoriginP8t_psdata(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 55, i64 1, ptr %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -886,7 +886,7 @@ define void @_Z12ps_setoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14ps_unsetoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_Z14ps_unsetoriginP8t_psdata(ptr noundef captures(none) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
@@ -917,7 +917,7 @@ define void @_Z14ps_unsetoriginP8t_psdata(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8ps_closeP8t_psdata(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @_Z8ps_closeP8t_psdata(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62) #17
   %4 = load ptr, ptr %0, align 8
@@ -930,23 +930,23 @@ define void @_Z8ps_closeP8t_psdata(ptr nocapture noundef readonly %0) local_unna
 declare noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10ps_commentP8t_psdataPKc(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @_Z10ps_commentP8t_psdataPKc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.64, ptr noundef %1) #17
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

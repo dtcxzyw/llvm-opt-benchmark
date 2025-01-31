@@ -78,7 +78,7 @@ pty_chr_timer_cancel.exit:                        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_pty_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_pty_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #9
   %open = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @pty_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @pty_chr_read(ptr readnone captures(none) %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
@@ -279,7 +279,7 @@ declare void @g_source_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_pty_open(ptr noundef %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
+define internal void @char_pty_open(ptr noundef %chr, ptr readnone captures(none) %backend, ptr noundef writeonly captures(none) %be_opened, ptr noundef %errp) #0 {
 entry:
   %amaster.i = alloca i32, align 4
   %tty.i = alloca %struct.termios, align 4
@@ -515,7 +515,7 @@ declare void @cfmakeraw(ptr noundef) local_unnamed_addr #3
 declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @ptsname(i32 noundef) local_unnamed_addr #3
@@ -536,10 +536,10 @@ declare ptr @qio_channel_create_watch(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

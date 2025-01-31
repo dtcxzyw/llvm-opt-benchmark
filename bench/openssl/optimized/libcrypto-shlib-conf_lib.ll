@@ -779,7 +779,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @NCONF_get0_libctx(ptr nocapture noundef readonly %conf) local_unnamed_addr #3 {
+define ptr @NCONF_get0_libctx(ptr noundef readonly captures(none) %conf) local_unnamed_addr #3 {
 entry:
   %libctx = getelementptr inbounds nuw i8, ptr %conf, i64 40
   %0 = load ptr, ptr %libctx, align 8
@@ -787,7 +787,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @NCONF_get_section_names(ptr nocapture noundef readonly %cnf) local_unnamed_addr #0 {
+define ptr @NCONF_get_section_names(ptr noundef readonly captures(none) %cnf) local_unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @section_name_cmp) #14
   %cmp = icmp eq ptr %call1, null
@@ -807,7 +807,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @section_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal i32 @section_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -816,7 +816,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_section_name(ptr nocapture noundef readonly %v, ptr noundef %names) #0 {
+define internal void @collect_section_name(ptr noundef readonly captures(none) %v, ptr noundef %names) #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %v, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -903,7 +903,7 @@ declare ptr @_CONF_get_section_values(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @_CONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_is_number(ptr nocapture readnone %conf, i8 noundef signext %c) unnamed_addr #0 {
+define internal i32 @default_is_number(ptr readnone captures(none) %conf, i8 noundef signext %c) unnamed_addr #0 {
 entry:
   %conv = sext i8 %c to i32
   %call = tail call i32 @ossl_isdigit(i32 noundef %conv) #14
@@ -911,7 +911,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -176, 80) i32 @default_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) unnamed_addr #5 {
+define internal range(i32 -176, 80) i32 @default_to_int(ptr readnone captures(none) %conf, i8 noundef signext %c) unnamed_addr #5 {
 entry:
   %conv = sext i8 %c to i32
   %sub = add nsw i32 %conv, -48
@@ -989,7 +989,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr nocapture noundef %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr noundef captures(none) %settings, ptr noundef readonly %filename) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1012,13 +1012,13 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OPENSSL_INIT_set_config_file_flags(ptr nocapture noundef writeonly initializes((16, 24)) %settings, i64 noundef %flags) local_unnamed_addr #10 {
+define void @OPENSSL_INIT_set_config_file_flags(ptr noundef writeonly captures(none) initializes((16, 24)) %settings, i64 noundef %flags) local_unnamed_addr #10 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %settings, i64 16
   store i64 %flags, ptr %flags1, align 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr nocapture noundef %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr noundef captures(none) %settings, ptr noundef readonly %appname) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %appname, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1050,7 +1050,7 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @OPENSSL_INIT_free(ptr nocapture noundef %settings) local_unnamed_addr #7 {
+define void @OPENSSL_INIT_free(ptr noundef captures(none) %settings) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %settings, align 8
   tail call void @free(ptr noundef %0) #14
@@ -1062,7 +1062,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @OPENSSL_LH_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1071,10 +1071,10 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

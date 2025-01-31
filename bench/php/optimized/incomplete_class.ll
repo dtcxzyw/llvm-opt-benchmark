@@ -52,10 +52,10 @@ define void @php_register_incomplete_class_handlers() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @incomplete_class_get_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef writeonly %4) #2 {
+define internal noundef ptr @incomplete_class_get_property(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly %4) #2 {
   %6 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %6, align 8
   tail call fastcc void @incomplete_class_message(ptr %.val)
@@ -74,7 +74,7 @@ define internal noundef ptr @incomplete_class_get_property(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @incomplete_class_has_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal noundef i32 @incomplete_class_has_property(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   tail call fastcc void @incomplete_class_message(ptr %.val)
@@ -82,7 +82,7 @@ define internal noundef i32 @incomplete_class_has_property(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @incomplete_class_unset_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal void @incomplete_class_unset_property(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
@@ -90,7 +90,7 @@ define internal void @incomplete_class_unset_property(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @incomplete_class_write_property(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef readnone returned %2, ptr nocapture readnone %3) #2 {
+define internal noundef ptr @incomplete_class_write_property(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
@@ -98,7 +98,7 @@ define internal noundef ptr @incomplete_class_write_property(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @incomplete_class_get_property_ptr_ptr(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal nonnull ptr @incomplete_class_get_property_ptr_ptr(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   tail call fastcc void @throw_incomplete_class_error(ptr %.val, ptr noundef nonnull @.str.4)
@@ -106,7 +106,7 @@ define internal nonnull ptr @incomplete_class_get_property_ptr_ptr(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @incomplete_class_get_method(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @incomplete_class_get_method(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %.val = load ptr, ptr %5, align 8
@@ -124,7 +124,7 @@ define internal noundef ptr @php_create_incomplete_object(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_lookup_class_name(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @php_lookup_class_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -163,7 +163,7 @@ define ptr @php_lookup_class_name(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @php_store_class_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @php_store_class_name(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4

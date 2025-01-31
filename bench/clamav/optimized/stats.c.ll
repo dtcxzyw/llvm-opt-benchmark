@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [37 x i8] c"5b585e8f-3be5-11e3-bf0b-18037319526c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define void @clamav_stats_add_sample(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %106, label %6
 
@@ -371,7 +371,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #4 {
+define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.03563 = load ptr, ptr %6, align 8
   %.not64 = icmp eq ptr %.03563, null
@@ -543,16 +543,16 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
@@ -662,7 +662,7 @@ free_sample.exit:                                 ; preds = %22, %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_sample(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @free_sample(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %.preheader
@@ -886,7 +886,7 @@ declare ptr @export_stats_to_json(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @submit_post(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %67, label %5
 
@@ -1208,10 +1208,10 @@ find_sample.exit.thread:                          ; preds = %.critedge.us78.i, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define ptr @clamav_stats_get_hostid(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @clamav_stats_get_hostid(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @internal_get_host_id() #13
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1228,70 +1228,70 @@ define ptr @clamav_stats_get_hostid(ptr nocapture noundef readnone %0) local_unn
 declare ptr @internal_get_host_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_submit(ptr nocapture noundef writeonly initializes((1112, 1120)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_submit(ptr noundef writeonly captures(none) initializes((1112, 1120)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_stats_set_cbdata(ptr nocapture noundef writeonly initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_stats_set_cbdata(ptr noundef writeonly captures(none) initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_add_sample(ptr nocapture noundef writeonly initializes((1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_add_sample(ptr noundef writeonly captures(none) initializes((1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_remove_sample(ptr nocapture noundef writeonly initializes((1096, 1104)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_remove_sample(ptr noundef writeonly captures(none) initializes((1096, 1104)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_decrement_count(ptr nocapture noundef writeonly initializes((1104, 1112)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_decrement_count(ptr noundef writeonly captures(none) initializes((1104, 1112)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_flush(ptr nocapture noundef writeonly initializes((1120, 1128)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_flush(ptr noundef writeonly captures(none) initializes((1120, 1128)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_num(ptr nocapture noundef writeonly initializes((1128, 1136)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_num(ptr noundef writeonly captures(none) initializes((1128, 1136)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_size(ptr nocapture noundef writeonly initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_size(ptr noundef writeonly captures(none) initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_hostid(ptr nocapture noundef writeonly initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_hostid(ptr noundef writeonly captures(none) initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_stats_enable(ptr nocapture noundef writeonly initializes((1088, 1096), (1112, 1120)) %0) local_unnamed_addr #11 {
+define void @cl_engine_stats_enable(ptr noundef writeonly captures(none) initializes((1088, 1096), (1112, 1120)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr @clamav_stats_add_sample, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -1300,10 +1300,10 @@ define void @cl_engine_stats_enable(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

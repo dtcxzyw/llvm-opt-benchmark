@@ -14,7 +14,7 @@ define hidden noundef i64 @pm_buffer_sizeof() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr noundef writeonly captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -29,7 +29,7 @@ define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @pm_buffer_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1024, ptr %2, align 8
@@ -41,20 +41,20 @@ define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @pm_buffer_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden ptr @pm_buffer_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @pm_buffer_length(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i64 @pm_buffer_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_zeroes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_zeroes(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111,10 +111,10 @@ pm_buffer_append_length.exit:                     ; preds = %16, %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_format(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
@@ -182,10 +182,10 @@ pm_buffer_append_length.exit:                     ; preds = %22, %2, %27
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -242,7 +242,7 @@ pm_buffer_append.exit:                            ; preds = %17, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_bytes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_bytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -299,7 +299,7 @@ pm_buffer_append.exit:                            ; preds = %17, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_byte(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_byte(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -356,7 +356,7 @@ pm_buffer_append.exit:                            ; preds = %16, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_varuint(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_varuint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %5, label %.preheader
 
@@ -530,7 +530,7 @@ pm_buffer_append_byte.exit:                       ; preds = %70, %66, %25, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_varsint(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_varsint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = shl i32 %1, 1
   %4 = ashr i32 %1, 31
   %5 = xor i32 %3, %4
@@ -539,7 +539,7 @@ define hidden void @pm_buffer_append_varsint(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_double(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_double(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -596,7 +596,7 @@ pm_buffer_append.exit:                            ; preds = %16, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_source(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1275,7 +1275,7 @@ pm_buffer_append_string.exit:                     ; preds = %266, %262, %246, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_prepend_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @pm_buffer_prepend_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1335,13 +1335,13 @@ pm_buffer_append_length.exit:                     ; preds = %17, %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @pm_buffer_concat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %pm_buffer_append.exit, label %4
@@ -1405,13 +1405,13 @@ pm_buffer_append.exit:                            ; preds = %25, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_buffer_clear(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #8 {
+define hidden void @pm_buffer_clear(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #8 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_rstrip(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.critedge, label %.lr.ph
@@ -1443,7 +1443,7 @@ define hidden void @pm_buffer_rstrip(ptr nocapture noundef %0) local_unnamed_add
 declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden void @pm_buffer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
@@ -1451,10 +1451,10 @@ define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #13

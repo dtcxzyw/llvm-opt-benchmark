@@ -771,12 +771,12 @@ refr_invalid_areas.exit.thread:                   ; preds = %refr_invalid_areas.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -850,16 +850,16 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   %39 = load ptr, ptr %38, align 8, !tbaa !68
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv137
   %41 = load ptr, ptr %40, align 8, !tbaa !71
-  call fastcc void @refr_obj(ptr noundef %0, ptr noundef %41)
+  call fastcc void @refr_obj(ptr noundef nonnull %0, ptr noundef %41)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count141
   br i1 %exitcond142.not, label %42, label %37, !llvm.loop !72
 
 42:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !53
-  %43 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 31, ptr noundef %0) #9
-  %44 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 32, ptr noundef %0) #9
-  %45 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 33, ptr noundef %0) #9
+  %43 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 31, ptr noundef nonnull %0) #9
+  %44 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 32, ptr noundef nonnull %0) #9
+  %45 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 33, ptr noundef nonnull %0) #9
   br label %118
 
 46:                                               ; preds = %33
@@ -923,7 +923,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   call void @lv_draw_mask_rect(ptr noundef %66, ptr noundef nonnull %7) #9
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %66, ptr %77, align 8, !tbaa !77
-  call void @lv_draw_layer(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  call void @lv_draw_layer(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   br label %78
 
 78:                                               ; preds = %73, %56
@@ -939,7 +939,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   br i1 %84, label %85, label %98
 
 85:                                               ; preds = %78
-  %86 = call ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %10) #9
+  %86 = call ptr @lv_draw_layer_create(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %10) #9
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %umax128 = call i32 @llvm.umax.i32(i32 %23, i32 1)
   %wide.trip.count129 = zext i32 %umax128 to i64
@@ -963,7 +963,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   call void @lv_draw_mask_rect(ptr noundef %86, ptr noundef nonnull %7) #9
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %86, ptr %97, align 8, !tbaa !77
-  call void @lv_draw_layer(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10) #9
+  call void @lv_draw_layer(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %10) #9
   br label %98
 
 98:                                               ; preds = %93, %78
@@ -993,15 +993,15 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   %110 = load ptr, ptr %109, align 8, !tbaa !68
   %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv131
   %112 = load ptr, ptr %111, align 8, !tbaa !71
-  call fastcc void @refr_obj(ptr noundef %0, ptr noundef %112)
+  call fastcc void @refr_obj(ptr noundef nonnull %0, ptr noundef %112)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count135
   br i1 %exitcond136.not, label %113, label %108, !llvm.loop !81
 
 113:                                              ; preds = %108
-  %114 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 31, ptr noundef %0) #9
-  %115 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 32, ptr noundef %0) #9
-  %116 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 33, ptr noundef %0) #9
+  %114 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 31, ptr noundef nonnull %0) #9
+  %115 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 32, ptr noundef nonnull %0) #9
+  %116 = call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 33, ptr noundef nonnull %0) #9
   br label %117
 
 117:                                              ; preds = %113, %98
@@ -1025,7 +1025,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_obj_get_coords(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1594,7 +1594,7 @@ declare i32 @lv_area_get_size(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @lv_ll_is_empty(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #2
 

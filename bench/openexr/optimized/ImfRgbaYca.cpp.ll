@@ -24,7 +24,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr) local_unnamed_addr #3 {
+define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec3") align 4 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr) local_unnamed_addr #3 {
 entry:
   %m = alloca %"class.Imath_3_2::Matrix44", align 4
   call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %m, ptr noundef nonnull align 4 dereferenceable(32) %cr, float noundef 1.000000e+00)
@@ -50,7 +50,7 @@ entry:
 declare void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr sret(%"class.Imath_3_2::Matrix44") align 4, ptr noundef nonnull align 4 dereferenceable(32), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %yw, i32 noundef %n, i1 noundef zeroext %aIsValid, ptr nocapture noundef readonly %rgbaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %yw, i32 noundef %n, i1 noundef zeroext %aIsValid, ptr noundef readonly captures(none) %rgbaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp176 = icmp sgt i32 %n, 0
   br i1 %cmp176, label %for.body.lr.ph, label %for.end
@@ -438,7 +438,7 @@ for.end:                                          ; preds = %if.end88, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca19decimateChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca19decimateChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp182 = icmp sgt i32 %n, 0
   br i1 %cmp182, label %for.body.preheader, label %for.end
@@ -823,7 +823,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp181 = icmp sgt i32 %n, 0
   br i1 %cmp181, label %for.body.lr.ph, label %for.end
@@ -1248,7 +1248,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %n, i32 noundef %roundY, i32 noundef %roundC, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #6 {
+define void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %n, i32 noundef %roundY, i32 noundef %roundC, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #6 {
 entry:
   %cmp58 = icmp sgt i32 %n, 0
   br i1 %cmp58, label %for.body.lr.ph, label %for.end
@@ -1476,7 +1476,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca22reconstructChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca22reconstructChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp182 = icmp sgt i32 %n, 0
   br i1 %cmp182, label %for.body.preheader, label %for.end
@@ -1860,7 +1860,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %ycaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp172 = icmp sgt i32 %n, 0
   br i1 %cmp172, label %for.body.lr.ph, label %for.end
@@ -2262,7 +2262,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_24halfa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %yw, i32 noundef %n, ptr nocapture noundef readonly %ycaIn, ptr nocapture noundef writeonly %rgbaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %yw, i32 noundef %n, ptr noundef readonly captures(none) %ycaIn, ptr noundef writeonly captures(none) %rgbaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp134 = icmp sgt i32 %n, 0
   br i1 %cmp134, label %for.body.lr.ph, label %for.end
@@ -2574,7 +2574,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_27RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %yw, i32 noundef %n, ptr nocapture noundef readonly %rgbaIn, ptr nocapture noundef writeonly %rgbaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %yw, i32 noundef %n, ptr noundef readonly captures(none) %rgbaIn, ptr noundef writeonly captures(none) %rgbaOut) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %rgbaIn, i64 16
   %cmp136 = icmp sgt i32 %n, 0

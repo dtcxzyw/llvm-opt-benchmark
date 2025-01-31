@@ -501,7 +501,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 65541) i32 @get_s5066_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 65541) i32 @get_s5066_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %.b2 = load i1, ptr @s5066_size_offset, align 4
   %5 = select i1 %.b2, i32 2, i32 3
   %6 = add i32 %5, %2
@@ -514,7 +514,7 @@ define internal range(i32 4, 65541) i32 @get_s5066_pdu_len(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %.b120 = load i1, ptr @s5066_header_size, align 4
@@ -1341,7 +1341,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = and i8 %3, 11
   %or.cond = icmp eq i8 %6, 2
   %7 = icmp eq i8 %3, 7

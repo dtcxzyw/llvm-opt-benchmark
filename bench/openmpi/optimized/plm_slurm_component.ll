@@ -43,7 +43,7 @@ define internal noundef i32 @plm_slurm_close() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
@@ -85,7 +85,7 @@ define internal noundef i32 @plm_slurm_register() #1 {
 declare i32 @pmix_mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 

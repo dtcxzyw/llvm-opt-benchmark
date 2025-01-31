@@ -142,7 +142,7 @@ do_table2string.exit:                             ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %bp, ptr nocapture noundef readonly %o, i64 noundef %flags) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OCSP_REQUEST_print(ptr noundef %bp, ptr noundef readonly captures(none) %o, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %optionalSignature = getelementptr inbounds nuw i8, ptr %o, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8

@@ -181,7 +181,7 @@ aesdec_ISB_ISR_IMC_AK.exit:                       ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local i64 @helper_aes64ks2(i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #0 {
@@ -329,7 +329,7 @@ entry:
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st) unnamed_addr #4 {
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %0, <2 x i64> zeroinitializer)
@@ -343,7 +343,7 @@ declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) loca
 declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #4 {
+define internal fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef readonly captures(none) %rk) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -358,7 +358,7 @@ declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_u
 declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st) unnamed_addr #4 {
+define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64> %0, <2 x i64> zeroinitializer)
@@ -372,7 +372,7 @@ declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local
 declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #4 {
+define internal fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull readonly captures(none) %rk) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -387,7 +387,7 @@ declare void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef, ptr noundef, ptr noundef) l
 declare <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64>, <2 x i64>) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_IMC_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st) unnamed_addr #4 {
+define internal fastcc void @aesdec_IMC_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64> %0)

@@ -71,13 +71,13 @@ $_ZNK4llvh23SmallVectorMemoryBuffer13getBufferKindEv = comdat any
 @_ZN4llvh23SmallVectorMemoryBufferD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh23SmallVectorMemoryBufferD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4llvh12MemoryBufferD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh12MemoryBufferD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN4llvh12MemoryBufferD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvh12MemoryBufferD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #20
   unreachable
@@ -87,7 +87,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh12MemoryBuffer4initEPKcS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef %BufStart, ptr noundef %BufEnd, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer4initEPKcS2_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 24)) %this, ptr noundef %BufStart, ptr noundef %BufEnd, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #3 align 2 {
 entry:
   %BufferStart = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %BufStart, ptr %BufferStart, align 8
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr %InputData.coerce0, i64 %InputData.coerce1, ptr %BufferName.coerce0, i64 %BufferName.coerce1, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr %InputData.coerce0, i64 %InputData.coerce1, ptr %BufferName.coerce0, i64 %BufferName.coerce1, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
   %BufferName = alloca %"class.llvh::StringRef", align 8
@@ -154,10 +154,10 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefP
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly byval(%"class.llvh::MemoryBufferRef") align 8 %Ref, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef readonly byval(%"class.llvh::MemoryBufferRef") align 8 captures(none) %Ref, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
   %BufferName.i = alloca %"class.llvh::StringRef", align 8
@@ -226,7 +226,7 @@ _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13Co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture readonly %InputData.coerce0, i64 %InputData.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readonly captures(none) %InputData.coerce0, i64 %InputData.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !7
@@ -294,7 +294,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer14getFileOrSTDINERKNS_5TwineElb(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer14getFileOrSTDINERKNS_5TwineElb(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator) local_unnamed_addr #4 align 2 {
 entry:
   %FD.i.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.llvh::ErrorOr", align 8
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end.i, %sw.bb7.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer8getSTDINEv(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 initializes((0, 4)) %agg.result) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer8getSTDINEv(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) initializes((0, 4)) %agg.result) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::ErrorOr", align 8
   %ref.tmp1 = alloca %"class.llvh::Twine", align 8
@@ -509,7 +509,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   %FD.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -543,7 +543,7 @@ _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %FilePath, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %FilePath, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   %FD.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -577,14 +577,14 @@ _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh20WritableMemoryBuffer7getFileERKNS_5TwineElb(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh20WritableMemoryBuffer7getFileERKNS_5TwineElb(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
+define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
 entry:
   %NameBuf.i26.i = alloca %"class.llvh::SmallString", align 8
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
@@ -913,14 +913,14 @@ return:                                           ; preds = %_ZL15getOpenFileImp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh20WritableMemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh20WritableMemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias sret(%"class.llvh::ErrorOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.4") align 8 initializes((0, 8)) %agg.result, i64 noundef %Size, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE(ptr noalias writeonly sret(%"class.std::unique_ptr.4") align 8 captures(none) initializes((0, 8)) %agg.result, i64 noundef %Size, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf, i64 16
@@ -980,7 +980,7 @@ _ZN4llvh11SmallStringILj256EED2Ev.exit:           ; preds = %cleanup, %if.then.i
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.4") align 8 initializes((0, 8)) %agg.result, i64 noundef %Size, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr noalias writeonly sret(%"class.std::unique_ptr.4") align 8 captures(none) initializes((0, 8)) %agg.result, i64 noundef %Size, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
@@ -1048,17 +1048,17 @@ _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh24WriteThroughMemoryBuffer7getFileERKNS_5TwineEl(ptr noalias nocapture sret(%"class.llvh::ErrorOr.19") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh24WriteThroughMemoryBuffer7getFileERKNS_5TwineEl(ptr noalias sret(%"class.llvh::ErrorOr.19") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias nocapture align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset) unnamed_addr #4 {
+define internal fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset) unnamed_addr #4 {
 entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
   %FD = alloca i32, align 4
@@ -1236,21 +1236,21 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh24WriteThroughMemoryBuffer12getFileSliceERKNS_5TwineEmm(ptr noalias nocapture sret(%"class.llvh::ErrorOr.19") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh24WriteThroughMemoryBuffer12getFileSliceERKNS_5TwineEmm(ptr noalias sret(%"class.llvh::ErrorOr.19") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL16getReadWriteFileRKN4llvh5TwineEmmm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer11getOpenFileEiRKNS_5TwineEmbb(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer11getOpenFileEiRKNS_5TwineEmbb(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb(ptr noalias align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb(ptr noalias nocapture align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
+define internal fastcc void @_ZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb(ptr noalias align 8 captures(none) %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %RequiresNullTerminator, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
 entry:
   %NameBuf.i32 = alloca %"class.llvh::SmallString", align 8
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
@@ -1619,7 +1619,7 @@ return:                                           ; preds = %if.then28, %while.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer16getOpenFileSliceEiRKNS_5TwineEmlb(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer16getOpenFileSliceEiRKNS_5TwineEmlb(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
   tail call fastcc void @_ZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb(ptr noalias align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext false, i1 noundef zeroext %IsVolatile)
   ret void
@@ -1628,7 +1628,7 @@ entry:
 declare { i32, ptr } @_ZN4llvh3sys19ChangeStdinToBinaryEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias nocapture align 8 %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) unnamed_addr #4 {
+define internal fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvh5TwineE(ptr noalias align 8 captures(none) %agg.result, i32 noundef %FD, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) unnamed_addr #4 {
 entry:
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
   %Buffer = alloca %"class.llvh::SmallString.38", align 8
@@ -1786,7 +1786,7 @@ _ZN4llvh11SmallStringILj16384EED2Ev.exit:         ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12MemoryBuffer15getFileAsStreamERKNS_5TwineE(ptr noalias nocapture sret(%"class.llvh::ErrorOr.12") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh12MemoryBuffer15getFileAsStreamERKNS_5TwineE(ptr noalias sret(%"class.llvh::ErrorOr.12") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename) local_unnamed_addr #4 align 2 {
 entry:
   %FD = alloca i32, align 4
   %ref.tmp = alloca %"class.llvh::ErrorOr", align 8
@@ -1848,7 +1848,7 @@ declare { i32, ptr } @_ZN4llvh3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFl
 declare i32 @close(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh12MemoryBuffer15getMemBufferRefEv(ptr noalias nocapture writeonly sret(%"class.llvh::MemoryBufferRef") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4llvh12MemoryBuffer15getMemBufferRefEv(ptr noalias writeonly sret(%"class.llvh::MemoryBufferRef") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %BufferStart.i, align 8
@@ -1958,10 +1958,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare { i32, ptr } @_ZN4llvh3sys2fs6statusEiRNS1_11file_statusE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #8
 
@@ -1999,7 +1999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEE13getBufferKindEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEE13getBufferKindEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 1
 }
@@ -2012,7 +2012,7 @@ declare noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region10const_dataEv(ptr noun
 declare void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #12
@@ -2020,7 +2020,7 @@ declare ptr @__errno_location() local_unnamed_addr #12
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -2043,7 +2043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEE13getBufferKindEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEE13getBufferKindEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 0
 }
@@ -2057,7 +2057,7 @@ declare noundef i32 @_ZN4llvh3sys7Process11getPageSizeEv() local_unnamed_addr #8
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #17
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #12
@@ -2092,13 +2092,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEE13getBufferKindEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEE13getBufferKindEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -2121,7 +2121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEE13getBufferKindEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEE13getBufferKindEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 0
 }
@@ -2156,16 +2156,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEE13getBufferKindEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEE13getBufferKindEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

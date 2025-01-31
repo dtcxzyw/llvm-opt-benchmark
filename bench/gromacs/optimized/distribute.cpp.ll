@@ -138,7 +138,7 @@ define void @_Z20dd_distribute_dfhistP12gmx_domdec_tP12df_history_t(ptr noundef 
 declare void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15distributeStateRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tP7t_stateRK11gmx_ddbox_tS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z15distributeStateRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tP7t_stateRK11gmx_ddbox_tS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(200) %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca [3 x [3 x float]], align 16
   %8 = alloca [3 x i32], align 4
   %9 = alloca %"class.gmx::LogEntryWriter", align 8
@@ -1370,54 +1370,54 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 
 629:                                              ; preds = %._crit_edge172.i, %_ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK11gmx_ddbox_tPA3_fSF_.exit
   %630 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 28, ptr noundef nonnull %630)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 28, ptr noundef nonnull %630)
   %631 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 4, ptr noundef nonnull %631)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull %631)
   %632 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 4, ptr noundef nonnull %632)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull %632)
   %633 = getelementptr inbounds nuw i8, ptr %5, i64 404
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 4, ptr noundef nonnull %633)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull %633)
   %634 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 36, ptr noundef nonnull %634)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 36, ptr noundef nonnull %634)
   %635 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 36, ptr noundef nonnull %635)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 36, ptr noundef nonnull %635)
   %636 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 36, ptr noundef nonnull %636)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 36, ptr noundef nonnull %636)
   %637 = getelementptr inbounds nuw i8, ptr %5, i64 196
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 36, ptr noundef nonnull %637)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 36, ptr noundef nonnull %637)
   %638 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef 36, ptr noundef nonnull %638)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef 36, ptr noundef nonnull %638)
   %639 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %640 = load i32, ptr %639, align 8
   %641 = shl i32 %398, 3
   %642 = mul i32 %640, %641
   %643 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %644 = load ptr, ptr %643, align 8
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef %642, ptr noundef %644)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef %642, ptr noundef %644)
   %645 = load i32, ptr %639, align 8
   %646 = mul i32 %645, %641
   %647 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %648 = load ptr, ptr %647, align 8
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef %646, ptr noundef %648)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef %646, ptr noundef %648)
   %649 = load i32, ptr %639, align 8
   %650 = shl i32 %649, 3
   %651 = getelementptr inbounds nuw i8, ptr %5, i64 368
   %652 = load ptr, ptr %651, align 8
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef %650, ptr noundef %652)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef %650, ptr noundef %652)
   %653 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %654 = load i32, ptr %653, align 4
   %655 = mul i32 %654, %641
   %656 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %657 = load ptr, ptr %656, align 8
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef %655, ptr noundef %657)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef %655, ptr noundef %657)
   %658 = load i32, ptr %653, align 4
   %659 = mul i32 %658, %641
   %660 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %661 = load ptr, ptr %660, align 8
-  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %1, i32 noundef %659, ptr noundef %661)
+  call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %1, i32 noundef %659, ptr noundef %661)
   %662 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %663 = load ptr, ptr %662, align 8
-  call void @_Z20dd_distribute_dfhistP12gmx_domdec_tP12df_history_t(ptr noundef %1, ptr noundef %663)
+  call void @_Z20dd_distribute_dfhistP12gmx_domdec_tP12df_history_t(ptr noundef nonnull %1, ptr noundef %663)
   %664 = load ptr, ptr %271, align 8
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 1576
   %666 = load i32, ptr %665, align 4
@@ -1501,7 +1501,7 @@ _ZL19dd_distribute_stateP12gmx_domdec_tPK7t_statePS1_.exit: ; preds = %689, %697
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_Z15check_screw_boxPA3_Kf(ptr noundef) local_unnamed_addr #1
 
@@ -1550,19 +1550,19 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 declare void @_Z10dd_scatterPK12gmx_domdec_tiPKvPv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_Z11dd_scattervIiEvPK12gmx_domdec_tN3gmx8ArrayRefIKiEES6_PKT_iPS7_(ptr noundef, ptr, ptr, ptr, ptr, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @_Z21make_tric_corr_matrixiPA3_KfPA3_f(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare { ptr, ptr } @_Z21set_dd_cell_sizes_slbP12gmx_domdec_tPK11gmx_ddbox_tiPi(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, ptr nocapture readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domdec_tRK11gmx_ddbox_tRA3_A3_KfN3gmx8ArrayRefIKSt6vectorIfSaIfEEEEiiPS6_PA3_fSI_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(456) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(200) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %2, ptr readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) unnamed_addr #6 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x i32], align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2128,7 +2128,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
@@ -2398,7 +2398,7 @@ declare void @_Z15copy_df_historyP12df_history_tS0_(ptr noundef, ptr noundef) lo
 declare void @_ZN7t_state14changeNumAtomsEi(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef %0, ptr nocapture readonly %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EE(ptr noundef %0, ptr readonly captures(none) %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::ArrayRef", align 8
   %5 = alloca %"class.gmx::ArrayRef", align 8
   %6 = load i32, ptr %0, align 8
@@ -2773,10 +2773,10 @@ declare void @_Z11dd_scattervIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tNS0_8Array
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
@@ -2791,10 +2791,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

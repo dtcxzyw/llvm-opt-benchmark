@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [46 x i8] c"policies not yet implemented for this command\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecCreateTableAs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecCreateTableAs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -317,7 +317,7 @@ list_length.exit.thread:                          ; preds = %115, %list_length.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CreateTableAsRelExists(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CreateTableAsRelExists(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -420,7 +420,7 @@ declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 65) i32 @GetIntoRelEFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 65) i32 @GetIntoRelEFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -453,7 +453,7 @@ declare void @checkMembershipInCurrentExtension(ptr noundef) local_unnamed_addr 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @intorel_receive(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @intorel_receive(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -482,7 +482,7 @@ define internal noundef zeroext i1 @intorel_receive(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @intorel_startup(ptr nocapture noundef %0, i32 %1, ptr noundef %2) #0 {
+define internal void @intorel_startup(ptr noundef captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -658,7 +658,7 @@ list_head.exit:                                   ; preds = %3, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @intorel_shutdown(ptr nocapture noundef %0) #0 {
+define internal void @intorel_shutdown(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -720,7 +720,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @create_ctas_internal(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @create_ctas_internal(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 112) #6
   store i32 144, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -811,7 +811,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

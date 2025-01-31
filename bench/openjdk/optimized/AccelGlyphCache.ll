@@ -300,7 +300,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @AccelGlyphCache_RemoveCellInfo(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define hidden void @AccelGlyphCache_RemoveCellInfo(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -514,7 +514,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %24, %.lr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef %0) local_unnamed_addr #3 {
@@ -546,7 +546,7 @@ define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -570,7 +570,7 @@ define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr nocapture nou
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

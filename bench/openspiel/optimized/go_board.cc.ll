@@ -184,7 +184,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go11Neighbours4C2Et(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go11Neighbours4C2Et(ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
   store i16 0, ptr %0, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %1, ptr %3, align 2
@@ -200,7 +200,7 @@ define noundef nonnull align 2 dereferenceable(4) ptr @_ZN10open_spiel2go11Neigh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @_ZNK10open_spiel2go11Neighbours4deEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK10open_spiel2go11Neighbours4deEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = load i16, ptr %0, align 2
@@ -213,7 +213,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go11Neighbours4deEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel2go11Neighbours4cvbEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel2go11Neighbours4cvbEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 align 2 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp ult i16 %2, 4
   ret i1 %3
@@ -1309,7 +1309,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoardC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(7970) initializes((7960, 7968)) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel2go7GoBoardC2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) initializes((7960, 7968)) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.absl::debian2::AlphaNum", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -1360,7 +1360,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(7970) initializes((7944, 7952)) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) initializes((7944, 7952)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2648
@@ -1550,7 +1550,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1562,7 +1562,7 @@ define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain5resetEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %0, i8 0, i64 10, i1 false)
   ret void
 }
@@ -2364,7 +2364,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load atomic i8, ptr @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values acquire, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %11, !prof !4
@@ -2417,7 +2417,7 @@ define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = add i16 %1, 21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %5 = zext i16 %3 to i64
@@ -2493,7 +2493,7 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = add i16 %1, 21
   %5 = zext i16 %4 to i64
   %6 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5, i32 2
@@ -2724,7 +2724,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard13SingleLibertyEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard13SingleLibertyEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2895,7 +2895,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit14:             ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2962,7 +2962,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   switch i16 %1, label %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit [
     i16 442, label %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.thread
     i16 0, label %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.thread
@@ -3209,7 +3209,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = zext i16 %1 to i64
   %4 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
   store i16 %1, ptr %4, align 2
@@ -3314,7 +3314,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i16 %1 to i64
   %4 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -3681,7 +3681,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %3, %_ZNK10o
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_1EEvtRKT_"(i16 noundef zeroext %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #7 {
+define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_1EEvtRKT_"(i16 noundef zeroext %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 {
   %3 = add i16 %0, 21
   %4 = load ptr, ptr %1, align 8
   %5 = zext i16 %3 to i64
@@ -3832,7 +3832,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain5mergeERKS2_(ptr nocapture noundef nonnull align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain5mergeERKS2_(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -3859,7 +3859,7 @@ define void @_ZN10open_spiel2go7GoBoard5Chain5mergeERKS2_(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain11add_libertyEt(ptr nocapture noundef nonnull align 4 dereferenceable(12) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain11add_libertyEt(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 4
   %5 = add i16 %4, 1
@@ -3877,7 +3877,7 @@ define void @_ZN10open_spiel2go7GoBoard5Chain11add_libertyEt(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain14remove_libertyEt(ptr nocapture noundef nonnull align 4 dereferenceable(12) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain14remove_libertyEt(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 4
   %5 = add i16 %4, -1
@@ -3999,7 +3999,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoard8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7970) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel2go7GoBoard8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoRKNS0_7GoBoardE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(7970) %1)
@@ -4023,7 +4023,7 @@ define void @_ZN10open_spiel2go7GoBoard8ToStringB5cxx11Ev(ptr dead_on_unwind noa
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoRKNS0_7GoBoardE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7970) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoRKNS0_7GoBoardE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(7970) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.0", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -4349,7 +4349,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef nonnull align 8 dereferenceable(469) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(469) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -4942,7 +4942,7 @@ _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_
 declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -5116,7 +5116,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel2go12_GLOBAL__N_115MakeBoardPointsEi(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel2go12_GLOBAL__N_115MakeBoardPointsEi(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = mul nsw i32 %1, %1
   %4 = zext nneg i32 %3 to i64
@@ -5290,7 +5290,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -5693,7 +5693,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_ENK3$_0clEt"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i16 noundef zeroext %1) unnamed_addr #13 align 2 {
+define internal fastcc void @"_ZZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_ENK3$_0clEt"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i16 noundef zeroext %1) unnamed_addr #13 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca %class.anon.33, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5786,7 +5786,7 @@ define internal void @_GLOBAL__sub_I_go_board.cc() #21 section ".text.startup" {
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
@@ -5795,10 +5795,10 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22

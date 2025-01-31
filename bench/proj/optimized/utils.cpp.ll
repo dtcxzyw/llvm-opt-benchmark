@@ -115,7 +115,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.108 = private unnamed_addr constant [3 x i8] c"%G\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, 37
   br i1 %.not, label %3, label %switch.edge
@@ -170,10 +170,10 @@ switch.edge:                                      ; preds = %10, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr nocapture noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #2 {
+define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef captures(none) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %4, 37
   br i1 %.not, label %5, label %.sink.split
@@ -904,7 +904,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -158,7 +158,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @type_register(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local noundef ptr @type_register(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %parent, align 8
@@ -199,7 +199,7 @@ type_register_internal.exit:                      ; preds = %if.end.i.i, %if.the
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @type_register_static(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local noundef ptr @type_register_static(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %parent.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %parent.i, align 8
@@ -237,7 +237,7 @@ type_register.exit:                               ; preds = %if.end.i.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @type_register_static_array(ptr nocapture noundef readonly %infos, i32 noundef %nr_infos) local_unnamed_addr #0 {
+define dso_local void @type_register_static_array(ptr noundef readonly captures(none) %infos, i32 noundef %nr_infos) local_unnamed_addr #0 {
 entry:
   %cmp3 = icmp sgt i32 %nr_infos, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -487,7 +487,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_find(ptr nocapture noundef readonly %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local ptr @object_property_find(ptr noundef readonly captures(none) %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call1 = tail call ptr @object_class_property_find(ptr noundef %0, ptr noundef %name)
@@ -878,7 +878,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @object_initialize_child_with_propsv(ptr noundef %parentobj, ptr noundef %propname, ptr noundef %childobj, i64 noundef %size, ptr noundef %type, ptr noundef %errp, ptr nocapture noundef %vargs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @object_initialize_child_with_propsv(ptr noundef %parentobj, ptr noundef %propname, ptr noundef %childobj, i64 noundef %size, ptr noundef %type, ptr noundef %errp, ptr noundef captures(none) %vargs) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq ptr %type, null
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i.i
@@ -935,7 +935,7 @@ out:                                              ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @object_set_propv(ptr noundef %obj, ptr noundef %errp, ptr nocapture noundef %vargs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @object_set_propv(ptr noundef %obj, ptr noundef %errp, ptr noundef captures(none) %vargs) local_unnamed_addr #0 {
 entry:
   %gp_offset = load i32, ptr %vargs, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1388,7 +1388,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_new_with_class(ptr nocapture noundef readonly %klass) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_new_with_class(ptr noundef readonly captures(none) %klass) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %klass, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1487,7 +1487,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_new_with_propv(ptr noundef %typename, ptr noundef %parent, ptr noundef %id, ptr noundef %errp, ptr nocapture noundef %vargs) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_new_with_propv(ptr noundef %typename, ptr noundef %parent, ptr noundef %id, ptr noundef %errp, ptr noundef captures(none) %vargs) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq ptr %typename, null
   br i1 %cmp.i.i, label %if.then, label %if.end.i.i
@@ -1630,7 +1630,7 @@ return:                                           ; preds = %entry, %type_get_by
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @object_class_is_abstract(ptr nocapture noundef readonly %klass) local_unnamed_addr #6 {
+define dso_local zeroext i1 @object_class_is_abstract(ptr noundef readonly captures(none) %klass) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %klass, align 8
   %abstract = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1928,7 +1928,7 @@ return:                                           ; preds = %land.lhs.true.i.i30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @object_get_class(ptr nocapture noundef readonly %obj) local_unnamed_addr #7 {
+define dso_local ptr @object_get_class(ptr noundef readonly captures(none) %obj) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   ret ptr %0
@@ -2040,7 +2040,7 @@ out:                                              ; preds = %while.end, %trace_o
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @type_is_ancestor(ptr noundef %type, ptr noundef readnone %target_type) unnamed_addr #0 {
@@ -2220,7 +2220,7 @@ out:                                              ; preds = %while.end, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @object_get_typename(ptr nocapture noundef readonly %obj) local_unnamed_addr #6 {
+define dso_local ptr @object_get_typename(ptr noundef readonly captures(none) %obj) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2229,7 +2229,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @object_class_get_name(ptr nocapture noundef readonly %klass) local_unnamed_addr #6 {
+define dso_local ptr @object_class_get_name(ptr noundef readonly captures(none) %klass) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %klass, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2887,7 +2887,7 @@ object_class_by_name.exit:                        ; preds = %entry, %type_get_by
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_class_get_parent(ptr nocapture noundef readonly %class) local_unnamed_addr #0 {
+define dso_local ptr @object_class_get_parent(ptr noundef readonly captures(none) %class) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %class, align 8
   %parent_type.i = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2970,7 +2970,7 @@ type_table_get.exit:                              ; preds = %entry, %if.then.i
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_class_foreach_tramp(ptr nocapture readnone %key, ptr noundef %value, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @object_class_foreach_tramp(ptr readnone captures(none) %key, ptr noundef %value, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   tail call fastcc void @type_initialize(ptr noundef %value)
   %class = getelementptr inbounds nuw i8, ptr %value, i64 104
@@ -3009,7 +3009,7 @@ return:                                           ; preds = %land.lhs.true3, %la
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @object_child_foreach(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local i32 @object_child_foreach(ptr noundef readonly captures(none) %obj, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct._GHashTableIter, align 8
   %prop.i = alloca ptr, align 8
@@ -3051,7 +3051,7 @@ do_object_child_foreach.exit:                     ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @do_object_child_foreach(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %fn, ptr noundef %opaque, i1 noundef zeroext %recurse) unnamed_addr #0 {
+define internal fastcc i32 @do_object_child_foreach(ptr noundef readonly captures(none) %obj, ptr noundef readonly captures(none) %fn, ptr noundef %opaque, i1 noundef zeroext %recurse) unnamed_addr #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %prop = alloca ptr, align 8
@@ -3118,7 +3118,7 @@ while.end:                                        ; preds = %if.end12, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @object_child_foreach_recursive(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local i32 @object_child_foreach_recursive(ptr noundef readonly captures(none) %obj, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_object_child_foreach(ptr noundef %obj, ptr noundef %fn, ptr noundef %opaque, i1 noundef zeroext true)
   ret i32 %call
@@ -3159,7 +3159,7 @@ object_class_foreach.exit:                        ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_class_get_list_tramp(ptr noundef %klass, ptr nocapture noundef %opaque) #0 {
+define internal void @object_class_get_list_tramp(ptr noundef %klass, ptr noundef captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %klass) #20
@@ -3207,7 +3207,7 @@ object_class_get_list.exit:                       ; preds = %entry, %if.then.i.i
 declare ptr @g_slist_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @object_class_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define internal i32 @object_class_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %0, align 8
@@ -3238,7 +3238,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_try_add(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @object_property_try_add(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
   %cmp = icmp ugt i64 %call, 2
@@ -3252,7 +3252,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef %name) #20
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #20
   %0 = getelementptr i8, ptr %call3, i64 %call
   %arrayidx = getelementptr i8, ptr %0, i64 -3
   store i8 0, ptr %arrayidx, align 1
@@ -3282,14 +3282,14 @@ if.else:                                          ; preds = %for.cond
 
 if.end12:                                         ; preds = %land.lhs.true, %entry
   %1 = load ptr, ptr %obj, align 8
-  %call1.i = tail call ptr @object_class_property_find(ptr noundef %1, ptr noundef %name)
+  %call1.i = tail call ptr @object_class_property_find(ptr noundef %1, ptr noundef nonnull %name)
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %object_property_find.exit, label %if.then15
 
 object_property_find.exit:                        ; preds = %if.end12
   %properties.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %2 = load ptr, ptr %properties.i, align 8
-  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %name) #20
+  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef nonnull %name) #20
   %cmp14.not = icmp eq ptr %call2.i, null
   br i1 %cmp14.not, label %if.end17, label %if.then15
 
@@ -3297,12 +3297,12 @@ if.then15:                                        ; preds = %if.end12, %object_p
   %3 = load ptr, ptr %obj, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.object_property_try_add, ptr noundef nonnull @.str.19, ptr noundef %name, ptr noundef %5) #20
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.object_property_try_add, ptr noundef nonnull @.str.19, ptr noundef nonnull %name, ptr noundef %5) #20
   br label %return
 
 if.end17:                                         ; preds = %object_property_find.exit
   %call18 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
-  %call19 = tail call noalias ptr @g_strdup(ptr noundef %name) #20
+  %call19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #20
   store ptr %call19, ptr %call18, align 8
   %call21 = tail call noalias ptr @g_strdup(ptr noundef %type) #20
   %type22 = getelementptr inbounds nuw i8, ptr %call18, i64 8
@@ -3325,7 +3325,7 @@ return:                                           ; preds = %for.end, %if.end17,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
@@ -3337,14 +3337,14 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque, ptr noundef nonnull @error_abort)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not = icmp eq ptr %call, null
@@ -3376,7 +3376,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_class_property_find(ptr nocapture noundef readonly %klass, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local ptr @object_class_property_find(ptr noundef readonly captures(none) %klass, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_class_get_parent(ptr noundef %klass)
   %tobool.not = icmp eq ptr %call, null
@@ -3401,7 +3401,7 @@ return:                                           ; preds = %if.then, %if.end4
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_find_err(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @object_property_find_err(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call1.i = tail call ptr @object_class_property_find(ptr noundef %0, ptr noundef %name)
@@ -3428,7 +3428,7 @@ if.end:                                           ; preds = %entry, %if.then, %o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_iter_init(ptr noundef %iter, ptr nocapture noundef readonly %obj) local_unnamed_addr #0 {
+define dso_local void @object_property_iter_init(ptr noundef %iter, ptr noundef readonly captures(none) %obj) local_unnamed_addr #0 {
 entry:
   %iter1 = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %properties = getelementptr inbounds nuw i8, ptr %obj, i64 16
@@ -3479,7 +3479,7 @@ return:                                           ; preds = %while.body, %while.
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_class_property_iter_init(ptr noundef %iter, ptr nocapture noundef readonly %klass) local_unnamed_addr #0 {
+define dso_local void @object_class_property_iter_init(ptr noundef %iter, ptr noundef readonly captures(none) %klass) local_unnamed_addr #0 {
 entry:
   %iter1 = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %properties = getelementptr inbounds nuw i8, ptr %klass, i64 88
@@ -3491,7 +3491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_class_property_find_err(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @object_class_property_find_err(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
   %tobool.not = icmp eq ptr %call, null
@@ -4054,7 +4054,7 @@ return:                                           ; preds = %entry, %qobject_unr
 declare zeroext i1 @qnum_get_try_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_default_bool(ptr nocapture noundef %prop, i1 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @object_property_set_default_bool(ptr noundef captures(none) %prop, i1 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #20
   %defval1.i = getelementptr inbounds nuw i8, ptr %prop, i64 72
@@ -4083,7 +4083,7 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_default_str(ptr nocapture noundef %prop, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local void @object_property_set_default_str(ptr noundef captures(none) %prop, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qstring_from_str(ptr noundef %value) #20
   %defval1.i = getelementptr inbounds nuw i8, ptr %prop, i64 72
@@ -4112,7 +4112,7 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_default_list(ptr nocapture noundef %prop) local_unnamed_addr #0 {
+define dso_local void @object_property_set_default_list(ptr noundef captures(none) %prop) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qlist_new() #20
   %defval1.i = getelementptr inbounds nuw i8, ptr %prop, i64 72
@@ -4143,7 +4143,7 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 declare ptr @qlist_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_default_int(ptr nocapture noundef %prop, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local void @object_property_set_default_int(ptr noundef captures(none) %prop, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qnum_from_int(i64 noundef %value) #20
   %defval1.i = getelementptr inbounds nuw i8, ptr %prop, i64 72
@@ -4172,7 +4172,7 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_default_uint(ptr nocapture noundef %prop, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local void @object_property_set_default_uint(ptr noundef captures(none) %prop, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qnum_from_uint(i64 noundef %value) #20
   %defval1.i = getelementptr inbounds nuw i8, ptr %prop, i64 72
@@ -4383,7 +4383,7 @@ declare ptr @string_output_visitor_new(i1 noundef zeroext, ptr noundef) local_un
 declare void @visit_complete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_get_type(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @object_property_get_type(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call1.i.i = tail call ptr @object_class_property_find(ptr noundef %0, ptr noundef %name)
@@ -4512,7 +4512,7 @@ cleanup:                                          ; preds = %if.end, %object_ref
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_get_child_property(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal void @object_get_child_property(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %path = alloca ptr, align 8
   %call = tail call ptr @object_get_canonical_path(ptr noundef %opaque)
@@ -4524,7 +4524,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_finalize_child_property(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
+define internal void @object_finalize_child_property(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %unparent = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4544,19 +4544,19 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @object_resolve_child_property(ptr nocapture readnone %parent, ptr noundef readnone returned %opaque, ptr nocapture readnone %part) #12 {
+define internal noundef ptr @object_resolve_child_property(ptr readnone captures(none) %parent, ptr noundef readnone returned %opaque, ptr readnone captures(none) %part) #12 {
 entry:
   ret ptr %opaque
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @object_property_allow_set_link(ptr nocapture noundef readnone %obj, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %val, ptr nocapture noundef readnone %errp) local_unnamed_addr #12 {
+define dso_local void @object_property_allow_set_link(ptr noundef readnone captures(none) %obj, ptr noundef readnone captures(none) %name, ptr noundef readnone captures(none) %val, ptr noundef readnone captures(none) %errp) local_unnamed_addr #12 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_link(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %type, ptr noundef %targetp, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_link(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %type, ptr noundef %targetp, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %targetp, ptr %call.i, align 8
@@ -4575,7 +4575,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_link(ptr nocapture noundef readonly %oc, ptr noundef %name, ptr noundef %type, i64 noundef %offset, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_link(ptr noundef readonly captures(none) %oc, ptr noundef %name, ptr noundef %type, i64 noundef %offset, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #22
   store i64 %offset, ptr %call, align 8
@@ -4620,7 +4620,7 @@ object_class_property_add.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_get_link_property(ptr nocapture noundef readonly %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @object_get_link_property(ptr noundef readonly captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %path = alloca ptr, align 8
   %flags.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -4667,7 +4667,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_set_link_property(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef %opaque, ptr noundef %errp) #0 {
+define internal void @object_set_link_property(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %ambiguous.i = alloca i8, align 1
   %local_err = alloca ptr, align 8
@@ -4830,7 +4830,7 @@ if.end14:                                         ; preds = %object_link_get_tar
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_release_link_property(ptr nocapture noundef readonly %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
+define internal void @object_release_link_property(ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #0 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i32, ptr %flags.i, align 8
@@ -4883,7 +4883,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @object_resolve_link_property(ptr nocapture noundef readonly %parent, ptr nocapture noundef readonly %opaque, ptr nocapture readnone %part) #6 {
+define internal ptr @object_resolve_link_property(ptr noundef readonly captures(none) %parent, ptr noundef readonly captures(none) %opaque, ptr readnone captures(none) %part) #6 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i32, ptr %flags.i, align 8
@@ -4912,7 +4912,7 @@ object_link_get_targetp.exit:                     ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_const_link(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %target) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_const_link(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %1 = load ptr, ptr %0, align 8
@@ -5154,7 +5154,7 @@ if.end14:                                         ; preds = %object_resolve_path
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @object_resolve_partial_path(ptr noundef %parent, ptr nocapture noundef nonnull readonly %parts, ptr noundef %typename, ptr nocapture noundef nonnull %ambiguous) unnamed_addr #0 {
+define internal fastcc ptr @object_resolve_partial_path(ptr noundef %parent, ptr noundef nonnull readonly captures(none) %parts, ptr noundef %typename, ptr noundef nonnull captures(none) %ambiguous) unnamed_addr #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %prop = alloca ptr, align 8
@@ -5460,7 +5460,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_str(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_str(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
@@ -5475,7 +5475,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_str(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_str(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca ptr, align 8
   %err = alloca ptr, align 8
@@ -5502,7 +5502,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_str(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_str(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca ptr, align 8
   %call = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -5522,14 +5522,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_release_data(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
+define internal void @property_release_data(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #0 {
 entry:
   tail call void @g_free(ptr noundef %opaque) #20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_str(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_str(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
@@ -5569,7 +5569,7 @@ object_class_property_add.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_bool(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_bool(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
@@ -5584,7 +5584,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %err = alloca ptr, align 8
@@ -5610,7 +5610,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -5629,7 +5629,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_bool(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_bool(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
@@ -5669,7 +5669,7 @@ object_class_property_add.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_enum(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_enum(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %lookup, ptr %call, align 8
@@ -5689,7 +5689,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %err = alloca ptr, align 8
@@ -5716,7 +5716,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load ptr, ptr %opaque, align 8
@@ -5735,7 +5735,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_enum(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_enum(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %lookup, ptr %call, align 8
@@ -5777,7 +5777,7 @@ object_class_property_add.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_tm(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_tm(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #23
   store ptr %get, ptr %call, align 8
@@ -5788,7 +5788,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_tm(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_tm(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %err = alloca ptr, align 8
   %value = alloca %struct.tm, align 8
@@ -5849,7 +5849,7 @@ return:                                           ; preds = %if.end, %out_end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_tm(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_tm(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #23
   store ptr %get, ptr %call, align 8
@@ -5885,7 +5885,7 @@ object_class_property_add.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_uint8_ptr(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_uint8_ptr(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -5898,7 +5898,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_uint8_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_uint8_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %0 = load i8, ptr %opaque, align 1
@@ -5908,7 +5908,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_uint8_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_uint8_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef writeonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -5924,7 +5924,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_uint8_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_uint8_ptr(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
@@ -5972,7 +5972,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_uint16_ptr(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_uint16_ptr(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -5985,7 +5985,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_uint16_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_uint16_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i16, align 2
   %0 = load i16, ptr %opaque, align 2
@@ -5995,7 +5995,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_uint16_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_uint16_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef writeonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i16, align 2
   %call = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -6011,7 +6011,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_uint16_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_uint16_ptr(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
@@ -6059,7 +6059,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_uint32_ptr(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_uint32_ptr(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -6072,7 +6072,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_uint32_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_uint32_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %opaque, align 4
@@ -6082,7 +6082,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_uint32_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_uint32_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef writeonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -6098,7 +6098,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_uint32_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_uint32_ptr(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
@@ -6146,7 +6146,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_uint64_ptr(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_uint64_ptr(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -6159,7 +6159,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_uint64_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_uint64_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %0 = load i64, ptr %opaque, align 8
@@ -6169,7 +6169,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_uint64_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_uint64_ptr(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef writeonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
@@ -6185,7 +6185,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_class_property_add_uint64_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_class_property_add_uint64_ptr(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
@@ -6233,7 +6233,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_property_add_alias(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %target_obj, ptr noundef %target_name) local_unnamed_addr #0 {
+define dso_local ptr @object_property_add_alias(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %target_obj, ptr noundef %target_name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %target_obj, align 8
   %call1.i.i = tail call ptr @object_class_property_find(ptr noundef %0, ptr noundef %target_name)
@@ -6331,7 +6331,7 @@ object_property_set_description.exit:             ; preds = %if.end17, %object_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_get_alias(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_get_alias(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %target_name = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
@@ -6344,7 +6344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_set_alias(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @property_set_alias(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %target_name = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
@@ -6357,7 +6357,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @property_release_alias(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
+define internal void @property_release_alias(ptr readnone captures(none) %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #0 {
 entry:
   %target_name = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
@@ -6367,7 +6367,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @property_resolve_alias(ptr nocapture readnone %obj, ptr nocapture noundef readonly %opaque, ptr nocapture readnone %part) #0 {
+define internal ptr @property_resolve_alias(ptr readnone captures(none) %obj, ptr noundef readonly captures(none) %opaque, ptr readnone captures(none) %part) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %target_name = getelementptr inbounds nuw i8, ptr %opaque, i64 8
@@ -6403,7 +6403,7 @@ object_resolve_path_component.exit:               ; preds = %object_property_fin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_property_set_description(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %description) local_unnamed_addr #0 {
+define dso_local void @object_property_set_description(ptr noundef readonly captures(none) %obj, ptr noundef %name, ptr noundef %description) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %call1.i.i = tail call ptr @object_class_property_find(ptr noundef %0, ptr noundef %name)
@@ -6435,7 +6435,7 @@ object_property_find_err.exit:                    ; preds = %entry, %object_prop
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_class_property_set_description(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %description) local_unnamed_addr #0 {
+define dso_local void @object_class_property_set_description(ptr noundef readonly captures(none) %klass, ptr noundef %name, ptr noundef %description) local_unnamed_addr #0 {
 entry:
   %properties = getelementptr inbounds nuw i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties, align 8
@@ -6509,7 +6509,7 @@ type_register_internal.exit9:                     ; preds = %if.end.i.i3, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @type_new(ptr nocapture noundef readonly %info) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @type_new(ptr noundef readonly captures(none) %info) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(376) ptr @g_malloc0(i64 noundef 376) #23
   %0 = load ptr, ptr %info, align 8
@@ -6628,7 +6628,7 @@ for.end:                                          ; preds = %land.rhs, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6680,7 +6680,7 @@ if.end:                                           ; preds = %qobject_unref_impl.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @object_init_with_type(ptr noundef %obj, ptr nocapture noundef %ti) unnamed_addr #0 {
+define internal fastcc void @object_init_with_type(ptr noundef %obj, ptr noundef captures(none) %ti) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ti, i64 88
   %ti.val = load ptr, ptr %0, align 8
@@ -6744,14 +6744,14 @@ declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @qemu_vfree(ptr noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6760,7 +6760,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6769,7 +6769,7 @@ declare void @g_hash_table_unref(ptr noundef) local_unnamed_addr #3
 declare void @qobject_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_property_init_defval(ptr noundef %obj, ptr nocapture noundef readonly %prop) #0 {
+define internal void @object_property_init_defval(ptr noundef %obj, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %defval = getelementptr inbounds nuw i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval, align 8
@@ -6823,14 +6823,14 @@ declare zeroext i1 @visit_type_uint64(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @visitor_forward_field(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_class_init(ptr nocapture noundef readonly %klass, ptr nocapture readnone %data) #0 {
+define internal void @object_class_init(ptr noundef readonly captures(none) %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call ptr @object_class_property_add_str(ptr noundef %klass, ptr noundef nonnull @.str.88, ptr noundef nonnull @object_get_type, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @object_get_type(ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @object_get_type(ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = load ptr, ptr %0, align 8
@@ -6846,13 +6846,13 @@ declare void @llvm.va_start.p0(ptr) #16
 declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

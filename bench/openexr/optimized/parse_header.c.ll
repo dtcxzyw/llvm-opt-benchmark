@@ -120,7 +120,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.101 = private unnamed_addr constant [52 x i8] c"Invalid chunk count (%d) for part '%s', expect (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_compute_tile_information(ptr noundef %ctxt, ptr nocapture noundef %curpart, i32 noundef %rebuild) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_compute_tile_information(ptr noundef %ctxt, ptr noundef captures(none) %curpart, i32 noundef %rebuild) local_unnamed_addr #0 {
 entry:
   %storage_mode = getelementptr inbounds nuw i8, ptr %curpart, i64 4
   %0 = load i32, ptr %storage_mode, align 4
@@ -479,10 +479,10 @@ return:                                           ; preds = %if.end19, %for.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @internal_exr_compute_chunk_offset_size(ptr nocapture noundef %curpart) local_unnamed_addr #2 {
+define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(none) %curpart) local_unnamed_addr #2 {
 entry:
   %data_window = getelementptr inbounds nuw i8, ptr %curpart, i64 144
   %dw.sroa.0.0.copyload = load i32, ptr %data_window, align 8
@@ -2337,7 +2337,7 @@ if.then63.i.i.i:                                  ; preds = %if.else59.i.i.i
 
 if.else65.i.i.i:                                  ; preds = %if.else59.i.i.i
   %217 = load ptr, ptr %print_error.i.i, align 8
-  %call67.i.i.i = call i32 (ptr, i32, ptr, ...) %217(ptr noundef nonnull %ctxt, i32 noundef 14, ptr noundef nonnull @.str.72, ptr noundef %216) #10
+  %call67.i.i.i = call i32 (ptr, i32, ptr, ...) %217(ptr noundef nonnull %ctxt, i32 noundef 14, ptr noundef nonnull @.str.72, ptr noundef nonnull %216) #10
   %218 = load ptr, ptr %type.i.i.i, align 8
   %call70.i.i.i = call i32 @exr_attr_list_remove(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes.i380.i.i, ptr noundef %218) #10
   store ptr null, ptr %type.i.i.i, align 8
@@ -2791,19 +2791,19 @@ return:                                           ; preds = %if.then.i110, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @silent_standard_error(ptr nocapture readnone %pctxt, i32 noundef returned %code) #3 {
+define internal noundef i32 @silent_standard_error(ptr readnone captures(none) %pctxt, i32 noundef returned %code) #3 {
 entry:
   ret i32 %code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @silent_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg) #3 {
+define internal noundef i32 @silent_error(ptr readnone captures(none) %pctxt, i32 noundef returned %code, ptr readnone captures(none) %msg) #3 {
 entry:
   ret i32 %code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @silent_print_error(ptr nocapture readnone %pctxt, i32 noundef returned %code, ptr nocapture readnone %msg, ...) #3 {
+define internal noundef i32 @silent_print_error(ptr readnone captures(none) %pctxt, i32 noundef returned %code, ptr readnone captures(none) %msg, ...) #3 {
 entry:
   ret i32 %code
 }
@@ -3131,10 +3131,10 @@ while.end.thread:                                 ; preds = %while.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr nocapture noundef nonnull readonly %scratch, i32 noundef %attrsz, i32 noundef range(i32 1, 5) %eltsize, ptr noundef %aname, ptr noundef nonnull %tname, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %outsz) unnamed_addr #0 {
+define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr noundef nonnull readonly captures(none) %scratch, i32 noundef %attrsz, i32 noundef range(i32 1, 5) %eltsize, ptr noundef %aname, ptr noundef nonnull %tname, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %outsz) unnamed_addr #0 {
 entry:
   store i32 %attrsz, ptr %outsz, align 4
   %cmp = icmp slt i32 %attrsz, 0
@@ -3837,7 +3837,7 @@ if.end47:                                         ; preds = %for.end, %if.end30
   %add.ptr49 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %clist.3, i64 %indvars.iv148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr49, ptr noundef nonnull align 8 dereferenceable(16) %nil, i64 16, i1 false)
   %19 = load i32, ptr %nlen, align 4
-  %call51 = call i32 @exr_attr_string_init(ptr noundef %ctxt, ptr noundef %add.ptr49, i32 noundef %19) #10
+  %call51 = call i32 @exr_attr_string_init(ptr noundef %ctxt, ptr noundef nonnull %add.ptr49, i32 noundef %19) #10
   %cmp52.not = icmp eq i32 %call51, 0
   br i1 %cmp52.not, label %if.end55, label %extract_string_vector_fail
 
@@ -4120,7 +4120,7 @@ return:                                           ; preds = %if.end30, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @exr_attr_chlist_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -4155,13 +4155,13 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

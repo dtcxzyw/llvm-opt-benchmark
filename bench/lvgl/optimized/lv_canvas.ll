@@ -13,12 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_canvas_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_image_class, ptr @lv_canvas_constructor, ptr @lv_canvas_destructor, ptr null, ptr null, ptr @.str, i32 0, i32 0, i8 -128, i8 10, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @lv_canvas_constructor(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @lv_canvas_constructor(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_canvas_destructor(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @lv_canvas_destructor(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
@@ -276,7 +276,7 @@ define void @lv_canvas_set_palette(ptr noundef %0, i8 noundef zeroext %1, i32 %2
 declare void @lv_draw_buf_set_palette(ptr noundef, i8 noundef zeroext, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_canvas_get_draw_buf(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_canvas_get_draw_buf(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
@@ -390,14 +390,14 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_canvas_get_image(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_canvas_get_image(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_canvas_get_buf(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_canvas_get_buf(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
@@ -414,7 +414,7 @@ define ptr @lv_canvas_get_buf(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_canvas_copy_buf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @lv_canvas_copy_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6

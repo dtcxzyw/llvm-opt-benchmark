@@ -323,7 +323,7 @@ exit:                                             ; preds = %if.end32.i, %newsem
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @semlock_traverse(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @semlock_traverse(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val = load ptr, ptr %0, align 8
@@ -355,7 +355,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock_acquire(ptr nocapture noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_multiprocessing_SemLock_acquire(ptr noundef captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -417,21 +417,21 @@ exit:                                             ; preds = %if.then16, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock_release(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock_release(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @_multiprocessing_SemLock_release_impl(ptr noundef %self)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock___enter__(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock___enter__(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef %self, i32 noundef 1, ptr noundef nonnull @_Py_NoneStruct)
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock___exit__(ptr nocapture noundef %self, ptr nocapture readnone %args, i64 noundef %nargs) #0 {
+define internal ptr @_multiprocessing_SemLock___exit__(ptr noundef captures(none) %self, ptr readnone captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 4
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -451,7 +451,7 @@ exit:                                             ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock__count(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock__count(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load i32, ptr %0, align 8
@@ -461,7 +461,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock__is_mine(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock__is_mine(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load i32, ptr %count.i, align 8
@@ -483,7 +483,7 @@ _multiprocessing_SemLock__is_mine_impl.exit:      ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock__get_value(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock__get_value(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sval.i = alloca i32, align 4
   %0 = getelementptr i8, ptr %self, i64 16
@@ -519,7 +519,7 @@ _multiprocessing_SemLock__get_value_impl.exit:    ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multiprocessing_SemLock__is_zero(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multiprocessing_SemLock__is_zero(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sval.i = alloca i32, align 4
   %0 = getelementptr i8, ptr %self, i64 16
@@ -618,7 +618,7 @@ exit:                                             ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @_multiprocessing_SemLock__after_fork(ptr nocapture noundef writeonly initializes((32, 36)) %self, ptr nocapture readnone %_unused_ignored) #3 {
+define internal noundef nonnull ptr @_multiprocessing_SemLock__after_fork(ptr noundef writeonly captures(none) initializes((32, 36)) %self, ptr readnone captures(none) %_unused_ignored) #3 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   store i32 0, ptr %count.i, align 8
@@ -630,7 +630,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %blocking, ptr noundef %timeout_obj) unnamed_addr #0 {
+define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef captures(none) %self, i32 noundef range(i32 0, -2147483648) %blocking, ptr noundef %timeout_obj) unnamed_addr #0 {
 entry:
   %deadline = alloca %struct.timespec, align 8
   %now = alloca %struct.timeval, align 8
@@ -815,7 +815,7 @@ return:                                           ; preds = %if.then82, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i64 @PyThread_get_thread_ident() local_unnamed_addr #2
 
@@ -824,7 +824,7 @@ declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #2
 declare ptr @PyErr_Occurred() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #2
 
@@ -848,7 +848,7 @@ declare i32 @sem_timedwait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_multiprocessing_SemLock_release_impl(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc ptr @_multiprocessing_SemLock_release_impl(ptr noundef captures(none) %self) unnamed_addr #0 {
 entry:
   %sval = alloca i32, align 4
   %kind = getelementptr inbounds nuw i8, ptr %self, i64 40
@@ -951,12 +951,12 @@ declare i32 @_PyArg_ParseStack(ptr noundef, i64 noundef, ptr noundef, ...) local
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @sem_open(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
@@ -968,10 +968,10 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

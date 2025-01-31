@@ -1233,14 +1233,14 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZTVN6duckdb12BaseTableRefE = external unnamed_addr constant { [8 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext range(i8 0, 2) i8 @_ZN6duckdb11Transformer24TransformOnEntryNotFoundEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, i1 noundef zeroext %missing_ok) local_unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN6duckdb11Transformer24TransformOnEntryNotFoundEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, i1 noundef zeroext %missing_ok) local_unnamed_addr #0 align 2 {
 entry:
   %cond = zext i1 %missing_ok to i8
   ret i8 %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer14TransformAlterERN17duckdb_libpgquery16PGAlterTableStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer14TransformAlterERN17duckdb_libpgquery16PGAlterTableStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp3.i = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -3152,7 +3152,7 @@ unreachable:                                      ; preds = %invoke.cont330, %in
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1 align 2
@@ -3165,7 +3165,7 @@ declare void @_ZN6duckdb15ParserExceptionC1ERKNSt7__cxx1112basic_stringIcSt11cha
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -3175,7 +3175,7 @@ declare void @_ZN6duckdb11Transformer22TransformQualifiedNameERN17duckdb_libpgqu
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer25TransformColumnDefinitionERN17duckdb_libpgquery11PGColumnDefE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::ColumnDefinition") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %cdef) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer25TransformColumnDefinitionERN17duckdb_libpgquery11PGColumnDefE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::ColumnDefinition") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %cdef) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %colname = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5554,7 +5554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformAttachERN17duckdb_libpgquery12PGAttachStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.134") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformAttachERN17duckdb_libpgquery12PGAttachStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.134") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i160 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -5792,7 +5792,7 @@ invoke.cont23:                                    ; preds = %cleanup.done16
   %_M_string_length.i.i.i138 = getelementptr inbounds nuw i8, ptr %call24, i64 56
   %27 = load i64, ptr %_M_string_length.i.i.i138, align 8, !tbaa !18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #22
-  %call3.i.i139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path25, i64 noundef 0, i64 noundef %27, ptr noundef %26, i64 noundef %call.i.i.i)
+  %call3.i.i139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path25, i64 noundef 0, i64 noundef %27, ptr noundef nonnull %26, i64 noundef %call.i.i.i)
           to label %invoke.cont26 unwind label %lpad22
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -6320,7 +6320,7 @@ _ZN6duckdb10unique_ptrINS_10AttachInfoESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb11Transformer19TransformOnConflictEN17duckdb_libpgquery18PGOnCreateConflictE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %conflict) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb11Transformer19TransformOnConflictEN17duckdb_libpgquery18PGOnCreateConflictE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %conflict) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -6400,7 +6400,7 @@ declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN6duckdb11Transformer14TransformValueEN17duckdb_libpgquery7PGValueE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.170") align 8, ptr noundef nonnull align 8 dereferenceable(208), i32, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_18ConstantExpressionESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6557,7 +6557,7 @@ _ZN6duckdb10unique_ptrINS_15AttachStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformDetachERN17duckdb_libpgquery12PGDetachStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.180") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformDetachERN17duckdb_libpgquery12PGDetachStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.180") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info = alloca %"class.duckdb::unique_ptr.189", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
@@ -6604,7 +6604,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
-  %call3.i.i20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef %3, ptr noundef %2, i64 noundef %call.i.i.i)
+  %call3.i.i20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %call.i.i.i)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -6836,7 +6836,7 @@ _ZN6duckdb10unique_ptrINS_15DetachStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13TransformCallERN17duckdb_libpgquery10PGCallStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.198") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13TransformCallERN17duckdb_libpgquery10PGCallStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.198") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.34", align 8
   %ref.tmp2 = alloca %"class.duckdb::optional_ptr.207", align 8
@@ -7021,7 +7021,7 @@ _ZN6duckdb10unique_ptrINS_13CallStatementESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformCheckpointERN17duckdb_libpgquery16PGCheckPointStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformCheckpointERN17duckdb_libpgquery16PGCheckPointStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   %children = alloca %"class.duckdb::vector.217", align 8
@@ -7718,7 +7718,7 @@ _ZN6duckdb10unique_ptrINS_18FunctionExpressionESt14default_deleteIS1_ELb1EE13Ass
 declare void @_ZN6duckdb5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer23TransformCreateFunctionERN17duckdb_libpgquery20PGCreateFunctionStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer23TransformCreateFunctionERN17duckdb_libpgquery20PGCreateFunctionStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i354 = alloca %"class.duckdb::unique_ptr.268", align 8
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -9055,7 +9055,7 @@ unreachable:                                      ; preds = %invoke.cont248, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformSelectERN17duckdb_libpgquery12PGSelectStmtEb(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.297") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %select, i1 noundef zeroext %is_select) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformSelectERN17duckdb_libpgquery12PGSelectStmtEb(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.297") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %select, i1 noundef zeroext %is_select) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -11995,7 +11995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12104,7 +12104,7 @@ _ZN6duckdb10unique_ptrINS_16ParsedExpressionESt14default_deleteIS1_ELb1EE13Asser
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13TransformCopyERN17duckdb_libpgquery10PGCopyStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.378") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13TransformCopyERN17duckdb_libpgquery10PGCopyStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.378") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::vector.325", align 8
   %ref.tmp16 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -13804,7 +13804,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformSelectNodeERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %select) local_unnamed_addr #1 align 2 {
+define void @_ZN6duckdb11Transformer19TransformSelectNodeERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %select) local_unnamed_addr #1 align 2 {
 entry:
   %pivot = getelementptr inbounds nuw i8, ptr %select, i64 88
   %0 = load ptr, ptr %pivot, align 8, !tbaa !207
@@ -13824,7 +13824,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer21TransformCopyDatabaseERN17duckdb_libpgquery18PGCopyDatabaseStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer21TransformCopyDatabaseERN17duckdb_libpgquery18PGCopyDatabaseStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i101 = alloca %"class.duckdb::Value", align 8
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
@@ -14744,7 +14744,7 @@ _ZN6duckdb10unique_ptrINS_10PragmaInfoESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer22TransformCreateTableAsERN17duckdb_libpgquery19PGCreateTableAsStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer22TransformCreateTableAsERN17duckdb_libpgquery19PGCreateTableAsStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %node.i = alloca %"class.duckdb::optional_ptr.79", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15352,7 +15352,7 @@ _ZN6duckdb10unique_ptrINS_15CreateTableInfoESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer24TransformIndexParametersERN17duckdb_libpgquery6PGListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.217") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %list, ptr noundef nonnull align 8 dereferenceable(32) %relation_name) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer24TransformIndexParametersERN17duckdb_libpgquery6PGListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.217") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %list, ptr noundef nonnull align 8 dereferenceable(32) %relation_name) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_element = alloca %"class.duckdb::optional_ptr.477", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16138,7 +16138,7 @@ ehcleanup8:                                       ; preds = %if.then.i.i38, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformCreateIndexERN17duckdb_libpgquery11PGIndexStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformCreateIndexERN17duckdb_libpgquery11PGIndexStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i340 = alloca i64, align 8
   %__dnew.i.i252 = alloca i64, align 8
@@ -16734,7 +16734,7 @@ invoke.cont64:                                    ; preds = %if.end61
   %_M_string_length.i.i.i311 = getelementptr inbounds nuw i8, ptr %call65, i64 128
   %79 = load i64, ptr %_M_string_length.i.i.i311, align 8, !tbaa !18
   %call.i.i.i312 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #22
-  %call3.i.i313 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %table, i64 noundef 0, i64 noundef %79, ptr noundef %78, i64 noundef %call.i.i.i312)
+  %call3.i.i313 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %table, i64 noundef 0, i64 noundef %79, ptr noundef nonnull %78, i64 noundef %call.i.i.i312)
           to label %invoke.cont66 unwind label %lpad2
 
 invoke.cont66:                                    ; preds = %invoke.cont64
@@ -17535,7 +17535,7 @@ _ZN6duckdb10unique_ptrINS_15CreateIndexInfoESt14default_deleteIS1_ELb1EE13Assert
 declare void @_ZN6duckdb10StringUtil5UpperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer21TransformCreateSchemaERN17duckdb_libpgquery18PGCreateSchemaStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer21TransformCreateSchemaERN17duckdb_libpgquery18PGCreateSchemaStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info = alloca %"class.duckdb::unique_ptr.502", align 8
   %node = alloca %"class.duckdb::optional_ptr.79", align 8
@@ -17622,7 +17622,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %_M_string_length.i.i.i60 = getelementptr inbounds nuw i8, ptr %call8, i64 56
   %7 = load i64, ptr %_M_string_length.i.i.i60, align 8, !tbaa !18
   %call.i.i.i61 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #22
-  %call3.i.i62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema, i64 noundef 0, i64 noundef %7, ptr noundef %6, i64 noundef %call.i.i.i61)
+  %call3.i.i62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %6, i64 noundef %call.i.i.i61)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -17886,7 +17886,7 @@ _ZN6duckdb10unique_ptrINS_16CreateSchemaInfoESt14default_deleteIS1_ELb1EE13Asser
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer18TransformCollationB5cxx11ENS_12optional_ptrIN17duckdb_libpgquery15PGCollateClauseEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr %collate.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer18TransformCollationB5cxx11ENS_12optional_ptrIN17duckdb_libpgquery15PGCollateClauseEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr %collate.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %collate = alloca %"class.duckdb::optional_ptr.511", align 8
@@ -18263,7 +18263,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %invoke.cont4
-  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -18312,7 +18312,7 @@ ehcleanup:                                        ; preds = %if.then.i.i21, %_ZN
 declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformCollateExprERN17duckdb_libpgquery15PGCollateClauseE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %collate) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformCollateExprERN17duckdb_libpgquery15PGCollateClauseE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.34") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %collate) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child = alloca %"class.duckdb::unique_ptr.34", align 8
   %collation = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18550,7 +18550,7 @@ declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 derefe
 declare void @_ZN6duckdb16ColumnDefinitionC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformCreateTableERN17duckdb_libpgquery12PGCreateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformCreateTableERN17duckdb_libpgquery12PGCreateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i376 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -19979,7 +19979,7 @@ declare void @_ZN6duckdb10ColumnList9AddColumnENS_16ColumnDefinitionE(ptr nounde
 declare void @_ZN6duckdb11Transformer19TransformConstraintEPN17duckdb_libpgquery10PGListCellE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.43") align 8, ptr noundef nonnull align 8 dereferenceable(208), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformCreateViewERN17duckdb_libpgquery10PGViewStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformCreateViewERN17duckdb_libpgquery10PGViewStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info = alloca %"class.duckdb::unique_ptr.521", align 8
   %qname = alloca %"struct.duckdb::QualifiedName", align 8
@@ -20775,7 +20775,7 @@ _ZN6duckdb10unique_ptrINS_14CreateViewInfoESt14default_deleteIS1_ELb1EE13AssertN
 declare noundef zeroext i1 @_ZN6duckdb16IsInvalidCatalogERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer14PGListToVectorENS_12optional_ptrIN17duckdb_libpgquery6PGListEEERm(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Vector") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr %column_list.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(8) %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer14PGListToVectorENS_12optional_ptrIN17duckdb_libpgquery6PGListEEERm(ptr dead_on_unwind noalias writable sret(%"class.duckdb::Vector") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr %column_list.coerce, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %column_list = alloca %"class.duckdb::optional_ptr.354", align 8
@@ -21272,7 +21272,7 @@ _ZN6duckdb21TemplatedValidityMaskImED2Ev.exit:    ; preds = %if.then7.i.i.i.i, %
 declare { i64, ptr } @_ZN6duckdb12StringVector15AddStringOrBlobERNS_6VectorENS_8string_tE(ptr noundef nonnull align 8 dereferenceable(104), i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformCreateTypeERN17duckdb_libpgquery16PGCreateTypeStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformCreateTypeERN17duckdb_libpgquery16PGCreateTypeStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %node.i = alloca %"class.duckdb::optional_ptr.79", align 8
   %info = alloca %"class.duckdb::unique_ptr.539", align 8
@@ -21981,7 +21981,7 @@ _ZN6duckdb10unique_ptrINS_14CreateTypeInfoESt14default_deleteIS1_ELb1EE13AssertN
 declare void @_ZN6duckdb11LogicalType4ENUMERNS_6VectorEm(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformDeleteERN17duckdb_libpgquery12PGDeleteStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.548") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformDeleteERN17duckdb_libpgquery12PGDeleteStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.548") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %materialized_ctes = alloca %"class.duckdb::vector.557", align 8
   %ref.tmp = alloca %"class.duckdb::optional_ptr.563", align 8
@@ -22718,7 +22718,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_7CTENodeESt14default_deleteIS2_ELb1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer16TransformExplainERN17duckdb_libpgquery13PGExplainStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.570") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer16TransformExplainERN17duckdb_libpgquery13PGExplainStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.570") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.208", align 8
   %__dnew.i.i = alloca i64, align 8
@@ -23194,7 +23194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 declare void @_ZN6duckdb11Transformer18TransformStatementERN17duckdb_libpgquery6PGNodeE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.208") align 8, ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformExportERN17duckdb_libpgquery12PGExportStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.579") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformExportERN17duckdb_libpgquery12PGExportStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.579") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.387", align 8
   %info = alloca %"class.duckdb::unique_ptr.387", align 8
@@ -23260,7 +23260,7 @@ invoke.cont:                                      ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 184
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
-  %call3.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %file_path, i64 noundef 0, i64 noundef %6, ptr noundef %5, i64 noundef %call.i.i.i)
+  %call3.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %file_path, i64 noundef 0, i64 noundef %6, ptr noundef nonnull %5, i64 noundef %call.i.i.i)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -23554,7 +23554,7 @@ _ZN6duckdb10unique_ptrINS_15ExportStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13TransformDropERN17duckdb_libpgquery10PGDropStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13TransformDropERN17duckdb_libpgquery10PGDropStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.588", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23786,7 +23786,7 @@ invoke.cont62:                                    ; preds = %invoke.cont59
   %_M_string_length.i.i.i319 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i64, ptr %_M_string_length.i.i.i319, align 8, !tbaa !18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #22
-  %call3.i.i320 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %catalog, i64 noundef 0, i64 noundef %25, ptr noundef %24, i64 noundef %call.i.i.i)
+  %call3.i.i320 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %catalog, i64 noundef 0, i64 noundef %25, ptr noundef nonnull %24, i64 noundef %call.i.i.i)
           to label %invoke.cont64 unwind label %lpad54
 
 invoke.cont64:                                    ; preds = %invoke.cont62
@@ -23814,7 +23814,7 @@ invoke.cont76:                                    ; preds = %invoke.cont73
   %_M_string_length.i.i.i323 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %32 = load i64, ptr %_M_string_length.i.i.i323, align 8, !tbaa !18
   %call.i.i.i324 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #22
-  %call3.i.i325 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef %32, ptr noundef %31, i64 noundef %call.i.i.i324)
+  %call3.i.i325 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef 0, i64 noundef %32, ptr noundef nonnull %31, i64 noundef %call.i.i.i324)
           to label %invoke.cont79 unwind label %lpad68
 
 invoke.cont79:                                    ; preds = %invoke.cont76
@@ -23871,7 +23871,7 @@ invoke.cont96:                                    ; preds = %invoke.cont93
   %_M_string_length.i.i.i330 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load i64, ptr %_M_string_length.i.i.i330, align 8, !tbaa !18
   %call.i.i.i331 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #22
-  %call3.i.i332 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name99, i64 noundef 0, i64 noundef %43, ptr noundef %42, i64 noundef %call.i.i.i331)
+  %call3.i.i332 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name99, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %42, i64 noundef %call.i.i.i331)
           to label %invoke.cont100 unwind label %lpad88
 
 invoke.cont100:                                   ; preds = %invoke.cont96
@@ -23985,7 +23985,7 @@ invoke.cont146:                                   ; preds = %invoke.cont143
   %_M_string_length.i.i.i343 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load i64, ptr %_M_string_length.i.i.i343, align 8, !tbaa !18
   %call.i.i.i344 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #22
-  %call3.i.i345 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %catalog149, i64 noundef 0, i64 noundef %59, ptr noundef %58, i64 noundef %call.i.i.i344)
+  %call3.i.i345 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %catalog149, i64 noundef 0, i64 noundef %59, ptr noundef nonnull %58, i64 noundef %call.i.i.i344)
           to label %invoke.cont150 unwind label %lpad138
 
 invoke.cont150:                                   ; preds = %invoke.cont146
@@ -24013,7 +24013,7 @@ invoke.cont163:                                   ; preds = %invoke.cont160
   %_M_string_length.i.i.i349 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %66 = load i64, ptr %_M_string_length.i.i.i349, align 8, !tbaa !18
   %call.i.i.i350 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #22
-  %call3.i.i351 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema, i64 noundef 0, i64 noundef %66, ptr noundef %65, i64 noundef %call.i.i.i350)
+  %call3.i.i351 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema, i64 noundef 0, i64 noundef %66, ptr noundef nonnull %65, i64 noundef %call.i.i.i350)
           to label %invoke.cont166 unwind label %lpad154
 
 invoke.cont166:                                   ; preds = %invoke.cont163
@@ -24043,7 +24043,7 @@ invoke.cont180:                                   ; preds = %invoke.cont177
   %_M_string_length.i.i.i355 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %74 = load i64, ptr %_M_string_length.i.i.i355, align 8, !tbaa !18
   %call.i.i.i356 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #22
-  %call3.i.i357 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name183, i64 noundef 0, i64 noundef %74, ptr noundef %73, i64 noundef %call.i.i.i356)
+  %call3.i.i357 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name183, i64 noundef 0, i64 noundef %74, ptr noundef nonnull %73, i64 noundef %call.i.i.i356)
           to label %invoke.cont184 unwind label %lpad170
 
 invoke.cont184:                                   ; preds = %invoke.cont180
@@ -24106,7 +24106,7 @@ invoke.cont202:                                   ; preds = %invoke.cont199
   %_M_string_length.i.i.i362 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %86 = load i64, ptr %_M_string_length.i.i.i362, align 8, !tbaa !18
   %call.i.i.i363 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #22
-  %call3.i.i364 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema205, i64 noundef 0, i64 noundef %86, ptr noundef %85, i64 noundef %call.i.i.i363)
+  %call3.i.i364 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %schema205, i64 noundef 0, i64 noundef %86, ptr noundef nonnull %85, i64 noundef %call.i.i.i363)
           to label %invoke.cont206 unwind label %lpad194
 
 invoke.cont206:                                   ; preds = %invoke.cont202
@@ -24134,7 +24134,7 @@ invoke.cont219:                                   ; preds = %invoke.cont216
   %_M_string_length.i.i.i368 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %93 = load i64, ptr %_M_string_length.i.i.i368, align 8, !tbaa !18
   %call.i.i.i369 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #22
-  %call3.i.i370 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name222, i64 noundef 0, i64 noundef %93, ptr noundef %92, i64 noundef %call.i.i.i369)
+  %call3.i.i370 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name222, i64 noundef 0, i64 noundef %93, ptr noundef nonnull %92, i64 noundef %call.i.i.i369)
           to label %invoke.cont223 unwind label %lpad210
 
 invoke.cont223:                                   ; preds = %invoke.cont219
@@ -24186,7 +24186,7 @@ invoke.cont241:                                   ; preds = %invoke.cont238
   %_M_string_length.i.i.i375 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %103 = load i64, ptr %_M_string_length.i.i.i375, align 8, !tbaa !18
   %call.i.i.i376 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #22
-  %call3.i.i377 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name244, i64 noundef 0, i64 noundef %103, ptr noundef %102, i64 noundef %call.i.i.i376)
+  %call3.i.i377 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name244, i64 noundef 0, i64 noundef %103, ptr noundef nonnull %102, i64 noundef %call.i.i.i376)
           to label %invoke.cont245 unwind label %lpad233
 
 invoke.cont245:                                   ; preds = %invoke.cont241
@@ -24368,7 +24368,7 @@ _ZN6duckdb10unique_ptrINS_13DropStatementESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformImportERN17duckdb_libpgquery12PGImportStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.423") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformImportERN17duckdb_libpgquery12PGImportStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.423") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   %ref.tmp11 = alloca %"class.duckdb::Value", align 8
@@ -24634,7 +24634,7 @@ _ZNSt10unique_ptrIN6duckdb15PragmaStatementESt14default_deleteIS1_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformValuesListEPN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.396") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %list) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformValuesListEPN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.396") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %list) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.606", align 8
   %target = alloca %"class.duckdb::optional_ptr.354", align 8
@@ -25050,7 +25050,7 @@ _ZN6duckdb6vectorINS0_INS_10unique_ptrINS_16ParsedExpressionESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformInsertERN17duckdb_libpgquery12PGInsertStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.621") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformInsertERN17duckdb_libpgquery12PGInsertStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.621") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %node.i = alloca %"class.duckdb::optional_ptr.79", align 8
   %materialized_ctes = alloca %"class.duckdb::vector.557", align 8
@@ -26208,7 +26208,7 @@ _ZN6duckdb10unique_ptrINS_15InsertStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer25TransformOnConflictClauseEPN17duckdb_libpgquery18PGOnConflictClauseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %node, ptr nocapture nonnull readnone align 8 %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer25TransformOnConflictClauseEPN17duckdb_libpgquery18PGOnConflictClauseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %node, ptr nonnull readnone align 8 captures(none) %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::vector.325", align 16
   %ref.tmp18 = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -26656,7 +26656,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer21DummyOnConflictClauseEN17duckdb_libpgquery23PGOnConflictActionAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i32 noundef %type, ptr nocapture nonnull readnone align 8 %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer21DummyOnConflictClauseEN17duckdb_libpgquery23PGOnConflictActionAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, i32 noundef %type, ptr nonnull readnone align 8 captures(none) %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -26782,7 +26782,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13TransformLoadERN17duckdb_libpgquery10PGLoadStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.639") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13TransformLoadERN17duckdb_libpgquery10PGLoadStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.639") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i57 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -27446,7 +27446,7 @@ _ZN6duckdb10unique_ptrINS_13LoadStatementESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformPragmaERN17duckdb_libpgquery12PGPragmaStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformPragmaERN17duckdb_libpgquery12PGPragmaStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i382 = alloca %"class.duckdb::Value", align 8
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
@@ -27509,7 +27509,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  %call3.i.i327 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name5, i64 noundef 0, i64 noundef %2, ptr noundef %1, i64 noundef %call.i.i.i)
+  %call3.i.i327 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %name5, i64 noundef 0, i64 noundef %2, ptr noundef nonnull %1, i64 noundef %call.i.i.i)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -29612,7 +29612,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformRenameERN17duckdb_libpgquery12PGRenameStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformRenameERN17duckdb_libpgquery12PGRenameStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i248 = alloca i64, align 8
   %__dnew.i.i205 = alloca i64, align 8
@@ -31198,7 +31198,7 @@ ehcleanup:                                        ; preds = %if.then.i.i19, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer23TransformPivotStatementERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %select) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer23TransformPivotStatementERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %select) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %__dnew.i.i = alloca i64, align 8
@@ -34195,7 +34195,7 @@ unreachable:                                      ; preds = %invoke.cont105
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer23TransformSelectInternalERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer23TransformSelectInternalERN17duckdb_libpgquery12PGSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.268") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %__dnew.i.i = alloca i64, align 8
@@ -35901,7 +35901,7 @@ unreachable:                                      ; preds = %invoke.cont300, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer18TransformModifiersERN17duckdb_libpgquery12PGSelectStmtERNS_9QueryNodeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %stmt, ptr nocapture noundef nonnull align 8 dereferenceable(96) %node) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer18TransformModifiersERN17duckdb_libpgquery12PGSelectStmtERNS_9QueryNodeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %stmt, ptr noundef nonnull align 8 captures(none) dereferenceable(96) %node) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %orders = alloca %"class.duckdb::vector.710", align 16
   %order_modifier = alloca %"class.duckdb::unique_ptr.232", align 8
@@ -37618,7 +37618,7 @@ _ZN6duckdb10unique_ptrINS_9QueryNodeESt14default_deleteIS1_ELb1EE13AssertNotNull
 declare void @_ZN6duckdb11Transformer24TransformMaterializedCTEENS_10unique_ptrINS_9QueryNodeESt14default_deleteIS2_ELb1EEERNS_6vectorINS1_INS_7CTENodeES3_IS7_ELb1EEELb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.268") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformSetVariableERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformSetVariableERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   %__dnew.i.i159 = alloca i64, align 8
@@ -38426,7 +38426,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer22TransformResetVariableERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer22TransformResetVariableERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38619,7 +38619,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer12TransformSetERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer12TransformSetERN17duckdb_libpgquery17PGVariableSetStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -38701,7 +38701,7 @@ cleanup:                                          ; preds = %sw.bb2, %sw.bb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13AddPivotEntryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_10SelectNodeESt14default_deleteIS8_ELb1EEENS7_INS_16ParsedExpressionES9_ISC_ELb1EEENS7_INS_9QueryNodeES9_ISF_ELb1EEEb(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %enum_name, ptr nocapture noundef %base, ptr nocapture noundef %column, ptr nocapture noundef %subquery, i1 noundef zeroext %has_parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13AddPivotEntryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_10SelectNodeESt14default_deleteIS8_ELb1EEENS7_INS_16ParsedExpressionES9_ISC_ELb1EEENS7_INS_9QueryNodeES9_ISF_ELb1EEEb(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %enum_name, ptr noundef captures(none) %base, ptr noundef captures(none) %column, ptr noundef captures(none) %subquery, i1 noundef zeroext %has_parameters) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp4 = alloca %"class.duckdb::unique_ptr.744", align 8
@@ -39860,7 +39860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer22GenerateCreateEnumStmtENS_10unique_ptrINS0_16CreatePivotEntryESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %entry1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer22GenerateCreateEnumStmtENS_10unique_ptrINS0_16CreatePivotEntryESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef %entry1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i217 = alloca %"class.duckdb::Value", align 8
   %agg.tmp.i182 = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -41383,7 +41383,7 @@ _ZN6duckdb10unique_ptrINS_10SelectNodeESt14default_deleteIS1_ELb1EE13AssertNotNu
 declare void @_ZN6duckdb5Value7INTEGEREi(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20CreatePivotStatementENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %statement) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20CreatePivotStatementENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef %statement) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.825", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -42666,7 +42666,7 @@ _ZNSt12_Vector_baseIN6duckdb11PivotColumnESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer16TransformPrepareERN17duckdb_libpgquery13PGPrepareStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.875") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer16TransformPrepareERN17duckdb_libpgquery13PGPrepareStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.875") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43105,7 +43105,7 @@ _ZN6duckdb10unique_ptrINS_16PrepareStatementESt14default_deleteIS1_ELb1EE13Asser
 declare void @_ZN6duckdb11Transformer13SetParamCountEm(ptr noundef nonnull align 8 dereferenceable(208), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer16TransformExecuteERN17duckdb_libpgquery13PGExecuteStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.884") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer16TransformExecuteERN17duckdb_libpgquery13PGExecuteStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.884") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i160 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -44117,7 +44117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformDeallocateERN17duckdb_libpgquery16PGDeallocateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.588") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformDeallocateERN17duckdb_libpgquery16PGDeallocateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.588") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44497,7 +44497,7 @@ _ZN6duckdb10unique_ptrINS_8DropInfoESt14default_deleteIS1_ELb1EE13AssertNotNullE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer13TransformShowERN17duckdb_libpgquery18PGVariableShowStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer13TransformShowERN17duckdb_libpgquery18PGVariableShowStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.duckdb::Value", align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -46675,7 +46675,7 @@ _ZN6duckdb10unique_ptrINS_12BaseTableRefESt14default_deleteIS1_ELb1EE13AssertNot
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformShowSelectERN17duckdb_libpgquery24PGVariableShowSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.893") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformShowSelectERN17duckdb_libpgquery24PGVariableShowSelectStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.893") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %select_stmt = alloca %"class.duckdb::optional_ptr.306", align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.268", align 8
@@ -46795,7 +46795,7 @@ _ZNSt10unique_ptrIN6duckdb13ShowStatementESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformTransactionERN17duckdb_libpgquery17PGTransactionStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.920") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformTransactionERN17duckdb_libpgquery17PGTransactionStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.920") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
@@ -47023,7 +47023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer22TransformUpdateSetInfoEPN17duckdb_libpgquery6PGListEPNS1_6PGNodeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.929") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %target_list, ptr noundef %where_clause) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer22TransformUpdateSetInfoEPN17duckdb_libpgquery6PGListEPNS1_6PGNodeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.929") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %target_list, ptr noundef %where_clause) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %target = alloca %"class.duckdb::optional_ptr.377", align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -47438,7 +47438,7 @@ _ZN6duckdb10unique_ptrINS_13UpdateSetInfoESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformUpdateERN17duckdb_libpgquery12PGUpdateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.938") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformUpdateERN17duckdb_libpgquery12PGUpdateStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.938") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %materialized_ctes = alloca %"class.duckdb::vector.557", align 8
   %ref.tmp = alloca %"class.duckdb::optional_ptr.563", align 8
@@ -47974,7 +47974,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer23TransformConflictTargetB5cxx11ERN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.325") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer23TransformConflictTargetB5cxx11ERN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.325") align 8 initializes((0, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %list) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_element = alloca %"class.duckdb::optional_ptr.477", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48414,7 +48414,7 @@ _ZN6duckdb10unique_ptrINS_14OnConflictInfoESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer12TransformUseERN17duckdb_libpgquery9PGUseStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer12TransformUseERN17duckdb_libpgquery9PGUseStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.789") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   %__dnew.i.i = alloca i64, align 8
@@ -49195,7 +49195,7 @@ ehcleanup:                                        ; preds = %if.then.i.i20, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer23TransformCreateSequenceERN17duckdb_libpgquery15PGCreateSeqStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer23TransformCreateSequenceERN17duckdb_libpgquery15PGCreateSeqStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i866 = alloca %"struct.std::__detail::_AllocNode.1287", align 8
   %__node_gen.i.i819 = alloca %"struct.std::__detail::_AllocNode.1287", align 8
@@ -49545,7 +49545,7 @@ if.then.i.i641:                                   ; preds = %invoke.cont59
 
 if.end.i.i643:                                    ; preds = %if.then.i.i641
   %conv.i.i.i = and i64 %call.i640, 15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %35, i64 %conv.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr nonnull align 1 %35, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8..pre = load ptr, ptr %agg.tmp.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont62
 
@@ -51781,7 +51781,7 @@ unreachable:                                      ; preds = %invoke.cont104, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer15TransformVacuumERN17duckdb_libpgquery12PGVacuumStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer15TransformVacuumERN17duckdb_libpgquery12PGVacuumStmtE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.208") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.979", align 8
   %ref.tmp = alloca %"struct.duckdb::VacuumOptions", align 2
@@ -52099,7 +52099,7 @@ _ZN6duckdb10unique_ptrINS_10VacuumInfoESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer22TransformAlterSequenceERN17duckdb_libpgquery14PGAlterSeqStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer22TransformAlterSequenceERN17duckdb_libpgquery14PGAlterSeqStmtE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %stmt) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -54464,7 +54464,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -55685,7 +55685,7 @@ delete.end:                                       ; preds = %_ZN6duckdb13UpdateS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -64057,7 +64057,7 @@ declare void @llvm.assume(i1 noundef) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

@@ -74,7 +74,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN27WeakProcessorParTimeTrackerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN27WeakProcessorParTimeTrackerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimesC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimesC2Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 96)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -188,12 +188,12 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef ptr @_ZNK10OopStorage4nameEv(ptr noundef nonnull align 8 dereferenceable(126)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimesD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimesD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -241,27 +241,27 @@ _ZN15WorkerDataArrayIdED2Ev.exit:                 ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK18WeakProcessorTimes11max_threadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK18WeakProcessorTimes11max_threadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK18WeakProcessorTimes14active_workersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK18WeakProcessorTimes14active_workersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimes5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((4, 16)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimes5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((4, 16)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -320,21 +320,21 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18WeakProcessorTimes21record_total_time_secEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN18WeakProcessorTimes21record_total_time_secEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK18WeakProcessorTimes11worker_dataEN13OopStorageSet6WeakIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK18WeakProcessorTimes11worker_dataEN13OopStorageSet6WeakIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = add i32 %1, -5
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -344,7 +344,7 @@ define hidden noundef ptr @_ZNK18WeakProcessorTimes11worker_dataEN13OopStorageSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZNK18WeakProcessorTimes15worker_time_secEjN13OopStorageSet6WeakIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef double @_ZNK18WeakProcessorTimes15worker_time_secEjN13OopStorageSet6WeakIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = add i32 %2, -5
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -358,7 +358,7 @@ define hidden noundef double @_ZNK18WeakProcessorTimes15worker_time_secEjN13OopS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18WeakProcessorTimes22record_worker_time_secEjN13OopStorageSet6WeakIdEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN18WeakProcessorTimes22record_worker_time_secEjN13OopStorageSet6WeakIdEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #6 align 2 {
   %5 = add i32 %2, -5
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -372,7 +372,7 @@ define hidden void @_ZN18WeakProcessorTimes22record_worker_time_secEjN13OopStora
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = add i32 %2, -5
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -423,7 +423,7 @@ _ZN15WorkerDataArrayIdE27set_or_add_thread_work_itemEjmj.exit8: ; preds = %_ZN15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24WeakProcessorTimeTrackerC2EP18WeakProcessorTimes(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24WeakProcessorTimeTrackerC2EP18WeakProcessorTimes(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
@@ -436,7 +436,7 @@ define hidden void @_ZN24WeakProcessorTimeTrackerC2EP18WeakProcessorTimes(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24WeakProcessorTimeTrackerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24WeakProcessorTimeTrackerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %3
@@ -462,7 +462,7 @@ define hidden void @_ZN24WeakProcessorTimeTrackerD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27WeakProcessorParTimeTrackerC2EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN27WeakProcessorParTimeTrackerC2EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
@@ -479,7 +479,7 @@ define hidden void @_ZN27WeakProcessorParTimeTrackerC2EP18WeakProcessorTimesN13O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27WeakProcessorParTimeTrackerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27WeakProcessorParTimeTrackerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %3
@@ -516,7 +516,7 @@ define hidden void @_ZN27WeakProcessorParTimeTrackerD2Ev(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakIdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = alloca %class.LogStream, align 8
   %6 = alloca %class.LogStream, align 8
@@ -805,7 +805,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18WeakProcessorTimes13log_subtotalsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18WeakProcessorTimes13log_subtotalsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -822,7 +822,7 @@ define hidden void @_ZNK18WeakProcessorTimes13log_subtotalsEj(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18WeakProcessorTimes9log_totalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18WeakProcessorTimes9log_totalEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
@@ -1034,10 +1034,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

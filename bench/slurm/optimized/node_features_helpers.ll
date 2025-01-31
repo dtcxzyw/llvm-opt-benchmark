@@ -385,7 +385,7 @@ define dso_local zeroext i1 @node_features_p_changeable_feature(ptr noundef %0) 
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_cmp_features(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_cmp_features(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #10
   %.not = icmp eq i32 %4, 0
@@ -445,7 +445,7 @@ define dso_local range(i32 0, 2030) i32 @node_features_p_job_valid(ptr noundef %
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_feature(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_feature(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @xstrstr(ptr noundef %1, ptr noundef %3) #10
   %.not = icmp ne ptr %4, null
@@ -456,7 +456,7 @@ define internal range(i32 -1, 1) i32 @_foreach_feature(ptr nocapture noundef rea
 declare ptr @job_features_list2feature_sets(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_has_exclusive_features(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal i32 @_has_exclusive_features(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @job_features_set2str(ptr noundef %0, ptr noundef nonnull %3) #10
@@ -495,7 +495,7 @@ define internal i32 @_has_exclusive_features(ptr noundef %0, ptr nocapture readn
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unnamed_addr #0 {
@@ -612,7 +612,7 @@ _feature_set_state.exit:                          ; preds = %27, %37
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare i32 @get_log_level() local_unnamed_addr #1
 
@@ -694,7 +694,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @xfree_ptr(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_helper_get_modes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_foreach_helper_get_modes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1163,7 +1163,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %16, 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_make_features_config(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @_make_features_config(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 955, ptr noundef nonnull @__func__._make_features_config) #10
   %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.20) #10
@@ -1271,7 +1271,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @node_features_p_step_config(i1 noundef zeroext %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define dso_local void @node_features_p_step_config(i1 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret void
 }
 
@@ -1284,17 +1284,17 @@ define dso_local i32 @node_features_p_overlap(ptr noundef %0) local_unnamed_addr
 declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @node_features_p_get_node(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local noundef i32 @node_features_p_get_node(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @node_features_p_node_update(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @node_features_p_node_update(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @node_features_p_node_update_valid(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @node_features_p_node_update_valid(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i1 true
 }
 
@@ -1325,7 +1325,7 @@ declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = icmp sgt i32 %1, 0
@@ -1489,7 +1489,7 @@ declare i32 @s_p_get_uint32(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_parse_feature(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_feature(ptr noundef writeonly captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
@@ -1539,14 +1539,14 @@ define internal range(i32 -1, 2) i32 @_parse_feature(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_exclusives(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_parse_exclusives(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @xstrdup(ptr noundef %3) #10
   store ptr %7, ptr %0, align 8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr noundef writeonly captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i1 @running_in_slurmctld() #10
   br i1 %7, label %29, label %8
 
@@ -1640,7 +1640,7 @@ define internal range(i32 -1, 1) i32 @_count_exclusivity(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_get_list_excl_count(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @_get_list_excl_count(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @xstrstr(ptr noundef %3, ptr noundef %0) #10
   %.not36 = icmp eq ptr %4, null
@@ -1675,7 +1675,7 @@ switch.early.test:                                ; preds = %9
   ]
 
 .backedge:                                        ; preds = %9, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %19, %26
-  %17 = tail call ptr @xstrstr(ptr noundef nonnull %11, ptr noundef %0) #10
+  %17 = tail call ptr @xstrstr(ptr noundef nonnull %11, ptr noundef nonnull %0) #10
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !21
 
@@ -1704,10 +1704,10 @@ switch.early.test:                                ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @run_command(ptr noundef) local_unnamed_addr #1
 
@@ -1799,7 +1799,7 @@ define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_build_valid_feature_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_build_valid_feature_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1847,10 +1847,10 @@ declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @uid_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -62,12 +62,12 @@ define internal noundef i32 @nfs_callback_dispatch(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nfs4_callback_null(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef i32 @nfs4_callback_null(ptr readnone captures(none) %0) #1 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef zeroext i1 @nfs4_encode_void(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef zeroext i1 @nfs4_encode_void(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   ret i1 true
 }
 
@@ -405,10 +405,10 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @nfs4_find_client_ident(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -429,7 +429,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -459,7 +459,7 @@ declare dso_local ptr @xdr_encode_opaque(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local i32 @nfs4_callback_getattr(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !6
@@ -530,7 +530,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @encode_getattr_res(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.thread, !prof !15
@@ -671,7 +671,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
 declare dso_local i32 @nfs4_callback_recall(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((148, 152)) %2) #0 align 16 {
+define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((148, 152)) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 4, ptr %4, align 4
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 16) #11
@@ -725,7 +725,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #5

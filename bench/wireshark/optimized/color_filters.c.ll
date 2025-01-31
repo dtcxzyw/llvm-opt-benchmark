@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @color_filter_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @color_filter_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #14
   %7 = tail call noalias ptr @g_strdup(ptr noundef %0) #15
   store ptr %7, ptr %6, align 8
@@ -64,7 +64,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @color_filters_get_tmp(i8 noundef zeroext %0) local_unnamed_addr #0 {
@@ -104,7 +104,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @color_filters_find_by_name_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @color_filters_find_by_name_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #16
   ret i32 %4
@@ -113,7 +113,7 @@ define internal i32 @color_filters_find_by_name_cb(ptr nocapture noundef readonl
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -227,7 +227,7 @@ define range(i32 0, 2) i32 @color_filters_set_tmp(i8 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -255,7 +255,7 @@ define ptr @color_filters_tmp_color(i8 noundef zeroext %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_reset_tmp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_reset_tmp(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   br label %4
 
 2:                                                ; preds = %4
@@ -293,7 +293,7 @@ define void @color_filter_delete(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @color_filter_list_delete(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @color_filter_list_delete(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_slist_free_full(ptr noundef %2, ptr noundef nonnull @color_filter_delete_cb) #15
   store ptr null, ptr %0, align 8
@@ -317,7 +317,7 @@ define internal void @color_filter_delete_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @color_filter_list, align 8
   tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @color_filter_delete_cb) #15
   store ptr null, ptr @color_filter_list, align 8
@@ -326,7 +326,7 @@ define range(i32 0, 2) i32 @color_filters_init(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 128), align 8
   %4 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.14, i32 noundef -1) #15
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 136), align 8
@@ -340,7 +340,7 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
   %10 = add nsw i64 %indvars.iv.i, -1
   %11 = getelementptr ptr, ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 16) #15
+  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 16) #15
   %14 = lshr i64 %13, 16
   %15 = trunc i64 %14 to i16
   %16 = and i16 %15, 255
@@ -352,7 +352,7 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
   %22 = mul nuw i16 %21, 257
   %23 = getelementptr ptr, ptr %6, i64 %10
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 16) #15
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 16) #15
   %26 = lshr i64 %25, 16
   %27 = trunc i64 %26 to i16
   %28 = and i16 %27, 255
@@ -444,7 +444,7 @@ color_filters_add_tmp.exit:                       ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_reload(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_reload(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @color_filter_deleted_list, align 8
   %4 = load ptr, ptr @color_filter_list, align 8
   %5 = tail call ptr @g_slist_concat(ptr noundef %3, ptr noundef %4) #15
@@ -478,7 +478,7 @@ define void @color_filters_clone(ptr noundef %0, ptr noundef %1) local_unnamed_a
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @color_filters_clone_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #14
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
@@ -553,7 +553,7 @@ define range(i32 0, 2) i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @color_filter_validate_cb(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @color_filter_validate_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -585,7 +585,7 @@ define internal void @color_filter_validate_cb(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @color_filter_compile_cb(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @color_filter_compile_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -645,7 +645,7 @@ define void @color_filters_prime_edt(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prime_edt(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @prime_edt(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -679,7 +679,7 @@ define range(i32 0, 2) i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @find_hfid(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -725,7 +725,7 @@ define range(i32 0, 2) i32 @color_filters_use_proto(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @find_proto(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -793,7 +793,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
 declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_read_globals(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_read_globals(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @get_datafile_path(ptr noundef nonnull @.str.4) #15
   %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.5)
   %6 = icmp eq ptr %5, null
@@ -838,7 +838,7 @@ define range(i32 0, 2) i32 @color_filters_read_globals(ptr noundef %0, ptr nocap
 declare ptr @get_datafile_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -847,7 +847,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
@@ -1097,10 +1097,10 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnul
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_import(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.5)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %12
@@ -1137,7 +1137,7 @@ define range(i32 0, 2) i32 @color_filters_import(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_write(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_write(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.write_filter_data, align 8
   %4 = alloca ptr, align 8
   %5 = call i32 @create_persconffile_dir(ptr noundef nonnull %4) #15
@@ -1193,7 +1193,7 @@ declare i32 @create_persconffile_dir(ptr noundef) local_unnamed_addr #2
 declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_export(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_export(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.write_filter_data, align 8
   %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.11)
   %7 = icmp eq ptr %6, null
@@ -1227,7 +1227,7 @@ define range(i32 0, 2) i32 @color_filters_export(ptr noundef %0, ptr noundef %1,
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1237,7 +1237,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @color_filter_list_clone_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @color_filter_list_clone_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #14
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
@@ -1275,7 +1275,7 @@ declare zeroext i1 @dfilter_interested_in_proto(ptr noundef, i32 noundef) local_
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc_unlocked(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @getc_unlocked(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1284,15 +1284,15 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare void @report_warning(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @get_configuration_namespace() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @write_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal void @write_filter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1330,7 +1330,7 @@ define internal void @write_filter(ptr nocapture noundef readonly %0, ptr nocapt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #15
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #15
   br label %35
 
 35:                                               ; preds = %10, %6, %2
@@ -1338,13 +1338,13 @@ define internal void @write_filter(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

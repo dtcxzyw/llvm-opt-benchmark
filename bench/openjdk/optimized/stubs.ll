@@ -59,7 +59,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN9StubQueueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9StubQueueD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((40, 48)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %6, align 8
   %7 = add i32 %2, 15
@@ -127,7 +127,7 @@ declare noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef, i32 noundef) local
 declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN9StubQueueD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN9StubQueueD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 96) #7
@@ -138,7 +138,7 @@ define hidden void @_ZN9StubQueueD2Ev(ptr nocapture nonnull readnone align 8 %0)
 declare void @_Z20report_unimplementedPKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((20, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((20, 24)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %3) #6
@@ -199,7 +199,7 @@ declare noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef) local_unnamed_addr 
 declare void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ule ptr %4, %1
@@ -278,7 +278,7 @@ _ZNK9StubQueue13stub_containsEP4StubPh.exit.thread: ; preds = %20, %_ZNK9StubQue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9StubQueue17request_committedEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN9StubQueue17request_committedEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN9StubQueue7requestEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN9StubQueue6commitEi.exit, label %4
@@ -337,7 +337,7 @@ _ZN9StubQueue6commitEi.exit:                      ; preds = %43, %4, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -444,7 +444,7 @@ define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue6commitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -498,7 +498,7 @@ define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9StubQueue17compute_stub_sizeEP4Stubi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN9StubQueue17compute_stub_sizeEP4Stubi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -529,7 +529,7 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull alig
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue12remove_firstEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue12remove_firstEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -595,7 +595,7 @@ define hidden void @_ZN9StubQueue12remove_firstEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue12remove_firstEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue12remove_firstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 %4)
@@ -676,7 +676,7 @@ _ZN9StubQueue12remove_firstEv.exit:               ; preds = %.lr.ph.split, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue10remove_allEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue10remove_allEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -755,7 +755,7 @@ _ZN9StubQueue12remove_firstEi.exit:               ; preds = %_ZN9StubQueue12remo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue6verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -967,7 +967,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %105, %104, %1
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

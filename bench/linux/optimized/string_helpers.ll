@@ -79,7 +79,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_memcpy_and_p
 @llvm.compiler.used = appending global [19 x ptr] [ptr @__UNIQUE_ID___addressable___sysfs_match_string357, ptr @__UNIQUE_ID___addressable_devm_kasprintf_strarray351, ptr @__UNIQUE_ID___addressable_kasprintf_strarray349, ptr @__UNIQUE_ID___addressable_kfree_strarray350, ptr @__UNIQUE_ID___addressable_kstrdup_and_replace348, ptr @__UNIQUE_ID___addressable_kstrdup_quotable345, ptr @__UNIQUE_ID___addressable_kstrdup_quotable_cmdline346, ptr @__UNIQUE_ID___addressable_kstrdup_quotable_file347, ptr @__UNIQUE_ID___addressable_match_string356, ptr @__UNIQUE_ID___addressable_memcpy_and_pad359, ptr @__UNIQUE_ID___addressable_parse_int_array_user340, ptr @__UNIQUE_ID___addressable_skip_spaces353, ptr @__UNIQUE_ID___addressable_strim354, ptr @__UNIQUE_ID___addressable_string_escape_mem342, ptr @__UNIQUE_ID___addressable_string_get_size339, ptr @__UNIQUE_ID___addressable_string_unescape341, ptr @__UNIQUE_ID___addressable_strreplace358, ptr @__UNIQUE_ID___addressable_strscpy_pad352, ptr @__UNIQUE_ID___addressable_sysfs_streq355], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #0 align 16 {
   %6 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   store i64 0, ptr %6, align 8, !annotation !5
@@ -214,19 +214,19 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @parse_int_array_user(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define dso_local i32 @parse_int_array_user(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #4 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   %5 = tail call ptr @memdup_user_nul(ptr noundef %0, i64 noundef %1) #17
@@ -484,7 +484,7 @@ define dso_local noundef i32 @string_unescape(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @string_escape_mem(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) #6 align 16 {
+define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5) #6 align 16 {
   %7 = getelementptr i8, ptr %2, i64 %3
   %8 = icmp eq ptr %5, null
   br i1 %8, label %12, label %9
@@ -1063,7 +1063,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @kstrdup_quotable_cmdline(ptr noundef %0, i32 noundef %1) #4 align 16 {
@@ -1394,7 +1394,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_kfree_strarray(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal void @devm_kfree_strarray(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -1519,7 +1519,7 @@ define dso_local noundef ptr @strim(ptr noundef %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext i1 @sysfs_streq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define dso_local noundef zeroext i1 @sysfs_streq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit, label %5
@@ -1583,7 +1583,7 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @match_string(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #10 align 16 {
+define dso_local i32 @match_string(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #10 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1612,10 +1612,10 @@ define dso_local i32 @match_string(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @__sysfs_match_string(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #11 align 16 {
+define dso_local i32 @__sysfs_match_string(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #11 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.loopexit11, label %.preheader10
 
@@ -1694,7 +1694,7 @@ define dso_local i32 @__sysfs_match_string(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @memcpy_and_pad(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #12 align 16 {
+define dso_local void @memcpy_and_pad(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) #12 align 16 {
   %6 = icmp ugt i64 %1, %3
   br i1 %6, label %7, label %11
 
@@ -1715,7 +1715,7 @@ define dso_local void @memcpy_and_pad(ptr nocapture noundef writeonly %0, i64 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #14

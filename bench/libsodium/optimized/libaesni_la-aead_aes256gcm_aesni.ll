@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.crypto_aead_aes256gcm_state_ = type { [512 x i8] }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define noundef i32 @crypto_aead_aes256gcm_beforenm(ptr nocapture noundef nonnull initializes((0, 240)) %st_, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #0 {
+define noundef i32 @crypto_aead_aes256gcm_beforenm(ptr noundef nonnull captures(none) initializes((0, 240)) %st_, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #0 {
 entry:
   %k.val = load <2 x i64>, ptr %k, align 1
   %0 = getelementptr i8, ptr %k, i64 16
@@ -271,10 +271,10 @@ precomp_for_block_count.exit:                     ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr nocapture noundef nonnull %c, ptr nocapture noundef nonnull %mac, ptr noundef writeonly %maclen_p, ptr nocapture noundef readonly %m, i64 noundef %m_len_, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr nocapture readnone %nsec, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %st_) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef writeonly %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len_, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #2 {
 entry:
   %ts.i380.i = alloca [7 x <2 x i64>], align 16
   %ts.i342.i = alloca [7 x <2 x i64>], align 16
@@ -1439,10 +1439,10 @@ return:                                           ; preds = %aes_gcm_encrypt_gen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt(ptr nocapture noundef nonnull %c, ptr noundef writeonly %clen_p, ptr nocapture noundef readonly %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr nocapture noundef readnone %nsec, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt(ptr noundef nonnull captures(none) %c, ptr noundef writeonly %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st.i = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   %add.ptr = getelementptr i8, ptr %c, i64 %m_len
@@ -1469,7 +1469,7 @@ if.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached(ptr nocapture noundef nonnull %c, ptr nocapture noundef nonnull %mac, ptr noundef %maclen_p, ptr nocapture noundef readonly %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr nocapture noundef readnone %nsec, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr nonnull %c, i32 0, i32 2, i32 1)
@@ -1482,12 +1482,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #5
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #5
 
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_afternm(ptr nocapture noundef nonnull %c, ptr noundef writeonly %clen_p, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr noundef %ad, i64 noundef %adlen, ptr nocapture noundef readnone %nsec, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %st_) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_afternm(ptr noundef nonnull captures(none) %c, ptr noundef writeonly %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef %ad, i64 noundef %adlen, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #7 {
 entry:
   %add.ptr = getelementptr i8, ptr %c, i64 %mlen
   %call = tail call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef %c, ptr noundef %add.ptr, ptr noundef null, ptr noundef %m, i64 noundef %mlen, ptr noundef %ad, i64 noundef %adlen, ptr poison, ptr noundef %npub, ptr noundef %st_)
@@ -1504,7 +1504,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef writeonly %m, ptr nocapture readnone %nsec, ptr nocapture noundef nonnull readonly %c, i64 noundef %c_len_, ptr noundef nonnull %mac, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %st_) local_unnamed_addr #8 {
+define i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef writeonly %m, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %c_len_, ptr noundef nonnull %mac, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #8 {
 entry:
   %ts.i249.i = alloca [7 x <2 x i64>], align 16
   %ts.i188.i = alloca [7 x <2 x i64>], align 16
@@ -2499,7 +2499,7 @@ return:                                           ; preds = %if.end4, %lor.lhs.f
 declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_afternm(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr nocapture noundef readnone %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %st_) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt_afternm(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %clen, 15
   br i1 %cmp, label %if.then, label %if.end
@@ -2528,7 +2528,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_detached(ptr noundef %m, ptr nocapture noundef readnone %nsec, ptr nocapture noundef nonnull readonly %c, i64 noundef %clen, ptr noundef nonnull %mac, ptr noundef %ad, i64 noundef %adlen, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt_detached(ptr noundef %m, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %clen, ptr noundef nonnull %mac, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr %m, i32 0, i32 2, i32 1)
@@ -2540,7 +2540,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr nocapture noundef readnone %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr nocapture noundef nonnull readonly %npub, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr %m, i32 0, i32 2, i32 1)
@@ -2604,7 +2604,7 @@ declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #9
 declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @gh_ad_blocks(ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull %sth, ptr nocapture noundef readonly %ad, i64 noundef range(i64 0, -15) %ad_len) unnamed_addr #0 {
+define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull captures(none) %sth, ptr noundef readonly captures(none) %ad, i64 noundef range(i64 0, -15) %ad_len) unnamed_addr #0 {
 entry:
   %cmp.not168 = icmp ult i64 %ad_len, 224
   br i1 %cmp.not168, label %for.cond12.preheader, label %for.body.lr.ph
@@ -2913,10 +2913,10 @@ if.end:                                           ; preds = %if.then, %for.end89
 declare <2 x i64> @llvm.fshl.v2i64(<2 x i64>, <2 x i64>, <2 x i64>) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

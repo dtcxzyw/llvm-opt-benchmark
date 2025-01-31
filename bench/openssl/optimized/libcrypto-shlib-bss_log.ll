@@ -22,7 +22,7 @@ entry:
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @slg_write(ptr nocapture readnone %b, ptr nocapture noundef readonly %in, i32 noundef %inl) #2 {
+define internal range(i32 0, -2147483648) i32 @slg_write(ptr readnone captures(none) %b, ptr noundef readonly captures(none) %in, i32 noundef %inl) #2 {
 entry:
   %cmp = icmp slt i32 %inl, 0
   br i1 %cmp, label %return, label %if.end
@@ -66,7 +66,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @slg_puts(ptr nocapture readnone %bp, ptr nocapture noundef readonly %str) #2 {
+define internal range(i32 0, -2147483648) i32 @slg_puts(ptr readnone captures(none) %bp, ptr noundef readonly captures(none) %str) #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
@@ -82,7 +82,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   %conv5.i = and i64 %call, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %str, i64 %conv5.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %str, i64 %conv5.i, i1 false)
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %conv5.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %while.cond.i
@@ -112,7 +112,7 @@ slg_write.exit:                                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @slg_ctrl(ptr nocapture readnone %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
+define internal noundef i64 @slg_ctrl(ptr readnone captures(none) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
   %cond = icmp eq i32 %cmd, 4
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -128,7 +128,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @slg_new(ptr nocapture noundef writeonly initializes((40, 44), (56, 60), (64, 72)) %bi) #2 {
+define internal noundef i32 @slg_new(ptr noundef writeonly captures(none) initializes((40, 44), (56, 60), (64, 72)) %bi) #2 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bi, i64 40
   store i32 1, ptr %init, align 8
@@ -158,17 +158,17 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @closelog() local_unnamed_addr #1
 

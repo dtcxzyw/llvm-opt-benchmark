@@ -180,7 +180,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.173 = private unnamed_addr constant [26 x i8] c"Unreleased developer copy\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 117) i32 @ompi_fill_in_type_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 0, 117) i32 @ompi_fill_in_type_info(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -1577,10 +1577,10 @@ define range(i32 0, 117) i32 @ompi_fill_in_type_info(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ompi_fetch_pointer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i64 @ompi_fetch_pointer(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1607,7 +1607,7 @@ define i64 @ompi_fetch_pointer(ptr noundef %0, i64 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ompi_fetch_int(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i64 @ompi_fetch_int(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1634,7 +1634,7 @@ define i64 @ompi_fetch_int(ptr noundef %0, i64 noundef %1, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @ompi_fetch_bool(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @ompi_fetch_bool(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %6 = load i32, ptr %5, align 4
@@ -1650,7 +1650,7 @@ define range(i64 0, 2) i64 @ompi_fetch_bool(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ompi_fetch_size_t(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i64 @ompi_fetch_size_t(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1677,7 +1677,7 @@ define i64 @ompi_fetch_size_t(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define noundef i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 1
@@ -1784,7 +1784,7 @@ ompi_fetch_int.exit20:                            ; preds = %ompi_fetch_int.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ompi_fetch_opal_pointer_array_item(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ompi_fetch_opal_pointer_array_item(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [8 x i8], align 1
   %7 = alloca i64, align 8
   %8 = alloca [8 x i8], align 1
@@ -1873,7 +1873,7 @@ ompi_fetch_pointer.exit20:                        ; preds = %ompi_fetch_pointer.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @ompi_get_lib_version(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef i32 @ompi_get_lib_version(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = add nsw i32 %1, -1
   %4 = sext i32 %3 to i64
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %4, ptr noundef nonnull @.str.164, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.173) #5
@@ -1883,16 +1883,16 @@ define noundef i32 @ompi_get_lib_version(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

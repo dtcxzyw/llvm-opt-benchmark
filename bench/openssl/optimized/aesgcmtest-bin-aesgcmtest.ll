@@ -148,7 +148,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ct_len, ptr noundef nonnull %tag, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %tag_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ct_len, ptr noundef nonnull %tag, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %tag_len) unnamed_addr #0 {
 entry:
   %outlen = alloca i32, align 4
   %outbuf = alloca [64 x i8], align 16

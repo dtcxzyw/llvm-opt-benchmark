@@ -75,7 +75,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_unref, ptr @.str.33, ptr @.str.34, i32 238, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock, ptr @.str.33, ptr @.str.35, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_is_inserted, ptr @.str.33, ptr @.str.36, i32 176, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrlock, ptr @.str.33, ptr @.str.35, i32 120, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2, 1) i32 @bdrv_snapshot_find(ptr noundef %bs, ptr nocapture noundef writeonly %sn_info, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @bdrv_snapshot_find(ptr noundef %bs, ptr noundef writeonly captures(none) %sn_info, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -174,15 +174,15 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end10, %do.end, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @bdrv_snapshot_find_by_id_and_name(ptr noundef %bs, ptr noundef readonly %id, ptr noundef readonly %name, ptr nocapture noundef writeonly %sn_info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bdrv_snapshot_find_by_id_and_name(ptr noundef %bs, ptr noundef readonly %id, ptr noundef readonly %name, ptr noundef writeonly captures(none) %sn_info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %tobool = icmp ne ptr %id, null
@@ -1031,7 +1031,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr nocapture noundef nonnull writeonly %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr noundef nonnull writeonly captures(none) %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %it = alloca %struct.BdrvNextIterator, align 8
   br i1 %has_devices, label %if.then, label %if.else
@@ -1220,7 +1220,7 @@ if.then11:                                        ; preds = %for.body.i
 
 if.then17:                                        ; preds = %if.then11
   %call18 = call ptr @bdrv_get_device_or_node_name(ptr noundef %0) #6
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.22, ptr noundef %name, ptr noundef %call18) #6
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.22, ptr noundef nonnull %name, ptr noundef %call18) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end19.critedge.sink.split:                     ; preds = %do.end.i16, %bdrv_snapshot_find.exit.thread27
@@ -1397,7 +1397,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 2) i32 @bdrv_all_has_snapshot(ptr nocapture noundef readonly %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @bdrv_all_has_snapshot(ptr noundef readonly captures(none) %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab.i = alloca ptr, align 8
   %bdrvs = alloca ptr, align 8
@@ -2098,10 +2098,10 @@ declare ptr @bdrv_next(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_has_blk(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

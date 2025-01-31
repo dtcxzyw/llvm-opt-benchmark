@@ -169,10 +169,10 @@ define dso_local i32 @acpi_processor_hotplug(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @cpuidle_pause_and_lock() local_unnamed_addr #2
@@ -1484,7 +1484,7 @@ declare dso_local i32 @cpuidle_register_device(ptr noundef) local_unnamed_addr #
 declare dso_local void @cpuidle_unregister_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_power_exit(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_processor_power_exit(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1531,13 +1531,13 @@ define dso_local noundef i32 @acpi_processor_power_exit(ptr nocapture noundef %0
 declare dso_local void @cpuidle_unregister_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @acpi_has_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -61, 1) i32 @acpi_processor_evaluate_lpi(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -61, 1) i32 @acpi_processor_evaluate_lpi(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   store i64 -1, ptr %3, align 8
@@ -1788,7 +1788,7 @@ declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @acpi_device_hid(ptr noundef) local_unnamed_addr #2
@@ -1812,7 +1812,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree null_pointer_is_valid
 declare dso_local i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -1821,13 +1821,13 @@ declare dso_local i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local i32 @acpi_processor_evaluate_cst(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -1, 2) i32 @acpi_cst_latency_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define internal range(i32 -1, 2) i32 @acpi_cst_latency_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 align 16 {
   %3 = load i8, ptr %0, align 4
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %17, label %5
@@ -1856,7 +1856,7 @@ define internal range(i32 -1, 2) i32 @acpi_cst_latency_cmp(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @acpi_cst_latency_swap(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 %2) #12 align 16 {
+define internal void @acpi_cst_latency_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 %2) #12 align 16 {
   %4 = load i8, ptr %0, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %14, label %6
@@ -1892,7 +1892,7 @@ declare dso_local void @mark_tsc_unstable(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__lapic_timer_propagate_broadcast(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @__lapic_timer_propagate_broadcast(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 2147483647
@@ -1905,7 +1905,7 @@ define internal void @__lapic_timer_propagate_broadcast(ptr nocapture noundef re
 declare dso_local void @tick_broadcast_control(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_idle_lpi_enter(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
+define internal i32 @acpi_idle_lpi_enter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @processors) #19, !srcloc !26
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %16, label %6, !prof !27
@@ -1933,7 +1933,7 @@ define internal i32 @acpi_idle_lpi_enter(ptr nocapture readnone %0, ptr nocaptur
 declare dso_local void @cpuidle_poll_state_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal i32 @acpi_idle_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #13 section ".cpuidle.text" align 16 {
+define internal i32 @acpi_idle_enter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #13 section ".cpuidle.text" align 16 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr [10 x ptr], ptr @acpi_cstate, i64 0, i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -2072,7 +2072,7 @@ acpi_idle_do_entry.exit:                          ; preds = %75, %64, %63, %55, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_idle_play_dead(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef i32 @acpi_idle_play_dead(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr [10 x ptr], ptr @acpi_cstate, i64 0, i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -2129,7 +2129,7 @@ define internal noundef i32 @acpi_idle_play_dead(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_idle_enter_s2idle(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #13 section ".cpuidle.text" align 16 {
+define internal noundef i32 @acpi_idle_enter_s2idle(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #13 section ".cpuidle.text" align 16 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr [10 x ptr], ptr @acpi_cstate, i64 0, i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -2233,7 +2233,7 @@ acpi_idle_do_entry.exit:                          ; preds = %57, %46, %45, %37, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_idle_enter_bm(ptr nocapture noundef readonly %0, i16 %.32.val, ptr noundef %1, i32 noundef %2) unnamed_addr #13 section ".cpuidle.text" align 16 {
+define internal fastcc i32 @acpi_idle_enter_bm(ptr noundef readonly captures(none) %0, i16 %.32.val, ptr noundef %1, i32 noundef %2) unnamed_addr #13 section ".cpuidle.text" align 16 {
   tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #17, !srcloc !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 4
@@ -2525,7 +2525,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @acpi_processor_claim_cst_control() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @set_max_cstate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @set_max_cstate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @max_cstate, align 4
   %3 = icmp ugt i32 %2, 8
   br i1 %3, label %14, label %4

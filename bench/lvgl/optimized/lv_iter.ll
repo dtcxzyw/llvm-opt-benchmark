@@ -236,7 +236,7 @@ declare i32 @lv_circle_buf_size(ptr noundef) local_unnamed_addr #1
 declare i32 @lv_circle_buf_fill(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @peek_fill_cb(ptr noundef %0, i32 %1, i32 %2, ptr nocapture noundef readonly %3) #0 {
+define internal zeroext i1 @peek_fill_cb(ptr noundef %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %3, align 8, !tbaa !3
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @lv_iter_peek_reset(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_iter_inspect(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @lv_iter_inspect(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

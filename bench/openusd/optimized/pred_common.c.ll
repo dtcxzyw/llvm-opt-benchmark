@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7864
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -114,7 +114,7 @@ get_ref_filter_type.exit29:                       ; preds = %52, %48, %get_ref_f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   %5 = load i32, ptr %4, align 4
   %6 = sub nsw i32 0, %5
@@ -347,7 +347,7 @@ palette_add_to_cache.exit68:                      ; preds = %103, %107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 4) i32 @av1_get_intra_inter_context(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @av1_get_intra_inter_context(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7888
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7880
@@ -421,7 +421,7 @@ is_inter_block.exit28:                            ; preds = %33, %29, %28, %is_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @av1_get_reference_mode_context(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7888
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7880
@@ -520,7 +520,7 @@ is_inter_block.exit50:                            ; preds = %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 5) i32 @av1_get_comp_reference_type_context(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @av1_get_comp_reference_type_context(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7888
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7880
@@ -697,7 +697,7 @@ has_uni_comp_refs.exit83.thread:                  ; preds = %53, %52, %79, %is_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -732,7 +732,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -751,7 +751,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %3 = load i8, ptr %2, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10638
@@ -764,7 +764,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p2(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -787,7 +787,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10635
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10636
@@ -800,7 +800,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p1(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10637
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10638
@@ -813,7 +813,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p2(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -832,7 +832,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10639
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10640
@@ -845,7 +845,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p1(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -880,7 +880,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -899,7 +899,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p3(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p3(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -922,7 +922,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p3(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p4(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p4(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10635
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10636
@@ -935,7 +935,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p4(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p5(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p5(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10637
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10638
@@ -948,7 +948,7 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p5(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p6(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p6(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 10639
   %.val = load i8, ptr %2, align 1
   %3 = getelementptr i8, ptr %0, i64 10640

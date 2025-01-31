@@ -80,12 +80,12 @@ define hidden noundef i64 @_ZN23JvmtiManageCapabilities29init_onload_solo_capabi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -109,7 +109,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabili
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabiliti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -158,7 +158,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmtiCapabilities(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmtiCapabilities(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -177,7 +177,7 @@ define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCapabilitiesPS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCapabilitiesPS0_(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -197,7 +197,7 @@ define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #6 align 2 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -283,7 +283,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit33: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JvmtiManageCapabilities26get_potential_capabilitiesEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23JvmtiManageCapabilities26get_potential_capabilitiesEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN23JvmtiManageCapabilities18_capabilities_lockE, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -389,7 +389,7 @@ _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit: ; preds = %_ZN23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 99) i32 @_ZN23JvmtiManageCapabilities16add_capabilitiesEPK17jvmtiCapabilitiesS2_S2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 99) i32 @_ZN23JvmtiManageCapabilities16add_capabilitiesEPK17jvmtiCapabilitiesS2_S2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.jvmtiCapabilities, align 4
   %6 = load ptr, ptr @_ZN23JvmtiManageCapabilities18_capabilities_lockE, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -824,7 +824,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JvmtiManageCapabilities23relinquish_capabilitiesEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23JvmtiManageCapabilities23relinquish_capabilitiesEPK17jvmtiCapabilitiesS2_PS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %struct.jvmtiCapabilities, align 8
   %5 = alloca %struct.jvmtiCapabilities, align 4
   %6 = load ptr, ptr @_ZN23JvmtiManageCapabilities18_capabilities_lockE, align 8

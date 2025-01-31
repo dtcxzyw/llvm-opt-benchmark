@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.encode_pkcs1 = private unnamed_addr constant [13 x i8] c"encode_pkcs1\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @ossl_rsa_digestinfo_encoding(i32 noundef %md_nid, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define noundef ptr @ossl_rsa_digestinfo_encoding(i32 noundef %md_nid, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   switch i32 %md_nid, label %return [
     i32 95, label %return.sink.split
@@ -184,7 +184,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @encode_pkcs1(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %out_len, i32 noundef range(i32 115, 114) %type, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, 4294967296) %m_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @encode_pkcs1(ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull writeonly captures(none) %out_len, i32 noundef range(i32 115, 114) %type, ptr noundef readonly captures(none) %m, i64 noundef range(i64 0, 4294967296) %m_len) unnamed_addr #1 {
 entry:
   switch i32 %type, label %if.then2 [
     i32 0, label %if.then
@@ -287,7 +287,7 @@ declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %type, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr nocapture noundef writeonly %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %type, ptr noundef readonly captures(none) %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr noundef writeonly captures(none) %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
   %encoded_len = alloca i64, align 8
   %encoded = alloca ptr, align 8
@@ -516,7 +516,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @RSA_public_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_verify(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigbuf, i32 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
@@ -543,7 +543,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

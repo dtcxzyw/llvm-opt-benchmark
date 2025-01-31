@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN2EA6Thread9SemaphoreD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread9SemaphoreD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN15EASemaphoreDataC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15EASemaphoreDataC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this) unnamed_addr #0 align 2 {
 entry:
   %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %mnCount, i32 0 seq_cst, align 4
@@ -30,10 +30,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread19SemaphoreParametersC2EibPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) initializes((0, 9)) %this, i32 noundef %initialCount, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread19SemaphoreParametersC2EibPKc(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(25) initializes((0, 9)) %this, i32 noundef %initialCount, i1 noundef zeroext %bIntraProcess, ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i32 %initialCount, ptr %this, align 4
@@ -422,7 +422,7 @@ return:                                           ; preds = %while.cond, %entry,
 declare i32 @sem_post(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK2EA6Thread9Semaphore8GetCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK2EA6Thread9Semaphore8GetCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i32, ptr %mnCount seq_cst, align 8

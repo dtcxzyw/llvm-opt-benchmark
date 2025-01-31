@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [25 x i8] c"application/octet-stream\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ...) local_unnamed_addr #0 {
+define dso_local i32 @curl_formadd(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1255,7 +1255,7 @@ FormAdd.exit:                                     ; preds = %586, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @curl_formget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local i32 @curl_formget(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.curl_mimepart, align 8
   %5 = alloca [8192 x i8], align 16
   call void @Curl_mime_initpart(ptr noundef nonnull %4) #6
@@ -1644,10 +1644,10 @@ declare i32 @curl_mime_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @curl_mime_data_cb(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @fseeko_wrapper(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #3 {
+define internal noundef i32 @fseeko_wrapper(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #3 {
   %4 = tail call i32 @fseeko64(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -1663,14 +1663,14 @@ declare ptr @Curl_mime_contenttype(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @curl_mime_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #5

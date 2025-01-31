@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [17 x i8] c"Number of links:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal ptr @H5O__refcount_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr37 = getelementptr i8, ptr %7, i64 -1
   %8 = icmp ugt ptr %5, %.ptr37
@@ -113,7 +113,7 @@ define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__refcount_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 5)) %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @H5O__refcount_encode(ptr readnone captures(none) %0, i1 zeroext %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 5)) %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = load i32, ptr %4, align 4
@@ -138,7 +138,7 @@ define internal noundef i32 @H5O__refcount_encode(ptr nocapture readnone %0, i1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__refcount_copy(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define internal noundef ptr @H5O__refcount_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -165,7 +165,7 @@ define internal noundef ptr @H5O__refcount_copy(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @H5O__refcount_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture readnone %2) #2 {
+define internal noundef i64 @H5O__refcount_size(ptr readnone captures(none) %0, i1 zeroext %1, ptr readnone captures(none) %2) #2 {
   ret i64 5
 }
 
@@ -176,13 +176,13 @@ define internal noundef i32 @H5O__refcount_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5O__refcount_pre_copy_file(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @H5O__refcount_pre_copy_file(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 {
   store i8 1, ptr %2, align 1
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5O__refcount_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+define internal noundef i32 @H5O__refcount_debug(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = load i32, ptr %1, align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.8, i32 noundef %6) #7
   ret i32 0
@@ -195,7 +195,7 @@ declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #5
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

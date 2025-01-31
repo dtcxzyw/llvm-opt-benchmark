@@ -140,7 +140,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 declare i32 @qemu_opt_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @plugin_add(ptr nocapture noundef %opaque, ptr noundef %name, ptr noundef %value, ptr noundef %errp) #0 {
+define internal range(i32 0, 2) i32 @plugin_add(ptr noundef captures(none) %opaque, ptr noundef %name, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %is_on = alloca i8, align 1
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(5) @.str.1) #14
@@ -209,12 +209,12 @@ if.then21:                                        ; preds = %if.else
   br label %return
 
 if.end22:                                         ; preds = %if.else
-  %call23 = tail call i32 @g_strcmp0(ptr noundef %name, ptr noundef nonnull @.str.9) #11
+  %call23 = tail call i32 @g_strcmp0(ptr noundef nonnull %name, ptr noundef nonnull @.str.9) #11
   %cmp24 = icmp eq i32 %call23, 0
   br i1 %cmp24, label %land.lhs.true, label %if.else35
 
 land.lhs.true:                                    ; preds = %if.end22
-  %call25 = call zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr noundef nonnull %is_on, ptr noundef null) #11
+  %call25 = call zeroext i1 @qapi_bool_parse(ptr noundef nonnull %name, ptr noundef %value, ptr noundef nonnull %is_on, ptr noundef null) #11
   br i1 %call25, label %if.else35, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true
@@ -223,21 +223,21 @@ if.then26:                                        ; preds = %land.lhs.true
   br i1 %cmp28, label %if.then29, label %if.else31
 
 if.then29:                                        ; preds = %if.then26
-  %call30 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %value, ptr noundef nonnull @.str.11) #11
+  %call30 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %value, ptr noundef nonnull @.str.11) #11
   br label %if.end33
 
 if.else31:                                        ; preds = %if.then26
-  %call32 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, ptr noundef %value) #11
+  %call32 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.12, ptr noundef nonnull %value) #11
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else31, %if.then29
   %fullarg.0 = phi ptr [ %call30, %if.then29 ], [ %call32, %if.else31 ]
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.13, ptr noundef %value) #11
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.13, ptr noundef nonnull %value) #11
   %call34 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.14, ptr noundef %fullarg.0) #11
   br label %if.end37
 
 if.else35:                                        ; preds = %land.lhs.true, %if.end22
-  %call36 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %name, ptr noundef %value) #11
+  %call36 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %name, ptr noundef %value) #11
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else35, %if.end33
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end18, %if.end37
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_plugin_load_list(ptr nocapture noundef %head, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_plugin_load_list(ptr noundef captures(none) %head, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sym.i = alloca ptr, align 8
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #15
@@ -743,7 +743,7 @@ plugin_reset_destroy__locked.exit:                ; preds = %if.end7.i, %plugin_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -769,7 +769,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @g_module_open(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -802,10 +802,10 @@ declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

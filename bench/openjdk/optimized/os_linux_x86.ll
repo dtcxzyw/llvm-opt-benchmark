@@ -104,7 +104,7 @@ define hidden noundef nonnull ptr @_ZN2os23non_memory_address_wordEv() local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr nocapture noundef writeonly initializes((168, 176)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr noundef writeonly captures(none) initializes((168, 176)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %3, ptr %4, align 8
@@ -120,7 +120,7 @@ define hidden void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN2os5Linux15ucontext_get_spEPK10ucontext_t(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN2os5Linux15ucontext_get_spEPK10ucontext_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -128,7 +128,7 @@ define hidden noundef ptr @_ZN2os5Linux15ucontext_get_spEPK10ucontext_t(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN2os5Linux15ucontext_get_fpEPK10ucontext_t(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN2os5Linux15ucontext_get_fpEPK10ucontext_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -407,7 +407,7 @@ _ZN2os33fetch_compiled_frame_from_contextEPKv.exit: ; preds = %107, %106, %100, 
 declare noundef zeroext i1 @_ZN2os19is_readable_pointerEPKv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os33fetch_compiled_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os33fetch_compiled_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -510,7 +510,7 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %45, %51, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1176,25 +1176,25 @@ declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i64 1048576, 4194305) i64 @_ZN2os5Posix18default_stack_sizeENS_10ThreadTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
@@ -1320,7 +1320,7 @@ declare void @_ZN2os9print_tosEP12outputStreamPh(ptr noundef, ptr noundef) local
 declare void @_ZN2os18print_instructionsEP12outputStreamPhi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp ne ptr %1, null
   %6 = icmp slt i32 %4, 16

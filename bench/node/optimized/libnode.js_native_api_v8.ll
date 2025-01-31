@@ -172,7 +172,7 @@ if.end:                                           ; preds = %"_ZN4node16OnScopeL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6v8impl9Finalizer14ResetFinalizerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((16, 40)) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6v8impl9Finalizer14ResetFinalizerEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((16, 40)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %finalize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
@@ -217,7 +217,7 @@ _ZN6v8impl10RefTracker4LinkEPS0_.exit:            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_(ptr noundef %env, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 align 2 {
@@ -674,7 +674,7 @@ _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN6v8impl7RefBase4DataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN6v8impl7RefBase4DataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
 entry:
   %finalize_data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %finalize_data_, align 8
@@ -682,7 +682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN6v8impl7RefBase3RefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef i32 @_ZN6v8impl7RefBase3RefEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
 entry:
   %refcount_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
@@ -692,7 +692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, -1) i32 @_ZN6v8impl7RefBase5UnrefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN6v8impl7RefBase5UnrefEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
 entry:
   %refcount_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
@@ -710,7 +710,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN6v8impl7RefBase8RefCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef i32 @_ZN6v8impl7RefBase8RefCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
 entry:
   %refcount_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
@@ -1073,7 +1073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %env, ptr %value.coerce, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 8 dereferenceable(8) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9) unnamed_addr #3 comdat align 2 {
@@ -1179,7 +1179,7 @@ if.end:                                           ; preds = %if.end.i.i6, %if.el
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6v8impl9Reference3RefEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6v8impl9Reference3RefEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
   %persistent_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
@@ -1277,7 +1277,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN6v8impl9Reference3GetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6v8impl9Reference3GetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
   %persistent_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
@@ -1448,7 +1448,7 @@ _ZN6v8impl9Reference8FinalizeEv.exit:             ; preds = %if.end.i.i.i, %dele
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) #3 align 2 {
+define dso_local void @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) #3 align 2 {
 entry:
   %parameter_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %parameter_.i, align 8
@@ -1734,7 +1734,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #3 align 2 {
 entry:
   %initial_refcount.addr.i.i = alloca i32, align 4
   %ownership.addr.i.i = alloca i32, align 4
@@ -2181,7 +2181,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef nonnull writeonly %result, ptr %sig.coerce) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr noundef nonnull writeonly captures(none) %result, ptr %sig.coerce) unnamed_addr #3 align 2 {
 entry:
   %initial_refcount.addr.i.i = alloca i32, align 4
   %ownership.addr.i.i = alloca i32, align 4
@@ -2242,7 +2242,7 @@ return:                                           ; preds = %do.end, %if.then
 declare void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr nocapture noundef nonnull %env, ptr nocapture noundef readonly %p, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr noundef nonnull captures(none) %env, ptr noundef readonly captures(none) %p, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2290,7 +2290,7 @@ return:                                           ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr nocapture noundef readonly %descriptor) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr noundef readonly captures(none) %descriptor) unnamed_addr #10 {
 entry:
   %getter = getelementptr inbounds nuw i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %getter, align 8
@@ -15895,7 +15895,7 @@ _ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_(ptr nocapture readnone %env, ptr noundef %data, ptr nocapture readnone %hint) #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_(ptr readnone captures(none) %env, ptr noundef %data, ptr readnone captures(none) %hint) #3 align 2 {
 entry:
   %isnull = icmp eq ptr %data, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -15909,7 +15909,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper12GetNewTargetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #17 align 2 {
+define internal noundef ptr @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper12GetNewTargetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #17 align 2 {
 entry:
   %_cbinfo = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_cbinfo, align 8
@@ -15947,7 +15947,7 @@ return:                                           ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper4ArgsEPP12napi_value__m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %buffer, i64 noundef %buffer_length) unnamed_addr #18 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper4ArgsEPP12napi_value__m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %buffer, i64 noundef %buffer_length) unnamed_addr #18 align 2 {
 entry:
   %_args_length = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %_args_length, align 8
@@ -16024,7 +16024,7 @@ if.end:                                           ; preds = %for.body27, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %value) unnamed_addr #19 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %value) unnamed_addr #19 align 2 {
 entry:
   %_cbinfo = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_cbinfo, align 8
@@ -16093,7 +16093,7 @@ declare noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull 
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 declare ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -16102,10 +16102,10 @@ declare ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(
 declare ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
@@ -16268,7 +16268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
+define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %string_, align 8
@@ -16276,7 +16276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
+define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %length_, align 8
@@ -16284,7 +16284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr nocapture noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZThn16_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr noundef captures(none) initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -16418,7 +16418,7 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this) unnamed_addr #5 align 2 {
 entry:
   %prev_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i, align 8
@@ -16450,7 +16450,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZThn56_N6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD1Ev(ptr noundef captures(none) initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
@@ -16584,7 +16584,7 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef initializes((-32, -24)) %this) unnamed_addr #5 align 2 {
+define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr noundef captures(none) initializes((-32, -24)) %this) unnamed_addr #5 align 2 {
 entry:
   %prev_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %prev_.i.i, align 8
@@ -16616,7 +16616,7 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv.exit: ; preds = %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8), (40, 48)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -16749,7 +16749,7 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResourceD1Ev(ptr noundef captures(none) initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
@@ -16884,7 +16884,7 @@ _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit: ; preds = %entry, %if.
 declare ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((16, 24), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
@@ -17019,7 +17019,7 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
+define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %string_, align 8
@@ -17027,7 +17027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
+define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %length_, align 8
@@ -17035,7 +17035,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr nocapture noundef initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZThn16_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr noundef captures(none) initializes((0, 8), (40, 48)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -17169,7 +17169,7 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr nocapture noundef initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZThn56_N6v8impl12_GLOBAL__N_122ExternalStringResourceD1Ev(ptr noundef captures(none) initializes((-40, -32), (0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 16), ptr %0, align 8
@@ -17314,10 +17314,10 @@ entry:
 declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21

@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [44 x i8] c"Too much data: Truncating file at %ju bytes\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @archive_write_disk_set_options(ptr nocapture noundef writeonly initializes((512, 516)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @archive_write_disk_set_options(ptr noundef writeonly captures(none) initializes((512, 516)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %1, ptr %3, align 8
   ret i32 0
@@ -274,10 +274,10 @@ declare i32 @geteuid() local_unnamed_addr #4
 declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @archive_write_disk_set_acls(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #6 {
+define dso_local noundef i32 @archive_write_disk_set_acls(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #6 {
   ret i32 0
 }
 
@@ -819,7 +819,7 @@ cleanup_pathname.exit:                            ; preds = %52
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.10, ptr noundef %67) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.10, ptr noundef nonnull %67) #19
   br label %491
 
 71:                                               ; preds = %66, %63
@@ -1106,7 +1106,7 @@ edit_deep_directories.exit:                       ; preds = %.lr.ph35.i, %158, %
 
 199:                                              ; preds = %195
   store i8 0, ptr %197, align 1
-  %200 = call fastcc i32 @create_dir(ptr noundef nonnull %0, ptr noundef %196)
+  %200 = call fastcc i32 @create_dir(ptr noundef nonnull %0, ptr noundef nonnull %196)
   store i8 47, ptr %197, align 1
   br label %create_parent_dir.exit.i
 
@@ -2611,7 +2611,7 @@ define internal range(i64 -9223372036854775808, 1) i64 @_archive_write_disk_data
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @_archive_write_disk_filter_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) #7 {
+define internal i64 @_archive_write_disk_filter_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 {
   %3 = add i32 %1, 1
   %or.cond = icmp ult i32 %3, 2
   br i1 %or.cond, label %4, label %7
@@ -2745,13 +2745,13 @@ define internal fastcc ptr @sort_dir_list(ptr noundef %0) unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -2760,7 +2760,7 @@ declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @lchmod(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -20, 1) i32 @set_fflags_platform(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -20, 1) i32 @set_fflags_platform(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = or i64 %5, %4
@@ -2849,7 +2849,7 @@ declare void @archive_acl_clear(ptr noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2888,7 +2888,7 @@ declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @archive_entry_hardlink(ptr noundef) local_unnamed_addr #2
 
@@ -2898,7 +2898,7 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #2
 declare i32 @fchdir(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @current_fixup(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc ptr @current_fixup(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2960,12 +2960,12 @@ declare ptr @archive_entry_mac_metadata(ptr noundef, ptr noundef) local_unnamed_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i8, ptr %0, align 1
   switch i8 %5, label %12 [
     i8 0, label %6
@@ -3158,7 +3158,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
+define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca %struct.stat, align 8
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
@@ -3693,12 +3693,12 @@ common.ret63:                                     ; preds = %new_fixup.exit.thre
 
 16:                                               ; preds = %15
   store i8 0, ptr %4, align 1
-  %17 = tail call fastcc i32 @create_dir(ptr noundef %0, ptr noundef %1)
+  %17 = tail call fastcc i32 @create_dir(ptr noundef %0, ptr noundef nonnull %1)
   store i8 47, ptr %4, align 1
   br label %common.ret63
 
 18:                                               ; preds = %8, %2, %11
-  %19 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %3) #19
+  %19 = call i32 @stat(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %36
 
@@ -3717,18 +3717,18 @@ common.ret63:                                     ; preds = %new_fixup.exit.thre
   br i1 %.not59, label %31, label %30
 
 30:                                               ; preds = %26
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 17, ptr noundef nonnull @.str.27, ptr noundef %1) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 17, ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #19
   br label %common.ret63
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @unlink(ptr noundef %1) #19
+  %32 = tail call i32 @unlink(ptr noundef nonnull %1) #19
   %.not60 = icmp eq i32 %32, 0
   br i1 %.not60, label %43, label %33
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #21
   %35 = load i32, ptr %34, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %35, ptr noundef nonnull @.str.28, ptr noundef %1) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %35, ptr noundef nonnull @.str.28, ptr noundef nonnull %1) #19
   br label %common.ret63
 
 36:                                               ; preds = %18
@@ -3740,7 +3740,7 @@ common.ret63:                                     ; preds = %new_fixup.exit.thre
   ]
 
 39:                                               ; preds = %36
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %38, ptr noundef nonnull @.str.29, ptr noundef %1) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %38, ptr noundef nonnull @.str.29, ptr noundef nonnull %1) #19
   br label %common.ret63
 
 40:                                               ; preds = %36, %36
@@ -3748,7 +3748,7 @@ common.ret63:                                     ; preds = %new_fixup.exit.thre
 
 41:                                               ; preds = %40
   store i8 0, ptr %4, align 1
-  %42 = tail call fastcc i32 @create_dir(ptr noundef %0, ptr noundef %1)
+  %42 = tail call fastcc i32 @create_dir(ptr noundef %0, ptr noundef nonnull %1)
   store i8 47, ptr %4, align 1
   %.not58 = icmp eq i32 %42, 0
   br i1 %.not58, label %43, label %common.ret63
@@ -3760,7 +3760,7 @@ common.ret63:                                     ; preds = %new_fixup.exit.thre
   %47 = xor i32 %46, 511
   %48 = and i32 %47, 61
   %49 = or disjoint i32 %48, 448
-  %50 = tail call i32 @mkdir(ptr noundef %1, i32 noundef %49) #19
+  %50 = tail call i32 @mkdir(ptr noundef nonnull %1, i32 noundef %49) #19
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %63
 
@@ -3782,7 +3782,7 @@ new_fixup.exit.thread:                            ; preds = %53
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %54, align 8
   store ptr %54, ptr %57, align 8
-  %59 = tail call noalias ptr @strdup(ptr noundef readonly %1) #19
+  %59 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 168
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 160
@@ -3792,7 +3792,7 @@ new_fixup.exit.thread:                            ; preds = %53
   br label %common.ret63
 
 63:                                               ; preds = %43
-  %64 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %3) #19
+  %64 = call i32 @stat(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %71
 
@@ -3806,7 +3806,7 @@ new_fixup.exit.thread:                            ; preds = %53
 71:                                               ; preds = %66, %63
   %72 = tail call ptr @__errno_location() #21
   %73 = load i32, ptr %72, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %73, ptr noundef nonnull @.str.30, ptr noundef %1) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %73, ptr noundef nonnull @.str.30, ptr noundef nonnull %1) #19
   br label %common.ret63
 }
 
@@ -3817,19 +3817,19 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #4
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @create_filesystem_object(ptr noundef %0) unnamed_addr #1 {
@@ -4121,7 +4121,7 @@ define internal fastcc i32 @create_filesystem_object(ptr noundef %0) unnamed_add
 declare void @archive_entry_unset_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @older(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @older(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @archive_entry_mtime(ptr noundef %1) #19
@@ -4239,7 +4239,7 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #4
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare ptr @archive_entry_uname(ptr noundef) local_unnamed_addr #2
 
@@ -4250,18 +4250,18 @@ declare ptr @archive_entry_gname(ptr noundef) local_unnamed_addr #2
 declare i64 @archive_entry_gid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #10
 
 declare i32 @archive_entry_xattr_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @archive_entry_fflags(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4499,16 +4499,16 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
 declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

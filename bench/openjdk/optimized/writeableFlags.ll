@@ -57,7 +57,7 @@ $_ZN12ResourceMarkD2Ev = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str) #12
@@ -79,7 +79,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOri
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 1, ptr %6, align 1
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %18 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %17, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %18 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %17, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %20
 
@@ -123,7 +123,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %38 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %37, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %38 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %37, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit15, label %40
 
@@ -153,7 +153,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm80EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ...) local_unnamed_addr #0 comdat align 2 {
@@ -166,7 +166,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm80EE5printEPKcz(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #13
@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOrig
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %10, ptr %5, align 4
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -208,10 +208,10 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #13
@@ -223,7 +223,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOri
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %10, ptr %5, align 4
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -253,7 +253,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #13
@@ -265,7 +265,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOri
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %10, ptr %5, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -295,7 +295,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #13
@@ -307,7 +307,7 @@ define hidden noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %10, ptr %5, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -337,7 +337,7 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #13
@@ -349,7 +349,7 @@ define hidden noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFla
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %10, ptr %5, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -383,7 +383,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi5E
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
@@ -404,7 +404,7 @@ _ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #13
@@ -416,7 +416,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagO
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %10, ptr %5, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -450,7 +450,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi6E
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
@@ -471,7 +471,7 @@ _ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull %6) #13
@@ -483,7 +483,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagO
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double %10, ptr %5, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %12 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %11, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
@@ -517,7 +517,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implIdLi7E
   %5 = alloca double, align 8
   store double %1, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
@@ -542,7 +542,7 @@ define hidden noundef i32 @_ZN14WriteableFlags14set_ccstr_flagEPKcS1_13JVMFlagOr
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %7 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %8 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef %7, ptr noundef nonnull %5, i32 noundef %2) #13
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %8, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(88) %3)
   ret i32 %8
@@ -747,7 +747,7 @@ _ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12Fo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(88) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12FormatBufferILm80EEES7_SA_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(88) %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -794,7 +794,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags18set_flag_from_charEP7JVMFlagPKv13JVMFlagOriginR12FormatBufferILm80EE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags18set_flag_from_charEP7JVMFlagPKv13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -929,7 +929,7 @@ _ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorEPS4_S3_13JVMFlagOriginR12Fo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPKv13JVMFlagOriginR12FormatBufferILm80EE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPKv13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -959,7 +959,7 @@ define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPK
   %18 = zext i1 %15 to i8
   store i8 %18, ptr %9, align 1
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #12
-  %20 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %17, i64 noundef %19, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %20 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %17, i64 noundef %19, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %22
 
@@ -986,7 +986,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %28, ptr %8, align 4
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #12
-  %32 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %30, i64 noundef %31, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %32 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %30, i64 noundef %31, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %34
 
@@ -1013,7 +1013,7 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %40, ptr %7, align 4
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #12
-  %44 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %42, i64 noundef %43, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %44 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %42, i64 noundef %43, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %46
 
@@ -1039,7 +1039,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.0.0.copyload, ptr %6, align 8
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #12
-  %55 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %53, i64 noundef %54, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %55 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %53, i64 noundef %54, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %56 = icmp eq ptr %55, null
   br i1 %56, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %57
 
@@ -1065,7 +1065,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #12
-  %66 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %64, i64 noundef %65, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  %66 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %64, i64 noundef %65, i1 noundef zeroext false, i1 noundef zeroext false) #13
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %68
 
@@ -1210,13 +1210,13 @@ _ZN16ResourceMarkImplD2Ev.exit:                   ; preds = %10, %15
 declare noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129), i64 noundef) unnamed_addr #3
 
@@ -1245,10 +1245,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare noundef i32 @_ZN13JVMFlagAccess8set_implEP7JVMFlagPv13JVMFlagOrigin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

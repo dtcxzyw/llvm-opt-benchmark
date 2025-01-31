@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15quoteMakeTargetEN4llvm9StringRefERNS0_15SmallVectorImplIcEE(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang15quoteMakeTargetEN4llvm9StringRefERNS0_15SmallVectorImplIcEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
   %4 = and i64 %1, 4294967295
   %.not27 = icmp eq i64 %4, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph29

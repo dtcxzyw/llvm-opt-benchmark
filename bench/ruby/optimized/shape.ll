@@ -37,7 +37,7 @@ define dso_local i32 @rb_shape_id(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_shape_each_shape(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @rb_shape_each_shape(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -70,7 +70,7 @@ define dso_local ptr @rb_shape_get_shape_by_id(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_shape_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @rb_shape_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -101,7 +101,7 @@ define dso_local i32 @rb_shape_get_shape_id(i64 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_shape_depth(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %.not4 = icmp eq i32 %3, -1
@@ -151,7 +151,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 2
@@ -160,7 +160,7 @@ define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -283,7 +283,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
+define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -342,7 +342,7 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
 declare i32 @rb_gen_ivtbl_get(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @rb_obj_embedded_size(i32 noundef) local_unnamed_addr #4
 
@@ -444,7 +444,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   store i8 0, ptr %3, align 1
@@ -714,7 +714,7 @@ declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr
 declare i64 @rb_class_path(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %2, align 4
   %6 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1037,7 +1037,7 @@ rb_shape_get_iv_index.exit:                       ; preds = %154, %150, %150, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_shape_get_iv_index(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @rb_shape_get_iv_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -1156,7 +1156,7 @@ define hidden noundef i32 @rb_shape_id_offset() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_shape_traverse_from_new_root(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @rb_shape_traverse_from_new_root(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
@@ -1238,7 +1238,7 @@ declare i32 @rb_id_table_lookup(ptr noundef, i64 noundef, ptr noundef) local_unn
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_shape_rebuild_shape(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @rb_shape_rebuild_shape(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
@@ -1295,7 +1295,7 @@ thread-pre-split:                                 ; preds = %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_shape_edges_count(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @rb_shape_edges_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -1318,7 +1318,7 @@ define dso_local i64 @rb_shape_edges_count(ptr nocapture noundef readonly %0) lo
 declare i64 @rb_id_table_size(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_shape_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @rb_shape_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp ne ptr %2, null
   %3 = ptrtoint ptr %2 to i64
@@ -1527,7 +1527,7 @@ rb_shape_alloc_with_parent_id.exit28:             ; preds = %78
 declare noalias ptr @ruby_mimmalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
@@ -1549,7 +1549,7 @@ define hidden void @Init_shape() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @rb_id_table_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
@@ -2223,10 +2223,10 @@ redblack_new.exit:                                ; preds = %redblack_new.exit.s
 declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -60,10 +60,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4toku8treenode9child_ptr3setEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 12)) %this, ptr noundef %node) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku8treenode9child_ptr3setEPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 12)) %this, ptr noundef %node) local_unnamed_addr #2 align 2 {
 entry:
   store ptr %node, ptr %this, align 8
   %tobool.not = icmp eq ptr %node, null
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4toku8treenode7is_rootEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4toku8treenode7is_rootEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_is_root = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i8, ptr %m_is_root, align 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_is_empty = getelementptr inbounds nuw i8, ptr %this, i64 201
   %0 = load i8, ptr %m_is_empty, align 1
@@ -220,7 +220,7 @@ entry:
 declare noundef ptr @_Z12toku_xcallocmm(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4toku8treenode13swap_in_placeEPS0_S1_(ptr nocapture noundef %node1, ptr nocapture noundef %node2) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku8treenode13swap_in_placeEPS0_S1_(ptr noundef captures(none) %node1, ptr noundef captures(none) %node2) local_unnamed_addr #2 align 2 {
 entry:
   %tmp_range = alloca %"class.toku::keyrange", align 8
   %m_range = getelementptr inbounds nuw i8, ptr %node1, i64 48
@@ -252,10 +252,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku8treenode16add_shared_ownerEm(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4toku8treenode16add_shared_ownerEm(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %this, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_txnid = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i64, ptr %m_txnid, align 8
@@ -418,7 +418,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4toku8treenode18get_depth_estimateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK4toku8treenode18get_depth_estimateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
 entry:
   %depth_est = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i32, ptr %depth_est, align 8
@@ -557,7 +557,7 @@ return:                                           ; preds = %if.else, %if.then, 
 declare noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef nonnull align 8 dereferenceable(17), ptr noundef nonnull align 8 dereferenceable(81)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN4toku8treenode23lock_and_rebalance_leftEv(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN4toku8treenode23lock_and_rebalance_leftEv(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_left_child = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
@@ -600,7 +600,7 @@ if.end:                                           ; preds = %entry, %_ZN4toku8tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN4toku8treenode24lock_and_rebalance_rightEv(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN4toku8treenode24lock_and_rebalance_rightEv(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_right_child = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_right_child, align 8
@@ -833,7 +833,7 @@ if.then24:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, i32 noundef %direction, ptr nocapture noundef writeonly %parent) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, i32 noundef %direction, ptr noundef writeonly captures(none) %parent) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp sgt i32 %direction, 0
   br i1 %cmp, label %cond.true, label %cond.false
@@ -875,7 +875,7 @@ if.then:                                          ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN4toku8treenode9child_ptr10get_lockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN4toku8treenode9child_ptr10get_lockedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -900,14 +900,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN4toku8treenode19find_leftmost_childEPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr nocapture noundef writeonly %parent) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN4toku8treenode19find_leftmost_childEPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef writeonly captures(none) %parent) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, i32 noundef -1, ptr noundef %parent)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN4toku8treenode20find_rightmost_childEPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr nocapture noundef writeonly %parent) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN4toku8treenode20find_rightmost_childEPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef writeonly captures(none) %parent) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %this, i32 noundef 1, ptr noundef %parent)
   ret ptr %call
@@ -1186,7 +1186,7 @@ _ZN4toku8treenode4freeEPS0_.exit:                 ; preds = %if.then3.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8treenode19remove_shared_ownerEm(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku8treenode19remove_shared_ownerEm(ptr noundef nonnull align 8 captures(none) dereferenceable(202) %this, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %txnid.addr = alloca i64, align 8
   store i64 %txnid, ptr %txnid.addr, align 8
@@ -1376,7 +1376,7 @@ return:                                           ; preds = %entry, %sw.bb4.spli
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4toku8treenode15left_imbalancedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4toku8treenode15left_imbalancedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
 entry:
   %m_left_child = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
@@ -1392,7 +1392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4toku8treenode16right_imbalancedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK4toku8treenode16right_imbalancedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
 entry:
   %m_right_child = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_right_child, align 8
@@ -1765,10 +1765,10 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

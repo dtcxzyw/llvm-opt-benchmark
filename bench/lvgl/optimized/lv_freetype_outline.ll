@@ -25,10 +25,10 @@ define noundef ptr @lv_freetype_create_draw_data_outline(i32 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal signext range(i8 -1, 2) i8 @freetype_glyph_outline_cmp_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal signext range(i8 -1, 2) i8 @freetype_glyph_outline_cmp_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
@@ -36,7 +36,7 @@ define internal signext range(i8 -1, 2) i8 @freetype_glyph_outline_cmp_cb(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @freetype_glyph_outline_create_cb(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @freetype_glyph_outline_create_cb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = alloca %struct._lv_event_t, align 8
@@ -190,7 +190,7 @@ outline_create.exit.thread20:                     ; preds = %outline_delete.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_glyph_outline_free_cb(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @freetype_glyph_outline_free_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -224,14 +224,14 @@ outline_delete.exit:                              ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #4
 
 declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @lv_freetype_set_cbs_outline_font(ptr noundef %0) local_unnamed_addr #5 {
@@ -258,7 +258,7 @@ define void @lv_freetype_set_cbs_outline_font(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @freetype_get_glyph_bitmap_cb(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._lv_freetype_outline_node_t, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -309,7 +309,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_release_glyph_cb(ptr noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @freetype_release_glyph_cb(ptr noundef readonly %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -338,7 +338,7 @@ define internal void @freetype_release_glyph_cb(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_freetype_outline_add_event(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define void @lv_freetype_outline_add_event(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @lv_freetype_get_context() #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %5, align 8, !tbaa !24
@@ -693,7 +693,7 @@ outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vec
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @outline_delete(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @outline_delete(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
@@ -821,7 +821,7 @@ declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) l
 declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i32(i32, i32) #8

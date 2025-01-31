@@ -14,17 +14,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6Thread5MutexD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread5MutexD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11EAMutexDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN11EAMutexDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11EAMutexData12SimulateLockEb(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i1 noundef zeroext %bLock) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN11EAMutexData12SimulateLockEb(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %this, i1 noundef zeroext %bLock) local_unnamed_addr #2 align 2 {
 entry:
   %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread15MutexParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(129) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread15MutexParametersC2EbPKc(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(129) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i8 %frombool, ptr %this, align 1
@@ -218,7 +218,7 @@ entry:
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK2EA6Thread5Mutex12GetLockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZNK2EA6Thread5Mutex12GetLockCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK2EA6Thread5Mutex7HasLockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2EA6Thread5Mutex7HasLockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
   %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
@@ -347,10 +347,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

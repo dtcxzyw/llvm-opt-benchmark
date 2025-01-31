@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_ireduce_scatter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_ireduce_scatter(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext false)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %15
@@ -45,7 +45,7 @@ define i32 @ompi_coll_libnbc_ireduce_scatter(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = icmp eq ptr %1, %0
   %11 = icmp ne ptr %0, null
   %or.cond = and i1 %11, %10
@@ -756,7 +756,7 @@ declare i32 @NBC_Start(ptr noundef) local_unnamed_addr #1
 declare void @NBC_Return_handle(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_ireduce_scatter_inter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_ireduce_scatter_inter(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc i32 @nbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext false)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %15
@@ -779,7 +779,7 @@ define i32 @ompi_coll_libnbc_ireduce_scatter_inter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc i32 @nbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %5, i64 248
@@ -1012,7 +1012,7 @@ opal_thread_add_fetch_32.exit195:                 ; preds = %97, %100
   %.0159268 = phi i32 [ %118, %117 ], [ 1, %.lr.ph270.preheader ]
   %.0160267 = phi ptr [ %.0161266, %117 ], [ %116, %.lr.ph270.preheader ]
   %.0161266 = phi ptr [ %.0160267, %117 ], [ %92, %.lr.ph270.preheader ]
-  %119 = tail call i32 @NBC_Sched_recv(ptr noundef %.0160267, i8 noundef signext 1, i64 noundef %.0164.lcssa296, ptr noundef %3, i32 noundef %.0159268, ptr noundef %56, i1 noundef zeroext true) #8
+  %119 = tail call i32 @NBC_Sched_recv(ptr noundef %.0160267, i8 noundef signext 1, i64 noundef %.0164.lcssa296, ptr noundef %3, i32 noundef %.0159268, ptr noundef nonnull %56, i1 noundef zeroext true) #8
   %.not186 = icmp eq i32 %119, 0
   br i1 %.not186, label %139, label %120
 
@@ -1056,7 +1056,7 @@ opal_thread_add_fetch_32.exit202:                 ; preds = %123, %126
   br i1 %.not.i206, label %.sink.split.sink.split, label %.lr.ph.i204, !llvm.loop !8
 
 139:                                              ; preds = %.lr.ph270
-  %140 = tail call i32 @NBC_Sched_op(ptr noundef %.0161266, i8 noundef signext 1, ptr noundef %.0160267, i8 noundef signext 1, i64 noundef %.0164.lcssa296, ptr noundef %3, ptr noundef %4, ptr noundef %56, i1 noundef zeroext true) #8
+  %140 = tail call i32 @NBC_Sched_op(ptr noundef %.0161266, i8 noundef signext 1, ptr noundef %.0160267, i8 noundef signext 1, i64 noundef %.0164.lcssa296, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %56, i1 noundef zeroext true) #8
   %.not187 = icmp eq i32 %140, 0
   br i1 %.not187, label %117, label %141
 
@@ -1103,7 +1103,7 @@ opal_thread_add_fetch_32.exit209:                 ; preds = %144, %147
   %.0161.lcssa = phi ptr [ %92, %113 ], [ %.0160267, %117 ]
   %160 = load i32, ptr %2, align 4
   %161 = sext i32 %160 to i64
-  %162 = tail call i32 @NBC_Sched_copy(ptr noundef %.0161.lcssa, i8 noundef signext 1, i64 noundef %161, ptr noundef %3, ptr noundef %1, i8 noundef signext 0, i64 noundef %161, ptr noundef %3, ptr noundef %56, i1 noundef zeroext false) #8
+  %162 = tail call i32 @NBC_Sched_copy(ptr noundef %.0161.lcssa, i8 noundef signext 1, i64 noundef %161, ptr noundef %3, ptr noundef %1, i8 noundef signext 0, i64 noundef %161, ptr noundef %3, ptr noundef nonnull %56, i1 noundef zeroext false) #8
   %.not182 = icmp eq i32 %162, 0
   br i1 %.not182, label %182, label %163
 
@@ -1165,7 +1165,7 @@ opal_thread_add_fetch_32.exit216:                 ; preds = %166, %169
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %189 to i64
   %191 = trunc nuw nsw i64 %indvars.iv288 to i32
-  %192 = tail call i32 @NBC_Sched_local_send(ptr noundef %187, i8 noundef signext 1, i64 noundef %190, ptr noundef %3, i32 noundef %191, ptr noundef %56, i1 noundef zeroext false) #8
+  %192 = tail call i32 @NBC_Sched_local_send(ptr noundef %187, i8 noundef signext 1, i64 noundef %190, ptr noundef %3, i32 noundef %191, ptr noundef nonnull %56, i1 noundef zeroext false) #8
   %.not185 = icmp eq i32 %192, 0
   br i1 %.not185, label %212, label %193
 
@@ -1266,7 +1266,7 @@ opal_thread_add_fetch_32.exit230:                 ; preds = %226, %229
   br i1 %.not.i234, label %.sink.split.sink.split, label %.lr.ph.i232, !llvm.loop !8
 
 .loopexit:                                        ; preds = %212, %182, %217
-  %242 = tail call i32 @NBC_Sched_commit(ptr noundef %56) #8
+  %242 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %56) #8
   %.not183 = icmp eq i32 %242, 0
   br i1 %.not183, label %262, label %243
 
@@ -1310,7 +1310,7 @@ opal_thread_add_fetch_32.exit237:                 ; preds = %246, %249
   br i1 %.not.i241, label %.sink.split.sink.split, label %.lr.ph.i239, !llvm.loop !8
 
 262:                                              ; preds = %.loopexit
-  %263 = tail call i32 @NBC_Schedule_request(ptr noundef %56, ptr noundef %5, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %6, ptr noundef %.0163) #8
+  %263 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %56, ptr noundef %5, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %6, ptr noundef %.0163) #8
   %.not184 = icmp eq i32 %263, 0
   br i1 %.not184, label %283, label %264
 
@@ -1369,19 +1369,19 @@ opal_thread_add_fetch_32.exit244:                 ; preds = %267, %270
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_libnbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_libnbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call fastcc i32 @nbc_reduce_scatter_inter_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret i32 %10
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @NBC_Error(ptr nocapture readnone %0, ...) unnamed_addr #2 {
+define internal void @NBC_Error(ptr readnone captures(none) %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -1396,7 +1396,7 @@ define internal void @NBC_Error(ptr nocapture readnone %0, ...) unnamed_addr #2 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @NBC_Sched_recv(ptr noundef, i8 noundef signext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1413,7 +1413,7 @@ declare i32 @NBC_Sched_commit(ptr noundef) local_unnamed_addr #1
 declare i32 @NBC_Schedule_request(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1432,7 +1432,7 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

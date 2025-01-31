@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_balloon_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #13
@@ -187,7 +187,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_balloon_free_page_hint_notify(ptr noundef %n, ptr nocapture noundef readonly %data) #0 {
+define internal noundef i32 @virtio_balloon_free_page_hint_notify(ptr noundef %n, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -808
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
@@ -281,7 +281,7 @@ return:                                           ; preds = %while.end.i14, %sw.
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @balloon_stats_get_all(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @balloon_stats_get_all(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
   %call1 = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef null, i64 noundef 0, ptr noundef %errp) #13
@@ -335,7 +335,7 @@ return:                                           ; preds = %entry, %out_end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @balloon_stats_get_poll_interval(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @balloon_stats_get_poll_interval(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
   %stats_poll_interval = getelementptr inbounds nuw i8, ptr %call.i, i64 840
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @balloon_stats_set_poll_interval(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @balloon_stats_set_poll_interval(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
@@ -779,7 +779,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
+define internal void @virtio_balloon_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %config = alloca %struct.virtio_balloon_config, align 4
@@ -868,7 +868,7 @@ trace_virtio_balloon_get_config.exit:             ; preds = %if.end18, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config_data) #0 {
+define internal void @virtio_balloon_set_config(ptr noundef %vdev, ptr noundef readonly captures(none) %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %config = alloca %struct.virtio_balloon_config, align 4
@@ -975,7 +975,7 @@ trace_virtio_balloon_set_config.exit:             ; preds = %if.end13, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 2, 0) i64 @virtio_balloon_get_features(ptr noundef %vdev, i64 noundef %f, ptr nocapture readnone %errp) #0 {
+define internal range(i64 2, 0) i64 @virtio_balloon_get_features(ptr noundef %vdev, i64 noundef %f, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
   %host_features = getelementptr inbounds nuw i8, ptr %call.i, i64 848
@@ -1188,7 +1188,7 @@ if.end4:                                          ; preds = %trace_virtio_balloo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_stat(ptr nocapture noundef readonly %opaque, ptr nocapture noundef writeonly initializes((0, 8)) %info) #0 {
+define internal void @virtio_balloon_stat(ptr noundef readonly captures(none) %opaque, ptr noundef writeonly captures(none) initializes((0, 8)) %info) #0 {
 entry:
   %call.i = tail call ptr @qdev_get_machine() #13
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
@@ -1719,7 +1719,7 @@ if.end20:                                         ; preds = %if.then19, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_handle_free_page_vq(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
+define internal void @virtio_balloon_handle_free_page_vq(ptr noundef %vdev, ptr readnone captures(none) %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
   %free_page_bh = getelementptr inbounds nuw i8, ptr %call.i, i64 688
@@ -2013,14 +2013,14 @@ while.end:                                        ; preds = %skip_element, %entr
 declare ptr @qdev_get_machine() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @virtqueue_pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2029,7 +2029,7 @@ declare void @memory_region_find(ptr sret(%struct.MemoryRegionSection) align 16,
 declare ptr @get_system_memory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @memory_region_unref(ptr noundef) local_unnamed_addr #1
 
@@ -2136,10 +2136,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

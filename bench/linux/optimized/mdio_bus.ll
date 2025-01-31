@@ -584,7 +584,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mdio_bus_exi
 declare dso_local i32 @__SCT__tp_func_mdio_access(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i16 noundef zeroext, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mdio_access(ptr nocapture readnone %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mdio_access(ptr readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mdio_access, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -605,18 +605,18 @@ define dso_local noundef i32 @__traceiter_mdio_access(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mdio_access(ptr nocapture readnone %0, ptr nocapture readnone %1, i8 zeroext %2, i8 zeroext %3, i32 %4, i16 zeroext %5, i32 %6) #2 align 16 {
+define dso_local void @__probestub_mdio_access(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i8 zeroext %2, i8 zeroext %3, i32 %4, i16 zeroext %5, i32 %6) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_mdio_access(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 %6) #1 align 16 {
+define internal void @trace_event_raw_event_mdio_access(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 %6) #1 align 16 {
   %8 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -661,7 +661,7 @@ define internal void @trace_event_raw_event_mdio_access(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_mdio_access(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 %6) #1 align 16 {
+define internal void @perf_trace_mdio_access(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i32 %6) #1 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
@@ -796,7 +796,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mdiobus_unregister_device(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mdiobus_get_phy(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local ptr @mdiobus_get_phy(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = sext i32 %1 to i64
   %4 = icmp ult i32 %1, 32
   %5 = load i1, ptr @mdiobus_find_device.__already_done, align 1
@@ -837,7 +837,7 @@ define dso_local ptr @mdiobus_get_phy(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @mdiobus_is_registered_device(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local zeroext i1 @mdiobus_is_registered_device(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = sext i32 %1 to i64
   %4 = icmp ult i32 %1, 32
   %5 = load i1, ptr @mdiobus_find_device.__already_done, align 1
@@ -2072,7 +2072,7 @@ define internal i32 @mdio_bus_match(ptr noundef %0, ptr noundef %1) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @mdio_uevent(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef i32 @mdio_uevent(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret i32 0
 }
 
@@ -2116,13 +2116,13 @@ define dso_local void @mdio_bus_exit() #1 align 16 {
 declare dso_local void @bus_unregister(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -2229,7 +2229,7 @@ define internal void @mdiobus_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_stat_field_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_stat_field_show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -2315,7 +2315,7 @@ declare void @llvm.write_register.i64(metadata, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_device_stat_field_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_device_stat_field_show(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 792

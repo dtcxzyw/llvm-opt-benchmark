@@ -32,21 +32,21 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7optimumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7optimumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7maximumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7maximumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7elapsedEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7elapsedEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -65,14 +65,14 @@ define dso_local noundef i64 @_ZNK9Stockfish14TimeManagement7elapsedEm(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9Stockfish14TimeManagement5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((24, 32)) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN9Stockfish14TimeManagement5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((24, 32)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN9Stockfish14TimeManagement18advance_nodes_timeEl(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN9Stockfish14TimeManagement18advance_nodes_timeEl(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, %1
@@ -81,7 +81,7 @@ define dso_local void @_ZN9Stockfish14TimeManagement18advance_nodes_timeEl(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish14TimeManagement4initERNS_6Search10LimitsTypeENS_5ColorEiRKNS_10OptionsMapE(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9Stockfish14TimeManagement4initERNS_6Search10LimitsTypeENS_5ColorEiRKNS_10OptionsMapE(ptr noundef nonnull align 8 captures(none) dereferenceable(33) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(112) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #4 align 2 {
   %6 = alloca %"class.Stockfish::Option", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1

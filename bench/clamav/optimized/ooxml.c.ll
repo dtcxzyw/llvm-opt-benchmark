@@ -212,7 +212,7 @@ switch.lookup:                                    ; preds = %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @unzip_search_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -307,7 +307,7 @@ declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @unzip_single_internal(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ooxml_hwp_cb(i32 noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal i32 @ooxml_hwp_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct.stat, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #6
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -360,7 +360,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ooxml_content_cb(i32 noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal i32 @ooxml_content_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct.stat, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -403,7 +403,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %165
 
 .lr.ph:                                           ; preds = %.outer210, %.backedge
-  %25 = call i32 @cli_json_timeout_cycle_check(ptr noundef %2, ptr noundef nonnull %7) #6
+  %25 = call i32 @cli_json_timeout_cycle_check(ptr noundef nonnull %2, ptr noundef nonnull %7) #6
   %.not162 = icmp eq i32 %25, 0
   br i1 %.not162, label %26, label %.thread
 
@@ -478,7 +478,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %55 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %56 = add nsw i32 %55, -1
   %57 = sext i32 %56 to i64
-  %58 = call i32 @unzip_search_single(ptr noundef %2, ptr noundef nonnull %54, i64 noundef %57, ptr noundef nonnull %8) #6
+  %58 = call i32 @unzip_search_single(ptr noundef nonnull %2, ptr noundef nonnull %54, i64 noundef %57, ptr noundef nonnull %8) #6
   switch i32 %58, label %59 [
     i32 21, label %.thread
     i32 1, label %61
@@ -498,7 +498,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
 63:                                               ; preds = %61
   %64 = load i32, ptr %8, align 4
   %65 = zext i32 %64 to i64
-  %66 = call i32 @unzip_single_internal(ptr noundef %2, i64 noundef %65, ptr noundef nonnull @ooxml_core_cb) #6
+  %66 = call i32 @unzip_single_internal(ptr noundef nonnull %2, i64 noundef %65, ptr noundef nonnull @ooxml_core_cb) #6
   %67 = and i32 %66, -2
   %or.cond5 = icmp eq i32 %67, 20
   %spec.select187 = select i1 %or.cond5, i32 %66, i32 0
@@ -519,7 +519,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %74 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %75 = add nsw i32 %74, -1
   %76 = sext i32 %75 to i64
-  %77 = call i32 @unzip_search_single(ptr noundef %2, ptr noundef nonnull %73, i64 noundef %76, ptr noundef nonnull %8) #6
+  %77 = call i32 @unzip_search_single(ptr noundef nonnull %2, ptr noundef nonnull %73, i64 noundef %76, ptr noundef nonnull %8) #6
   switch i32 %77, label %78 [
     i32 21, label %.thread
     i32 1, label %80
@@ -539,7 +539,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
 82:                                               ; preds = %80
   %83 = load i32, ptr %8, align 4
   %84 = zext i32 %83 to i64
-  %85 = call i32 @unzip_single_internal(ptr noundef %2, i64 noundef %84, ptr noundef nonnull @ooxml_extn_cb) #6
+  %85 = call i32 @unzip_single_internal(ptr noundef nonnull %2, i64 noundef %84, ptr noundef nonnull @ooxml_extn_cb) #6
   %86 = and i32 %85, -2
   %or.cond7 = icmp eq i32 %86, 20
   %spec.select188 = select i1 %or.cond7, i32 %85, i32 0
@@ -560,7 +560,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %93 = call i32 @xmlStrlen(ptr noundef nonnull %.0126.ph) #6
   %94 = add nsw i32 %93, -1
   %95 = sext i32 %94 to i64
-  %96 = call i32 @unzip_search_single(ptr noundef %2, ptr noundef nonnull %92, i64 noundef %95, ptr noundef nonnull %8) #6
+  %96 = call i32 @unzip_search_single(ptr noundef nonnull %2, ptr noundef nonnull %92, i64 noundef %95, ptr noundef nonnull %8) #6
   switch i32 %96, label %97 [
     i32 21, label %.thread
     i32 1, label %99
@@ -757,7 +757,7 @@ declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #2
 declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -770,7 +770,7 @@ declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unname
 declare ptr @xmlTextReaderConstLocalName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @xmlTextReaderHasAttributes(ptr noundef) local_unnamed_addr #2
 
@@ -783,7 +783,7 @@ declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ooxml_core_cb(i32 noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal noundef i32 @ooxml_core_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.66) #6
   %6 = tail call fastcc i32 @ooxml_parse_document(i32 noundef %0, ptr noundef %2)
   switch i32 %6, label %11 [
@@ -806,7 +806,7 @@ define internal noundef i32 @ooxml_core_cb(i32 noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ooxml_extn_cb(i32 noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal noundef i32 @ooxml_extn_cb(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i32 %4) #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.151) #6
   %6 = tail call fastcc i32 @ooxml_parse_document(i32 noundef %0, ptr noundef %2)
   switch i32 %6, label %11 [
@@ -884,10 +884,10 @@ ooxml_updatelimits.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

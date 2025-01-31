@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_crc32_table = external local_unnamed_addr constant [8 x [256 x i32]], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0, ptr noundef %2) #5
@@ -83,7 +83,7 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @lzma_mf_hc3_find(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 36
@@ -353,7 +353,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i103
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9) unnamed_addr #2 {
+define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9) unnamed_addr #2 {
   %11 = zext i32 %6 to i64
   %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   store i32 %3, ptr %12, align 4
@@ -499,7 +499,7 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lzma_mf_hc3_skip(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_mf_hc3_skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %0, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -634,7 +634,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @lzma_mf_hc4_find(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 36
@@ -966,7 +966,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i135
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lzma_mf_hc4_skip(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_mf_hc4_skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %0, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1114,7 +1114,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @lzma_mf_bt2_find(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 36
@@ -1372,7 +1372,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_mf_bt2_skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %0, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1618,7 +1618,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @lzma_mf_bt3_find(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 36
@@ -2148,7 +2148,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i117
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_mf_bt3_skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %0, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2416,7 +2416,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @lzma_mf_bt4_find(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 36
@@ -3011,7 +3011,7 @@ move_pos.exit:                                    ; preds = %normalize.exit.i149
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_mf_bt4_skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %0, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96

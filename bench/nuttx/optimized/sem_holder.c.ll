@@ -30,7 +30,7 @@ define void @nxsem_initialize_holders() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nxsem_destroyholder(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @nxsem_destroyholder(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -247,7 +247,7 @@ nxsem_add_holder_tcb.exit:                        ; preds = %1, %nxsem_findorall
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nxsem_boost_priority(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @nxsem_boost_priority(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -283,7 +283,7 @@ nxsem_foreachholder.exit:                         ; preds = %nxsem_boostholderpr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nxsem_release_holder(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @nxsem_release_holder(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @g_readytorun, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i8, ptr %3, align 2
@@ -323,7 +323,7 @@ define void @nxsem_release_holder(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nxsem_restore_baseprio(ptr noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @nxsem_restore_baseprio(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -669,7 +669,7 @@ nxsem_foreachholder.exit10:                       ; preds = %nxsem_restoreholder
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nxsem_canceled(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @nxsem_canceled(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -799,7 +799,7 @@ nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholder
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @nxsem_release_all(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @nxsem_release_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not7 = icmp eq ptr %3, null
@@ -881,7 +881,7 @@ nxsem_freeholder.exit:                            ; preds = %21, %25
 declare i32 @nxsched_set_priority(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #6

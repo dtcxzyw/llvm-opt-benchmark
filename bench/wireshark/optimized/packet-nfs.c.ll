@@ -3649,7 +3649,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -3657,7 +3657,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4075,7 +4075,7 @@ nfs_name_snoop_fh.exit:                           ; preds = %108, %proto_item_se
 declare void @tvb_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr @ett_nfs_fhandle, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %8, ptr noundef null, ptr noundef %4) #18
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -4280,7 +4280,7 @@ define internal fastcc noundef i32 @dissect_timeval(ptr noundef %0, i32 noundef 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
   %9 = tail call i32 @rpc_roundup(i32 noundef %8) #18
   %10 = add i32 %9, 4
@@ -4400,7 +4400,7 @@ declare i32 @rpc_roundup(i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_nfs3_post_op_attr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_nfs3_post_op_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
   %8 = load i32, ptr @ett_nfs3_post_op_attr, align 4
@@ -4424,7 +4424,7 @@ define hidden noundef i32 @dissect_nfs3_post_op_attr(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483646, 3) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483646, 3) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -4514,7 +4514,7 @@ define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @display_access_items(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i8 noundef signext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @display_access_items(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i8 noundef signext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = icmp eq i32 %6, 3
   switch i8 %5, label %30 [
     i8 67, label %11
@@ -4672,7 +4672,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_access_reply(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_access_reply(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %4, 3
   %9 = icmp eq i32 %4, 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -4939,7 +4939,7 @@ define hidden void @proto_register_nfs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @nfs_fmt_fsid(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @nfs_fmt_fsid(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = lshr i32 %1, 18
   %4 = and i32 %1, 262143
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1446, i32 noundef %3, i32 noundef %4) #18
@@ -4995,7 +4995,7 @@ define internal void @nfs_name_snoop_cleanup() #0 {
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @nfs_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 27)) %1) #7 {
+define internal void @nfs_prompt(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 27)) %1) #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %1, ptr noundef nonnull align 1 dereferenceable(27) @.str.2164, i64 27, i1 false)
   ret void
 }
@@ -5052,7 +5052,7 @@ declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, 
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #18
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8) #18
   %7 = zext i16 %6 to i32
@@ -5165,7 +5165,7 @@ define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr nocapture rea
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_LINUX_KNFSD_LE(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_LINUX_KNFSD_LE(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %36, label %5
 
@@ -5208,7 +5208,7 @@ define internal i32 @dissect_fhandle_data_LINUX_KNFSD_LE(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_LINUX_NFSD_LE(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_LINUX_NFSD_LE(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_nfs_fh_pinode, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #18
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #18
@@ -5234,7 +5234,7 @@ define internal i32 @dissect_fhandle_data_LINUX_NFSD_LE(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_LINUX_KNFSD_NEW(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_LINUX_KNFSD_NEW(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_nfs_fh_version, align 4
@@ -5354,7 +5354,7 @@ define internal i32 @dissect_fhandle_data_LINUX_KNFSD_NEW(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_NETAPP(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_NETAPP(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %41, label %5
 
@@ -5402,7 +5402,7 @@ define internal i32 @dissect_fhandle_data_NETAPP(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_NETAPP_V4(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_NETAPP_V4(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %34, label %6
 
@@ -5444,7 +5444,7 @@ define internal i32 @dissect_fhandle_data_NETAPP_V4(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_NETAPP_GX_v3(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_NETAPP_GX_v3(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %51, label %5
 
@@ -5506,7 +5506,7 @@ define internal i32 @dissect_fhandle_data_NETAPP_GX_v3(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_CELERRA_VNX(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_CELERRA_VNX(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #18
   %6 = load i32, ptr @hf_nfs_fh_fhandle_data, align 4
   %7 = and i32 %5, 65535
@@ -5605,7 +5605,7 @@ define internal i32 @dissect_fhandle_data_CELERRA_VNX(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_GLUSTER(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_GLUSTER(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %7
 
@@ -5643,7 +5643,7 @@ define internal i32 @dissect_fhandle_data_GLUSTER(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_DCACHE(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_DCACHE(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.sink.split, label %5
 
@@ -5682,7 +5682,7 @@ define internal i32 @dissect_fhandle_data_DCACHE(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.sink.split, label %5
 
@@ -5736,7 +5736,7 @@ define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fhandle_data_unknown(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fhandle_data_unknown(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #18
   %6 = load i32, ptr @hf_nfs_fh_fhandle_data, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #18
@@ -5768,7 +5768,7 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @nfs_full_name_snoop(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.nfs_name_snoop_key, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -5909,7 +5909,7 @@ declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr no
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #10
@@ -6023,7 +6023,7 @@ define internal void @nfs_name_snoop_value_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @nfs_name_snoop_matched_hash(ptr nocapture noundef readonly %0) #12 {
+define internal i32 @nfs_name_snoop_matched_hash(ptr noundef readonly captures(none) %0) #12 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -6053,7 +6053,7 @@ define internal i32 @nfs_name_snoop_matched_hash(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @nfs_name_snoop_matched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 0, 2) i32 @nfs_name_snoop_matched_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -6090,7 +6090,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_getattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_getattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6103,13 +6103,13 @@ define internal noundef i32 @dissect_nfs2_getattr_call(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_getattr_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_getattr_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_attrstat(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.1421)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2172, ptr noundef nonnull %5, ptr noundef %3)
   %7 = call fastcc i32 @dissect_nfs2_sattr(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -6123,13 +6123,13 @@ define internal noundef i32 @dissect_nfs2_setattr_call(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_setattr_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_setattr_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_attrstat(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.1422)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6146,13 +6146,13 @@ define internal i32 @dissect_nfs2_lookup_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_lookup_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_lookup_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_diropres(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1424, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6165,7 +6165,7 @@ define internal noundef i32 @dissect_nfs2_readlink_call(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_readlink_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfs2_readlink_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6238,7 +6238,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6269,7 +6269,7 @@ define internal noundef i32 @dissect_nfs2_read_call(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_read_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfs2_read_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6331,7 +6331,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %26, %23, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6364,13 +6364,13 @@ define internal i32 @dissect_nfs2_write_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_write_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_write_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_attrstat(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.1428)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6388,13 +6388,13 @@ define internal noundef i32 @dissect_nfs2_create_call(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_diropres(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1429, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_remove_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_remove_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6411,7 +6411,7 @@ define internal i32 @dissect_nfs2_remove_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_remove_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_remove_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6458,7 +6458,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -6483,7 +6483,7 @@ define internal i32 @dissect_nfs2_rename_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_rename_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_rename_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6530,7 +6530,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -6551,7 +6551,7 @@ define internal i32 @dissect_nfs2_link_call(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_link_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_link_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6598,7 +6598,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6622,7 +6622,7 @@ define internal noundef i32 @dissect_nfs2_symlink_call(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_symlink_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_symlink_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6669,7 +6669,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6687,13 +6687,13 @@ define internal noundef i32 @dissect_nfs2_mkdir_call(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_mkdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_mkdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_diropres(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1434, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs2_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs2_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -6710,7 +6710,7 @@ define internal i32 @dissect_nfs2_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_rmdir_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_rmdir_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6757,7 +6757,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2177, ptr noundef nonnull %5, ptr noundef %3)
   %7 = load i32, ptr @hf_nfs2_readdir_cookie, align 4
@@ -6776,7 +6776,7 @@ define internal noundef i32 @dissect_nfs2_readdir_call(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs2_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -6829,7 +6829,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs2_statfs_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs2_statfs_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6842,7 +6842,7 @@ define internal noundef i32 @dissect_nfs2_statfs_call(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 25) i32 @dissect_nfs2_statfs_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, 25) i32 @dissect_nfs2_statfs_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -6900,7 +6900,7 @@ dissect_nfs2_status.exit:                         ; preds = %4, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_attrstat(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_attrstat(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = load i32, ptr @hf_nfs2_status, align 4
@@ -7074,7 +7074,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs2_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
@@ -7138,7 +7138,7 @@ define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, pt
 declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_diropres(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_diropres(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -7204,7 +7204,7 @@ declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_readdir_entry(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_readdir_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
@@ -7253,19 +7253,19 @@ define internal i32 @dissect_readdir_entry(ptr noundef %0, i32 noundef %1, ptr n
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_null_call(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_null_call(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2218) #18
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_null_reply(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_null_reply(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2219) #18
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_getattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_getattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
@@ -7279,7 +7279,7 @@ define internal i32 @dissect_nfs3_getattr_call(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_getattr_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_getattr_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2220) #18
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
@@ -7328,7 +7328,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -7368,7 +7368,7 @@ dissect_sattrguard3.exit:                         ; preds = %4, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_setattr_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_setattr_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -7416,7 +7416,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
@@ -7434,7 +7434,7 @@ define internal i32 @dissect_nfs3_lookup_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_lookup_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_lookup_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -7512,7 +7512,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %28, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_access_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define internal noundef i32 @dissect_nfs3_access_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -7536,7 +7536,7 @@ define internal noundef i32 @dissect_nfs3_access_call(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_access_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_access_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
@@ -7605,7 +7605,7 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %dissect_nfs3_status
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
@@ -7619,7 +7619,7 @@ define internal i32 @dissect_nfs3_readlink_call(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_readlink_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfs3_readlink_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7733,7 +7733,7 @@ dissect_nfs3_post_op_attr.exit24:                 ; preds = %42, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2172, ptr noundef nonnull %5, ptr noundef %3)
@@ -7753,7 +7753,7 @@ define internal i32 @dissect_nfs3_read_call(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_read_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfs3_read_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -7862,7 +7862,7 @@ dissect_nfsdata_reduced.exit:                     ; preds = %42, %39, %dissect_n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2172, ptr noundef nonnull %5, ptr noundef %3)
@@ -7890,7 +7890,7 @@ define internal i32 @dissect_nfs3_write_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_write_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_write_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -7954,7 +7954,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
@@ -8003,7 +8003,7 @@ dissect_createmode3.exit:                         ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8084,7 +8084,7 @@ dissect_nfs3_post_op_fh.exit:                     ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
@@ -8103,7 +8103,7 @@ define internal i32 @dissect_nfs3_mkdir_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_mkdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_mkdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8184,7 +8184,7 @@ dissect_nfs3_post_op_fh.exit:                     ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8209,7 +8209,7 @@ define internal i32 @dissect_nfs3_symlink_call(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_symlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_symlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8290,7 +8290,7 @@ dissect_nfs3_post_op_fh.exit:                     ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_mknod_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_mknod_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -8334,7 +8334,7 @@ define internal i32 @dissect_nfs3_mknod_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_mknod_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_nfs3_mknod_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8415,7 +8415,7 @@ dissect_nfs3_post_op_fh.exit:                     ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_remove_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_remove_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
@@ -8433,7 +8433,7 @@ define internal i32 @dissect_nfs3_remove_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_remove_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_remove_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -8481,7 +8481,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
@@ -8499,7 +8499,7 @@ define internal i32 @dissect_nfs3_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_rmdir_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_rmdir_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -8547,7 +8547,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -8574,7 +8574,7 @@ define internal i32 @dissect_nfs3_rename_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_rename_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_rename_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -8623,7 +8623,7 @@ dissect_nfs3_status.exit:                         ; preds = %4, %6, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -8646,7 +8646,7 @@ define internal i32 @dissect_nfs3_link_call(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_link_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_link_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8736,7 +8736,7 @@ dissect_nfs3_post_op_attr.exit26:                 ; preds = %31, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2177, ptr noundef nonnull %5, ptr noundef %3)
@@ -8757,7 +8757,7 @@ define internal i32 @dissect_nfs3_readdir_call(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -8852,7 +8852,7 @@ dissect_nfs3_post_op_attr.exit29:                 ; preds = %37, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_readdirplus_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_readdirplus_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2177, ptr noundef nonnull %5, ptr noundef %3)
@@ -8970,7 +8970,7 @@ dissect_nfs3_post_op_attr.exit30:                 ; preds = %37, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_fsstat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_fsstat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
@@ -8984,7 +8984,7 @@ define internal i32 @dissect_nfs3_fsstat_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_fsstat_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_fsstat_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -9094,7 +9094,7 @@ dissect_nfs3_post_op_attr.exit45:                 ; preds = %48, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_fsinfo_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_fsinfo_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
@@ -9108,7 +9108,7 @@ define internal i32 @dissect_nfs3_fsinfo_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_fsinfo_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_fsinfo_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -9227,7 +9227,7 @@ dissect_nfs3_post_op_attr.exit56:                 ; preds = %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_pathconf_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_pathconf_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2165, ptr noundef nonnull %5, ptr noundef %3)
@@ -9241,7 +9241,7 @@ define internal i32 @dissect_nfs3_pathconf_call(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_pathconf_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfs3_pathconf_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
@@ -9356,7 +9356,7 @@ dissect_nfs3_post_op_attr.exit47:                 ; preds = %50, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_commit_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_nfs3_commit_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2172, ptr noundef nonnull %5, ptr noundef %3)
@@ -9374,7 +9374,7 @@ define internal i32 @dissect_nfs3_commit_call(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs3_commit_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_nfs3_commit_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #18
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_nfs3_status.exit, label %6
@@ -9583,7 +9583,7 @@ dissect_set_mtime.exit:                           ; preds = %dissect_set_atime.e
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_wcc_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_wcc_data(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9636,7 +9636,7 @@ dissect_pre_op_attr.exit:                         ; preds = %5, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs3_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
@@ -9707,7 +9707,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_entry3(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_entry3(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr @hf_nfs_readdir_entry, align 4
@@ -9732,7 +9732,7 @@ define internal i32 @dissect_entry3(ptr noundef %0, i32 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs3_entryplus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @dissect_nfs3_entryplus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -9807,7 +9807,7 @@ define internal i32 @dissect_nfs4_compound_call(ptr noundef %0, ptr noundef %1, 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %10) #18
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef nonnull %10) #18
   br label %15
 
 15:                                               ; preds = %12, %9, %4
@@ -9862,7 +9862,7 @@ dissect_nfs4_status.exit:                         ; preds = %4, %12, %15
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef %24) #18
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #18
   br label %29
 
 29:                                               ; preds = %26, %23, %dissect_nfs4_status.exit
@@ -9882,7 +9882,7 @@ dissect_nfs4_status.exit:                         ; preds = %4, %12, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_nfs4_request_op(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -11479,7 +11479,7 @@ define internal fastcc noundef i32 @dissect_nfs4_open_share_access(ptr noundef %
 declare i32 @dissect_rpc_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs4_test_stateid_arg(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @dissect_nfs4_test_stateid_arg(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef null)
   ret i32 %6
 }
@@ -11750,7 +11750,7 @@ dissect_nfs4_status.exit:                         ; preds = %.lr.ph, %22, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nfs4_layoutstats(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
@@ -11821,7 +11821,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_fattr_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7) #0 {
+define internal i32 @dissect_nfs4_fattr_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(none) %7) #0 {
   %9 = alloca i32, align 4
   switch i32 %6, label %dissect_nfs4_fattr_acl.exit [
     i32 0, label %10
@@ -12300,7 +12300,7 @@ define internal i32 @nfs4_fattr_item_label(i32 noundef %0) #14 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
   %10 = add i32 %1, 4
   %11 = shl i32 %9, 2
@@ -12955,7 +12955,7 @@ dissect_nfs4_acemask.exit:                        ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_fs_location(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_nfs4_fs_location(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @ett_nfs4_fs_location, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.539) #18
@@ -12988,7 +12988,7 @@ dissect_nfs4_pathname.exit:                       ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_server(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_nfs4_server(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @hf_nfs4_server, align 4
   %7 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %3, i32 noundef %6, i32 noundef %1, ptr noundef null) #18
   ret i32 %7
@@ -13007,7 +13007,7 @@ define internal i32 @dissect_nfs4_threshold_item(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_threshold_item_file(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5, i32 noundef %6, ptr nocapture readnone %7) #0 {
+define internal i32 @dissect_nfs4_threshold_item_file(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5, i32 noundef %6, ptr readnone captures(none) %7) #0 {
   %switch = icmp ult i32 %6, 4
   br i1 %switch, label %9, label %13
 
@@ -13256,7 +13256,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @proto_tree_add_ipv4_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -13265,7 +13265,7 @@ declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_ipv6_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_sec_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_nfs4_sec_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @hf_nfs4_sec_oid, align 4
   %7 = tail call i32 @dissect_rpc_opaque_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #18
   ret i32 %7
@@ -14784,7 +14784,7 @@ proto_item_set_generated.exit:                    ; preds = %793, %790, %786, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_secinfo_res(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_nfs4_secinfo_res(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_nfs4_secinfo_flavor, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #18
@@ -14810,7 +14810,7 @@ define internal i32 @dissect_nfs4_secinfo_res(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfs4_test_stateid_res(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @dissect_nfs4_test_stateid_res(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %7 = load i32, ptr @hf_nfs4_status, align 4
@@ -14880,7 +14880,7 @@ define internal fastcc i32 @dissect_nfs4_write_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfs4_read_plus_content(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_nfs4_read_plus_content(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_nfs4_read_plus_content_type, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #18
@@ -15315,13 +15315,13 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

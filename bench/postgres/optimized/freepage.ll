@@ -44,7 +44,7 @@ define dso_local void @FreePageManagerInitialize(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @FreePageManagerGet(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @FreePageManagerGet(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call fastcc zeroext i1 @FreePageManagerGetInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %5 = tail call fastcc i64 @FreePageBtreeCleanup(ptr noundef %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -115,7 +115,7 @@ FreePageManagerUpdateLargest.exit:                ; preds = %10, %FreePageManage
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca %struct.FreePageBtreeSearchResult, align 8
   %5 = load i64, ptr %0, align 8
   %6 = sub i64 1, %5
@@ -2846,7 +2846,7 @@ declare void @check_stack_depth() local_unnamed_addr #3
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((20, 24)) %2) unnamed_addr #5 {
+define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((20, 24)) %2) unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
   %5 = sub i64 1, %4
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -3472,7 +3472,7 @@ FreePageBtreeAdjustAncestorKeys.exit:             ; preds = %157, %128, %FreePag
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @FreePageBtreeConsolidate(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
@@ -3780,7 +3780,7 @@ FreePageBtreeFindLeftSibling.exit.thread:         ; preds = %FreePageBtreeSearch
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #8
@@ -3796,7 +3796,7 @@ declare void @llvm.assume(i1 noundef) #9
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

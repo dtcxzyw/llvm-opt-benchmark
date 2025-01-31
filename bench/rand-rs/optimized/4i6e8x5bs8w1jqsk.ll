@@ -17,7 +17,7 @@ define noundef i64 @"_ZN52_$LT$u64$u20$as$u20$rand_core..impls..Observable$GT$5t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN9rand_core5impls19fill_via_u32_chunks17hb2508e2e34411336E(ptr noalias nocapture noundef nonnull readonly align 4 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN9rand_core5impls19fill_via_u32_chunks17hb2508e2e34411336E(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull writeonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %5 = shl i64 %1, 2
@@ -48,7 +48,7 @@ _ZN9rand_core5impls15fill_via_chunks17h227660b9829fe39bE.exit: ; preds = %"_ZN10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN9rand_core5impls19fill_via_u64_chunks17hb1e6064dcd75b106E(ptr noalias nocapture noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN9rand_core5impls19fill_via_u64_chunks17hb1e6064dcd75b106E(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull writeonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %5 = shl i64 %1, 3
@@ -79,7 +79,7 @@ _ZN9rand_core5impls15fill_via_chunks17h46b4e1b4df1e0c3eE.exit: ; preds = %"_ZN10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3

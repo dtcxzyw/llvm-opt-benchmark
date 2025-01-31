@@ -364,7 +364,7 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dir_existsfile(ptr nocapture noundef initializes((24, 36)) %0, ptr noundef %1) #0 {
+define internal noundef zeroext i1 @dir_existsfile(ptr noundef captures(none) initializes((24, 36)) %0, ptr noundef %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %4, align 8
@@ -386,7 +386,7 @@ define internal noundef zeroext i1 @dir_existsfile(ptr nocapture noundef initial
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dir_get_file_size(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal i64 @dir_get_file_size(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -414,7 +414,7 @@ define internal i64 @dir_get_file_size(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @dir_get_file_name(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal noundef ptr @dir_get_file_name(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @pg_malloc0(i64 noundef 1024) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -429,7 +429,7 @@ define internal noundef ptr @dir_get_file_name(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dir_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @dir_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %5, align 8
@@ -487,7 +487,7 @@ define internal i64 @dir_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dir_sync(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @dir_sync(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %3, align 8
@@ -535,7 +535,7 @@ define internal i32 @dir_sync(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dir_finish(ptr nocapture noundef initializes((24, 36)) %0) #0 {
+define internal noundef zeroext i1 @dir_finish(ptr noundef captures(none) initializes((24, 36)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1129,7 +1129,7 @@ tar_write_padding_data.exit:                      ; preds = %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @tar_existsfile(ptr nocapture noundef writeonly initializes((24, 36)) %0, ptr nocapture readnone %1) #2 {
+define internal noundef zeroext i1 @tar_existsfile(ptr noundef writeonly captures(none) initializes((24, 36)) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1138,7 +1138,7 @@ define internal noundef zeroext i1 @tar_existsfile(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @tar_get_file_size(ptr nocapture noundef writeonly initializes((24, 36)) %0, ptr nocapture readnone %1) #2 {
+define internal noundef i64 @tar_get_file_size(ptr noundef writeonly captures(none) initializes((24, 36)) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1147,7 +1147,7 @@ define internal noundef i64 @tar_get_file_size(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tar_get_file_name(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal noundef ptr @tar_get_file_name(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @pg_malloc0(i64 noundef 1024) #12
   %.not = icmp eq ptr %2, null
   %5 = select i1 %.not, ptr @.str.6, ptr %2
@@ -1156,7 +1156,7 @@ define internal noundef ptr @tar_get_file_name(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @tar_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @tar_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %5, align 8
@@ -1282,7 +1282,7 @@ tar_write_compressed_data.exit:                   ; preds = %.split34.us.i, %.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tar_sync(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @tar_sync(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %3, align 8
@@ -1322,7 +1322,7 @@ define internal i32 @tar_sync(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @tar_finish(ptr nocapture noundef initializes((24, 36)) %0) #0 {
+define internal noundef zeroext i1 @tar_finish(ptr noundef captures(none) initializes((24, 36)) %0) #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1596,7 +1596,7 @@ define dso_local noundef ptr @CreateWalTarMethod(ptr noundef %0, i32 noundef %1,
   %17 = tail call ptr @pg_malloc0(i64 noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %17, ptr %18, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef nonnull %7) #12
+  %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %7) #12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 -1, ptr %20, align 8
   br i1 %6, label %21, label %24
@@ -1612,14 +1612,14 @@ define dso_local noundef ptr @CreateWalTarMethod(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetLastWalMethodError(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @GetLastWalMethodError(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1643,7 +1643,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -1668,27 +1668,27 @@ declare i32 @fsync_parent_path(ptr noundef) local_unnamed_addr #1
 declare i32 @gzwrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @durable_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare i32 @gzflush(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tar_write_compressed_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tar_write_compressed_data(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   store ptr %1, ptr %6, align 8
@@ -1830,7 +1830,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #6
 declare i32 @deflateParams(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tar_write_padding_data(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tar_write_padding_data(ptr noundef captures(none) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = alloca %union.PGAlignedXLogBlock, align 4096
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %3, i8 0, i64 8192, i1 false)
   br label %4
@@ -1850,7 +1850,7 @@ define internal fastcc noundef zeroext i1 @tar_write_padding_data(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #6
@@ -1871,10 +1871,10 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

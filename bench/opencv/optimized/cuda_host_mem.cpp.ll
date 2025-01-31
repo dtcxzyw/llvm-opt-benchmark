@@ -59,13 +59,13 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #0 personality p
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda7HostMem6createEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #6
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4cuda7HostMem7reshapeEii(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::cuda::HostMem") align 8 initializes((0, 12), (16, 60)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv4cuda7HostMem7reshapeEii(ptr dead_on_unwind noalias writable sret(%"class.cv::cuda::HostMem") align 8 captures(none) initializes((0, 12), (16, 60)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -318,24 +318,24 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv4cuda7HostMem7releaseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN2cv4cuda7HostMem7releaseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2cv4cuda7HostMem18createGpuMatHeaderEv(ptr dead_on_unwind noalias nocapture readnone sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK2cv4cuda7HostMem18createGpuMatHeaderEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMat") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL13throw_no_cudav() #6
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda18registerPageLockedERNS_3MatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #0 {
+define void @_ZN2cv4cuda18registerPageLockedERNS_3MatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 {
   tail call fastcc void @_ZL13throw_no_cudav() #6
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv4cuda20unregisterPageLockedERNS_3MatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #5 {
+define void @_ZN2cv4cuda20unregisterPageLockedERNS_3MatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #5 {
   ret void
 }
 

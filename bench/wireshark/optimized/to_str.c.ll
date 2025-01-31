@@ -495,7 +495,7 @@ define noundef ptr @qword_to_hex_punct(ptr noundef writeonly initializes((0, 23)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @bytes_to_hexstr(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @bytes_to_hexstr(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -527,7 +527,7 @@ define noundef ptr @bytes_to_hexstr(ptr noundef writeonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @bytes_to_hexstr_punct(ptr noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #1 {
+define noundef ptr @bytes_to_hexstr_punct(ptr noundef writeonly initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #1 {
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
   %7 = lshr i32 %6, 4
@@ -576,7 +576,7 @@ define noundef ptr @bytes_to_hexstr_punct(ptr noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bytes_to_str_punct_maxlen(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i8 noundef signext %3, i64 noundef %4) local_unnamed_addr #2 {
+define ptr @bytes_to_str_punct_maxlen(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i8 noundef signext %3, i64 noundef %4) local_unnamed_addr #2 {
   %.not = icmp eq i8 %3, 0
   %6 = add i64 %4, -1
   %or.cond.i = icmp uge i64 %6, %2
@@ -687,7 +687,7 @@ bytes_to_str_maxlen.exit:                         ; preds = %bytes_to_str_maxlen
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bytes_to_str_maxlen(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define ptr @bytes_to_str_maxlen(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = add i64 %3, -1
   %or.cond = icmp uge i64 %5, %2
   %6 = icmp uge i64 %3, %2
@@ -1564,7 +1564,7 @@ uint64_to_str_back.exit:                          ; preds = %.sink.split.i, %._c
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ip_addr_to_str_buf(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @ip_addr_to_str_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, 16
   br i1 %4, label %5, label %8
 
@@ -1663,7 +1663,7 @@ define void @ip_addr_to_str_buf(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ip_addr_to_str(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noalias ptr @ip_addr_to_str(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #10
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
@@ -1938,7 +1938,7 @@ ip_addr_to_str.exit:                              ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ip_to_str_buf(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @ip_to_str_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, 16
   br i1 %4, label %5, label %8
 
@@ -2037,7 +2037,7 @@ ip_addr_to_str_buf.exit:                          ; preds = %5, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ip_to_str(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noalias ptr @ip_to_str(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #10
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
@@ -2436,22 +2436,22 @@ uint_to_str_back_len.exit:                        ; preds = %uint_to_str_back.ex
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @display_epoch_time(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @display_epoch_time(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   tail call void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = icmp eq i64 %1, 0
@@ -2673,7 +2673,7 @@ declare ptr @ws_gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #8

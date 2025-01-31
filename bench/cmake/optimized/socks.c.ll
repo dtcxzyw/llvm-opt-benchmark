@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.50 = private unnamed_addr constant [67 x i8] c"Can't complete SOCKS4 connection to %d.%d.%d.%d:%d. (%d), Unknown.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @socks_proxy_cf_destroy(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @socks_proxy_cf_destroy(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -79,7 +79,7 @@ socks_proxy_cf_free.exit:                         ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @socks_proxy_cf_connect(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
+define internal i32 @socks_proxy_cf_connect(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -327,7 +327,7 @@ socksstate.exit:                                  ; preds = %45
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %.0, i64 632
   %114 = load i32, ptr %113, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, ptr noundef %99, i32 noundef %114) #7
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %99, i32 noundef %114) #7
   br label %115
 
 115:                                              ; preds = %112, %108, %104
@@ -859,7 +859,7 @@ socksstate.exit408.i.i:                           ; preds = %socksstate.exit408.
 316:                                              ; preds = %95
   %317 = getelementptr inbounds nuw i8, ptr %.0, i64 632
   %318 = load i32, ptr %317, align 8
-  %319 = tail call ptr @Curl_fetch_addr(ptr noundef nonnull %1, ptr noundef %99, i32 noundef %318) #7
+  %319 = tail call ptr @Curl_fetch_addr(ptr noundef nonnull %1, ptr noundef nonnull %99, i32 noundef %318) #7
   store ptr %319, ptr %17, align 8
   %.not488.i.i = icmp eq ptr %319, null
   br i1 %.not488.i.i, label %.critedge493.i.i, label %320
@@ -2037,7 +2037,7 @@ socks_proxy_cf_free.exit:                         ; preds = %.thread.i, %818, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @socks_proxy_cf_close(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @socks_proxy_cf_close(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -2
@@ -2064,7 +2064,7 @@ socks_proxy_cf_free.exit:                         ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @socks_cf_get_host(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @socks_cf_get_host(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
@@ -2150,7 +2150,7 @@ declare i32 @Curl_cf_def_conn_keep_alive(ptr noundef, ptr noundef) #1
 declare i32 @Curl_cf_def_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_socks_proxy_insert_after(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_cf_socks_proxy_insert_after(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call i32 @Curl_cf_create(ptr noundef nonnull %3, ptr noundef nonnull @Curl_cft_socks_proxy, ptr noundef null) #7
   %.not = icmp eq i32 %4, 0
@@ -2174,12 +2174,12 @@ declare void @Curl_verboseconnect(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_resolv(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -2201,17 +2201,17 @@ declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 declare i64 @Curl_conn_cf_recv(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @Curl_conn_cf_get_socket(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_pollset_change(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

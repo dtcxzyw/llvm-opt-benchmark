@@ -686,10 +686,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #6
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35LogicalCombination_SingleComb1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35LogicalCombination_SingleComb1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -4456,10 +4456,10 @@ _ZN15CallBackContextD2Ev.exit1681:                ; preds = %if.then.i.i.i.i1680
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 declare i32 @hs_compile_multi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -4582,7 +4582,7 @@ declare i32 @hs_free_database(ptr noundef) local_unnamed_addr #0
 declare i32 @hs_free_scratch(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN43LogicalCombination_SingleCombQuietSub1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN43LogicalCombination_SingleCombQuietSub1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -7583,7 +7583,7 @@ _ZN15CallBackContextD2Ev.exit1289:                ; preds = %if.then.i.i.i.i1288
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42LogicalCombination_MultiCombQuietSub1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42LogicalCombination_MultiCombQuietSub1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -10766,10 +10766,10 @@ _ZN15CallBackContextD2Ev.exit1387:                ; preds = %if.then.i.i.i.i1386
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN52LogicalCombination_MultiHighlanderCombQuietSub1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN52LogicalCombination_MultiHighlanderCombQuietSub1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -13213,7 +13213,7 @@ _ZN15CallBackContextD2Ev.exit1030:                ; preds = %if.then.i.i.i.i1029
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN47LogicalCombination_MultiQuietCombQuietSub1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN47LogicalCombination_MultiQuietCombQuietSub1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -15227,7 +15227,7 @@ _ZN15CallBackContextD2Ev.exit840:                 ; preds = %if.then.i.i.i.i839,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35LogicalCombination_SingleComb2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35LogicalCombination_SingleComb2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -18706,7 +18706,7 @@ _ZN15CallBackContextD2Ev.exit1534:                ; preds = %if.then.i.i.i.i1533
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN43LogicalCombination_SingleCombQuietSub2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN43LogicalCombination_SingleCombQuietSub2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -21707,7 +21707,7 @@ _ZN15CallBackContextD2Ev.exit1289:                ; preds = %if.then.i.i.i.i1288
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35LogicalCombination_SingleComb3_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35LogicalCombination_SingleComb3_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -25570,7 +25570,7 @@ _ZN15CallBackContextD2Ev.exit1730:                ; preds = %if.then.i.i.i.i1729
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN43LogicalCombination_SingleCombQuietSub3_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN43LogicalCombination_SingleCombQuietSub3_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -28571,7 +28571,7 @@ _ZN15CallBackContextD2Ev.exit1289:                ; preds = %if.then.i.i.i.i1288
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40LogicalCombination_MultiCombDupSub4_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40LogicalCombination_MultiCombDupSub4_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -33016,7 +33016,7 @@ _ZN15CallBackContextD2Ev.exit2024:                ; preds = %if.then.i.i.i.i2023
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN45LogicalCombination_MultiCombQuietDupSub4_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN45LogicalCombination_MultiCombQuietDupSub4_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -36881,7 +36881,7 @@ _ZN15CallBackContextD2Ev.exit1730:                ; preds = %if.then.i.i.i.i1729
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40LogicalCombination_MultiCombUniSub5_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40LogicalCombination_MultiCombUniSub5_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -43520,10 +43520,10 @@ _ZN15CallBackContextD2Ev.exit3151:                ; preds = %if.then.i.i.i.i3150
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN45LogicalCombination_MultiCombQuietUniSub5_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN45LogicalCombination_MultiCombQuietUniSub5_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -48620,7 +48620,7 @@ _ZN15CallBackContextD2Ev.exit2367:                ; preds = %if.then.i.i.i.i2366
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN49LogicalCombination_SingleCombPurelyNegative6_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN49LogicalCombination_SingleCombPurelyNegative6_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -50427,7 +50427,7 @@ _ZN15CallBackContextD2Ev.exit746:                 ; preds = %if.then.i.i.i.i745,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN54LogicalCombination_SingleCombQuietPurelyNegative6_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN54LogicalCombination_SingleCombQuietPurelyNegative6_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -52020,7 +52020,7 @@ _ZN15CallBackContextD2Ev.exit654:                 ; preds = %if.then.i.i.i.i653,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN54LogicalCombination_MultiCombPurelyNegativeUniSub6_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN54LogicalCombination_MultiCombPurelyNegativeUniSub6_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -54247,7 +54247,7 @@ _ZN15CallBackContextD2Ev.exit935:                 ; preds = %if.then.i.i.i.i934,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN57LogicalCombination_MultiCombPurelyNegativeUniSubEOD6_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN57LogicalCombination_MultiCombPurelyNegativeUniSubEOD6_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %db = alloca ptr, align 8
@@ -57238,7 +57238,7 @@ _ZN15CallBackContextD2Ev.exit1289:                ; preds = %if.then.i.i.i.i1288
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40LogicalCombination_MultiCombStream1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40LogicalCombination_MultiCombStream1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1055 = alloca i64, align 8
   %__dnew.i.i1043 = alloca i64, align 8
@@ -61281,7 +61281,7 @@ declare i32 @hs_scan_stream(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare i32 @hs_close_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL8dummy_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #11 {
+define internal noundef i32 @_ZL8dummy_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #11 {
 entry:
   ret i32 0
 }

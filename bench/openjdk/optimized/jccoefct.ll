@@ -214,7 +214,7 @@ start_iMCU_row.exit:                              ; preds = %10, %22, %25
 declare i64 @jRound(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -482,7 +482,7 @@ start_iMCU_row.exit:                              ; preds = %134, %145, %148
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
@@ -566,7 +566,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr noc
   %57 = load ptr, ptr %47, align 8
   %indvars.iv137.tr = trunc i64 %indvars.iv137 to i32
   %58 = shl i32 %indvars.iv137.tr, 3
-  tail call void %56(ptr noundef %0, ptr noundef %.086123, ptr noundef %57, ptr noundef %53, i32 noundef %58, i32 noundef 0, i32 noundef %.fr160) #2
+  tail call void %56(ptr noundef nonnull %0, ptr noundef %.086123, ptr noundef %57, ptr noundef %53, i32 noundef %58, i32 noundef 0, i32 noundef %.fr160) #2
   %59 = getelementptr inbounds nuw [64 x i16], ptr %53, i64 %49
   tail call void @jZeroFar(ptr noundef %59, i64 noundef %51) #2
   %60 = getelementptr inbounds i8, ptr %59, i64 -128
@@ -596,7 +596,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr noc
   %69 = load ptr, ptr %47, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %70 = shl i32 %indvars.iv.tr, 3
-  tail call void %68(ptr noundef %0, ptr noundef %.086123, ptr noundef %69, ptr noundef %65, i32 noundef %70, i32 noundef 0, i32 noundef %.fr160) #2
+  tail call void %68(ptr noundef nonnull %0, ptr noundef %.086123, ptr noundef %69, ptr noundef %65, i32 noundef %70, i32 noundef 0, i32 noundef %.fr160) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
@@ -708,7 +708,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [4 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8

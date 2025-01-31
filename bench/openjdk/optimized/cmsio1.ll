@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cmsGetProfileInfoUTF8 = private unnamed_addr constant [4 x i32] [i32 1684370275, i32 1684893284, i32 1684890724, i32 1668313716], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_cmsReadMediaWhitePoint(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @_cmsReadMediaWhitePoint(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @cmsReadTag(ptr noundef %1, i32 noundef 2004119668) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.sink.split, label %5
@@ -50,7 +50,7 @@ declare ptr @cmsReadTag(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @cmsD50_XYZ() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @cmsGetEncodedICCversion(ptr noundef) local_unnamed_addr #1
 
@@ -1211,7 +1211,7 @@ define hidden ptr @_cmsReadProfileSequence(ptr noundef %0) local_unnamed_addr #0
 declare ptr @cmsDupProfileSequenceDescription(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @cmsMLUdup(ptr noundef) local_unnamed_addr #1
 
@@ -1242,7 +1242,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteProfileSequence(ptr noundef %0, ptr 
 declare i32 @cmsWriteTag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsCompileProfileSequence(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @_cmsCompileProfileSequence(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 noundef %1) #4
   %5 = icmp ne ptr %4, null
   %6 = icmp ne i32 %1, 0
@@ -1484,10 +1484,10 @@ declare ptr @_cmsStageAllocLab2XYZ(ptr noundef) local_unnamed_addr #1
 declare void @cmsFreeToneCurveTriple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

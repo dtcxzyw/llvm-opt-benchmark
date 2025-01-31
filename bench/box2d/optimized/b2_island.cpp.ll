@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN8b2IslandD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8b2IslandD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2IslandC2EiiiP16b2StackAllocatorP17b2ContactListener(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, i32 noundef %bodyCapacity, i32 noundef %contactCapacity, i32 noundef %jointCapacity, ptr noundef nonnull %allocator, ptr noundef %listener) unnamed_addr #0 align 2 {
+define hidden void @_ZN8b2IslandC2EiiiP16b2StackAllocatorP17b2ContactListener(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 80)) %this, i32 noundef %bodyCapacity, i32 noundef %contactCapacity, i32 noundef %jointCapacity, ptr noundef nonnull %allocator, ptr noundef %listener) unnamed_addr #0 align 2 {
 entry:
   %m_bodyCapacity = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i32 %bodyCapacity, ptr %m_bodyCapacity, align 4
@@ -71,7 +71,7 @@ entry:
 declare noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8b2IslandD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8b2IslandD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -135,7 +135,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2Island5SolveEP9b2ProfileRK10b2TimeStepRK6b2Vec2b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %profile, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %step, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %gravity, i1 noundef zeroext %allowSleep) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8b2Island5SolveEP9b2ProfileRK10b2TimeStepRK6b2Vec2b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef writeonly captures(none) %profile, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %step, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %gravity, i1 noundef zeroext %allowSleep) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impulse.i = alloca %struct.b2ContactImpulse, align 4
   %timer = alloca %class.b2Timer, align 8
@@ -800,7 +800,7 @@ if.end280:                                        ; preds = %for.inc276, %for.en
 declare void @_ZN7b2TimerC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
@@ -822,7 +822,7 @@ declare void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr noundef nonnull align 8 
 declare noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr noundef nonnull align 8 dereferenceable(76)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2Island6ReportEPK27b2ContactVelocityConstraint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %constraints) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8b2Island6ReportEPK27b2ContactVelocityConstraint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef readonly captures(none) %constraints) local_unnamed_addr #0 align 2 {
 entry:
   %impulse = alloca %struct.b2ContactImpulse, align 4
   %m_listener = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -893,7 +893,7 @@ for.end19:                                        ; preds = %for.end, %for.cond.
 declare void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2Island8SolveTOIERK10b2TimeStepii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %subStep, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8b2Island8SolveTOIERK10b2TimeStepii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %subStep, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impulse.i = alloca %struct.b2ContactImpulse, align 4
   %contactSolverDef = alloca %struct.b2ContactSolverDef, align 8
@@ -1260,13 +1260,13 @@ declare float @cosf(float noundef) local_unnamed_addr #9
 declare float @llvm.sqrt.f32(float) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

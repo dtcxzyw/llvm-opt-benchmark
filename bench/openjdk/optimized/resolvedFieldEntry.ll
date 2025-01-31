@@ -108,7 +108,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18ResolvedFieldEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 14), (16, 24)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18ResolvedFieldEntry23remove_unshareable_infoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(20) initializes((0, 14), (16, 24)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -117,7 +117,7 @@ define hidden void @_ZN18ResolvedFieldEntry23remove_unshareable_infoEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ResolvedFieldEntry17mark_and_relocateEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {

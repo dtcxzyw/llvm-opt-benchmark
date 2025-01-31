@@ -37,7 +37,7 @@ define nonnull ptr @lv_font_manager_create(i32 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
@@ -46,7 +46,7 @@ declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @lv_font_manager_recycle_create(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_font_manager_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -737,7 +737,7 @@ declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unna
 declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -750,7 +750,7 @@ declare ptr @lv_freetype_font_create(ptr noundef, i32 noundef, i32 noundef, i32 
 declare void @lv_font_manager_recycle_set_reuse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #2
 

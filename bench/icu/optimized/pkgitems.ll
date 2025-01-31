@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [5 x i8] c".cnv\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr nocapture noundef readonly %pItem, ptr noundef %context, ptr noundef %check) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr noundef readonly captures(none) %pItem, ptr noundef %context, ptr noundef %check) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %infoLength.i = alloca i32, align 4
   %itemHeaderLength.i = alloca i32, align 4
@@ -202,7 +202,7 @@ invoke.cont.i:                                    ; preds = %if.then6.i
   %add8.i.i = add nuw nsw i64 %sub.ptr.sub.i.i, 8
   %27 = load ptr, ptr @stderr, align 8
   %conv11.i.i = and i64 %add8.i.i, 4294967295
-  %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.7, ptr noundef %21, i64 noundef %conv11.i.i) #12
+  %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.7, ptr noundef nonnull %21, i64 noundef %conv11.i.i) #12
   store i32 15, ptr %errorCode, align 4
   br label %invoke.cont10
 
@@ -226,12 +226,12 @@ delete.notnull.i.i:                               ; preds = %lpad.i, %lpad.threa
 if.end10.i:                                       ; preds = %if.then6.i
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %poolName.i, ptr align 1 %21, i64 %conv14.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %poolName.i, ptr nonnull align 1 %21, i64 %conv14.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %poolName.i, i64 %conv14.i.i
   store i32 1819242352, ptr %add.ptr.i.i, align 1
   %add.ptr19.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
-  invoke void %check(ptr noundef %context, ptr noundef %21, ptr noundef nonnull %poolName.i)
+  invoke void %check(ptr noundef %context, ptr noundef nonnull %21, ptr noundef nonnull %poolName.i)
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %if.end10.i
@@ -395,7 +395,7 @@ if.then47.i:                                      ; preds = %if.end43.i
 
 if.else.i:                                        ; preds = %if.end43.i
   %54 = load ptr, ptr @stderr, align 8
-  %call54.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.6, ptr noundef nonnull %poolName.i, ptr noundef %21) #12
+  %call54.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.6, ptr noundef nonnull %poolName.i, ptr noundef nonnull %21) #12
   br label %cleanup.i
 
 if.end56.i:                                       ; preds = %if.then47.i, %if.end.i
@@ -514,28 +514,28 @@ if.end5.i.i.i.i:                                  ; preds = %if.then2.i.i.i.i, %
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread.i.i.i: ; preds = %if.end5.i.i.i.i
   %60 = load ptr, ptr @stderr, align 8
   %conv11.i.i.i.i = zext nneg i32 %add8.i.i.i.i to i64
-  %call12.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %21, i64 noundef %conv11.i.i.i.i) #12
+  %call12.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef nonnull %21, i64 noundef %conv11.i.i.i.i) #12
   store i32 15, ptr %errorCode, align 4
   br label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i
 
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i.i.i: ; preds = %if.end5.i.i.i.i
   %sext.i.i.i.i = shl i64 %sub.ptr.sub.i.i30.i.i, 32
   %conv14.i.i.i.i = ashr exact i64 %sext.i.i.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i.i.i, ptr align 1 %21, i64 %conv14.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i.i.i, ptr nonnull align 1 %21, i64 %conv14.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %target.i.i.i, i64 %conv14.i.i.i.i
   %conv15.i.i.i.i = sext i32 %idLength.addr.0.i.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr readonly align 1 %parent.029.i.i, i64 %conv15.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr nonnull readonly align 1 %parent.029.i.i, i64 %conv15.i.i.i.i, i1 false)
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv15.i.i.i.i
   %add20.i.i.i.i = shl i64 %call6.i.i.i.i, 32
   %sext19.i.i.i.i = add i64 %add20.i.i.i.i, 4294967296
   %conv21.i.i.i.i = ashr exact i64 %sext19.i.i.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i.i.i.i, ptr readonly align 1 %suffix.0.i.i, i64 %conv21.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i.i.i.i, ptr nonnull readonly align 1 %suffix.0.i.i, i64 %conv21.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %errorCode, align 4
   %61 = icmp sgt i32 %.pre.i.i.i, 0
   br i1 %61, label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i.i.i
-  invoke void %check(ptr noundef %context, ptr noundef %21, ptr noundef nonnull %target.i.i.i)
+  invoke void %check(ptr noundef %context, ptr noundef nonnull %21, ptr noundef nonnull %target.i.i.i)
           to label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i unwind label %lpad.i
 
 _ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i: ; preds = %if.then.i.i.i, %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i.i.i, %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread.i.i.i
@@ -778,7 +778,7 @@ declare i32 @__gxx_personality_v0(...)
 declare ptr @udata_openSwapper_75(i8 noundef signext, i8 noundef zeroext, i8 noundef signext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #1
 
@@ -786,7 +786,7 @@ declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL10printErrorPvPKcP13__va_list_tag(ptr nocapture noundef %context, ptr nocapture noundef readonly %fmt, ptr noundef %args) #4 {
+define internal void @_ZL10printErrorPvPKcP13__va_list_tag(ptr noundef captures(none) %context, ptr noundef readonly captures(none) %fmt, ptr noundef %args) #4 {
 entry:
   %call = tail call i32 @vfprintf(ptr noundef %context, ptr noundef %fmt, ptr noundef %args)
   ret void
@@ -930,20 +930,20 @@ sw.epilog:                                        ; preds = %for.inc50, %for.inc
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @res_getPublicType_75(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @res_getStringNoTrace_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L10checkAliasEPKcjPKDsiaPFvPvS1_S1_ES4_P10UErrorCode(ptr noundef %itemName, i32 noundef %res, ptr noundef %alias, i32 noundef %length, i8 noundef signext range(i8 0, 2) %useResSuffix, ptr nocapture noundef readonly %check, ptr noundef %context, ptr nocapture noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc void @_ZN6icu_75L10checkAliasEPKcjPKDsiaPFvPvS1_S1_ES4_P10UErrorCode(ptr noundef %itemName, i32 noundef %res, ptr noundef %alias, i32 noundef %length, i8 noundef signext range(i8 0, 2) %useResSuffix, ptr noundef readonly captures(none) %check, ptr noundef %context, ptr noundef nonnull captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %target.i = alloca [200 x i8], align 16
   %localeID = alloca [48 x i8], align 16
@@ -1046,7 +1046,7 @@ if.end18:                                         ; preds = %if.end13
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread.i: ; preds = %if.end18
   %5 = load ptr, ptr @stderr, align 8
   %conv11.i.i = zext nneg i32 %add8.i.i to i64
-  %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef %itemName, i64 noundef %conv11.i.i) #12
+  %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %itemName, i64 noundef %conv11.i.i) #12
   store i32 15, ptr %pErrorCode, align 4
   br label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit
 
@@ -1054,7 +1054,7 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i: ; preds = %if.end
   %cond = select i1 %tobool22.not, ptr @.str.16, ptr @.str.4
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i, ptr align 1 %itemName, i64 %conv14.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i, ptr nonnull align 1 %itemName, i64 %conv14.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %target.i, i64 %conv14.i.i
   %sext = shl i64 %call3.i.i, 32
   %conv15.i.i = ashr exact i64 %sext, 32
@@ -1067,7 +1067,7 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i: ; preds = %if.end
   br i1 %6, label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i
-  call void %check(ptr noundef %context, ptr noundef %itemName, ptr noundef nonnull %target.i)
+  call void %check(ptr noundef %context, ptr noundef nonnull %itemName, ptr noundef nonnull %target.i)
   br label %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit
 
 _ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit: ; preds = %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread.i, %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i, %if.then.i
@@ -1091,7 +1091,7 @@ declare signext i8 @uprv_isInvariantUString_75(ptr noundef, i32 noundef) local_u
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %itemName, ptr nocapture noundef readonly %id, i32 noundef %idLength, ptr nocapture noundef readonly %suffix, ptr nocapture noundef readonly %check, ptr noundef %context, ptr nocapture noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %itemName, ptr noundef readonly captures(none) %id, i32 noundef %idLength, ptr noundef readonly captures(none) %suffix, ptr noundef readonly captures(none) %check, ptr noundef %context, ptr noundef nonnull captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %target = alloca [200 x i8], align 16
   %call.i = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %itemName, i32 noundef 47) #15
@@ -1122,14 +1122,14 @@ if.end5.i:                                        ; preds = %if.then2.i, %entry
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread: ; preds = %if.end5.i
   %0 = load ptr, ptr @stderr, align 8
   %conv11.i = zext nneg i32 %add8.i to i64
-  %call12.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %itemName, i64 noundef %conv11.i) #12
+  %call12.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %itemName, i64 noundef %conv11.i) #12
   store i32 15, ptr %pErrorCode, align 4
   br label %if.end
 
 _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit: ; preds = %if.end5.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %conv14.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target, ptr align 1 %itemName, i64 %conv14.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target, ptr nonnull align 1 %itemName, i64 %conv14.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %target, i64 %conv14.i
   %conv15.i = sext i32 %idLength.addr.0.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %id, i64 %conv15.i, i1 false)
@@ -1137,13 +1137,13 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit: ; preds = %if.end5.
   %add20.i = shl i64 %call6.i, 32
   %sext19.i = add i64 %add20.i, 4294967296
   %conv21.i = ashr exact i64 %sext19.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr readonly align 1 %suffix, i64 %conv21.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull readonly align 1 %suffix, i64 %conv21.i, i1 false)
   %.pre = load i32, ptr %pErrorCode, align 4
   %1 = icmp sgt i32 %.pre, 0
   br i1 %1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit
-  call void %check(ptr noundef %context, ptr noundef %itemName, ptr noundef nonnull %target)
+  call void %check(ptr noundef %context, ptr noundef nonnull %itemName, ptr noundef nonnull %target)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.thread, %if.then, %_ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit
@@ -1154,18 +1154,18 @@ if.end:                                           ; preds = %_ZN6icu_75L14makeTa
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -514,7 +514,7 @@ define hidden void @proto_register_opa_9b() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @cf_opa_dw_to_b(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @cf_opa_dw_to_b(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = shl i32 %1, 2
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.209, i32 noundef %1, i32 noundef %3) #5
   ret void
@@ -525,7 +525,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -1131,7 +1131,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1154,7 +1154,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.318) #5
   %5 = load i32, ptr @hf_opa_RDETH, align 4
@@ -1172,7 +1172,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef initializes((284, 288)) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @parse_DETH(ptr noundef %0, ptr noundef captures(none) initializes((284, 288)) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1198,7 +1198,7 @@ define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.320) #5
   %5 = load i32, ptr @hf_opa_RETH, align 4
@@ -1219,7 +1219,7 @@ define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.321) #5
   %5 = load i32, ptr @hf_opa_IMMDT, align 4
@@ -1234,7 +1234,7 @@ define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.322) #5
   %5 = load i32, ptr @hf_opa_AETH, align 4
@@ -1252,7 +1252,7 @@ define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.323) #5
   %5 = load i32, ptr @hf_opa_AtomicAckETH, align 4
@@ -1267,7 +1267,7 @@ define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.324) #5
   %5 = load i32, ptr @hf_opa_AtomicETH, align 4
@@ -1291,7 +1291,7 @@ define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.325) #5
   %5 = load i32, ptr @hf_opa_IETH, align 4
@@ -1306,7 +1306,7 @@ define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.326) #5
   %5 = load i32, ptr @hf_opa_KDETH, align 4
@@ -1322,7 +1322,7 @@ define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.327) #5
   %6 = load i32, ptr @hf_opa_psm, align 4
@@ -1596,7 +1596,7 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 256) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef range(i32 0, 256) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %trunc = trunc nuw i32 %4 to i8
   switch i8 %trunc, label %179 [

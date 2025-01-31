@@ -30,7 +30,7 @@ $_ZTVN4llvm13format_objectIJjjdEEE = comdat any
 @_ZN4llvm17BranchProbabilityC1Ejj = unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4llvm17BranchProbabilityC2Ejj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17BranchProbability5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17BranchProbability5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::format_object", align 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, -1
@@ -88,7 +88,7 @@ declare double @llvm.rint.f64(double) #1
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %2, -2147483648
   br i1 %4, label %14, label %5
 
@@ -139,7 +139,7 @@ define dso_local i32 @_ZN4llvm17BranchProbability20getBranchProbabilityEmm(i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %.not.i = icmp eq i64 %1, 0
   %4 = icmp eq i32 %3, -2147483648
@@ -181,7 +181,7 @@ _ZL5scaleILj2147483648EEmmjj.exit:                ; preds = %2, %5, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK4llvm17BranchProbability14scaleByInverseEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %.not.i = icmp eq i64 %1, 0
   %4 = icmp eq i32 %3, -2147483648
@@ -244,7 +244,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJjjdEE7snprintE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #6

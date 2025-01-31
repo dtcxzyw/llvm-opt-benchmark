@@ -273,14 +273,14 @@ declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @TXT_DB_get_by_index(ptr nocapture noundef initializes((32, 40)) %db, i32 noundef %idx, ptr noundef %value) local_unnamed_addr #0 {
+define ptr @TXT_DB_get_by_index(ptr noundef captures(none) initializes((32, 40)) %db, i32 noundef %idx, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp.not = icmp slt i32 %idx, %0
@@ -310,7 +310,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TXT_DB_create_index(ptr nocapture noundef %db, i32 noundef %field, ptr noundef %qual, ptr noundef %hash, ptr noundef %cmp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TXT_DB_create_index(ptr noundef captures(none) %db, i32 noundef %field, ptr noundef %qual, ptr noundef %hash, ptr noundef %cmp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp1.not = icmp slt i32 %field, %0
@@ -433,7 +433,7 @@ declare ptr @OPENSSL_LH_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @TXT_DB_write(ptr noundef %out, ptr nocapture noundef readonly %db) local_unnamed_addr #0 {
+define i64 @TXT_DB_write(ptr noundef %out, ptr noundef readonly captures(none) %db) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #5
   %cmp = icmp eq ptr %call, null
@@ -591,7 +591,7 @@ err:                                              ; preds = %for.body, %if.end23
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TXT_DB_insert(ptr nocapture noundef %db, ptr noundef %row) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %db, ptr noundef %row) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp50 = icmp sgt i32 %0, 0
@@ -916,7 +916,7 @@ declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

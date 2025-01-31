@@ -2031,7 +2031,7 @@ define hidden void @proto_register_wassp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mu_association_status(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @mu_association_status(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   switch i8 %1, label %7 [
     i8 1, label %3
     i8 2, label %5
@@ -2055,7 +2055,7 @@ define internal void @mu_association_status(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @topology_moder_print(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @topology_moder_print(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
   %4 = and i16 %1, 4095
   %5 = lshr i16 %1, 14
@@ -2124,7 +2124,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @maskbit_priority_print(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @maskbit_priority_print(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = zext i8 %1 to i32
   %4 = lshr i32 %3, 4
   %5 = and i32 %3, 15
@@ -2133,7 +2133,7 @@ define internal void @maskbit_priority_print(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @cos_priority_txq_print(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @cos_priority_txq_print(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = zext i8 %1 to i32
   %4 = lshr i32 %3, 4
   %5 = and i32 %3, 15
@@ -2142,7 +2142,7 @@ define internal void @cos_priority_txq_print(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @cos_rate_id_print(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @cos_rate_id_print(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = zext i8 %1 to i32
   %4 = lshr i32 %3, 4
   %5 = and i32 %3, 15
@@ -2151,7 +2151,7 @@ define internal void @cos_rate_id_print(ptr nocapture noundef writeonly %0, i8 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @port_range_print(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @port_range_print(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = and i32 %1, 65535
   %4 = lshr i32 %1, 16
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.900, i32 noundef %3, i32 noundef %4) #6
@@ -2165,7 +2165,7 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_wassp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_wassp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
@@ -2222,7 +2222,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_wassp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_wassp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
@@ -2246,7 +2246,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 

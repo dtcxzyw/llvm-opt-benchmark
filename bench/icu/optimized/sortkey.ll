@@ -24,13 +24,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7512CollationKey17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7512CollationKey17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7512CollationKey16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512CollationKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512CollationKeyC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -127,7 +127,7 @@ if.end16:                                         ; preds = %do.body, %if.end, %
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %newCapacity, i32 noundef %length) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6icu_7512CollationKey10reallocateEii(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %newCapacity, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %conv = sext i32 %newCapacity to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
@@ -188,13 +188,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512CollationKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512CollationKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -347,7 +347,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512CollationKey9setLengthEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((12, 16)) %this, i32 noundef %newLength) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7512CollationKey9setLengthEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((12, 16)) %this, i32 noundef %newLength) local_unnamed_addr #3 align 2 {
 entry:
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
@@ -407,7 +407,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7512CollationKeyaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #2 align 2 {
@@ -556,7 +556,7 @@ _ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK6icu_7512CollationKey9compareToERKS0_R10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -665,7 +665,7 @@ _ZN6icu_75L15computeHashCodeEPKhi.exit:           ; preds = %entry, %if.else.i
 declare i32 @ustr_hashCharsN_75(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

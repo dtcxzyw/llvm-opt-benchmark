@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_buttonmatrix_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 100)) %1) #0 {
+define internal void @lv_buttonmatrix_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 100)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -44,7 +44,7 @@ define internal void @lv_buttonmatrix_constructor(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_buttonmatrix_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_buttonmatrix_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   tail call void @lv_free(ptr noundef %4) #7
@@ -56,7 +56,7 @@ define internal void @lv_buttonmatrix_destructor(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_buttonmatrix_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_buttonmatrix_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_point_t, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -772,14 +772,14 @@ define noundef ptr @lv_buttonmatrix_create(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_buttonmatrix_set_map(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1639,21 +1639,21 @@ lv_buttonmatrix_set_button_ctrl.exit:             ; preds = %lv_buttonmatrix_has
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_buttonmatrix_get_map(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_buttonmatrix_get_map(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_buttonmatrix_get_selected_button(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_buttonmatrix_get_selected_button(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !13
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_buttonmatrix_get_button_text(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %27, label %4
 
@@ -1711,7 +1711,7 @@ define ptr @lv_buttonmatrix_get_button_text(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %.not = icmp ult i32 %1, %5
@@ -1733,7 +1733,7 @@ define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_buttonmatrix_get_one_checked(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_buttonmatrix_get_one_checked(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -2277,7 +2277,7 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

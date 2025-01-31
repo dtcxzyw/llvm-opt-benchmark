@@ -352,7 +352,7 @@ $_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4
 @_ZL24modifier_combining_marks = internal unnamed_addr constant [14 x i32] [i32 1620, i32 1621, i32 1624, i32 1756, i32 1763, i32 1767, i32 1768, i32 2250, i32 2251, i32 2253, i32 2254, i32 2255, i32 2259, i32 2291], align 16
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read) uwtable
-define hidden noalias noundef ptr @_Z18data_create_arabicPK18hb_ot_shape_plan_t(ptr nocapture noundef readonly %0) #0 {
+define hidden noalias noundef ptr @_Z18data_create_arabicPK18hb_ot_shape_plan_t(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -546,7 +546,7 @@ _ZNK11hb_ot_map_t14needs_fallbackEj.exit.us67:    ; preds = %77, %_ZNK11hb_vecto
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z19data_destroy_arabicPv(ptr nocapture noundef %0) #2 {
+define hidden void @_Z19data_destroy_arabicPv(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -601,10 +601,10 @@ _ZL28arabic_fallback_plan_destroyP22arabic_fallback_plan_t.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z23setup_masks_arabic_planPK19arabic_shape_plan_tP11hb_buffer_t11hb_script_t(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden void @_Z23setup_masks_arabic_planPK19arabic_shape_plan_tP11hb_buffer_t11hb_script_t(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = load i8, ptr %4, align 8
   %6 = or i8 %5, -128
@@ -1079,7 +1079,7 @@ define internal void @_ZL23collect_features_arabicP21hb_ot_shape_planner_t(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25postprocess_glyphs_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #4 {
+define internal void @_ZL25postprocess_glyphs_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = alloca %struct.hb_glyph_position_t, align 4
   %5 = alloca %struct.hb_glyph_info_t, align 4
   %6 = alloca %struct.hb_glyph_position_t, align 4
@@ -1685,7 +1685,7 @@ _ZL10apply_stchPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18setup_masks_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #4 {
+define internal void @_ZL18setup_masks_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1695,7 +1695,7 @@ define internal void @_ZL18setup_masks_arabicPK18hb_ot_shape_plan_tP11hb_buffer_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20reorder_marks_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tjj(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #4 {
+define internal void @_ZL20reorder_marks_arabicPK18hb_ot_shape_plan_tP11hb_buffer_tjj(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #4 {
   %5 = alloca [32 x %struct.hb_glyph_info_t], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8
@@ -2536,7 +2536,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZL11record_stchPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #6 {
+define internal noundef zeroext i1 @_ZL11record_stchPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2594,7 +2594,7 @@ define internal noundef zeroext i1 @_ZL11record_stchPK18hb_ot_shape_plan_tP9hb_f
 declare void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZL21deallocate_buffer_varPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #8 {
+define internal noundef zeroext i1 @_ZL21deallocate_buffer_varPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 127
@@ -2603,7 +2603,7 @@ define internal noundef zeroext i1 @_ZL21deallocate_buffer_varPK18hb_ot_shape_pl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL21arabic_fallback_shapePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZL21arabic_fallback_shapePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.OT::hb_ot_apply_context_t", align 8
   %5 = alloca [1 x %"struct.OT::HBGlyphID16"], align 2
   %6 = alloca [1 x i32], align 4
@@ -4903,10 +4903,10 @@ _ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EED2Ev.exit: ; preds = %_Zo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22hb_serialize_context_t5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #4 comdat align 2 {
@@ -5344,7 +5344,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #10
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
@@ -5521,7 +5521,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Lookup9serializeEP22hb_serialize_context_tjjj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 comdat align 2 {
@@ -6592,7 +6592,7 @@ select.unfold:                                    ; preds = %"_ZN2OT7ArrayOfINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE19serialize_serializeIJR13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tISB_EERK3$_5L24hb_function_sortedness_t1ELPv0EEEEEbP22hb_serialize_context_tDpOT_"(ptr noundef nonnull align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE19serialize_serializeIJR13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tISB_EERK3$_5L24hb_function_sortedness_t1ELPv0EEEEEbP22hb_serialize_context_tDpOT_"(ptr noundef nonnull align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #4 align 2 {
   store i16 0, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
@@ -7383,7 +7383,7 @@ define linkonce_odr hidden noundef i32 @_ZN2OT6Layout6Common11RangeRecordINS0_10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %2, ptr nocapture noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
   %5 = mul i64 %1, %2
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = icmp ult i64 %1, 10
@@ -13116,10 +13116,10 @@ _ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %12
 declare void @_ZN11hb_buffer_t12delete_glyphEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_context_t8apply_toINS_6Layout9GSUB_impl23AlternateSubstFormat1_2INS2_10SmallTypesEEEEEbPKvPNS_21hb_ot_apply_context_tE(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
@@ -15096,12 +15096,12 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %301, %_ZN2OTL12liga
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nocapture nonnull readnone align 4 %0, i32 %1, ptr nocapture readnone %2) #5 {
+define internal noundef zeroext i1 @_ZN2OTL12match_alwaysER15hb_glyph_info_tjPKv(ptr nonnull readnone align 4 captures(none) %0, i32 %1, ptr readnone captures(none) %2) #5 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture readnone %2) #20 {
+define internal noundef zeroext i1 @_ZN2OTL11match_glyphER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr readnone captures(none) %2) #20 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, %1
   ret i1 %5
@@ -16803,7 +16803,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %238, %229, %.crited
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2OTL12apply_lookupEPNS_21hb_ot_apply_context_tEjPjjPKNS_12LookupRecordEj(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #4 {
+define internal fastcc void @_ZN2OTL12apply_lookupEPNS_21hb_ot_apply_context_tEjPjjPKNS_12LookupRecordEj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 82
@@ -17412,7 +17412,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #4 {
+define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, -1
@@ -17570,7 +17570,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %9, %_ZNK2OT8ClassDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #4 {
+define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = load i32, ptr %0, align 4
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
@@ -18190,7 +18190,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %256, %._crit_edge29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL14match_coverageER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) #4 {
+define internal noundef zeroext i1 @_ZN2OTL14match_coverageER15hb_glyph_info_tjPKv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) #4 {
   %4 = and i32 %1, 65535
   %5 = icmp eq i32 %4, 0
   %6 = zext nneg i32 %4 to i64
@@ -20751,7 +20751,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #4 {
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 15
@@ -20917,7 +20917,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #4 {
+define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_info_tjPKv(ptr noundef nonnull align 4 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
@@ -25796,10 +25796,10 @@ declare i32 @llvm.umax.i32(i32, i32) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #21
@@ -25808,7 +25808,7 @@ declare i16 @llvm.bswap.i16(i16) #21
 declare i64 @llvm.smin.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #21

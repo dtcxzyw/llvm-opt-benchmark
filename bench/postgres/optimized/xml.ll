@@ -148,7 +148,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.XmlTableDestroyOpaque = private unnamed_addr constant [22 x i8] c"XmlTableDestroyOpaque\00", align 1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableInitOpaque(ptr nocapture readnone %0, i32 %1) #0 {
+define internal void @XmlTableInitOpaque(ptr readnone captures(none) %0, i32 %1) #0 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -159,7 +159,7 @@ define internal void @XmlTableInitOpaque(ptr nocapture readnone %0, i32 %1) #0 {
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableSetDocument(ptr nocapture readnone %0, i64 %1) #0 {
+define internal void @XmlTableSetDocument(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -170,7 +170,7 @@ define internal void @XmlTableSetDocument(ptr nocapture readnone %0, i64 %1) #0 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableSetNamespace(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @XmlTableSetNamespace(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -181,7 +181,7 @@ define internal void @XmlTableSetNamespace(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableSetRowFilter(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @XmlTableSetRowFilter(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -192,7 +192,7 @@ define internal void @XmlTableSetRowFilter(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableSetColumnFilter(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 {
+define internal void @XmlTableSetColumnFilter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -203,7 +203,7 @@ define internal void @XmlTableSetColumnFilter(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef zeroext i1 @XmlTableFetchRow(ptr nocapture readnone %0) #0 {
+define internal noundef zeroext i1 @XmlTableFetchRow(ptr readnone captures(none) %0) #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @XmlTableFetchRow(ptr nocapture readnone %0) 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef i64 @XmlTableGetValue(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal noundef i64 @XmlTableGetValue(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -225,7 +225,7 @@ define internal noundef i64 @XmlTableGetValue(ptr nocapture readnone %0, i32 %1,
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @XmlTableDestroyOpaque(ptr nocapture readnone %0) #0 {
+define internal void @XmlTableDestroyOpaque(ptr readnone captures(none) %0) #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -236,7 +236,7 @@ define internal void @XmlTableDestroyOpaque(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xml_in(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xml_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -258,7 +258,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xml_out(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @xml_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -269,7 +269,7 @@ define dso_local i64 @xml_out(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xml_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xml_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -280,7 +280,7 @@ define dso_local noundef i64 @xml_recv(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xml_send(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @xml_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -291,8 +291,8 @@ define dso_local i64 @xml_send(ptr nocapture noundef readonly %0) local_unnamed_
   call void @pq_begintypsend(ptr noundef nonnull %2) #12
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
   %10 = trunc i64 %9 to i32
-  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef %8, i32 noundef %10) #12
-  call void @pfree(ptr noundef %8) #12
+  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %10) #12
+  call void @pfree(ptr noundef nonnull %8) #12
   %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
   %12 = ptrtoint ptr %11 to i64
   ret i64 %12
@@ -305,14 +305,14 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xmlcomment(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xmlcomment(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -323,7 +323,7 @@ define dso_local noundef i64 @xmlcomment(ptr nocapture noundef readnone %0) loca
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xmltext(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xmltext(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -334,7 +334,7 @@ define dso_local noundef i64 @xmltext(ptr nocapture noundef readnone %0) local_u
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlconcat(ptr nocapture readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @xmlconcat(ptr readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -345,7 +345,7 @@ define dso_local noalias noundef nonnull ptr @xmlconcat(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local i64 @xmlconcat2(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
@@ -401,7 +401,7 @@ define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @texttoxml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @texttoxml(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -413,7 +413,7 @@ define dso_local noundef i64 @texttoxml(ptr nocapture noundef readonly %0) local
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlparse(ptr nocapture readnone %0, i32 %1, i1 zeroext %2) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @xmlparse(ptr readnone captures(none) %0, i32 %1, i1 zeroext %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -424,7 +424,7 @@ define dso_local noalias noundef nonnull ptr @xmlparse(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @xmltotext(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -453,7 +453,7 @@ define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone return
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlelement(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @xmlelement(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -464,7 +464,7 @@ define dso_local noalias noundef nonnull ptr @xmlelement(ptr nocapture noundef r
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlpi(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @xmlpi(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -475,7 +475,7 @@ define dso_local noalias noundef nonnull ptr @xmlpi(ptr nocapture noundef readno
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlroot(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @xmlroot(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -486,7 +486,7 @@ define dso_local noalias noundef nonnull ptr @xmlroot(ptr nocapture noundef read
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xmlvalidate(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xmlvalidate(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -496,7 +496,7 @@ define dso_local noundef i64 @xmlvalidate(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef zeroext i1 @xml_is_document(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @xml_is_document(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -507,7 +507,7 @@ define dso_local noundef zeroext i1 @xml_is_document(ptr nocapture noundef readn
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @map_sql_identifier_to_xml_name(ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @map_sql_identifier_to_xml_name(ptr readnone captures(none) %0, i1 zeroext %1, i1 zeroext %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -617,7 +617,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @pg_unicode_to_server(i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -854,7 +854,7 @@ declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local ptr @escape_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -925,7 +925,7 @@ define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unname
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @table_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -959,7 +959,7 @@ define dso_local i64 @table_to_xml(ptr nocapture noundef readonly %0) local_unna
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @query_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1079,7 +1079,7 @@ xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cursor_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @cursor_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1232,7 +1232,7 @@ define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr nound
 declare i32 @SPI_finish() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @table_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1344,7 +1344,7 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @query_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1389,7 +1389,7 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull readonly align 1 %30, i64 %32, i1 false)
   tail call void @SPI_cursor_close(ptr noundef nonnull %21) #12
   %34 = tail call i32 @SPI_finish() #12
   %35 = tail call ptr @cstring_to_text(ptr noundef %33) #12
@@ -1406,7 +1406,7 @@ declare ptr @SPI_cursor_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @SPI_cursor_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @cursor_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1452,7 +1452,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
   %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #13
   %33 = add i64 %32, 1
   %34 = tail call ptr @SPI_palloc(i64 noundef %33) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %31, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull readonly align 1 %31, i64 %33, i1 false)
   %35 = tail call i32 @SPI_finish() #12
   %36 = tail call ptr @cstring_to_text(ptr noundef %34) #12
   %37 = ptrtoint ptr %36 to i64
@@ -1460,7 +1460,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @table_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1497,7 +1497,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @query_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1542,7 +1542,7 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull readonly align 1 %30, i64 %32, i1 false)
   tail call void @SPI_cursor_close(ptr noundef nonnull %21) #12
   %34 = tail call i32 @SPI_finish() #12
   %35 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef %33, i1 noundef zeroext %27, ptr noundef %13, i1 noundef zeroext true)
@@ -1555,7 +1555,7 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @schema_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1573,7 +1573,7 @@ define dso_local noundef i64 @schema_to_xml(ptr nocapture noundef readonly %0) l
 declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local noundef i64 @schema_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1646,7 +1646,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1661,7 +1661,7 @@ define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @database_to_xml(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1674,7 +1674,7 @@ define dso_local noundef i64 @database_to_xml(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local noundef i64 @database_to_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1738,7 +1738,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1749,7 +1749,7 @@ define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr nocapture nounde
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xpath(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xpath(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1760,7 +1760,7 @@ define dso_local noundef i64 @xpath(ptr nocapture noundef readnone %0) local_unn
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xmlexists(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xmlexists(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1771,7 +1771,7 @@ define dso_local noundef i64 @xmlexists(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xpath_exists(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xpath_exists(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1782,7 +1782,7 @@ define dso_local noundef i64 @xpath_exists(ptr nocapture noundef readnone %0) lo
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xml_is_well_formed(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xml_is_well_formed(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1793,7 +1793,7 @@ define dso_local noundef i64 @xml_is_well_formed(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xml_is_well_formed_document(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xml_is_well_formed_document(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1804,7 +1804,7 @@ define dso_local noundef i64 @xml_is_well_formed_document(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @xml_is_well_formed_content(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @xml_is_well_formed_content(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -1833,7 +1833,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 declare ptr @SPI_palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
@@ -2353,10 +2353,10 @@ declare ptr @SPI_fname(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -130,7 +130,7 @@ if.end15:                                         ; preds = %if.then14, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @sp_free(ptr nocapture noundef readnone %a) local_unnamed_addr #1 {
+define void @sp_free(ptr noundef readnone captures(none) %a) local_unnamed_addr #1 {
 entry:
   ret void
 }
@@ -455,13 +455,13 @@ if.end70:                                         ; preds = %entry, %lor.lhs.fal
 declare ptr @llvm.stacksave.p0() #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.stackrestore.p0(ptr) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @sp_cond_swap_ct_ex(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap, ptr nocapture noundef initializes((0, 4)) %t) local_unnamed_addr #7 {
+define noundef i32 @sp_cond_swap_ct_ex(ptr noundef captures(none) %a, ptr noundef captures(none) %b, i32 noundef %cnt, i32 noundef %swap, ptr noundef captures(none) initializes((0, 4)) %t) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %swap to i64
   %sub = sub nsw i64 0, %conv
@@ -553,7 +553,7 @@ for.end46:                                        ; preds = %for.body36, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_cond_swap_ct(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap) local_unnamed_addr #7 {
+define range(i32 -3, 1) i32 @sp_cond_swap_ct(ptr noundef captures(none) %a, ptr noundef captures(none) %b, i32 noundef %cnt, i32 noundef %swap) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %cnt to i64
   %cmp = icmp ult i32 %cnt, 2
@@ -2779,7 +2779,7 @@ do.end101:                                        ; preds = %cond.end22, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_addmod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
+define range(i32 -3, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %m, align 8
   %size = getelementptr inbounds nuw i8, ptr %r, i64 4
@@ -2924,7 +2924,7 @@ if.end69:                                         ; preds = %sp_clamp_ct.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_submod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
+define range(i32 -3, 1) i32 @sp_submod_ct(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %m, align 8
   %size = getelementptr inbounds nuw i8, ptr %r, i64 4
@@ -3100,10 +3100,10 @@ if.end25:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @sp_rshd(ptr noundef %a, i32 noundef %c) local_unnamed_addr #7 {
@@ -3456,7 +3456,7 @@ if.end68:                                         ; preds = %land.lhs.true36, %e
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_div(ptr noundef readonly %a, ptr nocapture noundef readonly %d, ptr noundef %r, ptr noundef %rem, i32 noundef %used) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_div(ptr noundef readonly %a, ptr noundef readonly captures(none) %d, ptr noundef %r, ptr noundef %rem, i32 noundef %used) unnamed_addr #10 {
 entry:
   %td = alloca [4 x ptr], align 16
   %cond = tail call i32 @llvm.usub.sat.i32(i32 %used, i32 1)
@@ -4852,7 +4852,7 @@ if.end27:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_mul(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %r) unnamed_addr #7 {
+define internal fastcc void @_sp_mul(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -7505,7 +7505,7 @@ if.end121:                                        ; preds = %if.end69, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_base_2(ptr nocapture noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_base_2(ptr noundef readonly captures(none) %e, i32 noundef %digits, ptr noundef %m, ptr noundef writeonly captures(none) %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %m, align 8
   %.fr = freeze i32 %0
@@ -7616,7 +7616,6 @@ if.end118:                                        ; preds = %if.end6.i
 
 land.rhs.lr.ph:                                   ; preds = %if.end118
   %dp143 = getelementptr inbounds nuw i8, ptr %e, i64 8
-  %cmp.i108 = icmp eq ptr %add.ptr, null
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end201
@@ -7671,31 +7670,22 @@ if.end162:                                        ; preds = %if.then140, %if.els
   %c.3 = phi i32 [ 59, %if.then129 ], [ %sub148, %if.then140 ], [ %sub160, %if.else155 ]
   %i.2 = phi i32 [ %dec131, %if.then129 ], [ %dec144, %if.then140 ], [ %i.1230, %if.else155 ]
   %y.1 = trunc i64 %y.1.in to i32
-  br i1 %cmp8, label %for.body170.us, label %if.end162.split
+  br i1 %cmp8, label %for.body170.us, label %for.body170
 
 for.body170.us:                                   ; preds = %if.end162, %for.inc182.us
   %j.0210.us = phi i32 [ %inc183.us, %for.inc182.us ], [ 0, %if.end162 ]
-  %call171.us = call i32 @sp_sqr(ptr noundef %add.ptr, ptr noundef %add.ptr)
+  %call171.us = call i32 @sp_sqr(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr)
   %cmp172.us = icmp eq i32 %call171.us, 0
   br i1 %cmp172.us, label %for.inc182.us, label %do.end216
 
 for.inc182.us:                                    ; preds = %for.body170.us
-  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   %inc183.us = add nuw nsw i32 %j.0210.us, 1
   %cmp164.us = icmp samesign ult i32 %j.0210.us, 4
   br i1 %cmp164.us, label %for.body170.us, label %for.end184, !llvm.loop !72
 
-if.end162.split:                                  ; preds = %if.end162
-  br i1 %cmp.i108, label %for.body170.us212, label %for.body170
-
-for.body170.us212:                                ; preds = %if.end162.split
-  %call171.us214 = call i32 @sp_sqr(ptr noundef null, ptr noundef null)
-  %cmp172.us215 = icmp eq i32 %call171.us214, 0
-  %spec.select = select i1 %cmp172.us215, i32 -3, i32 %call171.us214
-  br label %do.end216
-
-for.body170:                                      ; preds = %if.end162.split, %for.inc182
-  %j.0210 = phi i32 [ %inc183, %for.inc182 ], [ 0, %if.end162.split ]
+for.body170:                                      ; preds = %if.end162, %for.inc182
+  %j.0210 = phi i32 [ %inc183, %for.inc182 ], [ 0, %if.end162 ]
   %call171 = call i32 @sp_sqr(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr)
   %cmp172 = icmp eq i32 %call171, 0
   br i1 %cmp172, label %if.then174, label %do.end216
@@ -7719,20 +7709,19 @@ for.end184:                                       ; preds = %for.inc182, %for.in
   br i1 %.us-phi211, label %if.end189, label %if.end201
 
 if.end189:                                        ; preds = %for.end184
-  %call188 = call i32 @sp_mul_2d(ptr noundef %add.ptr, i32 noundef %y.1, ptr noundef %add.ptr)
+  %call188 = call i32 @sp_mul_2d(ptr noundef nonnull %add.ptr, i32 noundef %y.1, ptr noundef nonnull %add.ptr)
   %cmp190 = icmp eq i32 %call188, 0
   %or.cond3 = and i1 %cmp8, %cmp190
   br i1 %or.cond3, label %if.then194, label %if.end196
 
 if.then194:                                       ; preds = %if.end189
-  %call195 = call i32 @sp_add(ptr noundef %add.ptr, ptr noundef nonnull %vla, ptr noundef %add.ptr)
+  %call195 = call i32 @sp_add(ptr noundef nonnull %add.ptr, ptr noundef nonnull %vla, ptr noundef nonnull %add.ptr)
   br label %if.end196
 
 if.end196:                                        ; preds = %if.then194, %if.end189
   %err.10 = phi i32 [ %call195, %if.then194 ], [ %call188, %if.end189 ]
-  %cmp197 = icmp ne i32 %err.10, 0
-  %brmerge = or i1 %cmp197, %cmp.i108
-  br i1 %brmerge, label %do.end216.loopexit276.split.loop.exit279, label %if.end6.i122
+  %cmp197.not = icmp eq i32 %err.10, 0
+  br i1 %cmp197.not, label %if.end6.i122, label %do.end216
 
 if.end6.i122:                                     ; preds = %if.end196
   %14 = load i32, ptr %add.ptr, align 16
@@ -7752,7 +7741,7 @@ for.end202:                                       ; preds = %land.rhs
   br i1 %cmp8, label %if.then207, label %if.then212
 
 if.then207:                                       ; preds = %for.end202
-  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   br label %if.then212
 
 if.then212:                                       ; preds = %if.then207, %for.end202
@@ -7776,17 +7765,13 @@ _sp_copy.exit:                                    ; preds = %if.then.i, %if.else
   store i32 %15, ptr %r, align 8
   br label %do.end216
 
-do.end216.loopexit276.split.loop.exit279:         ; preds = %if.end196
-  %err.10.mux.le = select i1 %cmp197, i32 %err.10, i32 -3
-  br label %do.end216
-
-do.end216:                                        ; preds = %if.end201, %if.end6.i122, %if.then174, %for.body170, %for.body170.us, %do.end216.loopexit276.split.loop.exit279, %for.body170.us212, %entry, %if.end84, %if.end6.i, %if.end113, %if.end118, %_sp_copy.exit
-  %err.6209 = phi i32 [ 0, %_sp_copy.exit ], [ %call.i, %if.end118 ], [ %err.2, %if.end84 ], [ -3, %if.end6.i ], [ %err.4, %if.end113 ], [ -3, %entry ], [ %spec.select, %for.body170.us212 ], [ %err.10.mux.le, %do.end216.loopexit276.split.loop.exit279 ], [ %call171.us, %for.body170.us ], [ %call171, %for.body170 ], [ -3, %if.then174 ], [ %err.11, %if.end201 ], [ -3, %if.end6.i122 ]
+do.end216:                                        ; preds = %if.end201, %if.end6.i122, %if.end196, %if.then174, %for.body170, %for.body170.us, %entry, %if.end84, %if.end6.i, %if.end113, %if.end118, %_sp_copy.exit
+  %err.6209 = phi i32 [ 0, %_sp_copy.exit ], [ %call.i, %if.end118 ], [ %err.2, %if.end84 ], [ -3, %if.end6.i ], [ %err.4, %if.end113 ], [ -3, %entry ], [ %call171.us, %for.body170.us ], [ %call171, %for.body170 ], [ -3, %if.then174 ], [ %err.11, %if.end201 ], [ -3, %if.end6.i122 ], [ %err.10, %if.end196 ]
   ret i32 %err.6209
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_mont_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_mont_ex(ptr noundef %b, ptr noundef readonly captures(none) %e, i32 noundef %bits, ptr noundef %m, ptr noundef writeonly captures(none) %r) unnamed_addr #10 {
 entry:
   %t = alloca [4 x ptr], align 16
   %0 = load i32, ptr %m, align 8
@@ -8177,7 +8162,7 @@ do.end215:                                        ; preds = %_sp_copy.exit98, %d
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_ex(ptr noundef %b, ptr noundef readonly captures(none) %e, i32 noundef %bits, ptr noundef %m, ptr noundef writeonly captures(none) %r) unnamed_addr #10 {
 entry:
   %t = alloca [3 x ptr], align 16
   %0 = load i32, ptr %m, align 8
@@ -10015,7 +10000,7 @@ if.end18:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_sqr(ptr nocapture noundef readonly %a, ptr nocapture noundef %r) unnamed_addr #7 {
+define internal fastcc void @_sp_sqr(ptr noundef readonly captures(none) %a, ptr noundef captures(none) %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %mul = shl i32 %0, 1
@@ -13090,7 +13075,7 @@ do.end49:                                         ; preds = %if.end40.thread, %i
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr noundef captures(none) %result) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %add = add i32 %0, 1
@@ -13342,7 +13327,7 @@ do.end54:                                         ; preds = %if.then51, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_sp_prime_random_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef nonnull %result, ptr noundef %rng) unnamed_addr #12 {
+define internal fastcc i32 @_sp_prime_random_trials(ptr noundef %a, i32 noundef %trials, ptr noundef nonnull captures(none) %result, ptr noundef %rng) unnamed_addr #12 {
 land.lhs.true.i:
   %.pr.pre = load i32, ptr %a, align 8
   %cmp1.not.i = icmp eq i32 %.pr.pre, 0
@@ -13888,7 +13873,7 @@ if.end43:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_gcd(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef nonnull writeonly %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_gcd(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull writeonly captures(none) %r) unnamed_addr #10 {
 entry:
   %d = alloca [3 x ptr], align 16
   %0 = load i32, ptr %a, align 8
@@ -14175,7 +14160,7 @@ do.end32:                                         ; preds = %entry, %if.then8.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_invmod_div(ptr noundef readonly %a, ptr nocapture noundef readonly %m, ptr noundef %x, ptr noundef %y, ptr noundef %b, ptr noundef nonnull %c, ptr noundef nonnull %inv) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_invmod_div(ptr noundef readonly %a, ptr noundef readonly captures(none) %m, ptr noundef %x, ptr noundef %y, ptr noundef %b, ptr noundef nonnull %c, ptr noundef nonnull %inv) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %m, align 8
   %add = add i32 %0, 1
@@ -15152,11 +15137,9 @@ if.end90:                                         ; preds = %if.end84
   br i1 %cmp81, label %if.then93, label %do.end98
 
 if.then93:                                        ; preds = %_sp_sub_off.exit441, %if.end90
-  %cmp.i442 = icmp eq ptr %c.addr.0520, null
   %cmp2.not.i = icmp eq ptr %c.addr.0520, %inv
-  %brmerge.i = or i1 %cmp2.not.i, %cmp.i442
   %spec.store.select.mux.i = select i1 %cmp2.not.i, i32 0, i32 -3
-  br i1 %brmerge.i, label %do.end98, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %do.end98, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then93
   %141 = load i32, ptr %c.addr.0520, align 8
@@ -15196,10 +15179,10 @@ declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #15
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef initializes((0, 4)) %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr noundef captures(none) initializes((0, 4)) %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
 entry:
   store i32 0, ptr %result, align 4
   %cmp.i = icmp eq ptr %b, null
@@ -15634,10 +15617,10 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

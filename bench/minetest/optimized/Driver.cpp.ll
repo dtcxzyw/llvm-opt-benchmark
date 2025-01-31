@@ -97,13 +97,13 @@ $_ZTVN3irr17IReferenceCountedE = comdat any
 @_ZTVN3irr17IReferenceCountedE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3irr17IReferenceCountedE, ptr @_ZN3irr17IReferenceCountedD2Ev, ptr @_ZN3irr17IReferenceCountedD0Ev] }, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3irr5video14COpenGL3Driver13getDriverTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK3irr5video14COpenGL3Driver13getDriverTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 16777216) i32 @_ZNK3irr5video14COpenGL3Driver20getVersionFromOpenGLEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define range(i32 0, 16777216) i32 @_ZNK3irr5video14COpenGL3Driver20getVersionFromOpenGLEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   %major = alloca i32, align 4
   %minor = alloca i32, align 4
@@ -148,12 +148,12 @@ cleanup:                                          ; preds = %if.end12, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video14COpenGL3Driver12initFeaturesEv(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #1 align 2 {
@@ -468,7 +468,7 @@ if.end:                                           ; preds = %if.then, %cleanup.d
 declare void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920), i32 noundef, i32 noundef) local_unnamed_addr #5

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [47 x i8] c"String contains unexpected placeholder \22%%%c\22.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @initStringInfo(ptr noundef nonnull %4) #4

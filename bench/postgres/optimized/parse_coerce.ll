@@ -142,7 +142,7 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph.preheader, label %.critedge
@@ -773,7 +773,7 @@ coerce_type_typmod.exit:                          ; preds = %17, %48, %find_typm
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1376,7 +1376,7 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
   %6 = icmp sgt i32 %2, 0
@@ -1708,7 +1708,7 @@ verify_common_type_from_oids.exit:                ; preds = %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hide_coercion_node(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @hide_coercion_node(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %17 [
     i32 13, label %3
@@ -1884,7 +1884,7 @@ define dso_local i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @select_common_type(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local i32 @select_common_type(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
 list_second_cell.exit:
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -2139,7 +2139,7 @@ define dso_local noundef zeroext i1 @verify_common_type(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @select_common_typmod(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @select_common_typmod(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not = icmp eq ptr %1, null
@@ -2195,7 +2195,7 @@ declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @type_is_enum(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1, -2147483648) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1, -2147483648) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -2324,7 +2324,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [100 x i32], align 16
   %8 = icmp eq i32 %3, 4537
@@ -3348,7 +3348,7 @@ declare i32 @get_range_multirange(i32 noundef) local_unnamed_addr #1
 declare i32 @get_array_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %0, label %19 [
     i32 4537, label %4
     i32 3831, label %4
@@ -3474,7 +3474,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noca
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %0, 2281
   br i1 %4, label %.preheader, label %.loopexit
 
@@ -3547,7 +3547,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercible(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp eq i32 %0, %1
   br i1 %4, label %51, label %5
@@ -3689,7 +3689,7 @@ declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = tail call ptr @typeidType(i32 noundef %0) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3770,10 +3770,10 @@ declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

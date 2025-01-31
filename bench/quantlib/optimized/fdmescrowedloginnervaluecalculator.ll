@@ -44,7 +44,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculatorC2EN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEENS2_INS_6PayoffEEENS2_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %escrowedDividendAdj, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction) unnamed_addr #2 align 2 {
+define void @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculatorC2EN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEENS2_INS_6PayoffEEENS2_INS_9FdmMesherEEEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %this, ptr noundef captures(none) %escrowedDividendAdj, ptr noundef captures(none) %payoff, ptr noundef captures(none) %mesher, i64 noundef %direction) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib34FdmEscrowedLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
   %escrowedDividendAdj_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculator10innerValueERKNS_19FdmLinearOpIteratorEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 1 %iter, double noundef %t) unnamed_addr #3 align 2 {
+define noundef double @_ZN8QuantLib34FdmEscrowedLogInnerValueCalculator10innerValueERKNS_19FdmLinearOpIteratorEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 1 %iter, double noundef %t) unnamed_addr #3 align 2 {
 entry:
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %mesher_, align 8, !tbaa !14
@@ -284,7 +284,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn }

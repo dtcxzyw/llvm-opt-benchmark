@@ -140,7 +140,7 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 declare void @_ZN20DebugInfoWriteStreamC1EP24DebugInformationRecorderi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
@@ -194,7 +194,7 @@ define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder10add_oopmapEiP6OopMap(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder10add_oopmapEiP6OopMap(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %1, ptr noundef %2) #12
   ret void
@@ -203,7 +203,7 @@ define hidden void @_ZN24DebugInformationRecorder10add_oopmapEiP6OopMap(ptr noca
 declare noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.PcDesc, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1, ptr noundef %2) #12
@@ -261,7 +261,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %3, %._crit_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -317,7 +317,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %2, %._crit_e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN6PcDescC1Eiii(ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
@@ -990,7 +990,7 @@ _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 align 2 {
   %15 = alloca ptr, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
@@ -1710,7 +1710,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24DebugInformationRecorder10end_scopesEib(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN24DebugInformationRecorder10end_scopesEib(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
@@ -1794,7 +1794,7 @@ define hidden noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1803,7 +1803,7 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -15) i32 @_ZN24DebugInformationRecorder8pcs_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -15) i32 @_ZN24DebugInformationRecorder8pcs_sizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.PcDesc, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
@@ -1879,7 +1879,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %14, %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorder7copy_toEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1899,7 +1899,7 @@ declare void @_ZN7nmethod16copy_scopes_dataEPhi(ptr noundef nonnull align 8 dere
 declare void @_ZN7nmethod15copy_scopes_pcsEP6PcDesci(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorder6verifyEPK7nmethod(ptr nocapture noundef nonnull readnone align 8 dereferenceable(76) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN24DebugInformationRecorder6verifyEPK7nmethod(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(76) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 437) #14
@@ -1920,7 +1920,7 @@ declare noundef i32 @_ZN13ValueRecorderIP8MetadataE10add_handleES1_b(ptr noundef
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -2032,13 +2032,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

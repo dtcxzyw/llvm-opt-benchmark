@@ -634,7 +634,7 @@ getParameterStatus.exit211:                       ; preds = %148
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i.preheader, %218
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %218 ], [ 0, %.lr.ph66.i.preheader ]
-  %217 = call i32 @pqGetInt(ptr noundef nonnull %2, i64 noundef 4, ptr noundef %0) #16
+  %217 = call i32 @pqGetInt(ptr noundef nonnull %2, i64 noundef 4, ptr noundef nonnull %0) #16
   %.not56.i = icmp eq i32 %217, 0
   br i1 %.not56.i, label %218, label %.thread.i
 
@@ -2011,14 +2011,14 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .lr.ph192.i:                                      ; preds = %170, %.lr.ph192.i
   %.1190.i = phi i32 [ %177, %.lr.ph192.i ], [ 0, %170 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 32) #16
+  tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 32) #16
   %177 = add nuw nsw i32 %.1190.i, 1
   %exitcond.not.i = icmp eq i32 %177, %175
   br i1 %exitcond.not.i, label %._crit_edge193.i, label %.lr.ph192.i, !llvm.loop !14
 
 ._crit_edge193.i:                                 ; preds = %.lr.ph192.i, %170
-  tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 94) #16
-  tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 10) #16
+  tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 94) #16
+  tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #16
   br label %178
 
 178:                                              ; preds = %._crit_edge193.i, %.loopexit
@@ -2034,7 +2034,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %reportErrorPosition.exit
 
 reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53, %50
-  %179 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 68) #16
+  %179 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 68) #16
   %.not149 = icmp eq ptr %179, null
   br i1 %.not149, label %181, label %180
 
@@ -2043,7 +2043,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %181
 
 181:                                              ; preds = %180, %reportErrorPosition.exit
-  %182 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 72) #16
+  %182 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 72) #16
   %.not150 = icmp eq ptr %182, null
   br i1 %.not150, label %184, label %183
 
@@ -2052,7 +2052,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %184
 
 184:                                              ; preds = %183, %181
-  %185 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 113) #16
+  %185 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 113) #16
   %.not151 = icmp eq ptr %185, null
   br i1 %.not151, label %187, label %186
 
@@ -2073,7 +2073,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %187, %188
-  %193 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 87) #16
+  %193 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 87) #16
   %.not152 = icmp eq ptr %193, null
   br i1 %.not152, label %195, label %194
 
@@ -2085,7 +2085,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br i1 %28, label %196, label %.critedge
 
 196:                                              ; preds = %195
-  %197 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 115) #16
+  %197 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 115) #16
   %.not153 = icmp eq ptr %197, null
   br i1 %.not153, label %199, label %198
 
@@ -2094,7 +2094,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %199
 
 199:                                              ; preds = %198, %196
-  %200 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 116) #16
+  %200 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 116) #16
   %.not154 = icmp eq ptr %200, null
   br i1 %.not154, label %202, label %201
 
@@ -2103,7 +2103,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %202
 
 202:                                              ; preds = %201, %199
-  %203 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 99) #16
+  %203 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 99) #16
   %.not155 = icmp eq ptr %203, null
   br i1 %.not155, label %205, label %204
 
@@ -2112,7 +2112,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %205
 
 205:                                              ; preds = %204, %202
-  %206 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 100) #16
+  %206 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 100) #16
   %.not156 = icmp eq ptr %206, null
   br i1 %.not156, label %208, label %207
 
@@ -2121,7 +2121,7 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %208
 
 208:                                              ; preds = %207, %205
-  %209 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 110) #16
+  %209 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 110) #16
   %.not157 = icmp eq ptr %209, null
   br i1 %.not157, label %211, label %210
 
@@ -2130,9 +2130,9 @@ reportErrorPosition.exit:                         ; preds = %.sink.split.i, %53,
   br label %211
 
 211:                                              ; preds = %210, %208
-  %212 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 70) #16
-  %213 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 76) #16
-  %214 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 82) #16
+  %212 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 70) #16
+  %213 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 76) #16
+  %214 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 82) #16
   %215 = icmp ne ptr %214, null
   %216 = icmp ne ptr %212, null
   %or.cond5 = select i1 %215, i1 true, i1 %216
@@ -2177,7 +2177,7 @@ declare ptr @PQresultErrorField(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
@@ -2284,7 +2284,7 @@ define range(i32 -1, 1) i32 @pqGetNegotiateProtocolVersion3(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((904, 908)) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((904, 908)) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @getCopyDataMessage(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.loopexit, label %.lr.ph
@@ -2541,7 +2541,7 @@ declare i32 @pqReadData(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @pqGetline3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2623,10 +2623,10 @@ define range(i32 -1, 2) i32 @pqGetline3(ptr noundef %0, ptr noundef %1, i32 noun
 declare i32 @PQgetlineAsync(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @pqGetlineAsync3(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @pqGetlineAsync3(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %5 = load i32, ptr %4, align 4
   %.off = add i32 %5, -5
@@ -2821,7 +2821,7 @@ declare i32 @PQisBusy(ptr noundef) local_unnamed_addr #1
 declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   %10 = tail call i32 @pqPutMsgStart(i8 noundef signext 70, ptr noundef %0) #16
@@ -3151,7 +3151,7 @@ declare i32 @pqGetnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare ptr @pqPrepareAsyncResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @pqBuildStartupPacket3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef ptr @pqBuildStartupPacket3(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @build_startup_packet(ptr noundef %0, ptr noundef null, ptr noundef %2)
   store i32 %4, ptr %1, align 4
   %5 = sext i32 %4 to i64
@@ -3169,7 +3169,7 @@ define noundef ptr @pqBuildStartupPacket3(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_startup_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @build_startup_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
 
@@ -3522,23 +3522,23 @@ declare void @pqDropConnection(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare ptr @pqResultAlloc(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @pqSkipnchar(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @pqRowProcessor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @pg_encoding_max_length(i32 noundef) local_unnamed_addr #1
 
@@ -3552,7 +3552,7 @@ declare void @pqSaveParameterStatus(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3563,10 +3563,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

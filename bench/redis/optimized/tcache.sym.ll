@@ -107,27 +107,27 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @tcache_gc_new_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #1 {
+define hidden i64 @tcache_gc_new_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @tcache_gc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
+define hidden noundef i64 @tcache_gc_postponed_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #2 {
 entry:
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @tcache_gc_dalloc_new_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #1 {
+define hidden i64 @tcache_gc_dalloc_new_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @tcache_gc_dalloc_postponed_event_wait(ptr nocapture noundef readnone %tsd) local_unnamed_addr #2 {
+define hidden noundef i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef readnone captures(none) %tsd) local_unnamed_addr #2 {
 entry:
   ret i64 1
 }
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tcache_alloc_small_hard(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef readonly %tcache, ptr noundef %cache_bin, i32 noundef %binind, ptr nocapture noundef writeonly initializes((0, 1)) %tcache_success) local_unnamed_addr #0 {
+define hidden ptr @tcache_alloc_small_hard(ptr noundef %tsdn, ptr noundef %arena, ptr noundef readonly captures(none) %tcache, ptr noundef %cache_bin, i32 noundef %binind, ptr noundef writeonly captures(none) initializes((0, 1)) %tcache_success) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tcache, align 8
   %1 = load ptr, ptr @tcache_bin_info, align 8
@@ -338,7 +338,7 @@ cache_bin_alloc_impl.exit:                        ; preds = %if.end11.i, %if.the
 declare void @arena_cache_bin_fill_small(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcache_bin_flush_small(ptr noundef %tsd, ptr nocapture noundef readonly %tcache, ptr nocapture noundef %cache_bin, i32 noundef %binind, i32 noundef %rem) local_unnamed_addr #0 {
+define hidden void @tcache_bin_flush_small(ptr noundef %tsd, ptr noundef readonly captures(none) %tcache, ptr noundef captures(none) %cache_bin, i32 noundef %binind, i32 noundef %rem) local_unnamed_addr #0 {
 entry:
   %ptrs.i = alloca %struct.cache_bin_ptr_array_s, align 8
   tail call void @tcache_bin_flush_stashed(ptr noundef %tsd, ptr noundef %tcache, ptr noundef %cache_bin, i32 noundef %binind, i1 noundef zeroext true)
@@ -704,7 +704,7 @@ cache_bin_finish_flush.exit:                      ; preds = %tcache_bin_flush_im
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcache_bin_flush_large(ptr noundef %tsd, ptr nocapture noundef readonly %tcache, ptr nocapture noundef %cache_bin, i32 noundef %binind, i32 noundef %rem) local_unnamed_addr #0 {
+define hidden void @tcache_bin_flush_large(ptr noundef %tsd, ptr noundef readonly captures(none) %tcache, ptr noundef captures(none) %cache_bin, i32 noundef %binind, i32 noundef %rem) local_unnamed_addr #0 {
 entry:
   %ptrs.i = alloca %struct.cache_bin_ptr_array_s, align 8
   tail call void @tcache_bin_flush_stashed(ptr noundef %tsd, ptr noundef %tcache, ptr noundef %cache_bin, i32 noundef %binind, i1 noundef zeroext false)
@@ -978,7 +978,7 @@ cache_bin_finish_flush.exit:                      ; preds = %tcache_bin_flush_im
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcache_bin_flush_stashed(ptr noundef %tsd, ptr nocapture noundef readonly %tcache, ptr nocapture noundef %cache_bin, i32 noundef %binind, i1 noundef zeroext %is_small) local_unnamed_addr #0 {
+define hidden void @tcache_bin_flush_stashed(ptr noundef %tsd, ptr noundef readonly captures(none) %tcache, ptr noundef captures(none) %cache_bin, i32 noundef %binind, i1 noundef zeroext %is_small) local_unnamed_addr #0 {
 entry:
   %ptrs = alloca %struct.cache_bin_ptr_array_s, align 8
   %0 = load ptr, ptr @tcache_bin_info, align 8
@@ -2306,7 +2306,7 @@ return:                                           ; preds = %entry, %do.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_destroy(ptr noundef %tsd, ptr nocapture noundef %tcache) unnamed_addr #0 {
+define internal fastcc void @tcache_destroy(ptr noundef %tsd, ptr noundef captures(none) %tcache) unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i.i.i109 = alloca %struct.rtree_ctx_s, align 8
   %tmp.i.i.i = alloca %struct.rtree_contents_s, align 8
@@ -2451,7 +2451,7 @@ if.end13:                                         ; preds = %monotonic.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcache_stats_merge(ptr noundef %tsdn, ptr nocapture noundef %tcache, ptr noundef %arena) local_unnamed_addr #0 {
+define hidden void @tcache_stats_merge(ptr noundef %tsdn, ptr noundef captures(none) %tcache, ptr noundef %arena) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @nhbins, align 4
   %cmp15.not = icmp eq i32 %0, 0
@@ -2541,7 +2541,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare ptr @arena_bin_choose(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @tcaches_create(ptr noundef %tsd, ptr noundef %base, ptr nocapture noundef writeonly %r_ind) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tcaches_create(ptr noundef %tsd, ptr noundef %base, ptr noundef writeonly captures(none) %r_ind) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %tsd, null
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 64)) #13
@@ -2991,7 +2991,7 @@ entry:
 declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @tcache_assert_initialized(ptr nocapture noundef readnone %tcache) local_unnamed_addr #2 {
+define hidden void @tcache_assert_initialized(ptr noundef readnone captures(none) %tcache) local_unnamed_addr #2 {
 entry:
   ret void
 }
@@ -3096,13 +3096,13 @@ declare void @rtree_ctx_data_init(ptr noundef) local_unnamed_addr #3
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare ptr @llvm.stacksave.p0() #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr nocapture noundef nonnull readonly %arr, i64 noundef range(i64 0, 4294967296) %nflush, ptr nocapture noundef nonnull %edatas) unnamed_addr #0 {
+define internal fastcc void @tcache_bin_flush_edatas_lookup(ptr noundef %tsd, ptr noundef nonnull readonly captures(none) %arr, i64 noundef range(i64 0, 4294967296) %nflush, ptr noundef nonnull captures(none) %edatas) unnamed_addr #0 {
 entry:
   %cmp.i = icmp ne ptr %tsd, null
   tail call void @llvm.assume(i1 %cmp.i)
@@ -3227,7 +3227,7 @@ emap_edata_lookup_batch.exit:                     ; preds = %for.body8.i, %entry
 declare void @large_dalloc_prep_locked(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @large_dalloc_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3237,7 +3237,7 @@ declare void @arena_slab_dalloc(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @llvm.stackrestore.p0(ptr) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #7
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #7
 
 declare void @arena_dalloc_bin_locked_handle_newly_empty(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3256,7 +3256,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 declare ptr @arena_palloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -3544,10 +3544,10 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

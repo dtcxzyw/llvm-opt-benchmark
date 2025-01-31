@@ -739,7 +739,7 @@ $_ZTIN4ofbx8NullImplE = comdat any
 @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i = private unnamed_addr constant [9 x i32] [i32 8, i32 poison, i32 4, i32 poison, i32 poison, i32 4, i32 poison, i32 poison, i32 8], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -751,7 +751,7 @@ define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr nocapture noundef nonnull rea
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @strtoull(ptr nocapture noundef %5, ptr noundef null, i32 noundef 10) #29
+  %9 = tail call i64 @strtoull(ptr noundef captures(none) %5, ptr noundef null, i32 noundef 10) #29
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -760,10 +760,10 @@ define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #1
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i64 @_ZNK4ofbx8DataView5toI64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
+define noundef i64 @_ZNK4ofbx8DataView5toI64Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -784,10 +784,10 @@ define noundef i64 @_ZNK4ofbx8DataView5toI64Ev(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_ZNK4ofbx8DataView5toIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK4ofbx8DataView5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -808,10 +808,10 @@ define noundef i32 @_ZNK4ofbx8DataView5toIntEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_ZNK4ofbx8DataView5toU32Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK4ofbx8DataView5toU32Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -833,7 +833,7 @@ define noundef i32 @_ZNK4ofbx8DataView5toU32Ev(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef double @_ZNK4ofbx8DataView8toDoubleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
+define noundef double @_ZNK4ofbx8DataView8toDoubleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -854,10 +854,10 @@ define noundef double @_ZNK4ofbx8DataView8toDoubleEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #3
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef float @_ZNK4ofbx8DataView7toFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
+define noundef float @_ZNK4ofbx8DataView7toFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -879,7 +879,7 @@ define noundef float @_ZNK4ofbx8DataView7toFloatEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4ofbx8DataVieweqEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK4ofbx8DataVieweqEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1982,7 +1982,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4ofbxL9findChildERKNS_7ElementEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4ofbxL9findChildERKNS_7ElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null
@@ -2051,7 +2051,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit._crit_edge:         ; preds = %_ZNK4ofbx8DataViewe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4ofbx11TextureImplD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 {
@@ -2084,7 +2084,7 @@ define linkonce_odr void @_ZNK4ofbx11TextureImpl19getRelativeFileNameEv(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call i32 @atoi(ptr noundef %0) #30
   store i32 %4, ptr %2, align 4
   %5 = icmp ult ptr %0, %1
@@ -2116,8 +2116,8 @@ define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #13 {
-  %4 = tail call i64 @strtoull(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #29
+define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #13 {
+  %4 = tail call i64 @strtoull(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 10) #29
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph.preheader, label %.critedge
@@ -2148,7 +2148,7 @@ define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call i64 @atoll(ptr noundef %0) #30
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2180,7 +2180,7 @@ define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   store double %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2212,7 +2212,7 @@ define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   %5 = fptrunc double %4 to float
   store float %5, ptr %2, align 4
@@ -2245,7 +2245,7 @@ define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringEPKcS1_Pdi(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringEPKcS1_Pdi(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = ptrtoint ptr %1 to i64
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph29, label %._crit_edge
@@ -2294,7 +2294,7 @@ define noundef ptr @_ZN4ofbx10fromStringEPKcS1_Pdi(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = ptrtoint ptr %1 to i64
   br label %.lr.ph29.i
 
@@ -2341,7 +2341,7 @@ _ZN4ofbx10fromStringEPKcS1_Pdi.exit:              ; preds = %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringINS_4Vec3EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringINS_4Vec3EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = ptrtoint ptr %1 to i64
   br label %.lr.ph29.i
 
@@ -2388,7 +2388,7 @@ _ZN4ofbx10fromStringEPKcS1_Pdi.exit:              ; preds = %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringINS_4Vec4EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringINS_4Vec4EEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = ptrtoint ptr %1 to i64
   br label %.lr.ph29.i
 
@@ -2435,7 +2435,7 @@ _ZN4ofbx10fromStringEPKcS1_Pdi.exit:              ; preds = %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringINS_6MatrixEEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringINS_6MatrixEEEPKcS3_S3_PT_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = ptrtoint ptr %1 to i64
   br label %.lr.ph29.i
 
@@ -2482,7 +2482,7 @@ _ZN4ofbx10fromStringEPKcS1_Pdi.exit:              ; preds = %.critedge.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK4ofbx6Object16getRotationOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK4ofbx6Object16getRotationOrderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 32
@@ -2615,7 +2615,7 @@ _ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit: ; preds = %_ZNK4ofbx8Data
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object17getRotationOffsetEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object17getRotationOffsetEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2627,7 +2627,7 @@ define void @_ZNK4ofbx6Object17getRotationOffsetEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %.144.val.32.val, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr readonly %.144.val.32.val, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 {
   %.not10.i.i = icmp eq ptr %.144.val.32.val, null
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.split.i.i
 
@@ -2823,10 +2823,10 @@ _ZNK4ofbx8DataView8toDoubleEv.exit24:             ; preds = %73, %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object16getRotationPivotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object16getRotationPivotEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2838,7 +2838,7 @@ define void @_ZNK4ofbx6Object16getRotationPivotEv(ptr dead_on_unwind noalias noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object15getPostRotationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object15getPostRotationEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2850,7 +2850,7 @@ define void @_ZNK4ofbx6Object15getPostRotationEv(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object16getScalingOffsetEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object16getScalingOffsetEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2862,7 +2862,7 @@ define void @_ZNK4ofbx6Object16getScalingOffsetEv(ptr dead_on_unwind noalias noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object15getScalingPivotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object15getScalingPivotEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2874,7 +2874,7 @@ define void @_ZNK4ofbx6Object15getScalingPivotEv(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Matrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %"struct.ofbx::Vec3", align 8
   %6 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -2894,7 +2894,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Matrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %"struct.ofbx::Vec3", align 8
   %7 = alloca %"struct.ofbx::Vec3", align 8
   %8 = alloca %"struct.ofbx::Vec3", align 8
@@ -3494,7 +3494,7 @@ _ZN4ofbxmlERKNS_6MatrixES2_.exit132:              ; preds = %255
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object15getLocalScalingEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object15getLocalScalingEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   store double 1.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3510,7 +3510,7 @@ define void @_ZNK4ofbx6Object15getLocalScalingEv(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #15 {
+define internal fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #15 {
   %4 = alloca %"struct.ofbx::Matrix", align 8
   %5 = alloca %"struct.ofbx::Matrix", align 8
   %6 = alloca %"struct.ofbx::Matrix", align 8
@@ -4070,7 +4070,7 @@ _ZN4ofbxmlERKNS_6MatrixES2_.exit15:               ; preds = %155, %126, %97, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object14getPreRotationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object14getPreRotationEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4091,7 +4091,7 @@ declare double @sin(double noundef) local_unnamed_addr #16
 declare double @llvm.fmuladd.f64(double, double, double) #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object19getLocalTranslationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object19getLocalTranslationEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4103,7 +4103,7 @@ define void @_ZNK4ofbx6Object19getLocalTranslationEv(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object16getLocalRotationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Vec3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object16getLocalRotationEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Vec3") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4115,7 +4115,7 @@ define void @_ZNK4ofbx6Object16getLocalRotationEv(ptr dead_on_unwind noalias noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object18getGlobalTransformEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Matrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4ofbx6Object18getGlobalTransformEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   %4 = alloca %"struct.ofbx::Vec3", align 8
   %5 = alloca %"struct.ofbx::Vec3", align 8
@@ -4326,7 +4326,7 @@ _ZN4ofbxmlERKNS_6MatrixES2_.exit:                 ; preds = %89, %_ZNK4ofbx6Obje
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define noundef ptr @_ZNK4ofbx6Object9getParentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK4ofbx6Object9getParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -4417,7 +4417,7 @@ _ZNKSt13unordered_mapIyN4ofbx5Scene10ObjectPairESt4hashIyESt8equal_toIyESaISt4pa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ofbx::Matrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ofbx::Matrix") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   %4 = alloca %"struct.ofbx::Vec3", align 8
   %5 = alloca %"struct.ofbx::Vec3", align 8
@@ -4455,7 +4455,7 @@ define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4ofbx6Object24resolveObjectLinkReverseENS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK4ofbx6Object24resolveObjectLinkReverseENS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ofbx::DataView", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4487,7 +4487,7 @@ define noundef ptr @_ZNK4ofbx6Object24resolveObjectLinkReverseENS0_4TypeE(ptr no
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 25:                                               ; preds = %10
-  %26 = call i64 @strtoull(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #29
+  %26 = call i64 @strtoull(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #29
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 _ZNK4ofbx8DataView5toU64Ev.exit:                  ; preds = %25, %23, %2
@@ -4596,14 +4596,14 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4ofbx6Object8getSceneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4ofbx6Object8getSceneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ofbx::DataView", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -4635,7 +4635,7 @@ define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkEi(ptr nocapture noundef 
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 25:                                               ; preds = %10
-  %26 = call i64 @strtoull(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #29
+  %26 = call i64 @strtoull(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #29
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 _ZNK4ofbx8DataView5toU64Ev.exit:                  ; preds = %25, %23, %2
@@ -4733,7 +4733,7 @@ _ZNKSt13unordered_mapIyN4ofbx5Scene10ObjectPairESt4hashIyESt8equal_toIyESaISt4pa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkENS0_4TypeEPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkENS0_4TypeEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ofbx::DataView", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
@@ -4765,7 +4765,7 @@ define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkENS0_4TypeEPKci(ptr nocap
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 27:                                               ; preds = %12
-  %28 = call i64 @strtoull(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #29
+  %28 = call i64 @strtoull(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #29
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 _ZNK4ofbx8DataView5toU64Ev.exit:                  ; preds = %27, %25, %4
@@ -4997,7 +4997,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread:             ; preds = %.lr.ph.i, %.lr.ph.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4ofbx4loadEPKhi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4ofbx4loadEPKhi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ofbx::DataView", align 8
   %4 = alloca %"struct.ofbx::DataView", align 8
   %5 = alloca %"struct.ofbx::DataView", align 8
@@ -5487,7 +5487,7 @@ _ZN4ofbxL6isLongEPKNS_8PropertyE.exit26.i:        ; preds = %150
   br label %_ZNK4ofbx8DataView5toU64Ev.exit.i
 
 172:                                              ; preds = %161
-  %173 = tail call i64 @strtoull(ptr nocapture noundef %169, ptr noundef null, i32 noundef 10) #29
+  %173 = tail call i64 @strtoull(ptr noundef captures(none) %169, ptr noundef null, i32 noundef 10) #29
   %.pre.i22 = load ptr, ptr %134, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i22, i64 40
   %.pre39.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -5511,7 +5511,7 @@ _ZNK4ofbx8DataView5toU64Ev.exit.i:                ; preds = %172, %170
   br label %_ZNK4ofbx8DataView5toU64Ev.exit29.i
 
 185:                                              ; preds = %_ZNK4ofbx8DataView5toU64Ev.exit.i
-  %186 = tail call i64 @strtoull(ptr nocapture noundef %182, ptr noundef null, i32 noundef 10) #29
+  %186 = tail call i64 @strtoull(ptr noundef captures(none) %182, ptr noundef null, i32 noundef 10) #29
   %.pre40.i = load ptr, ptr %134, align 8
   br label %_ZNK4ofbx8DataView5toU64Ev.exit29.i
 
@@ -7726,7 +7726,7 @@ _ZN4ofbxL6isLongEPKNS_8PropertyE.exit.thread:     ; preds = %.lr.ph, %_ZN4ofbxL6
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 121:                                              ; preds = %112
-  %122 = tail call i64 @strtoull(ptr nocapture noundef %118, ptr noundef null, i32 noundef 10) #29
+  %122 = tail call i64 @strtoull(ptr noundef captures(none) %118, ptr noundef null, i32 noundef 10) #29
   br label %_ZNK4ofbx8DataView5toU64Ev.exit
 
 _ZNK4ofbx8DataView5toU64Ev.exit:                  ; preds = %119, %121
@@ -13101,10 +13101,10 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = trunc i32 %1 to i16
   %4 = icmp ugt i16 %3, 7499
   %5 = load ptr, ptr %0, align 8
@@ -13725,7 +13725,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i:             ; preds = %46, %40
   br i1 %57, label %.lr.ph.preheader.i.i.i, label %70
 
 .lr.ph.preheader.i.i.i:                           ; preds = %55
-  %58 = tail call i64 @strtoull(ptr nocapture noundef readonly %.014.i.i, ptr noundef null, i32 noundef 10) #29
+  %58 = tail call i64 @strtoull(ptr noundef readonly captures(none) %.014.i.i, ptr noundef null, i32 noundef 10) #29
   store i64 %58, ptr %.0.i34.i, align 8
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %.014.i.i to i64
@@ -14379,7 +14379,7 @@ _ZN4ofbxL17parseTextArrayRawIfEEbRKNS_8PropertyEPT_i.exit: ; preds = %_ZN4ofbx10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr nocapture noundef nonnull %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef nonnull captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !noalias !210
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !210
@@ -18104,7 +18104,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit:                    ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec3EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not10.i = icmp eq ptr %8, null
@@ -18514,7 +18514,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.thread: ; preds = %_ZNK4ofbx8DataView
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL5splatINS_4Vec3EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ofbxL5splatINS_4Vec3EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   switch i32 %1, label %.loopexit [
     i32 0, label %6
     i32 2, label %90
@@ -18752,7 +18752,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit50: ; preds = %106, %108, %110, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL5remapINS_4Vec3EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ofbxL5remapINS_4Vec3EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -18959,7 +18959,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit19:     ; preds = %81, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ofbx::Vec4", align 8
   %6 = alloca %struct.mz_stream_s, align 8
   %7 = alloca %"class.std::vector.126", align 8
@@ -19801,7 +19801,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.thread: ; preds = %_ZNK4ofbx8DataView
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL5splatINS_4Vec4EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ofbxL5splatINS_4Vec4EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   switch i32 %1, label %.loopexit [
     i32 0, label %6
     i32 2, label %90
@@ -20039,7 +20039,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit50: ; preds = %106, %108, %110, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL5remapINS_4Vec4EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ofbxL5remapINS_4Vec4EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -20480,7 +20480,7 @@ common.ret1:                                      ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL14parseTextArrayINS_4Vec3EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 {
+define internal fastcc void @_ZN4ofbxL14parseTextArrayINS_4Vec3EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #8 {
   %3 = alloca %"struct.ofbx::Vec3", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -22643,10 +22643,10 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26

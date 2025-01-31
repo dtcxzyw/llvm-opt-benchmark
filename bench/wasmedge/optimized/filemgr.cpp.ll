@@ -109,7 +109,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge7FileMgr7setPathERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7setPathERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::error_code", align 8
   store i32 258, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -231,10 +231,10 @@ declare noundef zeroext i1 @_ZN8WasmEdge4MMap9supportedEv() local_unnamed_addr #
 declare noundef ptr @_ZNK8WasmEdge4MMap7addressEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge7FileMgr7setCodeEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7setCodeEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 258, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -282,7 +282,7 @@ _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8Wa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge7FileMgr7setCodeESt6vectorIhSaIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7setCodeESt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 258, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -374,7 +374,7 @@ _ZNSt8optionalISt6vectorIhSaIhEEE7emplaceIJS2_EEENSt9enable_ifIX18is_constructib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.18") align 4 initializes((0, 1), (4, 5)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.18") align 4 captures(none) initializes((0, 1), (4, 5)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -419,7 +419,7 @@ define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -448,7 +448,7 @@ define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.31") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.31") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -551,7 +551,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit7:                   ; preds = %33, %.thread, %35
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture writeonly %2, i64 %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -604,7 +604,7 @@ _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit:              ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.46") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.46") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not19 = icmp eq i32 %3, 0
   br i1 %.not19, label %4, label %.loopexit
@@ -671,7 +671,7 @@ define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.59") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.59") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -758,7 +758,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.72") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.72") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %3 = load i32, ptr %1, align 8, !noalias !25
   %.not.i = icmp eq i32 %3, 0
@@ -876,7 +876,7 @@ _ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.85") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.85") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = load i32, ptr %1, align 8, !noalias !31
   %.not.i = icmp eq i32 %3, 0
@@ -978,7 +978,7 @@ _ZN8WasmEdge7FileMgr6readSNIiLm32EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.72") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.72") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %3 = load i32, ptr %1, align 8, !noalias !37
   %.not.i = icmp eq i32 %3, 0
@@ -1096,7 +1096,7 @@ _ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr7readF32Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.98") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readF32Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.98") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit
@@ -1149,7 +1149,7 @@ _ZN8WasmEdge7FileMgr8testReadEm.exit:             ; preds = %_ZN8WasmEdge7FileMg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr7readF64Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.111") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr7readF64Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.111") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -1212,7 +1212,7 @@ _ZN8WasmEdge7FileMgr8testReadEm.exit:             ; preds = %_ZN8WasmEdge7FileMg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.124") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.124") align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.12", align 1
   %5 = load i32, ptr %1, align 8
@@ -1562,7 +1562,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.18") align 4 initializes((0, 1), (4, 5)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.18") align 4 captures(none) initializes((0, 1), (4, 5)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !noalias !68
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %4, label %18
@@ -1606,7 +1606,7 @@ _ZN5cxx208expectedIhN8WasmEdge7ErrCodeEEC2EOS3_.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #9 align 2 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #9 align 2 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
@@ -1668,7 +1668,7 @@ define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -1790,7 +1790,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
@@ -1799,7 +1799,7 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

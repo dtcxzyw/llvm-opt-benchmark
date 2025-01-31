@@ -579,7 +579,7 @@ ehcleanup15:                                      ; preds = %_ZNSt10unique_ptrIA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1032) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1032) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
   %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
@@ -874,7 +874,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull align 8 dereferenceable(1032) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1247,7 +1247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #8

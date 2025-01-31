@@ -74,7 +74,7 @@ define hidden ptr @DBN_GetPixelPointer(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_image_DataBufferNative_getElem(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_image_DataBufferNative_getElem(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SurfaceDataRasInfo, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %7, align 8
@@ -188,7 +188,7 @@ DBN_GetPixelPointer.exit.thread:                  ; preds = %DBN_GetPixelPointer
 declare ptr @SurfaceData_GetOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_image_DataBufferNative_setElem(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_image_DataBufferNative_setElem(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.SurfaceDataRasInfo, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8

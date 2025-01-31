@@ -86,7 +86,7 @@ $_ZTVN3url15RawCanonOutputTItLi1024EEE = comdat any
 @_ZTVN3url15RawCanonOutputTItLi1024EEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3url15RawCanonOutputTItLi1024EEE, ptr @_ZN3url15RawCanonOutputTItLi1024EED2Ev, ptr @_ZN3url15RawCanonOutputTItLi1024EED0Ev, ptr @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output, ptr nocapture noundef %out_query) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output, ptr noundef captures(none) %out_query) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %utf16.i.i.i = alloca %"class.url::RawCanonOutputW", align 8
   %eight_bit.i.i = alloca %"class.url::RawCanonOutput", align 8
@@ -425,7 +425,7 @@ _ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16Charse
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output, ptr nocapture noundef %out_query) local_unnamed_addr #0 {
+define dso_local void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output, ptr noundef captures(none) %out_query) local_unnamed_addr #0 {
 entry:
   %len.i = getelementptr inbounds nuw i8, ptr %query, i64 4
   %0 = load i32, ptr %len.i, align 4
@@ -497,7 +497,7 @@ _ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIttEEvPKT_RKNS_9ComponentEPNS_16Charse
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url27ConvertUTF16ToQueryEncodingEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE(ptr noundef %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local void @_ZN3url27ConvertUTF16ToQueryEncodingEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE(ptr noundef %input, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %query.val = load i32, ptr %query, align 4
   %0 = getelementptr inbounds nuw i8, ptr %query, i64 4
@@ -748,7 +748,7 @@ if.end10:                                         ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1139,10 +1139,10 @@ declare void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOu
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

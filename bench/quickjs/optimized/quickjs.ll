@@ -1101,7 +1101,7 @@ define dso_local ptr @js_realloc_rt(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @js_malloc_usable_size_rt(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @js_malloc_usable_size_rt(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 %4(ptr noundef %1) #42
@@ -1125,7 +1125,7 @@ define dso_local ptr @js_mallocz_rt(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_malloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1205,7 +1205,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %12, %8, %js_mallocz
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @js_free(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @js_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1289,7 +1289,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %17, %13, %19, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @js_malloc_usable_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @js_malloc_usable_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1299,7 +1299,7 @@ define dso_local i64 @js_malloc_usable_size(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @js_strndup(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @js_strndup(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1333,10 +1333,10 @@ js_malloc.exit.thread:                            ; preds = %14, %10, %js_malloc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @js_strdup(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @js_strdup(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1361,7 +1361,7 @@ define dso_local ptr @js_strdup(ptr noundef %0, ptr nocapture noundef readonly %
   br label %js_strndup.exit
 
 js_malloc.exit.i:                                 ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
   %16 = getelementptr i8, ptr %9, i64 %3
   store i8 0, ptr %16, align 1
   br label %js_strndup.exit
@@ -1371,10 +1371,10 @@ js_strndup.exit:                                  ; preds = %10, %14, %js_malloc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_NewRuntime2(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @JS_NewRuntime2(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.JSClassDef, align 8
   %4 = alloca %struct.JSMallocState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -1559,7 +1559,7 @@ __JS_NewAtomInit.exit.i:                          ; preds = %77
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 0, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr readonly align 1 %.027.i, i64 %79, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr nonnull readonly align 1 %.027.i, i64 %79, i1 false)
   %89 = getelementptr [0 x i8], ptr %88, i64 0, i64 %79
   store i8 0, ptr %89, align 1
   %90 = call fastcc i32 @__JS_NewAtom(ptr noundef nonnull %8, ptr noundef nonnull %82, i32 noundef range(i32 1, 5) %.017.i)
@@ -1674,7 +1674,7 @@ JS_InitAtoms.exit.thread:                         ; preds = %__JS_NewAtomInit.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @js_malloc_usable_size_unknown(ptr nocapture readnone %0) #4 {
+define internal noundef i64 @js_malloc_usable_size_unknown(ptr readnone captures(none) %0) #4 {
   ret i64 0
 }
 
@@ -2128,7 +2128,7 @@ JS_GetOpaque.exit:                                ; preds = %8, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_call_bound_function(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) #0 {
+define internal { i64, i64 } @js_call_bound_function(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) #0 {
   %9 = alloca %struct.JSValue, align 8
   %.sroa.039.0..sroa.039.0..cast = inttoptr i64 %1 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.039.0..sroa.039.0..cast, i64 48
@@ -2259,7 +2259,7 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_generator_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 %7) #0 {
+define internal { i64, i64 } @js_generator_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -2425,7 +2425,7 @@ js_mallocz.exit.thread:                           ; preds = %18, %14, %free_gene
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @JS_UpdateStackTop(ptr nocapture noundef initializes((208, 224)) %0) local_unnamed_addr #6 {
+define dso_local void @JS_UpdateStackTop(ptr noundef captures(none) initializes((208, 224)) %0) local_unnamed_addr #6 {
 update_stack_limit.exit:
   %1 = tail call ptr @llvm.frameaddress.p0(i32 0)
   %2 = ptrtoint ptr %1 to i64
@@ -2710,14 +2710,14 @@ JS_FreeAtomRT.exit:                               ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @JS_GetRuntimeOpaque(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @JS_GetRuntimeOpaque(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetRuntimeOpaque(ptr nocapture noundef writeonly initializes((696, 704)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define dso_local void @JS_SetRuntimeOpaque(ptr noundef writeonly captures(none) initializes((696, 704)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store ptr %1, ptr %3, align 8
   ret void
@@ -2730,21 +2730,21 @@ define dso_local ptr @JS_NewRuntime() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetMemoryLimit(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local void @JS_SetMemoryLimit(ptr noundef writeonly captures(none) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetGCThreshold(ptr nocapture noundef writeonly initializes((192, 200)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local void @JS_SetGCThreshold(ptr noundef writeonly captures(none) initializes((192, 200)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetInterruptHandler(ptr nocapture noundef writeonly initializes((256, 272)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define dso_local void @JS_SetInterruptHandler(ptr noundef writeonly captures(none) initializes((256, 272)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -2753,7 +2753,7 @@ define dso_local void @JS_SetInterruptHandler(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetCanBlock(ptr nocapture noundef writeonly initializes((336, 337)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local void @JS_SetCanBlock(ptr noundef writeonly captures(none) initializes((336, 337)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -2761,14 +2761,14 @@ define dso_local void @JS_SetCanBlock(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @JS_SetSharedArrayBufferFunctions(ptr nocapture noundef writeonly initializes((344, 376)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define dso_local void @JS_SetSharedArrayBufferFunctions(ptr noundef writeonly captures(none) initializes((344, 376)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_EnqueueJob(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_EnqueueJob(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
@@ -2861,7 +2861,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsJobPending(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @JS_ExecutePendingJob(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @JS_ExecutePendingJob(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8
@@ -8772,13 +8772,13 @@ find_hashed_shape_proto.exit.i385:                ; preds = %453
   br label %462
 
 .loopexit.i378:                                   ; preds = %457, %JS_SetObjectData.exit364
-  %461 = call fastcc ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i.i369, i32 noundef 2) #45
+  %461 = call fastcc ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i.i369, i32 noundef 2) #45
   %.not13.i379 = icmp eq ptr %461, null
   br i1 %.not13.i379, label %JS_NewObjectProtoClass.exit386, label %462
 
 462:                                              ; preds = %.loopexit.i378, %find_hashed_shape_proto.exit.i385
   %.0.i380 = phi ptr [ %.0133.i.i375, %find_hashed_shape_proto.exit.i385 ], [ %461, %.loopexit.i378 ]
-  %463 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i380, i32 noundef 5) #45
+  %463 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i380, i32 noundef 5) #45
   %464 = extractvalue { i64, i64 } %463, 0
   %465 = extractvalue { i64, i64 } %463, 1
   br label %JS_NewObjectProtoClass.exit386
@@ -8947,13 +8947,13 @@ find_hashed_shape_proto.exit.i414:                ; preds = %544
   br label %553
 
 .loopexit.i407:                                   ; preds = %548, %JS_SetObjectData.exit393
-  %552 = call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i398, i32 noundef 2)
+  %552 = call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i398, i32 noundef 2)
   %.not13.i.i408 = icmp eq ptr %552, null
   br i1 %.not13.i.i408, label %JS_NewObjectProto.exit415, label %553
 
 553:                                              ; preds = %.loopexit.i407, %find_hashed_shape_proto.exit.i414
   %.0.i.i409 = phi ptr [ %.0133.i.i404, %find_hashed_shape_proto.exit.i414 ], [ %552, %.loopexit.i407 ]
-  %554 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i409, i32 noundef 1)
+  %554 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i409, i32 noundef 1)
   %555 = extractvalue { i64, i64 } %554, 0
   %556 = extractvalue { i64, i64 } %554, 1
   br label %JS_NewObjectProto.exit415
@@ -8969,7 +8969,7 @@ JS_NewObjectProto.exit415:                        ; preds = %.loopexit.i407, %55
   %559 = load i64, ptr %558, align 8
   %560 = getelementptr i8, ptr %557, i64 728
   %561 = load i64, ptr %560, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %559, i64 %561, ptr noundef nonnull @js_string_iterator_proto_funcs, i32 noundef 2)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %559, i64 %561, ptr noundef nonnull @js_string_iterator_proto_funcs, i32 noundef 2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %562 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #42
   %563 = load i64, ptr %6, align 8
@@ -8983,13 +8983,13 @@ JS_NewObjectProto.exit415:                        ; preds = %.loopexit.i407, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %569 = load i64, ptr %50, align 8
   %570 = load i64, ptr %.sroa.279.0..sroa_idx, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %569, i64 %570, ptr noundef nonnull @js_math_obj, i32 noundef 1)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %569, i64 %570, ptr noundef nonnull @js_math_obj, i32 noundef 1)
   %571 = load i64, ptr %50, align 8
   %572 = load i64, ptr %.sroa.279.0..sroa_idx, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %571, i64 %572, ptr noundef nonnull @js_reflect_obj, i32 noundef 1)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %571, i64 %572, ptr noundef nonnull @js_reflect_obj, i32 noundef 1)
   %573 = load ptr, ptr %83, align 8
   %574 = getelementptr i8, ptr %573, i64 112
-  %575 = call { i64, i64 } @JS_NewObject(ptr noundef %0)
+  %575 = call { i64, i64 } @JS_NewObject(ptr noundef nonnull %0)
   %576 = extractvalue { i64, i64 } %575, 0
   %577 = extractvalue { i64, i64 } %575, 1
   store i64 %576, ptr %574, align 8
@@ -9000,7 +9000,7 @@ JS_NewObjectProto.exit415:                        ; preds = %.loopexit.i407, %55
   %580 = load i64, ptr %579, align 8
   %581 = getelementptr i8, ptr %578, i64 120
   %582 = load i64, ptr %581, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %580, i64 %582, ptr noundef nonnull @js_symbol_proto_funcs, i32 noundef 5)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %580, i64 %582, ptr noundef nonnull @js_symbol_proto_funcs, i32 noundef 5)
   %583 = load ptr, ptr %83, align 8
   %584 = getelementptr i8, ptr %583, i64 112
   %585 = load i64, ptr %584, align 8
@@ -9008,11 +9008,11 @@ JS_NewObjectProto.exit415:                        ; preds = %.loopexit.i407, %55
   %587 = load i64, ptr %586, align 8
   %.val.i.i416 = load i64, ptr %13, align 8
   %.val6.i.i417 = load i64, ptr %14, align 8
-  %588 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_symbol_constructor, ptr noundef nonnull @.str.87, i32 noundef 0, i32 noundef 4, i32 noundef 0, i64 %.val.i.i416, i64 %.val6.i.i417)
+  %588 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef nonnull %0, ptr noundef nonnull @js_symbol_constructor, ptr noundef nonnull @.str.87, i32 noundef 0, i32 noundef 4, i32 noundef 0, i64 %.val.i.i416, i64 %.val6.i.i417)
   %589 = extractvalue { i64, i64 } %588, 0
   %590 = extractvalue { i64, i64 } %588, 1
-  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef %0, i64 %589, i64 %590, ptr noundef nonnull @.str.87, i64 %585, i64 %587)
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %589, i64 %590, ptr noundef nonnull @js_symbol_funcs, i32 noundef 2)
+  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef nonnull %0, i64 %589, i64 %590, ptr noundef nonnull @.str.87, i64 %585, i64 %587)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %589, i64 %590, ptr noundef nonnull @js_symbol_funcs, i32 noundef 2)
   br label %JS_AtomToValue.exit
 
 JS_AtomToValue.exit:                              ; preds = %JS_NewObjectProto.exit415, %JS_AtomToValue.exit
@@ -9105,13 +9105,13 @@ find_hashed_shape_proto.exit.i441:                ; preds = %635
   br label %644
 
 .loopexit.i434:                                   ; preds = %639, %607
-  %643 = call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i425, i32 noundef 2)
+  %643 = call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i425, i32 noundef 2)
   %.not13.i.i435 = icmp eq ptr %643, null
   br i1 %.not13.i.i435, label %JS_NewObjectProto.exit442, label %644
 
 644:                                              ; preds = %.loopexit.i434, %find_hashed_shape_proto.exit.i441
   %.0.i.i436 = phi ptr [ %.0133.i.i431, %find_hashed_shape_proto.exit.i441 ], [ %643, %.loopexit.i434 ]
-  %645 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i436, i32 noundef 1)
+  %645 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i436, i32 noundef 1)
   %646 = extractvalue { i64, i64 } %645, 0
   %647 = extractvalue { i64, i64 } %645, 1
   br label %JS_NewObjectProto.exit442
@@ -9127,7 +9127,7 @@ JS_NewObjectProto.exit442:                        ; preds = %.loopexit.i434, %64
   %650 = load i64, ptr %649, align 8
   %651 = getelementptr i8, ptr %648, i64 760
   %652 = load i64, ptr %651, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %650, i64 %652, ptr noundef nonnull @js_generator_proto_funcs, i32 noundef 4)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %650, i64 %652, ptr noundef nonnull @js_generator_proto_funcs, i32 noundef 4)
   %653 = load ptr, ptr %83, align 8
   %654 = getelementptr i8, ptr %653, i64 256
   %655 = load i64, ptr %13, align 8
@@ -9189,13 +9189,13 @@ find_hashed_shape_proto.exit.i461:                ; preds = %680
   br label %689
 
 .loopexit.i454:                                   ; preds = %684, %JS_NewObjectProto.exit442
-  %688 = call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i445, i32 noundef 2)
+  %688 = call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i445, i32 noundef 2)
   %.not13.i.i455 = icmp eq ptr %688, null
   br i1 %.not13.i.i455, label %JS_NewObjectProto.exit462, label %689
 
 689:                                              ; preds = %.loopexit.i454, %find_hashed_shape_proto.exit.i461
   %.0.i.i456 = phi ptr [ %.0133.i.i451, %find_hashed_shape_proto.exit.i461 ], [ %688, %.loopexit.i454 ]
-  %690 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i456, i32 noundef 1)
+  %690 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i456, i32 noundef 1)
   %691 = extractvalue { i64, i64 } %690, 0
   %692 = extractvalue { i64, i64 } %690, 1
   br label %JS_NewObjectProto.exit462
@@ -9208,7 +9208,7 @@ JS_NewObjectProto.exit462:                        ; preds = %.loopexit.i454, %68
   store i64 %.sroa.3.sroa.2.0.i.i457, ptr %.sroa.28.0..sroa_idx, align 8
   %.val.i.i463 = load i64, ptr %13, align 8
   %.val6.i.i464 = load i64, ptr %14, align 8
-  %693 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_function_constructor, ptr noundef nonnull @.str.88, i32 noundef 1, i32 noundef 5, i32 noundef 1, i64 %.val.i.i463, i64 %.val6.i.i464)
+  %693 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef nonnull %0, ptr noundef nonnull @js_function_constructor, ptr noundef nonnull @.str.88, i32 noundef 1, i32 noundef 5, i32 noundef 1, i64 %.val.i.i463, i64 %.val6.i.i464)
   %694 = extractvalue { i64, i64 } %693, 0
   %695 = extractvalue { i64, i64 } %693, 1
   %696 = load ptr, ptr %83, align 8
@@ -9216,7 +9216,7 @@ JS_NewObjectProto.exit462:                        ; preds = %.loopexit.i454, %68
   %698 = load i64, ptr %697, align 8
   %699 = getelementptr i8, ptr %696, i64 264
   %700 = load i64, ptr %699, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %698, i64 %700, ptr noundef nonnull @js_generator_function_proto_funcs, i32 noundef 1)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %698, i64 %700, ptr noundef nonnull @js_generator_function_proto_funcs, i32 noundef 1)
   %701 = load ptr, ptr %83, align 8
   %702 = getelementptr i8, ptr %701, i64 256
   %703 = getelementptr i8, ptr %701, i64 752
@@ -9226,13 +9226,13 @@ JS_NewObjectProto.exit462:                        ; preds = %.loopexit.i454, %68
   %707 = load i64, ptr %703, align 8
   %708 = getelementptr i8, ptr %701, i64 760
   %709 = load i64, ptr %708, align 8
-  call fastcc void @JS_SetConstructor2(ptr noundef %0, i64 %704, i64 %706, i64 %707, i64 %709, i32 noundef 1, i32 noundef 1)
+  call fastcc void @JS_SetConstructor2(ptr noundef nonnull %0, i64 %704, i64 %706, i64 %707, i64 %709, i32 noundef 1, i32 noundef 1)
   %710 = load ptr, ptr %83, align 8
   %711 = getelementptr i8, ptr %710, i64 256
   %712 = load i64, ptr %711, align 8
   %713 = getelementptr i8, ptr %710, i64 264
   %714 = load i64, ptr %713, align 8
-  call fastcc void @JS_SetConstructor2(ptr noundef %0, i64 %694, i64 %695, i64 %712, i64 %714, i32 noundef 0, i32 noundef 1)
+  call fastcc void @JS_SetConstructor2(ptr noundef nonnull %0, i64 %694, i64 %695, i64 %712, i64 %714, i32 noundef 0, i32 noundef 1)
   %715 = trunc i64 %695 to i32
   %716 = icmp ugt i32 %715, -12
   br i1 %716, label %717, label %JS_FreeValue.exit465
@@ -9388,7 +9388,7 @@ define dso_local void @JS_AddIntrinsicDate(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_AddIntrinsicEval(ptr nocapture noundef writeonly initializes((456, 464)) %0) local_unnamed_addr #8 {
+define dso_local void @JS_AddIntrinsicEval(ptr noundef writeonly captures(none) initializes((456, 464)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @__JS_EvalInternal, ptr %2, align 8
   ret void
@@ -9518,13 +9518,13 @@ find_hashed_shape_proto.exit.i:                   ; preds = %60
   br label %69
 
 .loopexit.i:                                      ; preds = %64, %JS_DupValue.exit
-  %68 = tail call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i, i32 noundef 2)
+  %68 = tail call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i, i32 noundef 2)
   %.not13.i.i = icmp eq ptr %68, null
   br i1 %.not13.i.i, label %JS_NewObjectProto.exit, label %69
 
 69:                                               ; preds = %.loopexit.i, %find_hashed_shape_proto.exit.i
   %.0.i.i = phi ptr [ %.0133.i.i, %find_hashed_shape_proto.exit.i ], [ %68, %.loopexit.i ]
-  %70 = tail call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
+  %70 = tail call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
   %71 = extractvalue { i64, i64 } %70, 0
   %72 = extractvalue { i64, i64 } %70, 1
   br label %JS_NewObjectProto.exit
@@ -9541,7 +9541,7 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %69
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr i8, ptr %74, i64 744
   %78 = load i64, ptr %77, align 8
-  tail call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %76, i64 %78, ptr noundef nonnull @js_regexp_string_iterator_proto_funcs, i32 noundef 2)
+  tail call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %76, i64 %78, ptr noundef nonnull @js_regexp_string_iterator_proto_funcs, i32 noundef 2)
   ret void
 }
 
@@ -9750,13 +9750,13 @@ find_hashed_shape_proto.exit.i:                   ; preds = %71
   br label %80
 
 .loopexit.i:                                      ; preds = %75, %41
-  %79 = call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i, i32 noundef 2)
+  %79 = call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i, i32 noundef 2)
   %.not13.i.i = icmp eq ptr %79, null
   br i1 %.not13.i.i, label %JS_NewObjectProto.exit, label %80
 
 80:                                               ; preds = %.loopexit.i, %find_hashed_shape_proto.exit.i
   %.0.i.i = phi ptr [ %.0133.i.i, %find_hashed_shape_proto.exit.i ], [ %79, %.loopexit.i ]
-  %81 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
+  %81 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
   %82 = extractvalue { i64, i64 } %81, 0
   %83 = extractvalue { i64, i64 } %81, 1
   br label %JS_NewObjectProto.exit
@@ -9778,7 +9778,7 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %80
   %92 = load i64, ptr %85, align 8
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %94 = load i64, ptr %93, align 8
-  call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %92, i64 %94, ptr noundef %88, i32 noundef %91)
+  call void @JS_SetPropertyFunctionList(ptr noundef nonnull %0, i64 %92, i64 %94, ptr noundef %88, i32 noundef %91)
   br i1 %42, label %41, label %95, !llvm.loop !40
 
 95:                                               ; preds = %JS_NewObjectProto.exit
@@ -9958,13 +9958,13 @@ find_hashed_shape_proto.exit.i:                   ; preds = %98
   br label %107
 
 .loopexit.i:                                      ; preds = %102, %81
-  %106 = call fastcc noundef ptr @js_new_shape2(ptr noundef %0, ptr noundef %.0.i4.i, i32 noundef 2)
+  %106 = call fastcc noundef ptr @js_new_shape2(ptr noundef nonnull %0, ptr noundef %.0.i4.i, i32 noundef 2)
   %.not13.i.i = icmp eq ptr %106, null
   br i1 %.not13.i.i, label %JS_NewObjectProto.exit, label %107
 
 107:                                              ; preds = %.loopexit.i, %find_hashed_shape_proto.exit.i
   %.0.i.i = phi ptr [ %.0133.i.i, %find_hashed_shape_proto.exit.i ], [ %106, %.loopexit.i ]
-  %108 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
+  %108 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, i32 noundef 1)
   %109 = extractvalue { i64, i64 } %108, 0
   %110 = extractvalue { i64, i64 } %108, 1
   br label %JS_NewObjectProto.exit
@@ -9986,13 +9986,13 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %107
   %118 = load i64, ptr %112, align 8
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %120 = load i64, ptr %119, align 8
-  %121 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %118, i64 %120, ptr noundef nonnull @.str.93, i64 %.sroa.0107.0.insert.ext, i64 0, i32 noundef 0)
+  %121 = call i32 @JS_DefinePropertyValueStr(ptr noundef nonnull %0, i64 %118, i64 %120, ptr noundef nonnull @.str.93, i64 %.sroa.0107.0.insert.ext, i64 0, i32 noundef 0)
   %.val = load ptr, ptr %72, align 8
   %122 = trunc i64 %indvars.iv to i32
   %123 = add i32 %122, 147
   %124 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %123)
   %125 = trunc nuw nsw i64 %indvars.iv to i32
-  %126 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_typed_array_constructor, ptr noundef nonnull %124, i32 noundef 3, i32 noundef 3, i32 noundef %125, i64 %69, i64 %70)
+  %126 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef nonnull %0, ptr noundef nonnull @js_typed_array_constructor, ptr noundef nonnull %124, i32 noundef 3, i32 noundef 3, i32 noundef %125, i64 %69, i64 %70)
   %127 = extractvalue { i64, i64 } %126, 0
   %128 = extractvalue { i64, i64 } %126, 1
   %129 = load ptr, ptr %5, align 8
@@ -10000,8 +10000,8 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %107
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = load i64, ptr %132, align 8
-  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef %0, i64 %127, i64 %128, ptr noundef nonnull %124, i64 %131, i64 %133)
-  %134 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %127, i64 %128, ptr noundef nonnull @.str.93, i64 %.sroa.0107.0.insert.ext, i64 0, i32 noundef 0)
+  call fastcc void @JS_NewGlobalCConstructor2(ptr noundef nonnull %0, i64 %127, i64 %128, ptr noundef nonnull %124, i64 %131, i64 %133)
+  %134 = call i32 @JS_DefinePropertyValueStr(ptr noundef nonnull %0, i64 %127, i64 %128, ptr noundef nonnull @.str.93, i64 %.sroa.0107.0.insert.ext, i64 0, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %135, label %81, !llvm.loop !41
@@ -10652,21 +10652,21 @@ define dso_local void @JS_AddIntrinsicBigInt(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @JS_GetContextOpaque(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @JS_GetContextOpaque(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetContextOpaque(ptr nocapture noundef writeonly initializes((464, 472)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define dso_local void @JS_SetContextOpaque(ptr noundef writeonly captures(none) initializes((464, 472)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_SetClassProto(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @JS_SetClassProto(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
@@ -10699,7 +10699,7 @@ set_value.exit:                                   ; preds = %4, %11, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_value(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @set_value(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -10728,7 +10728,7 @@ JS_FreeValue.exit:                                ; preds = %4, %7, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @JS_GetClassProto(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local { i64, i64 } @JS_GetClassProto(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -11170,14 +11170,14 @@ js_free_shape_null.exit:                          ; preds = %JS_FreeValue.exit96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @JS_GetRuntime(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @JS_GetRuntime(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @JS_SetMaxStackSize(ptr nocapture noundef initializes((200, 208), (216, 224)) %0, i64 noundef %1) local_unnamed_addr #6 {
+define dso_local void @JS_SetMaxStackSize(ptr noundef captures(none) initializes((200, 208), (216, 224)) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 0
@@ -11197,7 +11197,7 @@ update_stack_limit.exit:                          ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @JS_DupAtom(ptr nocapture noundef readonly %0, i32 noundef returned %1) local_unnamed_addr #9 {
+define dso_local noundef i32 @JS_DupAtom(ptr noundef readonly captures(none) %0, i32 noundef returned %1) local_unnamed_addr #9 {
   %3 = icmp sgt i32 %1, 226
   br i1 %3, label %4, label %14
 
@@ -12080,7 +12080,7 @@ is_num_string.exit.thread:                        ; preds = %string_get.exit29.i
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @JS_NewAtom(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
-  %4 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef %3)
+  %4 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret i32 %4
 }
 
@@ -12117,12 +12117,12 @@ define dso_local i32 @JS_NewAtomUInt32(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
-  %4 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %1, i64 noundef %3)
+  %4 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret { i64, i64 } %4
 }
 
@@ -13024,7 +13024,7 @@ __JS_AtomToValue.exit:                            ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_FreeAtom(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @JS_FreeAtom(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 226
   br i1 %3, label %4, label %__JS_FreeAtom.exit
 
@@ -13205,7 +13205,7 @@ JS_FreeValue.exit:                                ; preds = %39, %34, %30, %JS_A
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_NewClassID(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @JS_NewClassID(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @js_class_id_mutex) #42
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, 0
@@ -13249,7 +13249,7 @@ define dso_local range(i32 0, 65536) i32 @JS_GetClassID(i64 %0, i64 %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsRegisteredClass(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsRegisteredClass(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %1, %4
@@ -13271,7 +13271,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsRegisteredClass(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_NewClass(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_NewClass(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #43
   %sext = shl i64 %5, 32
@@ -13338,7 +13338,7 @@ hash_string8.exit.i:                              ; preds = %hash_string8.exit.l
 
 39:                                               ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %40, ptr readonly %4, i64 %6)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %40, ptr nonnull readonly %4, i64 %6)
   %41 = icmp eq i32 %bcmp.i, 0
   br i1 %41, label %42, label %47
 
@@ -13379,7 +13379,7 @@ __JS_NewAtomInit.exit:                            ; preds = %__JS_FindAtom.exit.
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 0, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %57, ptr readonly align 1 %4, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %57, ptr nonnull readonly align 1 %4, i64 %6, i1 false)
   %58 = getelementptr [0 x i8], ptr %57, i64 0, i64 %6
   store i8 0, ptr %58, align 1
   %59 = tail call fastcc i32 @__JS_NewAtom(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef 1)
@@ -13490,7 +13490,7 @@ JS_FreeAtomRT.exit:                               ; preds = %__JS_FindAtom.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_NewClass1(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp ugt i32 %1, 65535
   br i1 %5, label %.loopexit, label %6
 
@@ -13633,7 +13633,7 @@ JS_DupAtomRT.exit:                                ; preds = %.thread, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_ThrowInternalError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_ThrowInternalError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13684,7 +13684,7 @@ JS_ThrowError.exit:                               ; preds = %js_class_has_byteco
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc8(ptr nocapture noundef %0, i32 noundef range(i32 -56613888, 10559488) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc8(ptr noundef captures(none) %0, i32 noundef range(i32 -56613888, 10559488) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -13731,7 +13731,7 @@ define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc8(ptr nocapture n
 declare i32 @unicode_from_utf8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @string_buffer_end(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @string_buffer_end(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -13847,7 +13847,7 @@ __JS_AtomToValue.exit:                            ; preds = %6
 define dso_local { i64, i64 } @JS_NewAtomString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
-  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef %4)
+  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %JS_FreeAtom.exit, label %7
 
@@ -14320,7 +14320,7 @@ define dso_local { i64, i64 } @JS_ToString(ptr noundef %0, i64 %1, i64 %2) local
 declare i32 @unicode_to_utf8(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_FreeCString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @JS_FreeCString(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %JS_FreeValue.exit, label %3
 
@@ -15298,7 +15298,7 @@ JS_FreeAtom.exit:                                 ; preds = %.loopexit.i, %JS_Fr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_NewCFunctionData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_NewCFunctionData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -15942,10 +15942,10 @@ JS_FreeAtomStruct.exit33:                         ; preds = %._crit_edge.i31, %1
 declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @__JS_FreeValue(ptr nocapture noundef readonly %0, i64 %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @__JS_FreeValue(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @__JS_FreeValueRT(ptr noundef %5, i64 %1, i64 %2)
@@ -15953,7 +15953,7 @@ define dso_local void @__JS_FreeValue(ptr nocapture noundef readonly %0, i64 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_MarkValue(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @JS_MarkValue(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = and i64 %2, 4294967294
   %switch = icmp eq i64 %5, 4294967294
   br i1 %switch, label %6, label %8
@@ -15968,7 +15968,7 @@ define dso_local void @JS_MarkValue(ptr noundef %0, i64 %1, i64 %2, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsLiveObject(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsLiveObject(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   br i1 %.not, label %5, label %11
@@ -15988,7 +15988,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsLiveObject(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @JS_ComputeMemoryUsage(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 208)) %1) local_unnamed_addr #15 {
+define dso_local void @JS_ComputeMemoryUsage(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 208)) %1) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, i8 0, i64 208, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -17456,7 +17456,7 @@ compute_value_size.exit299:                       ; preds = %compute_value_size.
 declare double @llvm.round.f64(double) #16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_DumpMemoryUsage(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @JS_DumpMemoryUsage(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [59 x i32], align 16
   %5 = alloca [64 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17780,10 +17780,10 @@ define dso_local void @JS_DumpMemoryUsage(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @JS_AtomGetStrRT(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   br i1 %.not, label %7, label %4
 
@@ -17917,7 +17917,7 @@ string_get.exit:                                  ; preds = %36, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @JS_GetGlobalObject(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local { i64, i64 } @JS_GetGlobalObject(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -17940,7 +17940,7 @@ JS_DupValue.exit:                                 ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_Throw(ptr nocapture noundef readonly %0, i64 %1, i64 %2) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_Throw(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -17971,7 +17971,7 @@ JS_FreeValue.exit:                                ; preds = %3, %12, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @JS_GetException(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local { i64, i64 } @JS_GetException(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -18071,7 +18071,7 @@ JS_NewObjectClass.exit:                           ; preds = %.loopexit.i, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_ThrowSyntaxError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18122,7 +18122,7 @@ JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_ThrowTypeError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18173,7 +18173,7 @@ JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_ThrowReferenceError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_ThrowReferenceError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18224,7 +18224,7 @@ JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_ThrowRangeError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_ThrowRangeError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19067,7 +19067,7 @@ JS_FreeValue.exit:                                ; preds = %7, %13, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @JS_ToBoolFree(ptr nocapture noundef readonly %0, i64 %1, i64 %2) unnamed_addr #0 {
+define internal fastcc i32 @JS_ToBoolFree(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = trunc i64 %2 to i32
   %5 = inttoptr i64 %1 to ptr
   %6 = trunc i64 %1 to i32
@@ -19193,7 +19193,7 @@ JS_FreeValue.exit:                                ; preds = %65, %61, %59, %52, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 256) i32 @JS_IsFunction(ptr nocapture noundef readonly %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 256) i32 @JS_IsFunction(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -20085,7 +20085,7 @@ JS_FreeValue.exit:                                ; preds = %188, %JS_FreeValue.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @__JS_ThrowTypeErrorAtom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @__JS_ThrowTypeErrorAtom(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
@@ -20113,7 +20113,7 @@ define internal fastcc void @JS_ThrowReferenceErrorUninitialized(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_AutoInitProperty(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_AutoInitProperty(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -20239,7 +20239,7 @@ define internal fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = and i64 %4, 4294967295
   %.not = icmp eq i64 %7, 4294967295
   br i1 %.not, label %10, label %8
@@ -20259,7 +20259,7 @@ define dso_local range(i32 -1, 1) i32 @JS_GetOwnPropertyNames(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_GetOwnPropertyNamesInternal(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_GetOwnPropertyNamesInternal(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -20694,7 +20694,7 @@ JS_AtomGetKind.exit246:                           ; preds = %178, %184, %194, %1
 208:                                              ; preds = %205
   %209 = load ptr, ptr %7, align 8
   %210 = load i32, ptr %8, align 4
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %209, i32 noundef %210)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %209, i32 noundef %210)
   br label %536
 
 211:                                              ; preds = %205
@@ -22724,7 +22724,7 @@ JS_FreeAtom.exit:                                 ; preds = %150, %155, %JS_Free
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #43
-  %6 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %3, i64 noundef %5)
+  %6 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %5)
   %7 = tail call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6, i64 %1, i64 %2, i32 noundef 0)
   %8 = icmp sgt i32 %6, 226
   br i1 %8, label %9, label %JS_FreeAtom.exit
@@ -22826,7 +22826,7 @@ JS_FreeAtom.exit:                                 ; preds = %4, %9, %JS_FreeAtom
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
@@ -25496,7 +25496,7 @@ JS_FreeBigInt.exit:                               ; preds = %__JS_FreeValueRT.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_DefineProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local i32 @JS_DefineProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = and i64 %2, 4294967295
@@ -26634,7 +26634,7 @@ js_update_property_flags.exit:                    ; preds = %171, %JS_DupValue.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @JS_ThrowTypeErrorOrFalse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #0 {
+define internal range(i32 -1, 1) i32 @JS_ThrowTypeErrorOrFalse(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = and i32 %1, 16384
   %.not = icmp eq i32 %5, 0
@@ -26714,7 +26714,7 @@ is_strict_mode.exit.thread:                       ; preds = %8, %6, %is_strict_m
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @add_fast_array_element(ptr noundef %0, ptr nocapture noundef %1, i64 %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @add_fast_array_element(ptr noundef %0, ptr noundef captures(none) %1, i64 %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -27278,7 +27278,7 @@ is_strict_mode.exit.thread:                       ; preds = %8, %6, %is_strict_m
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @JS_CreateProperty(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @JS_CreateProperty(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %11 = load i8, ptr %10, align 1
@@ -28089,7 +28089,7 @@ define dso_local i32 @JS_SetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %8, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #43
-  %10 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %3, i64 noundef %9)
+  %10 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %9)
   %11 = tail call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10, i64 %4, i64 %5, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16384)
   %12 = icmp sgt i32 %10, 226
   br i1 %12, label %13, label %JS_FreeAtom.exit
@@ -28191,7 +28191,7 @@ JS_FreeAtom.exit:                                 ; preds = %6, %13, %JS_FreeAto
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_ToArrayLengthFree(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_ToArrayLengthFree(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca i32, align 4
@@ -28402,7 +28402,7 @@ define internal fastcc range(i32 0, 2) i32 @check_define_prop_flags(i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_shape_prepare_update(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_shape_prepare_update(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -28610,7 +28610,7 @@ JS_FreeValueRT.exit:                              ; preds = %free_zero_refcount.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @js_same_value(ptr nocapture noundef readonly %0, i64 %1, i64 %2, i64 %3, i64 %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @js_same_value(ptr noundef readonly captures(none) %0, i64 %1, i64 %2, i64 %3, i64 %4) unnamed_addr #0 {
   %6 = trunc i64 %2 to i32
   %7 = icmp ugt i32 %6, -12
   br i1 %7, label %8, label %JS_DupValue.exit
@@ -28640,7 +28640,7 @@ JS_DupValue.exit11:                               ; preds = %JS_DupValue.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_update_property_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 64) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_update_property_flags(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 64) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 26
@@ -29189,7 +29189,7 @@ JS_FreeValue.exit:                                ; preds = %7, %16, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = tail call i32 @JS_ValueToAtom(ptr noundef %0, i64 %3, i64 %4)
@@ -29557,7 +29557,7 @@ define dso_local i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %1, i64 %2, 
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #43
-  %11 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %3, i64 noundef %10)
+  %11 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store i32 0, ptr %8, align 8
@@ -29689,7 +29689,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DefinePropertyVa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_DefinePropertyGetSet(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local i32 @JS_DefinePropertyGetSet(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.JSValue, align 8
   store i64 %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -31272,7 +31272,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsCFunction(ptr nocapture noundef readnone %0, i64 %1, i64 %2, ptr noundef readnone %3, i32 noundef %4) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsCFunction(ptr noundef readnone captures(none) %0, i64 %1, i64 %2, ptr noundef readnone %3, i32 noundef %4) local_unnamed_addr #12 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 4294967295
   %7 = inttoptr i64 %1 to ptr
@@ -31304,7 +31304,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsCFunction(ptr nocapture noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsConstructor(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsConstructor(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   br i1 %.not, label %5, label %12
@@ -31324,7 +31324,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsConstructor(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_SetConstructorBit(ptr nocapture noundef readnone %0, i64 %1, i64 %2, i32 noundef %3) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @JS_SetConstructorBit(ptr noundef readnone captures(none) %0, i64 %1, i64 %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = and i64 %2, 4294967295
   %.not = icmp eq i64 %5, 4294967295
   br i1 %.not, label %6, label %15
@@ -31347,7 +31347,7 @@ define dso_local range(i32 0, 2) i32 @JS_SetConstructorBit(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsError(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsError(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   br i1 %.not, label %5, label %11
@@ -31366,7 +31366,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsError(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsUncatchableError(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @JS_IsUncatchableError(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -31392,7 +31392,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsUncatchableError(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @JS_SetUncatchableError(ptr nocapture noundef readnone %0, i64 %1, i64 %2, i32 noundef %3) local_unnamed_addr #9 {
+define dso_local void @JS_SetUncatchableError(ptr noundef readnone captures(none) %0, i64 %1, i64 %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = and i64 %2, 4294967295
   %.not = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -31420,7 +31420,7 @@ define dso_local void @JS_SetUncatchableError(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @JS_ResetUncatchableError(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local void @JS_ResetUncatchableError(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -31514,7 +31514,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %8, %4, %JS_GetOpaqu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @JS_SetIsHTMLDDA(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #9 {
+define dso_local void @JS_SetIsHTMLDDA(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #9 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 4294967295
   br i1 %.not, label %5, label %10
@@ -31532,7 +31532,7 @@ define dso_local void @JS_SetIsHTMLDDA(ptr nocapture noundef readnone %0, i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @JS_ToBool(ptr nocapture noundef readonly %0, i64 %1, i64 %2) local_unnamed_addr #0 {
+define dso_local i32 @JS_ToBool(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #0 {
   %4 = trunc i64 %2 to i32
   %5 = icmp ugt i32 %4, -12
   br i1 %5, label %6, label %JS_DupValue.exit
@@ -31550,7 +31550,7 @@ JS_DupValue.exit:                                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToFloat64(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToFloat64(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = icmp ugt i32 %5, -12
   br i1 %6, label %.thread, label %JS_DupValue.exit
@@ -31590,7 +31590,7 @@ JS_ToFloat64Free.exit:                            ; preds = %11, %15, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToInt32Sat(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToInt32Sat(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = icmp ugt i32 %5, -12
   br i1 %6, label %7, label %JS_DupValue.exit
@@ -31608,7 +31608,7 @@ JS_DupValue.exit:                                 ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   br label %6
 
@@ -31697,7 +31697,7 @@ JS_FreeValue.exit:                                ; preds = %27, %21, %12, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToInt32Clamp(ptr noundef %0, ptr nocapture noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToInt32Clamp(ptr noundef %0, ptr noundef captures(none) %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = trunc i64 %3 to i32
   %9 = icmp ugt i32 %8, -12
   br i1 %9, label %10, label %JS_DupValue.exit
@@ -31893,7 +31893,7 @@ JS_DupValue.exit:                                 ; preds = %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToInt64(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToInt64(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = trunc i64 %3 to i32
   %7 = icmp ugt i32 %6, -12
@@ -32109,7 +32109,7 @@ JS_ToBigInt64Free.exit:                           ; preds = %13, %17, %19, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToInt32(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToInt32(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = icmp ugt i32 %5, -12
   br i1 %6, label %7, label %JS_DupValue.exit
@@ -32127,7 +32127,7 @@ JS_DupValue.exit:                                 ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   br label %6
 
@@ -32223,7 +32223,7 @@ JS_FreeValue.exit:                                ; preds = %36, %30, %15, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_ToIndex(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_ToIndex(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = trunc i64 %3 to i32
   %7 = icmp ugt i32 %6, -12
@@ -32924,7 +32924,7 @@ define dso_local { i64, i64 } @JS_Call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 0, 5) %8) #0 {
+define internal fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 0, 5) %8) #0 {
   %10 = alloca %struct.JSValue, align 8
   %11 = alloca %struct.JSValue, align 8
   %12 = alloca [64 x i8], align 16
@@ -47422,7 +47422,7 @@ js_has_unscopable.exit:                           ; preds = %7317, %7322
 
 7332:                                             ; preds = %7326
   %7333 = extractvalue { i64, i64 } %7329, 0
-  call fastcc void @set_value(ptr noundef %.1, ptr noundef %7298, i64 %7333, i64 %7330)
+  call fastcc void @set_value(ptr noundef %.1, ptr noundef nonnull %7298, i64 %7333, i64 %7330)
   br label %7409
 
 7334:                                             ; preds = %.thread6718
@@ -48299,7 +48299,7 @@ JS_CallFree.exit:                                 ; preds = %12, %17, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @js_parse_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local noundef i32 @js_parse_error(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -48334,7 +48334,7 @@ define dso_local noundef i32 @js_parse_error(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @JS_ThrowError2(ptr noundef %0, i32 noundef range(i32 1, 7) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @JS_ThrowError2(ptr noundef %0, i32 noundef range(i32 1, 7) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [256 x i8], align 16
@@ -49236,7 +49236,7 @@ JS_FreeCString.exit121:                           ; preds = %JS_AtomToCString.ex
 407:                                              ; preds = %.loopexit
   %408 = load ptr, ptr %14, align 8
   %409 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %408) #43
-  %410 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %408, i64 noundef %409)
+  %410 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %408, i64 noundef %409)
   %411 = extractvalue { i64, i64 } %410, 0
   %412 = extractvalue { i64, i64 } %410, 1
   %.sroa.5.0.extract.shift = and i64 %411, -4294967296
@@ -49368,7 +49368,7 @@ skip_shebang.exit:                                ; preds = %2, %8, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -125, 256) i32 @simple_next_token(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -125, 256) i32 @simple_next_token(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.old1.not = icmp eq i32 %1, 0
   br i1 %.old1.not, label %.split114.us, label %.split114.split.us
@@ -49702,7 +49702,7 @@ thread-pre-split:                                 ; preds = %47
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
-  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef %4)
+  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
 
@@ -49872,9 +49872,9 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_AddModuleExport(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
-  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %2, i64 noundef %4)
+  %5 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %71, label %7
 
@@ -49986,7 +49986,7 @@ JS_FreeAtom.exit:                                 ; preds = %7, %10, %JS_FreeAto
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_export_entry2(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_export_entry2(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -50148,9 +50148,9 @@ js_resize_array.exit.thread:                      ; preds = %51, %48, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_SetModuleExport(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
-  %7 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %2, i64 noundef %6)
+  %7 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %6)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %98, label %9
 
@@ -50333,7 +50333,7 @@ set_value.exit:                                   ; preds = %106, %101, %98, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetModuleLoaderFunc(ptr nocapture noundef writeonly initializes((304, 328)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
+define dso_local void @JS_SetModuleLoaderFunc(ptr noundef writeonly captures(none) initializes((304, 328)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -50917,7 +50917,7 @@ JS_DupValue.exit:                                 ; preds = %js_build_module_ns.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @JS_GetScriptOrModuleName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define dso_local i32 @JS_GetScriptOrModuleName(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -50999,7 +50999,7 @@ JS_DupAtom.exit:                                  ; preds = %8, %14, %38, %.preh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @JS_GetModuleName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define dso_local i32 @JS_GetModuleName(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 226
@@ -51023,7 +51023,7 @@ JS_DupAtom.exit:                                  ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_GetImportMeta(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_GetImportMeta(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %.sroa.03.0.copyload = load i64, ptr %3, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -51184,13 +51184,13 @@ JS_FreeValue.exit10:                              ; preds = %34, %29, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_NewPromiseCapability(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_NewPromiseCapability(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc { i64, i64 } @js_new_promise_capability(ptr noundef %0, ptr noundef %1, i64 0, i64 3)
   ret { i64, i64 } %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @JS_LoadModuleInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @JS_LoadModuleInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
@@ -51438,7 +51438,7 @@ define dso_local { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %1, i64 %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_EvalFunctionInternal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_EvalFunctionInternal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca ptr, align 8
@@ -51897,7 +51897,7 @@ js_free_modules.exit:                             ; preds = %19, %10, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_resolve_module(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_resolve_module(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65280
@@ -52258,7 +52258,7 @@ js_host_resolve_imported_module_atom.exit.thread: ; preds = %js_host_resolve_imp
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_WriteObject2(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local ptr @JS_WriteObject2(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct.DynBuf, align 8
   %9 = alloca %struct.BCWriterState, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -53050,7 +53050,7 @@ JS_WriteBigNum.exit.thread:                       ; preds = %.lr.ph138.i, %bc_pu
 declare void @dbuf_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_WriteObject(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @JS_WriteObject(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @JS_WriteObject2(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef null, ptr noundef null)
   ret ptr %6
 }
@@ -53390,7 +53390,7 @@ bc_reader_free.exit:                              ; preds = %JS_ReadObjectAtoms.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadObjectRec(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadObjectRec(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %.sroa.038 = alloca double, align 8
   %2 = alloca i32, align 4
   %3 = alloca %union.JSFloat64Union, align 8
@@ -53732,7 +53732,7 @@ define dso_local void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %1, i64 %2
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %bcmp.i = call i32 @bcmp(ptr nonnull %49, ptr %32, i64 %39)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %49, ptr nonnull %32, i64 %39)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %JS_DupAtom.exit.loopexit.i, label %50
 
@@ -53806,7 +53806,7 @@ find_atom.exit:                                   ; preds = %52, %JS_DupAtom.exi
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull %84, ptr %67, i64 %74)
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %84, ptr nonnull %67, i64 %74)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %JS_DupAtom.exit.loopexit.i.i, label %85
 
@@ -54375,7 +54375,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_InstantiateFunct
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_AddModuleExportList(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_AddModuleExportList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -54402,7 +54402,7 @@ define dso_local range(i32 -1, 1) i32 @JS_AddModuleExportList(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @JS_SetModuleExportList(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @JS_SetModuleExportList(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -54455,7 +54455,7 @@ define dso_local range(i32 -1, 1) i32 @JS_SetModuleExportList(ptr noundef %0, pt
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #43
-  %33 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %31, i64 noundef %32)
+  %33 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %32)
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
   br label %60
@@ -54625,7 +54625,7 @@ JS_DefinePropertyValue.exit23:                    ; preds = %JS_DefinePropertyVa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @js_string_codePointRange(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @js_string_codePointRange(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.StringBuffer, align 8
@@ -54932,7 +54932,7 @@ string_buffer_init2.exit:                         ; preds = %58, %54, %JS_ToUint
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_init2(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_init2(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %2, ptr %5, align 4
@@ -54995,7 +54995,7 @@ js_alloc_string.exit:                             ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 65535
   br i1 %3, label %4, label %26
 
@@ -55090,7 +55090,7 @@ string_buffer_putc16.exit10:                      ; preds = %53, %45, %35, %stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @lre_check_stack_overflow(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @lre_check_stack_overflow(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 216
@@ -55104,7 +55104,7 @@ define dso_local range(i32 0, 2) i32 @lre_check_stack_overflow(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lre_realloc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @lre_realloc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -55115,7 +55115,7 @@ define dso_local ptr @lre_realloc(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_AddIntrinsicRegExpCompiler(ptr nocapture noundef writeonly initializes((448, 456)) %0) local_unnamed_addr #8 {
+define dso_local void @JS_AddIntrinsicRegExpCompiler(ptr noundef writeonly captures(none) initializes((448, 456)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @js_compile_regexp, ptr %2, align 8
   ret void
@@ -55589,7 +55589,7 @@ js_new_string8.exit:                              ; preds = %241, %245, %__JS_At
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %.sroa.053.0.copyload = load i64, ptr %4, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -56079,7 +56079,7 @@ JS_FreeValue.exit:                                ; preds = %5, %27, %30, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @json_next_token(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @json_next_token(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
@@ -57039,7 +57039,7 @@ JS_FreeValue.exit:                                ; preds = %7, %138, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_token(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @free_token(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %133 [
     i32 -128, label %4
@@ -57360,7 +57360,7 @@ define dso_local { i64, i64 } @JS_ParseJSON(ptr noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_JSONStringify(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_JSONStringify(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) local_unnamed_addr #0 {
 JS_AtomToString.exit:
   %6 = alloca %struct.StringBuffer, align 8
   %7 = alloca %struct.JSONStringifyContext, align 8
@@ -57630,7 +57630,7 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
 125:                                              ; preds = %.lr.ph, %JS_FreeValue.exit
   %.0318 = phi i64 [ 0, %.lr.ph ], [ %197, %JS_FreeValue.exit ]
   %.0219317 = phi i64 [ 0, %.lr.ph ], [ %.1, %JS_FreeValue.exit ]
-  %126 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %3, i64 %4, i64 noundef %.0318)
+  %126 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef nonnull %0, i64 %3, i64 %4, i64 noundef %.0318)
   %127 = extractvalue { i64, i64 } %126, 0
   %128 = extractvalue { i64, i64 } %126, 1
   store i64 %127, ptr %8, align 8
@@ -57652,7 +57652,7 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
   br i1 %switch, label %134, label %144
 
 134:                                              ; preds = %130
-  %135 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %127, i64 %128, i32 noundef 0)
+  %135 = call { i64, i64 } @JS_ToStringInternal(ptr noundef nonnull %0, i64 %127, i64 %128, i32 noundef 0)
   %136 = load i32, ptr %129, align 4
   %137 = add i32 %136, -1
   store i32 %137, ptr %129, align 4
@@ -57686,7 +57686,7 @@ JS_ToStringFree.exit:                             ; preds = %134, %139
   br label %JS_FreeValue.exit
 
 150:                                              ; preds = %125, %125
-  %151 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %127, i64 %128)
+  %151 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef nonnull %0, i64 %127, i64 %128)
   %152 = extractvalue { i64, i64 } %151, 0
   %153 = extractvalue { i64, i64 } %151, 1
   store i64 %152, ptr %8, align 8
@@ -57719,7 +57719,7 @@ JS_ToStringFree.exit:                             ; preds = %134, %139
 165:                                              ; preds = %150, %155, %JS_ToStringFree.exit
   %166 = phi i64 [ %152, %150 ], [ %127, %155 ], [ %141, %JS_ToStringFree.exit ]
   %167 = phi i64 [ %153, %150 ], [ %128, %155 ], [ %142, %JS_ToStringFree.exit ]
-  %168 = call { i64, i64 } @js_array_includes(ptr noundef %0, i64 %94, i64 %95, i32 noundef 1, ptr noundef nonnull %8)
+  %168 = call { i64, i64 } @js_array_includes(ptr noundef nonnull %0, i64 %94, i64 %95, i32 noundef 1, ptr noundef nonnull %8)
   %169 = extractvalue { i64, i64 } %168, 1
   %170 = and i64 %169, 4294967295
   %.not302 = icmp eq i64 %170, 6
@@ -57745,13 +57745,13 @@ JS_ToStringFree.exit:                             ; preds = %134, %139
 
 181:                                              ; preds = %165
   %182 = extractvalue { i64, i64 } %168, 0
-  %183 = call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %182, i64 %169)
+  %183 = call fastcc i32 @JS_ToBoolFree(ptr noundef nonnull %0, i64 %182, i64 %169)
   %.not234 = icmp eq i32 %183, 0
   br i1 %.not234, label %184, label %187
 
 184:                                              ; preds = %181
   %185 = add i64 %.0219317, 1
-  %186 = call i32 @JS_SetPropertyInt64(ptr noundef %0, i64 %94, i64 %95, i64 noundef %.0219317, i64 %166, i64 %167)
+  %186 = call i32 @JS_SetPropertyInt64(ptr noundef nonnull %0, i64 %94, i64 %95, i64 noundef %.0219317, i64 %166, i64 %167)
   br label %JS_FreeValue.exit
 
 187:                                              ; preds = %181
@@ -57808,14 +57808,14 @@ JS_DupValue.exit:                                 ; preds = %.thread286, %206
   ]
 
 213:                                              ; preds = %210
-  %214 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %200, i64 %202, i32 noundef 0)
+  %214 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef nonnull %0, i64 %200, i64 %202, i32 noundef 0)
   %215 = extractvalue { i64, i64 } %214, 0
   %216 = extractvalue { i64, i64 } %214, 1
   %217 = inttoptr i64 %215 to ptr
   br label %229
 
 218:                                              ; preds = %210
-  %219 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %200, i64 %202, i32 noundef 0)
+  %219 = call { i64, i64 } @JS_ToStringInternal(ptr noundef nonnull %0, i64 %200, i64 %202, i32 noundef 0)
   br i1 %204, label %220, label %JS_ToStringFree.exit262
 
 220:                                              ; preds = %218
@@ -57859,7 +57859,7 @@ JS_ToStringFree.exit262:                          ; preds = %218, %220, %224
   ]
 
 JS_DupValue.exit.i:                               ; preds = %232, %232
-  %234 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef %0, ptr noundef nonnull %10, i64 %233, i64 %.sroa.14.0)
+  %234 = call fastcc i32 @JS_ToInt32SatFree(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 %233, i64 %.sroa.14.0)
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %.thread, label %JS_IsArray.exit
 
@@ -57869,7 +57869,7 @@ JS_DupValue.exit.i:                               ; preds = %232, %232
   %spec.select = call i32 @llvm.umin.i32(i32 %236, i32 10)
   %238 = select i1 %237, i32 0, i32 %spec.select
   %239 = zext nneg i32 %238 to i64
-  %240 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull @.str.69, i64 noundef %239)
+  %240 = call { i64, i64 } @JS_NewStringLen(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i64 noundef %239)
   %241 = extractvalue { i64, i64 } %240, 0
   %242 = extractvalue { i64, i64 } %240, 1
   store i64 %241, ptr %13, align 8
@@ -57887,7 +57887,7 @@ JS_DupValue.exit.i:                               ; preds = %232, %232
   %248 = trunc i64 %247 to i32
   %249 = and i32 %248, 2147483647
   %250 = call i32 @llvm.umin.i32(i32 %249, i32 10)
-  %251 = call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114, i32 noundef 0, i32 noundef %250)
+  %251 = call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114, i32 noundef 0, i32 noundef %250)
   %252 = extractvalue { i64, i64 } %251, 0
   %253 = extractvalue { i64, i64 } %251, 1
   br label %256
@@ -57926,7 +57926,7 @@ JS_FreeValue.exit267:                             ; preds = %.thread, %256, %258
   br i1 %.not312, label %JS_IsArray.exit, label %267
 
 267:                                              ; preds = %JS_FreeValue.exit267
-  %268 = call { i64, i64 } @JS_NewObject(ptr noundef %0)
+  %268 = call { i64, i64 } @JS_NewObject(ptr noundef nonnull %0)
   %269 = extractvalue { i64, i64 } %268, 0
   %270 = extractvalue { i64, i64 } %268, 1
   %.sroa.7.0.extract.shift = lshr i64 %269, 32
@@ -57944,12 +57944,12 @@ JS_DupValue.exit270:                              ; preds = %272
   %276 = load i32, ptr %275, align 4
   %277 = add i32 %276, 1
   store i32 %277, ptr %275, align 4
-  %278 = call i32 @JS_DefinePropertyValue(ptr noundef %0, i64 %269, i64 %270, i32 noundef 47, i64 %1, i64 %2, i32 noundef 7)
+  %278 = call i32 @JS_DefinePropertyValue(ptr noundef nonnull %0, i64 %269, i64 %270, i32 noundef 47, i64 %1, i64 %2, i32 noundef 7)
   %279 = icmp slt i32 %278, 0
   br i1 %279, label %JS_IsArray.exit, label %282
 
 JS_DupValue.exit270.thread:                       ; preds = %272
-  %280 = call i32 @JS_DefinePropertyValue(ptr noundef %0, i64 %269, i64 %270, i32 noundef 47, i64 %1, i64 %2, i32 noundef 7)
+  %280 = call i32 @JS_DefinePropertyValue(ptr noundef nonnull %0, i64 %269, i64 %270, i32 noundef 47, i64 %1, i64 %2, i32 noundef 7)
   %281 = icmp slt i32 %280, 0
   br i1 %281, label %JS_IsArray.exit, label %JS_DupValue.exit273
 
@@ -57961,7 +57961,7 @@ JS_DupValue.exit270.thread:                       ; preds = %272
   br label %JS_DupValue.exit273
 
 JS_DupValue.exit273:                              ; preds = %JS_DupValue.exit270.thread, %282
-  %286 = call fastcc { i64, i64 } @js_json_check(ptr noundef %0, ptr noundef %7, i64 %269, i64 %270, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %15)
+  %286 = call fastcc { i64, i64 } @js_json_check(ptr noundef nonnull %0, ptr noundef %7, i64 %269, i64 %270, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %15)
   %287 = extractvalue { i64, i64 } %286, 1
   %trunc319 = trunc i64 %287 to i32
   switch i32 %trunc319, label %288 [
@@ -57973,7 +57973,7 @@ JS_DupValue.exit273:                              ; preds = %JS_DupValue.exit270
   %289 = extractvalue { i64, i64 } %286, 0
   %.val = load i64, ptr %15, align 8
   %.val253 = load i64, ptr %.sroa.254.0..sroa_idx, align 8
-  %290 = call fastcc i32 @js_json_to_str(ptr noundef %0, ptr noundef %7, i64 %289, i64 %287, i64 %.val, i64 %.val253)
+  %290 = call fastcc i32 @js_json_to_str(ptr noundef nonnull %0, ptr noundef %7, i64 %289, i64 %287, i64 %.val, i64 %.val253)
   %.not251 = icmp eq i32 %290, 0
   br i1 %.not251, label %291, label %JS_IsArray.exit
 
@@ -58363,7 +58363,7 @@ JS_FreeValue.exit:                                ; preds = %3, %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_includes(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_includes(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -58864,7 +58864,7 @@ js_new_string16.exit:                             ; preds = %61, %57, %103, %__J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_json_check(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef byval(%struct.JSValue) align 8 %6) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_json_check(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef byval(%struct.JSValue) align 8 %6) unnamed_addr #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca [2 x %struct.JSValue], align 16
@@ -60493,7 +60493,7 @@ JS_FreeValue.exit58:                              ; preds = %125, %123, %118, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_proxy_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_proxy_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.029.0.copyload = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -60698,7 +60698,7 @@ JS_FreeValue.exit:                                ; preds = %61, %56, %53, %JS_S
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -60894,7 +60894,7 @@ JS_IsFunction.exit.thread261:                     ; preds = %69, %66, %JS_IsFunc
   br i1 %.not304.us, label %103, label %.split351.us
 
 103:                                              ; preds = %102
-  %104 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %100, i64 %99, i64 0, i64 0)
+  %104 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %100, i64 %99, i64 0, i64 0)
   %105 = extractvalue { i64, i64 } %104, 0
   %106 = extractvalue { i64, i64 } %104, 1
   %107 = and i64 %106, 4294967295
@@ -60904,7 +60904,7 @@ JS_IsFunction.exit.thread261:                     ; preds = %69, %66, %JS_IsFunc
 108:                                              ; preds = %103
   %109 = load i64, ptr %9, align 8
   %110 = load i64, ptr %.sroa.268.0..sroa_idx, align 8
-  %111 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %109, i64 %110, i64 1, i64 0)
+  %111 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %109, i64 %110, i64 1, i64 0)
   %112 = extractvalue { i64, i64 } %111, 0
   %113 = extractvalue { i64, i64 } %111, 1
   %114 = and i64 %113, 4294967295
@@ -60919,7 +60919,7 @@ JS_IsFunction.exit.thread261:                     ; preds = %69, %66, %JS_IsFunc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 8
   store i64 3, ptr %97, align 8
-  %116 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %61, i64 %62, i64 %16, i64 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %11, i32 noundef 2)
+  %116 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %61, i64 %62, i64 %16, i64 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %11, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %117 = extractvalue { i64, i64 } %116, 1
   %118 = and i64 %117, 4294967295
@@ -61002,7 +61002,7 @@ JS_FreeValue.exit250.us:                          ; preds = %145, %140, %JS_Free
   br label %JS_FreeValue.exit251.us
 
 JS_FreeValue.exit251.us:                          ; preds = %156, %151, %JS_FreeValue.exit250.us
-  %158 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %83, i64 %84, i64 %88, i64 %89, ptr noundef %10)
+  %158 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %83, i64 %84, i64 %88, i64 %89, ptr noundef %10)
   %159 = extractvalue { i64, i64 } %158, 0
   %160 = extractvalue { i64, i64 } %158, 1
   store i64 %159, ptr %9, align 8
@@ -61093,7 +61093,7 @@ JS_FreeValue.exit242:                             ; preds = %190, %185, %JS_Free
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 0, ptr %8, align 8
   store i64 3, ptr %95, align 8
-  %197 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %61, i64 %62, i64 %16, i64 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 2)
+  %197 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %61, i64 %62, i64 %16, i64 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %198 = extractvalue { i64, i64 } %197, 1
   %199 = and i64 %198, 4294967295
@@ -61121,7 +61121,7 @@ JS_FreeValue.exit242:                             ; preds = %190, %185, %JS_Free
   br label %JS_FreeValue.exit244
 
 .split351.us:                                     ; preds = %102
-  %212 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.52)
+  %212 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.52)
   br label %.loopexit
 
 .loopexit.split.loop.exit:                        ; preds = %103
@@ -61244,7 +61244,7 @@ JS_FreeValue.exit250:                             ; preds = %JS_FreeValue.exit24
   br label %JS_FreeValue.exit251
 
 JS_FreeValue.exit251:                             ; preds = %JS_FreeValue.exit250, %255, %260
-  %262 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %83, i64 %84, i64 %88, i64 %89, ptr noundef %10)
+  %262 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %83, i64 %84, i64 %88, i64 %89, ptr noundef %10)
   %263 = extractvalue { i64, i64 } %262, 0
   %264 = extractvalue { i64, i64 } %262, 1
   store i64 %263, ptr %9, align 8
@@ -61263,7 +61263,7 @@ JS_FreeValue.exit244:                             ; preds = %JS_FreeValue.exit25
   br i1 %.not308, label %267, label %269
 
 267:                                              ; preds = %JS_FreeValue.exit244
-  %268 = call fastcc i32 @JS_IteratorClose(ptr noundef %0, i64 %83, i64 %84, i32 noundef 1)
+  %268 = call fastcc i32 @JS_IteratorClose(ptr noundef nonnull %0, i64 %83, i64 %84, i32 noundef 1)
   br label %269
 
 269:                                              ; preds = %267, %JS_FreeValue.exit244
@@ -61390,7 +61390,7 @@ JS_FreeValue.exit:                                ; preds = %JS_FreeValue.exit.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @JS_PromiseState(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #12 {
+define dso_local i32 @JS_PromiseState(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %4 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -61418,7 +61418,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %JS_GetOpaqu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @JS_PromiseResult(ptr nocapture noundef readnone %0, i64 %1, i64 %2) local_unnamed_addr #9 {
+define dso_local { i64, i64 } @JS_PromiseResult(ptr noundef readnone captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #9 {
   %4 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -61461,7 +61461,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %18, %11, %6, %3, %J
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetHostPromiseRejectionTracker(ptr nocapture noundef writeonly initializes((272, 288)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define dso_local void @JS_SetHostPromiseRejectionTracker(ptr noundef writeonly captures(none) initializes((272, 288)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -61470,7 +61470,7 @@ define dso_local void @JS_SetHostPromiseRejectionTracker(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_new_promise_capability(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_new_promise_capability(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca [2 x %struct.JSValue], align 16
   %6 = alloca %struct.JSValue, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -61692,7 +61692,7 @@ JS_FreeValue.exit43:                              ; preds = %100, %95, %JS_FreeV
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_resolve_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 %7) #0 {
+define internal { i64, i64 } @js_promise_resolve_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 %7) #0 {
   %9 = alloca [3 x %struct.JSValue], align 16
   %.sroa.079.0..sroa.079.0..cast = inttoptr i64 %1 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.079.0..sroa.079.0..cast, i64 48
@@ -61882,7 +61882,7 @@ JS_FreeValue.exit:                                ; preds = %97, %JS_IsFunction.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 %7) #0 {
+define internal { i64, i64 } @js_async_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 %7) #0 {
   %9 = tail call fastcc ptr @async_func_init(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef %6)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %async_func_free.exit, label %10
@@ -62019,7 +62019,7 @@ async_func_free.exit:                             ; preds = %free_zero_refcount.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_function_resolve_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 %7) #0 {
+define internal { i64, i64 } @js_async_function_resolve_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 %7) #0 {
   %.sroa.030.0..sroa.030.0..cast = inttoptr i64 %1 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.030.0..sroa.030.0..cast, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -62117,7 +62117,7 @@ JS_DupValue.exit36:                               ; preds = %42, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_generator_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 %7) #0 {
+define internal { i64, i64 } @js_async_generator_function_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -62210,7 +62210,7 @@ js_mallocz.exit.thread:                           ; preds = %47, %45, %18, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_promise_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
@@ -62526,7 +62526,7 @@ JS_FreeValue.exit76:                              ; preds = %160, %155, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_function_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -63242,7 +63242,7 @@ JS_FreeValue.exit171:                             ; preds = %string_buffer_puts8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_date_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.timeval, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
@@ -63762,7 +63762,7 @@ skip_shebang.exit:                                ; preds = %8, %24, %._crit_edg
 
 65:                                               ; preds = %61
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #43
-  %67 = call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %5, i64 noundef %66)
+  %67 = call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %66)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.thread149, label %69
 
@@ -64894,7 +64894,7 @@ js_operators_set_default.exit44:                  ; preds = %js_operators_set_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_operators(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_operators(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0)
@@ -65039,7 +65039,7 @@ define internal { i64, i64 } @js_bigint_to_string(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_to_bigint(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string_to_bigint(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -65173,7 +65173,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %12, %16, %34, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_unary_arith_bigint(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 %3, i64 %4) #0 {
+define internal range(i32 -1, 1) i32 @js_unary_arith_bigint(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 %3, i64 %4) #0 {
   %6 = alloca %struct.bf_t, align 8
   %7 = icmp eq i32 %2, 142
   %8 = getelementptr i8, ptr %0, i64 24
@@ -65474,7 +65474,7 @@ JS_FreeValue.exit:                                ; preds = %135, %133, %129, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_binary_arith_bigint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) #0 {
+define internal range(i32 -1, 1) i32 @js_binary_arith_bigint(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -66167,7 +66167,7 @@ throw_bf_exception.exit:                          ; preds = %320, %315, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @js_compare_bigfloat(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5) #0 {
+define internal range(i32 -1, 2) i32 @js_compare_bigfloat(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = call fastcc ptr @JS_ToBigFloat(ptr noundef %0, ptr noundef %7, i64 %2, i64 %3)
@@ -66369,7 +66369,7 @@ JS_FreeValue.exit:                                ; preds = %97, %92, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigint_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.bf_t, align 8
   %7 = and i64 %2, 4294967295
   %.not = icmp eq i64 %7, 3
@@ -66965,7 +66965,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %11, %15, %42, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_unary_arith_bigfloat(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 %3, i64 %4) #0 {
+define internal range(i32 -1, 1) i32 @js_unary_arith_bigfloat(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 %3, i64 %4) #0 {
   %6 = alloca %struct.bf_t, align 8
   %7 = icmp eq i32 %2, 142
   %8 = getelementptr i8, ptr %0, i64 24
@@ -67202,7 +67202,7 @@ JS_FreeValue.exit:                                ; preds = %112, %JS_FreeValue.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_binary_arith_bigfloat(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) #0 {
+define internal range(i32 -1, 1) i32 @js_binary_arith_bigfloat(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67584,7 +67584,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %23, %18, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_mul_pow10(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @js_mul_pow10(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.bf_t, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67766,7 +67766,7 @@ JS_FreeValue.exit:                                ; preds = %10, %14, %51, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -68152,7 +68152,7 @@ JS_FreeValue.exit151:                             ; preds = %20, %24, %189, %183
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_float_env_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_float_env_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -68417,7 +68417,7 @@ define internal { i64, i64 } @js_bigdecimal_to_string(ptr noundef %0, i64 %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_to_bigdecimal(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string_to_bigdecimal(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -68485,7 +68485,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %11, %15, %33, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_unary_arith_bigdecimal(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 %3, i64 %4) #0 {
+define internal range(i32 -1, 1) i32 @js_unary_arith_bigdecimal(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 %3, i64 %4) #0 {
   %6 = icmp eq i32 %2, 142
   %7 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %7, align 8
@@ -68706,7 +68706,7 @@ JS_FreeValue.exit:                                ; preds = %100, %98, %94, %63,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_binary_arith_bigdecimal(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) #0 {
+define internal range(i32 -1, 1) i32 @js_binary_arith_bigdecimal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) #0 {
   %7 = alloca %struct.bfdec_t, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69182,7 +69182,7 @@ JS_FreeValue.exit:                                ; preds = %84, %79, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 3
   br i1 %.not, label %9, label %7
@@ -69257,7 +69257,7 @@ JS_NewBigDecimal.exit.thread:                     ; preds = %17, %21, %23, %JS_D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @JS_EnableBignumExt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local void @JS_EnableBignumExt(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = trunc i32 %1 to i16
   %5 = load i16, ptr %3, align 8
@@ -69269,13 +69269,13 @@ define dso_local void @JS_EnableBignumExt(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_throw_type_error(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_throw_type_error(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.639)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_proto_caller(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_function_proto_caller(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %6, 4294967295
   %7 = inttoptr i64 %1 to ptr
@@ -69322,7 +69322,7 @@ JS_GetFunctionBytecode.exit.thread:               ; preds = %8, %5, %17, %13, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_seal(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_seal(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.JSPropertyDescriptor, align 8
@@ -69521,7 +69521,7 @@ JS_DupValue.exit65:                               ; preds = %43, %42, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 3
   br i1 %.not, label %13, label %7
@@ -69562,7 +69562,7 @@ define internal { i64, i64 } @js_object_constructor(ptr noundef %0, i64 %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_error_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_error_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i32, align 4
   %9 = and i64 %2, 4294967295
@@ -69862,7 +69862,7 @@ JS_FreeValue.exit141:                             ; preds = %JS_NewObjectProtoCl
 
 152:                                              ; preds = %160
   %153 = add i64 %.0106.i, 1
-  %154 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %131, i64 %132, i64 %136, i64 %137, ptr noundef %8)
+  %154 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %131, i64 %132, i64 %136, i64 %137, ptr noundef %8)
   %155 = extractvalue { i64, i64 } %154, 1
   %156 = and i64 %155, 4294967295
   %.not104.i = icmp eq i64 %156, 6
@@ -69888,7 +69888,7 @@ JS_FreeValue.exit141:                             ; preds = %JS_NewObjectProtoCl
   %165 = bitcast double %164 to i64
   %.sroa.015.0.i.i = select i1 %163, i64 %.sroa.019.0.insert.ext.i.i, i64 %165
   %.sroa.3.0.i.i = select i1 %163, i64 0, i64 7
-  %166 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %145, i64 %146, i64 %.sroa.015.0.i.i, i64 %.sroa.3.0.i.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
+  %166 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef nonnull %0, i64 %145, i64 %146, i64 %.sroa.015.0.i.i, i64 %.sroa.3.0.i.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %._crit_edge.i, label %152
@@ -69936,7 +69936,7 @@ JS_FreeValue.exit.i:                              ; preds = %175, %170, %JS_Free
   br label %iterator_to_array.exit
 
 ._crit_edge.i:                                    ; preds = %160, %152, %.preheader.i
-  %186 = tail call fastcc i32 @JS_IteratorClose(ptr noundef %0, i64 %131, i64 %132, i32 noundef 1)
+  %186 = tail call fastcc i32 @JS_IteratorClose(ptr noundef nonnull %0, i64 %131, i64 %132, i32 noundef 1)
   br label %187
 
 187:                                              ; preds = %._crit_edge.i, %139
@@ -70005,7 +70005,7 @@ JS_FreeValue.exit144:                             ; preds = %209, %204, %201, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i32, align 4
   %8 = tail call fastcc { i64, i64 } @js_create_from_ctor(ptr noundef %0, i64 %1, i64 %2, i32 noundef 2)
@@ -70125,7 +70125,7 @@ JS_FreeValue.exit:                                ; preds = %51, %46, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %51, label %8
@@ -70306,7 +70306,7 @@ JS_SetObjectData.exit:                            ; preds = %JS_FreeValue.exit12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_boolean_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_boolean_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -70399,7 +70399,7 @@ JS_SetObjectData.exit:                            ; preds = %.thread, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [64 x i8], align 16
@@ -70646,7 +70646,7 @@ JS_SetObjectData.exit:                            ; preds = %JS_FreeValue.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_symbol_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_symbol_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 3
   br i1 %.not, label %9, label %7
@@ -70730,7 +70730,7 @@ JS_NewSymbol.exit:                                ; preds = %28, %32, %34
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_eval(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_eval(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -70963,7 +70963,7 @@ define dso_local { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_array_buffer_free(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @js_array_buffer_free(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -70972,7 +70972,7 @@ define internal void @js_array_buffer_free(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @JS_DetachArrayBuffer(ptr nocapture noundef readonly %0, i64 %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @JS_DetachArrayBuffer(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #0 {
   %4 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -71050,7 +71050,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %35, %24, %6, %3, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_GetArrayBuffer(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+define dso_local ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = and i64 %3, 4294967295
   %.not.i = icmp eq i64 %6, 4294967295
@@ -71251,7 +71251,7 @@ define dso_local void @JS_AddIntrinsicAtomics(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_buffer_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_buffer_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -71302,7 +71302,7 @@ JS_ToIndex.exit.thread:                           ; preds = %JS_ToInt64Sat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_shared_array_buffer_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_shared_array_buffer_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -71353,13 +71353,13 @@ JS_ToIndex.exit.thread:                           ; preds = %JS_ToInt64Sat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_base_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_typed_array_base_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.902)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_typed_array_constructor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -71959,7 +71959,7 @@ JS_FreeValue.exit:                                ; preds = %286, %282, %279, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_dataview_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_dataview_constructor(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca [64 x i8], align 16
   %8 = alloca i64, align 8
@@ -72176,12 +72176,12 @@ define internal { i64, i64 } @invalid_to_string(ptr noundef %0, i64 %1, i64 %2) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { i64, i64 } @invalid_from_string(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #4 {
+define internal { i64, i64 } @invalid_from_string(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #4 {
   ret { i64, i64 } { i64 9221120237041090560, i64 7 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @invalid_unary_arith(ptr noundef %0, ptr nocapture readnone %1, i32 %2, i64 %3, i64 %4) #0 {
+define internal noundef i32 @invalid_unary_arith(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, i64 %3, i64 %4) #0 {
   %6 = trunc i64 %4 to i32
   %7 = icmp ugt i32 %6, -12
   br i1 %7, label %8, label %JS_FreeValue.exit
@@ -72206,7 +72206,7 @@ JS_FreeValue.exit:                                ; preds = %5, %8, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @invalid_binary_arith(ptr noundef %0, i32 %1, ptr nocapture readnone %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) #0 {
+define internal noundef i32 @invalid_binary_arith(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) #0 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ugt i32 %7, -12
   br i1 %8, label %9, label %JS_FreeValue.exit
@@ -72253,13 +72253,13 @@ JS_FreeValue.exit4:                               ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @invalid_mul_pow10_to_float64(ptr noundef %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal { i64, i64 } @invalid_mul_pow10_to_float64(ptr noundef %0, ptr readnone captures(none) %1, i64 %2) #0 {
   %4 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.95)
   ret { i64, i64 } { i64 0, i64 6 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @invalid_mul_pow10(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @invalid_mul_pow10(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.95)
   ret i32 -1
 }
@@ -72317,7 +72317,7 @@ JS_FreeValueRT.exit:                              ; preds = %7, %16, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_array_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_array_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 64
   %6 = load i32, ptr %5, align 8
@@ -72387,7 +72387,7 @@ JS_FreeValueRT.exit:                              ; preds = %3, %10, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_object_data_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_object_data_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 56
   %6 = load i64, ptr %5, align 8
@@ -72407,7 +72407,7 @@ JS_MarkValue.exit:                                ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_c_function_finalizer(ptr nocapture readnone %0, i64 %1, i64 %2) #0 {
+define internal void @js_c_function_finalizer(ptr readnone captures(none) %0, i64 %1, i64 %2) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -72423,7 +72423,7 @@ define internal void @js_c_function_finalizer(ptr nocapture readnone %0, i64 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_c_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_c_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -72589,7 +72589,7 @@ JS_FreeValueRT.exit28:                            ; preds = %47, %51, %54, %free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_bytecode_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_bytecode_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.021.0..sroa.021.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.021.0..sroa.021.0..cast, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.021.0..sroa.021.0..cast, i64 56
@@ -72739,7 +72739,7 @@ JS_FreeValueRT.exit13:                            ; preds = %33, %40, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_bound_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_bound_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -72877,7 +72877,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_c_function_data_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_c_function_data_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -73096,7 +73096,7 @@ JS_FreeAtomRT.exit:                               ; preds = %29, %35, %JS_FreeAt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_for_in_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_for_in_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -73492,7 +73492,7 @@ JS_FreeValueRT.exit:                              ; preds = %free_zero_refcount.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_typed_array_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_typed_array_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.05.0..sroa.05.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.05.0..sroa.05.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -73806,7 +73806,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_operator_set_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_operator_set_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -74040,7 +74040,7 @@ JS_FreeValueRT.exit28:                            ; preds = %50, %45, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_map_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_map_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -74181,7 +74181,7 @@ JS_FreeValueRT.exit:                              ; preds = %map_decref_record.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_map_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_map_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -74245,7 +74245,7 @@ JS_FreeValueRT.exit:                              ; preds = %6, %12, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_array_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_array_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -74330,7 +74330,7 @@ JS_FreeValueRT.exit8:                             ; preds = %JS_FreeValueRT.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_regexp_string_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_regexp_string_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -74469,7 +74469,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %free_genera
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_generator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_generator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -74547,7 +74547,7 @@ free_zero_refcount.exit:                          ; preds = %.lr.ph, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @js_def_malloc(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal noundef ptr @js_def_malloc(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
@@ -74578,7 +74578,7 @@ define internal noundef ptr @js_def_malloc(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_def_free(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @js_def_free(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 
@@ -74600,7 +74600,7 @@ define internal void @js_def_free(ptr nocapture noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @js_def_realloc(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef ptr @js_def_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %22
 
@@ -74688,16 +74688,16 @@ define internal i64 @js_def_malloc_usable_size(ptr noundef %0) #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_free_module_def(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @js_free_module_def(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 226
@@ -75579,10 +75579,10 @@ JS_FreeValue.exit113:                             ; preds = %JS_FreeValue.exit10
 declare ptr @llvm.frameaddress.p0(i32 immarg) #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_realloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -56613888, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_realloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 -56613888, -2147483648) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -75773,7 +75773,7 @@ string_buffer_widen.exit:                         ; preds = %._crit_edge, %js_re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc_slow(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_putc_slow(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -77163,7 +77163,7 @@ free_object.exit:                                 ; preds = %464, %460, %417, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_property(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 64) %2) unnamed_addr #0 {
+define internal fastcc void @free_property(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 64) %2) unnamed_addr #0 {
   %4 = lshr i32 %2, 4
   switch i32 %4, label %default.unreachable [
     i32 0, label %100
@@ -77391,7 +77391,7 @@ free_var_ref.exit:                                ; preds = %111, %106, %100, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_bytecode_atoms(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @free_bytecode_atoms(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -77526,7 +77526,7 @@ JS_FreeAtomRT.exit:                               ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @async_func_free_frame(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @async_func_free_frame(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77696,7 +77696,7 @@ define internal void @gc_scan_incref_child(ptr noundef %0, ptr noundef %1) #22 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @gc_scan_incref_child2(ptr nocapture readnone %0, ptr nocapture noundef %1) #6 {
+define internal void @gc_scan_incref_child2(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %1, align 8
@@ -77810,7 +77810,7 @@ JS_FreeValue.exit:                                ; preds = %JS_GetPrototype.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_instantiate_prototype(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal { i64, i64 } @js_instantiate_prototype(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca %struct.JSValue, align 8
   %7 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0)
@@ -77887,13 +77887,13 @@ JS_FreeValue.exit:                                ; preds = %33, %28, %25, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_module_ns_autoinit(ptr noundef %0, ptr nocapture readnone %1, i32 %2, ptr noundef %3) #0 {
+define internal { i64, i64 } @js_module_ns_autoinit(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef %3) #0 {
   %5 = tail call { i64, i64 } @JS_GetModuleNamespace(ptr noundef %0, ptr noundef %3)
   ret { i64, i64 } %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @JS_InstantiateFunctionListItem2(ptr noundef %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef readonly %3) #0 {
+define internal { i64, i64 } @JS_InstantiateFunctionListItem2(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %35 [
@@ -77949,7 +77949,7 @@ define internal { i64, i64 } @JS_InstantiateFunctionListItem2(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_free_prop_enum(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @js_free_prop_enum(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %74, label %.preheader
 
@@ -78079,7 +78079,7 @@ JS_FreeAtom.exit:                                 ; preds = %5, %9, %JS_FreeAtom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_free_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @js_free_desc(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -78155,7 +78155,7 @@ JS_FreeValue.exit7:                               ; preds = %JS_FreeValue.exit6,
 declare void @rqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @num_keys_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #23 {
+define internal range(i32 -1, 2) i32 @num_keys_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #23 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -78413,7 +78413,7 @@ JS_AtomIsArrayIndex.exit36:                       ; preds = %65, %.preheader.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @js_clone_shape(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @js_clone_shape(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -78524,7 +78524,7 @@ js_malloc.exit.thread:                            ; preds = %JS_DupAtom.exit, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_shape_property(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 56) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_shape_property(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 56) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
@@ -78704,7 +78704,7 @@ JS_DupAtom.exit:                                  ; preds = %85, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @resize_properties(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @resize_properties(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
@@ -78898,7 +78898,7 @@ js_realloc.exit.thread:                           ; preds = %49, %53, %27, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_ToUint8ClampFree(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_ToUint8ClampFree(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.bf_t, align 8
   br label %7
@@ -79008,7 +79008,7 @@ declare i32 @bf_rint(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @bf_get_int32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @js_string_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #24 {
+define internal fastcc i32 @js_string_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #24 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
@@ -80670,7 +80670,7 @@ to_digit.exit._crit_edge.thread.i:                ; preds = %277, %.thread.i, %t
   br label %js_strtod.exit
 
 .loopexit.i:                                      ; preds = %to_digit.exit.us.thread.i, %267
-  %325 = call double @strtod(ptr nocapture noundef nonnull readonly %.2233, ptr noundef null) #42
+  %325 = call double @strtod(ptr noundef nonnull readonly captures(none) %.2233, ptr noundef null) #42
   br label %js_strtod.exit
 
 js_strtod.exit:                                   ; preds = %to_digit.exit._crit_edge.thread.i, %323, %.loopexit.i
@@ -80827,10 +80827,10 @@ declare void @bf_set_inf(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare double @pow(double noundef, double noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @__JS_ToFloat64Free(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @__JS_ToFloat64Free(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %2, i64 %3, i32 noundef 0)
   %7 = extractvalue { i64, i64 } %6, 0
@@ -81087,7 +81087,7 @@ js_ecvt1.exit.i:                                  ; preds = %81
   %89 = zext nneg i32 %83 to i64
   %90 = getelementptr i8, ptr %12, i64 %89
   store i8 0, ptr %90, align 1
-  %91 = call double @strtod(ptr nocapture noundef nonnull %6, ptr noundef null) #42
+  %91 = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #42
   %92 = fcmp oeq double %91, %.0119
   br i1 %92, label %.lr.ph.preheader.i, label %105
 
@@ -81095,7 +81095,7 @@ js_ecvt1.exit.i.thread:                           ; preds = %81
   %93 = zext nneg i32 %83 to i64
   %94 = getelementptr i8, ptr %12, i64 %93
   store i8 0, ptr %94, align 1
-  %95 = call double @strtod(ptr nocapture noundef nonnull %6, ptr noundef null) #42
+  %95 = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #42
   %96 = fcmp oeq double %95, %.0119
   br i1 %96, label %.critedge.i, label %105
 
@@ -81400,7 +81400,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @fesetround(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #27
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef nonnull %1, i64 %2, i64 %3) unnamed_addr #0 {
@@ -81582,7 +81582,7 @@ JS_FreeValue.exit:                                ; preds = %61, %JS_StringToBig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @JS_FreeBigInt(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull readnone %2) unnamed_addr #0 {
+define internal fastcc void @JS_FreeBigInt(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readnone %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %5, label %13
 
@@ -81965,7 +81965,7 @@ JS_FreeCString.exit:                              ; preds = %152, %JS_FreeAtomSt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr nocapture noundef readonly %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly captures(none) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = bitcast i64 %1 to double
@@ -82347,7 +82347,7 @@ JS_FreeValue.exit117:                             ; preds = %173, %169, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JS_ToBigFloat(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc ptr @JS_ToBigFloat(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   switch i32 %5, label %27 [
     i32 0, label %6
@@ -82417,7 +82417,7 @@ declare i32 @bf_cmp_full(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @bf_set_nan(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @js_arguments_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %7, i32 noundef %8) #0 {
+define internal i32 @js_arguments_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %7, i32 noundef %8) #0 {
   %.sroa.08.0..sroa.08.0..cast = inttoptr i64 %1 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.0..sroa.08.0..cast, i64 5
   %11 = load i8, ptr %10, align 1
@@ -82689,7 +82689,7 @@ JS_FreeValue.exit32:                              ; preds = %53, %48, %45, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_closure(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_closure(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [64 x i8], align 16
@@ -83119,7 +83119,7 @@ JS_FreeValue.exit:                                ; preds = %224, %219, %JS_NewO
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_build_arguments(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_build_arguments(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca %struct.JSValue, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -83342,7 +83342,7 @@ JS_FreeValue.exit:                                ; preds = %.loopexit78, %72, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_build_mapped_arguments(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_build_mapped_arguments(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -83925,7 +83925,7 @@ JS_GetImportMeta.exit:                            ; preds = %JS_NewObjectProto.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_apply(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_function_apply(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca i32, align 4
@@ -84410,7 +84410,7 @@ JS_FreeCString.exit:                              ; preds = %29, %JS_FreeAtomStr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_arg_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc ptr @build_arg_list(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = and i64 %3, 4294967295
   %.not = icmp eq i64 %6, 4294967295
@@ -84606,7 +84606,7 @@ js_mallocz.exit.thread:                           ; preds = %10, %33, %29, %js_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_regexp_constructor_internal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_regexp_constructor_internal(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -85436,7 +85436,7 @@ js_object_has_name.exit.thread27:                 ; preds = %35, %33, %JS_Define
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca %struct.JSValue, align 8
@@ -85531,7 +85531,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
 59:                                               ; preds = %58
   %60 = getelementptr %struct.JSPropertyEnum, ptr %.pre, i64 %indvars.iv, i32 1
   %61 = load i32, ptr %60, align 4
-  %62 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %15, i32 noundef %61)
+  %62 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef %61)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.sink.split, label %64
 
@@ -86458,7 +86458,7 @@ JS_FreeValue.exit182:                             ; preds = %181, %176, %174, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @JS_ConcatStringInPlace(ptr nocapture noundef readonly %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @JS_ConcatStringInPlace(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = and i64 %3, 4294967295
   %6 = icmp eq i64 %5, 4294967289
   %7 = inttoptr i64 %2 to ptr
@@ -87084,7 +87084,7 @@ JS_FreeValue.exit90:                              ; preds = %119, %114, %112, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_relational_slow(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_relational_slow(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = getelementptr i8, ptr %1, i64 -32
   %.sroa.0120.0.copyload = load double, ptr %5, align 8
@@ -87695,7 +87695,7 @@ JS_FreeValue.exit240:                             ; preds = %238, %233, %230, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_eq_slow(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_eq_slow(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = getelementptr i8, ptr %1, i64 -32
   %.sroa.0150.0.copyload = load double, ptr %5, align 8
@@ -88537,7 +88537,7 @@ JS_DupValueRT.exit:                               ; preds = %JS_DupValueRT.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_closure2(ptr noundef %0, i64 %1, i64 range(i64 -1, 7) %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_closure2(ptr noundef %0, i64 %1, i64 range(i64 -1, 7) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   store ptr %3, ptr %7, align 8
@@ -88647,7 +88647,7 @@ JS_FreeValue.exit:                                ; preds = %48, %25, %58, %54, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @__JS_ThrowSyntaxErrorAtom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @__JS_ThrowSyntaxErrorAtom(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
@@ -88657,7 +88657,7 @@ define internal fastcc void @__JS_ThrowSyntaxErrorAtom(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_get_length32(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_get_length32(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %2, i64 %3, i32 noundef 48, i64 %2, i64 %3, i32 noundef 0)
   %6 = extractvalue { i64, i64 } %5, 1
   %7 = and i64 %6, 4294967295
@@ -88929,7 +88929,7 @@ tailrecurse.backedge:                             ; preds = %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_dynamic_import_job(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal { i64, i64 } @js_dynamic_import_job(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca %struct.JSValue, align 8
   %.sroa.3.0..sroa_idx = getelementptr i8, ptr %2, i64 40
@@ -89754,7 +89754,7 @@ JS_FreeValue.exit107:                             ; preds = %7, %196, %JS_GetIte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = call fastcc { i64, i64 } @JS_IteratorNext2(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef 0, ptr noundef null, ptr noundef %7)
   %9 = extractvalue { i64, i64 } %8, 0
@@ -89952,7 +89952,7 @@ JS_FreeValue.exit:                                ; preds = %37, %39, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_IteratorGetCompleteValue(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_IteratorGetCompleteValue(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = tail call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 106, i64 %1, i64 %2, i32 noundef 0)
   %6 = extractvalue { i64, i64 } %5, 1
   %7 = and i64 %6, 4294967295
@@ -89995,7 +89995,7 @@ define internal fastcc void @JS_ThrowTypeErrorPrivateNotFound(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ConcatString3(ptr noundef %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ConcatString3(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, i64 %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = and i64 %3, 4294967295
   %.not = icmp eq i64 %7, 4294967289
@@ -90141,7 +90141,7 @@ JS_FreeValue.exit47:                              ; preds = %9, %13, %17
   %83 = getelementptr [0 x i8], ptr %80, i64 0, i64 %82
   %sext = shl i64 %26, 32
   %84 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %1, i64 %84, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr nonnull align 1 %1, i64 %84, i1 false)
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %.lr.ph, %.preheader69, %78
@@ -90269,7 +90269,7 @@ string_buffer_concat.exit:                        ; preds = %.loopexit68, %98, %
   %141 = getelementptr [0 x i8], ptr %138, i64 0, i64 %140
   %sext64 = shl i64 %28, 32
   %142 = ashr exact i64 %sext64, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr align 1 %4, i64 %142, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr nonnull align 1 %4, i64 %142, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph74, %.preheader, %136
@@ -90418,7 +90418,7 @@ JS_FreeValue.exit46:                              ; preds = %196, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp ugt i32 %3, %2
   br i1 %.not, label %5, label %string_buffer_write8.exit
 
@@ -90507,7 +90507,7 @@ string_buffer_write8.exit:                        ; preds = %.loopexit.i, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_write16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_write16(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -90695,7 +90695,7 @@ string_buffer_widen.exit.thread:                  ; preds = %22, %js_realloc2.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_create_array_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_create_array_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = and i32 %5, 3
   %8 = and i32 %5, 4
   %.not = icmp eq i32 %8, 0
@@ -90829,7 +90829,7 @@ JS_SetOpaque.exit:                                ; preds = %61, %56, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 %6) #0 {
+define internal { i64, i64 } @js_array_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 %6) #0 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca i32, align 4
   %10 = alloca [2 x %struct.JSValue], align 16
@@ -91043,7 +91043,7 @@ JS_FreeValue.exit110:                             ; preds = %90, %97, %102
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_create_array(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_create_array(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -91150,7 +91150,7 @@ define internal fastcc i32 @JS_CreateDataPropertyUint32(ptr noundef %0, i64 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @js_call_binary_op_fallback(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 3) %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @js_call_binary_op_fallback(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 3) %8) unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [2 x %struct.JSValue], align 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -91357,7 +91357,7 @@ find_binary_op.exit:                              ; preds = %105, %90, %73
 find_binary_op.exit.thread:                       ; preds = %100, %85, %94, %79, %find_binary_op.exit
   %109 = zext nneg i32 %69 to i64
   %110 = getelementptr [19 x [4 x i8]], ptr @js_overloadable_operator_names, i64 0, i64 %109
-  %111 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.163, ptr noundef %110)
+  %111 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.163, ptr noundef %110)
   br label %JS_FreeValue.exit312
 
 112:                                              ; preds = %find_binary_op.exit
@@ -91382,7 +91382,7 @@ find_binary_op.exit.thread:                       ; preds = %100, %85, %94, %79,
   br label %JS_DupValue.exit327
 
 JS_DupValue.exit327:                              ; preds = %117, %118
-  %122 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %2, i64 %3, i32 noundef 1)
+  %122 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef nonnull %0, i64 %2, i64 %3, i32 noundef 1)
   br label %129
 
 123:                                              ; preds = %114
@@ -91396,7 +91396,7 @@ JS_DupValue.exit327:                              ; preds = %117, %118
   br label %JS_DupValue.exit330
 
 JS_DupValue.exit330:                              ; preds = %123, %124
-  %128 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %2, i64 %3, i32 noundef range(i32 0, 18) %8)
+  %128 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef nonnull %0, i64 %2, i64 %3, i32 noundef range(i32 0, 18) %8)
   br label %129
 
 129:                                              ; preds = %JS_DupValue.exit330, %JS_DupValue.exit327
@@ -91444,7 +91444,7 @@ JS_DupValue.exit:                                 ; preds = %134, %131, %129
   br label %JS_DupValue.exit333
 
 JS_DupValue.exit333:                              ; preds = %143, %144
-  %148 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %4, i64 %5, i32 noundef 1)
+  %148 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef nonnull %0, i64 %4, i64 %5, i32 noundef 1)
   br label %155
 
 149:                                              ; preds = %140
@@ -91458,7 +91458,7 @@ JS_DupValue.exit333:                              ; preds = %143, %144
   br label %JS_DupValue.exit336
 
 JS_DupValue.exit336:                              ; preds = %149, %150
-  %154 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %4, i64 %5, i32 noundef range(i32 0, 18) %8)
+  %154 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef nonnull %0, i64 %4, i64 %5, i32 noundef range(i32 0, 18) %8)
   br label %155
 
 155:                                              ; preds = %JS_DupValue.exit336, %JS_DupValue.exit333
@@ -91528,7 +91528,7 @@ JS_DupValue.exit315:                              ; preds = %171, %168, %155
   store i64 %.sroa.067.1.sink, ptr %182, align 16
   %183 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %.sroa.7.1.sink, ptr %183, align 8
-  %184 = call fastcc { i64, i64 } @JS_CallFree(ptr noundef %0, i64 %.sroa.020.0..sroa.020.0.298.cast, i64 -1, i64 0, i64 3, i32 noundef 2, ptr noundef nonnull %11)
+  %184 = call fastcc { i64, i64 } @JS_CallFree(ptr noundef nonnull %0, i64 %.sroa.020.0..sroa.020.0.298.cast, i64 -1, i64 0, i64 3, i32 noundef 2, ptr noundef nonnull %11)
   %185 = extractvalue { i64, i64 } %184, 0
   %186 = extractvalue { i64, i64 } %184, 1
   %.sroa.081.sroa.9.0.extract.shift116 = and i64 %185, -4294967296
@@ -91579,7 +91579,7 @@ JS_FreeValue.exit319:                             ; preds = %JS_FreeValue.exit31
   br i1 %209, label %210, label %216
 
 210:                                              ; preds = %208
-  %211 = call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %185, i64 %186)
+  %211 = call fastcc i32 @JS_ToBoolFree(ptr noundef nonnull %0, i64 %185, i64 %186)
   %212 = icmp eq i32 %6, 171
   %213 = zext i1 %212 to i32
   %214 = icmp ne i32 %211, %213
@@ -91594,7 +91594,7 @@ JS_FreeValue.exit319:                             ; preds = %JS_FreeValue.exit31
   br i1 %.not354, label %224, label %218
 
 218:                                              ; preds = %217
-  %219 = call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %185, i64 %186)
+  %219 = call fastcc i32 @JS_ToBoolFree(ptr noundef nonnull %0, i64 %185, i64 %186)
   %220 = and i32 %6, -3
   %or.cond3 = icmp eq i32 %220, 165
   %221 = zext i1 %or.cond3 to i32
@@ -91780,7 +91780,7 @@ define internal double @js_pow(double noundef %0, double noundef %1) #29 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @js_call_unary_op_fallback(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @js_call_unary_op_fallback(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca %struct.JSValue, align 8
   store i64 %2, ptr %7, align 8
@@ -91926,7 +91926,7 @@ JS_FreeValue.exit:                                ; preds = %11, %37, %33, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @async_func_init(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @async_func_init(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
@@ -92216,7 +92216,7 @@ define internal fastcc { i64, i64 } @async_func_resume(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 declare i32 @dbuf_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
@@ -92256,7 +92256,7 @@ declare i32 @lre_is_id_start(i32 noundef) local_unnamed_addr #5
 declare i32 @lre_is_id_continue(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @js_module_ns_has(ptr nocapture readnone %0, i64 %1, i64 %2, i32 noundef %3) #23 {
+define internal range(i32 0, 2) i32 @js_module_ns_has(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 noundef %3) #23 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -92298,7 +92298,7 @@ define internal range(i32 0, 2) i32 @js_module_ns_has(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_exported_names(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_exported_names(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -92559,7 +92559,7 @@ js_resize_array.exit.thread:                      ; preds = %9, %js_realloc2.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @js_resolve_export(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @js_resolve_export(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JSResolveState, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -92688,7 +92688,7 @@ JS_FreeAtom.exit:                                 ; preds = %12, %16, %JS_FreeAt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_resolve_export_throw_error(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @js_resolve_export_throw_error(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   switch i32 %1, label %.sink.split [
@@ -92720,7 +92720,7 @@ define internal fastcc void @js_resolve_export_throw_error(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @exported_names_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @exported_names_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = load i32, ptr %0, align 8
@@ -92998,7 +92998,7 @@ JS_FreeValue.exit38:                              ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @js_resolve_export1(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @js_resolve_export1(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -93334,7 +93334,7 @@ js_malloc.exit.i.i.i:                             ; preds = %10
   br label %JS_FreeAtom.exit
 
 js_malloc.exit.i:                                 ; preds = %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %1, i64 %.0.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %1, i64 %.0.i, i1 false)
   %43 = getelementptr i8, ptr %36, i64 %.0.i
   store i8 0, ptr %43, align 1
   %44 = load i8, ptr %2, align 1
@@ -93687,7 +93687,7 @@ JS_FreeAtom.exit:                                 ; preds = %41, %37, %20, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_load_module_fulfilled(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_load_module_fulfilled(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca %struct.JSValue, align 8
@@ -93806,7 +93806,7 @@ JS_FreeValue.exit25:                              ; preds = %66, %61, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_load_module_rejected(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_load_module_rejected(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = icmp sgt i32 %3, 0
@@ -93858,7 +93858,7 @@ JS_FreeValue.exit:                                ; preds = %13, %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_then(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_promise_then(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca [2 x %struct.JSValue], align 16
   %8 = and i64 %2, 4294967295
@@ -94007,7 +94007,7 @@ JS_FreeValue.exit49:                              ; preds = %70, %65, %62, %JS_G
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @pstrcat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -94143,7 +94143,7 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @perform_promise_then(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @perform_promise_then(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 16
   %7 = alloca [5 x %struct.JSValue], align 16
   %8 = and i64 %2, 4294967295
@@ -94529,7 +94529,7 @@ JS_FreeValueRT.exit9:                             ; preds = %JS_FreeValueRT.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @promise_reaction_job(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal { i64, i64 } @promise_reaction_job(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca %struct.JSValue, align 8
@@ -94716,7 +94716,7 @@ JS_FreeValue.exit:                                ; preds = %80, %85, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_create_module_function(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_create_module_function(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16711680
@@ -95075,7 +95075,7 @@ js_create_module_var.exit.thread:                 ; preds = %.lr.ph34, %180, %js
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @js_inner_module_linking(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @js_inner_module_linking(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -95550,7 +95550,7 @@ JS_FreeValue.exit:                                ; preds = %38, %108, %138, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @js_inner_module_evaluation(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @js_inner_module_evaluation(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 216
@@ -96004,7 +96004,7 @@ JS_FreeValue.exit33:                              ; preds = %69, %64, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_execute_sync_module(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4), (8, 16)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_execute_sync_module(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4), (8, 16)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -96144,7 +96144,7 @@ JS_FreeValue.exit47:                              ; preds = %46, %JS_PromiseResu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_module_execution_fulfilled(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_async_module_execution_fulfilled(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca %struct.JSValue, align 8
@@ -96363,7 +96363,7 @@ JS_FreeValue.exit43:                              ; preds = %86, %81, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_module_execution_rejected(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_async_module_execution_rejected(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca %struct.JSValue, align 8
@@ -96500,7 +96500,7 @@ JS_FreeValue.exit37:                              ; preds = %77, %72, %61, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gather_available_ancestors(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gather_available_ancestors(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 216
@@ -96654,7 +96654,7 @@ js_resize_array.exit.thread:                      ; preds = %75, %find_in_exec_m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @exec_module_list_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #12 {
+define internal range(i32 -1, 2) i32 @exec_module_list_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -97847,7 +97847,7 @@ bc_put_leb128.exit148:                            ; preds = %.lr.ph.i.i144, %bc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @js_object_list_find(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #23 {
+define internal fastcc i32 @js_object_list_find(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -97915,7 +97915,7 @@ dbuf_put_leb128.exit:                             ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_object_list_add(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_object_list_add(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -98660,7 +98660,7 @@ bc_put_leb128.exit18:                             ; preds = %.lr.ph.i.i14, %bc_p
 declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_atom_to_idx(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_atom_to_idx(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = icmp uge i32 %2, %5
@@ -98852,10 +98852,10 @@ js_resize_array.exit.thread:                      ; preds = %43, %40, %js_reallo
 declare i32 @dbuf_realloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_u8(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_u8(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -98895,7 +98895,7 @@ bc_read_error_end.exit:                           ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -98965,7 +98965,7 @@ bc_read_error_end.exit:                           ; preds = %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JS_ReadString(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc ptr @JS_ReadString(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99206,7 +99206,7 @@ js_free_string.exit:                              ; preds = %130, %126, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_sleb128(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_sleb128(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99277,7 +99277,7 @@ bc_read_error_end.exit:                           ; preds = %.loopexit, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_u64(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_u64(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -99318,7 +99318,7 @@ bc_read_error_end.exit:                           ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadFunctionTag(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadFunctionTag(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.JSFunctionBytecode, align 8
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
@@ -99780,7 +99780,7 @@ JS_FreeValue.exit:                                ; preds = %39, %68, %74, %77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadModule(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadModule(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
@@ -100317,7 +100317,7 @@ bc_get_leb128_int.exit175:                        ; preds = %.loopexit197, %194
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadObjectTag(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadObjectTag(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.JSValue, align 8
   %3 = alloca %struct.JSValue, align 8
   %4 = alloca i32, align 4
@@ -100733,7 +100733,7 @@ JS_FreeValue.exit:                                ; preds = %79, %bc_get_leb128.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadArray(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadArray(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -100968,7 +100968,7 @@ JS_FreeValue.exit:                                ; preds = %110, %106, %BC_add_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadTypedArray(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadTypedArray(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct.JSValue], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101308,7 +101308,7 @@ JS_FreeValue.exit:                                ; preds = %169, %164, %161, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadArrayBuffer(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadArrayBuffer(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -101507,7 +101507,7 @@ JS_FreeValue.exit:                                ; preds = %96, %91, %BC_add_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadSharedArrayBuffer(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadSharedArrayBuffer(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -101707,7 +101707,7 @@ JS_FreeValue.exit:                                ; preds = %96, %91, %BC_add_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadDate(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadDate(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call fastcc { i64, i64 } @JS_ReadObjectRec(ptr noundef %0)
   %4 = extractvalue { i64, i64 } %3, 0
@@ -101995,7 +101995,7 @@ JS_SetObjectData.exit:                            ; preds = %1, %142, %137, %JS_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadObjectValue(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadObjectValue(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call fastcc { i64, i64 } @JS_ReadObjectRec(ptr noundef %0)
   %4 = extractvalue { i64, i64 } %3, 0
@@ -102156,7 +102156,7 @@ JS_FreeValue.exit:                                ; preds = %82, %77, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_ReadBigNum(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_ReadBigNum(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -102618,7 +102618,7 @@ JS_FreeValue.exit:                                ; preds = %161, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_atom(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_atom(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102750,7 +102750,7 @@ bc_idx_to_atom.exit:                              ; preds = %JS_DupAtom.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_u16(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_u16(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102817,7 +102817,7 @@ bc_get_leb128.exit:                               ; preds = %get_leb128.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_int(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_leb128_int(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102887,7 +102887,7 @@ bc_get_leb128.exit:                               ; preds = %bc_read_error_end.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @JS_ReadFunctionBytecode(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @JS_ReadFunctionBytecode(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 16711680
@@ -103107,7 +103107,7 @@ JS_DupAtom.exit:                                  ; preds = %72, %70, %52, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bc_get_buf(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bc_get_buf(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %23, label %4
 
@@ -103294,7 +103294,7 @@ js_new_string_char.exit:                          ; preds = %42, %46, %48, %56, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @js_string_delete_property(ptr nocapture readnone %0, i64 %1, i64 %2, i32 noundef %3) #12 {
+define internal range(i32 0, 2) i32 @js_string_delete_property(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 noundef %3) #12 {
   %.not = icmp sgt i32 %3, -1
   br i1 %.not, label %js_string_obj_get_length.exit.thread, label %5
 
@@ -103326,7 +103326,7 @@ js_string_obj_get_length.exit.thread:             ; preds = %5, %js_string_obj_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @js_string_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %7, i32 noundef %8) #0 {
+define internal i32 @js_string_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %7, i32 noundef %8) #0 {
   %.not = icmp sgt i32 %3, -1
   %10 = inttoptr i64 %1 to ptr
   %11 = inttoptr i64 %4 to ptr
@@ -103444,7 +103444,7 @@ check_define_prop_flags.exit.thread:              ; preds = %30, %24, %string_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_normalize(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_normalize(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -103945,7 +103945,7 @@ JS_FreeValue.exit:                                ; preds = %115, %110, %107, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @js_string_normalize1(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, i32 noundef range(i32 -67, 191) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @js_string_normalize1(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef range(i32 -67, 191) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %2, i64 %3, i32 noundef 0)
   %8 = extractvalue { i64, i64 } %7, 0
@@ -104784,7 +104784,7 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_exec(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_exec(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -105584,7 +105584,7 @@ JS_FreeValue.exit615:                             ; preds = %JS_FreeValue.exit61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_compile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_compile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [64 x i8], align 16
   %8 = and i64 %2, 4294967295
@@ -105971,7 +105971,7 @@ JS_FreeValue.exit107:                             ; preds = %214, %209, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_test(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_test(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -106015,7 +106015,7 @@ JS_FreeValue.exit:                                ; preds = %13, %17, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_regexp_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = and i64 %2, 4294967295
   %.not = icmp eq i64 %7, 4294967295
@@ -106261,7 +106261,7 @@ string_buffer_end.exit:                           ; preds = %65, %__JS_AtomToVal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_Symbol_replace(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_Symbol_replace(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -106490,10 +106490,10 @@ string_indexof_char.exit:                         ; preds = %.lr.ph.i, %.lr.ph27
   br i1 %.not678, label %string_indexof_char.exit.thread, label %113
 
 113:                                              ; preds = %string_indexof_char.exit
-  %114 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 112, i64 %1, i64 %2, i32 noundef 0)
+  %114 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 112, i64 %1, i64 %2, i32 noundef 0)
   %115 = extractvalue { i64, i64 } %114, 0
   %116 = extractvalue { i64, i64 } %114, 1
-  %117 = call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %115, i64 %116)
+  %117 = call fastcc i32 @JS_ToBoolFree(ptr noundef nonnull %0, i64 %115, i64 %116)
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %value_buffer_append.exit.thread, label %119
 
@@ -106502,7 +106502,7 @@ string_indexof_char.exit:                         ; preds = %.lr.ph.i, %.lr.ph27
   store i64 %1, ptr %9, align 8
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %120, align 8
-  %121 = call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 86, i64 0, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, i32 noundef 16384)
+  %121 = call i32 @JS_SetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 86, i64 0, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, i32 noundef 16384)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %value_buffer_append.exit.thread, label %string_indexof_char.exit.thread
@@ -106522,12 +106522,12 @@ string_indexof_char.exit.thread:                  ; preds = %106, %111, %.prehea
   br i1 %or.cond, label %129, label %135
 
 129:                                              ; preds = %124
-  %130 = call fastcc i32 @js_is_standard_regexp(ptr noundef %0, i64 %1, i64 %2)
+  %130 = call fastcc i32 @js_is_standard_regexp(ptr noundef nonnull %0, i64 %1, i64 %2)
   %.not591 = icmp eq i32 %130, 0
   br i1 %.not591, label %135, label %131
 
 131:                                              ; preds = %129
-  %132 = call fastcc { i64, i64 } @JS_RegExpDelete(ptr noundef %0, i64 %1, i64 %2, i64 %49, i64 %50)
+  %132 = call fastcc { i64, i64 } @JS_RegExpDelete(ptr noundef nonnull %0, i64 %1, i64 %2, i64 %49, i64 %50)
   %133 = extractvalue { i64, i64 } %132, 0
   %134 = extractvalue { i64, i64 } %132, 1
   %.sroa.0170.sroa.4.0.extract.shift173 = and i64 %133, -4294967296
@@ -106544,7 +106544,7 @@ string_indexof_char.exit.thread:                  ; preds = %106, %111, %.prehea
   %.sroa.0362.sroa.8.1 = phi i32 [ undef, %135 ], [ %.sroa.0362.sroa.8.0.extract.trunc, %JS_IsEmptyString.exit.thread ]
   %.sroa.0362.sroa.0.1 = phi i32 [ 0, %135 ], [ %.sroa.0362.sroa.0.0.extract.trunc, %JS_IsEmptyString.exit.thread ]
   %.sroa.13370.2 = phi i64 [ 3, %135 ], [ %264, %JS_IsEmptyString.exit.thread ]
-  %140 = call fastcc { i64, i64 } @JS_RegExpExec(ptr noundef %0, i64 %1, i64 %2, i64 %49, i64 %50)
+  %140 = call fastcc { i64, i64 } @JS_RegExpExec(ptr noundef nonnull %0, i64 %1, i64 %2, i64 %49, i64 %50)
   %141 = extractvalue { i64, i64 } %140, 0
   %142 = extractvalue { i64, i64 } %140, 1
   %trunc = trunc i64 %142 to i32
@@ -106768,10 +106768,10 @@ JS_FreeValue.exit.i:                              ; preds = %227, %222, %value_b
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %240, %243, %248
-  %250 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %141, i64 %142, i64 0, i64 0)
+  %250 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %141, i64 %142, i64 0, i64 0)
   %251 = extractvalue { i64, i64 } %250, 0
   %252 = extractvalue { i64, i64 } %250, 1
-  %253 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %251, i64 %252, i32 noundef 0)
+  %253 = call { i64, i64 } @JS_ToStringInternal(ptr noundef nonnull %0, i64 %251, i64 %252, i32 noundef 0)
   %254 = trunc i64 %252 to i32
   %255 = icmp ugt i32 %254, -12
   br i1 %255, label %256, label %JS_ToStringFree.exit624
@@ -106810,7 +106810,7 @@ JS_IsEmptyString.exit:                            ; preds = %JS_ToStringFree.exi
   br i1 %.not697, label %269, label %JS_IsEmptyString.exit.thread
 
 269:                                              ; preds = %JS_IsEmptyString.exit
-  %270 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 86, i64 %1, i64 %2, i32 noundef 0)
+  %270 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 86, i64 %1, i64 %2, i32 noundef 0)
   %271 = extractvalue { i64, i64 } %270, 0
   %272 = extractvalue { i64, i64 } %270, 1
   %273 = trunc i64 %272 to i32
@@ -106825,7 +106825,7 @@ JS_IsEmptyString.exit:                            ; preds = %JS_ToStringFree.exi
   br label %JS_DupValue.exit.i.i
 
 JS_DupValue.exit.i.i:                             ; preds = %275, %269
-  %279 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef %0, ptr noundef nonnull %15, i64 %271, i64 %272)
+  %279 = call fastcc i32 @JS_ToInt64SatFree(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 %271, i64 %272)
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %JS_ToInt64Clamp.exit.i
 
@@ -106922,7 +106922,7 @@ string_advance_index.exit:                        ; preds = %300, %string_getc.e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i64 %1, ptr %8, align 8
   store i64 %2, ptr %138, align 8
-  %324 = call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 86, i64 %.sroa.0568.0, i64 %.sroa.3569.0, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 16384)
+  %324 = call i32 @JS_SetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 86, i64 %.sroa.0568.0, i64 %.sroa.3569.0, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 16384)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %325 = icmp slt i32 %324, 0
   br i1 %325, label %value_buffer_append.exit.thread, label %JS_IsEmptyString.exit.thread
@@ -106979,7 +106979,7 @@ JS_IsEmptyString.exit.thread:                     ; preds = %JS_ToStringFree.exi
   %.sroa.072.0.copyload = load i64, ptr %343, align 8
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %343, i64 8
   %.sroa.677.0.copyload = load i64, ptr %.sroa.677.0..sroa_idx, align 8
-  %344 = call fastcc i32 @js_get_length32(ptr noundef %0, ptr noundef %13, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload)
+  %344 = call fastcc i32 @js_get_length32(ptr noundef nonnull %0, ptr noundef %13, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload)
   %345 = icmp slt i32 %344, 0
   br i1 %345, label %value_buffer_append.exit.thread.loopexit838, label %346
 
@@ -107002,10 +107002,10 @@ JS_IsEmptyString.exit.thread:                     ; preds = %JS_ToStringFree.exi
   br label %JS_FreeValue.exit631
 
 JS_FreeValue.exit631:                             ; preds = %346, %349, %354
-  %356 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i64 0, i64 0)
+  %356 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i64 0, i64 0)
   %357 = extractvalue { i64, i64 } %356, 0
   %358 = extractvalue { i64, i64 } %356, 1
-  %359 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %357, i64 %358)
+  %359 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef nonnull %0, i64 %357, i64 %358)
   %360 = extractvalue { i64, i64 } %359, 0
   %361 = extractvalue { i64, i64 } %359, 1
   %362 = and i64 %361, 4294967295
@@ -107014,10 +107014,10 @@ JS_FreeValue.exit631:                             ; preds = %346, %349, %354
   br i1 %.not684, label %value_buffer_append.exit.thread.loopexit838, label %364
 
 364:                                              ; preds = %JS_FreeValue.exit631
-  %365 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 88, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 0)
+  %365 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 88, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 0)
   %366 = extractvalue { i64, i64 } %365, 0
   %367 = extractvalue { i64, i64 } %365, 1
-  %368 = call fastcc i32 @JS_ToLengthFree(ptr noundef %0, ptr noundef %14, i64 %366, i64 %367)
+  %368 = call fastcc i32 @JS_ToLengthFree(ptr noundef nonnull %0, ptr noundef %14, i64 %366, i64 %367)
   %.not601 = icmp eq i32 %368, 0
   br i1 %.not601, label %369, label %value_buffer_append.exit.thread.loopexit838
 
@@ -107064,7 +107064,7 @@ JS_FreeValue.exit637:                             ; preds = %376, %379, %384
   %387 = load i32, ptr %386, align 8
   %388 = add i32 %387, 1
   store i32 %388, ptr %386, align 8
-  %389 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %386, i32 noundef 2)
+  %389 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %386, i32 noundef 2)
   %390 = extractvalue { i64, i64 } %389, 0
   %391 = extractvalue { i64, i64 } %389, 1
   %.sroa.0281.sroa.0.0.extract.trunc = trunc i64 %390 to i32
@@ -107102,7 +107102,7 @@ JS_DupValue.exit:                                 ; preds = %393, %396
 .lr.ph:                                           ; preds = %.preheader, %415
   %.0576753 = phi i32 [ %416, %415 ], [ 1, %.preheader ]
   %403 = sext i32 %.0576753 to i64
-  %404 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i64 noundef %403)
+  %404 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef nonnull %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i64 noundef %403)
   %405 = extractvalue { i64, i64 } %404, 0
   %406 = extractvalue { i64, i64 } %404, 1
   %trunc780 = trunc i64 %406 to i32
@@ -107112,7 +107112,7 @@ JS_DupValue.exit:                                 ; preds = %393, %396
   ]
 
 407:                                              ; preds = %.lr.ph
-  %408 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %405, i64 %406)
+  %408 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef nonnull %0, i64 %405, i64 %406)
   %409 = extractvalue { i64, i64 } %408, 0
   %410 = extractvalue { i64, i64 } %408, 1
   %411 = and i64 %410, 4294967295
@@ -107126,7 +107126,7 @@ JS_DupValue.exit:                                 ; preds = %393, %396
   store i64 %.sroa.053.0, ptr %6, align 8
   store i64 %.sroa.7.0, ptr %331, align 8
   %.sroa.019.0.insert.ext.i = and i64 %403, 4294967295
-  %413 = call i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %390, i64 %391, i64 %.sroa.019.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16391)
+  %413 = call i32 @JS_DefinePropertyValueValue(ptr noundef nonnull %0, i64 %390, i64 %391, i64 %.sroa.019.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16391)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %414 = icmp slt i32 %413, 0
   br i1 %414, label %value_buffer_append.exit.thread.loopexit, label %415
@@ -107160,7 +107160,7 @@ JS_DupValue.exit:                                 ; preds = %393, %396
   br label %JS_FreeValue.exit640
 
 JS_FreeValue.exit640:                             ; preds = %._crit_edge, %419, %424
-  %426 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 136, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 0)
+  %426 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 136, i64 %.sroa.072.0.copyload, i64 %.sroa.677.0.copyload, i32 noundef 0)
   %427 = extractvalue { i64, i64 } %426, 0
   %428 = extractvalue { i64, i64 } %426, 1
   %.sroa.0175.0.extract.trunc = trunc i64 %427 to i32
@@ -107177,7 +107177,7 @@ JS_FreeValue.exit640:                             ; preds = %._crit_edge, %419, 
   %432 = sext i32 %.0576.lcssa to i64
   %433 = load i64, ptr %14, align 8
   %.sroa.0549.0.insert.ext = and i64 %433, 4294967295
-  %434 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %390, i64 %391, i64 noundef %432, i64 %.sroa.0549.0.insert.ext, i64 0, i32 noundef 16391)
+  %434 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %390, i64 %391, i64 noundef %432, i64 %.sroa.0549.0.insert.ext, i64 0, i32 noundef 16391)
   %435 = icmp slt i32 %434, 0
   br i1 %435, label %value_buffer_append.exit.thread.loopexit838, label %436
 
@@ -107194,7 +107194,7 @@ JS_FreeValue.exit640:                             ; preds = %._crit_edge, %419, 
   br label %JS_DupValue.exit643
 
 JS_DupValue.exit643:                              ; preds = %436, %440
-  %443 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %390, i64 %391, i64 noundef %439, i64 %49, i64 %50, i32 noundef 16391)
+  %443 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %390, i64 %391, i64 noundef %439, i64 %49, i64 %50, i32 noundef 16391)
   %444 = icmp slt i32 %443, 0
   br i1 %444, label %value_buffer_append.exit.thread.loopexit838, label %445
 
@@ -107216,7 +107216,7 @@ JS_DupValue.exit643:                              ; preds = %436, %440
   br label %JS_DupValue.exit646
 
 JS_DupValue.exit646:                              ; preds = %446, %450
-  %454 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %390, i64 %391, i64 noundef %447, i64 %427, i64 %428, i32 noundef 16391)
+  %454 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %390, i64 %391, i64 noundef %447, i64 %427, i64 %428, i32 noundef 16391)
   %455 = icmp slt i32 %454, 0
   br i1 %455, label %value_buffer_append.exit.thread.loopexit838, label %456
 
@@ -107247,10 +107247,10 @@ JS_DupValue.exit646:                              ; preds = %446, %450
   br label %JS_FreeValue.exit647
 
 JS_FreeValue.exit647:                             ; preds = %456, %459, %464
-  %466 = call { i64, i64 } @js_function_apply(ptr noundef %0, i64 %.sroa.0405.0.copyload, i64 %.sroa.4.0.copyload, i32 poison, ptr noundef nonnull %10, i32 noundef 0)
+  %466 = call { i64, i64 } @js_function_apply(ptr noundef nonnull %0, i64 %.sroa.0405.0.copyload, i64 %.sroa.4.0.copyload, i32 poison, ptr noundef nonnull %10, i32 noundef 0)
   %467 = extractvalue { i64, i64 } %466, 0
   %468 = extractvalue { i64, i64 } %466, 1
-  %469 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %467, i64 %468)
+  %469 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef nonnull %0, i64 %467, i64 %468)
   br label %JS_FreeValue.exit649
 
 470:                                              ; preds = %430
@@ -107258,7 +107258,7 @@ JS_FreeValue.exit647:                             ; preds = %456, %459, %464
   br i1 %.not689, label %476, label %471
 
 471:                                              ; preds = %470
-  %472 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %427, i64 %428)
+  %472 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef nonnull %0, i64 %427, i64 %428)
   %473 = extractvalue { i64, i64 } %472, 0
   %474 = extractvalue { i64, i64 } %472, 1
   %.sroa.017.sroa.5.0.extract.shift = and i64 %473, -4294967296
@@ -107308,7 +107308,7 @@ JS_FreeValue.exit647:                             ; preds = %456, %459, %464
   br label %JS_FreeValue.exit648
 
 JS_FreeValue.exit648:                             ; preds = %476, %480, %485
-  %487 = call fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0, ptr noundef %10)
+  %487 = call fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef nonnull %0, ptr noundef %10)
   %488 = trunc i64 %.sroa.6.0 to i32
   %489 = icmp ugt i32 %488, -12
   br i1 %489, label %490, label %JS_FreeValue.exit649
@@ -107683,7 +107683,7 @@ JS_FreeValue.exit660:                             ; preds = %JS_FreeValue.exit65
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_Symbol_match(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_Symbol_match(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i64, align 8
@@ -108099,7 +108099,7 @@ JS_FreeValue.exit309:                             ; preds = %197, %193, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_Symbol_matchAll(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_Symbol_matchAll(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
   %8 = alloca i64, align 8
@@ -108424,7 +108424,7 @@ JS_FreeValue.exit223:                             ; preds = %158, %153, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_Symbol_search(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_Symbol_search(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = and i64 %2, 4294967295
@@ -108746,7 +108746,7 @@ JS_FreeValue.exit260:                             ; preds = %143, %138, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_Symbol_split(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_regexp_Symbol_split(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
   %8 = alloca i32, align 4
@@ -108930,7 +108930,7 @@ string_indexof_char.exit422:                      ; preds = %.lr.ph.i410, %.lr.p
 
 string_indexof_char.exit422.thread:               ; preds = %75, %79, %62, %.preheader20.i, %.preheader20.i406, %string_indexof_char.exit.thread, %string_indexof_char.exit422
   %81 = phi i32 [ %70, %string_indexof_char.exit422 ], [ %70, %.preheader20.i406 ], [ %70, %string_indexof_char.exit.thread ], [ 0, %.preheader20.i ], [ 0, %62 ], [ %70, %79 ], [ %70, %75 ]
-  %82 = tail call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef %0, ptr noundef nonnull @.str.48, i64 %47, i64 %48, ptr noundef nonnull @.str.235)
+  %82 = tail call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, i64 %47, i64 %48, ptr noundef nonnull @.str.235)
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = extractvalue { i64, i64 } %82, 1
   %.sroa.0164.sroa.0.0.extract.trunc611 = trunc i64 %83 to i32
@@ -108953,7 +108953,7 @@ string_indexof_char.exit422.thread:               ; preds = %75, %79, %62, %.pre
   store i64 %.sroa.0164.0..sroa.0164.0..sroa.0164.0..sroa.0164.0.copyload.in, ptr %88, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx, align 8
-  %89 = call fastcc { i64, i64 } @JS_CallConstructorInternal(ptr noundef %0, i64 %29, i64 %30, i64 %29, i64 %30, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 2)
+  %89 = call fastcc { i64, i64 } @JS_CallConstructorInternal(ptr noundef nonnull %0, i64 %29, i64 %30, i64 %29, i64 %30, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 2)
   %90 = extractvalue { i64, i64 } %89, 0
   %91 = extractvalue { i64, i64 } %89, 1
   %.sroa.8.0.extract.shift = lshr i64 %90, 32
@@ -108967,7 +108967,7 @@ string_indexof_char.exit422.thread:               ; preds = %75, %79, %62, %.pre
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 8
-  %98 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %0, ptr noundef nonnull %95, i32 noundef 2)
+  %98 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef 2)
   %99 = extractvalue { i64, i64 } %98, 0
   %100 = extractvalue { i64, i64 } %98, 1
   %.sroa.0173.sroa.9.0.extract.shift = lshr i64 %99, 32
@@ -109046,7 +109046,7 @@ JS_ToUint32.exit:                                 ; preds = %106, %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %90, ptr %6, align 8
   store i64 %91, ptr %127, align 8
-  %136 = call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %90, i64 %91, i32 noundef 86, i64 %.sroa.0370.0.insert.ext, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16384)
+  %136 = call i32 @JS_SetPropertyInternal(ptr noundef nonnull %0, i64 %90, i64 %91, i32 noundef 86, i64 %.sroa.0370.0.insert.ext, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16384)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.loopexit482, label %138
@@ -109074,7 +109074,7 @@ JS_ToUint32.exit:                                 ; preds = %106, %111
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %138, %141, %146
-  %148 = call fastcc { i64, i64 } @JS_RegExpExec(ptr noundef %0, i64 %90, i64 %91, i64 %19, i64 %20)
+  %148 = call fastcc { i64, i64 } @JS_RegExpExec(ptr noundef nonnull %0, i64 %90, i64 %91, i64 %19, i64 %20)
   %149 = extractvalue { i64, i64 } %148, 0
   %150 = extractvalue { i64, i64 } %148, 1
   %.sroa.090.0.extract.trunc = trunc i64 %149 to i32
@@ -109087,10 +109087,10 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
   ]
 
 151:                                              ; preds = %JS_FreeValue.exit
-  %152 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %90, i64 %91, i32 noundef 86, i64 %90, i64 %91, i32 noundef 0)
+  %152 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef nonnull %0, i64 %90, i64 %91, i32 noundef 86, i64 %90, i64 %91, i32 noundef 0)
   %153 = extractvalue { i64, i64 } %152, 0
   %154 = extractvalue { i64, i64 } %152, 1
-  %155 = call fastcc i32 @JS_ToLengthFree(ptr noundef %0, ptr noundef %9, i64 %153, i64 %154)
+  %155 = call fastcc i32 @JS_ToLengthFree(ptr noundef nonnull %0, ptr noundef %9, i64 %153, i64 %154)
   %.not395 = icmp eq i32 %155, 0
   br i1 %.not395, label %156, label %.loopexit482
 
@@ -109110,7 +109110,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
   br i1 %163, label %.loopexit.sink.split, label %164
 
 164:                                              ; preds = %160
-  %165 = call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef %22, i32 noundef %.1526, i32 noundef %.0372525)
+  %165 = call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %.1526, i32 noundef %.0372525)
   %166 = extractvalue { i64, i64 } %165, 1
   %167 = and i64 %166, 4294967295
   %.not475 = icmp eq i64 %167, 6
@@ -109119,7 +109119,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
 168:                                              ; preds = %164
   %169 = extractvalue { i64, i64 } %165, 0
   %170 = add i64 %.1375524, 1
-  %171 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %99, i64 %100, i64 noundef %.1375524, i64 %169, i64 %166, i32 noundef 16391)
+  %171 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %99, i64 %100, i64 noundef %.1375524, i64 %169, i64 %166, i32 noundef 16391)
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %.loopexit482, label %173
 
@@ -109130,7 +109130,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
 175:                                              ; preds = %173
   %176 = load i64, ptr %9, align 8
   %177 = trunc i64 %176 to i32
-  %178 = call fastcc i32 @js_get_length64(ptr noundef %0, ptr noundef %10, i64 %149, i64 %150)
+  %178 = call fastcc i32 @js_get_length64(ptr noundef nonnull %0, ptr noundef %10, i64 %149, i64 %150)
   %.not397 = icmp eq i32 %178, 0
   br i1 %.not397, label %.preheader, label %.loopexit482
 
@@ -109148,10 +109148,10 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
 .lr.ph:                                           ; preds = %.preheader, %181
   %.3377523 = phi i64 [ %193, %181 ], [ %170, %.preheader ]
   %.0378522 = phi i64 [ %182, %181 ], [ 1, %.preheader ]
-  %185 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %149, i64 %150, i64 noundef %.0378522)
+  %185 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef nonnull %0, i64 %149, i64 %150, i64 noundef %.0378522)
   %186 = extractvalue { i64, i64 } %185, 0
   %187 = extractvalue { i64, i64 } %185, 1
-  %188 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef %0, i64 %186, i64 %187)
+  %188 = call fastcc { i64, i64 } @JS_ToStringFree(ptr noundef nonnull %0, i64 %186, i64 %187)
   %189 = extractvalue { i64, i64 } %188, 1
   %190 = and i64 %189, 4294967295
   %.not476 = icmp eq i64 %190, 6
@@ -109160,7 +109160,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
 191:                                              ; preds = %.lr.ph
   %192 = extractvalue { i64, i64 } %188, 0
   %193 = add i64 %.3377523, 1
-  %194 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %99, i64 %100, i64 noundef %.3377523, i64 %192, i64 %189, i32 noundef 16391)
+  %194 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %99, i64 %100, i64 noundef %.3377523, i64 %192, i64 %189, i32 noundef 16391)
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %.loopexit482, label %196
 
@@ -109187,7 +109187,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
   %.sroa.11.2 = phi i32 [ %.sroa.11.0.extract.trunc156, %131 ], [ %.sroa.11.0.extract.trunc, %.loopexit ]
   %.sroa.12.2 = phi i64 [ %134, %131 ], [ %150, %.loopexit ]
   %spec.select = call i32 @llvm.umin.i32(i32 %.0, i32 %125)
-  %201 = call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef %22, i32 noundef %spec.select, i32 noundef %125)
+  %201 = call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %spec.select, i32 noundef %125)
   %202 = extractvalue { i64, i64 } %201, 1
   %203 = and i64 %202, 4294967295
   %.not480 = icmp eq i64 %203, 6
@@ -109195,7 +109195,7 @@ JS_FreeValue.exit:                                ; preds = %138, %141, %146
 
 204:                                              ; preds = %.loopexit484
   %205 = extractvalue { i64, i64 } %201, 0
-  %206 = call i32 @JS_DefinePropertyValueInt64(ptr noundef %0, i64 %99, i64 %100, i64 noundef %.0374, i64 %205, i64 %202, i32 noundef 16391)
+  %206 = call i32 @JS_DefinePropertyValueInt64(ptr noundef nonnull %0, i64 %99, i64 %100, i64 noundef %.0374, i64 %205, i64 %202, i32 noundef 16391)
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %.loopexit482, label %JS_FreeValue.exit423
 
@@ -109549,7 +109549,7 @@ JS_FreeValue.exit45:                              ; preds = %JS_IsFunction.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat_value_free(ptr nocapture noundef %0, i64 %1, i64 %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat_value_free(ptr noundef captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -109728,7 +109728,7 @@ JS_FreeValue.exit:                                ; preds = %94, %89, %string_bu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_char(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_char(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #30 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
@@ -110129,7 +110129,7 @@ js_malloc.exit:                                   ; preds = %89, %86
   %.0111186 = phi i32 [ 0, %.lr.ph ], [ %143, %string_getc.exit ]
   %120 = trunc i64 %118 to i32
   %121 = and i32 %120, 2147483647
-  %122 = call i32 @lre_exec(ptr noundef %.1, ptr noundef nonnull %55, ptr noundef nonnull %106, i32 noundef %119, i32 noundef %121, i32 noundef %105, ptr noundef %0) #42
+  %122 = call i32 @lre_exec(ptr noundef %.1, ptr noundef nonnull %55, ptr noundef nonnull %106, i32 noundef %119, i32 noundef %121, i32 noundef %105, ptr noundef nonnull %0) #42
   %.not125 = icmp eq i32 %122, 1
   br i1 %.not125, label %133, label %123
 
@@ -110147,13 +110147,13 @@ js_malloc.exit:                                   ; preds = %89, %86
   store i64 %1, ptr %7, align 8
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %128, align 8
-  %129 = call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 86, i64 0, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16384)
+  %129 = call i32 @JS_SetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 86, i64 0, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16384)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %js_malloc.exit.thread, label %.loopexit
 
 131:                                              ; preds = %123
-  %132 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.231)
+  %132 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.231)
   br label %js_malloc.exit.thread
 
 133:                                              ; preds = %117
@@ -110257,7 +110257,7 @@ string_buffer_concat.exit.thread:                 ; preds = %.loopexit.i.i, %str
   store i64 %1, ptr %6, align 8
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %182, align 8
-  %183 = call i32 @JS_SetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 86, i64 %.sroa.0104.0.insert.ext, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16384)
+  %183 = call i32 @JS_SetPropertyInternal(ptr noundef nonnull %0, i64 %1, i64 %2, i32 noundef 86, i64 %.sroa.0104.0.insert.ext, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 16384)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %js_malloc.exit.thread, label %.loopexit
@@ -110466,7 +110466,7 @@ JS_FreeValue.exit156:                             ; preds = %js_malloc.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @string_advance_index(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc i64 @string_advance_index(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %4
 
@@ -110521,7 +110521,7 @@ string_getc.exit:                                 ; preds = %23, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -111082,7 +111082,7 @@ string_get.exit198:                               ; preds = %243, %247
 
 263:                                              ; preds = %260
   %264 = zext nneg i32 %.0127 to i64
-  %265 = tail call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %.sroa.091.0.copyload, i64 %.sroa.494.0.copyload, i64 noundef %264)
+  %265 = tail call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef nonnull %0, i64 %.sroa.091.0.copyload, i64 %.sroa.494.0.copyload, i64 noundef %264)
   %266 = extractvalue { i64, i64 } %265, 1
   %trunc282 = trunc i64 %266 to i32
   switch i32 %trunc282, label %267 [
@@ -111107,7 +111107,7 @@ string_get.exit198:                               ; preds = %243, %247
   br i1 %274, label %.thread, label %275
 
 275:                                              ; preds = %272
-  %276 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %138, i32 noundef %273)
+  %276 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %138, i32 noundef %273)
   %277 = extractvalue { i64, i64 } %276, 1
   %278 = and i64 %277, 4294967295
   %.not254 = icmp eq i64 %278, 6
@@ -111115,7 +111115,7 @@ string_get.exit198:                               ; preds = %243, %247
 
 279:                                              ; preds = %275
   %280 = extractvalue { i64, i64 } %276, 0
-  %281 = tail call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %.sroa.087.0.copyload, i64 %.sroa.389.0.copyload, i64 %280, i64 %277)
+  %281 = tail call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %.sroa.087.0.copyload, i64 %.sroa.389.0.copyload, i64 %280, i64 %277)
   %282 = extractvalue { i64, i64 } %281, 1
   %trunc281 = trunc i64 %282 to i32
   switch i32 %trunc281, label %283 [
@@ -111405,7 +111405,7 @@ string_buffer_end.exit:                           ; preds = %string_buffer_conca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat_value(ptr nocapture noundef %0, i64 %1, i64 %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_concat_value(ptr noundef captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -111619,7 +111619,7 @@ JS_FreeValue.exit:                                ; preds = %.loopexit.i.i26, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_get_this(ptr nocapture readnone %0, i64 %1, i64 %2) #9 {
+define internal { i64, i64 } @js_get_this(ptr readnone captures(none) %0, i64 %1, i64 %2) #9 {
   %4 = trunc i64 %2 to i32
   %5 = icmp ugt i32 %4, -12
   br i1 %5, label %6, label %JS_DupValue.exit
@@ -111638,7 +111638,7 @@ JS_DupValue.exit:                                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_regexp_string_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 %6) #0 {
+define internal { i64, i64 } @js_regexp_string_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca [64 x i8], align 16
   %10 = alloca i64, align 8
@@ -111860,7 +111860,7 @@ JS_FreeValue.exit100:                             ; preds = %29, %JS_FreeValue.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_string(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_string(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.StringBuffer, align 8
   %9 = alloca ptr, align 8
@@ -112349,7 +112349,7 @@ string_buffer_putc.exit.thread:                   ; preds = %string_buffer_putc1
 declare i32 @lre_parse_escape(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @json_parse_expect(ptr nocapture noundef nonnull %0, i32 noundef range(i32 58, 126) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @json_parse_expect(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 58, 126) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -112394,7 +112394,7 @@ JS_FreeValue.exit:                                ; preds = %3, %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_push(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_push(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -112589,7 +112589,7 @@ JS_FreeValue.exit89:                              ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_exception_free(ptr nocapture noundef readonly %0, i64 %1, i64 %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_exception_free(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = trunc i64 %2 to i32
   %5 = icmp ugt i32 %4, -12
   br i1 %5, label %6, label %JS_FreeValue.exit
@@ -112616,7 +112616,7 @@ JS_FreeValue.exit:                                ; preds = %3, %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_keys(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_keys(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -112625,7 +112625,7 @@ define internal { i64, i64 } @js_object_keys(ptr noundef %0, i64 %1, i64 %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_pop(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_pop(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -113582,7 +113582,7 @@ set_value.exit109:                                ; preds = %JS_DupValue.exit105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @JS_TryGetPropertyInt64(ptr noundef %0, i64 %1, i64 %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @JS_TryGetPropertyInt64(ptr noundef %0, i64 %1, i64 %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [24 x i8], align 16
   %7 = icmp ult i64 %3, 2147483648
   br i1 %7, label %8, label %18
@@ -114135,7 +114135,7 @@ JS_FreeValue.exit211:                             ; preds = %JS_FreeValue.exit21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_json_parse(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_json_parse(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i64, align 8
@@ -114421,7 +114421,7 @@ JS_FreeValue.exit:                                ; preds = %146, %141, %138, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_json_stringify(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_json_stringify(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr i8, ptr %4, i64 16
   %7 = getelementptr i8, ptr %4, i64 32
   %8 = load i64, ptr %4, align 8
@@ -114575,7 +114575,7 @@ JS_NewAtomUInt32.exit.thread131:                  ; preds = %60
 65:                                               ; preds = %60
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 11, ptr noundef nonnull @.str, i32 noundef %61) #42
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #43
-  %68 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %67)
+  %68 = call { i64, i64 } @JS_NewStringLen(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef %67)
   %69 = extractvalue { i64, i64 } %68, 1
   %70 = and i64 %69, 4294967295
   %.not.i114 = icmp eq i64 %70, 6
@@ -114614,7 +114614,7 @@ JS_NewAtomUInt32.exit:                            ; preds = %65
 
 JS_DupAtom.exit:                                  ; preds = %80, %76, %JS_NewAtomUInt32.exit.thread131, %JS_NewAtomUInt32.exit
   %.093 = phi i32 [ %74, %JS_NewAtomUInt32.exit ], [ %64, %JS_NewAtomUInt32.exit.thread131 ], [ %78, %76 ], [ %78, %80 ]
-  %89 = call fastcc { i64, i64 } @internalize_json_property(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %4, i64 %5)
+  %89 = call fastcc { i64, i64 } @internalize_json_property(ptr noundef nonnull %0, i64 %24, i64 %25, i32 noundef %.093, i64 %4, i64 %5)
   %90 = extractvalue { i64, i64 } %89, 0
   %91 = extractvalue { i64, i64 } %89, 1
   %trunc145 = trunc i64 %91 to i32
@@ -114624,11 +114624,11 @@ JS_DupAtom.exit:                                  ; preds = %80, %76, %JS_NewAto
   ]
 
 92:                                               ; preds = %JS_DupAtom.exit
-  call void @JS_FreeAtom(ptr noundef %0, i32 noundef %.093)
+  call void @JS_FreeAtom(ptr noundef nonnull %0, i32 noundef %.093)
   br label %JS_IsArray.exit
 
 93:                                               ; preds = %JS_DupAtom.exit
-  %94 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %24, i64 %25) #45
+  %94 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef nonnull %0, i64 %24, i64 %25) #45
   %95 = extractvalue { i64, i64 } %94, 0
   %96 = extractvalue { i64, i64 } %94, 1
   %97 = and i64 %96, 4294967295
@@ -114637,7 +114637,7 @@ JS_DupAtom.exit:                                  ; preds = %80, %76, %JS_NewAto
   br i1 %.not.i116, label %JS_DeleteProperty.exit, label %99
 
 99:                                               ; preds = %93
-  %100 = call fastcc i32 @delete_property(ptr noundef %0, ptr noundef %98, i32 noundef %.093) #45
+  %100 = call fastcc i32 @delete_property(ptr noundef nonnull %0, ptr noundef %98, i32 noundef %.093) #45
   %101 = trunc i64 %96 to i32
   %102 = icmp ugt i32 %101, -12
   br i1 %102, label %103, label %JS_DeleteProperty.exit
@@ -114661,7 +114661,7 @@ JS_DupAtom.exit:                                  ; preds = %80, %76, %JS_NewAto
   store i64 3, ptr %56, align 8
   store i32 0, ptr %10, align 8
   store i64 3, ptr %57, align 8
-  %110 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %90, i64 %91, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9991)
+  %110 = call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %24, i64 %25, i32 noundef %.093, i64 %90, i64 %91, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9991)
   %111 = icmp ugt i32 %trunc145, -12
   br i1 %111, label %112, label %JS_DefinePropertyValue.exit
 
@@ -114786,7 +114786,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.e
 .loopexit:                                        ; preds = %58, %54, %22
   %181 = phi i32 [ 0, %54 ], [ 0, %22 ], [ %55, %58 ]
   %182 = phi ptr [ %.pre, %54 ], [ null, %22 ], [ %.pre, %58 ]
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %182, i32 noundef %181)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %182, i32 noundef %181)
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %.not.i.i119 = icmp sgt i32 %3, -1
@@ -114796,7 +114796,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.e
   %184 = and i32 %3, 2147483647
   %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %184) #42
   %186 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #43
-  %187 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %186) #45
+  %187 = call { i64, i64 } @JS_NewStringLen(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %186) #45
   br label %JS_AtomToValue.exit
 
 188:                                              ; preds = %.loopexit
@@ -114846,7 +114846,7 @@ JS_AtomToValue.exit:                              ; preds = %183, %200, %201
   store i32 0, ptr %7, align 8
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %207, align 8
-  %208 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %4, i64 %5, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %12, i32 noundef 2)
+  %208 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %4, i64 %5, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %12, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %209 = extractvalue { i64, i64 } %208, 0
   %210 = extractvalue { i64, i64 } %208, 1
@@ -114886,7 +114886,7 @@ JS_FreeValue.exit:                                ; preds = %205, %213, %218
 JS_IsArray.exit:                                  ; preds = %JS_FreeAtom.exit, %JS_NewAtomUInt32.exit, %.thread, %JS_NewAtomUInt32.exit.thread, %js_get_length32.exit.thread, %39, %34, %JS_AtomToValue.exit, %js_get_length32.exit, %92
   %227 = phi ptr [ %.pre, %JS_NewAtomUInt32.exit.thread ], [ null, %js_get_length32.exit.thread ], [ null, %39 ], [ null, %34 ], [ null, %JS_AtomToValue.exit ], [ null, %js_get_length32.exit ], [ %.pre, %92 ], [ %.pre.pre, %.thread ], [ %.pre, %JS_NewAtomUInt32.exit ], [ %.pre, %JS_FreeAtom.exit ]
   %228 = load i32, ptr %13, align 4
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %227, i32 noundef %228)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %227, i32 noundef %228)
   %229 = icmp ugt i32 %trunc, -12
   br i1 %229, label %230, label %JS_FreeValue.exit120
 
@@ -114982,7 +114982,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %JS_FreeValu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_proxy_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_proxy_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -115409,7 +115409,7 @@ JS_FreeValue.exit:                                ; preds = %JS_FreeValue.exit93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @js_proxy_get_own_property_names(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 %3, i64 %4) #0 {
+define internal range(i32 -1, 1) i32 @js_proxy_get_own_property_names(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 %3, i64 %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -115583,7 +115583,7 @@ js_get_length32.exit:                             ; preds = %62
   %85 = bitcast double %84 to i64
   %.sroa.017.0.i = select i1 %83, i64 %indvars.iv, i64 %85
   %.sroa.3.0.i = select i1 %83, i64 0, i64 7
-  %86 = tail call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %0, i64 %59, i64 %60, i64 %.sroa.017.0.i, i64 %.sroa.3.0.i)
+  %86 = tail call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef nonnull %0, i64 %59, i64 %60, i64 %.sroa.017.0.i, i64 %.sroa.3.0.i)
   %87 = extractvalue { i64, i64 } %86, 0
   %88 = extractvalue { i64, i64 } %86, 1
   %trunc = trunc i64 %88 to i32
@@ -115611,11 +115611,11 @@ js_get_length32.exit:                             ; preds = %62
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %89, %91, %96
-  %98 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.268)
+  %98 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.268)
   br label %js_mallocz.exit.thread
 
 99:                                               ; preds = %.lr.ph, %.lr.ph
-  %100 = tail call i32 @JS_ValueToAtom(ptr noundef %0, i64 %87, i64 %88)
+  %100 = tail call i32 @JS_ValueToAtom(ptr noundef nonnull %0, i64 %87, i64 %88)
   %101 = inttoptr i64 %87 to ptr
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, -1
@@ -115662,7 +115662,7 @@ JS_FreeValue.exit137:                             ; preds = %99, %105
   br i1 %exitcond.not.i, label %find_prop_key.exit.thread, label %.lr.ph.i, !llvm.loop !339
 
 find_prop_key.exit:                               ; preds = %.lr.ph.i
-  %119 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.269)
+  %119 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.269)
   br label %js_mallocz.exit.thread
 
 find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
@@ -115675,7 +115675,7 @@ find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
   %120 = load i64, ptr %.0.i.i, align 8
   %121 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %122 = load i64, ptr %121, align 8
-  %123 = tail call i32 @JS_IsExtensible(ptr noundef %0, i64 %120, i64 %122)
+  %123 = tail call i32 @JS_IsExtensible(ptr noundef nonnull %0, i64 %120, i64 %122)
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %js_mallocz.exit.thread, label %125
 
@@ -115685,12 +115685,12 @@ find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
   br i1 %.not125, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.101)
+  %128 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.101)
   br label %js_mallocz.exit.thread
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %.0.i.i, align 8
-  %131 = call fastcc i32 @JS_GetOwnPropertyNamesInternal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %130, i32 noundef 3)
+  %131 = call fastcc i32 @JS_GetOwnPropertyNamesInternal(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %130, i32 noundef 3)
   %.not126 = icmp eq i32 %131, 0
   %.pre = load i32, ptr %8, align 4
   br i1 %.not126, label %.preheader163, label %js_mallocz.exit.thread
@@ -115714,14 +115714,14 @@ find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
   br i1 %.not129, label %139, label %137
 
 137:                                              ; preds = %135
-  %138 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.101)
+  %138 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.101)
   br label %js_mallocz.exit.thread
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %.0.i.i, align 8
   %141 = getelementptr %struct.JSPropertyEnum, ptr %132, i64 %indvars.iv201, i32 1
   %142 = load i32, ptr %141, align 4
-  %143 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %140, i32 noundef %142)
+  %143 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %140, i32 noundef %142)
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %js_mallocz.exit.thread, label %145
 
@@ -115730,7 +115730,7 @@ find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
   br i1 %.not130, label %160, label %146
 
 146:                                              ; preds = %145
-  call fastcc void @js_free_desc(ptr noundef %0, ptr noundef %10)
+  call fastcc void @js_free_desc(ptr noundef nonnull %0, ptr noundef %10)
   %147 = load i32, ptr %10, align 8
   %148 = and i32 %147, 1
   %149 = icmp ne i32 %148, 0
@@ -115754,7 +115754,7 @@ find_prop_key.exit.thread:                        ; preds = %118, %.lr.ph178
   br i1 %exitcond.not.i144, label %find_prop_key.exit146.thread, label %.lr.ph.i141, !llvm.loop !339
 
 find_prop_key.exit146.thread:                     ; preds = %150, %155
-  %156 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.270)
+  %156 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.270)
   br label %js_mallocz.exit.thread
 
 find_prop_key.exit146:                            ; preds = %.lr.ph.i141
@@ -115794,12 +115794,12 @@ find_prop_key.exit146:                            ; preds = %.lr.ph.i141
   br i1 %.not128, label %165, label %162
 
 165:                                              ; preds = %.lr.ph183
-  %166 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.271)
+  %166 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.271)
   br label %js_mallocz.exit.thread
 
 .loopexit:                                        ; preds = %162, %._crit_edge181
   %167 = load ptr, ptr %9, align 8
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %167, i32 noundef %.pre)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %167, i32 noundef %.pre)
   %168 = trunc i64 %60 to i32
   %169 = icmp ugt i32 %168, -12
   br i1 %169, label %170, label %JS_FreeValue.exit147
@@ -115827,8 +115827,8 @@ js_mallocz.exit.thread:                           ; preds = %.lr.ph, %JS_FreeVal
   %178 = phi i32 [ 0, %js_get_length32.exit ], [ 0, %JS_FreeValue.exit ], [ 0, %find_prop_key.exit ], [ 0, %._crit_edge ], [ 0, %127 ], [ %.pre, %129 ], [ %.pre, %137 ], [ %.pre, %find_prop_key.exit146.thread ], [ %.pre, %165 ], [ 0, %js_get_length32.exit.thread ], [ 0, %76 ], [ 0, %80 ], [ %.pre, %139 ], [ 0, %JS_FreeValue.exit137 ], [ 0, %.lr.ph ]
   %.0110 = phi ptr [ null, %js_get_length32.exit ], [ %75, %JS_FreeValue.exit ], [ %75, %find_prop_key.exit ], [ %.1111213215, %._crit_edge ], [ %.1111213215, %127 ], [ %.1111213215, %129 ], [ %.1111213215, %137 ], [ %.1111213215, %find_prop_key.exit146.thread ], [ %.1111213215, %165 ], [ null, %js_get_length32.exit.thread ], [ null, %76 ], [ null, %80 ], [ %.1111213215, %139 ], [ %75, %JS_FreeValue.exit137 ], [ %75, %.lr.ph ]
   %179 = load ptr, ptr %9, align 8
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %179, i32 noundef %178)
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %.0110, i32 noundef %177)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %179, i32 noundef %178)
+  call fastcc void @js_free_prop_enum(ptr noundef nonnull %0, ptr noundef %.0110, i32 noundef %177)
   %180 = trunc i64 %60 to i32
   %181 = icmp ugt i32 %180, -12
   br i1 %181, label %182, label %JS_FreeValue.exit148
@@ -116120,7 +116120,7 @@ JS_DeleteProperty.exit:                           ; preds = %49, %53, %57, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @js_proxy_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %7, i32 noundef %8) #0 {
+define internal i32 @js_proxy_define_own_property(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %7, i32 noundef %8) #0 {
   %10 = alloca %struct.JSValue, align 8
   %11 = alloca %struct.JSValue, align 8
   %12 = alloca %struct.JSValue, align 8
@@ -117266,7 +117266,7 @@ JS_FreeValue.exit:                                ; preds = %31, %29, %24, %80, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @js_proxy_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%struct.JSValue) align 8 %6, i32 noundef %7) #0 {
+define internal i32 @js_proxy_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.JSValue) align 8 captures(none) %6, i32 noundef %7) #0 {
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca [64 x i8], align 16
   %11 = alloca [4 x %struct.JSValue], align 16
@@ -117563,7 +117563,7 @@ JS_FreeValue.exit:                                ; preds = %148, %33, %31, %26,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_obj_to_desc(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_obj_to_desc(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = and i64 %3, 4294967295
   %.not = icmp eq i64 %5, 4294967295
   br i1 %.not, label %8, label %6
@@ -117898,7 +117898,7 @@ JS_FreeValue.exit270:                             ; preds = %28, %19, %10, %135,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_proxy_revocable(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_proxy_revocable(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -118044,7 +118044,7 @@ JS_FreeValue.exit40:                              ; preds = %71, %66, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_proxy_revoke(ptr nocapture noundef readonly %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 %5, ptr nocapture noundef %6) #0 {
+define internal { i64, i64 } @js_proxy_revoke(ptr noundef readonly captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 %5, ptr noundef captures(none) %6) #0 {
   %8 = load i64, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
@@ -118098,7 +118098,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %13, %7, %JS_FreeVal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_set(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_set(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = add i32 %5, 38
   %9 = and i64 %2, 4294967295
@@ -118607,7 +118607,7 @@ map_add_record.exit.thread58:                     ; preds = %71, %67, %JS_GetOpa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_get(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_get(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = add i32 %5, 38
   %9 = and i64 %2, 4294967295
@@ -118689,7 +118689,7 @@ JS_DupValue.exit:                                 ; preds = %34, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_has(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_has(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = add i32 %5, 38
   %9 = and i64 %2, 4294967295
@@ -118749,7 +118749,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_delete(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_delete(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = add i32 %5, 38
   %9 = and i64 %2, 4294967295
@@ -118814,7 +118814,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_clear(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_clear(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = add i32 %5, 38
   %9 = and i64 %2, 4294967295
@@ -118936,7 +118936,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_forEach(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_map_forEach(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [64 x i8], align 16
   %9 = alloca [3 x %struct.JSValue], align 16
@@ -119228,7 +119228,7 @@ JS_FreeValue.exit59:                              ; preds = %139, %134, %131, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_create_map_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_create_map_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = ashr i32 %5, 2
   %9 = and i32 %5, 3
@@ -119350,7 +119350,7 @@ JS_FreeValue.exit:                                ; preds = %53, %48, %45, %JS_G
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_find_record(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc ptr @map_find_record(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = trunc i64 %2 to i32
   switch i32 %5, label %hash_string.exit.i [
@@ -119529,7 +119529,7 @@ JS_DupValue.exit.i:                               ; preds = %77, %.lr.ph.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @map_delete_record(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @map_delete_record(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -119651,7 +119651,7 @@ JS_FreeValueRT.exit22:                            ; preds = %JS_FreeValueRT.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_map_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5, i32 noundef %6) #0 {
+define internal { i64, i64 } @js_map_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) #0 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca [2 x %struct.JSValue], align 16
   %10 = add i32 %6, 42
@@ -119881,7 +119881,7 @@ JS_DupValue.exit59:                               ; preds = %106, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_groupBy(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_groupBy(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
   %9 = alloca %struct.JSValue, align 8
@@ -120588,7 +120588,7 @@ JS_FreeValue.exit350:                             ; preds = %369, %364, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_executor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 %5, ptr nocapture noundef %6) #0 {
+define internal { i64, i64 } @js_promise_executor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 %5, ptr noundef captures(none) %6) #0 {
   br label %8
 
 8:                                                ; preds = %7, %JS_DupValue.exit
@@ -120772,7 +120772,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %JS_GetOpaqu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_promise_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_promise_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -120929,7 +120929,7 @@ JS_FreeValueRT.exit:                              ; preds = %js_promise_resolve_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_promise_resolve_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_promise_resolve_function_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -121017,7 +121017,7 @@ async_func_free.exit:                             ; preds = %free_zero_refcount.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_async_function_resolve_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_async_function_resolve_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %1 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0..sroa.0.0..cast, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -121104,7 +121104,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %JS_FreeValu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_async_from_sync_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_async_from_sync_iterator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -121181,7 +121181,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %6, %3, %11, %JS_Get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_async_generator_mark(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @js_async_generator_mark(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %5, 4294967295
   %6 = inttoptr i64 %1 to ptr
@@ -121688,7 +121688,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %104, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_resolve_thenable_job(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal { i64, i64 } @js_promise_resolve_thenable_job(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca [2 x %struct.JSValue], align 16
@@ -121819,7 +121819,7 @@ JS_FreeValue.exit24:                              ; preds = %64, %59, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_create_resolving_functions(ptr noundef %0, ptr nocapture noundef nonnull %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_create_resolving_functions(ptr noundef %0, ptr noundef nonnull captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
@@ -122802,7 +122802,7 @@ JS_FreeValue.exit63:                              ; preds = %53, %48, %118, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_catch(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_promise_catch(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
   store i32 0, ptr %7, align 16
@@ -122851,7 +122851,7 @@ JS_Invoke.exit:                                   ; preds = %5, %JS_CallFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_finally(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_promise_finally(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
   %8 = alloca [2 x %struct.JSValue], align 16
@@ -123122,7 +123122,7 @@ JS_FreeValue.exit60:                              ; preds = %71, %66, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_then_finally_func(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_promise_then_finally_func(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca %struct.JSValue, align 8
@@ -123237,7 +123237,7 @@ JS_FreeValue.exit43:                              ; preds = %47, %42, %39, %61, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_promise_finally_value_thunk(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 %5, ptr nocapture noundef readonly %6) #9 {
+define internal { i64, i64 } @js_promise_finally_value_thunk(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #9 {
   %8 = load i64, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
@@ -123259,7 +123259,7 @@ JS_DupValue.exit:                                 ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_finally_thrower(ptr nocapture noundef readonly %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_promise_finally_thrower(ptr noundef readonly captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = load i64, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
@@ -123367,7 +123367,7 @@ JS_FreeValue.exit:                                ; preds = %JS_Invoke.exit, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_all(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_promise_all(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -123607,7 +123607,7 @@ JS_FreeValue.exit:                                ; preds = %.loopexit, %73, %78
 
 141:                                              ; preds = %JS_FreeValue.exit282
   %142 = add i32 %.0314, 1
-  %143 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %55, i64 %56, i64 %93, i64 %94, ptr noundef %15)
+  %143 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %55, i64 %56, i64 %93, i64 %94, ptr noundef %15)
   %144 = extractvalue { i64, i64 } %143, 0
   %145 = extractvalue { i64, i64 } %143, 1
   store i64 %144, ptr %11, align 8
@@ -123626,7 +123626,7 @@ JS_FreeValue.exit:                                ; preds = %.loopexit, %73, %78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 0, ptr %8, align 8
   store i64 3, ptr %120, align 8
-  %150 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %28, i64 %29, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 2)
+  %150 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %28, i64 %29, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %151 = extractvalue { i64, i64 } %150, 0
   %152 = extractvalue { i64, i64 } %150, 1
@@ -123655,7 +123655,7 @@ JS_FreeValue.exit270:                             ; preds = %149, %157, %162
   br i1 %.not302, label %JS_FreeValue.exit271, label %166
 
 JS_FreeValue.exit271:                             ; preds = %JS_FreeValue.exit282, %198, %JS_FreeValue.exit270, %236, %231, %JS_FreeValue.exit279, %195, %190, %187, %179, %174, %171
-  %165 = call fastcc i32 @JS_IteratorClose(ptr noundef %0, i64 %55, i64 %56, i32 noundef 1)
+  %165 = call fastcc i32 @JS_IteratorClose(ptr noundef nonnull %0, i64 %55, i64 %56, i32 noundef 1)
   br label %.loopexit
 
 166:                                              ; preds = %JS_FreeValue.exit270
@@ -123668,7 +123668,7 @@ JS_FreeValue.exit271:                             ; preds = %JS_FreeValue.exit28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %124, ptr noundef nonnull align 16 dereferenceable(16) %126, i64 16, i1 false)
   store i64 %110, ptr %127, align 16
   store i64 %111, ptr %.sroa.8.0..sroa_idx, align 8
-  %167 = call { i64, i64 } @JS_NewCFunctionData(ptr noundef %0, ptr noundef nonnull @js_promise_all_resolve_element, i32 noundef 1, i32 noundef %5, i32 noundef 5, ptr noundef nonnull %14)
+  %167 = call { i64, i64 } @JS_NewCFunctionData(ptr noundef nonnull %0, ptr noundef nonnull @js_promise_all_resolve_element, i32 noundef 1, i32 noundef %5, i32 noundef 5, ptr noundef nonnull %14)
   %168 = extractvalue { i64, i64 } %167, 0
   %169 = extractvalue { i64, i64 } %167, 1
   %170 = and i64 %169, 4294967295
@@ -123697,7 +123697,7 @@ JS_FreeValue.exit271:                             ; preds = %JS_FreeValue.exit28
   br i1 %128, label %182, label %197
 
 182:                                              ; preds = %181
-  %183 = call { i64, i64 } @JS_NewCFunctionData(ptr noundef %0, ptr noundef nonnull @js_promise_all_resolve_element, i32 noundef 1, i32 noundef 5, i32 noundef 5, ptr noundef nonnull %14)
+  %183 = call { i64, i64 } @JS_NewCFunctionData(ptr noundef nonnull %0, ptr noundef nonnull @js_promise_all_resolve_element, i32 noundef 1, i32 noundef 5, i32 noundef 5, ptr noundef nonnull %14)
   %184 = extractvalue { i64, i64 } %183, 0
   %185 = extractvalue { i64, i64 } %183, 1
   %186 = and i64 %185, 4294967295
@@ -123728,7 +123728,7 @@ JS_FreeValue.exit271:                             ; preds = %JS_FreeValue.exit28
 198:                                              ; preds = %197
   %199 = load i64, ptr %12, align 8
   %200 = load i64, ptr %.sroa.236.0..sroa_idx, align 8
-  %201 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %199, i64 %200, i32 noundef %.0314, i64 0, i64 3, i32 noundef 7)
+  %201 = call i32 @JS_DefinePropertyValueUint32(ptr noundef nonnull %0, i64 %199, i64 %200, i32 noundef %.0314, i64 0, i64 3, i32 noundef 7)
   %202 = icmp slt i32 %201, 0
   br i1 %202, label %JS_FreeValue.exit271, label %203
 
@@ -123755,7 +123755,7 @@ JS_DupValue.exit:                                 ; preds = %JS_DupValue.exit.si
   %.sroa.778.0 = phi i64 [ %185, %182 ], [ %169, %203 ], [ %134, %204 ], [ %.sroa.778.0.ph, %JS_DupValue.exit.sink.split ]
   %.sroa.083.0 = phi i64 [ %168, %182 ], [ %137, %203 ], [ %168, %204 ], [ %.sroa.083.0.ph, %JS_DupValue.exit.sink.split ]
   %.sroa.786.0 = phi i64 [ %169, %182 ], [ %138, %203 ], [ %169, %204 ], [ %.sroa.786.0.ph, %JS_DupValue.exit.sink.split ]
-  %208 = call fastcc i32 @remainingElementsCount_add(ptr noundef %0, i64 %110, i64 %111, i32 noundef 1)
+  %208 = call fastcc i32 @remainingElementsCount_add(ptr noundef nonnull %0, i64 %110, i64 %111, i32 noundef 1)
   %209 = icmp slt i32 %208, 0
   br i1 %209, label %210, label %238
 
@@ -123818,7 +123818,7 @@ JS_FreeValue.exit279:                             ; preds = %JS_FreeValue.exit27
   store i64 %.sroa.786.0, ptr %.sroa.786.0..sroa_idx, align 8
   store i64 %.sroa.074.0, ptr %132, align 16
   store i64 %.sroa.778.0, ptr %.sroa.778.0..sroa_idx79, align 8
-  %239 = call fastcc { i64, i64 } @JS_InvokeFree(ptr noundef %0, i64 %151, i64 %152, i32 noundef 128, i32 noundef 2, ptr noundef nonnull %13)
+  %239 = call fastcc { i64, i64 } @JS_InvokeFree(ptr noundef nonnull %0, i64 %151, i64 %152, i32 noundef 128, i32 noundef 2, ptr noundef nonnull %13)
   %240 = extractvalue { i64, i64 } %239, 0
   %241 = extractvalue { i64, i64 } %239, 1
   %242 = trunc i64 %.sroa.786.0 to i32
@@ -123857,12 +123857,12 @@ JS_FreeValue.exit281:                             ; preds = %238, %244, %249
   br label %JS_FreeValue.exit282
 
 JS_FreeValue.exit282:                             ; preds = %JS_FreeValue.exit281, %253, %258
-  %260 = call fastcc i32 @check_exception_free(ptr noundef %0, i64 %240, i64 %241)
+  %260 = call fastcc i32 @check_exception_free(ptr noundef nonnull %0, i64 %240, i64 %241)
   %.not264 = icmp eq i32 %260, 0
   br i1 %.not264, label %141, label %JS_FreeValue.exit271
 
 261:                                              ; preds = %147
-  %262 = call fastcc i32 @remainingElementsCount_add(ptr noundef %0, i64 %110, i64 %111, i32 noundef -1)
+  %262 = call fastcc i32 @remainingElementsCount_add(ptr noundef nonnull %0, i64 %110, i64 %111, i32 noundef -1)
   %263 = icmp slt i32 %262, 0
   br i1 %263, label %.loopexit, label %264
 
@@ -123876,7 +123876,7 @@ JS_FreeValue.exit282:                             ; preds = %JS_FreeValue.exit28
 266:                                              ; preds = %265
   %267 = load i64, ptr %12, align 8
   %268 = load i64, ptr %.sroa.236.0..sroa_idx, align 8
-  %269 = call fastcc { i64, i64 } @js_aggregate_error_constructor(ptr noundef %0, i64 %267, i64 %268)
+  %269 = call fastcc { i64, i64 } @js_aggregate_error_constructor(ptr noundef nonnull %0, i64 %267, i64 %268)
   %270 = extractvalue { i64, i64 } %269, 0
   %271 = extractvalue { i64, i64 } %269, 1
   %272 = and i64 %271, 4294967295
@@ -123916,11 +123916,11 @@ JS_FreeValue.exit283:                             ; preds = %273, %278, %283
   store i32 0, ptr %7, align 8
   %289 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %289, align 8
-  %290 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %286, i64 %288, i64 0, i64 3, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 1, ptr noundef nonnull %12, i32 noundef 2)
+  %290 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %286, i64 %288, i64 0, i64 3, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 1, ptr noundef nonnull %12, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %291 = extractvalue { i64, i64 } %290, 0
   %292 = extractvalue { i64, i64 } %290, 1
-  %293 = call fastcc i32 @check_exception_free(ptr noundef %0, i64 %291, i64 %292)
+  %293 = call fastcc i32 @check_exception_free(ptr noundef nonnull %0, i64 %291, i64 %292)
   %.not267 = icmp eq i32 %293, 0
   br i1 %.not267, label %JS_FreeValue.exit269, label %.loopexit
 
@@ -124109,7 +124109,7 @@ JS_FreeValue.exit290:                             ; preds = %JS_FreeValue.exit28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_race(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_promise_race(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
@@ -124491,7 +124491,7 @@ JS_FreeValue.exit147:                             ; preds = %JS_FreeValue.exit14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_withResolvers(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_promise_withResolvers(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -124704,7 +124704,7 @@ JS_FreeValue.exit40:                              ; preds = %62, %57, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_promise_all_resolve_element(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef %6) #0 {
+define internal { i64, i64 } @js_promise_all_resolve_element(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6) #0 {
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
   %10 = alloca i32, align 4
@@ -125148,7 +125148,7 @@ JS_NewObjectProtoClass.exit.thread:               ; preds = %.loopexit.i, %JS_Ne
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_iterator_proto_iterator(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #9 {
+define internal { i64, i64 } @js_iterator_proto_iterator(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #9 {
   %6 = trunc i64 %2 to i32
   %7 = icmp ugt i32 %6, -12
   br i1 %7, label %8, label %JS_DupValue.exit
@@ -125772,7 +125772,7 @@ define internal fastcc { i64, i64 } @js_async_from_sync_iterator_unwrap_func_cre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_from_sync_iterator_unwrap(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_async_from_sync_iterator_unwrap(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -125809,7 +125809,7 @@ JS_ToBool.exit:                                   ; preds = %JS_DupValue.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_generator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_async_generator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
   %9 = alloca %struct.JSValue, align 8
@@ -126815,7 +126815,7 @@ JS_FreeValue.exit:                                ; preds = %241, %236, %js_asyn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_async_generator_resolve(ptr noundef %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @js_async_generator_resolve(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = trunc i64 %3 to i32
   %7 = icmp ugt i32 %6, -12
   br i1 %7, label %8, label %JS_DupValue.exit
@@ -126857,7 +126857,7 @@ JS_FreeValue.exit:                                ; preds = %JS_DupValue.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_async_generator_completed_return(ptr noundef %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @js_async_generator_completed_return(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %struct.JSValue, align 8
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca [2 x %struct.JSValue], align 16
@@ -127199,7 +127199,7 @@ JS_FreeValue.exit22:                              ; preds = %JS_FreeValue.exit21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_async_generator_resolve_function(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6) #0 {
+define internal { i64, i64 } @js_async_generator_resolve_function(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = and i32 %5, 1
   %9 = load i64, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -127357,7 +127357,7 @@ js_async_generator_resolve.exit:                  ; preds = %43, %38, %JS_DupVal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_getTime(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_date_getTime(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = and i64 %2, 4294967295
   %8 = icmp eq i64 %7, 4294967295
@@ -127436,7 +127436,7 @@ JS_ThisTimeValue.exit.thread:                     ; preds = %JS_ThisTimeValue.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @get_date_string(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @get_date_string(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca [9 x double], align 16
   %9 = lshr i32 %5, 4
@@ -127664,7 +127664,7 @@ define internal { i64, i64 } @get_date_string(ptr noundef %0, i64 %1, i64 %2, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_Symbol_toPrimitive(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_date_Symbol_toPrimitive(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 4294967295
   br i1 %.not, label %9, label %7
@@ -127821,7 +127821,7 @@ JS_ToPrimitive.exit:                              ; preds = %80, %JS_FreeAtom.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_getTimezoneOffset(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_date_getTimezoneOffset(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.tm, align 8
   %8 = alloca double, align 8
@@ -127909,7 +127909,7 @@ JS_ThisTimeValue.exit.thread:                     ; preds = %JS_ThisTimeValue.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @get_date_field(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @get_date_field(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [9 x double], align 16
   %8 = and i32 %5, 15
   %9 = lshr i32 %5, 4
@@ -127960,7 +127960,7 @@ define internal { i64, i64 } @get_date_field(ptr noundef %0, i64 %1, i64 %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_setTime(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_date_setTime(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = and i64 %2, 4294967295
   %8 = icmp eq i64 %7, 4294967295
@@ -128120,7 +128120,7 @@ JS_SetThisTimeValue.exit:                         ; preds = %68, %JS_FreeValue.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @set_date_field(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @set_date_field(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [9 x double], align 16
   %8 = alloca double, align 8
   %9 = lshr i32 %5, 8
@@ -128290,7 +128290,7 @@ JS_SetThisTimeValue.exit:                         ; preds = %JS_FreeValue.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_setYear(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_date_setYear(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = alloca [1 x %struct.JSValue], align 16
   %8 = and i64 %2, 4294967295
@@ -128431,7 +128431,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %JS_ToFloat64.exit.J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_date_toJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_date_toJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca double, align 8
   %8 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -128627,7 +128627,7 @@ JS_FreeValue.exit80:                              ; preds = %JS_FreeValue.exit79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @get_date_fields(ptr noundef %0, i64 %1, i64 %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 16) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @get_date_fields(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 16) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.tm, align 8
   %9 = alloca double, align 8
@@ -128859,7 +128859,7 @@ year_from_days.exit:                              ; preds = %90
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @set_date_fields(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc double @set_date_fields(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca double, align 8
@@ -129010,7 +129010,7 @@ time_clip.exit:                                   ; preds = %91, %90, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_Date_parse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_Date_parse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca [3 x i32], align 4
   %8 = alloca i32, align 4
@@ -130368,10 +130368,10 @@ JS_FreeValue.exit:                                ; preds = %657, %653, %.thread
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @string_get_milliseconds(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #31 {
+define internal fastcc void @string_get_milliseconds(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #31 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -130423,7 +130423,7 @@ define internal fastcc void @string_get_milliseconds(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @string_get_timezone(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #31 {
+define internal fastcc range(i32 0, 2) i32 @string_get_timezone(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #31 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   %7 = sext i32 %5 to i64
@@ -130565,7 +130565,7 @@ string_get_digits.exit.thread:                    ; preds = %62, %26, %4, %strin
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @string_skip_until(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2) unnamed_addr #32 {
+define internal fastcc void @string_skip_until(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly %2) unnamed_addr #32 {
   %.promoted = load i32, ptr %1, align 4
   %4 = sext i32 %.promoted to i64
   %5 = getelementptr i8, ptr %0, i64 %4
@@ -130592,7 +130592,7 @@ define internal fastcc void @string_skip_until(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @string_match(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #31 {
+define internal fastcc range(i32 0, 2) i32 @string_match(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #31 {
   %4 = load i32, ptr %1, align 4
   %5 = load i8, ptr %2, align 1
   %.not13 = icmp eq i8 %5, 0
@@ -130634,7 +130634,7 @@ define internal fastcc range(i32 0, 2) i32 @string_match(ptr nocapture noundef n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal { i64, i64 } @js_Date_now(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #28 {
+define internal { i64, i64 } @js_Date_now(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #28 {
   %6 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #42
@@ -130658,7 +130658,7 @@ define internal { i64, i64 } @js_Date_now(ptr nocapture readnone %0, i64 %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_Date_UTC(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_Date_UTC(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [9 x double], align 16
   %7 = alloca double, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 72, i1 false)
@@ -130862,7 +130862,7 @@ define internal fastcc ptr @js_new_function_def(ptr noundef %0, ptr noundef %1, 
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 280
   store i32 -1, ptr %50, align 8
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #43
-  %52 = tail call i32 @JS_NewAtomLen(ptr noundef nonnull %0, ptr noundef %4, i64 noundef %51)
+  %52 = tail call i32 @JS_NewAtomLen(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 464
   store i32 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 468
@@ -130879,7 +130879,7 @@ js_mallocz.exit.thread:                           ; preds = %16, %12, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @push_scope(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @push_scope(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -131050,7 +131050,7 @@ js_realloc2.exit.thread:                          ; preds = %54, %51, %36, %33, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_free_function_def(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @js_free_function_def(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -134913,7 +134913,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   br i1 %or.cond.i, label %1635, label %1637
 
 1635:                                             ; preds = %.lr.ph14.i
-  %1636 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.523, i32 noundef %1633, i32 noundef %1622)
+  %1636 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.523, i32 noundef %1633, i32 noundef %1622)
   br label %.loopexit.i292
 
 1637:                                             ; preds = %.lr.ph14.i
@@ -134930,7 +134930,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   br i1 %1647, label %1648, label %1650
 
 1648:                                             ; preds = %1637
-  %1649 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.524, i32 noundef %1633, i32 noundef %1622)
+  %1649 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.524, i32 noundef %1633, i32 noundef %1622)
   br label %.loopexit.i292
 
 1650:                                             ; preds = %1637
@@ -134963,7 +134963,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   br i1 %1664, label %1665, label %1667
 
 1665:                                             ; preds = %1663
-  %1666 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.525, i32 noundef %1633, i32 noundef %1622)
+  %1666 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.525, i32 noundef %1633, i32 noundef %1622)
   br label %.loopexit.i292
 
 1667:                                             ; preds = %1663
@@ -134982,7 +134982,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   br i1 %1676, label %1677, label %1679
 
 1677:                                             ; preds = %1675
-  %1678 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.526, i32 noundef %1633, i32 noundef %1622)
+  %1678 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.526, i32 noundef %1633, i32 noundef %1622)
   br label %.loopexit.i292
 
 1679:                                             ; preds = %1675, %1667
@@ -135050,7 +135050,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %1700 = load i8, ptr %1699, align 1
   %1701 = sext i8 %1700 to i32
   %1702 = add i32 %1697, %1701
-  %1703 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1702, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
+  %1703 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1702, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
   %.not229.i = icmp eq i32 %1703, 0
   br i1 %.not229.i, label %1774, label %.loopexit.i292
 
@@ -135059,7 +135059,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %.val237.i = load i32, ptr %1705, align 1
   %1706 = add i32 %1622, 1
   %1707 = add i32 %1706, %.val237.i
-  %1708 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1707, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
+  %1708 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1707, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
   %.not228.i = icmp eq i32 %1708, 0
   br i1 %.not228.i, label %1774, label %.loopexit.i292
 
@@ -135069,7 +135069,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %1711 = add i32 %1622, 1
   %1712 = add i32 %1711, %.val236.i
   %1713 = add nsw i32 %1672, 1
-  %1714 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1712, i32 noundef %1633, i32 noundef %1713, i32 noundef %1630)
+  %1714 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1712, i32 noundef %1633, i32 noundef %1713, i32 noundef %1630)
   %.not227.i = icmp eq i32 %1714, 0
   br i1 %.not227.i, label %1774, label %.loopexit.i292
 
@@ -135079,7 +135079,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %1717 = add i32 %1622, 5
   %1718 = add i32 %1717, %.val235.i
   %1719 = add nsw i32 %1672, 1
-  %1720 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1718, i32 noundef %1633, i32 noundef %1719, i32 noundef %1630)
+  %1720 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1718, i32 noundef %1633, i32 noundef %1719, i32 noundef %1630)
   %.not226.i = icmp eq i32 %1720, 0
   br i1 %.not226.i, label %1774, label %.loopexit.i292
 
@@ -135089,7 +135089,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %1723 = add i32 %1622, 5
   %1724 = add i32 %1723, %.val234.i
   %1725 = add nsw i32 %1672, 2
-  %1726 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1724, i32 noundef %1633, i32 noundef %1725, i32 noundef %1630)
+  %1726 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1724, i32 noundef %1633, i32 noundef %1725, i32 noundef %1630)
   %.not225.i = icmp eq i32 %1726, 0
   br i1 %.not225.i, label %1774, label %.loopexit.i292
 
@@ -135099,7 +135099,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %1729 = add i32 %1622, 5
   %1730 = add i32 %1729, %.val233.i
   %1731 = add nsw i32 %1672, -1
-  %1732 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1730, i32 noundef %1633, i32 noundef %1731, i32 noundef %1630)
+  %1732 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1730, i32 noundef %1633, i32 noundef %1731, i32 noundef %1630)
   %.not224.i = icmp eq i32 %1732, 0
   br i1 %.not224.i, label %1774, label %.loopexit.i292
 
@@ -135108,7 +135108,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %.val.i296 = load i32, ptr %1734, align 1
   %1735 = add i32 %1622, 1
   %1736 = add i32 %1735, %.val.i296
-  %1737 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %1736, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
+  %1737 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %1736, i32 noundef %1633, i32 noundef %1672, i32 noundef %1630)
   %.not223.i = icmp eq i32 %1737, 0
   br i1 %.not223.i, label %1774, label %.loopexit.i292
 
@@ -135155,7 +135155,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   br i1 %1760, label %1761, label %1763
 
 1761:                                             ; preds = %1759
-  %1762 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.527, i32 noundef %1622)
+  %1762 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.527, i32 noundef %1622)
   br label %.loopexit.i292
 
 1763:                                             ; preds = %1759
@@ -135177,7 +135177,7 @@ js_malloc.exit243.thread.i:                       ; preds = %1606, %1602
   %.0209.i = phi i32 [ %1630, %1679 ], [ %1773, %1763 ], [ %1758, %1756 ], [ %1630, %1747 ], [ %1630, %1745 ], [ %1622, %1738 ], [ %1630, %1727 ], [ %1630, %1721 ], [ %1630, %1715 ], [ %1630, %1709 ], [ %1630, %1704 ], [ %1630, %1696 ], [ %1630, %1689 ], [ %1630, %1684 ], [ %1630, %1680 ], [ %1622, %1733 ]
   %.0208.i = phi i32 [ %1672, %1679 ], [ %1771, %1763 ], [ %1672, %1756 ], [ %1672, %1747 ], [ %1672, %1745 ], [ %1672, %1738 ], [ %1672, %1727 ], [ %1672, %1721 ], [ %1672, %1715 ], [ %1672, %1709 ], [ %1672, %1704 ], [ %1672, %1696 ], [ %1672, %1689 ], [ %1672, %1684 ], [ %1672, %1680 ], [ %1672, %1733 ]
   %.0207.i = phi i32 [ %1645, %1679 ], [ %1645, %1763 ], [ %1645, %1756 ], [ %1645, %1747 ], [ %1645, %1745 ], [ %1645, %1738 ], [ %1645, %1727 ], [ %1645, %1721 ], [ %1645, %1715 ], [ %1645, %1709 ], [ %1645, %1704 ], [ %1645, %1696 ], [ %1695, %1689 ], [ %1688, %1684 ], [ %1683, %1680 ], [ %1645, %1733 ]
-  %1775 = call fastcc i32 @ss_check(ptr noundef %0, ptr noundef %3, i32 noundef %.0207.i, i32 noundef %1633, i32 noundef %.0208.i, i32 noundef %.0209.i)
+  %1775 = call fastcc i32 @ss_check(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.0207.i, i32 noundef %1633, i32 noundef %.0208.i, i32 noundef %.0209.i)
   %.not231.i = icmp eq i32 %1775, 0
   br i1 %.not231.i, label %._crit_edge30.i, label %.loopexit.i292
 
@@ -136029,7 +136029,7 @@ add_module_variables.exit:                        ; preds = %506, %552, %1848, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_op(ptr nocapture noundef nonnull readonly %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @emit_op(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -137280,7 +137280,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_directives(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_var(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @add_var(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 65534
@@ -138879,7 +138879,7 @@ js_parse_export.exit.thread:                      ; preds = %717, %131, %JS_DupA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_atom(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_atom(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = icmp sgt i32 %1, 226
   br i1 %4, label %5, label %JS_DupAtom.exit
@@ -139691,7 +139691,7 @@ emit_op.exit111:                                  ; preds = %413, %420
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_template_part(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_template_part(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.StringBuffer, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
@@ -140055,7 +140055,7 @@ string_buffer_putc8.exit:                         ; preds = %string_buffer_putc1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_ident(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @parse_ident(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [128 x i8], align 16
   %8 = load ptr, ptr %1, align 8
@@ -140254,7 +140254,7 @@ ident_realloc.exit.thread:                        ; preds = %js_realloc.exit.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @update_token_ident(ptr nocapture noundef nonnull %0) unnamed_addr #33 {
+define internal fastcc void @update_token_ident(ptr noundef nonnull captures(none) %0) unnamed_addr #33 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -144726,7 +144726,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DupAtom.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_parse_error_reserved_identifier(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @js_parse_error_reserved_identifier(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -144739,7 +144739,7 @@ define internal fastcc void @js_parse_error_reserved_identifier(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_var(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #23 {
+define internal fastcc i32 @find_var(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -144805,7 +144805,7 @@ find_arg.exit:                                    ; preds = %23, %find_arg.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @define_var(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
+define internal fastcc i32 @define_var(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   switch i32 %3, label %default.unreachable217 [
     i32 0, label %6
@@ -145491,7 +145491,7 @@ add_scope_var.exit:                               ; preds = %225, %222, %193, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_class_field_init(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @emit_class_field_init(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
@@ -145700,7 +145700,7 @@ emit_op.exit26:                                   ; preds = %emit_op.exit24, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_arg(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @add_arg(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 65534
@@ -148402,7 +148402,7 @@ JS_FreeAtom.exit:                                 ; preds = %922, %js_parse_expe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @new_label(ptr nocapture %.104.val) unnamed_addr #0 {
+define internal fastcc i32 @new_label(ptr captures(none) %.104.val) unnamed_addr #0 {
   %1 = load ptr, ptr %.104.val, align 8
   %2 = getelementptr inbounds nuw i8, ptr %.104.val, i64 368
   %3 = getelementptr inbounds nuw i8, ptr %.104.val, i64 376
@@ -148485,7 +148485,7 @@ new_label_fd.exit:                                ; preds = %23, %26, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_goto(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 106, 111) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @emit_goto(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 106, 111) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 104
@@ -148648,7 +148648,7 @@ js_is_live_code.exit.thread:                      ; preds = %get_prev_opcode.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_object_name(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_object_name(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -148862,7 +148862,7 @@ get_prev_opcode.exit.thread:                      ; preds = %2, %get_prev_opcode
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_label(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_label(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = icmp sgt i32 %1, -1
@@ -148919,7 +148919,7 @@ emit_op.exit:                                     ; preds = %6, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_function_check_names(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_function_check_names(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 134
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, 1
@@ -149068,7 +149068,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_function_check_names(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @js_is_live_code(ptr nocapture readonly %.104.val) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @js_is_live_code(ptr readonly captures(none) %.104.val) unnamed_addr #12 {
   %1 = getelementptr inbounds nuw i8, ptr %.104.val, i64 352
   %2 = load i32, ptr %1, align 8
   %3 = icmp slt i32 %2, 0
@@ -149103,7 +149103,7 @@ get_prev_opcode.exit.thread:                      ; preds = %0, %get_prev_opcode
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cpool_add(ptr %.0.val, ptr nocapture %.104.val, i64 %0, i64 %1) unnamed_addr #0 {
+define internal fastcc i32 @cpool_add(ptr %.0.val, ptr captures(none) %.104.val, i64 %0, i64 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %.104.val, i64 392
   %4 = getelementptr inbounds nuw i8, ptr %.104.val, i64 404
   %5 = getelementptr inbounds nuw i8, ptr %.104.val, i64 400
@@ -149181,7 +149181,7 @@ js_resize_array.exit.thread:                      ; preds = %27, %24, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_global_var(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_global_var(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -149282,7 +149282,7 @@ js_resize_array.exit.thread:                      ; preds = %28, %25, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_regexp(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_regexp(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.StringBuffer, align 8
   %3 = alloca %struct.StringBuffer, align 8
   %4 = alloca ptr, align 8
@@ -149975,7 +149975,7 @@ JS_FreeAtom.exit:                                 ; preds = %js_parse_check_dupl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_lvalue(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_lvalue(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -150807,7 +150807,7 @@ emit_op.exit154:                                  ; preds = %431, %438
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 24) i32 @js_parse_property_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 24) i32 @js_parse_property_name(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp ne i32 %2, 0
   br i1 %7, label %8, label %JS_FreeAtom.exit
@@ -151355,7 +151355,7 @@ JS_FreeAtom.exit152:                              ; preds = %JS_DupAtom.exit, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_define_var(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_define_var(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   switch i32 %1, label %23 [
@@ -152148,7 +152148,7 @@ emit_op.exit69:                                   ; preds = %.thread, %387
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_emit_spread_code(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @js_emit_spread_code(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -155379,7 +155379,7 @@ js_parse_expr_paren.exit.thread:                  ; preds = %575, %570, %615, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @emit_push_const(ptr nocapture noundef nonnull readonly %0, i64 %1, i64 %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @emit_push_const(ptr noundef nonnull readonly captures(none) %0, i64 %1, i64 %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -155568,7 +155568,7 @@ cpool_add.exit.thread:                            ; preds = %69, %66, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_template(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_template(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
@@ -155889,7 +155889,7 @@ JS_FreeValue.exit169.us:                          ; preds = %151, %113, %109, %1
   br label %JS_DupValue.exit
 
 JS_DupValue.exit:                                 ; preds = %168, %175
-  %179 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %12, i64 %39, i64 %40, i32 noundef %.0156, i64 %171, i64 %172, i32 noundef 16388)
+  %179 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef nonnull %12, i64 %39, i64 %40, i32 noundef %.0156, i64 %171, i64 %172, i32 noundef 16388)
   %180 = icmp slt i32 %179, 0
   br i1 %180, label %.loopexit, label %181
 
@@ -155910,7 +155910,7 @@ JS_DupValue.exit:                                 ; preds = %168, %175
 184:                                              ; preds = %._crit_edge, %183
   %185 = phi i64 [ %.pre, %._crit_edge ], [ 3, %183 ]
   %186 = load i64, ptr %61, align 8
-  %187 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %12, i64 %19, i64 %20, i32 noundef %.0156, i64 %186, i64 %185, i32 noundef 16388)
+  %187 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef nonnull %12, i64 %19, i64 %20, i32 noundef %.0156, i64 %186, i64 %185, i32 noundef 16388)
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %.loopexit, label %JS_FreeValue.exit169.thread
 
@@ -155954,8 +155954,8 @@ js_parse_expect.exit:                             ; preds = %.split, %.split.us
   br label %.loopexit
 
 .thread:                                          ; preds = %JS_FreeValue.exit169.thread
-  tail call fastcc void @seal_template_obj(ptr noundef %12, i64 %39)
-  tail call fastcc void @seal_template_obj(ptr noundef %12, i64 %19)
+  tail call fastcc void @seal_template_obj(ptr noundef nonnull %12, i64 %39)
+  tail call fastcc void @seal_template_obj(ptr noundef nonnull %12, i64 %19)
   %204 = add i32 %.0156, 1
   store i32 %204, ptr %2, align 4
   br label %.loopexit178
@@ -157640,7 +157640,7 @@ JS_FreeAtom.exit512:                              ; preds = %73, %48, %3, %JS_Fr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @optional_chain_test(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
+define internal fastcc void @optional_chain_test(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -157921,7 +157921,7 @@ js_parse_expr2.exit:                              ; preds = %emit_op.exit, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_label_raw(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @emit_label_raw(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 104
   %.val5 = load ptr, ptr %4, align 8
@@ -158073,7 +158073,7 @@ js_update_property_flags.exit:                    ; preds = %31, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @emit_class_init_start(ptr nocapture noundef nonnull %0, ptr nocapture noundef initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @emit_class_init_start(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
@@ -158277,7 +158277,7 @@ emit_op.exit31:                                   ; preds = %emit_op.exit28, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pop_scope(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @pop_scope(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -158355,7 +158355,7 @@ get_first_lexical_var.exit:                       ; preds = %.lr.ph.i, %38, %emi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_private_class_field(ptr %.0.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 5, 2147483637) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i32 @add_private_class_field(ptr %.0.val, ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 5, 2147483637) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call fastcc i32 @add_var(ptr noundef %.0.val, ptr noundef %0, i32 noundef %1)
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %add_scope_var.exit.thread
@@ -158410,7 +158410,7 @@ define internal fastcc i32 @js_atom_concat_num(ptr noundef %0, i32 noundef range
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_object_name_computed(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @set_object_name_computed(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -158549,7 +158549,7 @@ define internal fastcc i32 @js_parse_class_default_ctor(ptr noundef nonnull init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_class_init_end(ptr nocapture noundef nonnull initializes((104, 112)) %0, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @emit_class_init_end(ptr noundef nonnull captures(none) initializes((104, 112)) %0, ptr %.0.val) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -158724,7 +158724,7 @@ emit_op.exit17:                                   ; preds = %emit_op.exit15, %88
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @js_atom_concat_str(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @js_atom_concat_str(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
@@ -158915,7 +158915,7 @@ JS_FreeAtomStruct.exit.i.i:                       ; preds = %89, %80, %._crit_ed
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %33, i64 %113, i1 false)
   %114 = load i64, ptr %5, align 8
   %115 = getelementptr i8, ptr %43, i64 %114
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 1 %2, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr nonnull align 1 %2, i64 %35, i1 false)
   %116 = load i64, ptr %5, align 8
   %117 = getelementptr i8, ptr %43, i64 %116
   %118 = getelementptr i8, ptr %117, i64 %35
@@ -161992,7 +161992,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_req_module_entry(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
+define internal fastcc i32 @add_req_module_entry(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -162111,7 +162111,7 @@ js_resize_array.exit.thread:                      ; preds = %js_resize_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_star_export_entry(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_star_export_entry(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -162799,7 +162799,7 @@ JS_FreeAtom.exit103:                              ; preds = %JS_FreeAtom.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_import(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_import(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   switch i32 %2, label %.preheader [
     i32 78, label %13
@@ -162957,7 +162957,7 @@ js_resize_array.exit.thread:                      ; preds = %61, %58, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_closure_var(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 16) %8) unnamed_addr #0 {
+define internal fastcc i32 @add_closure_var(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 16) %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 65534
@@ -163125,7 +163125,7 @@ js_parse_expect.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_eval_ret_undefined(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @set_eval_ret_undefined(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -164381,7 +164381,7 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %2, %6, %.thread, %t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_scopes(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @close_scopes(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %1, %2
@@ -164442,7 +164442,7 @@ emit_op.exit:                                     ; preds = %9, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @emit_break(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @emit_break(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -168629,7 +168629,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %1960, %1956, %js_ma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
+define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %2, %12
@@ -168696,7 +168696,7 @@ define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resolve_scope_var(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 256) %4, ptr noundef nonnull %5, ptr nocapture noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc noundef i32 @resolve_scope_var(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 256) %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -170344,7 +170344,7 @@ JS_DupAtom.exit550:                               ; preds = %796, %799
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal range(i32 0, 2) i32 @code_match(ptr nocapture noundef nonnull %0, i32 noundef %1, ...) unnamed_addr #34 {
+define internal range(i32 0, 2) i32 @code_match(ptr noundef nonnull captures(none) %0, i32 noundef %1, ...) unnamed_addr #34 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -170624,7 +170624,7 @@ define internal range(i32 0, 2) i32 @code_match(ptr nocapture noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @skip_dead_code(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @skip_dead_code(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp slt i32 %3, %2
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -170807,7 +170807,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @var_object_test(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc void @var_object_test(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef nonnull %4, ptr noundef nonnull captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = icmp eq i32 %3, 185
@@ -170942,7 +170942,7 @@ new_label_fd.exit:                                ; preds = %JS_DupAtom.exit, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resolve_pseudo_var(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @resolve_pseudo_var(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -171026,7 +171026,7 @@ add_var_this.exit:                                ; preds = %29, %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @optimize_scope_make_ref(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 88, 103) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @optimize_scope_make_ref(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 88, 103) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = sext i32 %3 to i64
   %9 = getelementptr i8, ptr %1, i64 %8
@@ -171093,7 +171093,7 @@ define internal fastcc noundef i32 @optimize_scope_make_ref(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @optimize_scope_make_global_ref(ptr nocapture noundef readonly %0, i8 %.134.val, ptr noundef nonnull %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @optimize_scope_make_global_ref(ptr noundef readonly captures(none) %0, i8 %.134.val, ptr noundef nonnull %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = and i8 %.134.val, 1
@@ -171245,7 +171245,7 @@ JS_DupAtom.exit46:                                ; preds = %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 {
+define internal fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 {
   %7 = alloca [64 x i8], align 16
   br label %8
 
@@ -171501,7 +171501,7 @@ define internal fastcc void @put_short_code(ptr noundef nonnull %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @add_pc2line_info(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #22 {
+define internal fastcc void @add_pc2line_info(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #22 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -171599,7 +171599,7 @@ define internal fastcc void @push_short_int(ptr noundef nonnull %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ss_check(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, 248) %3, i32 noundef range(i32 -65536, 66032) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ss_check(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 248) %3, i32 noundef range(i32 -65536, 66032) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %1, align 8
   %.not = icmp ult i32 %2, %7
   br i1 %.not, label %10, label %8
@@ -171733,7 +171733,7 @@ js_resize_array.exit.thread:                      ; preds = %64, %61, %js_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_operators_create_internal(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_operators_create_internal(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -172231,19 +172231,19 @@ JS_FreeValue.exit209:                             ; preds = %.loopexit.i, %236, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_dummy_operators_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_dummy_operators_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc { i64, i64 } @js_create_from_ctor(ptr noundef %0, i64 %1, i64 %2, i32 noundef 1)
   ret { i64, i64 } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_operators_create(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_operators_create(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = tail call fastcc { i64, i64 } @js_operators_create_internal(ptr noundef %0, i32 noundef %3, ptr noundef %4, i32 noundef 0)
   ret { i64, i64 } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_operators_updateBigIntOperators(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_operators_updateBigIntOperators(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -172608,7 +172608,7 @@ declare i32 @bf_atof(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 nou
 declare i32 @bf_add_si(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @JS_CompactBigInt(ptr nocapture noundef readonly %0, i64 %1, i64 %2) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @JS_CompactBigInt(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
@@ -172716,7 +172716,7 @@ declare i32 @bf_divrem(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 n
 declare i32 @bf_rem(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @js_call_binary_op_simple(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %.0.val, i64 %.8.val, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @js_call_binary_op_simple(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %.0.val, i64 %.8.val, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca [2 x %struct.JSValue], align 16
   %10 = tail call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %2, i64 %3, i32 noundef 226, i64 %2, i64 %3, i32 noundef 0)
@@ -172974,7 +172974,7 @@ declare i32 @bf_logic_or(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @bf_logic_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_toString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigint_toString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -173126,7 +173126,7 @@ JS_FreeValue.exit30:                              ; preds = %66, %61, %58, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_bigint_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %trunc.i = trunc i64 %2 to i32
   %6 = inttoptr i64 %1 to ptr
   switch i32 %trunc.i, label %22 [
@@ -173209,7 +173209,7 @@ JS_ToInt32Sat.exit:                               ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_asUintN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigint_asUintN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = alloca %struct.bf_t, align 8
@@ -173427,7 +173427,7 @@ JS_FreeValue.exit:                                ; preds = %30, %34, %56, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_div(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigint_div(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -173827,7 +173827,7 @@ JS_FreeValue.exit145:                             ; preds = %14, %18, %195, %JS_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_sqrt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigint_sqrt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -174084,7 +174084,7 @@ JS_FreeValue.exit112:                             ; preds = %28, %32, %13, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigint_op1(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigint_op1(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -174432,7 +174432,7 @@ declare i32 @bf_atof2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @bf_mul_pow_radix(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_toString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_toString(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -174584,7 +174584,7 @@ JS_FreeValue.exit30:                              ; preds = %66, %61, %58, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_bigfloat_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %trunc.i = trunc i64 %2 to i32
   %6 = inttoptr i64 %1 to ptr
   switch i32 %trunc.i, label %22 [
@@ -174633,7 +174633,7 @@ js_thisBigFloatValue.exit:                        ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -174822,7 +174822,7 @@ JS_FreeValue.exit53:                              ; preds = %85, %80, %77, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -175047,7 +175047,7 @@ JS_FreeValue.exit46:                              ; preds = %101, %96, %93, %JS_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -175391,7 +175391,7 @@ JS_NewBigFloat.exit.thread:                       ; preds = %10, %14, %21, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_parseFloat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigfloat_parseFloat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -175729,7 +175729,7 @@ JS_FreeCString.exit:                              ; preds = %84, %JS_FreeAtomStr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_bigfloat_isFinite(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #12 {
+define internal { i64, i64 } @js_bigfloat_isFinite(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #12 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %6 = and i64 %.sroa.2.0.copyload, 4294967295
@@ -175752,7 +175752,7 @@ define internal { i64, i64 } @js_bigfloat_isFinite(ptr nocapture readnone %0, i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_bigfloat_isNaN(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #12 {
+define internal { i64, i64 } @js_bigfloat_isNaN(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #12 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %6 = and i64 %.sroa.2.0.copyload, 4294967295
@@ -175775,7 +175775,7 @@ define internal { i64, i64 } @js_bigfloat_isNaN(ptr nocapture readnone %0, i64 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_fop(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigfloat_fop(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca %struct.bf_t, align 8
   %9 = load i64, ptr %4, align 8
@@ -176174,7 +176174,7 @@ JS_FreeValue.exit:                                ; preds = %86, %81, %bf_delete
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigfloat_fop2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigfloat_fop2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca %struct.bf_t, align 8
   %9 = alloca %struct.bf_t, align 8
@@ -176905,7 +176905,7 @@ JS_ToBool.exit49:                                 ; preds = %89, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_float_env_clearStatus(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_float_env_clearStatus(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %7, 4294967295
@@ -176949,7 +176949,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_float_env_get_prec(ptr nocapture noundef readonly %0, i64 %1, i64 %2) #7 {
+define internal { i64, i64 } @js_float_env_get_prec(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 2147483648
@@ -176965,7 +176965,7 @@ define internal { i64, i64 } @js_float_env_get_prec(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_float_env_get_expBits(ptr nocapture noundef readonly %0, i64 %1, i64 %2) #7 {
+define internal { i64, i64 } @js_float_env_get_expBits(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 5
@@ -176980,7 +176980,7 @@ define internal { i64, i64 } @js_float_env_get_expBits(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_float_env_setPrec(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_float_env_setPrec(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -177679,7 +177679,7 @@ JS_FreeValue.exit:                                ; preds = %184, %JS_ToStringFr
 declare i32 @bfdec_set_si(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %trunc.i = trunc i64 %2 to i32
   %6 = inttoptr i64 %1 to ptr
   switch i32 %trunc.i, label %js_thisBigDecimalValue.exit.thread [
@@ -177749,7 +177749,7 @@ JS_ToStringFree.exit:                             ; preds = %31, %26, %22, %js_t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %trunc.i = trunc i64 %2 to i32
   %6 = inttoptr i64 %1 to ptr
   switch i32 %trunc.i, label %22 [
@@ -177798,7 +177798,7 @@ js_thisBigDecimalValue.exit:                      ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -177984,7 +177984,7 @@ JS_FreeValue.exit44:                              ; preds = %88, %83, %80, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -178139,7 +178139,7 @@ JS_FreeValue.exit35:                              ; preds = %73, %68, %65, %JS_F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_bigdecimal_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %trunc.i = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
@@ -178576,7 +178576,7 @@ JS_FreeCString.exit35:                            ; preds = %149, %JS_FreeAtomSt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_bigdecimal_fop(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_bigdecimal_fop(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = add i32 %5, -3
   %switch.and = and i32 %8, -3
@@ -179061,12 +179061,12 @@ declare i32 @bfdec_sqrt(ptr noundef, ptr noundef, i64 noundef, i32 noundef) loca
 declare i32 @bfdec_round(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { i64, i64 } @js_function_proto(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #4 {
+define internal { i64, i64 } @js_function_proto(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #4 {
   ret { i64, i64 } { i64 0, i64 3 }
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_error_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_error_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 4294967295
   br i1 %.not, label %9, label %7
@@ -179263,7 +179263,7 @@ JS_FreeValue.exit:                                ; preds = %77, %72, %69, %JS_T
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_create(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_create(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %trunc = trunc i64 %.sroa.4.0.copyload to i32
@@ -179397,7 +179397,7 @@ JS_FreeValue.exit:                                ; preds = %.loopexit.i, %59, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_getPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_getPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -179431,7 +179431,7 @@ define internal { i64, i64 } @js_object_getPrototypeOf(ptr noundef %0, i64 %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_setPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_setPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -179464,7 +179464,7 @@ JS_DupValue.exit:                                 ; preds = %15, %12, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_defineProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_defineProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %.sroa.09.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -179620,7 +179620,7 @@ JS_DupValue.exit:                                 ; preds = %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_defineProperties(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_defineProperties(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -179653,7 +179653,7 @@ JS_DupValue.exit:                                 ; preds = %14, %11, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_getOwnPropertyNames(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_getOwnPropertyNames(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -179662,7 +179662,7 @@ define internal { i64, i64 } @js_object_getOwnPropertyNames(ptr noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_getOwnPropertySymbols(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_getOwnPropertySymbols(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -179671,7 +179671,7 @@ define internal { i64, i64 } @js_object_getOwnPropertySymbols(ptr noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_isExtensible(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_isExtensible(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %7 = and i64 %.sroa.2.0.copyload, 4294967295
@@ -179721,7 +179721,7 @@ JS_IsExtensible.exit:                             ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_preventExtensions(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_preventExtensions(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -179795,7 +179795,7 @@ JS_DupValue.exit44:                               ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_getOwnPropertyDescriptor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_getOwnPropertyDescriptor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -180336,7 +180336,7 @@ JS_FreeValue.exit186:                             ; preds = %309, %304, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_getOwnPropertyDescriptors(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_getOwnPropertyDescriptors(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [64 x i8], align 16
@@ -180588,7 +180588,7 @@ JS_FreeValue.exit84:                              ; preds = %110, %105, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_is(ptr nocapture noundef readonly %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_is(ptr noundef readonly captures(none) %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr i8, ptr %4, i64 16
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -180628,7 +180628,7 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_assign(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_assign(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -180754,7 +180754,7 @@ JS_FreeValue.exit64:                              ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_isSealed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object_isSealed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.JSPropertyDescriptor, align 8
@@ -180919,7 +180919,7 @@ JS_IsExtensible.exit.thread:                      ; preds = %71, %JS_IsExtensibl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object___getClass(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object___getClass(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -181009,7 +181009,7 @@ JS_AtomToString.exit:                             ; preds = %28, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_fromEntries(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_fromEntries(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.JSValue, align 8
   %.sroa.052.0.copyload = load i64, ptr %4, align 8
@@ -181285,7 +181285,7 @@ JS_FreeValue.exit134:                             ; preds = %135, %130, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_hasOwn(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_hasOwn(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -181685,7 +181685,7 @@ js_free_desc.exit:                                ; preds = %54, %49, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_object_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %trunc = trunc i64 %2 to i32
   switch i32 %trunc, label %14 [
     i32 2, label %6
@@ -181897,7 +181897,7 @@ JS_FreeValue.exit:                                ; preds = %JS_FreeValue.exit76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_toLocaleString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_object_toLocaleString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = tail call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef 56, i64 %1, i64 %2, i32 noundef 0)
   %8 = extractvalue { i64, i64 } %7, 0
@@ -181940,13 +181940,13 @@ JS_Invoke.exit:                                   ; preds = %5, %JS_CallFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_object_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
   ret { i64, i64 } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_hasOwnProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_hasOwnProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -182192,7 +182192,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_isPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_isPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.05.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -182377,7 +182377,7 @@ JS_FreeValue.exit57:                              ; preds = %98, %94, %JS_FreeVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object_propertyIsEnumerable(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_object_propertyIsEnumerable(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSPropertyDescriptor, align 8
   %7 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
   %8 = extractvalue { i64, i64 } %7, 0
@@ -182668,7 +182668,7 @@ define internal { i64, i64 } @js_object_set___proto__(ptr noundef %0, i64 %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object___defineGetter__(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object___defineGetter__(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %.sroa.022.0.copyload = load i64, ptr %4, align 8
@@ -182911,7 +182911,7 @@ JS_FreeValue.exit:                                ; preds = %56, %51, %48, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_object___lookupGetter__(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_object___lookupGetter__(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSPropertyDescriptor, align 8
   %8 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
   %9 = extractvalue { i64, i64 } %8, 0
@@ -183283,7 +183283,7 @@ define internal { i64, i64 } @js_function_call(ptr noundef %0, i64 %1, i64 %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_bind(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_function_bind(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = and i64 %2, 4294967295
@@ -183663,7 +183663,7 @@ JS_FreeValue.exit210:                             ; preds = %.loopexit.i, %188, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_function_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %6, 4294967295
   %7 = inttoptr i64 %1 to ptr
@@ -183784,7 +183784,7 @@ JS_AtomToString.exit:                             ; preds = %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_function_hasInstance(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_function_hasInstance(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -183891,7 +183891,7 @@ JS_GetFunctionBytecode.exit.thread:               ; preds = %7, %3, %JS_GetFunct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_function_proto_lineNumber(ptr nocapture readnone %0, i64 %1, i64 %2) #12 {
+define internal { i64, i64 } @js_function_proto_lineNumber(ptr readnone captures(none) %0, i64 %1, i64 %2) #12 {
   %4 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %4, 4294967295
   %5 = inttoptr i64 %1 to ptr
@@ -183935,7 +183935,7 @@ JS_GetFunctionBytecode.exit.thread:               ; preds = %6, %3, %JS_GetFunct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_at(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_at(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -184166,7 +184166,7 @@ JS_FreeValue.exit39:                              ; preds = %111, %106, %103, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_with(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_with(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -184548,7 +184548,7 @@ JS_FreeValue.exit143:                             ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_concat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_concat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -184909,7 +184909,7 @@ JS_FreeValue.exit:                                ; preds = %JS_FreeValue.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_every(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_every(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -185571,7 +185571,7 @@ JS_FreeValue.exit362:                             ; preds = %285, %280, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_reduce(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_reduce(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -186067,7 +186067,7 @@ JS_FreeValue.exit148:                             ; preds = %223, %218, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_fill(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_fill(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -186312,7 +186312,7 @@ JS_FreeValue.exit:                                ; preds = %105, %JS_ToInt64Cla
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_find(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_find(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [3 x %struct.JSValue], align 16
   %9 = alloca i64, align 8
@@ -186666,7 +186666,7 @@ JS_FreeValue.exit224:                             ; preds = %155, %150, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -186981,7 +186981,7 @@ JS_FreeValue.exit73:                              ; preds = %161, %156, %JS_ToIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_lastIndexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_lastIndexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -187218,7 +187218,7 @@ JS_FreeValue.exit53:                              ; preds = %113, %108, %JS_ToIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_join(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_join(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -187737,7 +187737,7 @@ JS_FreeValue.exit85:                              ; preds = %232, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_array_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
   %8 = extractvalue { i64, i64 } %7, 0
@@ -187872,7 +187872,7 @@ JS_FreeValue.exit51:                              ; preds = %56, %59, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_reverse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_array_reverse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca i64, align 8
@@ -188132,7 +188132,7 @@ JS_FreeValue.exit92:                              ; preds = %118, %113, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_toReversed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_array_toReversed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -188364,7 +188364,7 @@ JS_FreeValue.exit93:                              ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_sort(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_sort(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.array_sort_context, align 8
   %7 = alloca i64, align 8
   store ptr %0, ptr %6, align 8
@@ -188979,7 +188979,7 @@ JS_FreeValue.exit136:                             ; preds = %218, %.preheader, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_toSorted(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_toSorted(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -189305,7 +189305,7 @@ JS_FreeValue.exit136:                             ; preds = %JS_FreeValue.exit13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_slice(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_slice(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca %struct.JSValue, align 8
@@ -189860,7 +189860,7 @@ JS_FreeValue.exit261:                             ; preds = %280, %275, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_toSpliced(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_toSpliced(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -190351,7 +190351,7 @@ JS_FreeValue.exit170:                             ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_copyWithin(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_copyWithin(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -190578,7 +190578,7 @@ JS_FreeValue.exit:                                ; preds = %114, %109, %JS_ToIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_flatten(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_flatten(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = tail call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %1, i64 %2)
@@ -191405,7 +191405,7 @@ JS_FreeValue.exit:                                ; preds = %67, %63, %js_typed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @js_array_cmp_generic(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal i32 @js_array_cmp_generic(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca [2 x %struct.JSValue], align 16
   %6 = alloca double, align 8
@@ -192004,7 +192004,7 @@ JS_FreeValue.exit74:                              ; preds = %30, %JS_FreeValue.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_isArray(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_isArray(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
@@ -192074,7 +192074,7 @@ JS_IsArray.exit:                                  ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_from(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_from(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
@@ -192799,7 +192799,7 @@ JS_FreeValue.exit388:                             ; preds = %41, %check_function
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_of(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_array_of(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [1 x %struct.JSValue], align 16
@@ -192935,7 +192935,7 @@ JS_FreeValue.exit:                                ; preds = %52, %47, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_parseInt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_parseInt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -193239,7 +193239,7 @@ JS_FreeCString.exit:                              ; preds = %173, %JS_FreeAtomSt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_parseFloat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_parseFloat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -193406,7 +193406,7 @@ JS_FreeCString.exit:                              ; preds = %91, %JS_FreeAtomStr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_isNaN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_isNaN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -193455,7 +193455,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %18, %JS_DupValue.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_isFinite(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_isFinite(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -193513,7 +193513,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %JS_ToFloat64.exit.J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_decodeURI(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_global_decodeURI(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -193656,7 +193656,7 @@ string_get.exit:                                  ; preds = %46, %50
   %73 = phi i32 [ %83, %78 ], [ %.062.ph, %.lr.ph.preheader ]
   %.164106 = phi i32 [ %79, %78 ], [ %60, %.lr.ph.preheader ]
   %.166105 = phi i32 [ %82, %78 ], [ %72, %.lr.ph.preheader ]
-  %74 = tail call fastcc i32 @hex_decode(ptr noundef %0, ptr noundef %15, i32 noundef %.164106)
+  %74 = tail call fastcc i32 @hex_decode(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %.164106)
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %.loopexit, label %76
 
@@ -193912,7 +193912,7 @@ string_buffer_end.exit:                           ; preds = %184, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_encodeURI(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_global_encodeURI(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [6 x i8], align 1
   %8 = alloca [6 x i8], align 1
   %9 = alloca [6 x i8], align 1
@@ -194763,7 +194763,7 @@ string_buffer_end.exit:                           ; preds = %424, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_escape(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_escape(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [6 x i8], align 1
   %7 = alloca %struct.StringBuffer, align 8
   %8 = load i64, ptr %4, align 8
@@ -195118,7 +195118,7 @@ string_buffer_end.exit:                           ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_global_unescape(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_global_unescape(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -195585,7 +195585,7 @@ string_buffer_end.exit:                           ; preds = %JS_FreeValue.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @hex_decode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @hex_decode(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
@@ -195714,7 +195714,7 @@ string_get_hex.exit:                              ; preds = %from_hex.exit.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @js_throw_URIError(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @js_throw_URIError(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -195768,7 +195768,7 @@ JS_ThrowError.exit:                               ; preds = %2, %10, %11, %18, %
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_toExponential(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
@@ -195923,7 +195923,7 @@ JS_ToInt32Sat.exit:                               ; preds = %JS_ToFloat64Free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_toFixed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca double, align 8
   %8 = trunc i64 %2 to i32
@@ -196061,7 +196061,7 @@ JS_ToInt32Sat.exit:                               ; preds = %JS_ToFloat64Free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_toPrecision(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
@@ -196214,7 +196214,7 @@ JS_ToInt32Sat.exit:                               ; preds = %40, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_number_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [2200 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = alloca i32, align 4
@@ -196368,7 +196368,7 @@ js_get_radix.exit:                                ; preds = %45
 i64toa.exit:                                      ; preds = %.loopexit.i, %69
   %.3.i = phi ptr [ %70, %69 ], [ %.1.i, %.loopexit.i ]
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3.i) #43
-  %72 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %.3.i, i64 noundef %71)
+  %72 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %.3.i, i64 noundef %71)
   %73 = extractvalue { i64, i64 } %72, 0
   %.sroa.7.0.extract.shift = and i64 %73, -4294967296
   %74 = extractvalue { i64, i64 } %72, 1
@@ -196617,7 +196617,7 @@ js_dtoa_radix.exit:                               ; preds = %.preheader96.i, %._
   %.neg.i = sext i1 %183 to i64
   %185 = getelementptr i8, ptr %.2.i70, i64 %.neg.i
   %186 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %185) #43
-  %187 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %185, i64 noundef %186)
+  %187 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %185, i64 noundef %186)
   call void @llvm.lifetime.end.p0(i64 2200, ptr nonnull %7)
   %188 = extractvalue { i64, i64 } %187, 0
   %.sroa.7.0.extract.shift49 = and i64 %188, -4294967296
@@ -196663,7 +196663,7 @@ JS_FreeValue.exit:                                ; preds = %201, %196, %193, %J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_number_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
   switch i32 %6, label %8 [
@@ -196712,7 +196712,7 @@ js_thisNumberValue.exit:                          ; preds = %5, %5, %19, %22
 declare double @log2(double noundef) #25
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_isNaN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_isNaN(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -196763,7 +196763,7 @@ js_global_isNaN.exit:                             ; preds = %13, %JS_DupValue.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_isFinite(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_isFinite(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -196823,7 +196823,7 @@ js_global_isFinite.exit:                          ; preds = %JS_ToFloat64.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_isInteger(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_isInteger(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -196883,7 +196883,7 @@ JS_NumberIsInteger.exit:                          ; preds = %21, %JS_ToFloat64Fr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_number_isSafeInteger(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_number_isSafeInteger(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -196941,7 +196941,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %JS_ToFloat64.exit.J
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_boolean_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_boolean_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
   switch i32 %6, label %js_thisBooleanValue.exit.thread [
@@ -197020,7 +197020,7 @@ JS_AtomToString.exit:                             ; preds = %21, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_boolean_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_boolean_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
   switch i32 %6, label %19 [
@@ -197059,7 +197059,7 @@ js_thisBooleanValue.exit:                         ; preds = %5, %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_fromCharCode(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_fromCharCode(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
@@ -197305,7 +197305,7 @@ string_buffer_end.exit:                           ; preds = %120, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_fromCodePoint(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_fromCodePoint(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = alloca %struct.StringBuffer, align 8
   store ptr %0, ptr %7, align 8
@@ -197633,7 +197633,7 @@ string_buffer_end.exit:                           ; preds = %139, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_raw(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_raw(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = alloca i64, align 8
   store ptr %0, ptr %6, align 8
@@ -197795,10 +197795,10 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
 
 82:                                               ; preds = %.lr.ph, %._crit_edge115
   %.0112 = phi i64 [ 0, %.lr.ph ], [ %104, %._crit_edge115 ]
-  %83 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %49, i64 %50, i64 noundef %.0112)
+  %83 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef nonnull %0, i64 %49, i64 %50, i64 noundef %.0112)
   %84 = extractvalue { i64, i64 } %83, 0
   %85 = extractvalue { i64, i64 } %83, 1
-  %86 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %84, i64 %85, i32 noundef 0)
+  %86 = call { i64, i64 } @JS_ToStringInternal(ptr noundef nonnull %0, i64 %84, i64 %85, i32 noundef 0)
   %87 = trunc i64 %85 to i32
   %88 = icmp ugt i32 %87, -12
   br i1 %88, label %89, label %JS_ToStringFree.exit
@@ -198030,7 +198030,7 @@ string_buffer_end.exit:                           ; preds = %172, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_charAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_charAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %8, 2
@@ -198259,7 +198259,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_charCodeAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_charCodeAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %7, 2
@@ -198377,7 +198377,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_concat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_concat(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %6, 2
   br i1 %or.cond.i, label %JS_ToStringCheckObject.exit.thread, label %JS_ToStringCheckObject.exit
@@ -198435,7 +198435,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_codePointAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_codePointAt(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %7, 2
@@ -198578,7 +198578,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_isWellFormed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string_isWellFormed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %6, 2
   br i1 %or.cond.i, label %JS_ToStringCheckObject.exit.thread, label %JS_ToStringCheckObject.exit
@@ -198681,7 +198681,7 @@ JS_FreeValue.exit:                                ; preds = %45, %41, %js_string
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_toWellFormed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string_toWellFormed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %6, 2
   br i1 %or.cond.i, label %JS_ToStringCheckObject.exit.thread, label %JS_ToStringCheckObject.exit
@@ -198875,7 +198875,7 @@ js_string_find_invalid_codepoint.exit.thread:     ; preds = %34, %92, %70, %js_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
   %9 = and i64 %2, 4294967294
@@ -199264,7 +199264,7 @@ JS_FreeValue.exit77:                              ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_includes(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_includes(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %8, 2
@@ -199608,7 +199608,7 @@ JS_FreeValue.exit82:                              ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_match(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_match(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
   %9 = alloca %struct.JSValue, align 8
@@ -199809,7 +199809,7 @@ JS_FreeValue.exit:                                ; preds = %84, %79, %76, %33, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_split(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_split(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [2 x %struct.JSValue], align 16
   %7 = alloca i32, align 4
   %.sroa.0114.0.copyload = load i64, ptr %4, align 8
@@ -199973,7 +199973,7 @@ JS_ToUint32.exit:                                 ; preds = %42, %45
 
 83:                                               ; preds = %.lr.ph
   %84 = trunc i64 %.1177241 to i32
-  %85 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef %29, i32 noundef %84, i32 noundef %80)
+  %85 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %29, i32 noundef %84, i32 noundef %80)
   %86 = extractvalue { i64, i64 } %85, 1
   %87 = and i64 %86, 4294967295
   %.not225 = icmp eq i64 %87, 6
@@ -199981,7 +199981,7 @@ JS_ToUint32.exit:                                 ; preds = %42, %45
 
 88:                                               ; preds = %83
   %89 = extractvalue { i64, i64 } %85, 0
-  %90 = tail call fastcc i32 @JS_CreateDataPropertyUint32(ptr noundef %0, i64 %36, i64 %37, i64 noundef %indvars.iv, i64 %89, i64 %86, i32 noundef 0)
+  %90 = tail call fastcc i32 @JS_CreateDataPropertyUint32(ptr noundef nonnull %0, i64 %36, i64 %37, i64 noundef %indvars.iv, i64 %89, i64 %86, i32 noundef 0)
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.loopexit234, label %92
 
@@ -200000,7 +200000,7 @@ JS_ToUint32.exit:                                 ; preds = %42, %45
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %74, %68
   %.0176 = phi i32 [ 0, %68 ], [ 0, %74 ], [ 0, %.preheader ], [ %94, %.loopexit.loopexit ]
   %.0 = phi i64 [ 0, %68 ], [ 0, %74 ], [ 0, %.preheader ], [ %95, %.loopexit.loopexit ]
-  %96 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef %0, ptr noundef %29, i32 noundef %.0176, i32 noundef %55)
+  %96 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %29, i32 noundef %.0176, i32 noundef %55)
   %97 = extractvalue { i64, i64 } %96, 1
   %98 = and i64 %97, 4294967295
   %.not226 = icmp eq i64 %98, 6
@@ -200008,7 +200008,7 @@ JS_ToUint32.exit:                                 ; preds = %42, %45
 
 99:                                               ; preds = %.loopexit
   %100 = extractvalue { i64, i64 } %96, 0
-  %101 = tail call fastcc i32 @JS_CreateDataPropertyUint32(ptr noundef %0, i64 %36, i64 %37, i64 noundef %.0, i64 %100, i64 %97, i32 noundef 0)
+  %101 = tail call fastcc i32 @JS_CreateDataPropertyUint32(ptr noundef nonnull %0, i64 %36, i64 %37, i64 noundef %.0, i64 %100, i64 %97, i32 noundef 0)
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %.loopexit234, label %.loopexit235
 
@@ -200130,7 +200130,7 @@ JS_FreeValue.exit206:                             ; preds = %15, %147, %142, %JS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_substring(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_substring(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = and i64 %2, 4294967294
@@ -200286,7 +200286,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_substr(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_substr(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = and i64 %2, 4294967294
@@ -200450,7 +200450,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = and i64 %2, 4294967294
@@ -200618,7 +200618,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_repeat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_repeat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.StringBuffer, align 8
   %7 = alloca i64, align 8
   %8 = and i64 %2, 4294967294
@@ -200845,7 +200845,7 @@ JS_FreeValue.exit48:                              ; preds = %.thread, %30, %115,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_replace(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_replace(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [6 x %struct.JSValue], align 16
   %9 = alloca %struct.StringBuffer, align 8
@@ -201125,11 +201125,11 @@ JS_FreeValue.exit:                                ; preds = %108, %118, %122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 8
   store i64 3, ptr %87, align 8
-  %134 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %.sroa.0146.0.copyload, i64 %.sroa.5150.0.copyload, i64 0, i64 3, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef 2)
+  %134 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef nonnull %0, i64 %.sroa.0146.0.copyload, i64 %.sroa.5150.0.copyload, i64 0, i64 3, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 3, ptr noundef nonnull %8, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %135 = extractvalue { i64, i64 } %134, 0
   %136 = extractvalue { i64, i64 } %134, 1
-  %137 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %0, i64 %135, i64 %136, i32 noundef 0)
+  %137 = call { i64, i64 } @JS_ToStringInternal(ptr noundef nonnull %0, i64 %135, i64 %136, i32 noundef 0)
   %138 = trunc i64 %136 to i32
   %139 = icmp ugt i32 %138, -12
   br i1 %139, label %140, label %JS_ToStringFree.exit
@@ -201159,7 +201159,7 @@ JS_FreeValue.exit:                                ; preds = %108, %118, %122
   store i64 3, ptr %.sroa.25.0..sroa_idx, align 8
   store i64 %.sroa.086.sroa.0.0.insert.insert104, ptr %90, align 16
   store i64 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 8
-  %148 = call fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef %0, ptr noundef %8)
+  %148 = call fastcc { i64, i64 } @js_string___GetSubstitution(ptr noundef nonnull %0, ptr noundef %8)
   br label %JS_ToStringFree.exit
 
 JS_ToStringFree.exit:                             ; preds = %145, %140, %133, %147
@@ -201401,7 +201401,7 @@ JS_FreeValue.exit263:                             ; preds = %131, %126, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_pad(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_pad(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = alloca i32, align 4
   %9 = and i64 %2, 4294967294
@@ -201790,7 +201790,7 @@ JS_FreeValue.exit89:                              ; preds = %59, %55, %52, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_trim(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_trim(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %7, 2
   br i1 %or.cond.i, label %JS_ToStringCheckObject.exit.thread, label %JS_ToStringCheckObject.exit
@@ -201931,7 +201931,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToStringCheckObj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
   switch i32 %6, label %24 [
@@ -201980,13 +201980,13 @@ js_thisStringValue.exit:                          ; preds = %JS_DupValue.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string___quote(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_string___quote(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call fastcc { i64, i64 } @JS_ToQuotedString(ptr noundef %0, i64 %1, i64 %2)
   ret { i64, i64 } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_localeCompare(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_string_localeCompare(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = and i64 %2, 4294967294
@@ -202166,7 +202166,7 @@ JS_FreeValue.exit:                                ; preds = %54, %49, %46, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_toLowerCase(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_toLowerCase(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = alloca [3 x i32], align 4
   %9 = and i64 %2, 4294967294
@@ -202594,7 +202594,7 @@ JS_FreeValue.exit49:                              ; preds = %string_buffer_putc.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_CreateHTML(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_string_CreateHTML(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = and i64 %2, 4294967294
   %or.cond.i = icmp eq i64 %8, 2
@@ -202754,7 +202754,7 @@ string_buffer_putc8.exit:                         ; preds = %34, %45, %47
   %81 = getelementptr [0 x i8], ptr %78, i64 0, i64 %80
   %sext.i = shl i64 %52, 32
   %82 = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr readonly align 1 %51, i64 %82, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr nonnull readonly align 1 %51, i64 %82, i1 false)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %64, %75, %.preheader.i.i
@@ -203317,7 +203317,7 @@ string_buffer_puts8.exit134:                      ; preds = %.string_buffer_puts
   %354 = getelementptr [0 x i8], ptr %351, i64 0, i64 %353
   %sext.i146 = shl i64 %326, 32
   %355 = ashr exact i64 %sext.i146, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %354, ptr readonly align 1 %51, i64 %355, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %354, ptr nonnull readonly align 1 %51, i64 %355, i1 false)
   br label %.loopexit.i.i137
 
 .loopexit.i.i137:                                 ; preds = %337, %348, %.preheader.i.i136
@@ -203574,7 +203574,7 @@ js_is_regexp.exit.thread48:                       ; preds = %js_is_regexp.exit.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @string_indexof(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc i32 @string_indexof(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #30 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %.fr99 = freeze i64 %5
@@ -203854,7 +203854,7 @@ string_indexof_char.exit.thread:                  ; preds = %string_get.exit.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @string_buffer_fill(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @string_buffer_fill(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %2
@@ -203961,7 +203961,7 @@ declare i32 @lre_is_case_ignorable(i32 noundef) local_unnamed_addr #5
 declare i32 @lre_is_cased(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_string_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 %6) #0 {
+define internal { i64, i64 } @js_string_iterator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 %6) #0 {
   %8 = alloca [64 x i8], align 16
   %9 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %9, 4294967295
@@ -204202,7 +204202,7 @@ js_new_string16.exit:                             ; preds = %106, %110, %112
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_math_min_max(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_math_min_max(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = icmp eq i32 %3, 0
@@ -204621,7 +204621,7 @@ declare double @log10(double noundef) #25
 declare double @cbrt(double noundef) #35
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_math_hypot(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_math_hypot(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   store double 0.000000e+00, ptr %6, align 8
@@ -204758,7 +204758,7 @@ JS_ToFloat64.exit34.thread:                       ; preds = %JS_ToFloat64.exit34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal { i64, i64 } @js_math_random(ptr nocapture noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #6 {
+define internal { i64, i64 } @js_math_random(ptr noundef captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 12
@@ -204787,7 +204787,7 @@ define internal noundef double @js_math_fround(double noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_math_imul(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_math_imul(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i64, ptr %4, align 8
@@ -204846,7 +204846,7 @@ JS_ToUint32.exit14:                               ; preds = %18, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_math_clz32(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_math_clz32(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -204898,7 +204898,7 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #25
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_apply(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_apply(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr i8, ptr %4, i64 16
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -204908,7 +204908,7 @@ define internal { i64, i64 } @js_reflect_apply(ptr noundef %0, i64 %1, i64 %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_construct(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_construct(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %.sroa.013.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -205011,7 +205011,7 @@ free_arg_list.exit:                               ; preds = %JS_FreeValue.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_deleteProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_deleteProperty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -205175,7 +205175,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_get(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_get(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.011.0.copyload = load i64, ptr %4, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.312.0.copyload = load i64, ptr %.sroa.312.0..sroa_idx, align 8
@@ -205324,7 +205324,7 @@ JS_FreeAtom.exit:                                 ; preds = %17, %22, %JS_FreeAt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_has(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_has(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %.sroa.05.0.copyload = load i64, ptr %4, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
@@ -205460,7 +205460,7 @@ JS_FreeAtom.exit:                                 ; preds = %13, %16, %JS_FreeAt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_ownKeys(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_ownKeys(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
@@ -205487,7 +205487,7 @@ define internal { i64, i64 } @js_reflect_ownKeys(ptr noundef %0, i64 %1, i64 %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %.sroa.09.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -205655,7 +205655,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DupValue.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_reflect_setPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_reflect_setPrototypeOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr i8, ptr %4, i64 16
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -205674,7 +205674,7 @@ define internal { i64, i64 } @js_reflect_setPrototypeOf(ptr noundef %0, i64 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_symbol_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_symbol_toString(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = trunc i64 %2 to i32
   %8 = inttoptr i64 %1 to ptr
@@ -205748,7 +205748,7 @@ JS_FreeValue.exit:                                ; preds = %js_thisSymbolValue.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_symbol_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_symbol_valueOf(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = trunc i64 %2 to i32
   %7 = inttoptr i64 %1 to ptr
   switch i32 %6, label %24 [
@@ -205968,7 +205968,7 @@ JS_FreeValue.exit:                                ; preds = %73, %76, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_symbol_for(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_symbol_for(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -206018,7 +206018,7 @@ JS_NewSymbol.exit:                                ; preds = %25, %23, %19, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_symbol_keyFor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_symbol_keyFor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
@@ -206056,7 +206056,7 @@ define internal { i64, i64 } @js_symbol_keyFor(ptr noundef %0, i64 %1, i64 %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_generator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 noundef %6) #0 {
+define internal { i64, i64 } @js_generator_next(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 noundef %6) #0 {
   %8 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %8, 4294967295
   %9 = inttoptr i64 %1 to ptr
@@ -206431,7 +206431,7 @@ JS_Throw.exit115:                                 ; preds = %JS_DupValue.exit114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_atomics_op(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_atomics_op(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -206856,7 +206856,7 @@ JS_ToUint32.exit218:                              ; preds = %52, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_atomics_store(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_atomics_store(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
@@ -207516,7 +207516,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToUint32.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_atomics_isLockFree(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_atomics_isLockFree(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -207559,7 +207559,7 @@ JS_ToInt32Sat.exit:                               ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_atomics_wait(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_atomics_wait(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.timespec, align 8
@@ -207827,7 +207827,7 @@ JS_AtomToString.exit:                             ; preds = %81, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_atomics_notify(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.list_head, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -208185,7 +208185,7 @@ JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_array_buffer_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_array_buffer_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -208479,7 +208479,7 @@ JS_ToInt64Clamp.exit:                             ; preds = %143, %138, %135, %J
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i64, i64 } @js_array_buffer_isView(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #12 {
+define internal { i64, i64 } @js_array_buffer_isView(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #12 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
@@ -208535,7 +208535,7 @@ get_typed_array.exit:                             ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_at(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_at(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %7, 4294967295
@@ -208628,7 +208628,7 @@ JS_ToInt64Sat.exit:                               ; preds = %20, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_with(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_with(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %7, 4294967295
@@ -208973,7 +208973,7 @@ get_typed_array.exit:                             ; preds = %4, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_set(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = icmp sgt i32 %3, 1
@@ -209235,7 +209235,7 @@ js_typed_array_set_internal.exit:                 ; preds = %get_typed_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_create_typed_array_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_create_typed_array_iterator(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %7, 4294967295
   %8 = inttoptr i64 %1 to ptr
@@ -209366,7 +209366,7 @@ JS_AtomToString.exit:                             ; preds = %19, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_copyWithin(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_copyWithin(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -209564,7 +209564,7 @@ JS_ToInt32Clamp.exit:                             ; preds = %get_typed_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_fill(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_fill(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -209956,7 +209956,7 @@ JS_ToInt32Clamp.exit:                             ; preds = %get_typed_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_find(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_typed_array_find(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [3 x %struct.JSValue], align 16
   %9 = and i64 %2, 4294967295
@@ -210198,7 +210198,7 @@ JS_FreeValue.exit:                                ; preds = %get_typed_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_reverse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_typed_array_reverse(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %6, 4294967295
   %7 = inttoptr i64 %1 to ptr
@@ -210356,7 +210356,7 @@ js_typed_array_get_length_internal.exit.thread:   ; preds = %get_typed_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_toReversed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal { i64, i64 } @js_typed_array_toReversed(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %6, 4294967295
   br i1 %.not.i, label %7, label %get_typed_array.exit.thread
@@ -210420,7 +210420,7 @@ JS_FreeValue.exit:                                ; preds = %18, %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_slice(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [2 x %struct.JSValue], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -210717,7 +210717,7 @@ JS_FreeValue.exit:                                ; preds = %122, %get_typed_arr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_subarray(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_subarray(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [4 x %struct.JSValue], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -210913,7 +210913,7 @@ JS_ToInt32Clamp.exit:                             ; preds = %js_typed_array_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_sort(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_sort(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.TA_sort_context, align 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -211196,7 +211196,7 @@ js_typed_array_get_length_internal.exit.thread:   ; preds = %75, %71, %get_typed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_toSorted(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_toSorted(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %6, 4294967295
   br i1 %.not.i, label %7, label %get_typed_array.exit.thread
@@ -211260,7 +211260,7 @@ JS_FreeValue.exit:                                ; preds = %18, %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_join(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_typed_array_join(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.StringBuffer, align 8
   %8 = and i64 %2, 4294967295
   %.not.i.i = icmp eq i64 %8, 4294967295
@@ -211707,7 +211707,7 @@ JS_FreeValue.exit78:                              ; preds = %199, %__JS_AtomToVa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_typed_array_indexOf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca double, align 8
@@ -212598,7 +212598,7 @@ get_typed_array.exit:                             ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_int8(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_int8(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i8, ptr %1, align 1
   %4 = sext i8 %3 to i64
   %.sroa.04.0.insert.ext = and i64 %4, 4294967295
@@ -212608,7 +212608,7 @@ define internal { i64, i64 } @js_TA_get_int8(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -255, 256) i32 @js_TA_cmp_int8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -255, 256) i32 @js_TA_cmp_int8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i8, ptr %0, align 1
   %5 = sext i8 %4 to i32
   %6 = load i8, ptr %1, align 1
@@ -212618,7 +212618,7 @@ define internal range(i32 -255, 256) i32 @js_TA_cmp_int8(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_uint8(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_uint8(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i8, ptr %1, align 1
   %.sroa.04.0.insert.ext = zext i8 %3 to i64
   %.fca.0.insert2 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0.insert.ext, 0
@@ -212627,7 +212627,7 @@ define internal { i64, i64 } @js_TA_get_uint8(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -255, 256) i32 @js_TA_cmp_uint8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -255, 256) i32 @js_TA_cmp_uint8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = load i8, ptr %1, align 1
@@ -212637,7 +212637,7 @@ define internal range(i32 -255, 256) i32 @js_TA_cmp_uint8(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_int16(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_int16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i16, ptr %1, align 2
   %4 = sext i16 %3 to i64
   %.sroa.04.0.insert.ext = and i64 %4, 4294967295
@@ -212647,7 +212647,7 @@ define internal { i64, i64 } @js_TA_get_int16(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @js_TA_cmp_int16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -65535, 65536) i32 @js_TA_cmp_int16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i16, ptr %0, align 2
   %5 = sext i16 %4 to i32
   %6 = load i16, ptr %1, align 2
@@ -212657,7 +212657,7 @@ define internal range(i32 -65535, 65536) i32 @js_TA_cmp_int16(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_uint16(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_uint16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i16, ptr %1, align 2
   %.sroa.04.0.insert.ext = zext i16 %3 to i64
   %.fca.0.insert2 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0.insert.ext, 0
@@ -212666,7 +212666,7 @@ define internal { i64, i64 } @js_TA_get_uint16(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @js_TA_cmp_uint16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -65535, 65536) i32 @js_TA_cmp_uint16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i32
   %6 = load i16, ptr %1, align 2
@@ -212676,7 +212676,7 @@ define internal range(i32 -65535, 65536) i32 @js_TA_cmp_uint16(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_int32(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_int32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 4
   %.sroa.04.0.insert.ext = zext i32 %3 to i64
   %.fca.0.insert2 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0.insert.ext, 0
@@ -212685,7 +212685,7 @@ define internal { i64, i64 } @js_TA_get_int32(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_int32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_int32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %5)
@@ -212693,7 +212693,7 @@ define internal range(i32 -1, 2) i32 @js_TA_cmp_int32(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_uint32(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_uint32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp sgt i32 %3, -1
   %.sroa.016.0.insert.ext = zext nneg i32 %3 to i64
@@ -212707,7 +212707,7 @@ define internal { i64, i64 } @js_TA_get_uint32(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_uint32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
@@ -212715,14 +212715,14 @@ define internal range(i32 -1, 2) i32 @js_TA_cmp_uint32(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_TA_get_int64(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal { i64, i64 } @js_TA_get_int64(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i64, ptr %1, align 8
   %4 = tail call { i64, i64 } @JS_NewBigInt64(ptr noundef %0, i64 noundef %3)
   ret { i64, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_int64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_int64(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = tail call i32 @llvm.scmp.i32.i64(i64 %4, i64 %5)
@@ -212730,14 +212730,14 @@ define internal range(i32 -1, 2) i32 @js_TA_cmp_int64(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_TA_get_uint64(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal { i64, i64 } @js_TA_get_uint64(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i64, ptr %1, align 8
   %4 = tail call { i64, i64 } @JS_NewBigUint64(ptr noundef %0, i64 noundef %3)
   ret { i64, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_uint64(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %5)
@@ -212745,7 +212745,7 @@ define internal range(i32 -1, 2) i32 @js_TA_cmp_uint64(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_float32(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_float32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = bitcast double %4 to i64
@@ -212755,7 +212755,7 @@ define internal { i64, i64 } @js_TA_get_float32(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_float32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_float32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load float, ptr %0, align 4
   %5 = load float, ptr %1, align 4
   %6 = fpext float %5 to double
@@ -212803,7 +212803,7 @@ js_cmp_doubles.exit:                              ; preds = %8, %11, %14, %16, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @js_TA_get_float64(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define internal { i64, i64 } @js_TA_get_float64(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i64, ptr %1, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %3, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 7, 1
@@ -212811,7 +212811,7 @@ define internal { i64, i64 } @js_TA_get_float64(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_float64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_float64(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fcmp uno double %4, 0.000000e+00
@@ -212858,7 +212858,7 @@ js_cmp_doubles.exit:                              ; preds = %7, %10, %13, %15, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @js_TA_cmp_generic(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 2) i32 @js_TA_cmp_generic(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca [2 x %struct.JSValue], align 16
   %6 = alloca double, align 8
@@ -213036,7 +213036,7 @@ JS_FreeValue.exit65:                              ; preds = %89, %84, %JS_FreeVa
 declare i32 @bf_get_uint64(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_from(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_from(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.JSValue, align 8
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
@@ -213225,7 +213225,7 @@ js_for_of_start.exit:                             ; preds = %JS_FreeValue.exit.i
 
 88:                                               ; preds = %96
   %89 = add i64 %.0445, 1
-  %90 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %68, i64 %69, i64 %83, i64 %81, ptr noundef %10)
+  %90 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %68, i64 %69, i64 %83, i64 %81, ptr noundef %10)
   %91 = extractvalue { i64, i64 } %90, 1
   %92 = and i64 %91, 4294967295
   %.not438 = icmp eq i64 %92, 6
@@ -213251,7 +213251,7 @@ js_for_of_start.exit:                             ; preds = %JS_FreeValue.exit.i
   %101 = bitcast double %100 to i64
   %.sroa.015.0.i = select i1 %99, i64 %.sroa.019.0.insert.ext.i, i64 %101
   %.sroa.3.0.i = select i1 %99, i64 0, i64 7
-  %102 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %57, i64 %58, i64 %.sroa.015.0.i, i64 %.sroa.3.0.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
+  %102 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef nonnull %0, i64 %57, i64 %58, i64 %.sroa.015.0.i, i64 %.sroa.3.0.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %._crit_edge, label %88
@@ -213460,7 +213460,7 @@ JS_FreeValue.exit267:                             ; preds = %169, %175, %180
   br i1 %.not442, label %JS_FreeValue.exit268, label %186
 
 186:                                              ; preds = %._crit_edge
-  %187 = tail call fastcc i32 @JS_IteratorClose(ptr noundef %0, i64 %68, i64 %69, i32 noundef 1)
+  %187 = tail call fastcc i32 @JS_IteratorClose(ptr noundef nonnull %0, i64 %68, i64 %69, i32 noundef 1)
   br label %JS_FreeValue.exit268
 
 .loopexit:                                        ; preds = %.lr.ph448.split, %JS_FreeValue.exit267, %183, %157, %.lr.ph448.split.us, %JS_FreeValue.exit266
@@ -213576,7 +213576,7 @@ JS_FreeValue.exit271:                             ; preds = %38, %check_function
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_typed_array_of(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal { i64, i64 } @js_typed_array_of(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [1 x %struct.JSValue], align 16
   %.sroa.034.0.insert.ext = zext i32 %3 to i64
   store i64 %.sroa.034.0.insert.ext, ptr %6, align 16
@@ -213659,7 +213659,7 @@ JS_FreeValue.exit:                                ; preds = %34, %29, %26, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_array_from_iterator(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_array_from_iterator(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %struct.JSValue, align 8
   %8 = alloca %struct.JSValue, align 8
   %9 = alloca i32, align 4
@@ -213821,14 +213821,14 @@ JS_FreeValue.exit77:                              ; preds = %JS_FreeValue.exit76
   %83 = bitcast double %82 to i64
   %.sroa.015.0.i78 = select i1 %81, i64 %80, i64 %83
   %.sroa.3.0.i = select i1 %81, i64 0, i64 7
-  %84 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef %0, i64 %15, i64 %16, i64 %.sroa.015.0.i78, i64 %.sroa.3.0.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
+  %84 = tail call i32 @JS_DefinePropertyValueValue(ptr noundef nonnull %0, i64 %15, i64 %16, i64 %.sroa.015.0.i78, i64 %.sroa.3.0.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 16391)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %79
   %87 = add i32 %.0105, 1
-  %88 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %0, i64 %22, i64 %23, i64 %38, i64 %39, ptr noundef %9)
+  %88 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef nonnull %0, i64 %22, i64 %23, i64 %38, i64 %39, ptr noundef %9)
   %89 = extractvalue { i64, i64 } %88, 1
   %90 = and i64 %89, 4294967295
   %.not99 = icmp eq i64 %90, 6
@@ -213902,7 +213902,7 @@ JS_FreeValue.exit81:                              ; preds = %117, %112, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_dataview_getValue(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_dataview_getValue(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca [64 x i8], align 16
   %9 = and i64 %2, 4294967295
@@ -214154,7 +214154,7 @@ JS_ToBool.exit:                                   ; preds = %46, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @js_dataview_setValue(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal { i64, i64 } @js_dataview_setValue(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca [64 x i8], align 16
   %9 = alloca i64, align 8
@@ -214443,13 +214443,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #37
 declare i64 @llvm.usub.sat.i64(i64, i64) #37
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #38
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #38
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #39
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #39
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #39
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #37
@@ -214482,10 +214482,10 @@ declare i32 @llvm.ucmp.i32.i32(i32, i32) #37
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #37

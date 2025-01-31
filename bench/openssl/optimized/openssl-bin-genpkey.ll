@@ -615,7 +615,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @init_gen_str(ptr nocapture noundef %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @init_gen_str(ptr noundef captures(none) %pctx, ptr noundef %algname, ptr noundef %e, i32 noundef %do_param, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pctx, align 8
   %tobool.not = icmp eq ptr %0, null

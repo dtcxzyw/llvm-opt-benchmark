@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4toku12range_buffer8iteratorC1EPKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4toku12range_buffer8iteratorC2EPKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4toku12range_buffer13record_header16left_is_infiniteEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(10) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4toku12range_buffer13record_header16left_is_infiniteEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(10) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 2
   %tobool = trunc i8 %0 to i1
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4toku12range_buffer13record_header17right_is_infiniteEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(10) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4toku12range_buffer13record_header17right_is_infiniteEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(10) %this) local_unnamed_addr #0 align 2 {
 entry:
   %right_neg_inf = getelementptr inbounds nuw i8, ptr %this, i64 3
   %0 = load i8, ptr %right_neg_inf, align 1
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b(ptr nocapture noundef nonnull align 2 dereferenceable(10) initializes((0, 9)) %this, ptr noundef %left_key, ptr noundef %right_key, i1 noundef zeroext %is_exclusive) local_unnamed_addr #1 align 2 {
+define void @_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b(ptr noundef nonnull align 2 captures(none) dereferenceable(10) initializes((0, 9)) %this, ptr noundef %left_key, ptr noundef %right_key, i1 noundef zeroext %is_exclusive) local_unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %is_exclusive to i8
   %is_exclusive_lock = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -170,7 +170,7 @@ return:                                           ; preds = %if.else6, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 10, 131081) i64 @_ZNK4toku12range_buffer8iterator6record4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 10, 131081) i64 @_ZNK4toku12range_buffer8iterator6record4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
 entry:
   %left_key_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i16, ptr %left_key_size, align 4
@@ -241,14 +241,14 @@ if.end24:                                         ; preds = %if.then14, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef, ptr noundef byval(%struct.__toku_dbt) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12range_buffer8iteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this) unnamed_addr #4 align 2 {
+define void @_ZN4toku12range_buffer8iteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 12), (16, 48)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %_chunk_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -289,7 +289,7 @@ entry:
 declare noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku12range_buffer8iterator7currentEPNS1_6recordE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %rec) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN4toku12range_buffer8iterator7currentEPNS1_6recordE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %rec) local_unnamed_addr #1 align 2 {
 entry:
   %_current_chunk_offset = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %_current_chunk_offset, align 8
@@ -632,7 +632,7 @@ entry:
 declare noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4toku12range_buffer14get_num_rangesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4toku12range_buffer14get_num_rangesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_num_ranges = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %_num_ranges, align 8
@@ -651,7 +651,7 @@ declare void @_ZN8memarena7destroyEv(ptr noundef nonnull align 8 dereferenceable
 declare noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

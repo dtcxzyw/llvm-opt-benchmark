@@ -482,10 +482,10 @@ define i64 @H5Pget_elink_prefix(i64 noundef %0, ptr noundef %1, i64 noundef %2) 
 declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5Pset_elink_fapl(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -991,7 +991,7 @@ declare i32 @H5P__encode_size_t(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_size_t(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal noundef i32 @H5P__lacc_elink_pref_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %5) #8
   store ptr %6, ptr %3, align 8
@@ -999,7 +999,7 @@ define internal noundef i32 @H5P__lacc_elink_pref_set(i64 %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal noundef i32 @H5P__lacc_elink_pref_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %5) #8
   store ptr %6, ptr %3, align 8
@@ -1007,7 +1007,7 @@ define internal noundef i32 @H5P__lacc_elink_pref_get(i64 %0, ptr nocapture read
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #4 {
+define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #4 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread45, label %5
@@ -1159,7 +1159,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %11, %17, %23, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_pref_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_pref_dec(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -1226,14 +1226,14 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_pref_dec(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @H5P__lacc_elink_pref_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = tail call ptr @H5MM_xfree(ptr noundef %5) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_copy(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef %2) #0 {
+define internal noundef i32 @H5P__lacc_elink_pref_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %4) #8
   store ptr %5, ptr %2, align 8
@@ -1241,7 +1241,7 @@ define internal noundef i32 @H5P__lacc_elink_pref_copy(ptr nocapture readnone %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5P__lacc_elink_pref_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #5 {
+define internal i32 @H5P__lacc_elink_pref_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %4, null
@@ -1269,14 +1269,14 @@ define internal i32 @H5P__lacc_elink_pref_cmp(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__lacc_elink_pref_close(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @H5P__lacc_elink_pref_close(ptr readnone captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @H5MM_xfree(ptr noundef %4) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %21, label %6
@@ -1311,7 +1311,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_set(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %21, label %6
@@ -1346,7 +1346,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_get(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr %0, align 8
@@ -1650,7 +1650,7 @@ H5VM_limit_enc_size.exit50:                       ; preds = %111, %117, %123, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_dec(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -1713,7 +1713,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_dec(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %6
@@ -1735,7 +1735,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_del(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_copy(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(none) %2) #0 {
   %4 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %20, label %5
@@ -1770,7 +1770,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_copy(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5P__lacc_elink_fapl_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal i32 @H5P__lacc_elink_fapl_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = load i64, ptr %0, align 8
@@ -1821,7 +1821,7 @@ define internal i32 @H5P__lacc_elink_fapl_cmp(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_close(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_close(ptr readnone captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %6, label %13
@@ -1849,7 +1849,7 @@ declare i32 @H5P__decode_unsigned(ptr noundef, ptr noundef) #1
 declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -1857,7 +1857,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i64 @H5P_copy_plist(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 

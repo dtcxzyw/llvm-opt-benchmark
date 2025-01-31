@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @translate_bb(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @translate_bb(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -139,7 +139,7 @@ define void @translate_bb(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -228,7 +228,7 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 45:                                               ; preds = %43, %41, %32
   %.1188.i = phi i64 [ %42, %41 ], [ %.0187456.i, %43 ], [ %.0187456.i, %32 ]
   %.1184.i = phi i64 [ %.0183458.i, %41 ], [ %44, %43 ], [ %.0183458.i, %32 ]
-  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0459.i) #18
+  %46 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.0459.i) #18
   %.not245450.i = icmp eq ptr %46, null
   br i1 %.not245450.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -354,14 +354,14 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 104:                                              ; preds = %100, %99, %97, %90
   %.6.i = phi i64 [ %98, %97 ], [ %.5192.i, %99 ], [ %.5192.i, %90 ], [ %.5192.i, %100 ]
   %.5.i = phi i64 [ %.4.i, %97 ], [ %.4.i, %99 ], [ %.4.i, %90 ], [ %spec.select263.i, %100 ]
-  %105 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0178453.i) #18
+  %105 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0178453.i) #18
   %.not245.i = icmp eq ptr %105, null
   br i1 %.not245.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %104, %45
   %.2189.lcssa.i = phi i64 [ %.1188.i, %45 ], [ %.6.i, %104 ]
   %.1186.lcssa.i = phi i64 [ %.0185457.i, %45 ], [ %.5.i, %104 ]
-  %106 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0459.i) #18
+  %106 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0459.i) #18
   %.not222.i = icmp eq ptr %106, null
   br i1 %.not222.i, label %._crit_edge462.i, label %32
 
@@ -531,7 +531,7 @@ addXLabel.exit.i:                                 ; preds = %191, %186
   %.1202.i = phi ptr [ %.0201490.i, %125 ], [ %.0201490.i, %addLabelObj.exit.i ], [ %195, %addXLabel.exit.i ]
   %.1195.i = phi ptr [ %.0194491.i, %125 ], [ %162, %addLabelObj.exit.i ], [ %.0194491.i, %addXLabel.exit.i ]
   %197 = getelementptr inbounds nuw i8, ptr %.1195.i, i64 40
-  %198 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1492.i) #18
+  %198 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.1492.i) #18
   %.not231466.i = icmp eq ptr %198, null
   br i1 %.not231466.i, label %._crit_edge478.i, label %.lr.ph477.i
 
@@ -602,7 +602,7 @@ addLabelObj.exit290.i:                            ; preds = %203
   br i1 %.not234.i, label %252, label %234
 
 234:                                              ; preds = %231
-  %235 = tail call { double, double } @edgeMidpoint(ptr noundef %0, ptr noundef nonnull %.1179473.i) #18
+  %235 = tail call { double, double } @edgeMidpoint(ptr noundef nonnull %0, ptr noundef nonnull %.1179473.i) #18
   %236 = extractvalue { double, double } %235, 0
   %237 = extractvalue { double, double } %235, 1
   %238 = getelementptr inbounds nuw i8, ptr %.2196472.i, i64 16
@@ -1005,7 +1005,7 @@ addLabelObj.exit342.i:                            ; preds = %397
   br i1 %.not243.i, label %446, label %428
 
 428:                                              ; preds = %425
-  %429 = tail call { double, double } @edgeMidpoint(ptr noundef %0, ptr noundef nonnull %.1179473.i) #18
+  %429 = tail call { double, double } @edgeMidpoint(ptr noundef nonnull %0, ptr noundef nonnull %.1179473.i) #18
   %430 = extractvalue { double, double } %429, 0
   %431 = extractvalue { double, double } %429, 1
   %432 = getelementptr inbounds nuw i8, ptr %.6200.i, i64 16
@@ -1062,7 +1062,7 @@ addXLabel.exit344.i:                              ; preds = %441, %436
   %.sroa.30.5.i = phi double [ %.sroa.30.8.i, %393 ], [ %.sroa.30.10.i, %449 ], [ %.sroa.30.8.i, %446 ], [ %.sroa.30.6.i, %388 ], [ %.sroa.30.3.i, %317 ], [ %.sroa.30.2470.i, %252 ]
   %.5206.i = phi ptr [ %.8.i, %393 ], [ %.10.i, %449 ], [ %.8.i, %446 ], [ %.6207.i, %388 ], [ %.3204.i, %317 ], [ %.2203471.i, %252 ]
   %.4198.i = phi ptr [ %.6200.i, %393 ], [ %450, %449 ], [ %.6200.i, %446 ], [ %.5199.i, %388 ], [ %.3197.i, %317 ], [ %.2196472.i, %252 ]
-  %452 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1179473.i) #18
+  %452 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.1179473.i) #18
   %.not231.i = icmp eq ptr %452, null
   br i1 %.not231.i, label %._crit_edge478.i, label %.lr.ph477.i
 
@@ -1073,7 +1073,7 @@ addXLabel.exit344.i:                              ; preds = %441, %436
   %.sroa.30.2.lcssa.i = phi double [ %.sroa.30.1.i, %196 ], [ %.sroa.30.5.i, %451 ]
   %.2203.lcssa.i = phi ptr [ %.1202.i, %196 ], [ %.5206.i, %451 ]
   %.2196.lcssa.i = phi ptr [ %197, %196 ], [ %.4198.i, %451 ]
-  %453 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1492.i) #18
+  %453 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.1492.i) #18
   %.not224.i = icmp eq ptr %453, null
   br i1 %.not224.i, label %._crit_edge495.i, label %125
 
@@ -1096,7 +1096,7 @@ addXLabel.exit344.i:                              ; preds = %441, %436
   store double %.sroa.30.0.lcssa.i, ptr %.sroa.30.0..sroa_idx.i, align 8
   %455 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %.0194.lcssa.i, ptr %455, align 8
-  call fastcc void @addClusterObj(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %0, ptr noundef nonnull byval(%struct.cinfo_t) align 8 %4)
+  call fastcc void @addClusterObj(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.cinfo_t) align 8 %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %.sroa.0371.0.copyload372.i = load double, ptr %4, align 8
   %.sroa.16.0.copyload381.i = load double, ptr %.sroa.16.0..sroa_idx.i, align 8
@@ -1109,8 +1109,8 @@ addXLabel.exit344.i:                              ; preds = %441, %436
   %.sroa.16.11.i = phi double [ %.sroa.16.0.lcssa.i, %._crit_edge495.i ], [ %.sroa.16.0.copyload381.i, %454 ]
   %.sroa.23.11.i = phi double [ %.sroa.23.0.lcssa.i, %._crit_edge495.i ], [ %.sroa.23.0.copyload397.i, %454 ]
   %.sroa.30.11.i = phi double [ %.sroa.30.0.lcssa.i, %._crit_edge495.i ], [ %.sroa.30.0.copyload413.i, %454 ]
-  %457 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef null) #18
-  %458 = tail call zeroext i1 @late_bool(ptr noundef %0, ptr noundef %457, i1 noundef zeroext true) #18
+  %457 = tail call ptr @agattr(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef null) #18
+  %458 = tail call zeroext i1 @late_bool(ptr noundef nonnull %0, ptr noundef %457, i1 noundef zeroext true) #18
   %459 = zext i1 %458 to i8
   %460 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %459, ptr %460, align 8
@@ -1163,7 +1163,7 @@ addXLabel.exit344.i:                              ; preds = %441, %436
   store double %476, ptr %472, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %470, i64 80
   store double %480, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @updateBB(ptr noundef %0, ptr noundef %470) #18
+  call void @updateBB(ptr noundef nonnull %0, ptr noundef %470) #18
   br label %481
 
 481:                                              ; preds = %467, %464
@@ -1447,7 +1447,7 @@ default.unreachable:                              ; preds = %568
   br i1 %628, label %629, label %.loopexit.i
 
 629:                                              ; preds = %626
-  %630 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.031.i) #18
+  %630 = call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.031.i) #18
   %.not2528.i = icmp eq ptr %630, null
   br i1 %.not2528.i, label %.loopexit.i, label %.lr.ph.i74
 
@@ -1706,12 +1706,12 @@ default.unreachable:                              ; preds = %568
   br label %map_edge.exit.i
 
 map_edge.exit.i:                                  ; preds = %775, %771, %644, %641, %638
-  %789 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02129.i) #18
+  %789 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02129.i) #18
   %.not25.i = icmp eq ptr %789, null
   br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i74
 
 .loopexit.i:                                      ; preds = %map_edge.exit.i, %629, %626
-  %790 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.031.i) #18
+  %790 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.031.i) #18
   %.not.i = icmp eq ptr %790, null
   br i1 %.not.i, label %._crit_edge.i73, label %.lr.ph32.i
 
@@ -1720,7 +1720,7 @@ map_edge.exit.i:                                  ; preds = %775, %771, %644, %6
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 132
   %793 = load i32, ptr %792, align 4
   %794 = and i32 %793, 3
-  call void @translate_bb(ptr noundef %0, i32 noundef %794)
+  call void @translate_bb(ptr noundef nonnull %0, i32 noundef %794)
   br label %translate_drawing.exit
 
 translate_drawing.exit:                           ; preds = %._crit_edge.i73, %586, %567
@@ -1937,7 +1937,7 @@ show_boxes_append.exit:                           ; preds = %._crit_edge.i.i81, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @place_flip_graph_label(ptr noundef %0) unnamed_addr #0 {
@@ -2186,10 +2186,10 @@ define void @place_graph_label(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -2398,7 +2398,7 @@ declare { double, double } @edgeMidpoint(ptr noundef, ptr noundef) local_unnamed
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addClusterObj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef byval(%struct.cinfo_t) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @addClusterObj(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef byval(%struct.cinfo_t) align 8 captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.cinfo_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2505,7 +2505,7 @@ declare zeroext i1 @late_bool(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 declare i32 @placeLabels(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @printData(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #6 {
+define internal fastcc void @printData(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #6 {
   %6 = load ptr, ptr @stderr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i8, ptr %7, align 8
@@ -2593,7 +2593,7 @@ define internal fastcc void @printData(ptr nocapture noundef readonly %0, i64 no
 declare void @updateBB(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #8 {
@@ -2614,10 +2614,10 @@ declare void @gv_nodesize(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -2692,13 +2692,13 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #14
@@ -2713,13 +2713,13 @@ declare void @llvm.va_copy.p0(ptr, ptr) #14
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

@@ -63,7 +63,7 @@ CalcPar.exit:                                     ; preds = %9, %7, %4
 declare noundef i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @CalcPar(ptr nocapture noundef readonly byval(%struct.ddTableDeal) align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @CalcPar(ptr noundef readonly byval(%struct.ddTableDeal) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @CalcDDtable(ptr noundef nonnull byval(%struct.ddTableDeal) align 8 %0, ptr noundef %2)
   %.not = icmp eq i32 %5, 1
   br i1 %.not, label %6, label %8
@@ -78,10 +78,10 @@ define i32 @CalcPar(ptr nocapture noundef readonly byval(%struct.ddTableDeal) al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 -1, 2) i32 @Par(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @Par(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %struct.parResultsMaster], align 16
   %5 = alloca [8 x i8], align 1
   %6 = alloca [3 x i8], align 1
@@ -302,7 +302,7 @@ _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @SidesParBin(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @SidesParBin(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [5 x i32], align 16
   %.sroa.0868 = alloca i32, align 4
   %.sroa.2869 = alloca i32, align 4
@@ -1519,10 +1519,10 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %352, %353, %354, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -2147483648, 2147483642) i32 @_Z18CalcMultiContractsii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
@@ -1577,7 +1577,7 @@ switch.lookup15:                                  ; preds = %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -2147483598, -2147483648) i32 @_Z8rawscoreiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
@@ -1658,7 +1658,7 @@ define noundef range(i32 -2147483598, -2147483648) i32 @_Z8rawscoreiii(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9SideSeatsiiiiiP16parResultsMaster(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
+define void @_Z9SideSeatsiiiiiP16parResultsMaster(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #9 {
   %7 = add nsw i32 %1, %0
   %8 = and i32 %7, 1
   %.not = icmp eq i32 %8, 0
@@ -1748,7 +1748,7 @@ define noundef range(i32 0, 2) i32 @_Z13VulnerDefSideii(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14CalcOverTricksiiiiP16parResultsMaster(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #9 {
+define void @_Z14CalcOverTricksiiiiP16parResultsMaster(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #9 {
   switch i32 %2, label %36 [
     i32 11, label %6
     i32 10, label %14
@@ -1858,7 +1858,7 @@ define void @_Z14CalcOverTricksiiiiP16parResultsMaster(i32 noundef %0, i32 nound
 declare i32 @CalcDDtable(ptr noundef byval(%struct.ddTableDeal) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.parResultsDealer, align 4
   %6 = alloca [10 x %struct.parContr2Type], align 16
   %.sroa.0 = alloca [12 x i8], align 4
@@ -2114,13 +2114,13 @@ define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32
 declare i32 @DealerPar(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 -1, 2) i32 @SidesPar(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @SidesPar(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %struct.parResultsMaster], align 16
   %5 = alloca [4 x i8], align 1
   %6 = call i32 @SidesParBin(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2)
@@ -2264,7 +2264,7 @@ switch.lookup:                                    ; preds = %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 -1, 2) i32 @ConvertToDealerTextFormat(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @ConvertToDealerTextFormat(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [20 x i8], align 16
   %4 = load i32, ptr %0, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %4) #13
@@ -2398,7 +2398,7 @@ switch.lookup:                                    ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 256)) %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 256)) %1) local_unnamed_addr #3 {
   %3 = alloca [20 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %4 = load i32, ptr %0, align 4
@@ -2663,7 +2663,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture) local_unnamed_addr #11
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12

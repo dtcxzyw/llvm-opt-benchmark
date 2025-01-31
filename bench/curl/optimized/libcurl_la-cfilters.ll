@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [6 x i8] c"added\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_cf_def_get_host(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) local_unnamed_addr #0 {
+define hidden void @Curl_cf_def_get_host(ptr noundef readonly captures(none) %cf, ptr noundef %data, ptr noundef %phost, ptr noundef %pdisplay_host, ptr noundef %pport) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -47,13 +47,13 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @Curl_cf_def_adjust_pollset(ptr nocapture noundef readnone %cf, ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %ps) local_unnamed_addr #1 {
+define hidden void @Curl_cf_def_adjust_pollset(ptr noundef readnone captures(none) %cf, ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %ps) local_unnamed_addr #1 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @Curl_cf_def_data_pending(ptr nocapture noundef readonly %cf, ptr noundef %data) local_unnamed_addr #0 {
+define hidden zeroext i1 @Curl_cf_def_data_pending(ptr noundef readonly captures(none) %cf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -73,7 +73,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_cf_def_send(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
+define hidden i64 @Curl_cf_def_send(ptr noundef readonly captures(none) %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -93,7 +93,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_cf_def_recv(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
+define hidden i64 @Curl_cf_def_recv(ptr noundef readonly captures(none) %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -113,7 +113,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @Curl_cf_def_conn_is_alive(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %input_pending) local_unnamed_addr #0 {
+define hidden zeroext i1 @Curl_cf_def_conn_is_alive(ptr noundef readonly captures(none) %cf, ptr noundef %data, ptr noundef %input_pending) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -133,7 +133,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_cf_def_conn_keep_alive(ptr nocapture noundef readonly %cf, ptr noundef %data) local_unnamed_addr #0 {
+define hidden i32 @Curl_cf_def_conn_keep_alive(ptr noundef readonly captures(none) %cf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -153,7 +153,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_cf_def_query(ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) local_unnamed_addr #0 {
+define hidden i32 @Curl_cf_def_query(ptr noundef readonly captures(none) %cf, ptr noundef %data, i32 noundef %query, ptr noundef %pres1, ptr noundef %pres2) local_unnamed_addr #0 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -173,7 +173,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_cf_discard_chain(ptr nocapture noundef %pcf, ptr noundef %data) local_unnamed_addr #0 {
+define hidden void @Curl_conn_cf_discard_chain(ptr noundef captures(none) %pcf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pcf, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -202,7 +202,7 @@ if.end:                                           ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_cf_discard_all(ptr noundef %data, ptr nocapture noundef %conn, i32 noundef %index) local_unnamed_addr #0 {
+define hidden void @Curl_conn_cf_discard_all(ptr noundef %data, ptr noundef captures(none) %conn, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %index to i64
@@ -345,7 +345,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly initializes((0, 8)) %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_cf_create(ptr noundef writeonly captures(none) initializes((0, 8)) %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 40) #11
@@ -406,7 +406,7 @@ do.end14:                                         ; preds = %entry, %land.lhs.tr
 declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Curl_conn_cf_insert_after(ptr nocapture noundef %cf_at, ptr noundef %cf_new) local_unnamed_addr #3 {
+define hidden void @Curl_conn_cf_insert_after(ptr noundef captures(none) %cf_at, ptr noundef %cf_new) local_unnamed_addr #3 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %cf_at, i64 8
   %0 = load ptr, ptr %next, align 8
@@ -614,7 +614,7 @@ for.body.us.i.us.i.i:                             ; preds = %for.body.us.i.i, %f
   br i1 %cmp.us.i.us.i.i, label %for.inc.us.i.us.i.i, label %if.end.us.i.us.i.i
 
 if.end.us.i.us.i.i:                               ; preds = %for.body.us.i.us.i.i
-  %call.us.i.us.i.i = tail call i32 %8(ptr noundef nonnull %cf.addr.07.us.i.us.i.i, ptr noundef %data, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
+  %call.us.i.us.i.i = tail call i32 %8(ptr noundef nonnull %cf.addr.07.us.i.us.i.i, ptr noundef nonnull %data, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
   br label %for.inc.us.i.us.i.i
 
 for.inc.us.i.us.i.i:                              ; preds = %if.end.us.i.us.i.i, %for.body.us.i.us.i.i
@@ -740,7 +740,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_ev_update_info(ptr noundef %data, ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define hidden void @Curl_conn_ev_update_info(ptr noundef %data, ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
@@ -781,7 +781,7 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 declare { i64, i32 } @Curl_now() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @Curl_conn_is_connected(ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #4 {
+define hidden zeroext i1 @Curl_conn_is_connected(ptr noundef readonly captures(none) %conn, i32 noundef %sockindex) local_unnamed_addr #4 {
 entry:
   %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
@@ -803,7 +803,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @Curl_conn_is_ip_connected(ptr nocapture noundef readonly %data, i32 noundef %sockindex) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @Curl_conn_is_ip_connected(ptr noundef readonly captures(none) %data, i32 noundef %sockindex) local_unnamed_addr #5 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -1135,7 +1135,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_cf_def_cntrl(ptr nocapture readnone %cf, ptr nocapture readnone %data, i32 %event, i32 %arg1, ptr nocapture readnone %arg2) #1 {
+define hidden noundef i32 @Curl_cf_def_cntrl(ptr readnone captures(none) %cf, ptr readnone captures(none) %data, i32 %event, i32 %arg1, ptr readnone captures(none) %arg2) #1 {
 entry:
   ret i32 0
 }
@@ -1312,7 +1312,7 @@ if.end7:                                          ; preds = %do.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_ev_data_attach(ptr nocapture noundef readonly %conn, ptr noundef %data) local_unnamed_addr #0 {
+define hidden void @Curl_conn_ev_data_attach(ptr noundef readonly captures(none) %conn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
@@ -1351,7 +1351,7 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_ev_data_detach(ptr nocapture noundef readonly %conn, ptr noundef %data) local_unnamed_addr #0 {
+define hidden void @Curl_conn_ev_data_detach(ptr noundef readonly captures(none) %conn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cfilter.i = getelementptr inbounds nuw i8, ptr %conn, i64 432
   br label %for.body.us.i
@@ -1603,7 +1603,7 @@ cf_cntrl_all.exit:                                ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @Curl_conn_is_alive(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %input_pending) local_unnamed_addr #0 {
+define hidden zeroext i1 @Curl_conn_is_alive(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef %input_pending) local_unnamed_addr #0 {
 entry:
   %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %0 = load ptr, ptr %cfilter, align 8
@@ -1632,7 +1632,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_conn_keep_alive(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
+define hidden i32 @Curl_conn_keep_alive(ptr noundef %data, ptr noundef readonly captures(none) %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
   %cfilter = getelementptr inbounds nuw i8, ptr %conn, i64 432
   %idxprom = sext i32 %sockindex to i64
@@ -1654,7 +1654,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %data, ptr noundef readonly captures(none) %conn, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   store i32 0, ptr %n, align 4
@@ -1685,7 +1685,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_pollset_reset(ptr nocapture noundef readnone %data, ptr nocapture noundef writeonly initializes((0, 32)) %ps) local_unnamed_addr #6 {
+define hidden void @Curl_pollset_reset(ptr noundef readnone captures(none) %data, ptr noundef writeonly captures(none) initializes((0, 32)) %ps) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %ps, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 12, i1 false)
@@ -1694,10 +1694,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_pollset_change(ptr nocapture noundef readnone %data, ptr nocapture noundef %ps, i32 noundef %sock, i32 noundef %add_flags, i32 noundef %remove_flags) local_unnamed_addr #8 {
+define hidden void @Curl_pollset_change(ptr noundef readnone captures(none) %data, ptr noundef captures(none) %ps, i32 noundef %sock, i32 noundef %add_flags, i32 noundef %remove_flags) local_unnamed_addr #8 {
 entry:
   %cmp = icmp sgt i32 %sock, -1
   br i1 %cmp, label %for.cond.preheader, label %if.end73
@@ -1790,10 +1790,10 @@ if.end73:                                         ; preds = %if.end73.sink.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_pollset_set(ptr nocapture noundef readnone %data, ptr nocapture noundef %ps, i32 noundef %sock, i1 noundef zeroext %do_in, i1 noundef zeroext %do_out) local_unnamed_addr #8 {
+define hidden void @Curl_pollset_set(ptr noundef readnone captures(none) %data, ptr noundef captures(none) %ps, i32 noundef %sock, i1 noundef zeroext %do_in, i1 noundef zeroext %do_out) local_unnamed_addr #8 {
 entry:
   %cond = zext i1 %do_in to i32
   %cond3 = select i1 %do_out, i32 2, i32 0
@@ -1892,7 +1892,7 @@ Curl_pollset_change.exit:                         ; preds = %entry, %if.then9.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_pollset_add_socks(ptr noundef %data, ptr nocapture noundef %ps, ptr nocapture noundef readonly %get_socks_cb) local_unnamed_addr #0 {
+define hidden void @Curl_pollset_add_socks(ptr noundef %data, ptr noundef captures(none) %ps, ptr noundef readonly captures(none) %get_socks_cb) local_unnamed_addr #0 {
 entry:
   %socks = alloca [5 x i32], align 16
   %call = call i32 %get_socks_cb(ptr noundef %data, ptr noundef nonnull %socks) #11
@@ -2064,7 +2064,7 @@ ps_add.exit:                                      ; preds = %for.body.i, %lor.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_pollset_check(ptr nocapture noundef readnone %data, ptr nocapture noundef readonly %ps, i32 noundef %sock, ptr nocapture noundef writeonly %pwant_read, ptr nocapture noundef writeonly %pwant_write) local_unnamed_addr #8 {
+define hidden void @Curl_pollset_check(ptr noundef readnone captures(none) %data, ptr noundef readonly captures(none) %ps, i32 noundef %sock, ptr noundef writeonly captures(none) %pwant_read, ptr noundef writeonly captures(none) %pwant_write) local_unnamed_addr #8 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %ps, i64 20
   %0 = load i32, ptr %num, align 4
@@ -2111,10 +2111,10 @@ return:                                           ; preds = %for.end, %if.then
 declare void @Curl_pgrsTimeWas(ptr noundef, i32 noundef, i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

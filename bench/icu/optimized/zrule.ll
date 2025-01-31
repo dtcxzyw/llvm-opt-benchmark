@@ -122,7 +122,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRu
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
@@ -245,7 +245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @izrule_getName_75(ptr noundef nonnull %rule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nameLength) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @izrule_getName_75(ptr noundef nonnull %rule, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %name, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nameLength) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
@@ -366,7 +366,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule16getPreviousStartEdiiaRd(ptr noundef nonnull align 8 dereferenceable(80), double noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @izrule_getStaticClassID_75(ptr nocapture noundef readnone %rule) local_unnamed_addr #1 {
+define noundef ptr @izrule_getStaticClassID_75(ptr noundef readnone captures(none) %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7519InitialTimeZoneRule16getStaticClassIDEv()
   ret ptr %call

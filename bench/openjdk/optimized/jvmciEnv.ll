@@ -511,7 +511,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %41, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JVMCICompileState11set_failureEbPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((29, 30)) %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JVMCICompileState11set_failureEbPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((29, 30)) %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -541,7 +541,7 @@ define hidden void @_ZN17JVMCICompileState11set_failureEbPKcb(ptr nocapture noun
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JVMCICompileState20notify_libjvmci_oomeEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((29, 30)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JVMCICompileState20notify_libjvmci_oomeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((29, 30)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -572,7 +572,7 @@ _ZN17JVMCICompileState11set_failureEbPKcb.exit:   ; preds = %1, %4, %8
 declare void @_ZN13JVMCICompiler9on_upcallEPKcP17JVMCICompileState(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JVMCICompileState21inc_compilation_ticksEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JVMCICompileState21inc_compilation_ticksEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -594,7 +594,7 @@ define hidden void @_ZN17JVMCICompileState21inc_compilation_ticksEv(ptr nocaptur
 declare void @_ZN13JVMCICompiler28inc_global_compilation_ticksEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK17JVMCICompileState19jvmti_state_changedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK17JVMCICompileState19jvmti_state_changedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN11JvmtiExport19_redefinition_countE, align 8
@@ -1095,7 +1095,7 @@ define hidden void @_ZN8JVMCIEnv10check_initEPS_(ptr noundef nonnull readonly al
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv22throw_OutOfMemoryErrorEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv22throw_OutOfMemoryErrorEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -1189,7 +1189,7 @@ declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -1282,7 +1282,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv10check_initEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv10check_initEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1318,7 +1318,7 @@ define hidden void @_ZN8JVMCIEnv10check_initEP10JavaThread(ptr nocapture noundef
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
@@ -1339,7 +1339,7 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
 17:                                               ; preds = %2
   %18 = load ptr, ptr %3, align 8
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #16
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %18, i64 noundef %19) #14
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %18, i64 noundef %19) #14
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #14
   %20 = load ptr, ptr %3, align 8
   %21 = load i32, ptr @LogEventsBufferEntries, align 4
@@ -1474,7 +1474,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %68, %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8JVMCIEnv27pending_exception_as_stringEPPKcS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8JVMCIEnv27pending_exception_as_stringEPPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
@@ -1877,7 +1877,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %149, %159
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_22CallStaticObjectMethodEP7_jclassP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 comdat align 2 {
@@ -1892,7 +1892,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_22CallStaticObjectMethodEP7_j
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
@@ -1903,7 +1903,7 @@ declare void @_ZN19java_lang_Throwable17print_stack_traceE6HandleP12outputStream
 declare { ptr, i8 } @_ZN12HotSpotJVMCI4wrapEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv14as_utf8_stringE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv14as_utf8_stringE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -2581,7 +2581,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.JNIAccessMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
@@ -2679,7 +2679,7 @@ declare void @_ZN12JVMCIRuntime15fatal_exceptionEP8JVMCIEnvPKc(ptr noundef, ptr 
 declare noundef i32 @_ZN12JVMCIRuntime19DetachCurrentThreadEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv23clear_pending_exceptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv23clear_pending_exceptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.JNIAccessMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
@@ -2767,7 +2767,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JVMCIEnv10get_lengthE10JVMCIArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JVMCIEnv10get_lengthE10JVMCIArray(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -2863,7 +2863,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN12HotSpotJVMCI7resolveE10JVMCIArray(ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv13get_object_atE16JVMCIObjectArrayi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv13get_object_atE16JVMCIObjectArrayi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
@@ -2973,7 +2973,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN12HotSpotJVMCI7resolveE16JVMCIObjectArray(ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv4wrapEP8_jobject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv4wrapEP8_jobject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -2983,7 +2983,7 @@ define hidden { ptr, i8 } @_ZN8JVMCIEnv4wrapEP8_jobject(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, ptr %4, i8 %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, ptr %4, i8 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.JNIAccessMark, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
@@ -3086,7 +3086,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN12HotSpotJVMCI7resolveE11JVMCIObject(ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv11get_bool_atE19JVMCIPrimitiveArrayi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv11get_bool_atE19JVMCIPrimitiveArrayi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3188,7 +3188,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN12HotSpotJVMCI7resolveE19JVMCIPrimitiveArray(ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv11put_bool_atE19JVMCIPrimitiveArrayih(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv11put_bool_atE19JVMCIPrimitiveArrayih(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca %class.JNIAccessMark, align 8
   store i8 %4, ptr %6, align 1
@@ -3288,7 +3288,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef signext i8 @_ZN8JVMCIEnv11get_byte_atE19JVMCIPrimitiveArrayi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef signext i8 @_ZN8JVMCIEnv11get_byte_atE19JVMCIPrimitiveArrayi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3388,7 +3388,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv11put_byte_atE19JVMCIPrimitiveArrayia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv11put_byte_atE19JVMCIPrimitiveArrayia(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca %class.JNIAccessMark, align 8
   store i8 %4, ptr %6, align 1
@@ -3487,7 +3487,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JVMCIEnv10get_int_atE19JVMCIPrimitiveArrayi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JVMCIEnv10get_int_atE19JVMCIPrimitiveArrayi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3587,7 +3587,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv10put_int_atE19JVMCIPrimitiveArrayii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv10put_int_atE19JVMCIPrimitiveArrayii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca %class.JNIAccessMark, align 8
   store i32 %4, ptr %6, align 4
@@ -3686,7 +3686,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8JVMCIEnv11get_long_atE19JVMCIPrimitiveArrayi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8JVMCIEnv11get_long_atE19JVMCIPrimitiveArrayi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3786,7 +3786,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv11put_long_atE19JVMCIPrimitiveArrayil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv11put_long_atE19JVMCIPrimitiveArrayil(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %class.JNIAccessMark, align 8
   store i64 %4, ptr %6, align 8
@@ -3885,7 +3885,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv13copy_bytes_toE19JVMCIPrimitiveArrayPaii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv13copy_bytes_toE19JVMCIPrimitiveArrayPaii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.JNIAccessMark, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %56, label %9
@@ -3987,7 +3987,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv15copy_bytes_fromEPa19JVMCIPrimitiveArrayii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr %2, i8 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv15copy_bytes_fromEPa19JVMCIPrimitiveArrayii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr %2, i8 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.JNIAccessMark, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %56, label %9
@@ -4089,7 +4089,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv15copy_longs_fromEPl19JVMCIPrimitiveArrayii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr %2, i8 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv15copy_longs_fromEPl19JVMCIPrimitiveArrayii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr %2, i8 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.JNIAccessMark, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %57, label %9
@@ -4192,7 +4192,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv16is_boxing_objectE9BasicType11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i8 noundef zeroext %1, ptr %2, i8 %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv16is_boxing_objectE9BasicType11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i8 noundef zeroext %1, ptr %2, i8 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
@@ -4287,7 +4287,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN8JVMCIEnv15get_boxed_valueE9BasicType11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i8 noundef zeroext %1, ptr %2, i8 %3) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN8JVMCIEnv15get_boxed_valueE9BasicType11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i8 noundef zeroext %1, ptr %2, i8 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %union.jvalue, align 8
   %6 = alloca %class.JNIAccessMark, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4471,7 +4471,7 @@ declare noundef zeroext i8 @_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jv
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv12get_box_typeE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv12get_box_typeE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -4645,7 +4645,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef zeroext i8 @_ZN23java_lang_boxing_object10basic_typeEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i8 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JNIAccessMark, align 8
   %.off = add i8 %1, -4
   %switch = icmp ult i8 %.off, 8
@@ -4762,7 +4762,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv30throw_IllegalArgumentExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv30throw_IllegalArgumentExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4858,7 +4858,7 @@ declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv36throw_ArrayIndexOutOfBoundsExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv36throw_ArrayIndexOutOfBoundsExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4948,7 +4948,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5038,7 +5038,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv26throw_NullPointerExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv26throw_NullPointerExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5128,7 +5128,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv35throw_InvalidInstalledCodeExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv35throw_InvalidInstalledCodeExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5218,7 +5218,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv26throw_UnsatisfiedLinkErrorEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv26throw_UnsatisfiedLinkErrorEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5308,7 +5308,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv35throw_UnsupportedOperationExceptionEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv35throw_UnsupportedOperationExceptionEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5398,7 +5398,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv26throw_NoClassDefFoundErrorEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv26throw_NoClassDefFoundErrorEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JNIAccessMark, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5488,7 +5488,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %class.JNIAccessMark, align 8
@@ -5593,7 +5593,7 @@ declare void @llvm.va_end.p0(ptr) #8
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_6HandleS6_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv38call_HotSpotJVMCIRuntime_isGCSupportedE11JVMCIObjecti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv38call_HotSpotJVMCIRuntime_isGCSupportedE11JVMCIObjecti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -5790,7 +5790,7 @@ define linkonce_odr hidden noundef zeroext i8 @_ZN7JNIEnv_27CallNonvirtualBoolea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN8JVMCIEnv45call_HotSpotJVMCIRuntime_isIntrinsicSupportedE11JVMCIObjecti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i8 @_ZN8JVMCIEnv45call_HotSpotJVMCIRuntime_isIntrinsicSupportedE11JVMCIObjecti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -5973,7 +5973,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv38call_HotSpotJVMCIRuntime_compileMethodE11JVMCIObjectS0_ili(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv38call_HotSpotJVMCIRuntime_compileMethodE11JVMCIObjectS0_ili(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.JavaCallArguments, align 8
   %10 = alloca %class.JavaValue, align 8
   %11 = alloca %class.JNIAccessMark, align 8
@@ -6257,7 +6257,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_26CallNonvirtualObjectMethodE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv42call_HotSpotJVMCIRuntime_bootstrapFinishedE11JVMCIObjectPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv42call_HotSpotJVMCIRuntime_bootstrapFinishedE11JVMCIObjectPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -6424,7 +6424,7 @@ define linkonce_odr hidden void @_ZN7JNIEnv_24CallNonvirtualVoidMethodEP8_jobjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv33call_HotSpotJVMCIRuntime_shutdownE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv33call_HotSpotJVMCIRuntime_shutdownE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
@@ -6594,7 +6594,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv32call_HotSpotJVMCIRuntime_runtimeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv32call_HotSpotJVMCIRuntime_runtimeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaCallArguments, align 8
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JNIAccessMark, align 8
@@ -6727,7 +6727,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv21call_JVMCI_getRuntimeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv21call_JVMCI_getRuntimeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaCallArguments, align 8
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JNIAccessMark, align 8
@@ -6860,7 +6860,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv36call_HotSpotJVMCIRuntime_getCompilerE11JVMCIObjectPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv36call_HotSpotJVMCIRuntime_getCompilerE11JVMCIObjectPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -7053,7 +7053,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_16CallObjectMethodEP8_jobject
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv40call_HotSpotJVMCIRuntime_postTranslationE11JVMCIObjectPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv40call_HotSpotJVMCIRuntime_postTranslationE11JVMCIObjectPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -7220,7 +7220,7 @@ define linkonce_odr hidden void @_ZN7JNIEnv_20CallStaticVoidMethodEP7_jclassP10_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30call_JavaConstant_forPrimitiveEtlPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i16 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30call_JavaConstant_forPrimitiveEtlPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8
   %7 = alloca %class.JNIAccessMark, align 8
@@ -7415,7 +7415,7 @@ define hidden { ptr, i8 } @_ZN8JVMCIEnv43get_HotSpotResolvedPrimitiveType_primit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv21new_StackTraceElementERK12methodHandleiPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv21new_StackTraceElementERK12methodHandleiPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %class.JNIAccessMark, align 8
@@ -7740,7 +7740,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_9NewObjectEP7_jclassP10_jmeth
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_HotSpotNmethodERK12methodHandlePKchlPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_HotSpotNmethodERK12methodHandlePKchlPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.JavaCallArguments, align 8
   %8 = alloca %class.JavaValue, align 8
   %9 = alloca %class.JNIAccessMark, align 8
@@ -8066,7 +8066,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv16get_jvmci_methodERK12methodHandlePS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv16get_jvmci_methodERK12methodHandlePS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JVMCIKlassHandle, align 8
   %5 = alloca %class.JavaValue, align 8
   %6 = alloca %class.JavaCallArguments, align 8
@@ -8310,7 +8310,7 @@ _ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit:
 declare ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv10make_localE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv10make_localE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %50, label %6
@@ -8413,7 +8413,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv11make_globalE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv11make_globalE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %65, label %6
@@ -8548,7 +8548,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv13destroy_localE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv13destroy_localE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -8640,7 +8640,7 @@ _ZN10JNIHandles13destroy_localEP8_jobject.exit:   ; preds = %9, %8, %_ZN13JNIAcc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv14destroy_globalE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv14destroy_globalE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -8730,7 +8730,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare void @_ZN10JNIHandles14destroy_globalEP8_jobject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv10klass_nameE11JVMCIObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv10klass_nameE11JVMCIObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -8854,7 +8854,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare void @_ZN16JVMCIKlassHandleC1EP6ThreadP5Klass(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv14get_jvmci_typeERK16JVMCIKlassHandlePS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv14get_jvmci_typeERK16JVMCIKlassHandlePS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JavaValue, align 8
   %6 = alloca %class.JavaCallArguments, align 8
@@ -9074,7 +9074,7 @@ declare void @_ZN25CompilerThreadCanCallJavaC1EP10JavaThreadb(ptr noundef nonnul
 declare void @_ZN25CompilerThreadCanCallJavaD1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv23get_jvmci_constant_poolERK18constantPoolHandlePS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv23get_jvmci_constant_poolERK18constantPoolHandlePS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JNIAccessMark, align 8
@@ -9220,7 +9220,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN12JVMCIRuntime15allocate_handleERK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_booleanArrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_booleanArrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9326,7 +9326,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10oopFactory13new_boolArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_byteArrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_byteArrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9432,7 +9432,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10oopFactory13new_byteArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv20new_byte_array_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv20new_byte_array_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9549,7 +9549,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN13ObjArrayKlass8allocateEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(232), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv12new_intArrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv12new_intArrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9655,7 +9655,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10oopFactory12new_intArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_longArrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_longArrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9761,7 +9761,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 declare noundef ptr @_ZN10oopFactory13new_longArrayEiP10JavaThread(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv11new_VMFieldE11JVMCIObjectS0_llS0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef readonly byval(%class.JVMCIObject) align 8 %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv11new_VMFieldE11JVMCIObjectS0_llS0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly byval(%class.JVMCIObject) align 8 captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %class.JNIAccessMark, align 8
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
@@ -9896,7 +9896,7 @@ declare void @_ZN12HotSpotJVMCI7VMField11set_addressEP8JVMCIEnvP7oopDescl(ptr no
 declare void @_ZN12HotSpotJVMCI7VMField9set_valueEP8JVMCIEnvP7oopDescS4_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef readonly byval(%class.JVMCIObject) align 8 %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr noundef readonly byval(%class.JVMCIObject) align 8 captures(none) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.JNIAccessMark, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
@@ -10025,7 +10025,7 @@ declare void @_ZN12HotSpotJVMCI6VMFlag8set_typeEP8JVMCIEnvP7oopDescS4_(ptr nound
 declare void @_ZN12HotSpotJVMCI6VMFlag9set_valueEP8JVMCIEnvP7oopDescS4_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv21new_VMIntrinsicMethodE11JVMCIObjectS0_S0_ihhhPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef readonly byval(%class.JVMCIObject) align 8 %5, i32 noundef %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i8 noundef zeroext %9, ptr nocapture noundef readnone %10) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv21new_VMIntrinsicMethodE11JVMCIObjectS0_S0_ihhhPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr noundef readonly byval(%class.JVMCIObject) align 8 captures(none) %5, i32 noundef %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i8 noundef zeroext %9, ptr noundef readnone captures(none) %10) local_unnamed_addr #0 align 2 {
   %12 = alloca %class.JNIAccessMark, align 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
@@ -10169,7 +10169,7 @@ declare void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_c1SupportedEP8JVMCIEnvP7
 declare void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_c2SupportedEP8JVMCIEnvP7oopDesch(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_HotSpotStackFrameReferenceEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_HotSpotStackFrameReferenceEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -10216,7 +10216,7 @@ define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_HotSpotStackFrameReferenceEPS_(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv14new_JVMCIErrorEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv14new_JVMCIErrorEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -10263,7 +10263,7 @@ define hidden { ptr, i8 } @_ZN8JVMCIEnv14new_JVMCIErrorEPS_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_FieldInfoEP9FieldInfoPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv13new_FieldInfoEP9FieldInfoPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -10642,7 +10642,7 @@ declare void @_ZN12HotSpotJVMCI31DirectHotSpotObjectConstantImpl10set_objectEP8J
 declare void @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl14set_compressedEP8JVMCIEnvP7oopDesch(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN8JVMCIEnv15make_oop_handleERK6Handle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8JVMCIEnv15make_oop_handleERK6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZN12JVMCIRuntime15make_oop_handleERK6Handle(ptr noundef nonnull align 8 dereferenceable(93) %4, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
@@ -10650,7 +10650,7 @@ define hidden noundef i64 @_ZN8JVMCIEnv15make_oop_handleERK6Handle(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv10asConstantE11JVMCIObjectPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv10asConstantE11JVMCIObjectPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %6
 
@@ -10824,7 +10824,7 @@ define hidden noundef i64 @_ZN8JVMCIEnv50get_IndirectHotSpotObjectConstantImpl_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv18resolve_oop_handleEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv18resolve_oop_handleEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %5 = tail call noundef ptr %4(ptr noundef %3) #14
@@ -10851,7 +10851,7 @@ declare noundef i64 @_ZN12JVMCIRuntime15make_oop_handleERK6Handle(ptr noundef no
 declare noundef zeroext i1 @_ZN7oopDesc14is_oop_or_nullEPS_b(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -10968,7 +10968,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8JVMCIEnv6equalsE11JVMCIObjectS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8JVMCIEnv6equalsE11JVMCIObjectS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr %1, i8 %2, ptr %3, i8 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.JNIAccessMark, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
@@ -11060,7 +11060,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv19typeCharToBasicTypeEtPS_(ptr nocapture nonnull readnone align 8 %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv19typeCharToBasicTypeEtPS_(ptr nonnull readnone align 8 captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   switch i16 %1, label %13 [
     i16 90, label %15
     i16 66, label %4
@@ -11112,7 +11112,7 @@ define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv19typeCharToBasic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv15kindToBasicTypeE11JVMCIObjectPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv15kindToBasicTypeE11JVMCIObjectPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -11170,7 +11170,7 @@ define hidden noundef zeroext i16 @_ZN8JVMCIEnv21get_JavaKind_typeCharE11JVMCIOb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv25initialize_installed_codeE11JVMCIObjectP8CodeBlobPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv25initialize_installed_codeE11JVMCIObjectP8CodeBlobPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -11572,7 +11572,7 @@ _ZN8JVMCIEnv11get_nmethodE11JVMCIObjectR18JVMCINMethodHandle.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv11get_nmethodE11JVMCIObjectR18JVMCINMethodHandle(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv11get_nmethodE11JVMCIObjectR18JVMCINMethodHandle(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZN8JVMCIEnv13get_code_blobE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i8 %2)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
@@ -11774,7 +11774,7 @@ define hidden noundef i64 @_ZN8JVMCIEnv39get_HotSpotMethodData_methodDataPointer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8JVMCIEnv14lookup_nmethodEPhl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8JVMCIEnv14lookup_nmethodEPhl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %19, label %5
 
@@ -12009,7 +12009,7 @@ define hidden noundef i64 @_ZN8JVMCIEnv36get_HotSpotNmethod_compileIdSnapshotE11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JVMCINMethodHandle11set_nmethodEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18JVMCINMethodHandle11set_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -12030,7 +12030,7 @@ define hidden void @_ZN18JVMCINMethodHandle11set_nmethodEP7nmethod(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv23Architecture_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv23Architecture_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -12054,7 +12054,7 @@ declare void @_ZN12HotSpotJVMCI12Architecture10initializeEP8JVMCIEnv(ptr noundef
 declare void @_ZN8JNIJVMCI12Architecture10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv22new_Architecture_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv22new_Architecture_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -12233,7 +12233,7 @@ define hidden void @_ZN8JVMCIEnv25set_Architecture_wordKindE11JVMCIObjectS0_(ptr
 declare void @_ZN8JNIJVMCI12Architecture12set_wordKindEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv40HotSpotResolvedObjectTypeImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv40HotSpotResolvedObjectTypeImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -12257,7 +12257,7 @@ declare void @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl10initializeEP8JVM
 declare void @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_HotSpotResolvedObjectTypeImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_HotSpotResolvedObjectTypeImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -12411,7 +12411,7 @@ define hidden void @_ZN8JVMCIEnv46set_HotSpotResolvedObjectTypeImpl_klassPointer
 declare void @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl16set_klassPointerEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv39HotSpotResolvedPrimitiveType_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv39HotSpotResolvedPrimitiveType_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -12435,7 +12435,7 @@ declare void @_ZN12HotSpotJVMCI28HotSpotResolvedPrimitiveType10initializeEP8JVMC
 declare void @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv38new_HotSpotResolvedPrimitiveType_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv38new_HotSpotResolvedPrimitiveType_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -12683,7 +12683,7 @@ define hidden void @_ZN8JVMCIEnv43set_HotSpotResolvedPrimitiveType_primitivesE16
 declare void @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType14set_primitivesEP8JVMCIEnv16JVMCIObjectArray(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv39HotSpotResolvedJavaFieldImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv39HotSpotResolvedJavaFieldImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -12707,7 +12707,7 @@ declare void @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl10initializeEP8JVMC
 declare void @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv38new_HotSpotResolvedJavaFieldImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv38new_HotSpotResolvedJavaFieldImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -12976,7 +12976,7 @@ define hidden void @_ZN8JVMCIEnv39set_HotSpotResolvedJavaFieldImpl_offsetE11JVMC
 declare void @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10set_offsetEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv20FieldInfo_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv20FieldInfo_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -13000,7 +13000,7 @@ declare void @_ZN12HotSpotJVMCI9FieldInfo10initializeEP8JVMCIEnv(ptr noundef) lo
 declare void @_ZN8JNIJVMCI9FieldInfo10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_FieldInfo_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_FieldInfo_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -13400,7 +13400,7 @@ define hidden void @_ZN8JVMCIEnv30set_FieldInfo_initializerIndexE11JVMCIObjecti(
 declare void @_ZN8JNIJVMCI9FieldInfo20set_initializerIndexEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv40HotSpotResolvedJavaMethodImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv40HotSpotResolvedJavaMethodImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -13424,7 +13424,7 @@ declare void @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl10initializeEP8JVM
 declare void @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_HotSpotResolvedJavaMethodImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_HotSpotResolvedJavaMethodImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -13578,7 +13578,7 @@ define hidden void @_ZN8JVMCIEnv46set_HotSpotResolvedJavaMethodImpl_methodHandle
 declare void @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl16set_methodHandleEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv28HotSpotMethodData_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv28HotSpotMethodData_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -13602,7 +13602,7 @@ declare void @_ZN12HotSpotJVMCI17HotSpotMethodData10initializeEP8JVMCIEnv(ptr no
 declare void @_ZN8JNIJVMCI17HotSpotMethodData10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_HotSpotMethodData_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_HotSpotMethodData_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -13756,7 +13756,7 @@ define hidden void @_ZN8JVMCIEnv39set_HotSpotMethodData_methodDataPointerE11JVMC
 declare void @_ZN8JNIJVMCI17HotSpotMethodData21set_methodDataPointerEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv24InstalledCode_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv24InstalledCode_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -13780,7 +13780,7 @@ declare void @_ZN12HotSpotJVMCI13InstalledCode10initializeEP8JVMCIEnv(ptr nounde
 declare void @_ZN8JNIJVMCI13InstalledCode10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_InstalledCode_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_InstalledCode_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -14031,7 +14031,7 @@ define hidden void @_ZN8JVMCIEnv22set_InstalledCode_nameE11JVMCIObjectS0_(ptr no
 declare void @_ZN8JNIJVMCI13InstalledCode8set_nameEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv31HotSpotInstalledCode_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv31HotSpotInstalledCode_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -14055,7 +14055,7 @@ declare void @_ZN12HotSpotJVMCI20HotSpotInstalledCode10initializeEP8JVMCIEnv(ptr
 declare void @_ZN8JNIJVMCI20HotSpotInstalledCode10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_HotSpotInstalledCode_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_HotSpotInstalledCode_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -14240,7 +14240,7 @@ declare noundef i32 @_ZN8JNIJVMCI20HotSpotInstalledCode12get_codeSizeEP8JVMCIEnv
 declare void @_ZN8JNIJVMCI20HotSpotInstalledCode12set_codeSizeEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv25HotSpotNmethod_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv25HotSpotNmethod_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -14264,7 +14264,7 @@ declare void @_ZN12HotSpotJVMCI14HotSpotNmethod10initializeEP8JVMCIEnv(ptr nound
 declare void @_ZN8JNIJVMCI14HotSpotNmethod10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv24new_HotSpotNmethod_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv24new_HotSpotNmethod_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -14490,7 +14490,7 @@ define hidden void @_ZN8JVMCIEnv25set_HotSpotNmethod_methodE11JVMCIObjectS0_(ptr
 declare void @_ZN8JNIJVMCI14HotSpotNmethod10set_methodEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv30HotSpotCompiledCode_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv30HotSpotCompiledCode_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -14514,7 +14514,7 @@ declare void @_ZN12HotSpotJVMCI19HotSpotCompiledCode10initializeEP8JVMCIEnv(ptr 
 declare void @_ZN8JNIJVMCI19HotSpotCompiledCode10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotCompiledCode_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotCompiledCode_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -14744,7 +14744,7 @@ define hidden void @_ZN8JVMCIEnv35set_HotSpotCompiledCode_dataSectionE11JVMCIObj
 declare void @_ZN8JNIJVMCI19HotSpotCompiledCode15set_dataSectionEP8JVMCIEnv11JVMCIObject19JVMCIPrimitiveArray(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv33HotSpotCompiledNmethod_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv33HotSpotCompiledNmethod_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -14768,7 +14768,7 @@ declare void @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod10initializeEP8JVMCIEnv(p
 declare void @_ZN8JNIJVMCI22HotSpotCompiledNmethod10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv32new_HotSpotCompiledNmethod_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv32new_HotSpotCompiledNmethod_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -14990,7 +14990,7 @@ define hidden void @_ZN8JVMCIEnv29set_HotSpotCompiledNmethod_idE11JVMCIObjecti(p
 declare void @_ZN8JNIJVMCI22HotSpotCompiledNmethod6set_idEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv18VMField_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv18VMField_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -15014,7 +15014,7 @@ declare void @_ZN12HotSpotJVMCI7VMField10initializeEP8JVMCIEnv(ptr noundef) loca
 declare void @_ZN8JNIJVMCI7VMField10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv17new_VMField_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv17new_VMField_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -15375,7 +15375,7 @@ define hidden void @_ZN8JVMCIEnv17set_VMField_valueE11JVMCIObjectS0_(ptr noundef
 declare void @_ZN8JNIJVMCI7VMField9set_valueEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv17VMFlag_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv17VMFlag_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -15399,7 +15399,7 @@ declare void @_ZN12HotSpotJVMCI6VMFlag10initializeEP8JVMCIEnv(ptr noundef) local
 declare void @_ZN8JNIJVMCI6VMFlag10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_VMFlag_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_VMFlag_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -15670,7 +15670,7 @@ define hidden void @_ZN8JVMCIEnv16set_VMFlag_valueE11JVMCIObjectS0_(ptr noundef 
 declare void @_ZN8JNIJVMCI6VMFlag9set_valueEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv28VMIntrinsicMethod_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv28VMIntrinsicMethod_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -15694,7 +15694,7 @@ declare void @_ZN12HotSpotJVMCI17VMIntrinsicMethod10initializeEP8JVMCIEnv(ptr no
 declare void @_ZN8JNIJVMCI17VMIntrinsicMethod10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_VMIntrinsicMethod_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_VMIntrinsicMethod_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -16145,7 +16145,7 @@ define hidden void @_ZN8JVMCIEnv33set_VMIntrinsicMethod_c2SupportedE11JVMCIObjec
 declare void @_ZN8JNIJVMCI17VMIntrinsicMethod15set_c2SupportedEP8JVMCIEnv11JVMCIObjecth(ptr noundef, ptr, i8, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv42HotSpotCompilationRequestResult_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv42HotSpotCompilationRequestResult_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -16169,7 +16169,7 @@ declare void @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult10initializeEP8J
 declare void @_ZN8JNIJVMCI31HotSpotCompilationRequestResult10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv41new_HotSpotCompilationRequestResult_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv41new_HotSpotCompilationRequestResult_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -16436,7 +16436,7 @@ define hidden void @_ZN8JVMCIEnv52set_HotSpotCompilationRequestResult_inlinedByt
 declare void @_ZN8JNIJVMCI31HotSpotCompilationRequestResult20set_inlinedBytecodesEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv24BytecodeFrame_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv24BytecodeFrame_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -16460,7 +16460,7 @@ declare void @_ZN12HotSpotJVMCI13BytecodeFrame10initializeEP8JVMCIEnv(ptr nounde
 declare void @_ZN8JNIJVMCI13BytecodeFrame10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_BytecodeFrame_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_BytecodeFrame_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -17007,7 +17007,7 @@ declare void @_ZN12HotSpotJVMCI13BytecodeFrame26set_INVALID_FRAMESTATE_BCIEP8JVM
 declare void @_ZN8JNIJVMCI13BytecodeFrame26set_INVALID_FRAMESTATE_BCIEP8JVMCIEnvi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv27BytecodePosition_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv27BytecodePosition_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -17031,7 +17031,7 @@ declare void @_ZN12HotSpotJVMCI16BytecodePosition10initializeEP8JVMCIEnv(ptr nou
 declare void @_ZN8JNIJVMCI16BytecodePosition10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv26new_BytecodePosition_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv26new_BytecodePosition_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -17300,7 +17300,7 @@ define hidden void @_ZN8JVMCIEnv24set_BytecodePosition_bciE11JVMCIObjecti(ptr no
 declare void @_ZN8JNIJVMCI16BytecodePosition7set_bciEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv23JavaConstant_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv23JavaConstant_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -17324,7 +17324,7 @@ declare void @_ZN12HotSpotJVMCI12JavaConstant10initializeEP8JVMCIEnv(ptr noundef
 declare void @_ZN8JNIJVMCI12JavaConstant10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv22new_JavaConstant_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv22new_JavaConstant_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -17544,7 +17544,7 @@ define hidden void @_ZN8JVMCIEnv29set_JavaConstant_NULL_POINTERE11JVMCIObject(pt
 declare void @_ZN8JNIJVMCI12JavaConstant16set_NULL_POINTEREP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv29ResolvedJavaMethod_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv29ResolvedJavaMethod_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -17568,7 +17568,7 @@ declare void @_ZN12HotSpotJVMCI18ResolvedJavaMethod10initializeEP8JVMCIEnv(ptr n
 declare void @_ZN8JNIJVMCI18ResolvedJavaMethod10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv28new_ResolvedJavaMethod_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv28new_ResolvedJavaMethod_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -17698,7 +17698,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI18ResolvedJavaMethod11is_instanceEP
 declare noundef zeroext i1 @_ZN8JNIJVMCI18ResolvedJavaMethod11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv28PrimitiveConstant_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv28PrimitiveConstant_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -17722,7 +17722,7 @@ declare void @_ZN12HotSpotJVMCI17PrimitiveConstant10initializeEP8JVMCIEnv(ptr no
 declare void @_ZN8JNIJVMCI17PrimitiveConstant10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_PrimitiveConstant_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_PrimitiveConstant_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -17944,7 +17944,7 @@ define hidden void @_ZN8JVMCIEnv31set_PrimitiveConstant_primitiveE11JVMCIObjectl
 declare void @_ZN8JNIJVMCI17PrimitiveConstant13set_primitiveEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv36HotSpotObjectConstantImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv36HotSpotObjectConstantImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -17968,7 +17968,7 @@ declare void @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl10initializeEP8JVMCIEn
 declare void @_ZN8JNIJVMCI25HotSpotObjectConstantImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv35new_HotSpotObjectConstantImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv35new_HotSpotObjectConstantImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -18143,7 +18143,7 @@ define hidden void @_ZN8JVMCIEnv40set_HotSpotObjectConstantImpl_compressedE11JVM
 declare void @_ZN8JNIJVMCI25HotSpotObjectConstantImpl14set_compressedEP8JVMCIEnv11JVMCIObjecth(ptr noundef, ptr, i8, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv42DirectHotSpotObjectConstantImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv42DirectHotSpotObjectConstantImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18167,7 +18167,7 @@ declare void @_ZN12HotSpotJVMCI31DirectHotSpotObjectConstantImpl10initializeEP8J
 declare void @_ZN8JNIJVMCI31DirectHotSpotObjectConstantImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv41new_DirectHotSpotObjectConstantImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv41new_DirectHotSpotObjectConstantImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -18344,7 +18344,7 @@ define hidden void @_ZN8JVMCIEnv42set_DirectHotSpotObjectConstantImpl_objectE11J
 declare void @_ZN8JNIJVMCI31DirectHotSpotObjectConstantImpl10set_objectEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv44IndirectHotSpotObjectConstantImpl_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv44IndirectHotSpotObjectConstantImpl_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18368,7 +18368,7 @@ declare void @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl10initializeEP
 declare void @_ZN8JNIJVMCI33IndirectHotSpotObjectConstantImpl10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv43new_IndirectHotSpotObjectConstantImpl_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv43new_IndirectHotSpotObjectConstantImpl_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -18502,7 +18502,7 @@ define hidden void @_ZN8JVMCIEnv50set_IndirectHotSpotObjectConstantImpl_objectHa
 declare void @_ZN8JNIJVMCI33IndirectHotSpotObjectConstantImpl16set_objectHandleEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv19JavaKind_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv19JavaKind_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18526,7 +18526,7 @@ declare void @_ZN12HotSpotJVMCI8JavaKind10initializeEP8JVMCIEnv(ptr noundef) loc
 declare void @_ZN8JNIJVMCI8JavaKind10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_JavaKind_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_JavaKind_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -18680,7 +18680,7 @@ define hidden void @_ZN8JVMCIEnv21set_JavaKind_typeCharE11JVMCIObjectt(ptr nound
 declare void @_ZN8JNIJVMCI8JavaKind12set_typeCharEP8JVMCIEnv11JVMCIObjectt(ptr noundef, ptr, i8, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv20ValueKind_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv20ValueKind_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18704,7 +18704,7 @@ declare void @_ZN12HotSpotJVMCI9ValueKind10initializeEP8JVMCIEnv(ptr noundef) lo
 declare void @_ZN8JNIJVMCI9ValueKind10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_ValueKind_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_ValueKind_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -18881,7 +18881,7 @@ define hidden void @_ZN8JVMCIEnv26set_ValueKind_platformKindE11JVMCIObjectS0_(pt
 declare void @_ZN8JNIJVMCI9ValueKind16set_platformKindEP8JVMCIEnv11JVMCIObjectS3_(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv37HotSpotStackFrameReference_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv37HotSpotStackFrameReference_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -18905,7 +18905,7 @@ declare void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference10initializeEP8JVMCIE
 declare void @_ZN8JNIJVMCI26HotSpotStackFrameReference10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv36new_HotSpotStackFrameReference_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv36new_HotSpotStackFrameReference_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -19409,7 +19409,7 @@ define hidden void @_ZN8JVMCIEnv45set_HotSpotStackFrameReference_localIsVirtualE
 declare void @_ZN8JNIJVMCI26HotSpotStackFrameReference18set_localIsVirtualEP8JVMCIEnv11JVMCIObject19JVMCIPrimitiveArray(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv30HotSpotConstantPool_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv30HotSpotConstantPool_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -19433,7 +19433,7 @@ declare void @_ZN12HotSpotJVMCI19HotSpotConstantPool10initializeEP8JVMCIEnv(ptr 
 declare void @_ZN8JNIJVMCI19HotSpotConstantPool10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotConstantPool_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotConstantPool_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -19587,7 +19587,7 @@ define hidden void @_ZN8JVMCIEnv42set_HotSpotConstantPool_constantPoolHandleE11J
 declare void @_ZN8JNIJVMCI19HotSpotConstantPool22set_constantPoolHandleEP8JVMCIEnv11JVMCIObjectl(ptr noundef, ptr, i8, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv30HotSpotJVMCIRuntime_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv30HotSpotJVMCIRuntime_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -19611,7 +19611,7 @@ declare void @_ZN12HotSpotJVMCI19HotSpotJVMCIRuntime10initializeEP8JVMCIEnv(ptr 
 declare void @_ZN8JNIJVMCI19HotSpotJVMCIRuntime10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotJVMCIRuntime_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv29new_HotSpotJVMCIRuntime_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -19791,7 +19791,7 @@ define hidden void @_ZN8JVMCIEnv51set_HotSpotJVMCIRuntime_excludeFromJVMCICompil
 declare void @_ZN8JNIJVMCI19HotSpotJVMCIRuntime31set_excludeFromJVMCICompilationEP8JVMCIEnv11JVMCIObject16JVMCIObjectArray(ptr noundef, ptr, i8, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv21JVMCIError_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv21JVMCIError_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -19815,7 +19815,7 @@ declare void @_ZN12HotSpotJVMCI10JVMCIError10initializeEP8JVMCIEnv(ptr noundef) 
 declare void @_ZN8JNIJVMCI10JVMCIError10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv20new_JVMCIError_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv20new_JVMCIError_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -19945,7 +19945,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI10JVMCIError11is_instanceEP8JVMCIEn
 declare noundef zeroext i1 @_ZN8JNIJVMCI10JVMCIError11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv32InspectedFrameVisitor_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv32InspectedFrameVisitor_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -19969,7 +19969,7 @@ declare void @_ZN12HotSpotJVMCI21InspectedFrameVisitor10initializeEP8JVMCIEnv(pt
 declare void @_ZN8JNIJVMCI21InspectedFrameVisitor10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv31new_InspectedFrameVisitor_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv31new_InspectedFrameVisitor_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20099,7 +20099,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI21InspectedFrameVisitor11is_instanc
 declare noundef zeroext i1 @_ZN8JNIJVMCI21InspectedFrameVisitor11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv19Services_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv19Services_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20123,7 +20123,7 @@ declare void @_ZN12HotSpotJVMCI8Services10initializeEP8JVMCIEnv(ptr noundef) loc
 declare void @_ZN8JNIJVMCI8Services10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_Services_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv18new_Services_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20253,7 +20253,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI8Services11is_instanceEP8JVMCIEnv11
 declare noundef zeroext i1 @_ZN8JNIJVMCI8Services11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv16JVMCI_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv16JVMCI_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20277,7 +20277,7 @@ declare void @_ZN12HotSpotJVMCI5JVMCI10initializeEP8JVMCIEnv(ptr noundef) local_
 declare void @_ZN8JNIJVMCI5JVMCI10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv15new_JVMCI_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv15new_JVMCI_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20407,7 +20407,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI5JVMCI11is_instanceEP8JVMCIEnv11JVM
 declare noundef zeroext i1 @_ZN8JNIJVMCI5JVMCI11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv17Object_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv17Object_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20431,7 +20431,7 @@ declare void @_ZN12HotSpotJVMCI6Object10initializeEP8JVMCIEnv(ptr noundef) local
 declare void @_ZN8JNIJVMCI6Object10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_Object_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_Object_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20561,7 +20561,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI6Object11is_instanceEP8JVMCIEnv11JV
 declare noundef zeroext i1 @_ZN8JNIJVMCI6Object11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv17String_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv17String_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20585,7 +20585,7 @@ declare void @_ZN12HotSpotJVMCI6String10initializeEP8JVMCIEnv(ptr noundef) local
 declare void @_ZN8JNIJVMCI6String10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_String_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv16new_String_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20715,7 +20715,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI6String11is_instanceEP8JVMCIEnv11JV
 declare noundef zeroext i1 @_ZN8JNIJVMCI6String11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv16Class_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv16Class_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20739,7 +20739,7 @@ declare void @_ZN12HotSpotJVMCI5Class10initializeEP8JVMCIEnv(ptr noundef) local_
 declare void @_ZN8JNIJVMCI5Class10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv15new_Class_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv15new_Class_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -20869,7 +20869,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI5Class11is_instanceEP8JVMCIEnv11JVM
 declare noundef zeroext i1 @_ZN8JNIJVMCI5Class11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv20VMSupport_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv20VMSupport_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -20893,7 +20893,7 @@ declare void @_ZN12HotSpotJVMCI9VMSupport10initializeEP8JVMCIEnv(ptr noundef) lo
 declare void @_ZN8JNIJVMCI9VMSupport10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_VMSupport_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_VMSupport_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21023,7 +21023,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI9VMSupport11is_instanceEP8JVMCIEnv1
 declare noundef zeroext i1 @_ZN8JNIJVMCI9VMSupport11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv41ArrayIndexOutOfBoundsException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv41ArrayIndexOutOfBoundsException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21047,7 +21047,7 @@ declare void @_ZN12HotSpotJVMCI30ArrayIndexOutOfBoundsException10initializeEP8JV
 declare void @_ZN8JNIJVMCI30ArrayIndexOutOfBoundsException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv40new_ArrayIndexOutOfBoundsException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv40new_ArrayIndexOutOfBoundsException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21177,7 +21177,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI30ArrayIndexOutOfBoundsException11i
 declare noundef zeroext i1 @_ZN8JNIJVMCI30ArrayIndexOutOfBoundsException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv32IllegalStateException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv32IllegalStateException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21201,7 +21201,7 @@ declare void @_ZN12HotSpotJVMCI21IllegalStateException10initializeEP8JVMCIEnv(pt
 declare void @_ZN8JNIJVMCI21IllegalStateException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv31new_IllegalStateException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv31new_IllegalStateException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21331,7 +21331,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI21IllegalStateException11is_instanc
 declare noundef zeroext i1 @_ZN8JNIJVMCI21IllegalStateException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv31NullPointerException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv31NullPointerException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21355,7 +21355,7 @@ declare void @_ZN12HotSpotJVMCI20NullPointerException10initializeEP8JVMCIEnv(ptr
 declare void @_ZN8JNIJVMCI20NullPointerException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_NullPointerException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_NullPointerException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21485,7 +21485,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI20NullPointerException11is_instance
 declare noundef zeroext i1 @_ZN8JNIJVMCI20NullPointerException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv35IllegalArgumentException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv35IllegalArgumentException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21509,7 +21509,7 @@ declare void @_ZN12HotSpotJVMCI24IllegalArgumentException10initializeEP8JVMCIEnv
 declare void @_ZN8JNIJVMCI24IllegalArgumentException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv34new_IllegalArgumentException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv34new_IllegalArgumentException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21639,7 +21639,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI24IllegalArgumentException11is_inst
 declare noundef zeroext i1 @_ZN8JNIJVMCI24IllegalArgumentException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv24InternalError_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv24InternalError_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21663,7 +21663,7 @@ declare void @_ZN12HotSpotJVMCI13InternalError10initializeEP8JVMCIEnv(ptr nounde
 declare void @_ZN8JNIJVMCI13InternalError10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_InternalError_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv23new_InternalError_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21793,7 +21793,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI13InternalError11is_instanceEP8JVMC
 declare noundef zeroext i1 @_ZN8JNIJVMCI13InternalError11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv27OutOfMemoryError_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv27OutOfMemoryError_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21817,7 +21817,7 @@ declare void @_ZN12HotSpotJVMCI16OutOfMemoryError10initializeEP8JVMCIEnv(ptr nou
 declare void @_ZN8JNIJVMCI16OutOfMemoryError10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv26new_OutOfMemoryError_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv26new_OutOfMemoryError_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -21947,7 +21947,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI16OutOfMemoryError11is_instanceEP8J
 declare noundef zeroext i1 @_ZN8JNIJVMCI16OutOfMemoryError11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv31NoClassDefFoundError_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv31NoClassDefFoundError_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -21971,7 +21971,7 @@ declare void @_ZN12HotSpotJVMCI20NoClassDefFoundError10initializeEP8JVMCIEnv(ptr
 declare void @_ZN8JNIJVMCI20NoClassDefFoundError10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_NoClassDefFoundError_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_NoClassDefFoundError_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -22101,7 +22101,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI20NoClassDefFoundError11is_instance
 declare noundef zeroext i1 @_ZN8JNIJVMCI20NoClassDefFoundError11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv40InvalidInstalledCodeException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv40InvalidInstalledCodeException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22125,7 +22125,7 @@ declare void @_ZN12HotSpotJVMCI29InvalidInstalledCodeException10initializeEP8JVM
 declare void @_ZN8JNIJVMCI29InvalidInstalledCodeException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_InvalidInstalledCodeException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_InvalidInstalledCodeException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -22255,7 +22255,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI29InvalidInstalledCodeException11is
 declare noundef zeroext i1 @_ZN8JNIJVMCI29InvalidInstalledCodeException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv31UnsatisfiedLinkError_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv31UnsatisfiedLinkError_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22279,7 +22279,7 @@ declare void @_ZN12HotSpotJVMCI20UnsatisfiedLinkError10initializeEP8JVMCIEnv(ptr
 declare void @_ZN8JNIJVMCI20UnsatisfiedLinkError10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_UnsatisfiedLinkError_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv30new_UnsatisfiedLinkError_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -22409,7 +22409,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI20UnsatisfiedLinkError11is_instance
 declare noundef zeroext i1 @_ZN8JNIJVMCI20UnsatisfiedLinkError11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv40UnsupportedOperationException_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv40UnsupportedOperationException_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22433,7 +22433,7 @@ declare void @_ZN12HotSpotJVMCI29UnsupportedOperationException10initializeEP8JVM
 declare void @_ZN8JNIJVMCI29UnsupportedOperationException10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_UnsupportedOperationException_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv39new_UnsupportedOperationException_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -22563,7 +22563,7 @@ declare noundef zeroext i1 @_ZN12HotSpotJVMCI29UnsupportedOperationException11is
 declare noundef zeroext i1 @_ZN8JNIJVMCI29UnsupportedOperationException11is_instanceEP8JVMCIEnv11JVMCIObject(ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv28StackTraceElement_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv28StackTraceElement_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22587,7 +22587,7 @@ declare void @_ZN12HotSpotJVMCI17StackTraceElement10initializeEP8JVMCIEnv(ptr no
 declare void @_ZN8JNIJVMCI17StackTraceElement10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_StackTraceElement_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv27new_StackTraceElement_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -22903,7 +22903,7 @@ define hidden void @_ZN8JVMCIEnv32set_StackTraceElement_lineNumberE11JVMCIObject
 declare void @_ZN8JNIJVMCI17StackTraceElement14set_lineNumberEP8JVMCIEnv11JVMCIObjecti(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv20Throwable_initializeEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv20Throwable_initializeEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -22927,7 +22927,7 @@ declare void @_ZN12HotSpotJVMCI9Throwable10initializeEP8JVMCIEnv(ptr noundef) lo
 declare void @_ZN8JNIJVMCI9Throwable10initializeEP8JVMCIEnv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_Throwable_arrayEiPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i8 } @_ZN8JVMCIEnv19new_Throwable_arrayEiPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -24179,7 +24179,7 @@ declare noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP
 declare noundef ptr @_ZN9Arguments12get_propertyEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -25655,13 +25655,13 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

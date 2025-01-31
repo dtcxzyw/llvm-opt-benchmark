@@ -1187,10 +1187,10 @@ cleanup:                                          ; preds = %try_bitmap_traversa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @usage(ptr noundef) local_unnamed_addr #3
@@ -1228,7 +1228,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @setup_revisions(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @test_bitmap_walk(ptr noundef) local_unnamed_addr #4
 
@@ -1256,7 +1256,7 @@ declare void @oidset_init(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @traverse_commit_list_filtered(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_commit(ptr noundef %commit, ptr nocapture noundef readonly %data) #0 {
+define internal void @show_commit(ptr noundef %commit, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %size.i = alloca i64, align 8
   %oi.i = alloca %struct.object_info, align 8
@@ -1648,7 +1648,7 @@ return:                                           ; preds = %if.end178, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_object(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef readonly %cb_data) #0 {
+define internal void @show_object(ptr noundef %obj, ptr noundef %name, ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %size.i = alloca i64, align 8
   %oi.i = alloca %struct.object_info, align 8
@@ -1761,7 +1761,7 @@ if.end17:                                         ; preds = %finish_object.exit,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #4
 
@@ -1783,7 +1783,7 @@ declare i64 @get_disk_usage_from_bitmap(ptr noundef, ptr noundef) local_unnamed_
 declare void @traverse_bitmap_commit_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @show_object_fast(ptr noundef %oid, i32 %type, i32 %exclude, i32 %name_hash, ptr nocapture readnone %found_pack, i64 %found_offset) #0 {
+define internal noundef i32 @show_object_fast(ptr noundef %oid, i32 %type, i32 %exclude, i32 %name_hash, ptr readnone captures(none) %found_pack, i64 %found_offset) #0 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %call = tail call ptr @oid_to_hex(ptr noundef %oid) #11
@@ -1792,7 +1792,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @filter_skipped(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1855,7 +1855,7 @@ return:                                           ; preds = %sw.bb6, %entry, %sw
 declare void @graph_show_commit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @get_revision_mark(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1907,13 +1907,13 @@ declare void @strbuf_humanise_bytes(ptr noundef, i64 noundef) local_unnamed_addr
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

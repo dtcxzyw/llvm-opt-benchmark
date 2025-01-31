@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.esc_decode = private unnamed_addr constant [11 x i8] c"esc_decode\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @binary_encode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -169,7 +169,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -285,7 +285,7 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 0, -1) i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
+define dso_local noundef range(i64 0, -1) i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -438,19 +438,19 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, -1) i64 @hex_enc_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, -1) i64 @hex_enc_len(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = shl i64 %1, 1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, -9223372036854775808) i64 @hex_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, -9223372036854775808) i64 @hex_dec_len(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = lshr i64 %1, 1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @pg_base64_enc_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef i64 @pg_base64_enc_len(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = shl i64 %4, 2
@@ -460,7 +460,7 @@ define internal noundef i64 @pg_base64_enc_len(ptr nocapture readnone %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4611686018427387904) i64 @pg_base64_dec_len(ptr nocapture readnone %0, i64 noundef %1) #4 {
+define internal noundef range(i64 0, 4611686018427387904) i64 @pg_base64_dec_len(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = mul i64 %1, 3
   %4 = lshr i64 %3, 2
   ret i64 %4
@@ -837,7 +837,7 @@ define internal i64 @esc_dec_len(ptr noundef readonly %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
+define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -898,7 +898,7 @@ define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @esc_decode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal i64 @esc_decode(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge

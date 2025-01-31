@@ -109,7 +109,7 @@ Q_.exit:                                          ; preds = %if.then.i17, %if.en
 if.end:                                           ; preds = %Q_.exit, %_.exit
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #11
   %9 = load i8, ptr @comment_line_char, align 1
-  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef %retval.0.i, i64 noundef %call4, i8 noundef signext %9) #10
+  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef nonnull %retval.0.i, i64 noundef %call4, i8 noundef signext %9) #10
   %call5 = tail call fastcc i32 @get_missing_commit_check_level()
   %cmp = icmp eq i32 %call5, 2
   %10 = load i32, ptr @git_gettext_enabled, align 4
@@ -125,7 +125,7 @@ if.end10:                                         ; preds = %if.end, %if.end10.s
   %msg.0 = phi ptr [ %call.i27, %if.end10.sink.split ], [ %.str.3..str.4, %if.end ]
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg.0) #11
   %11 = load i8, ptr @comment_line_char, align 1
-  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef %msg.0, i64 noundef %call11, i8 noundef signext %11) #10
+  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef nonnull %msg.0, i64 noundef %call11, i8 noundef signext %11) #10
   %12 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i31 = icmp eq i32 %12, 0
   %.str.5..str.6 = select i1 %.not, ptr @.str.5, ptr @.str.6
@@ -139,7 +139,7 @@ if.end17:                                         ; preds = %if.end10, %if.end17
   %msg.1 = phi ptr [ %call.i39, %if.end17.sink.split ], [ %.str.5..str.6, %if.end10 ]
   %call18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg.1) #11
   %13 = load i8, ptr @comment_line_char, align 1
-  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef %msg.1, i64 noundef %call18, i8 noundef signext %13) #10
+  tail call void @strbuf_add_commented_lines(ptr noundef %buf, ptr noundef nonnull %msg.1, i64 noundef %call18, i8 noundef signext %13) #10
   ret void
 }
 
@@ -148,7 +148,7 @@ declare void @strbuf_commented_addf(ptr noundef, i8 noundef signext, ptr noundef
 declare void @strbuf_add_commented_lines(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @get_missing_commit_check_level() unnamed_addr #0 {
@@ -380,10 +380,10 @@ declare i32 @launch_sequence_editor(ptr noundef, ptr noundef, ptr noundef) local
 declare void @strbuf_stripspace(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @todo_list_check_against_backup(ptr noundef %r, ptr nocapture noundef readonly %todo_list) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @todo_list_check_against_backup(ptr noundef %r, ptr noundef readonly captures(none) %todo_list) local_unnamed_addr #0 {
 entry:
   %backup = alloca %struct.todo_list, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %backup, ptr noundef nonnull align 8 dereferenceable(56) @__const.todo_list_check_against_backup.backup, i64 56, i1 false)
@@ -408,10 +408,10 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @write_file(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %old_todo, ptr nocapture noundef readonly %new_todo) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %old_todo, ptr noundef readonly captures(none) %new_todo) local_unnamed_addr #0 {
 entry:
   %missing = alloca %struct.strbuf, align 8
   %call = tail call fastcc i32 @get_missing_commit_check_level()
@@ -703,7 +703,7 @@ clear_commit_seen.exit:                           ; preds = %for.body.i, %entry,
 declare void @todo_list_filter_update_refs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -712,7 +712,7 @@ declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) loca
 declare ptr @todo_item_get_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -731,7 +731,7 @@ declare ptr @ngettext(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @git_config_get_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 
@@ -740,16 +740,16 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

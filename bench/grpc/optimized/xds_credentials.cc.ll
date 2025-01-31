@@ -209,7 +209,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core22XdsCertificateVerifierC2ENS_13RefCountedPtrINS_22XdsCertificateProviderEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr nocapture noundef %xds_certificate_provider, ptr noundef nonnull %cluster_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22XdsCertificateVerifierC2ENS_13RefCountedPtrINS_22XdsCertificateProviderEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr noundef captures(none) %xds_certificate_provider, ptr noundef nonnull %cluster_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -228,7 +228,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core22XdsCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %request, ptr nocapture readnone %0, ptr nocapture noundef %sync_status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core22XdsCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %request, ptr readnone captures(none) %0, ptr noundef captures(none) %sync_status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp9 = alloca %"class.std::vector", align 8
@@ -281,14 +281,14 @@ for.body6.i:                                      ; preds = %for.inc.i, %for.bod
 
 if.then10.i:                                      ; preds = %for.body6.i
   %string_matcher_.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i, i64 8
-  %call12.i11 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i, ptr %9, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i)
+  %call12.i11 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i, ptr nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i)
           to label %call12.i.noexc unwind label %lpad.loopexit118
 
 call12.i.noexc:                                   ; preds = %if.then10.i
   br i1 %call12.i11, label %cleanup.done38, label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body6.i
-  %call17.i12 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i, i64 %call.i.i.i, ptr %9)
+  %call17.i12 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i, i64 %call.i.i.i, ptr nonnull %9)
           to label %call17.i.noexc unwind label %lpad.loopexit118
 
 call17.i.noexc:                                   ; preds = %if.else.i
@@ -345,14 +345,14 @@ for.body6.i22:                                    ; preds = %for.inc.i27, %for.b
 
 if.then10.i34:                                    ; preds = %for.body6.i22
   %string_matcher_.i.i35 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i23, i64 8
-  %call12.i37 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i25, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i35)
+  %call12.i37 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i25, ptr nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i35)
           to label %call12.i.noexc36 unwind label %lpad15.loopexit
 
 call12.i.noexc36:                                 ; preds = %if.then10.i34
   br i1 %call12.i37, label %cleanup.action37, label %for.inc.i27
 
 if.else.i26:                                      ; preds = %for.body6.i22
-  %call17.i39 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i23, i64 %call.i.i.i25, ptr %18)
+  %call17.i39 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i23, i64 %call.i.i.i25, ptr nonnull %18)
           to label %call17.i.noexc38 unwind label %lpad15.loopexit
 
 call17.i.noexc38:                                 ; preds = %if.else.i26
@@ -409,14 +409,14 @@ for.body6.i50:                                    ; preds = %for.inc.i55, %for.b
 
 if.then10.i62:                                    ; preds = %for.body6.i50
   %string_matcher_.i.i63 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i51, i64 8
-  %call12.i65 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i53, ptr %27, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i63)
+  %call12.i65 = invoke noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i53, ptr nonnull %27, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i63)
           to label %call12.i.noexc64 unwind label %lpad29
 
 call12.i.noexc64:                                 ; preds = %if.then10.i62
   br i1 %call12.i65, label %cleanup.action, label %for.inc.i55
 
 if.else.i54:                                      ; preds = %for.body6.i50
-  %call17.i67 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i51, i64 %call.i.i.i53, ptr %27)
+  %call17.i67 = invoke noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i51, i64 %call.i.i.i53, ptr nonnull %27)
           to label %call17.i.noexc66 unwind label %lpad29
 
 call17.i.noexc66:                                 ; preds = %if.else.i54
@@ -723,7 +723,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN9grpc_core22XdsCertificateVerifier6CancelEP42grpc_tls_custom_verification_check_request(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #6 align 2 {
+define void @_ZN9grpc_core22XdsCertificateVerifier6CancelEP42grpc_tls_custom_verification_check_request(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -756,7 +756,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core22XdsCertificateVerifier4typeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core22XdsCertificateVerifier4typeEv(ptr noalias writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK9grpc_core22XdsCertificateVerifier4typeEvE8kFactory acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -835,7 +835,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core40TestOnlyXdsVerifySubjectAlternativeNamesEPKPKcmRKSt6vectorINS_13StringMatcherESaIS5_EE(ptr nocapture noundef readonly %subject_alternative_names, i64 noundef %subject_alternative_names_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %matchers) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core40TestOnlyXdsVerifySubjectAlternativeNamesEPKPKcmRKSt6vectorINS_13StringMatcherESaIS5_EE(ptr noundef readonly captures(none) %subject_alternative_names, i64 noundef %subject_alternative_names_size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %matchers) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %matchers, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %matchers, i64 8
@@ -868,11 +868,11 @@ for.body6.i:                                      ; preds = %for.inc.i, %for.bod
 
 if.then10.i:                                      ; preds = %for.body6.i
   %string_matcher_.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i, i64 8
-  %call12.i = tail call noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i)
+  %call12.i = tail call noundef zeroext i1 @_ZN9grpc_core28VerifySubjectAlternativeNameESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %call.i.i.i, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i)
   br i1 %call12.i, label %_ZN9grpc_core12_GLOBAL__N_132XdsVerifySubjectAlternativeNamesEPKPKcmRKSt6vectorINS_13StringMatcherESaIS6_EE.exit, label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body6.i
-  %call17.i = tail call noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i, i64 %call.i.i.i, ptr %5)
+  %call17.i = tail call noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %__begin3.sroa.0.015.i, i64 %call.i.i.i, ptr nonnull %5)
   br i1 %call17.i, label %_ZN9grpc_core12_GLOBAL__N_132XdsVerifySubjectAlternativeNamesEPKPKcmRKSt6vectorINS_13StringMatcherESaIS6_EE.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then10.i
@@ -891,7 +891,7 @@ _ZN9grpc_core12_GLOBAL__N_132XdsVerifySubjectAlternativeNamesEPKPKcmRKSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14XdsCredentials25create_security_connectorENS_13RefCountedPtrI21grpc_call_credentialsEEPKcPNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::RefCountedPtr.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %call_creds, ptr noundef %target_name, ptr noundef nonnull %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14XdsCredentials25create_security_connectorENS_13RefCountedPtrI21grpc_call_credentialsEEPKcPNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::RefCountedPtr.13") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %call_creds, ptr noundef %target_name, ptr noundef nonnull %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i57 = alloca %"class.grpc_core::RefCountedPtr.16", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -1481,7 +1481,7 @@ _ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEED2Ev.exit11: ; preds =
 declare void @_ZN14TlsCredentials25create_security_connectorEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEPKcPNS0_11ChannelArgsE(ptr sret(%"class.grpc_core::RefCountedPtr.13") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14XdsCredentials4TypeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14XdsCredentials4TypeEv(ptr noalias writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 captures(none) %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core14XdsCredentials4TypeEvE8kFactory acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -1519,7 +1519,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20XdsServerCredentials25create_security_connectorERKNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::RefCountedPtr.24") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20XdsServerCredentials25create_security_connectorERKNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::RefCountedPtr.24") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::RefCountedPtr.16", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1885,7 +1885,7 @@ declare noundef zeroext i1 @_ZN9grpc_core22XdsCertificateProvider27GetRequireCli
 declare void @_ZN20TlsServerCredentials25create_security_connectorERKN9grpc_core11ChannelArgsE(ptr sret(%"class.grpc_core::RefCountedPtr.24") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20XdsServerCredentials4TypeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20XdsServerCredentials4TypeEv(ptr noalias writeonly sret(%"class.grpc_core::UniqueTypeName") align 8 captures(none) %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core20XdsServerCredentials4TypeEvE8kFactory acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -2366,7 +2366,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
@@ -2385,7 +2385,7 @@ entry:
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt19bad_optional_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
@@ -2723,10 +2723,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

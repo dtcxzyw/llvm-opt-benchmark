@@ -21,14 +21,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [31 x i8] c"wrong container info version #\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5F_shared_get_intent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5F_shared_get_intent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_intent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_intent(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -37,7 +37,7 @@ define i32 @H5F_get_intent(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_low_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_low_bound(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1428
@@ -46,7 +46,7 @@ define i32 @H5F_get_low_bound(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_high_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_high_bound(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1432
@@ -55,20 +55,20 @@ define i32 @H5F_get_high_bound(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5F_get_open_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @H5F_get_open_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5F_get_actual_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @H5F_get_actual_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @H5F_get_extpath(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @H5F_get_extpath(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2328
@@ -77,14 +77,14 @@ define ptr @H5F_get_extpath(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5F_get_shared(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @H5F_get_shared(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @H5F_same_shared(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define zeroext i1 @H5F_same_shared(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -94,14 +94,14 @@ define zeroext i1 @H5F_same_shared(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5F_get_nopen_objs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5F_get_nopen_objs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @H5F_file_id_exists(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @H5F_file_id_exists(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -109,21 +109,21 @@ define zeroext i1 @H5F_file_id_exists(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5F_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @H5F_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @H5F_get_nmounts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5F_get_nmounts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_read_attempts(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_read_attempts(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2056
@@ -132,7 +132,7 @@ define i32 @H5F_get_read_attempts(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_fcpl(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_fcpl(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1360
@@ -141,7 +141,7 @@ define i64 @H5F_get_fcpl(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @H5F_sizeof_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i8 @H5F_sizeof_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -150,7 +150,7 @@ define zeroext i8 @H5F_sizeof_addr(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @H5F_sizeof_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i8 @H5F_sizeof_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 65
@@ -159,7 +159,7 @@ define zeroext i8 @H5F_sizeof_size(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_sohm_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_sohm_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -168,7 +168,7 @@ define i64 @H5F_get_sohm_addr(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_sohm_vers(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_sohm_vers(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -177,7 +177,7 @@ define i32 @H5F_get_sohm_vers(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_sohm_nindexes(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_sohm_nindexes(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 84
@@ -186,7 +186,7 @@ define i32 @H5F_get_sohm_nindexes(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_sym_leaf_k(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_sym_leaf_k(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -197,7 +197,7 @@ define i32 @H5F_sym_leaf_k(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_get_min_dset_ohdr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_get_min_dset_ohdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2320
@@ -207,7 +207,7 @@ define zeroext i1 @H5F_get_min_dset_ohdr(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_Kvalue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @H5F_Kvalue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -221,7 +221,7 @@ define i32 @H5F_Kvalue(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_nrefs(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_nrefs(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -230,7 +230,7 @@ define i32 @H5F_get_nrefs(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_rdcc_nslots(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_rdcc_nslots(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1376
@@ -239,7 +239,7 @@ define i64 @H5F_rdcc_nslots(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_rdcc_nbytes(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_rdcc_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1384
@@ -248,7 +248,7 @@ define i64 @H5F_rdcc_nbytes(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define double @H5F_rdcc_w0(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define double @H5F_rdcc_w0(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1392
@@ -257,7 +257,7 @@ define double @H5F_rdcc_w0(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_base_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_base_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -268,7 +268,7 @@ define i64 @H5F_get_base_addr(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @H5F_grp_btree_shared(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @H5F_grp_btree_shared(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1472
@@ -277,7 +277,7 @@ define ptr @H5F_grp_btree_shared(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_sieve_buf_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_sieve_buf_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1400
@@ -286,7 +286,7 @@ define i64 @H5F_sieve_buf_size(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_gc_ref(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_gc_ref(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1424
@@ -295,7 +295,7 @@ define i32 @H5F_gc_ref(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @H5F_get_fc_degree(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @H5F_get_fc_degree(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1368
@@ -304,7 +304,7 @@ define i32 @H5F_get_fc_degree(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_get_evict_on_close(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_get_evict_on_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1372
@@ -314,7 +314,7 @@ define zeroext i1 @H5F_get_evict_on_close(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_store_msg_crt_idx(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_store_msg_crt_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1436
@@ -324,7 +324,7 @@ define zeroext i1 @H5F_store_msg_crt_idx(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_shared_has_feature(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define zeroext i1 @H5F_shared_has_feature(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %4, align 8
@@ -335,7 +335,7 @@ define zeroext i1 @H5F_shared_has_feature(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_has_feature(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define zeroext i1 @H5F_has_feature(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -348,7 +348,7 @@ define zeroext i1 @H5F_has_feature(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_driver_id(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_driver_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -357,7 +357,7 @@ define i64 @H5F_get_driver_id(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F_get_fileno(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5F_get_fileno(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -381,7 +381,7 @@ declare i32 @H5FD_get_fileno(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5F_shared_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define i64 @H5F_shared_get_eoa(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @H5FD_get_eoa(ptr noundef %3, i32 noundef %1) #5
   %5 = icmp eq i64 %4, -1
@@ -400,7 +400,7 @@ define i64 @H5F_shared_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1
 declare i64 @H5FD_get_eoa(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5F_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define i64 @H5F_get_eoa(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -419,14 +419,14 @@ define i64 @H5F_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5F_shared_get_file_driver(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5F_shared_get_file_driver(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F_get_vfd_handle(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5F_get_vfd_handle(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -448,7 +448,7 @@ define range(i32 -1, 1) i32 @H5F_get_vfd_handle(ptr nocapture noundef readonly %
 declare i32 @H5FD_get_vfd_handle(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_is_tmp_addr(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define zeroext i1 @H5F_is_tmp_addr(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1552
@@ -462,7 +462,7 @@ define zeroext i1 @H5F_is_tmp_addr(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_use_tmp_space(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_use_tmp_space(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1544
@@ -472,7 +472,7 @@ define zeroext i1 @H5F_use_tmp_space(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_use_mdc_logging(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_use_mdc_logging(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1348
@@ -482,7 +482,7 @@ define zeroext i1 @H5F_use_mdc_logging(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_start_mdc_log_on_access(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_start_mdc_log_on_access(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1349
@@ -492,7 +492,7 @@ define zeroext i1 @H5F_start_mdc_log_on_access(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @H5F_mdc_log_location(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @H5F_mdc_log_location(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1352
@@ -501,7 +501,7 @@ define ptr @H5F_mdc_log_location(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_alignment(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_alignment(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1416
@@ -510,7 +510,7 @@ define i64 @H5F_get_alignment(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_threshold(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_threshold(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1408
@@ -519,7 +519,7 @@ define i64 @H5F_get_threshold(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_pgend_meta_thres(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_pgend_meta_thres(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1992
@@ -528,7 +528,7 @@ define i64 @H5F_get_pgend_meta_thres(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_get_point_of_no_return(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_get_point_of_no_return(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1560
@@ -538,7 +538,7 @@ define zeroext i1 @H5F_get_point_of_no_return(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_get_null_fsm_addr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_get_null_fsm_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
@@ -548,7 +548,7 @@ define zeroext i1 @H5F_get_null_fsm_addr(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @H5F_get_vol_cls(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @H5F_get_vol_cls(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1504
@@ -557,14 +557,14 @@ define ptr @H5F_get_vol_cls(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5F_get_vol_obj(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @H5F_get_vol_obj(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__get_cont_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5F__get_cont_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %8, label %4
@@ -600,7 +600,7 @@ define range(i32 -1, 1) i32 @H5F__get_cont_info(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_get_use_file_locking(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5F_get_use_file_locking(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1480
@@ -610,7 +610,7 @@ define zeroext i1 @H5F_get_use_file_locking(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5F_has_vector_select_io(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define zeroext i1 @H5F_has_vector_select_io(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -643,7 +643,7 @@ define zeroext i1 @H5F_has_vector_select_io(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @H5F_get_rfic_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5F_get_rfic_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1488

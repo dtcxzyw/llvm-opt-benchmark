@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [3 x i8] c"\0A\0D\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.zentry, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -113,10 +113,10 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [30 x i8], align 16
@@ -342,7 +342,7 @@ find_positions.exit.thread.sink.split:            ; preds = %75, %44, %41
 
 139:                                              ; preds = %134
   %140 = getelementptr inbounds nuw i8, ptr %.290, i64 46
-  %bcmp = tail call i32 @bcmp(ptr nonnull %140, ptr %2, i64 %136)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %140, ptr nonnull %2, i64 %136)
   %141 = icmp eq i32 %bcmp, 0
   br i1 %141, label %142, label %212
 
@@ -461,7 +461,7 @@ find_positions.exit.thread.sink.split:            ; preds = %75, %44, %41
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.z_stream_s, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -596,7 +596,7 @@ define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %6 [
@@ -719,10 +719,10 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @JLI_JarUnpackFile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @JLI_JarUnpackFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.zentry, align 8
   %5 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %6 = icmp eq i32 %5, -1
@@ -762,10 +762,10 @@ define hidden void @JLI_FreeManifest() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.zentry, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -826,16 +826,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [76 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i16, ptr %7, align 1
@@ -1097,10 +1097,10 @@ readAt.exit.thread:                               ; preds = %35, %150, %148, %is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i32 noundef range(i32 30, 77) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef range(i32 0, -1) %0, i64 noundef %1, i32 noundef range(i32 30, 77) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = icmp sgt i64 %1, -1
   br i1 %5, label %6, label %14
 
@@ -1122,7 +1122,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @readAt(i32 noundef range(i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 65536) %5) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 65536) %5) unnamed_addr #0 {
   %7 = load i8, ptr %1, align 1
   %8 = icmp eq i8 %7, 80
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1327,7 +1327,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
@@ -1336,13 +1336,13 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

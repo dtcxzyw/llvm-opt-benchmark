@@ -67,7 +67,7 @@ define hidden void @VP8TBufferClear(ptr noundef %0) local_unnamed_addr #1 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1479,7 +1479,7 @@ AddToken.exit295:                                 ; preds = %TBufferNewPage.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %.not28 = icmp eq ptr %5, null
   br i1 %.not28, label %._crit_edge32, label %.lr.ph31
@@ -1614,7 +1614,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
 declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %.not30 = icmp eq ptr %3, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph33

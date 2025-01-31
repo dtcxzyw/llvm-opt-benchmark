@@ -238,7 +238,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io5QueueC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %capacity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io5QueueC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %capacity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #27
   store i32 120, ptr %call, align 8
@@ -303,7 +303,7 @@ invoke.cont:                                      ; preds = %for.body6.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io5QueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io5QueueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i = alloca %struct.timespec, align 8
   %0 = load ptr, ptr %this, align 8
@@ -379,7 +379,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_02io5Queue5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_02io5Queue5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mNumTasks = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -389,7 +389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK7openvdb5v11_02io5Queue4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK7openvdb5v11_02io5Queue4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mNumTasks = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io5Queue8capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io5Queue8capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mCapacity = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -408,7 +408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io5Queue11setCapacityEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io5Queue11setCapacityEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #11 align 2 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %n, i32 1)
   %0 = load ptr, ptr %this, align 8
@@ -418,7 +418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io5Queue7timeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK7openvdb5v11_02io5Queue7timeoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 8
@@ -426,7 +426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_02io5Queue10setTimeoutEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %sec) local_unnamed_addr #11 align 2 {
+define void @_ZN7openvdb5v11_02io5Queue10setTimeoutEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %sec) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store i32 %sec, ptr %0, align 8
@@ -434,7 +434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7openvdb5v11_02io5Queue6statusEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK7openvdb5v11_02io5Queue6statusEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id.addr = alloca i32, align 4
   %acc = alloca %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", align 8
@@ -517,7 +517,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_02io5Queue11addNotifierESt8functionIFvjNS2_6StatusEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %notify) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7openvdb5v11_02io5Queue11addNotifierESt8functionIFvjNS2_6StatusEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %notify) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -670,7 +670,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io5Queue14removeNotifierEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io5Queue14removeNotifierEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mNotifierMutex = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -746,10 +746,10 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io5Queue14clearNotifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io5Queue14clearNotifiersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mNotifierMutex = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -790,7 +790,7 @@ _ZNSt3mapIjSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEESt4lessIjESaISt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_02io5Queue9writeGridESt10shared_ptrIKNS0_8GridBaseEERKNS1_7ArchiveERKNS0_7MetaMapE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %grid, ptr noundef nonnull align 8 dereferenceable(65) %archive, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7openvdb5v11_02io5Queue9writeGridESt10shared_ptrIKNS0_8GridBaseEERKNS1_7ArchiveERKNS0_7MetaMapE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %grid, ptr noundef nonnull align 8 dereferenceable(65) %archive, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %call5.i.i.i.i2.i.i2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -943,7 +943,7 @@ lpad3:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7openvdb5v11_02io5Queue12writeGridVecERKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS7_EERKNS1_7ArchiveERKNS0_7MetaMapE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %grids, ptr noundef nonnull align 8 dereferenceable(65) %archive, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7openvdb5v11_02io5Queue12writeGridVecERKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS7_EERKNS1_7ArchiveERKNS0_7MetaMapE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %grids, ptr noundef nonnull align 8 dereferenceable(65) %archive, ptr noundef nonnull align 8 dereferenceable(56) %metadata) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alloc.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %id.addr.i.i = alloca i32, align 4
@@ -1987,7 +1987,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -2046,7 +2046,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -2058,7 +2058,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare void @_ZN7openvdb5v11_07MetaMapC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
@@ -2268,7 +2268,7 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.trap() #30
   unreachable
@@ -4409,7 +4409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noalias noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E6cancelERNS1_14execution_dataE(ptr nocapture nonnull readnone align 64 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E6cancelERNS1_14execution_dataE(ptr nonnull readnone align 64 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3tbb6detail2r117assertion_failureEPKciS3_S3_(ptr noundef nonnull @__func__._ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E6cancelERNS1_14execution_dataE, i32 noundef 226, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
   ret ptr null
@@ -5074,10 +5074,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #24
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25

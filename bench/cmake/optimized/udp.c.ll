@@ -227,7 +227,7 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_bind(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @uv__udp_bind(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -379,7 +379,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_connect(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @uv__udp_connect(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.uv__sockaddr, align 4
   %5 = load i16, ptr %1, align 2
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
@@ -497,7 +497,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr, align 2
   %3 = tail call ptr @__errno_location() #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -533,10 +533,10 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %union.uv__sockaddr, align 4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %9
@@ -745,7 +745,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1
 
@@ -1053,7 +1053,7 @@ uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thre
 declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_try_send(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @uv__udp_try_send(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %union.uv__sockaddr, align 4
   %7 = alloca %struct.msghdr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1235,7 +1235,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uv__udp_init_ex(ptr noundef %0, 
 declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__udp_io(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca [20 x %struct.sockaddr_in6], align 16
   %5 = alloca [20 x %struct.iovec], align 16
   %6 = alloca [20 x %struct.uv__mmsghdr], align 16
@@ -1520,7 +1520,7 @@ uv__udp_recvmsg.exit:                             ; preds = %114, %117, %119, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 67108864
@@ -1647,7 +1647,7 @@ declare i32 @uv__nonblock_ioctl(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @uv__udp_is_connected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_membership(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @uv_udp_set_membership(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ipv6_mreq, align 4
   %6 = alloca %struct.sockaddr_in6, align 4
   %7 = alloca %union.uv__sockaddr, align 4
@@ -1811,7 +1811,7 @@ declare i32 @uv_ip4_addr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 declare i32 @uv_ip6_addr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_source_membership(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @uv_udp_set_source_membership(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %union.uv__sockaddr, align 4
   %7 = alloca %struct.ip_mreq_source, align 4
   %8 = alloca %union.uv__sockaddr, align 4
@@ -1987,7 +1987,7 @@ uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_defer
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2008,7 +2008,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = add i32 %1, -256
   %or.cond = icmp ult i32 %4, -255
@@ -2055,7 +2055,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %15, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
@@ -2097,7 +2097,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %2, %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
@@ -2139,7 +2139,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %2, %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_interface(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_interface(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %10
@@ -2397,10 +2397,10 @@ declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

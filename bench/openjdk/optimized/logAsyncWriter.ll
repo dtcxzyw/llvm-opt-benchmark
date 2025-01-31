@@ -115,7 +115,7 @@ $_ZN9LogPrefixILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 declare void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
   %6 = and i64 %5, -8
   %7 = add i64 %6, 64
@@ -138,7 +138,7 @@ define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFil
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %19 = add i64 %5, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %3, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %3, i64 %19, i1 false)
   %20 = load i64, ptr %8, align 8
   %21 = add i64 %20, %7
   store i64 %21, ptr %8, align 8
@@ -149,10 +149,10 @@ define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFil
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 64
@@ -180,7 +180,7 @@ _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #15
@@ -273,7 +273,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %54 = add i64 %7, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr readonly align 1 %3, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull readonly align 1 %3, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8
   %56 = add i64 %55, %9
   store i64 %56, ptr %10, align 8
@@ -288,7 +288,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
@@ -454,7 +454,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE76ELS1_159ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = alloca %class.LogDecorations, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1176
@@ -884,23 +884,23 @@ define hidden void @_ZN14AsyncLogWriter10initializeEv() local_unnamed_addr #4 al
 
 8:                                                ; preds = %3
   %9 = tail call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr nonnull @_ZN14AsyncLogWriter9_instanceE) #16, !srcloc !17
-  %.011 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
-  %.not12 = icmp eq ptr %.011, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.010 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
+  %.not11 = icmp eq ptr %.010, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.013 = phi ptr [ %.0, %.lr.ph ], [ %.011, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.013, i64 40
+  %.012 = phi ptr [ %.0, %.lr.ph ], [ %.010, %8 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   tail call void @_ZNK13LogOutputList21wait_until_no_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %10) #16
-  %.0 = load ptr, ptr %.013, align 8
+  %.0 = load ptr, ptr %.012, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @_ZN2os12start_threadEP6Thread(ptr noundef nonnull %4) #16
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not10 = icmp eq ptr %11, null
-  br i1 %.not10, label %17, label %12
+  %.not9 = icmp eq ptr %11, null
+  br i1 %.not9, label %17, label %12
 
 12:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7)
@@ -988,7 +988,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
@@ -1033,7 +1033,7 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN14AsyncLogWriter5flushEv.exit, label %3
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE76ELS1_0ELS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #9
@@ -1450,7 +1450,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129), i64 noundef) unnamed_addr #0
 
@@ -1470,10 +1470,10 @@ define internal void @_GLOBAL__sub_I_logAsyncWriter.cpp() #7 section ".text.star
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

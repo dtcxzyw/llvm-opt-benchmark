@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_class_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
+define internal void @e1000e_class_init(ptr noundef %class, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #9
@@ -261,7 +261,7 @@ declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_pci_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @e1000e_pci_realize(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i63.i = alloca %struct.timeval, align 8
   %_now.i.i48.i = alloca %struct.timeval, align 8
@@ -888,7 +888,7 @@ if.end:                                           ; preds = %if.then, %trace_e10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -948,7 +948,7 @@ declare void @pcie_dev_ser_num_init(ptr noundef, i16 noundef zeroext, i64 nounde
 declare void @e1000e_core_pci_realize(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1264,7 +1264,7 @@ return:                                           ; preds = %sw.bb1, %trace_e100
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @e1000e_io_get_reg_index(i32 %s.11920.val, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @e1000e_io_get_reg_index(i32 %s.11920.val, ptr noundef nonnull writeonly captures(none) %idx) unnamed_addr #0 {
 entry:
   %_now.i.i21 = alloca %struct.timeval, align 8
   %_now.i.i7 = alloca %struct.timeval, align 8
@@ -1601,7 +1601,7 @@ trace_e1000e_cb_pre_save.exit:                    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @e1000e_migrate_timadj(ptr nocapture noundef readonly %opaque, i32 %version_id) #5 {
+define internal zeroext i1 @e1000e_migrate_timadj(ptr noundef readonly captures(none) %opaque, i32 %version_id) #5 {
 entry:
   %timadj = getelementptr inbounds nuw i8, ptr %opaque, i64 144137
   %0 = load i8, ptr %timadj, align 1
@@ -1614,13 +1614,13 @@ declare i32 @e1000e_core_post_load(ptr noundef) local_unnamed_addr #1
 declare void @e1000e_core_pre_save(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8

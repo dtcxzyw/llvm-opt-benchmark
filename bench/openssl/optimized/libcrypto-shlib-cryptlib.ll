@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"%s:%d: OpenSSL internal error: %s\0A\00", align 1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define void @OPENSSL_showfatal(ptr nocapture noundef readonly %fmta, ...) local_unnamed_addr #0 {
+define void @OPENSSL_showfatal(ptr noundef readonly captures(none) %fmta, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @OPENSSL_isservice() local_unnamed_addr #2 {

@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @libdeflate_alloc_decompressor_ex(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define ptr @libdeflate_alloc_decompressor_ex(ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %options, align 8
   %cmp.not = icmp eq i64 %0, 24
@@ -62,7 +62,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @libdeflate_alloc_decompressor() local_unnamed_addr #0 {
@@ -2515,10 +2515,10 @@ return:                                           ; preds = %do.end53, %if.end61
 declare void @libdeflate_init_x86_cpu_features() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @build_decode_table(ptr nocapture noundef %decode_table, ptr nocapture noundef readonly %lens, i32 noundef range(i32 1, 289) %num_syms, ptr nocapture noundef readonly %decode_results, i32 noundef range(i32 7, 12) %table_bits, i32 noundef range(i32 7, 16) %max_codeword_len, ptr nocapture noundef %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %decode_table, ptr noundef readonly captures(none) %lens, i32 noundef range(i32 1, 289) %num_syms, ptr noundef readonly captures(none) %decode_results, i32 noundef range(i32 7, 12) %table_bits, i32 noundef range(i32 7, 16) %max_codeword_len, ptr noundef captures(none) %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
 entry:
   %len_counts = alloca [16 x i32], align 16
   %offsets = alloca [16 x i32], align 16

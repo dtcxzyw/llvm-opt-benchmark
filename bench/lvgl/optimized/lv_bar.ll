@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_bar_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_bar_constructor, ptr @lv_bar_destructor, ptr @lv_bar_event, ptr null, ptr @.str, i32 260, i32 13, i8 0, i8 10, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 97)) %1) #0 {
+define internal void @lv_bar_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 97)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -87,7 +87,7 @@ lv_bar_set_value.exit:                            ; preds = %2, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_bar_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %3, ptr noundef null) #7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -96,7 +96,7 @@ define internal void @lv_bar_destructor(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_bar_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_draw_rect_dsc_t, align 8
@@ -644,14 +644,14 @@ define noundef ptr @lv_bar_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_bar_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -683,7 +683,7 @@ define void @lv_bar_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lv_bar_set_value_with_anim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @lv_bar_set_value_with_anim(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct._lv_anim_t, align 8
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %8, label %14
@@ -836,7 +836,7 @@ define void @lv_bar_set_range(ptr noundef initializes((96, 97)) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_bar_get_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_bar_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -886,7 +886,7 @@ define void @lv_bar_set_orientation(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_bar_get_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8, !tbaa !36
   %.not = icmp eq i32 %3, -1
@@ -897,7 +897,7 @@ define i32 @lv_bar_get_value(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_bar_get_start_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_start_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -919,7 +919,7 @@ define i32 @lv_bar_get_start_value(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_bar_get_min_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_min_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8, !tbaa !16, !range !39, !noundef !40
   %4 = trunc nuw i8 %3 to i1
@@ -930,7 +930,7 @@ define i32 @lv_bar_get_min_value(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_bar_get_max_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_bar_get_max_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8, !tbaa !16, !range !39, !noundef !40
   %4 = trunc nuw i8 %3 to i1
@@ -941,7 +941,7 @@ define i32 @lv_bar_get_max_value(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 3
@@ -951,7 +951,7 @@ define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_bar_is_symmetrical(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_bar_is_symmetrical(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -1018,7 +1018,7 @@ declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) l
 declare zeroext i1 @lv_area_is_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1039,7 +1039,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_anim(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) #0 {
+define internal void @lv_bar_anim(ptr noundef captures(none) initializes((16, 20)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %0, align 8, !tbaa !17
@@ -1052,7 +1052,7 @@ declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_un
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_anim_completed(ptr nocapture noundef readonly %0) #0 {
+define internal void @lv_bar_anim_completed(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !65
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1096,7 +1096,7 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

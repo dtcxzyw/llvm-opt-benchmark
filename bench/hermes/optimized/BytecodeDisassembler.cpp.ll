@@ -333,7 +333,7 @@ $_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE = comdat any
 @_ZN6hermes3hbc21BytecodeSectionWalkerC1EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 481036341248) i64 @_ZN6hermes3hbc14checkBufferTagEPKh(ptr nocapture noundef readonly %buff) local_unnamed_addr #0 {
+define hidden range(i64 0, 481036341248) i64 @_ZN6hermes3hbc14checkBufferTagEPKh(ptr noundef readonly captures(none) %buff) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buff, align 1
   %conv = zext i8 %0 to i32
@@ -364,7 +364,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler29disassembleBytecodeFileHeaderERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler29disassembleBytecodeFileHeaderERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"struct.std::array", align 1
@@ -1059,7 +1059,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24disassembleStringStorageERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24disassembleStringStorageERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %loc = alloca %"class.std::locale", align 8
   %ref.tmp = alloca %"class.llvh::FormattedNumber", align 8
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %entry, %_ZN4llvh11r
 declare void @_ZNSt6localeC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef) local_unnamed_addr #2
 
@@ -1538,7 +1538,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler22disassembleArrayBufferERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler22disassembleArrayBufferERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ind = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1652,7 +1652,7 @@ while.end:                                        ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef %buff, ptr nocapture noundef nonnull %ind) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef %buff, ptr noundef nonnull captures(none) %ind) unnamed_addr #1 {
 entry:
   %rBracket = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1951,7 +1951,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.bb51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler23disassembleObjectBufferERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler23disassembleObjectBufferERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %keyInd = alloca i32, align 4
   %valInd = alloca i32, align 4
@@ -2168,7 +2168,7 @@ while.end45:                                      ; preds = %while.cond19.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24disassembleBigIntStorageERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24disassembleBigIntStorageERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2489,7 +2489,7 @@ nrvo.skipdtor:                                    ; preds = %if.end, %if.then7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler25disassembleCJSModuleTableERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler25disassembleCJSModuleTableERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2749,7 +2749,7 @@ if.end37:                                         ; preds = %if.end.i128, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler30disassembleFunctionSourceTableERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler30disassembleFunctionSourceTableERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %functionSourceTable_.i = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2881,7 +2881,7 @@ if.end:                                           ; preds = %if.end.i47, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler28disassembleExceptionHandlersEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler28disassembleExceptionHandlersEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -3053,7 +3053,7 @@ return:                                           ; preds = %if.then4.i.i84, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler34disassembleExceptionHandlersPrettyEjRKSt13unordered_mapIPKvjSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_jEEERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %jumpTargets, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler34disassembleExceptionHandlersPrettyEjRKSt13unordered_mapIPKvjSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_jEEERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %jumpTargets, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -3626,7 +3626,7 @@ declare { i64, i8 } @_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE(i8 noundef ze
 declare noundef zeroext i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes3hbc20BytecodeDisassembler17fuzzyHashBytecodeEjbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %funcId, i1 noundef zeroext %useStrings, i1 noundef zeroext %useIntConstants) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN6hermes3hbc20BytecodeDisassembler17fuzzyHashBytecodeEjbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i32 noundef %funcId, i1 noundef zeroext %useStrings, i1 noundef zeroext %useIntConstants) local_unnamed_addr #1 align 2 {
 entry:
   %hasher = alloca %"class.hermes::hbc::BytecodeHasher", align 8
   %0 = load ptr, ptr %this, align 8
@@ -4273,7 +4273,7 @@ sw.epilog:                                        ; preds = %_ZNSt6vectorIPKN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc18JumpTargetsVisitor12visitOperandEPKhNS_4inst11OperandTypeES3_i(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %ip, i8 noundef zeroext %operandType, ptr nocapture noundef readonly %operandBuf, i32 %operandIndex) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc18JumpTargetsVisitor12visitOperandEPKhNS_4inst11OperandTypeES3_i(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %ip, i8 noundef zeroext %operandType, ptr noundef readonly captures(none) %operandBuf, i32 %operandIndex) unnamed_addr #1 align 2 {
 entry:
   %dest.addr.i43 = alloca ptr, align 8
   %ref.tmp.i44 = alloca i32, align 4
@@ -4360,7 +4360,7 @@ sw.epilog:                                        ; preds = %_ZN6hermes3hbc18Jum
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, i32 noundef %bigintID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandBigIntEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, i32 noundef %bigintID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %bcProvider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4405,7 +4405,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, i32 noundef %functionID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor19dumpOperandFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, i32 noundef %functionID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %functionHeader = alloca %"class.hermes::hbc::RuntimeFunctionHeader", align 8
   %bcProvider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4423,7 +4423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3hbcL16dumpFunctionNameERN4llvh11raw_ostreamERNS0_14BCProviderBaseEjRKNS0_21RuntimeFunctionHeaderENS0_18DisassemblyOptionsE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(280) %bcProvider, i32 noundef %funcId, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %functionHeader, i32 noundef %options) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes3hbcL16dumpFunctionNameERN4llvh11raw_ostreamERNS0_14BCProviderBaseEjRKNS0_21RuntimeFunctionHeaderENS0_18DisassemblyOptionsE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(280) %bcProvider, i32 noundef %funcId, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %functionHeader, i32 noundef %options) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %functionHeader, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -4605,7 +4605,7 @@ if.end:                                           ; preds = %if.then, %_ZN4llvh1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, i32 noundef %stringID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor17dumpOperandStringEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, i32 noundef %stringID, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::FormattedNumber", align 8
   %ref.tmp33 = alloca %"class.llvh::FormattedNumber", align 8
@@ -4887,13 +4887,13 @@ return:                                           ; preds = %if.end.i115, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes3hbc24PrettyDisassembleVisitor14getIndentationEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN6hermes3hbc24PrettyDisassembleVisitor14getIndentationEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor11beforeStartEjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((40, 52)) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor11beforeStartEjPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(68) initializes((40, 52)) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #1 align 2 {
 entry:
   %bytecodeStart_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %bytecodeStart, ptr %bytecodeStart_, align 8
@@ -5169,7 +5169,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit60:               ; preds = %if.then.i.i58, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor24printSourceLineForOffsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, i32 noundef %opcodeOffset) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor24printSourceLineForOffsetEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, i32 noundef %opcodeOffset) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %sourceLocOpt = alloca %"class.llvh::Optional", align 8
@@ -5261,7 +5261,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamls
 declare { ptr, i64 } @_ZN6hermes4inst15getOpCodeStringENS0_6OpCodeE(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor12visitOperandEPKhNS_4inst11OperandTypeES3_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, ptr noundef %ip, i8 noundef zeroext %operandType, ptr nocapture noundef readonly %operandBuf, i32 noundef %operandIndex) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor12visitOperandEPKhNS_4inst11OperandTypeES3_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, ptr noundef %ip, i8 noundef zeroext %operandType, ptr noundef readonly captures(none) %operandBuf, i32 noundef %operandIndex) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp261 = alloca ptr, align 8
   %ref.tmp310 = alloca ptr, align 8
@@ -5892,7 +5892,7 @@ declare void @_ZNK6hermes3hbc14BCProviderBase21getLocationForAddressEjj(ptr sret
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 104)) %this, ptr noundef %bytecodeStart, ptr nocapture noundef readonly %bcProvider, ptr noundef nonnull align 8 dereferenceable(36) %os) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 104)) %this, ptr noundef %bytecodeStart, ptr noundef readonly captures(none) %bcProvider, ptr noundef nonnull align 8 dereferenceable(36) %os) unnamed_addr #1 align 2 {
 entry:
   store ptr %bytecodeStart, ptr %this, align 8
   %bcProvider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6117,7 +6117,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader10infoOffsetEv.exit: ; preds = %if.then.i1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc21BytecodeSectionWalker10addSectionINS0_15SmallFuncHeaderEEEvPKcPKT_S8_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %sectionName, ptr noundef %start, ptr noundef %end) local_unnamed_addr #1 comdat align 2 {
@@ -7704,7 +7704,7 @@ _ZNSt6vectorIPKhSaIS1_EE9push_backEOS1_.exit31:   ; preds = %if.then.i.i5, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc21BytecodeSectionWalker18printSectionRangesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i1 noundef zeroext %human) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc21BytecodeSectionWalker18printSectionRangesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i1 noundef zeroext %human) local_unnamed_addr #1 align 2 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7899,7 +7899,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler25disassembleFunctionPrettyEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler25disassembleFunctionPrettyEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %jumpVisitor = alloca %"class.hermes::hbc::JumpTargetsVisitor", align 8
   %disassembleVisitor = alloca %"class.hermes::hbc::PrettyDisassembleVisitor", align 8
@@ -9187,7 +9187,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt6vectorIPKN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler22disassembleFunctionRawEjRN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %disassembleVisitor = alloca %"class.hermes::hbc::DisassembleVisitor", align 8
   %0 = load ptr, ptr %this, align 8
@@ -9871,7 +9871,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt6vectorIPKN6he
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24generateRegexStringIDMapEv(ptr noalias nocapture writeonly sret(%"class.std::vector.54") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24generateRegexStringIDMapEv(ptr noalias writeonly sret(%"class.std::vector.54") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #1 align 2 {
 entry:
   %regexVisitor = alloca %"class.hermes::hbc::RegexStringTableVisitor", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
@@ -10399,7 +10399,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler17disassembleRegexsERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler17disassembleRegexsERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %regexStringIDMap = alloca %"class.std::vector.54", align 8
   %0 = load ptr, ptr %this, align 8
@@ -10642,7 +10642,7 @@ return:                                           ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZN6hermes17dumpRegexBytecodeEN4llvh8ArrayRefIhEERNS0_11raw_ostreamE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BytecodeDisassembler11disassembleERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc20BytecodeDisassembler11disassembleERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"struct.std::array", align 1
@@ -12730,7 +12730,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -12787,7 +12787,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #9
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #1 comdat align 2 {
@@ -15671,7 +15671,7 @@ _ZN6hermes3hbc18DisassembleVisitorD2Ev.exit:      ; preds = %_ZNSt6vectorIPKN6he
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorISt4pairIjjESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #1 comdat align 2 {
@@ -16786,7 +16786,7 @@ declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctyp
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
@@ -16921,10 +16921,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

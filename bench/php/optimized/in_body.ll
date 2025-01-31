@@ -1232,7 +1232,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
   br label %lxb_html_tree_insertion_mode_in_body_text_append.exit
 
 lxb_html_tree_insertion_mode_in_body_text_append.exit: ; preds = %42, %34, %38, %48
-  %49 = call i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #4
+  %49 = call i32 @lxb_html_tree_insert_character_for_data(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #4
   store i32 %49, ptr %19, align 8
   %.not17 = icmp eq i32 %49, 0
   br i1 %.not17, label %51, label %lxb_html_tree_insertion_mode_in_body_text_append.exit.thread
@@ -2922,7 +2922,7 @@ declare ptr @lxb_html_tree_element_in_scope_by_node(ptr noundef, ptr noundef, i3
 declare void @lxb_html_tree_open_elements_remove_by_node(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @lxb_html_tree_close_p_element(ptr noundef, ptr noundef) local_unnamed_addr #1
 

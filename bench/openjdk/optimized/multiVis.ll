@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [23 x i8] c"SERVER_OVERLAY_VISUALS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @initFakeVisual(ptr nocapture noundef writeonly initializes((0, 8), (16, 20), (24, 56)) %0) local_unnamed_addr #0 {
+define hidden void @initFakeVisual(ptr noundef writeonly captures(none) initializes((0, 8), (16, 20), (24, 56)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 5, ptr %2, align 8
@@ -35,7 +35,7 @@ define hidden void @initFakeVisual(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr nocapture noundef %9, ptr noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef initializes((0, 8)) %13, ptr nocapture noundef initializes((0, 8)) %14, ptr nocapture noundef %15) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, ptr noundef captures(none) %9, ptr noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) initializes((0, 8)) %13, ptr noundef captures(none) initializes((0, 8)) %14, ptr noundef captures(none) %15) local_unnamed_addr #1 {
   %17 = alloca i32, align 4
   %18 = alloca %struct.XRectangle, align 2
   %19 = trunc i32 %2 to i16
@@ -115,7 +115,7 @@ thread-pre-split:                                 ; preds = %.thread, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef captures(none) %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #1 {
   %10 = alloca %struct.XVisualInfo, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -260,7 +260,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) unnamed_addr #1 {
   %8 = alloca %struct.XRectangle, align 2
   %9 = alloca %struct.XRectangle, align 2
   %10 = alloca %struct.XWindowAttributes, align 8
@@ -613,7 +613,7 @@ src_in_region_list.exit:                          ; preds = %77, %.loopexit121, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #1 {
+define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #1 {
   %17 = alloca %struct.Visual, align 8
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1404,7 +1404,7 @@ declare ptr @XGetImage(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 n
 declare ptr @next_in_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @FreeXVisualInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden void @FreeXVisualInfo(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @XFree(ptr noundef %0) #9
   %5 = tail call i32 @XFree(ptr noundef %1) #9
   tail call void @free(ptr noundef %2) #9
@@ -1423,12 +1423,12 @@ declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @XFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @XCreateImage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1446,7 +1446,7 @@ declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_u
 declare void @zero_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
+define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #1 {
   %9 = alloca %struct.XWindowAttributes, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -1692,7 +1692,7 @@ declare i32 @XSubtractRegion(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @delete_list_destroying(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_image_region(ptr nocapture noundef %0) #1 {
+define internal void @destroy_image_region(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @XDestroyRegion(ptr noundef %3) #9
@@ -1707,10 +1707,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -52,7 +52,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18mpz_matrix_managerC2ER11mpz_managerILb0EER22small_object_allocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(600) %nm, ptr noundef nonnull align 8 dereferenceable(520) %a) unnamed_addr #3 align 2 {
+define hidden void @_ZN18mpz_matrix_managerC2ER11mpz_managerILb0EER22small_object_allocator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(600) %nm, ptr noundef nonnull align 8 dereferenceable(520) %a) unnamed_addr #3 align 2 {
 entry:
   store ptr %nm, ptr %this, align 8
   %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -61,13 +61,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN18mpz_matrix_managerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN18mpz_matrix_managerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %m, i32 noundef %n, ptr nocapture noundef nonnull align 8 dereferenceable(16) %A) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %m, i32 noundef %n, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %A) local_unnamed_addr #5 align 2 {
 entry:
   %a_ij.i = getelementptr inbounds nuw i8, ptr %A, i64 8
   %0 = load ptr, ptr %a_ij.i, align 8
@@ -177,7 +177,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager3delER10mpz_matrix(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %A) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18mpz_matrix_manager3delER10mpz_matrix(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %A) local_unnamed_addr #5 align 2 {
 entry:
   %a_ij = getelementptr inbounds nuw i8, ptr %A, i64 8
   %0 = load ptr, ptr %a_ij, align 8
@@ -256,7 +256,7 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager3setER10mpz_matrixRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull readonly align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18mpz_matrix_manager3setER10mpz_matrixRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull readonly align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %A, %B
   br i1 %cmp, label %for.end20, label %if.end
@@ -429,7 +429,7 @@ for.end20:                                        ; preds = %for.inc18, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager14tensor_productERK10mpz_matrixS2_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %A, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %B, ptr nocapture noundef nonnull align 8 dereferenceable(16) %C) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18mpz_matrix_manager14tensor_productERK10mpz_matrixS2_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %A, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %B, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %C) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %CC = alloca %class.scoped_mpz_matrix, align 8
   store ptr %this, ptr %CC, align 8
@@ -714,7 +714,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %A, i32 noundef %i, i32 noundef %j) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %A, i32 noundef %i, i32 noundef %j) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %i, %j
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -784,7 +784,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager13normalize_rowEP3mpzjS1_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %A_i, i32 noundef %n, ptr noundef %b_i, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager13normalize_rowEP3mpzjS1_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %A_i, i32 noundef %n, ptr noundef %b_i, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g = alloca %class._scoped_numeral, align 8
   %0 = load ptr, ptr %this, align 8
@@ -998,7 +998,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager9eliminateER10mpz_matrixP3mpzjjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %A, ptr noundef %b, i32 noundef %k1, i32 noundef %k2, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager9eliminateER10mpz_matrixP3mpzjjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %A, ptr noundef %b, i32 noundef %k1, i32 noundef %k2, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont12:
   %t1 = alloca %class._scoped_numeral, align 8
   %t2 = alloca %class._scoped_numeral, align 8
@@ -1783,7 +1783,7 @@ for.end:                                          ; preds = %_ZN11mpz_managerILb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixPiPKi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr nocapture noundef writeonly %b, ptr nocapture noundef readonly %c) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixPiPKi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef writeonly captures(none) %b, ptr noundef readonly captures(none) %c) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZN18mpz_matrix_manager3delER10mpz_matrix.exit.i:
   %_b = alloca %class.scoped_mpz_matrix, align 8
   store ptr %this, ptr %_b, align 8
@@ -1941,7 +1941,7 @@ _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %for.end9.i.i49, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager11filter_colsERK10mpz_matrixjPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %num_cols, ptr nocapture noundef readonly %cols, ptr noundef nonnull align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18mpz_matrix_manager11filter_colsERK10mpz_matrixjPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %num_cols, ptr noundef readonly captures(none) %cols, ptr noundef nonnull align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %C = alloca %class.scoped_mpz_matrix, align 8
   %n = getelementptr inbounds nuw i8, ptr %A, i64 4
@@ -2129,7 +2129,7 @@ if.end:                                           ; preds = %for.end9.i.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager12permute_rowsERK10mpz_matrixPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %A, ptr nocapture noundef readonly %p, ptr nocapture noundef nonnull align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18mpz_matrix_manager12permute_rowsERK10mpz_matrixPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %A, ptr noundef readonly captures(none) %p, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %C = alloca %class.scoped_mpz_matrix, align 8
   store ptr %this, ptr %C, align 8
@@ -2319,7 +2319,7 @@ _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %for.end9.i.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN18mpz_matrix_manager23linear_independent_rowsERK10mpz_matrixPjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_A, ptr noundef %r, ptr nocapture noundef nonnull align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN18mpz_matrix_manager23linear_independent_rowsERK10mpz_matrixPjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_A, ptr noundef %r, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %A = alloca %class.scoped_mpz_matrix, align 8
   %g = alloca %class._scoped_numeral, align 8
@@ -2984,7 +2984,7 @@ _ZN6bufferIjLb0ELj128EED2Ev.exit:                 ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK18mpz_matrix_manager7displayERSoRK10mpz_matrixj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %A, i32 noundef %cell_width) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK18mpz_matrix_manager7displayERSoRK10mpz_matrixj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %A, i32 noundef %cell_width) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i32, ptr %A, align 8
@@ -3122,7 +3122,7 @@ declare void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull alig
 declare void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
@@ -3684,7 +3684,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_mpz_matrix.cpp() #14 section ".text.startup" {
@@ -3698,10 +3698,10 @@ entry:
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -59,7 +59,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_bitbang_i2c_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bitbang_i2c_set(ptr nocapture noundef %i2c, i32 noundef %line, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local i32 @bitbang_i2c_set(ptr noundef captures(none) %i2c, i32 noundef %line, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i81 = alloca %struct.timeval, align 8
   %_now.i.i.i63 = alloca %struct.timeval, align 8
@@ -381,7 +381,7 @@ return:                                           ; preds = %if.then84, %if.else
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bitbang_i2c_set_state(ptr nocapture noundef %i2c, i32 noundef %state) unnamed_addr #0 {
+define internal fastcc void @bitbang_i2c_set_state(ptr noundef captures(none) %i2c, i32 noundef %state) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %state1 = getelementptr inbounds nuw i8, ptr %i2c, i64 8
@@ -431,7 +431,7 @@ trace_bitbang_i2c_state.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bitbang_i2c_enter_stop(ptr nocapture noundef %i2c) unnamed_addr #0 {
+define internal fastcc void @bitbang_i2c_enter_stop(ptr noundef captures(none) %i2c) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %current_addr = getelementptr inbounds nuw i8, ptr %i2c, i64 28
@@ -490,7 +490,7 @@ bitbang_i2c_set_state.exit:                       ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @bitbang_i2c_ret(ptr nocapture noundef %i2c, i32 noundef %level) unnamed_addr #0 {
+define internal fastcc i32 @bitbang_i2c_ret(ptr noundef captures(none) %i2c, i32 noundef %level) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %last_clock = getelementptr inbounds nuw i8, ptr %i2c, i64 16
@@ -677,7 +677,7 @@ _nocheck__trace_bitbang_i2c_recv.exit:            ; preds = %entry, %land.lhs.tr
 declare void @i2c_nack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @bitbang_i2c_init(ptr nocapture noundef writeonly initializes((0, 8), (12, 24)) %s, ptr noundef %bus) local_unnamed_addr #3 {
+define dso_local void @bitbang_i2c_init(ptr noundef writeonly captures(none) initializes((0, 8), (12, 24)) %s, ptr noundef %bus) local_unnamed_addr #3 {
 entry:
   store ptr %bus, ptr %s, align 8
   %last_data = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -706,7 +706,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gpio_i2c_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @gpio_i2c_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -754,7 +754,7 @@ declare ptr @i2c_init_bus(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bitbang_i2c_gpio_set(ptr nocapture noundef %opaque, i32 noundef %irq, i32 noundef %level) #0 {
+define internal void @bitbang_i2c_gpio_set(ptr noundef captures(none) %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
   %bitbang = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %call = tail call i32 @bitbang_i2c_set(ptr noundef nonnull %bitbang, i32 noundef %irq, i32 noundef %level)
@@ -783,10 +783,10 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

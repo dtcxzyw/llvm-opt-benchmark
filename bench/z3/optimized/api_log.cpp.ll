@@ -147,7 +147,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z1SPKc(ptr nocapture noundef readonly %str) local_unnamed_addr #3 {
+define hidden void @_Z1SPKc(ptr noundef readonly captures(none) %str) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @_ZL8g_z3_log, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7)
@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_10ll_escapedE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture readonly %d.0.val) unnamed_addr #3 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_10ll_escapedE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr readonly captures(none) %d.0.val) unnamed_addr #3 {
 entry:
   %str = alloca [4 x i8], align 4
   %0 = load i8, ptr %d.0.val, align 1
@@ -449,7 +449,7 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_append_log(ptr nocapture noundef readonly %str) local_unnamed_addr #3 {
+define void @Z3_append_log(ptr noundef readonly captures(none) %str) local_unnamed_addr #3 {
 entry:
   %0 = load atomic i8, ptr @g_z3_log_enabled seq_cst, align 1
   %tobool.i.i = trunc i8 %0 to i1

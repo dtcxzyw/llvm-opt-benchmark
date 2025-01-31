@@ -112,13 +112,13 @@ declare i32 @g_once_init_enter(ptr noundef) local_unnamed_addr #1
 declare void @g_once_init_leave(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @dbus_gfx_update(ptr nocapture readnone %dcl, i32 %x, i32 %y, i32 %w, i32 %h) #2 {
+define internal void @dbus_gfx_update(ptr readnone captures(none) %dcl, i32 %x, i32 %y, i32 %w, i32 %h) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_gfx_switch(ptr nocapture noundef readonly %dcl, ptr nocapture noundef readonly %new_surface) #0 {
+define internal void @dbus_gfx_switch(ptr noundef readonly captures(none) %dcl, ptr noundef readonly captures(none) %new_surface) #0 {
 entry:
   %new_surface.val = load ptr, ptr %new_surface, align 8
   %call.i = tail call i32 @pixman_image_get_width(ptr noundef %new_surface.val) #9
@@ -131,13 +131,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @dbus_gl_scanout_disable(ptr nocapture readnone %dcl) #2 {
+define internal void @dbus_gl_scanout_disable(ptr readnone captures(none) %dcl) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_gl_scanout_texture(ptr nocapture noundef readonly %dcl, i32 %tex_id, i1 zeroext %backing_y_0_top, i32 %backing_width, i32 %backing_height, i32 %x, i32 %y, i32 noundef %w, i32 noundef %h, ptr nocapture readnone %d3d_tex2d) #0 {
+define internal void @dbus_gl_scanout_texture(ptr noundef readonly captures(none) %dcl, i32 %tex_id, i1 zeroext %backing_y_0_top, i32 %backing_width, i32 %backing_height, i32 %x, i32 %y, i32 noundef %w, i32 noundef %h, ptr readnone captures(none) %d3d_tex2d) #0 {
 entry:
   %0 = getelementptr i8, ptr %dcl, i64 64
   %add.ptr.val = load ptr, ptr %0, align 8
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_gl_scanout_dmabuf(ptr nocapture noundef readonly %dcl, ptr nocapture noundef readonly %dmabuf) #0 {
+define internal void @dbus_gl_scanout_dmabuf(ptr noundef readonly captures(none) %dcl, ptr noundef readonly captures(none) %dmabuf) #0 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %dmabuf, i64 4
   %0 = load i32, ptr %width, align 4
@@ -159,13 +159,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @dbus_gl_scanout_update(ptr nocapture readnone %dcl, i32 %x, i32 %y, i32 %w, i32 %h) #2 {
+define internal void @dbus_gl_scanout_update(ptr readnone captures(none) %dcl, i32 %x, i32 %y, i32 %w, i32 %h) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @dbus_display_console_get_index(ptr nocapture noundef readonly %ddc) local_unnamed_addr #0 {
+define dso_local i32 @dbus_display_console_get_index(ptr noundef readonly captures(none) %ddc) local_unnamed_addr #0 {
 entry:
   %con = getelementptr inbounds nuw i8, ptr %ddc, i64 56
   %0 = load ptr, ptr %con, align 8
@@ -300,10 +300,10 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -485,7 +485,7 @@ glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_console_set_ui_info(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i16 noundef zeroext %arg_width_mm, i16 noundef zeroext %arg_height_mm, i32 noundef %arg_xoff, i32 noundef %arg_yoff, i32 noundef %arg_width, i32 noundef %arg_height) #0 {
+define internal noundef i32 @dbus_console_set_ui_info(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i16 noundef zeroext %arg_width_mm, i16 noundef zeroext %arg_height_mm, i32 noundef %arg_xoff, i32 noundef %arg_yoff, i32 noundef %arg_width, i32 noundef %arg_height) #0 {
 entry:
   %info = alloca %struct.QemuUIInfo, align 4
   store i16 %arg_width_mm, ptr %info, align 4
@@ -568,7 +568,7 @@ DBUS_DISPLAY_CONSOLE.exit:                        ; preds = %entry, %land.rhs.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_kbd_press(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %arg_keycode) #0 {
+define internal noundef i32 @dbus_kbd_press(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %arg_keycode) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %arg_keycode) #9
@@ -616,7 +616,7 @@ trace_dbus_kbd_press.exit:                        ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_kbd_release(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %arg_keycode) #0 {
+define internal noundef i32 @dbus_kbd_release(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %arg_keycode) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %arg_keycode) #9
@@ -666,7 +666,7 @@ trace_dbus_kbd_release.exit:                      ; preds = %entry, %land.lhs.tr
 declare ptr @qemu_dbus_display1_mouse_skeleton_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_mouse_set_pos(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %x, i32 noundef %y) #0 {
+define internal noundef i32 @dbus_mouse_set_pos(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %x, i32 noundef %y) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -744,7 +744,7 @@ return:                                           ; preds = %if.end11, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_mouse_rel_motion(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %dx, i32 noundef %dy) #0 {
+define internal noundef i32 @dbus_mouse_rel_motion(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %dx, i32 noundef %dy) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -807,7 +807,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_mouse_press(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %button) #0 {
+define internal noundef i32 @dbus_mouse_press(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %button) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -855,7 +855,7 @@ trace_dbus_mouse_press.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_mouse_release(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %button) #0 {
+define internal noundef i32 @dbus_mouse_release(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %button) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -905,7 +905,7 @@ trace_dbus_mouse_release.exit:                    ; preds = %entry, %land.lhs.tr
 declare ptr @qemu_dbus_display1_multi_touch_skeleton_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @dbus_touch_send_event(ptr nocapture noundef readonly %ddc, ptr noundef %invocation, i32 noundef %kind, i64 noundef %num_slot, double noundef %x, double noundef %y) #0 {
+define internal noundef i32 @dbus_touch_send_event(ptr noundef readonly captures(none) %ddc, ptr noundef %invocation, i32 noundef %kind, i64 noundef %num_slot, double noundef %x, double noundef %y) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %error = alloca ptr, align 8
@@ -991,7 +991,7 @@ declare void @qemu_dbus_display1_multi_touch_set_max_slots(ptr noundef, i32 noun
 declare void @register_displaychangelistener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_mouse_mode_change(ptr nocapture noundef readonly %notify, ptr nocapture readnone %data) #0 {
+define internal void @dbus_mouse_mode_change(ptr noundef readonly captures(none) %notify, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %notify, i64 -96
   %add.ptr.val = load ptr, ptr %0, align 8
@@ -1276,7 +1276,7 @@ declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qkbd_state_lift_all_keys(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1325,10 +1325,10 @@ declare void @error_free(ptr noundef) local_unnamed_addr #1
 declare void @qemu_dbus_display1_multi_touch_complete_send_event(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

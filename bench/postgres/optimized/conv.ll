@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.LocalToUtf = private unnamed_addr constant [11 x i8] c"LocalToUtf\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @local2local(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local noundef i32 @local2local(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -75,7 +75,7 @@ declare void @report_invalid_encoding(i32 noundef, ptr noundef, i32 noundef) loc
 declare void @report_untranslatable_char(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @latin2mic(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local noundef i32 @latin2mic(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -128,7 +128,7 @@ define dso_local noundef i32 @latin2mic(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mic2latin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -208,7 +208,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr nocapture noundef writeonly 
 declare i32 @pg_mule_mblen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @latin2mic_with_table(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local noundef i32 @latin2mic_with_table(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -281,7 +281,7 @@ define dso_local noundef i32 @latin2mic_with_table(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -367,7 +367,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca [2 x i32], align 4
   %or.cond = icmp ult i32 %7, 42
   br i1 %or.cond, label %.preheader, label %14
@@ -788,7 +788,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -816,7 +816,7 @@ define internal range(i32 -1, 2) i32 @compare3(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #5 {
+define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #5 {
   switch i32 %1, label %254 [
     i32 4, label %7
     i32 3, label %100
@@ -1145,7 +1145,7 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %or.cond = icmp ult i32 %7, 42
   br i1 %or.cond, label %.preheader, label %13
@@ -1511,7 +1511,7 @@ store_coded_char.exit:                            ; preds = %155, %153, %129, %1
 declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare4(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)

@@ -522,7 +522,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -549,7 +549,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hex_bytes) #4
   %div2 = lshr i64 %call, 1
   store i64 %div2, ptr @fake_rand_size, align 8
-  %call1 = tail call ptr @OPENSSL_hexstr2buf(ptr noundef %hex_bytes, ptr noundef null) #3
+  %call1 = tail call ptr @OPENSSL_hexstr2buf(ptr noundef nonnull %hex_bytes, ptr noundef null) #3
   store ptr %call1, ptr @fake_rand_bytes, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @.str.56, ptr noundef %call1) #3
   %tobool.not = icmp eq i32 %call2, 0
@@ -591,7 +591,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 declare void @fake_rand_set_public_private_callbacks(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @get_faked_bytes(ptr nocapture noundef writeonly %buf, i64 noundef %num, ptr nocapture readnone %name, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @get_faked_bytes(ptr noundef writeonly captures(none) %buf, i64 noundef %num, ptr readnone captures(none) %name, ptr readnone captures(none) %ctx) #0 {
 entry:
   %0 = load ptr, ptr @fake_rand_bytes, align 8
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 42, ptr noundef nonnull @.str.57, ptr noundef %0) #3
@@ -713,7 +713,7 @@ if.end35:                                         ; preds = %lor.lhs.false28
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %k_hex) #4
   %div2.i = lshr i64 %call.i, 1
   store i64 %div2.i, ptr @fake_rand_size, align 8
-  %call1.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %k_hex, ptr noundef null) #3
+  %call1.i = call ptr @OPENSSL_hexstr2buf(ptr noundef nonnull %k_hex, ptr noundef null) #3
   store ptr %call1.i, ptr @fake_rand_bytes, align 8
   %call2.i = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @.str.56, ptr noundef %call1.i) #3
   %tobool.not.i = icmp eq i32 %call2.i, 0
@@ -726,7 +726,7 @@ if.end.i:                                         ; preds = %if.end35
 start_fake_rand.exit:                             ; preds = %if.end35, %if.end.i
   %call37 = call ptr @EVP_sm3() #3
   %call38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %userid) #4
-  %call39 = call ptr @ossl_sm2_do_sign(ptr noundef %call3, ptr noundef %call37, ptr noundef %userid, i64 noundef %call38, ptr noundef nonnull @.str.63, i64 noundef 14) #3
+  %call39 = call ptr @ossl_sm2_do_sign(ptr noundef %call3, ptr noundef %call37, ptr noundef nonnull %userid, i64 noundef %call38, ptr noundef nonnull @.str.63, i64 noundef 14) #3
   %call40 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 339, ptr noundef nonnull @.str.71, ptr noundef %call39) #3
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.then42, label %if.end43
@@ -774,7 +774,7 @@ lor.lhs.false58:                                  ; preds = %lor.lhs.false55
 if.end62:                                         ; preds = %lor.lhs.false58
   %call63 = call ptr @EVP_sm3() #3
   %call64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %userid) #4
-  %call65 = call i32 @ossl_sm2_do_verify(ptr noundef %call3, ptr noundef %call63, ptr noundef %call39, ptr noundef %userid, i64 noundef %call64, ptr noundef nonnull @.str.63, i64 noundef 14) #3
+  %call65 = call i32 @ossl_sm2_do_verify(ptr noundef %call3, ptr noundef %call63, ptr noundef %call39, ptr noundef nonnull %userid, i64 noundef %call64, ptr noundef nonnull @.str.63, i64 noundef 14) #3
   %cmp66 = icmp ne i32 %call65, 0
   %conv67 = zext i1 %cmp66 to i32
   %call68 = call i32 @test_true(ptr noundef nonnull @.str.9, i32 noundef 357, ptr noundef nonnull @.str.78, i32 noundef %conv67) #3

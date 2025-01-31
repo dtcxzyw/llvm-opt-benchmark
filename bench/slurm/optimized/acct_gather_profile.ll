@@ -414,7 +414,7 @@ declare i32 @acct_gather_interconnect_fini() local_unnamed_addr #4
 declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %4, label %5
 
@@ -627,7 +627,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #8 {
   %.not32 = icmp eq ptr %0, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
@@ -683,7 +683,7 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -952,7 +952,7 @@ default.unreachable:                              ; preds = %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -981,7 +981,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_timer_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_timer_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef null, ptr noundef null) #14
@@ -1581,7 +1581,7 @@ declare i32 @acct_gather_parse_freq(i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #1
@@ -1591,10 +1591,10 @@ declare zeroext i1 @acct_gather_suspend_test() local_unnamed_addr #4
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture) local_unnamed_addr #11
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #13

@@ -222,7 +222,7 @@ do.end:                                           ; preds = %entry
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #3
 
@@ -231,7 +231,7 @@ declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #3
 declare i32 @accel_supported_gdbstub_sstep_flags() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_memtohex(ptr noundef %buf, ptr nocapture noundef readonly %mem, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @gdb_memtohex(ptr noundef %buf, ptr noundef readonly captures(none) %mem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp32 = icmp sgt i32 %len, 0
   br i1 %cmp32, label %for.body.lr.ph, label %for.end
@@ -333,7 +333,7 @@ g_string_append_c_inline.exit31:                  ; preds = %if.then.i28, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_hextomem(ptr noundef %mem, ptr nocapture noundef readonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @gdb_hextomem(ptr noundef %mem, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %byte = alloca i8, align 1
   %cmp15 = icmp sgt i32 %len, 0
@@ -659,12 +659,12 @@ trace_gdbstub_io_reply.exit:                      ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #19
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @gdb_put_packet_binary(ptr noundef %buf, i32 noundef %conv, i1 noundef zeroext false)
+  %call1 = tail call i32 @gdb_put_packet_binary(ptr noundef nonnull %buf, i32 noundef %conv, i1 noundef zeroext false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_put_strbuf() local_unnamed_addr #0 {
@@ -676,7 +676,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_memtox(ptr noundef %buf, ptr nocapture noundef readonly %mem, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @gdb_memtox(ptr noundef %buf, ptr noundef readonly captures(none) %mem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not26 = icmp eq i32 %len, 0
   br i1 %tobool.not26, label %while.end, label %while.body.lr.ph
@@ -812,7 +812,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @gdb_get_first_cpu_in_process(ptr nocapture noundef readonly %process) local_unnamed_addr #0 {
+define dso_local ptr @gdb_get_first_cpu_in_process(ptr noundef readonly captures(none) %process) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
@@ -939,7 +939,7 @@ return:                                           ; preds = %while.end8.i, %gdb_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_feature_builder_init(ptr nocapture noundef writeonly initializes((0, 20)) %builder, ptr noundef %feature, ptr noundef %name, ptr noundef %xmlname, i32 noundef %base_reg) local_unnamed_addr #0 {
+define dso_local void @gdb_feature_builder_init(ptr noundef writeonly captures(none) initializes((0, 20)) %builder, ptr noundef %feature, ptr noundef %name, ptr noundef %xmlname, i32 noundef %base_reg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.3, ptr noundef %name) #18
   store ptr %feature, ptr %builder, align 8
@@ -962,7 +962,7 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #3
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_feature_builder_append_tag(ptr nocapture noundef readonly %builder, ptr noundef %format, ...) local_unnamed_addr #0 {
+define dso_local void @gdb_feature_builder_append_tag(ptr noundef readonly captures(none) %builder, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -977,7 +977,7 @@ entry:
 declare ptr @g_markup_vprintf_escaped(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_feature_builder_append_reg(ptr nocapture noundef readonly %builder, ptr noundef %name, i32 noundef %bitsize, i32 noundef %regnum, ptr noundef %type, ptr noundef %group) local_unnamed_addr #0 {
+define dso_local void @gdb_feature_builder_append_reg(ptr noundef readonly captures(none) %builder, ptr noundef %name, i32 noundef %bitsize, i32 noundef %regnum, ptr noundef %type, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %builder, align 8
   %num_regs = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1009,7 +1009,7 @@ if.end6:                                          ; preds = %if.else, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_feature_builder_end(ptr nocapture noundef readonly %builder) local_unnamed_addr #0 {
+define dso_local void @gdb_feature_builder_end(ptr noundef readonly captures(none) %builder) local_unnamed_addr #0 {
 entry:
   %xml = getelementptr inbounds nuw i8, ptr %builder, i64 8
   %0 = load ptr, ptr %xml, align 8
@@ -1057,7 +1057,7 @@ declare void @g_free(ptr noundef) #3
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @gdb_find_static_feature(ptr nocapture noundef readonly %xmlname) local_unnamed_addr #0 {
+define dso_local noundef ptr @gdb_find_static_feature(ptr noundef readonly captures(none) %xmlname) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @gdb_static_features, align 8
   %tobool.not5 = icmp eq ptr %0, null
@@ -1085,10 +1085,10 @@ do.body:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_register_coprocessor(ptr nocapture noundef %cpu, ptr noundef %get_reg, ptr noundef %set_reg, i32 noundef %num_regs, ptr noundef %xml, i32 noundef %g_pos) local_unnamed_addr #0 {
+define dso_local void @gdb_register_coprocessor(ptr noundef captures(none) %cpu, ptr noundef %get_reg, ptr noundef %set_reg, i32 noundef %num_regs, ptr noundef %xml, i32 noundef %g_pos) local_unnamed_addr #0 {
 entry:
   %gdb_regs = getelementptr inbounds nuw i8, ptr %cpu, i64 552
   %0 = load ptr, ptr %gdb_regs, align 8
@@ -2001,7 +2001,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #6
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_create_default_process(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local void @gdb_create_default_process(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp = icmp eq i32 %0, 0
@@ -2045,14 +2045,14 @@ declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_target_halt(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_target_halt(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   %tobool = trunc i8 %0 to i1
@@ -2117,7 +2117,7 @@ if.end:                                           ; preds = %g_string_append_c_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_continue(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_continue(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -2143,7 +2143,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_cont_with_sig(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_cont_with_sig(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -2167,7 +2167,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_v_commands(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_v_commands(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -2194,7 +2194,7 @@ declare void @gdb_exit(i32 noundef) local_unnamed_addr #3
 declare void @gdb_qemu_exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_detach(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_detach(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool = trunc i8 %0 to i1
@@ -2516,7 +2516,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_step(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_step(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -2544,7 +2544,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_backward(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_backward(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %call = tail call zeroext i1 @gdb_can_reverse() #18
   br i1 %call, label %if.end, label %if.then
@@ -2602,7 +2602,7 @@ return:                                           ; preds = %if.then9, %if.else1
 declare void @gdb_handle_file_io(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_read_all_regs(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_read_all_regs(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   tail call void @cpu_synchronize_state(ptr noundef %0) #18
@@ -2712,7 +2712,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_write_all_regs(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_write_all_regs(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
   %len1 = getelementptr inbounds nuw i8, ptr %params, i64 8
@@ -2899,7 +2899,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_read_mem(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_read_mem(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -2946,7 +2946,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_write_mem(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_write_mem(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
@@ -3073,7 +3073,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_get_reg(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_get_reg(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3166,7 +3166,7 @@ return:                                           ; preds = %for.inc.i, %gdb_rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_set_reg(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_set_reg(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %byte.i = alloca i8, align 1
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
@@ -3331,7 +3331,7 @@ return:                                           ; preds = %gdb_write_register.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_insert_bp(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_insert_bp(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3363,7 +3363,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_remove_bp(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_remove_bp(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3395,7 +3395,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_set_thread(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_set_thread(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3446,7 +3446,7 @@ sw.epilog:                                        ; preds = %if.end19, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_thread_alive(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_thread_alive(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3476,7 +3476,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_gen_query(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_gen_query(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -3506,7 +3506,7 @@ if.end10:                                         ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_gen_set(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_gen_set(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -4038,7 +4038,7 @@ glib_autoptr_cleanup_GArray.exit:                 ; preds = %cleanup, %if.then.i
 declare void @g_array_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @qemu_strtoul(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -4050,17 +4050,17 @@ declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_v_cont_query(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_v_cont_query(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.80)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_v_cont(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_v_cont(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %buf.addr.i.i = alloca ptr, align 8
   %p.i.i = alloca i64, align 8
@@ -4579,7 +4579,7 @@ if.end8:                                          ; preds = %gdb_handle_vcont.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_v_attach(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_v_attach(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call = tail call ptr @g_string_assign(ptr noundef %0, ptr noundef nonnull @.str.81) #18
@@ -4715,7 +4715,7 @@ if.end12:                                         ; preds = %cleanup, %if.end8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_v_kill(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_v_kill(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.27)
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35) #18
@@ -4987,7 +4987,7 @@ declare i32 @gdb_breakpoint_insert(ptr noundef, i32 noundef, i64 noundef, i64 no
 declare i32 @gdb_breakpoint_remove(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_qemu_sstepbits(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_qemu_sstepbits(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef 1) #18
@@ -5021,7 +5021,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_qemu_sstep(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_qemu_sstep(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
@@ -5033,7 +5033,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_set_qemu_sstep(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_set_qemu_sstep(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -5064,7 +5064,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_curr_tid(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_curr_tid(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %call.i.i = tail call i32 @getpid() #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -5146,7 +5146,7 @@ gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_threads(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_threads(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
   %tobool.not = icmp eq ptr %0, null
@@ -5243,7 +5243,7 @@ return:                                           ; preds = %gdb_next_attached_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_first_threads(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_first_threads(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -5344,7 +5344,7 @@ gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_thread_extra(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_thread_extra(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #18
@@ -5464,7 +5464,7 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i
 declare void @gdb_handle_query_offsets(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_supported(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_supported(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 4096) #18
@@ -5533,7 +5533,7 @@ if.end15:                                         ; preds = %if.then14, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_xfer_features(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_xfer_features(ptr noundef readonly captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
@@ -5620,7 +5620,7 @@ gdb_get_first_cpu_in_process.exit.i:              ; preds = %while.end5.i.i, %fo
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call2.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call3.i = tail call i32 @strncmp(ptr noundef %8, ptr noundef nonnull @.str.122, i64 noundef %sub.ptr.sub.i) #19
+  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.122, i64 noundef %sub.ptr.sub.i) #19
   %cmp.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end27.i
 
@@ -5694,7 +5694,7 @@ if.end27.i:                                       ; preds = %gdb_get_first_cpu_i
   br i1 %tobool28.not.i, label %if.end37.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end27.i
-  %call30.i = tail call noalias ptr @g_strndup(ptr noundef %8, i64 noundef %sub.ptr.sub.i) #18
+  %call30.i = tail call noalias ptr @g_strndup(ptr noundef nonnull %8, i64 noundef %sub.ptr.sub.i) #18
   %25 = load ptr, ptr %gdb_get_dynamic_xml.i, align 8
   %call33.i = tail call ptr %25(ptr noundef %retval.0.i.i17, ptr noundef %call30.i) #18
   %tobool34.not.not.i = icmp eq ptr %call33.i, null
@@ -5710,7 +5710,7 @@ for.body44.i:                                     ; preds = %if.end37.i, %for.in
   %27 = phi ptr [ %28, %for.inc57.i ], [ %26, %if.end37.i ]
   %arrayidx4137.i = phi ptr [ %arrayidx41.i, %for.inc57.i ], [ @gdb_static_features, %if.end37.i ]
   %i38.036.i = phi i32 [ %inc58.i, %for.inc57.i ], [ 0, %if.end37.i ]
-  %call48.i = tail call i32 @strncmp(ptr noundef nonnull %27, ptr noundef %8, i64 noundef %sub.ptr.sub.i) #19
+  %call48.i = tail call i32 @strncmp(ptr noundef nonnull %27, ptr noundef nonnull %8, i64 noundef %sub.ptr.sub.i) #19
   %cmp49.i = icmp eq i32 %call48.i, 0
   br i1 %cmp49.i, label %land.lhs.true.i, label %for.inc57.i
 
@@ -5787,7 +5787,7 @@ declare void @gdb_handle_query_xfer_exec_file(ptr noundef, ptr noundef) #3
 declare void @gdb_handle_query_attached(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_query_qemu_supported(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
+define internal void @handle_query_qemu_supported(ptr readnone captures(none) %params, ptr readnone captures(none) %user_ctx) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.127) #18
@@ -5806,7 +5806,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @g_ptr_array_new_with_free_func(ptr noundef) local_unnamed_addr #3
 
@@ -5828,10 +5828,10 @@ declare void @llvm.va_end.p0(ptr) #13
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

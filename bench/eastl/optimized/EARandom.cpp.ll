@@ -11,7 +11,7 @@ $_ZN2EA4StdC11RandomLimitINS0_10RandomTausEEEjRT_j = comdat any
 @_ZN2EA4StdC21RandomMersenneTwisterC1EPKjj = dso_local unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN2EA4StdC21RandomMersenneTwisterC2EPKjj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC13GetRandomSeedEPvm(ptr nocapture noundef writeonly %pSeed, i64 noundef %nLength) local_unnamed_addr #0 {
+define dso_local void @_ZN2EA4StdC13GetRandomSeedEPvm(ptr noundef writeonly captures(none) %pSeed, i64 noundef %nLength) local_unnamed_addr #0 {
 entry:
   %0 = tail call noundef i64 @llvm.x86.rdtsc()
   %cmp4.not = icmp eq i64 %nLength, 0
@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC24RandomLinearCongruential7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC24RandomLinearCongruential7SetSeedEj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %nSeed, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -56,7 +56,7 @@ if.end4:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %nLimit) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this, i32 noundef %nLimit) local_unnamed_addr #1 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
   %cmp.i = icmp samesign ult i32 %0, 2
@@ -100,7 +100,7 @@ _ZN2EA4StdC11RandomLimitINS0_24RandomLinearCongruentialEEEjRT_j.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef double @_ZN2EA4StdC24RandomLinearCongruential19RandomDoubleUniformEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef double @_ZN2EA4StdC24RandomLinearCongruential19RandomDoubleUniformEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %conv.i = zext i32 %0 to i64
@@ -121,7 +121,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK2EA4StdC10RandomTaus7GetSeedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK2EA4StdC10RandomTaus7GetSeedEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %xor = xor i32 %0, -575482158
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %nSeed, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -180,7 +180,7 @@ _ZN2EA4StdC10RandomTaus7SetSeedEPKj.exit:         ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, ptr noundef readonly %pSeedArray) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef readonly %pSeedArray) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pSeedArray, null
   %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -259,7 +259,7 @@ if.end30:                                         ; preds = %if.end30.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC10RandomTaus19RandomUint32UniformEv(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN2EA4StdC10RandomTaus19RandomUint32UniformEv(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and = shl i32 %0, 12
@@ -391,7 +391,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef double @_ZN2EA4StdC10RandomTaus19RandomDoubleUniformEv(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef double @_ZN2EA4StdC10RandomTaus19RandomDoubleUniformEv(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = shl i32 %0, 12
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef double @_ZN2EA4StdC10RandomTaus19RandomDoubleUniformEd(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, double noundef %limit) local_unnamed_addr #2 align 2 {
+define dso_local noundef double @_ZN2EA4StdC10RandomTaus19RandomDoubleUniformEd(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this, double noundef %limit) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = shl i32 %0, 12
@@ -689,10 +689,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 626) i32 @_ZNK2EA4StdC21RandomMersenneTwister7GetSeedEPjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2508) %this, ptr nocapture noundef writeonly %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 626) i32 @_ZNK2EA4StdC21RandomMersenneTwister7GetSeedEPjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2508) %this, ptr noundef writeonly captures(none) %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq i32 %nSeedArraySize, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -974,7 +974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC21RandomMersenneTwister4HashEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2508) %this, i32 noundef %t, i32 noundef %c) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN2EA4StdC21RandomMersenneTwister4HashEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2508) %this, i32 noundef %t, i32 noundef %c) local_unnamed_addr #7 align 2 {
 entry:
   %t.addr = alloca i32, align 4
   %c.addr = alloca i32, align 4
@@ -1031,7 +1031,7 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

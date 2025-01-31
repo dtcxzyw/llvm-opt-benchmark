@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [19 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_closedir, ptr @.str.3, ptr @.str.4, i32 341, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_seekdir, ptr @.str.3, ptr @.str.4, i32 250, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_rewinddir, ptr @.str.3, ptr @.str.4, i32 263, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.3, ptr @.str.5, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.3, ptr @.str.5, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_readdir, ptr @.str.3, ptr @.str.4, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_reclaim_fd, ptr @.str.3, ptr @.str.6, i32 456, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_readdir_many, ptr @.str.3, ptr @.str.4, i32 216, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_rdlock, ptr @.str.3, ptr @.str.7, i32 191, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_unlock, ptr @.str.3, ptr @.str.7, i32 221, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @do_readdir_many, ptr @.str.3, ptr @.str.4, i32 72, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_path_unlock, ptr @.str.3, ptr @.str.6, i32 444, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_path_read_lock, ptr @.str.3, ptr @.str.6, i32 436, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_mkdir, ptr @.str.3, ptr @.str.4, i32 275, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_opendir, ptr @.str.3, ptr @.str.4, i32 313, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_readdir_unlock, ptr @.str.3, ptr @.str.6, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_readdir_lock, ptr @.str.3, ptr @.str.6, i32 206, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.3, ptr @.str.5, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @v9fs_co_telldir, ptr @.str.3, ptr @.str.4, i32 232, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @v9fs_co_readdir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef writeonly %dent) #0 {
+define dso_local i32 @v9fs_co_readdir(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp, ptr noundef writeonly captures(none) %dent) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -88,7 +88,7 @@ declare void @qemu_coroutine_yield() #1
 declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @v9fs_co_readdir_many(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef writeonly %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
+define dso_local i32 @v9fs_co_readdir_many(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp, ptr noundef writeonly captures(none) %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -111,7 +111,7 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @do_readdir_many(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef writeonly initializes((0, 8)) %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
+define internal i32 @do_readdir_many(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp, ptr noundef writeonly captures(none) initializes((0, 8)) %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
 entry:
   %name = alloca %struct.V9fsString, align 8
   %path = alloca %struct.V9fsPath, align 8
@@ -373,7 +373,7 @@ v9fs_readdir_unlock.exit:                         ; preds = %if.then.i45, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, -9223372036854775808) i64 @v9fs_co_telldir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp) #0 {
+define dso_local range(i64 -2147483648, -9223372036854775808) i64 @v9fs_co_telldir(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -419,7 +419,7 @@ return:                                           ; preds = %entry, %do.end
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_co_seekdir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, i64 noundef %offset) #0 {
+define dso_local void @v9fs_co_seekdir(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp, i64 noundef %offset) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -449,7 +449,7 @@ do.end5:                                          ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_co_rewinddir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp) #0 {
+define dso_local void @v9fs_co_rewinddir(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -479,7 +479,7 @@ do.end5:                                          ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @v9fs_co_mkdir(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef readonly %name, i32 noundef %mode, i32 noundef %uid, i32 noundef %gid, ptr noundef %stbuf) #0 {
+define dso_local i32 @v9fs_co_mkdir(ptr noundef readonly captures(none) %pdu, ptr noundef %fidp, ptr noundef readonly captures(none) %name, i32 noundef %mode, i32 noundef %uid, i32 noundef %gid, ptr noundef %stbuf) #0 {
 entry:
   %cred = alloca %struct.FsCred, align 8
   %path = alloca %struct.V9fsPath, align 8
@@ -702,7 +702,7 @@ return:                                           ; preds = %v9fs_path_unlock.ex
 declare void @v9fs_reclaim_fd(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @v9fs_co_closedir(ptr nocapture noundef readonly %pdu, ptr noundef %fs) #0 {
+define dso_local i32 @v9fs_co_closedir(ptr noundef readonly captures(none) %pdu, ptr noundef %fs) #0 {
 entry:
   %0 = getelementptr i8, ptr %pdu, i64 7
   %pdu.val = load i8, ptr %0, align 1
@@ -783,7 +783,7 @@ declare void @v9fs_string_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_readdir_unlock(ptr noundef %dir) #0 {
@@ -810,7 +810,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(1)
 declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #6

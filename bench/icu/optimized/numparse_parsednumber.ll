@@ -77,7 +77,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull al
 declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((72, 76)) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) initializes((72, 76)) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -113,7 +113,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare void @_ZN6icu_756number4impl15DecimalQuantity6negateEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber7successEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber7successEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %charEnd, align 8
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %bogus, align 8
@@ -152,7 +152,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_758numparse4impl12ParsedNumber9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK6icu_758numparse4impl12ParsedNumber9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -306,7 +306,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnul
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6icu_758numparse4impl12ParsedNumber12isBetterThanERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %other) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6icu_758numparse4impl12ParsedNumber12isBetterThanERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %other) local_unnamed_addr #3 align 2 {
 entry:
   %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %charEnd, align 8

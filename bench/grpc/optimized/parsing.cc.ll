@@ -168,7 +168,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z34grpc_chttp2_min_read_progress_sizeP21grpc_chttp2_transport(ptr nocapture noundef readonly %t) local_unnamed_addr #3 {
+define noundef i32 @_Z34grpc_chttp2_min_read_progress_sizeP21grpc_chttp2_transport(ptr noundef readonly captures(none) %t) local_unnamed_addr #3 {
 entry:
   %deframe_state = getelementptr inbounds nuw i8, ptr %t, i64 2888
   %0 = load i32, ptr %deframe_state, align 8
@@ -235,7 +235,7 @@ return:                                           ; preds = %sw.bb7, %sw.bb3, %s
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24grpc_chttp2_perform_readP21grpc_chttp2_transportRK10grpc_sliceRm(ptr noalias nocapture writeonly sret(%"class.std::variant.183") align 8 %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z24grpc_chttp2_perform_readP21grpc_chttp2_transportRK10grpc_sliceRm(ptr noalias writeonly sret(%"class.std::variant.183") align 8 captures(none) %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %requests_started) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i287 = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %err.i256.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2728,7 +2728,7 @@ declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17b
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2788,7 +2788,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, i32 noundef range(i32 0, 2) %is_last) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, i32 noundef range(i32 0, 2) %is_last) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.absl::lts_20230802::Status", align 8
   %unused = alloca i64, align 8
@@ -2997,10 +2997,10 @@ declare void @grpc_empty_slice(ptr sret(%struct.grpc_slice) align 8) local_unnam
 declare void @grpc_slice_sub_no_ref(ptr sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z38grpc_chttp2_parsing_become_skip_parserP21grpc_chttp2_transport(ptr nocapture noundef %t) local_unnamed_addr #9 {
+define void @_Z38grpc_chttp2_parsing_become_skip_parserP21grpc_chttp2_transport(ptr noundef captures(none) %t) local_unnamed_addr #9 {
 entry:
   %parser1 = getelementptr inbounds nuw i8, ptr %t, i64 2936
   %0 = load ptr, ptr %parser1, align 8
@@ -3298,7 +3298,7 @@ ehcleanup:                                        ; preds = %lpad50, %lpad45, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL11skip_parserPvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture nonnull readnone align 8 %3, i32 %4) #10 {
+define internal void @_ZL11skip_parserPvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, i32 %4) #10 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !114
   ret void
@@ -3311,7 +3311,7 @@ declare void @_Z22grpc_chttp2_stream_refP18grpc_chttp2_stream(ptr noundef) local
 declare void @_ZN9grpc_core8Combiner10FinallyRunEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23force_client_rst_streamPvN4absl12lts_202308026StatusE(ptr noundef %sp, ptr nocapture readnone %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23force_client_rst_streamPvN4absl12lts_202308026StatusE(ptr noundef %sp, ptr readnone captures(none) %0) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.grpc_chttp2_transport::RemovedStreamHandle", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -3630,7 +3630,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %agg.result, ptr noundef initializes((2896, 2900)) %t, i32 noundef range(i32 0, 2) %is_continuation, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %agg.result, ptr noundef initializes((2896, 2900)) %t, i32 noundef range(i32 0, 2) %is_continuation, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -4593,7 +4593,7 @@ declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatA
 declare void @_ZN9grpc_core20Chttp2PingRatePolicy17ReceivedDataFrameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef initializes((2928, 2944)) %t, i8 noundef zeroext range(i8 0, 2) %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
+define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef initializes((2928, 2944)) %t, i8 noundef zeroext range(i8 0, 2) %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
 entry:
   %hpack_parser = getelementptr inbounds nuw i8, ptr %t, i64 2352
   %parser1 = getelementptr inbounds nuw i8, ptr %t, i64 2928
@@ -4651,7 +4651,7 @@ declare void @_ZN9grpc_core8channelz10SocketNode29RecordStreamStartedFromRemoteE
 declare void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #15
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
@@ -5071,10 +5071,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

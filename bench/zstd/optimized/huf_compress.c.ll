@@ -7,17 +7,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nodeElt_s = type { i32, i16, i8, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @HUF_readCTableHeader(ptr nocapture noundef readonly %ctable) local_unnamed_addr #0 {
+define i64 @HUF_readCTableHeader(ptr noundef readonly captures(none) %ctable) local_unnamed_addr #0 {
 entry:
   %retval.sroa.0.0.copyload = load i64, ptr %ctable, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_writeCTable_wksp(ptr noundef %dst, i64 noundef %maxDstSize, ptr nocapture noundef readonly %CTable, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #2 {
+define i64 @HUF_writeCTable_wksp(ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef readonly captures(none) %CTable, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workspace, i64 noundef %workspaceSize) local_unnamed_addr #2 {
 entry:
   %maxSymbolValue.i = alloca i32, align 4
   %add.ptr = getelementptr inbounds nuw i8, ptr %CTable, i64 8
@@ -216,7 +216,7 @@ return:                                           ; preds = %for.body68, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_readCTable(ptr nocapture noundef %CTable, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, ptr nocapture noundef writeonly %hasZeroWeights) local_unnamed_addr #2 {
+define i64 @HUF_readCTable(ptr noundef captures(none) %CTable, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef writeonly captures(none) %hasZeroWeights) local_unnamed_addr #2 {
 entry:
   %huffWeight = alloca [256 x i8], align 16
   %rankVal = alloca [13 x i32], align 16
@@ -392,10 +392,10 @@ return:                                           ; preds = %HUF_setValue.exit, 
 declare i64 @HUF_readStats(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @HUF_getNbBitsFromCTable(ptr nocapture noundef readonly %CTable, i32 noundef %symbolValue) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @HUF_getNbBitsFromCTable(ptr noundef readonly captures(none) %CTable, i32 noundef %symbolValue) local_unnamed_addr #0 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %CTable, align 8
   %0 = trunc i64 %retval.sroa.0.0.copyload.i to i32
@@ -419,7 +419,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noundef %CTable, ptr nocapture noundef readonly %count, i32 noundef %maxSymbolValue, i32 noundef %maxNbBits, ptr noundef %workSpace, i64 noundef %wkspSize) local_unnamed_addr #5 {
+define range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr noundef captures(none) %CTable, ptr noundef readonly captures(none) %count, i32 noundef %maxSymbolValue, i32 noundef %maxNbBits, ptr noundef %workSpace, i64 noundef %wkspSize) local_unnamed_addr #5 {
 entry:
   %nbPerRank.i = alloca [13 x i16], align 16
   %valPerRank.i = alloca [13 x i16], align 16
@@ -1100,7 +1100,7 @@ return:                                           ; preds = %HUF_setMaxHeight.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 0, 2305843009213693952) i64 @HUF_estimateCompressedSize(ptr nocapture noundef readonly %CTable, ptr nocapture noundef readonly %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
+define range(i64 0, 2305843009213693952) i64 @HUF_estimateCompressedSize(ptr noundef readonly captures(none) %CTable, ptr noundef readonly captures(none) %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %CTable, i64 8
   %cmp.not5 = icmp slt i32 %maxSymbolValue, 0
@@ -1136,7 +1136,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @HUF_validateCTable(ptr nocapture noundef readonly %CTable, ptr nocapture noundef readonly %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @HUF_validateCTable(ptr noundef readonly captures(none) %CTable, ptr noundef readonly captures(none) %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %CTable, align 8
   %0 = trunc i64 %retval.sroa.0.0.copyload.i to i32
@@ -2751,7 +2751,7 @@ return:                                           ; preds = %do.end72, %if.end54
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @HUF_cardinality(ptr nocapture noundef readonly %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
+define i32 @HUF_cardinality(ptr noundef readonly captures(none) %count, i32 noundef %maxSymbolValue) local_unnamed_addr #6 {
 entry:
   %add = add i32 %maxSymbolValue, 1
   %cmp4.not = icmp eq i32 %add, 0
@@ -2787,7 +2787,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @HUF_optimalTableLog(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, ptr noundef %workSpace, i64 noundef %wkspSize, ptr nocapture noundef %table, ptr nocapture noundef readonly %count, i32 noundef %flags) local_unnamed_addr #2 {
+define i32 @HUF_optimalTableLog(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef captures(none) %table, ptr noundef readonly captures(none) %count, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -3340,7 +3340,7 @@ while.end:                                        ; preds = %if.end9, %while.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compress1X_usingCTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %CTable) unnamed_addr #10 {
+define internal fastcc i64 @HUF_compress1X_usingCTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr noundef readonly captures(none) %CTable) unnamed_addr #10 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %CTable, align 8
   %coerce.i.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
@@ -4839,10 +4839,10 @@ declare i64 @HIST_count_wksp(ptr noundef, ptr noundef, ptr noundef, i64 noundef,
 declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

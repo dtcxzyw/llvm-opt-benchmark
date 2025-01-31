@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.set_joinrel_partition_key_exprs = private unnamed_addr constant [32 x i8] c"set_joinrel_partition_key_exprs\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_simple_rel_arrays(ptr nocapture noundef initializes((56, 68), (72, 80)) %0) local_unnamed_addr #0 {
+define dso_local void @setup_simple_rel_arrays(ptr noundef captures(none) initializes((56, 68), (72, 80)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -148,7 +148,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expand_planner_arrays(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @expand_planner_arrays(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, %1
@@ -474,7 +474,7 @@ declare zeroext i1 @apply_child_basequals(ptr noundef, ptr noundef, ptr noundef,
 declare void @mark_dummy_rel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @find_base_rel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @find_base_rel(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, %4
@@ -501,7 +501,7 @@ define dso_local nonnull ptr @find_base_rel(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @find_base_rel_noerr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @find_base_rel_noerr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, %4
@@ -521,7 +521,7 @@ define dso_local ptr @find_base_rel_noerr(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_base_rel_ignore_join(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_base_rel_ignore_join(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, %4
@@ -568,7 +568,7 @@ define dso_local ptr @find_base_rel_ignore_join(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_join_rel(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_join_rel(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -966,11 +966,11 @@ subbuild_joinrel_joinlist.exit.i:                 ; preds = %130, %.lr.ph.i.i, %
 build_joinrel_joinlist.exit:                      ; preds = %149, %subbuild_joinrel_joinlist.exit.i, %.lr.ph.i8.i
   %.0.lcssa.i9.i = phi ptr [ %.0.lcssa.i.i, %subbuild_joinrel_joinlist.exit.i ], [ %.0.lcssa.i.i, %.lr.ph.i8.i ], [ %.1.i13.i, %149 ]
   store ptr %.0.lcssa.i9.i, ptr %54, align 8
-  %153 = tail call zeroext i1 @has_relevant_eclass_joinclause(ptr noundef %0, ptr noundef nonnull %14) #7
+  %153 = tail call zeroext i1 @has_relevant_eclass_joinclause(ptr noundef nonnull %0, ptr noundef nonnull %14) #7
   %154 = zext i1 %153 to i8
   store i8 %154, ptr %55, align 8
-  tail call fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %113)
-  tail call void @set_joinrel_size_estimates(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %113) #7
+  tail call fastcc void @build_joinrel_partition_info(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %113)
+  tail call void @set_joinrel_size_estimates(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %113) #7
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %156 = load i8, ptr %155, align 2
   %157 = trunc i8 %156 to i1
@@ -983,14 +983,14 @@ build_joinrel_joinlist.exit:                      ; preds = %149, %subbuild_join
   br i1 %161, label %162, label %170
 
 162:                                              ; preds = %158
-  %163 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %113) #7
+  %163 = tail call zeroext i1 @is_parallel_safe(ptr noundef nonnull %0, ptr noundef %113) #7
   br i1 %163, label %164, label %170
 
 164:                                              ; preds = %162
   %165 = load ptr, ptr %27, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %167) #7
+  %168 = tail call zeroext i1 @is_parallel_safe(ptr noundef nonnull %0, ptr noundef %167) #7
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %164
@@ -1041,7 +1041,7 @@ add_join_rel.exit:                                ; preds = %170, %176
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_joinrel_restrictlist(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @build_joinrel_restrictlist(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1184,7 +1184,7 @@ declare ptr @bms_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @min_join_parameterization(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local ptr @min_join_parameterization(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1195,7 +1195,7 @@ define dso_local ptr @min_join_parameterization(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr nocapture noundef readonly %1, ptr readonly %.32.val.8.val, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readonly %.32.val.8.val, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1538,7 +1538,7 @@ declare ptr @bms_del_members(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @has_relevant_eclass_joinclause(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_joinrel_partition_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @build_joinrel_partition_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [32 x i8], align 16
   %8 = load i8, ptr @enable_partitionwise_join, align 1
   %9 = trunc i8 %8 to i1
@@ -2227,7 +2227,7 @@ declare void @add_child_join_rel_equivalences(ptr noundef, i32 noundef, ptr noun
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fetch_upper_rel(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @fetch_upper_rel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = zext i32 %1 to i64
   %6 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %5
@@ -2295,7 +2295,7 @@ define dso_local ptr @fetch_upper_rel(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_childrel_parents(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @find_childrel_parents(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2448,7 +2448,7 @@ define dso_local ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge82:                                    ; preds = %.lr.ph90, %.lr.ph81, %._crit_edge
   %.049.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph81 ], [ %53, %.lr.ph90 ]
-  %57 = tail call double @get_parameterized_baserel_size(ptr noundef %0, ptr noundef %1, ptr noundef %43) #7
+  %57 = tail call double @get_parameterized_baserel_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43) #7
   %58 = tail call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 262, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -2470,7 +2470,7 @@ find_param_path_info.exit:                        ; preds = %.lr.ph23.i, %3, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_param_path_info(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_param_path_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2514,7 +2514,7 @@ declare ptr @generate_join_implied_equalities(ptr noundef, ptr noundef, ptr noun
 declare double @get_parameterized_baserel_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %5, null
   br i1 %8, label %find_param_path_info.exit, label %9
 
@@ -2746,7 +2746,7 @@ define dso_local ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread125, %.lr.ph.i
   %136 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %119, %.thread125 ], [ %119, %.lr.ph.i ]
-  %137 = tail call double @get_parameterized_joinrel_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %136) #7
+  %137 = tail call double @get_parameterized_joinrel_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %136) #7
   %138 = tail call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 262, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -2770,7 +2770,7 @@ declare ptr @generate_join_implied_equalities_for_ecs(ptr noundef, ptr noundef, 
 declare double @get_parameterized_joinrel_size(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_appendrel_parampathinfo(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @get_appendrel_parampathinfo(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %find_param_path_info.exit, label %4
 
@@ -2822,7 +2822,7 @@ find_param_path_info.exit:                        ; preds = %.lr.ph23.i, %2, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_param_path_clause_serials(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @get_param_path_clause_serials(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3017,14 +3017,14 @@ declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_append_unique_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @op_strict(i32 noundef) local_unnamed_addr #1
 
 declare ptr @remove_nulling_relids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 32767) i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 32767) i32 @match_expr_to_partition_keys(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 25
   br i1 %5, label %.lr.ph, label %.preheader
@@ -3200,10 +3200,10 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

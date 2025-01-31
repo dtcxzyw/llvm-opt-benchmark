@@ -911,12 +911,12 @@ Bfree.exit581:                                    ; preds = %268, %269
   %381 = fcmp une double %380, 0.000000e+00
   br i1 %381, label %383, label %382
 
-382:                                              ; preds = %sulp.exit612, %648, %1090, %721, %379, %367, %338
-  %.2393 = phi ptr [ %.4395, %1090 ], [ %.4395, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4395, %648 ], [ %.4395, %sulp.exit612 ]
-  %.2386 = phi ptr [ %.4388, %1090 ], [ %.4388, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4388, %648 ], [ %.4388, %sulp.exit612 ]
-  %.2383 = phi ptr [ null, %1090 ], [ %.231.lcssa.i, %721 ], [ null, %338 ], [ null, %367 ], [ null, %379 ], [ %.231.lcssa.i, %648 ], [ %.231.lcssa.i, %sulp.exit612 ]
-  %.2378 = phi ptr [ %.4380, %1090 ], [ %.4380, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4380, %648 ], [ %.4380, %sulp.exit612 ]
-  %.2 = phi ptr [ %.3, %1090 ], [ %566, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4, %648 ], [ %566, %sulp.exit612 ]
+382:                                              ; preds = %sulp.exit612, %648, %1089, %721, %379, %367, %338
+  %.2393 = phi ptr [ %.4395, %1089 ], [ %.4395, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4395, %648 ], [ %.4395, %sulp.exit612 ]
+  %.2386 = phi ptr [ %.4388, %1089 ], [ %.4388, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4388, %648 ], [ %.4388, %sulp.exit612 ]
+  %.2383 = phi ptr [ null, %1089 ], [ %.231.lcssa.i, %721 ], [ null, %338 ], [ null, %367 ], [ null, %379 ], [ %.231.lcssa.i, %648 ], [ %.231.lcssa.i, %sulp.exit612 ]
+  %.2378 = phi ptr [ %.4380, %1089 ], [ %.4380, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4380, %648 ], [ %.4380, %sulp.exit612 ]
+  %.2 = phi ptr [ %.3, %1089 ], [ %566, %721 ], [ undef, %338 ], [ undef, %367 ], [ undef, %379 ], [ %.4, %648 ], [ %566, %sulp.exit612 ]
   store double 0.000000e+00, ptr %11, align 8
   br label %236
 
@@ -2037,7 +2037,7 @@ Bfree.exit636:                                    ; preds = %Bfree.exit634, %865
   br label %Bfree.exit638
 
 Bfree.exit638:                                    ; preds = %873, %874
-  br i1 %.not553, label %1094, label %878
+  br i1 %.not553, label %1093, label %878
 
 878:                                              ; preds = %Bfree.exit638
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -2278,7 +2278,7 @@ i2b.exit145.i:                                    ; preds = %919, %914
 
 981:                                              ; preds = %974, %971
   %982 = tail call fastcc ptr @multadd(ptr noundef nonnull %.4191.i, i32 noundef 10, i32 noundef 0)
-  %983 = tail call fastcc i32 @quorem(ptr noundef %982, ptr noundef %.191.i)
+  %983 = tail call fastcc i32 @quorem(ptr noundef %982, ptr noundef nonnull %.191.i)
   %exitcond.not.i647 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i647, label %._crit_edge.i641, label %.lr.ph.i646
 
@@ -2327,7 +2327,7 @@ i2b.exit145.i:                                    ; preds = %919, %914
 
 1000:                                             ; preds = %994, %991
   %1001 = tail call fastcc ptr @multadd(ptr noundef nonnull %.6196.i, i32 noundef 10, i32 noundef 0)
-  %1002 = tail call fastcc i32 @quorem(ptr noundef %1001, ptr noundef %.191.i)
+  %1002 = tail call fastcc i32 @quorem(ptr noundef %1001, ptr noundef nonnull %.191.i)
   %exitcond231.not.i = icmp eq i32 %986, %384
   br i1 %exitcond231.not.i, label %._crit_edge199.i, label %.lr.ph198.i
 
@@ -2380,196 +2380,192 @@ i2b.exit145.i:                                    ; preds = %919, %914
 
 Bfree.exit.i:                                     ; preds = %1015, %1014, %.loopexit.i
   %.1103161.i = phi i32 [ %.1103.i, %.loopexit.i ], [ %.1103160.i, %1014 ], [ %.1103160.i, %1015 ]
-  %.not.i147.i = icmp eq ptr %.191.i, null
-  br i1 %.not.i147.i, label %Bfree.exit148.i, label %1019
+  %1019 = getelementptr inbounds nuw i8, ptr %.191.i, i64 8
+  %1020 = load i32, ptr %1019, align 8
+  %1021 = icmp sgt i32 %1020, 7
+  br i1 %1021, label %1022, label %1023
 
-1019:                                             ; preds = %Bfree.exit.i
-  %1020 = getelementptr inbounds nuw i8, ptr %.191.i, i64 8
-  %1021 = load i32, ptr %1020, align 8
-  %1022 = icmp sgt i32 %1021, 7
-  br i1 %1022, label %1023, label %1024
-
-1023:                                             ; preds = %1019
+1022:                                             ; preds = %Bfree.exit.i
   tail call void @free(ptr noundef nonnull %.191.i) #15
   br label %Bfree.exit148.i
 
-1024:                                             ; preds = %1019
-  %1025 = sext i32 %1021 to i64
-  %1026 = getelementptr inbounds [8 x ptr], ptr @freelist, i64 0, i64 %1025
-  %1027 = load ptr, ptr %1026, align 8
-  store ptr %1027, ptr %.191.i, align 8
-  store ptr %.191.i, ptr %1026, align 8
+1023:                                             ; preds = %Bfree.exit.i
+  %1024 = sext i32 %1020 to i64
+  %1025 = getelementptr inbounds [8 x ptr], ptr @freelist, i64 0, i64 %1024
+  %1026 = load ptr, ptr %1025, align 8
+  store ptr %1026, ptr %.191.i, align 8
+  store ptr %.191.i, ptr %1025, align 8
   br label %Bfree.exit148.i
 
-Bfree.exit148.i:                                  ; preds = %1024, %1023, %Bfree.exit.i
-  br i1 %882, label %1030, label %1028
+Bfree.exit148.i:                                  ; preds = %1023, %1022
+  br i1 %882, label %1029, label %1027
 
-1028:                                             ; preds = %Bfree.exit148.i
-  %1029 = icmp slt i32 %.1103161.i, 1
-  br i1 %1029, label %.sink.split.i, label %.bigcomp.exit_crit_edge
+1027:                                             ; preds = %Bfree.exit148.i
+  %1028 = icmp slt i32 %.1103161.i, 1
+  br i1 %1028, label %.sink.split.i, label %.bigcomp.exit_crit_edge
 
-.bigcomp.exit_crit_edge:                          ; preds = %1028
+.bigcomp.exit_crit_edge:                          ; preds = %1027
   %.pre = load i32, ptr %473, align 4
   br label %bigcomp.exit
 
-1030:                                             ; preds = %Bfree.exit148.i
-  %1031 = icmp slt i32 %.1103161.i, 0
-  br i1 %1031, label %1032, label %1047
+1029:                                             ; preds = %Bfree.exit148.i
+  %1030 = icmp slt i32 %.1103161.i, 0
+  br i1 %1030, label %1031, label %1046
 
-1032:                                             ; preds = %1030
+1031:                                             ; preds = %1029
   %.pre1056 = load i32, ptr %473, align 4
   br i1 %.098.i, label %._crit_edge236.i, label %bigcomp.exit
 
-._crit_edge236.i:                                 ; preds = %1032, %1083
-  %.val140.i = phi i32 [ %1048, %1083 ], [ %.pre1056, %1032 ]
-  %1033 = and i32 %.val140.i, 2146435072
-  %1034 = add nsw i32 %1033, -54525952
-  %.sroa.0.4.insert.ext.i.i.i = zext i32 %1034 to i64
+._crit_edge236.i:                                 ; preds = %1031, %1082
+  %.val140.i = phi i32 [ %1047, %1082 ], [ %.pre1056, %1031 ]
+  %1032 = and i32 %.val140.i, 2146435072
+  %1033 = add nsw i32 %1032, -54525952
+  %.sroa.0.4.insert.ext.i.i.i = zext i32 %1033 to i64
   %.sroa.0.4.insert.shift.i.i.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i.i, 32
-  %1035 = bitcast i64 %.sroa.0.4.insert.shift.i.i.i to double
-  br i1 %.not552, label %1036, label %sulp.exit.i
+  %1034 = bitcast i64 %.sroa.0.4.insert.shift.i.i.i to double
+  br i1 %.not552, label %1035, label %sulp.exit.i
 
-1036:                                             ; preds = %._crit_edge236.i
-  %1037 = lshr i32 %.val140.i, 20
-  %1038 = and i32 %1037, 2047
-  %1039 = icmp samesign ugt i32 %1038, 106
-  br i1 %1039, label %sulp.exit.i, label %1040
+1035:                                             ; preds = %._crit_edge236.i
+  %1036 = lshr i32 %.val140.i, 20
+  %1037 = and i32 %1036, 2047
+  %1038 = icmp samesign ugt i32 %1037, 106
+  br i1 %1038, label %sulp.exit.i, label %1039
 
-1040:                                             ; preds = %1036
-  %1041 = shl nuw nsw i32 %1038, 20
-  %1042 = sub nuw nsw i32 1184890880, %1041
-  %.sroa.0.4.insert.ext.i.i642 = zext nneg i32 %1042 to i64
+1039:                                             ; preds = %1035
+  %1040 = shl nuw nsw i32 %1037, 20
+  %1041 = sub nuw nsw i32 1184890880, %1040
+  %.sroa.0.4.insert.ext.i.i642 = zext nneg i32 %1041 to i64
   %.sroa.0.4.insert.shift.i.i643 = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i642, 32
-  %1043 = bitcast i64 %.sroa.0.4.insert.shift.i.i643 to double
-  %1044 = fmul double %1035, %1043
+  %1042 = bitcast i64 %.sroa.0.4.insert.shift.i.i643 to double
+  %1043 = fmul double %1034, %1042
   br label %sulp.exit.i
 
-sulp.exit.i:                                      ; preds = %1040, %1036, %._crit_edge236.i
-  %.0.i.i644 = phi double [ %1044, %1040 ], [ %1035, %1036 ], [ %1035, %._crit_edge236.i ]
-  %1045 = load double, ptr %11, align 8
-  %1046 = fsub double %1045, %.0.i.i644
+sulp.exit.i:                                      ; preds = %1039, %1035, %._crit_edge236.i
+  %.0.i.i644 = phi double [ %1043, %1039 ], [ %1034, %1035 ], [ %1034, %._crit_edge236.i ]
+  %1044 = load double, ptr %11, align 8
+  %1045 = fsub double %1044, %.0.i.i644
   br label %.sink.split.i
 
-1047:                                             ; preds = %1030
+1046:                                             ; preds = %1029
   %.not130.i = icmp eq i32 %.1103161.i, 0
-  %1048 = load i32, ptr %473, align 4
-  br i1 %.not130.i, label %1064, label %1049
+  %1047 = load i32, ptr %473, align 4
+  br i1 %.not130.i, label %1063, label %1048
 
-1049:                                             ; preds = %1047
+1048:                                             ; preds = %1046
   br i1 %.098.i, label %bigcomp.exit, label %._crit_edge232.i
 
-._crit_edge232.i:                                 ; preds = %1049, %1083
-  %1050 = and i32 %1048, 2146435072
-  %1051 = add nsw i32 %1050, -54525952
-  %.sroa.0.4.insert.ext.i.i150.i = zext i32 %1051 to i64
+._crit_edge232.i:                                 ; preds = %1048, %1082
+  %1049 = and i32 %1047, 2146435072
+  %1050 = add nsw i32 %1049, -54525952
+  %.sroa.0.4.insert.ext.i.i150.i = zext i32 %1050 to i64
   %.sroa.0.4.insert.shift.i.i151.i = shl nuw i64 %.sroa.0.4.insert.ext.i.i150.i, 32
-  %1052 = bitcast i64 %.sroa.0.4.insert.shift.i.i151.i to double
-  br i1 %.not552, label %1053, label %sulp.exit156.i
+  %1051 = bitcast i64 %.sroa.0.4.insert.shift.i.i151.i to double
+  br i1 %.not552, label %1052, label %sulp.exit156.i
 
-1053:                                             ; preds = %._crit_edge232.i
-  %1054 = lshr i32 %1048, 20
-  %1055 = and i32 %1054, 2047
-  %1056 = icmp samesign ugt i32 %1055, 106
-  br i1 %1056, label %sulp.exit156.i, label %1057
+1052:                                             ; preds = %._crit_edge232.i
+  %1053 = lshr i32 %1047, 20
+  %1054 = and i32 %1053, 2047
+  %1055 = icmp samesign ugt i32 %1054, 106
+  br i1 %1055, label %sulp.exit156.i, label %1056
 
-1057:                                             ; preds = %1053
-  %1058 = shl nuw nsw i32 %1055, 20
-  %1059 = sub nuw nsw i32 1184890880, %1058
-  %.sroa.0.4.insert.ext.i153.i = zext nneg i32 %1059 to i64
+1056:                                             ; preds = %1052
+  %1057 = shl nuw nsw i32 %1054, 20
+  %1058 = sub nuw nsw i32 1184890880, %1057
+  %.sroa.0.4.insert.ext.i153.i = zext nneg i32 %1058 to i64
   %.sroa.0.4.insert.shift.i154.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i153.i, 32
-  %1060 = bitcast i64 %.sroa.0.4.insert.shift.i154.i to double
-  %1061 = fmul double %1052, %1060
+  %1059 = bitcast i64 %.sroa.0.4.insert.shift.i154.i to double
+  %1060 = fmul double %1051, %1059
   br label %sulp.exit156.i
 
-sulp.exit156.i:                                   ; preds = %1057, %1053, %._crit_edge232.i
-  %.0.i155.i = phi double [ %1061, %1057 ], [ %1052, %1053 ], [ %1052, %._crit_edge232.i ]
-  %1062 = load double, ptr %11, align 8
-  %1063 = fadd double %.0.i155.i, %1062
+sulp.exit156.i:                                   ; preds = %1056, %1052, %._crit_edge232.i
+  %.0.i155.i = phi double [ %1060, %1056 ], [ %1051, %1052 ], [ %1051, %._crit_edge232.i ]
+  %1061 = load double, ptr %11, align 8
+  %1062 = fadd double %.0.i155.i, %1061
   br label %.sink.split.i
 
-1064:                                             ; preds = %1047
-  %1065 = lshr i32 %1048, 20
-  %1066 = and i32 %1065, 2047
-  %1067 = sub nsw i32 %1066, %.sroa.42.0
-  %1068 = icmp slt i32 %1067, 1
-  br i1 %1068, label %1069, label %1080
+1063:                                             ; preds = %1046
+  %1064 = lshr i32 %1047, 20
+  %1065 = and i32 %1064, 2047
+  %1066 = sub nsw i32 %1065, %.sroa.42.0
+  %1067 = icmp slt i32 %1066, 1
+  br i1 %1067, label %1068, label %1079
 
-1069:                                             ; preds = %1064
-  %1070 = icmp sgt i32 %1067, -31
-  br i1 %1070, label %1071, label %1076
+1068:                                             ; preds = %1063
+  %1069 = icmp sgt i32 %1066, -31
+  br i1 %1069, label %1070, label %1075
 
-1071:                                             ; preds = %1069
-  %1072 = sub nsw i32 1, %1067
-  %1073 = load i32, ptr %11, align 8
-  %1074 = shl nuw i32 1, %1072
-  %1075 = and i32 %1073, %1074
-  %.not133.i = icmp eq i32 %1075, 0
-  br i1 %.not133.i, label %bigcomp.exit, label %1083
+1070:                                             ; preds = %1068
+  %1071 = sub nsw i32 1, %1066
+  %1072 = load i32, ptr %11, align 8
+  %1073 = shl nuw i32 1, %1071
+  %1074 = and i32 %1072, %1073
+  %.not133.i = icmp eq i32 %1074, 0
+  br i1 %.not133.i, label %bigcomp.exit, label %1082
 
-1076:                                             ; preds = %1069
-  %1077 = sub nuw nsw i32 -31, %1067
-  %1078 = shl nuw i32 1, %1077
-  %1079 = and i32 %1078, %1048
-  %.not132.i = icmp eq i32 %1079, 0
-  br i1 %.not132.i, label %bigcomp.exit, label %1083
+1075:                                             ; preds = %1068
+  %1076 = sub nuw nsw i32 -31, %1066
+  %1077 = shl nuw i32 1, %1076
+  %1078 = and i32 %1077, %1047
+  %.not132.i = icmp eq i32 %1078, 0
+  br i1 %.not132.i, label %bigcomp.exit, label %1082
 
-1080:                                             ; preds = %1064
-  %1081 = load i32, ptr %11, align 8
-  %1082 = and i32 %1081, 1
-  %.not131.i = icmp eq i32 %1082, 0
-  br i1 %.not131.i, label %bigcomp.exit, label %1083
+1079:                                             ; preds = %1063
+  %1080 = load i32, ptr %11, align 8
+  %1081 = and i32 %1080, 1
+  %.not131.i = icmp eq i32 %1081, 0
+  br i1 %.not131.i, label %bigcomp.exit, label %1082
 
-1083:                                             ; preds = %1080, %1076, %1071
+1082:                                             ; preds = %1079, %1075, %1070
   br i1 %.098.i, label %._crit_edge236.i, label %._crit_edge232.i
 
-.sink.split.i:                                    ; preds = %sulp.exit156.i, %sulp.exit.i, %1028
-  %.sink.i = phi double [ %1046, %sulp.exit.i ], [ %1063, %sulp.exit156.i ], [ 0.000000e+00, %1028 ]
+.sink.split.i:                                    ; preds = %sulp.exit156.i, %sulp.exit.i, %1027
+  %.sink.i = phi double [ %1045, %sulp.exit.i ], [ %1062, %sulp.exit156.i ], [ 0.000000e+00, %1027 ]
   store double %.sink.i, ptr %11, align 8
-  %1084 = bitcast double %.sink.i to i64
-  %1085 = lshr i64 %1084, 32
-  %1086 = trunc nuw i64 %1085 to i32
+  %1083 = bitcast double %.sink.i to i64
+  %1084 = lshr i64 %1083, 32
+  %1085 = trunc nuw i64 %1084 to i32
   br label %bigcomp.exit
 
-bigcomp.exit:                                     ; preds = %.bigcomp.exit_crit_edge, %1032, %1049, %1071, %1076, %1080, %.sink.split.i
-  %1087 = phi i32 [ %.pre, %.bigcomp.exit_crit_edge ], [ %.pre1056, %1032 ], [ %1048, %1049 ], [ %1048, %1071 ], [ %1048, %1076 ], [ %1048, %1080 ], [ %1086, %.sink.split.i ]
+bigcomp.exit:                                     ; preds = %.bigcomp.exit_crit_edge, %1031, %1048, %1070, %1075, %1079, %.sink.split.i
+  %1086 = phi i32 [ %.pre, %.bigcomp.exit_crit_edge ], [ %.pre1056, %1031 ], [ %1047, %1048 ], [ %1047, %1070 ], [ %1047, %1075 ], [ %1047, %1079 ], [ %1085, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %1088 = and i32 %1087, 2146435072
-  %1089 = icmp eq i32 %1088, 2146435072
-  br i1 %1089, label %.loopexit, label %1090
+  %1087 = and i32 %1086, 2146435072
+  %1088 = icmp eq i32 %1087, 2146435072
+  br i1 %1088, label %.loopexit, label %1089
 
-1090:                                             ; preds = %bigcomp.exit
-  %1091 = icmp eq i32 %1088, 0
-  %1092 = load double, ptr %11, align 8
-  %1093 = fcmp oeq double %1092, 0.000000e+00
-  %or.cond40 = select i1 %1091, i1 %1093, i1 false
-  br i1 %or.cond40, label %382, label %1094
+1089:                                             ; preds = %bigcomp.exit
+  %1090 = icmp eq i32 %1087, 0
+  %1091 = load double, ptr %11, align 8
+  %1092 = fcmp oeq double %1091, 0.000000e+00
+  %or.cond40 = select i1 %1090, i1 %1092, i1 false
+  br i1 %or.cond40, label %382, label %1093
 
-1094:                                             ; preds = %1090, %Bfree.exit638
-  br i1 %.not552, label %1095, label %Bfree.exit583
+1093:                                             ; preds = %1089, %Bfree.exit638
+  br i1 %.not552, label %1094, label %Bfree.exit583
 
-1095:                                             ; preds = %1094
-  %1096 = load double, ptr %11, align 8
-  %1097 = fmul double %1096, 0x3950000000000000
-  store double %1097, ptr %11, align 8
+1094:                                             ; preds = %1093
+  %1095 = load double, ptr %11, align 8
+  %1096 = fmul double %1095, 0x3950000000000000
+  store double %1096, ptr %11, align 8
   br label %Bfree.exit583
 
-Bfree.exit583:                                    ; preds = %12, %.preheader734, %278, %277, %Bfree.exit581, %154, %.loopexit737, %113, %1094, %1095, %236, %182, %207, %194, %187
-  %.2433 = phi i32 [ %.1432, %187 ], [ %.1432, %194 ], [ %.1432, %236 ], [ %.1432, %1095 ], [ %.1432, %1094 ], [ %.1432, %207 ], [ %.1432, %182 ], [ 0, %113 ], [ 0, %.loopexit737 ], [ %spec.select568, %154 ], [ %.1432, %Bfree.exit581 ], [ %.1432, %277 ], [ %.1432, %278 ], [ %.1432, %.preheader734 ], [ 0, %12 ]
-  %.4423 = phi ptr [ %.10429, %187 ], [ %.10429, %194 ], [ %.10429, %236 ], [ %.10429, %1095 ], [ %.10429, %1094 ], [ %.10429, %207 ], [ %.10429, %182 ], [ %0, %113 ], [ %0, %.loopexit737 ], [ %spec.select569, %154 ], [ %.10429, %Bfree.exit581 ], [ %.10429, %277 ], [ %.10429, %278 ], [ %20, %.preheader734 ], [ %0, %12 ]
+Bfree.exit583:                                    ; preds = %12, %.preheader734, %278, %277, %Bfree.exit581, %154, %.loopexit737, %113, %1093, %1094, %236, %182, %207, %194, %187
+  %.2433 = phi i32 [ %.1432, %187 ], [ %.1432, %194 ], [ %.1432, %236 ], [ %.1432, %1094 ], [ %.1432, %1093 ], [ %.1432, %207 ], [ %.1432, %182 ], [ 0, %113 ], [ 0, %.loopexit737 ], [ %spec.select568, %154 ], [ %.1432, %Bfree.exit581 ], [ %.1432, %277 ], [ %.1432, %278 ], [ %.1432, %.preheader734 ], [ 0, %12 ]
+  %.4423 = phi ptr [ %.10429, %187 ], [ %.10429, %194 ], [ %.10429, %236 ], [ %.10429, %1094 ], [ %.10429, %1093 ], [ %.10429, %207 ], [ %.10429, %182 ], [ %0, %113 ], [ %0, %.loopexit737 ], [ %spec.select569, %154 ], [ %.10429, %Bfree.exit581 ], [ %.10429, %277 ], [ %.10429, %278 ], [ %20, %.preheader734 ], [ %0, %12 ]
   %.not557 = icmp eq ptr %1, null
-  br i1 %.not557, label %1099, label %1098
+  br i1 %.not557, label %1098, label %1097
 
-1098:                                             ; preds = %Bfree.exit583
+1097:                                             ; preds = %Bfree.exit583
   store ptr %.4423, ptr %1, align 8
-  br label %1099
+  br label %1098
 
-1099:                                             ; preds = %1098, %Bfree.exit583
+1098:                                             ; preds = %1097, %Bfree.exit583
   %.not558 = icmp eq i32 %.2433, 0
-  %1100 = load double, ptr %11, align 8
-  %1101 = fneg double %1100
-  %1102 = select i1 %.not558, double %1100, double %1101
-  ret double %1102
+  %1099 = load double, ptr %11, align 8
+  %1100 = fneg double %1099
+  %1101 = select i1 %.not558, double %1099, double %1100
+  ret double %1101
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2579,10 +2575,10 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare i32 @llvm.get.rounding() #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @d2b(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
+define internal fastcc nonnull ptr @d2b(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %7, label %5
@@ -3516,7 +3512,7 @@ Bfree.exit:                                       ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %union.U, align 8
@@ -5451,7 +5447,7 @@ Bfree.exit:                                       ; preds = %55, %54, %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6149,10 +6145,10 @@ zend_freedtoa.exit:                               ; preds = %zend_freedtoa.exit.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -6161,7 +6157,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #11 {
+define internal fastcc double @b2d(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #11 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -6279,13 +6275,13 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

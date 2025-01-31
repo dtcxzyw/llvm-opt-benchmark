@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"%02X \00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef zeroext i1 @ch7xxx_init(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = alloca [2 x %struct.i2c_msg], align 16
@@ -208,7 +208,7 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @ch7xxx_dpms(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca %struct.i2c_msg, align 8
   %5 = alloca [2 x i8], align 2
@@ -289,7 +289,7 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 16) i32 @ch7xxx_mode_valid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 16) i32 @ch7xxx_mode_valid(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 165000
   %5 = select i1 %4, i32 15, i32 0
@@ -297,7 +297,7 @@ define internal range(i32 0, 16) i32 @ch7xxx_mode_valid(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @ch7xxx_mode_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca [2 x i8], align 2
   %5 = alloca %struct.i2c_msg, align 8
   %6 = alloca [2 x i8], align 2
@@ -712,7 +712,7 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca %struct.i2c_msg, align 8
   %4 = alloca [2 x i8], align 2
@@ -895,7 +895,7 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @ch7xxx_get_hw_state(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -954,7 +954,7 @@ define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ch7xxx_destroy(ptr nocapture noundef %0) #0 align 16 {
+define internal void @ch7xxx_destroy(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -970,7 +970,7 @@ define internal void @ch7xxx_destroy(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ch7xxx_dump_regs(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -1051,7 +1051,7 @@ define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -1060,13 +1060,13 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4097 x i8], align 16
   %5 = icmp slt i32 %2, 4096
   br i1 %5, label %6, label %8
@@ -25,7 +25,7 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realpath(ptr noundef %0, ptr noundef %1) #8
+  %14 = tail call ptr @realpath(ptr noundef nonnull %0, ptr noundef %1) #8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
 
@@ -120,7 +120,7 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
 
 .critedge._crit_edge:                             ; preds = %32, %.critedge, %16
   %53 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #8
-  call void @collapse(ptr noundef %1) #8
+  call void @collapse(ptr noundef nonnull %1) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.critedge._crit_edge, %49, %39, %15, %11, %6
@@ -132,18 +132,18 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare void @collapse(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

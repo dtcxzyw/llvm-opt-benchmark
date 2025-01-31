@@ -197,7 +197,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ecb.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -214,16 +214,16 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost6bimaps5bimapINS0_6set_ofINS_17basic_string_viewIcSt11char_traitsIcEEEN8QuantLib12_GLOBAL__N_18is_ilessEEENS7_5MonthEN4mpl_2naESD_SD_ED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5boost6bimaps5bimapINS0_6set_ofINS_17basic_string_viewIcSt11char_traitsIcEEEN8QuantLib12_GLOBAL__N_18is_ilessEEENS7_5MonthEN4mpl_2naESD_SD_ED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3ECB7addDateERKNS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %d) local_unnamed_addr #7 align 2 {
+define void @_ZN8QuantLib3ECB7addDateERKNS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d) local_unnamed_addr #7 align 2 {
 entry:
   %__x.018.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12_GLOBAL__N_115ecbKnownDateSetE, i64 16), align 8, !tbaa !18
   %cmp.not19.i.i.i = icmp eq ptr %__x.018.i.i.i, null
@@ -453,7 +453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN8QuantLib3ECB4dateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ecbCode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %refDate) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN8QuantLib3ECB4dateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ecbCode, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %refDate) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp11.i = alloca %"class.std::out_of_range", align 8
@@ -787,7 +787,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN8QuantLib3ECB9isECBcodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ecbCode) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib3ECB9isECBcodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ecbCode) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %ecbCode, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8, !tbaa !24
@@ -1126,14 +1126,14 @@ unreachable:                                      ; preds = %invoke.cont15
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 declare i64 @_ZN8QuantLib4Date7minDateEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN8QuantLib3ECB8nextDateERKNS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN8QuantLib3ECB8nextDateERKNS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
@@ -1738,10 +1738,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_4
 declare noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3ECB9nextDatesERKNS_4DateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3ECB9nextDatesERKNS_4DateE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
@@ -2074,7 +2074,7 @@ unreachable:                                      ; preds = %invoke.cont42
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc ptr @_ZNK5boost6bimaps17container_adaptor29associative_container_adaptorINS_11multi_index6detail13ordered_indexINS3_6memberINS0_8relation6detail16relation_storageINS0_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS7_9member_at4leftEEENSB_IKN8QuantLib5MonthENSH_5rightEEELb1EEESF_XadL_ZNSP_4leftEEEEENSK_12_GLOBAL__N_18is_ilessENS4_9nth_layerILi2ENS7_15mutant_relationISJ_SO_N4mpl_2naELb1EEENS0_6detail10bimap_coreINS0_6set_ofISF_SS_EESL_SW_SW_SW_E12core_indicesESaISX_EEENS_3mpl6v_itemISI_NS16_7vector0ISW_EELi0EEENS4_18ordered_unique_tagENS4_19null_augment_policyEEENSY_17map_view_iteratorISI_S12_EENSY_23const_map_view_iteratorISI_S12_EESG_NS1_7support23iterator_facade_to_baseIS1F_S1H_EESW_NS8_24pair_to_relation_functorISI_SX_EENS7_7support16get_pair_functorISI_SX_EESW_NS17_INS1_6detail27iterator_from_base_identityINS_9iterators16reverse_iteratorINS4_19bidir_node_iteratorINS4_18ordered_index_nodeIS1C_NS4_15index_node_baseISX_S14_EEEEEEEENSY_25reverse_map_view_iteratorISI_S12_EES20_NSY_31const_reverse_map_view_iteratorISI_S12_EEEENS16_6vectorISW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_EELi1EEEE4findISF_EES1H_RKT_(ptr nocapture readonly %k.0.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @_ZNK5boost6bimaps17container_adaptor29associative_container_adaptorINS_11multi_index6detail13ordered_indexINS3_6memberINS0_8relation6detail16relation_storageINS0_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS7_9member_at4leftEEENSB_IKN8QuantLib5MonthENSH_5rightEEELb1EEESF_XadL_ZNSP_4leftEEEEENSK_12_GLOBAL__N_18is_ilessENS4_9nth_layerILi2ENS7_15mutant_relationISJ_SO_N4mpl_2naELb1EEENS0_6detail10bimap_coreINS0_6set_ofISF_SS_EESL_SW_SW_SW_E12core_indicesESaISX_EEENS_3mpl6v_itemISI_NS16_7vector0ISW_EELi0EEENS4_18ordered_unique_tagENS4_19null_augment_policyEEENSY_17map_view_iteratorISI_S12_EENSY_23const_map_view_iteratorISI_S12_EESG_NS1_7support23iterator_facade_to_baseIS1F_S1H_EESW_NS8_24pair_to_relation_functorISI_SX_EENS7_7support16get_pair_functorISI_SX_EESW_NS17_INS1_6detail27iterator_from_base_identityINS_9iterators16reverse_iteratorINS4_19bidir_node_iteratorINS4_18ordered_index_nodeIS1C_NS4_15index_node_baseISX_S14_EEEEEEEENSY_25reverse_map_view_iteratorISI_S12_EES20_NSY_31const_reverse_map_view_iteratorISI_S12_EEEENS16_6vectorISW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_EELi1EEEE4findISF_EES1H_RKT_(ptr readonly captures(none) %k.0.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhsUpper.i13.i.i.i = alloca [3 x i8], align 1
   %rhsUpper.i14.i.i.i = alloca [3 x i8], align 1
@@ -2191,7 +2191,7 @@ _ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberINS_6bimaps8relati
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3ECB8nextCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ecbCode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3ECB8nextCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ecbCode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11.i40 = alloca %"class.std::out_of_range", align 8
   %ref.tmp11.i = alloca %"class.std::out_of_range", align 8
@@ -2682,7 +2682,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6bimaps17container_adaptor17container_adaptorINS_11multi_index6detail13ordered_indexINS3_6memberINS0_8relation6detail16relation_storageINS0_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS7_9member_at4leftEEENSB_IKN8QuantLib5MonthENSH_5rightEEELb1EEESF_XadL_ZNSP_4leftEEEEENSK_12_GLOBAL__N_18is_ilessENS4_9nth_layerILi2ENS7_15mutant_relationISJ_SO_N4mpl_2naELb1EEENS0_6detail10bimap_coreINS0_6set_ofISF_SS_EESL_SW_SW_SW_E12core_indicesESaISX_EEENS_3mpl6v_itemISI_NS16_7vector0ISW_EELi0EEENS4_18ordered_unique_tagENS4_19null_augment_policyEEENSY_17set_view_iteratorINS4_19bidir_node_iteratorINS4_18ordered_index_nodeIS1C_NS4_15index_node_baseISX_S14_EEEEEEEENSY_23const_set_view_iteratorIS1K_EENS1_7support23iterator_facade_to_baseIS1L_S1N_EESW_NS8_28get_mutable_relation_functorISX_EENS7_7support22get_above_view_functorISX_EENS17_INSY_20set_view_key_to_baseISF_SX_SQ_EENS17_INS1_6detail27iterator_from_base_identityINS_9iterators16reverse_iteratorIS1K_EENS1E_IS22_EES22_NS1M_IS22_EEEENS16_6vectorISW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_EELi1EEELi1EEEE6insertERKNSU_ISJ_SO_SW_Lb0EEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %x) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6bimaps17container_adaptor17container_adaptorINS_11multi_index6detail13ordered_indexINS3_6memberINS0_8relation6detail16relation_storageINS0_4tags6taggedIKNS_17basic_string_viewIcSt11char_traitsIcEEENS7_9member_at4leftEEENSB_IKN8QuantLib5MonthENSH_5rightEEELb1EEESF_XadL_ZNSP_4leftEEEEENSK_12_GLOBAL__N_18is_ilessENS4_9nth_layerILi2ENS7_15mutant_relationISJ_SO_N4mpl_2naELb1EEENS0_6detail10bimap_coreINS0_6set_ofISF_SS_EESL_SW_SW_SW_E12core_indicesESaISX_EEENS_3mpl6v_itemISI_NS16_7vector0ISW_EELi0EEENS4_18ordered_unique_tagENS4_19null_augment_policyEEENSY_17set_view_iteratorINS4_19bidir_node_iteratorINS4_18ordered_index_nodeIS1C_NS4_15index_node_baseISX_S14_EEEEEEEENSY_23const_set_view_iteratorIS1K_EENS1_7support23iterator_facade_to_baseIS1L_S1N_EESW_NS8_28get_mutable_relation_functorISX_EENS7_7support22get_above_view_functorISX_EENS17_INSY_20set_view_key_to_baseISF_SX_SQ_EENS17_INS1_6detail27iterator_from_base_identityINS_9iterators16reverse_iteratorIS1K_EENS1E_IS22_EES22_NS1M_IS22_EEEENS16_6vectorISW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_SW_EELi1EEELi1EEEE6insertERKNSU_ISJ_SO_SW_Lb0EEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %x) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"struct.boost::multi_index::detail::ordered_index_node_compressed_base<boost::multi_index::detail::null_augment_policy, std::allocator<char>>::parent_ref", align 8
   %agg.tmp.i.i.i.i.i.i.i = alloca %"struct.boost::multi_index::detail::ordered_index_node_compressed_base<boost::multi_index::detail::null_augment_policy, std::allocator<char>>::parent_ref", align 8
@@ -3120,7 +3120,7 @@ if.end:                                           ; preds = %entry
 declare i32 @toupper(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE9rebalanceEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE(ptr noundef %x, ptr noundef %root) local_unnamed_addr #7 comdat align 2 {
@@ -3561,7 +3561,7 @@ while.end:                                        ; preds = %if.end122, %land.rh
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5093,7 +5093,7 @@ __cxx_global_var_init.2.exit:                     ; preds = %invoke.cont124.i.i
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

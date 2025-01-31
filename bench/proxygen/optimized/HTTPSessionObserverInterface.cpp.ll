@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEventC2ERKNS1_13BuilderFieldsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
+define void @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEventC2ERKNS1_13BuilderFieldsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
@@ -251,7 +251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEventC2ERNS1_13BuilderFieldsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
+define void @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEventC2ERNS1_13BuilderFieldsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC2ERNS1_13BuilderFieldsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
+define void @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC2ERNS1_13BuilderFieldsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %builderFields) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
@@ -552,7 +552,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 

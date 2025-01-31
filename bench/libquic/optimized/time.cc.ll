@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -106751991, -2147483648) i32 @_ZNK4base9TimeDelta6InDaysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -106751991, -2147483648) i32 @_ZNK4base9TimeDelta6InDaysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base9TimeDelta7InHoursEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4base9TimeDelta7InHoursEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base9TimeDelta9InMinutesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4base9TimeDelta9InMinutesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4base9TimeDelta10InSecondsFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef double @_ZNK4base9TimeDelta10InSecondsFEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -9223372036854, -9223372036854775808) i64 @_ZNK4base9TimeDelta9InSecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 -9223372036854, -9223372036854775808) i64 @_ZNK4base9TimeDelta9InSecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4base9TimeDelta15InMillisecondsFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef double @_ZNK4base9TimeDelta15InMillisecondsFEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -9223372036854775, -9223372036854775808) i64 @_ZNK4base9TimeDelta14InMillisecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 -9223372036854775, -9223372036854775808) i64 @_ZNK4base9TimeDelta14InMillisecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -9223372036854774, -9223372036854775808) i64 @_ZNK4base9TimeDelta23InMillisecondsRoundedUpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 -9223372036854774, -9223372036854775808) i64 @_ZNK4base9TimeDelta23InMillisecondsRoundedUpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i = icmp eq i64 %0, 9223372036854775807
@@ -118,7 +118,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4base9TimeDelta14InMicrosecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK4base9TimeDelta14InMicrosecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   ret i64 %0
@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -9223372036854, -9223372036854775808) i64 @_ZNK4base4Time7ToTimeTEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 -9223372036854, -9223372036854775808) i64 @_ZNK4base4Time7ToTimeTEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
@@ -272,7 +272,7 @@ return:                                           ; preds = %entry, %_ZN4base9Ti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4base4Time9ToDoubleTEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef double @_ZNK4base4Time9ToDoubleTEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
@@ -296,7 +296,7 @@ return:                                           ; preds = %entry, %return.fold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZN4base4Time12FromTimeSpecERK8timespec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) local_unnamed_addr #1 align 2 {
+define dso_local i64 @_ZN4base4Time12FromTimeSpecERK8timespec(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ts) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %ts, align 8
   %conv = sitofp i64 %0 to double
@@ -369,7 +369,7 @@ _ZN4base9TimeDelta17FromMillisecondsDEd.exit:     ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4base4Time8ToJsTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef double @_ZNK4base4Time8ToJsTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
@@ -393,7 +393,7 @@ return:                                           ; preds = %entry, %return.fold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -9223372036854775, -9223372036854775808) i64 @_ZNK4base4Time10ToJavaTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 -9223372036854775, -9223372036854775808) i64 @_ZNK4base4Time10ToJavaTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
@@ -436,7 +436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base4Time18FromStringInternalEPKcbPS0_(ptr noundef %time_string, i1 noundef zeroext %is_local, ptr nocapture noundef writeonly %parsed_time) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base4Time18FromStringInternalEPKcbPS0_(ptr noundef %time_string, i1 noundef zeroext %is_local, ptr noundef writeonly captures(none) %parsed_time) local_unnamed_addr #2 align 2 {
 entry:
   %result_time = alloca i64, align 8
   %0 = load i8, ptr %time_string, align 1
@@ -466,7 +466,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i32 @_Z18PR_ParseTimeStringPKciPl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base4Time20ExplodedMostlyEqualsERKNS0_8ExplodedES3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %rhs) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base4Time20ExplodedMostlyEqualsERKNS0_8ExplodedES3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %lhs, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %rhs) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %lhs, align 4
   %1 = load i32, ptr %rhs, align 4
@@ -608,7 +608,7 @@ _ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK4base9TimeTicks17SnappedToNextTickES0_NS_9TimeDeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %tick_phase.coerce, i64 %tick_interval.coerce) local_unnamed_addr #1 align 2 {
+define dso_local i64 @_ZNK4base9TimeTicks17SnappedToNextTickES0_NS_9TimeDeltaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %tick_phase.coerce, i64 %tick_interval.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 8
   %sub.i = sub nsw i64 %tick_phase.coerce, %agg.tmp.sroa.0.0.copyload
@@ -663,7 +663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base4Time8Exploded14HasValidValuesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base4Time8Exploded14HasValidValuesEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
   %month = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %month, align 4
@@ -718,13 +718,13 @@ declare i64 @_ZN4base9TimeTicks3NowEv() local_unnamed_addr #3
 declare i64 @_ZN4base4Time3NowEv() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

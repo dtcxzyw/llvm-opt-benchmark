@@ -233,7 +233,7 @@ return:                                           ; preds = %entry, %for.end56, 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @FLAC__bitreader_new() local_unnamed_addr #3
 
@@ -294,7 +294,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_finish(ptr nocapture noundef readonly %decoder) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_finish(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -901,10 +901,10 @@ declare void @FLAC__bitreader_free(ptr noundef) local_unnamed_addr #3
 declare void @FLAC__ogg_decoder_aspect_finish(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_ogg_serial_number(ptr nocapture noundef readonly %decoder, i64 noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_ogg_serial_number(ptr noundef readonly captures(none) %decoder, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -924,7 +924,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @FLAC__ogg_decoder_aspect_set_serial_number(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_md5_checking(ptr nocapture noundef readonly %decoder, i32 noundef %value) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef readonly captures(none) %decoder, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -942,7 +942,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef readonly captures(none) %decoder, i32 noundef %type) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i32 %type, 126
   br i1 %cmp, label %return, label %if.end
@@ -975,7 +975,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond_application(ptr noundef readonly captures(none) %decoder, ptr noundef readonly captures(none) %id) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1075,10 +1075,10 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1111,7 +1111,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore(ptr nocapture noundef readonly %decoder, i32 noundef %type) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore(ptr noundef readonly captures(none) %decoder, i32 noundef %type) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ugt i32 %type, 126
   br i1 %cmp, label %return, label %if.end
@@ -1144,7 +1144,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore_application(ptr nocapture noundef readonly %decoder, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore_application(ptr noundef readonly captures(none) %decoder, ptr noundef readonly captures(none) %id) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1244,7 +1244,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr nocapture noundef readonly %decoder) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1267,10 +1267,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_state(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_state(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1278,7 +1278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @FLAC__stream_decoder_get_resolved_state_string(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -1289,7 +1289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_md5_checking(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_md5_checking(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %md5_checking = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @FLAC__stream_decoder_get_total_samples(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i64 @FLAC__stream_decoder_get_total_samples(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -1318,7 +1318,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_channels(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_channels(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %channels = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1327,7 +1327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_channel_assignment(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_channel_assignment(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %channel_assignment = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_bits_per_sample(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_bits_per_sample(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %bits_per_sample = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_sample_rate(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_sample_rate(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %sample_rate = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1354,7 +1354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__stream_decoder_get_blocksize(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define i32 @FLAC__stream_decoder_get_blocksize(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %decoder, align 8
   %blocksize = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1412,7 +1412,7 @@ return:                                           ; preds = %if.end9, %if.end3, 
 declare i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 536870912) i32 @FLAC__stream_decoder_get_input_bytes_unconsumed(ptr nocapture noundef readonly %decoder) local_unnamed_addr #0 {
+define hidden range(i32 0, 536870912) i32 @FLAC__stream_decoder_get_input_bytes_unconsumed(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #0 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -1424,7 +1424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @FLAC__stream_decoder_get_client_data(ptr nocapture noundef readonly %decoder) local_unnamed_addr #11 {
+define ptr @FLAC__stream_decoder_get_client_data(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #11 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -1434,7 +1434,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__stream_decoder_flush(ptr nocapture noundef readonly %decoder) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__stream_decoder_flush(ptr noundef readonly captures(none) %decoder) local_unnamed_addr #0 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -2923,7 +2923,7 @@ return:                                           ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_frame_(ptr noundef %decoder, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %got_a_frame, i32 noundef range(i32 0, 2) %do_full_decode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_frame_(ptr noundef %decoder, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %got_a_frame, i32 noundef range(i32 0, 2) %do_full_decode) unnamed_addr #0 {
 entry:
   %zero.i = alloca i32, align 4
   %x.i77.i = alloca i32, align 4
@@ -6451,7 +6451,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @file_read_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef %buffer, ptr nocapture noundef %bytes, ptr nocapture readnone %client_data) #12 {
+define internal range(i32 0, 3) i32 @file_read_callback_(ptr noundef readonly captures(none) %decoder, ptr noundef captures(none) %buffer, ptr noundef captures(none) %bytes, ptr readnone captures(none) %client_data) #12 {
 entry:
   %0 = load i64, ptr %bytes, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -6482,7 +6482,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @file_seek_callback_(ptr nocapture noundef readonly %decoder, i64 noundef %absolute_byte_offset, ptr nocapture readnone %client_data) #12 {
+define internal range(i32 0, 3) i32 @file_seek_callback_(ptr noundef readonly captures(none) %decoder, i64 noundef %absolute_byte_offset, ptr readnone captures(none) %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -6503,7 +6503,7 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @file_tell_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %absolute_byte_offset, ptr nocapture readnone %client_data) #12 {
+define internal range(i32 0, 3) i32 @file_tell_callback_(ptr noundef readonly captures(none) %decoder, ptr noundef writeonly captures(none) %absolute_byte_offset, ptr readnone captures(none) %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -6528,7 +6528,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @file_length_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef writeonly %stream_length, ptr nocapture readnone %client_data) #12 {
+define internal range(i32 0, 3) i32 @file_length_callback_(ptr noundef readonly captures(none) %decoder, ptr noundef writeonly captures(none) %stream_length, ptr readnone captures(none) %client_data) #12 {
 entry:
   %filestats = alloca %struct.stat, align 8
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
@@ -6557,7 +6557,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @file_eof_callback_(ptr nocapture noundef readonly %decoder, ptr nocapture readnone %client_data) #12 {
+define internal range(i32 0, 2) i32 @file_eof_callback_(ptr noundef readonly captures(none) %decoder, ptr readnone captures(none) %client_data) #12 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -6570,31 +6570,31 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef) local_unnamed_addr #3
 
@@ -6605,7 +6605,7 @@ declare i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef, i32 nou
 declare i32 @FLAC__bitreader_read_byte_block_aligned_no_crc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @has_id_filtered_(ptr nocapture noundef readonly %decoder, ptr nocapture noundef nonnull readonly %id) unnamed_addr #15 {
+define internal fastcc range(i32 0, 2) i32 @has_id_filtered_(ptr noundef readonly captures(none) %decoder, ptr noundef nonnull readonly captures(none) %id) unnamed_addr #15 {
 entry:
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %0 = load ptr, ptr %private_, align 8
@@ -6643,7 +6643,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare void @FLAC__bitreader_set_limit(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_metadata_vorbiscomment_(ptr nocapture noundef readonly %decoder, ptr noundef nonnull %obj, i32 noundef %length) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_metadata_vorbiscomment_(ptr noundef readonly captures(none) %decoder, ptr noundef nonnull %obj, i32 noundef %length) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %length, 7
   br i1 %cmp, label %if.then, label %if.else170
@@ -6890,7 +6890,7 @@ return:                                           ; preds = %skip, %if.end33, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_metadata_cuesheet_(ptr nocapture noundef readonly %decoder, ptr noundef nonnull initializes((0, 160)) %obj) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_metadata_cuesheet_(ptr noundef readonly captures(none) %decoder, ptr noundef nonnull initializes((0, 160)) %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %obj, i8 0, i64 160, i1 false)
@@ -7144,7 +7144,7 @@ return:                                           ; preds = %for.body, %if.end43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_metadata_picture_(ptr nocapture noundef readonly %decoder, ptr noundef nonnull %obj) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_metadata_picture_(ptr noundef readonly captures(none) %decoder, ptr noundef nonnull %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   %private_ = getelementptr inbounds nuw i8, ptr %decoder, i64 8
@@ -8367,16 +8367,16 @@ declare void @FLAC__lpc_restore_signal_wide_33bit(ptr noundef, i32 noundef, ptr 
 declare i32 @FLAC__MD5Accumulate(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18

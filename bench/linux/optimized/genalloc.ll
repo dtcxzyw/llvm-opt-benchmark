@@ -85,16 +85,16 @@ define dso_local noundef ptr @gen_pool_create(i32 noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_first_fit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 %6) #0 align 16 {
+define dso_local i64 @gen_pool_first_fit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #0 align 16 {
   %8 = tail call i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef 0, i64 noundef 0) #12
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @gen_pool_add_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
@@ -252,7 +252,7 @@ declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq ptr %4, null
@@ -577,7 +577,7 @@ define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %35, label %7
 
@@ -703,10 +703,10 @@ define dso_local ptr @gen_pool_dma_alloc_align(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_first_fit_align(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i64 noundef %6) #0 align 16 {
+define dso_local i64 @gen_pool_first_fit_align(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i64 noundef %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
@@ -792,7 +792,7 @@ define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread, label %7
 
@@ -1091,7 +1091,7 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen_pool_for_each_chunk(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local void @gen_pool_for_each_chunk(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
@@ -1198,7 +1198,7 @@ define dso_local i64 @gen_pool_size(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen_pool_set_algo(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @gen_pool_set_algo(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @gen_pool_first_fit, ptr %1
@@ -1214,7 +1214,7 @@ define dso_local void @gen_pool_set_algo(ptr nocapture noundef writeonly initial
 declare dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_fixed_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i64 %6) #0 align 16 {
+define dso_local i64 @gen_pool_fixed_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i64 %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load i64, ptr %4, align 8
@@ -1245,7 +1245,7 @@ define dso_local i64 @gen_pool_fixed_alloc(ptr noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_first_fit_order_align(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 %6) #0 align 16 {
+define dso_local i64 @gen_pool_first_fit_order_align(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #0 align 16 {
   %8 = zext i32 %3 to i64
   %9 = add nsw i64 %8, -1
   %10 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %9, i32 -1) #14, !srcloc !41
@@ -1258,7 +1258,7 @@ define dso_local i64 @gen_pool_first_fit_order_align(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_best_fit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 %6) #0 align 16 {
+define dso_local i64 @gen_pool_best_fit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #0 align 16 {
   %8 = tail call i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef 0, i64 noundef 0) #12
   %9 = zext i32 %3 to i64
   %10 = icmp ult i64 %8, %1
@@ -1314,7 +1314,7 @@ define dso_local ptr @gen_pool_get(ptr noundef %0, ptr noundef %1) #0 align 16 {
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_gen_pool_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_gen_pool_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1368,7 +1368,7 @@ gen_pool_destroy.exit:                            ; preds = %28, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #6 align 16 {
+define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #6 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -1489,7 +1489,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

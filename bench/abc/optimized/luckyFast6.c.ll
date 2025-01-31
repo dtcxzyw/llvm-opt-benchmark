@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Extra_Truth6ChangePhase.Truth6 = internal unnamed_addr constant [6 x i64] [i64 -6148914691236517206, i64 -3689348814741910324, i64 -1085102592571150096, i64 -71777214294589696, i64 -281470681808896, i64 -4294967296], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @resetPCanonPermArray_6Vars(ptr nocapture noundef writeonly initializes((0, 6)) %0) local_unnamed_addr #0 {
+define void @resetPCanonPermArray_6Vars(ptr noundef writeonly captures(none) initializes((0, 6)) %0) local_unnamed_addr #0 {
   store i8 97, ptr %0, align 1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 98, ptr %2, align 1
@@ -23,7 +23,7 @@ define void @resetPCanonPermArray_6Vars(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @resetPCanonPermArray(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @resetPCanonPermArray(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -46,7 +46,7 @@ define void @resetPCanonPermArray(ptr nocapture noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp sgt i64 %0, -1
   br i1 %.not, label %7, label %3
 
@@ -63,7 +63,7 @@ define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @adjustInfoAfterSwap(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp ult i32 %3, 4
   br i1 %5, label %6, label %9
 
@@ -143,7 +143,7 @@ define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -280,7 +280,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -327,7 +327,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   br label %5
 
 5:                                                ; preds = %109, %4
@@ -494,7 +494,7 @@ Extra_Truth6MinimumRoundOne.exit:                 ; preds = %74, %88, %91, %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   br label %5
 
 5:                                                ; preds = %41, %4
@@ -567,7 +567,7 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit:          ; preds = %adjustInfoAfterSwap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
@@ -805,7 +805,7 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit74:       ; preds = %127
   %130 = xor i32 %7, 64
   store i32 %130, ptr %6, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %131 = tail call i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
+  %131 = tail call i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %132 = xor i64 %0, -1
   %133 = call i64 @Extra_Truth6MinimumRoundMany(i64 noundef %132, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp ugt i64 %131, %133
@@ -827,10 +827,10 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit:         ; preds = %46, %129, %Extra_Tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #6 {
+define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #9
@@ -843,7 +843,7 @@ define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, pt
 declare i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #6 {
+define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #9

@@ -143,7 +143,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.104 = private unnamed_addr constant [9 x i8] c"ultimate\00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @signature_check_clear(ptr nocapture noundef %sigc) local_unnamed_addr #0 {
+define dso_local void @signature_check_clear(ptr noundef captures(none) %sigc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sigc, align 8
   tail call void @free(ptr noundef %0) #14
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @check_signature(ptr noundef initializes((48, 49), (88, 92)) %sigc, ptr noundef %signature, i64 noundef %slen) local_unnamed_addr #2 {
@@ -349,7 +349,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @print_signature_buffer(ptr nocapture noundef readonly %sigc, i32 noundef %flags) local_unnamed_addr #4 {
+define dso_local void @print_signature_buffer(ptr noundef readonly captures(none) %sigc, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -386,10 +386,10 @@ if.end9:                                          ; preds = %if.then7, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @parse_signed_buffer(ptr noundef %buf, i64 noundef %size) local_unnamed_addr #2 {
@@ -697,7 +697,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @git_gpg_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %cb) #2 {
+define internal i32 @git_gpg_config(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr readnone captures(none) %cb) #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(16) @.str.4) #17
   %tobool.not = icmp eq i32 %call, 0
@@ -708,7 +708,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
+  %call3 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #14
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -737,7 +737,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %tobool9.not, label %if.then10, label %for.body.i
 
 if.then10:                                        ; preds = %if.then8
-  %call11 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
+  %call11 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #14
   br label %return
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -764,7 +764,7 @@ if.end3.i:                                        ; preds = %if.then16
 
 _.exit:                                           ; preds = %if.then16, %if.end3.i
   %retval.0.i36 = phi ptr [ %call.i35, %if.end3.i ], [ @.str.6, %if.then16 ]
-  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i36, ptr noundef %var, ptr noundef nonnull %value) #14
+  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i36, ptr noundef nonnull %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end20:                                         ; preds = %for.body.i
@@ -781,7 +781,7 @@ if.then24:                                        ; preds = %if.end21
   br i1 %tobool25.not, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.then24
-  %call27 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
+  %call27 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #14
   br label %return
 
 if.end29:                                         ; preds = %if.then24
@@ -820,7 +820,7 @@ if.end3.i45:                                      ; preds = %if.then33
 
 _.exit48:                                         ; preds = %if.then33, %if.end3.i45
   %retval.0.i47 = phi ptr [ %call.i46, %if.end3.i45 ], [ @.str.6, %if.then33 ]
-  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i47, ptr noundef %var, ptr noundef nonnull %value) #14
+  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i47, ptr noundef nonnull %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end38:                                         ; preds = %if.end21
@@ -829,7 +829,7 @@ if.end38:                                         ; preds = %if.end21
   br i1 %tobool40.not, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end38
-  %call42 = tail call i32 @git_config_string(ptr noundef nonnull @ssh_default_key_command, ptr noundef %var, ptr noundef %value) #14
+  %call42 = tail call i32 @git_config_string(ptr noundef nonnull @ssh_default_key_command, ptr noundef nonnull %var, ptr noundef %value) #14
   br label %return
 
 if.end43:                                         ; preds = %if.end38
@@ -838,7 +838,7 @@ if.end43:                                         ; preds = %if.end38
   br i1 %tobool45.not, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end43
-  %call47 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_allowed_signers, ptr noundef %var, ptr noundef %value) #14
+  %call47 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_allowed_signers, ptr noundef nonnull %var, ptr noundef %value) #14
   br label %return
 
 if.end48:                                         ; preds = %if.end43
@@ -847,7 +847,7 @@ if.end48:                                         ; preds = %if.end43
   br i1 %tobool50.not, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end48
-  %call52 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_revocation_file, ptr noundef %var, ptr noundef %value) #14
+  %call52 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_revocation_file, ptr noundef nonnull %var, ptr noundef %value) #14
   br label %return
 
 if.end53:                                         ; preds = %if.end48
@@ -894,7 +894,7 @@ for.cond.i54:                                     ; preds = %for.body.i49.prehea
 get_format_by_name.exit58:                        ; preds = %for.cond.i54, %for.body.i49.preheader
   %arrayidx.i51.lcssa = phi ptr [ @gpg_format, %for.body.i49.preheader ], [ %arrayidx.i51, %for.cond.i54 ]
   %program = getelementptr inbounds nuw i8, ptr %arrayidx.i51.lcssa, i64 8
-  %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef %var, ptr noundef %value) #14
+  %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef nonnull %var, ptr noundef %value) #14
   br label %return
 
 return:                                           ; preds = %parse_gpg_trust_level.exit.thread, %if.end59, %get_format_by_name.exit58, %if.then51, %if.then46, %if.then41, %_.exit48, %if.then26, %if.end20, %_.exit, %if.then10, %set_signing_key.exit, %if.then2
@@ -903,7 +903,7 @@ return:                                           ; preds = %parse_gpg_trust_lev
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #7
 
@@ -916,7 +916,7 @@ declare i32 @git_config_string(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @git_config_pathname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @verify_gpg_signed_buffer(ptr nocapture noundef %sigc, ptr nocapture noundef readonly %fmt, ptr noundef %signature, i64 noundef %signature_size) #2 {
+define internal i32 @verify_gpg_signed_buffer(ptr noundef captures(none) %sigc, ptr noundef readonly captures(none) %fmt, ptr noundef %signature, i64 noundef %signature_size) #2 {
 entry:
   %gpg = alloca %struct.child_process, align 8
   %temp = alloca ptr, align 8
@@ -1291,7 +1291,7 @@ return:                                           ; preds = %parse_gpg_output.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sign_buffer_gpg(ptr nocapture noundef readonly %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
+define internal range(i32 -1, 1) i32 @sign_buffer_gpg(ptr noundef readonly captures(none) %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
 entry:
   %gpg = alloca %struct.child_process, align 8
   %gpg_status = alloca %struct.strbuf, align 8
@@ -1437,7 +1437,7 @@ return:                                           ; preds = %if.then4.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @verify_ssh_signed_buffer(ptr nocapture noundef %sigc, ptr nocapture noundef readonly %fmt, ptr noundef %signature, i64 noundef %signature_size) #2 {
+define internal i32 @verify_ssh_signed_buffer(ptr noundef captures(none) %sigc, ptr noundef readonly captures(none) %fmt, ptr noundef %signature, i64 noundef %signature_size) #2 {
 entry:
   %ssh_keygen = alloca %struct.child_process, align 8
   %buffer_file = alloca ptr, align 8
@@ -1833,7 +1833,7 @@ return:                                           ; preds = %if.end109, %_.exit4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sign_buffer_ssh(ptr nocapture noundef readonly %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
+define internal i32 @sign_buffer_ssh(ptr noundef readonly captures(none) %buffer, ptr noundef %signature, ptr noundef %signing_key) #2 {
 entry:
   %signer = alloca %struct.child_process, align 8
   %signer_stderr = alloca %struct.strbuf, align 8
@@ -1916,7 +1916,7 @@ if.end13:                                         ; preds = %if.then6
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph) #17
   %fd = getelementptr inbounds nuw i8, ptr %call.i10, i64 16
   %5 = load volatile i32, ptr %fd, align 8
-  %call15 = tail call i64 @write_in_full(i32 noundef %5, ptr noundef %literal_key.0.ph, i64 noundef %call14) #14
+  %call15 = tail call i64 @write_in_full(i32 noundef %5, ptr noundef nonnull %literal_key.0.ph, i64 noundef %call14) #14
   %cmp16 = icmp slt i64 %call15, 0
   br i1 %cmp16, label %if.then22, label %lor.lhs.false18
 
@@ -2323,7 +2323,7 @@ if.then.i:                                        ; preds = %do.body.i.i.i, %if.
   %literal_key.0.ph.i = phi ptr [ %retval.0.i, %if.end.i.i1 ], [ %scevgep.i.i, %do.body.i.i.i ]
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.29, ptr noundef null) #14
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph.i) #17
-  %call2.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef %literal_key.0.ph.i, i64 noundef %call1.i, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %call2.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull %literal_key.0.ph.i, i64 noundef %call1.i, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
   br label %if.end.i2
 
 if.else.i:                                        ; preds = %if.end.i.i1
@@ -2368,7 +2368,7 @@ get_ssh_key_fingerprint.exit:                     ; preds = %if.end8.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #7
 
@@ -2391,7 +2391,7 @@ declare i32 @pipe_command(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i6
 declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -2403,12 +2403,12 @@ declare ptr @mks_tempfile_tsm(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_cr_after(ptr nocapture noundef %buffer, i64 noundef %offset) unnamed_addr #2 {
+define internal fastcc void @remove_cr_after(ptr noundef captures(none) %buffer, i64 noundef %offset) unnamed_addr #2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load i64, ptr %len, align 8
@@ -2495,7 +2495,7 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @strbuf_stripspace(ptr noundef, i8 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @interpolate_path(ptr noundef, i32 noundef) local_unnamed_addr #7
 
@@ -2533,10 +2533,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

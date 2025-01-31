@@ -149,7 +149,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [42 x i8] c"POWER: power_save: handle failed nodes %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @power_job_reboot(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @power_job_reboot(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @bitmap2node_name(ptr noundef %0) #12
   store ptr %5, ptr %4, align 8
@@ -270,7 +270,7 @@ define dso_local void @power_save_exc_setup() local_unnamed_addr #0 {
 28:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %26, align 1
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %30 = call i64 @strtol(ptr nocapture noundef nonnull %29, ptr noundef null, i32 noundef 10) #12
+  %30 = call i64 @strtol(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #12
   %31 = call i32 @node_name2bitmap(ptr noundef nonnull %.01429.i, i1 noundef zeroext false, ptr noundef nonnull %6) #12
   %.not23.i = icmp eq i64 %30, 0
   br i1 %.not23.i, label %32, label %37
@@ -534,7 +534,7 @@ declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare ptr @find_part_record(ptr noundef) local_unnamed_addr #1
 
@@ -545,7 +545,7 @@ declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_list_part_node_lists(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_list_part_node_lists(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -670,7 +670,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  %42 = tail call i64 @strtol(ptr nocapture noundef nonnull %41, ptr noundef null, i32 noundef 10) #12
+  %42 = tail call i64 @strtol(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i16
   store i16 %43, ptr @power_save_interval, align 2
   br label %44
@@ -683,7 +683,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %49 = tail call i64 @strtol(ptr nocapture noundef nonnull %48, ptr noundef null, i32 noundef 10) #12
+  %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #12
   %50 = trunc i64 %49 to i16
   store i16 %50, ptr @power_save_min_interval, align 2
   br label %51
@@ -1083,7 +1083,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_power_save_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -2677,7 +2677,7 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
 declare ptr @next_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_set_partition_options(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define internal noundef i32 @_set_partition_options(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
@@ -2832,7 +2832,7 @@ define internal void @_exc_node_part_free(ptr noundef %0) #0 {
 declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #1
 
@@ -2845,7 +2845,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @parse_node_state_flag(ptr noundef) local_unnamed_addr #1
 
@@ -2936,13 +2936,13 @@ define internal fastcc void @power_save_rl_setup() unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #3
@@ -2952,7 +2952,7 @@ declare void @xfree_ptr(ptr noundef) #1
 declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_build_resume_job_list(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_build_resume_job_list(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16384
@@ -2990,7 +2990,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_pick_exc_nodes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @_pick_exc_nodes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3161,10 +3161,10 @@ declare i16 @llvm.umax.i16(i16, i16) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

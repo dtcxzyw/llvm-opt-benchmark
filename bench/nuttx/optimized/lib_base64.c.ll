@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_base64 = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @b64_ntop(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i64 %1, 2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -136,7 +136,7 @@ define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noca
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   br label %.outer.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.outer.outer.outer

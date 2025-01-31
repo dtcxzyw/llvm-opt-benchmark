@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.RIPEMD160state_st = type { [5 x i32], i32, i32, [64 x i8], i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @RIPEMD160_Update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data_, i64 noundef %len) local_unnamed_addr #0 {
+define hidden noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %data_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -91,10 +91,10 @@ return:                                           ; preds = %if.end45, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ripemd160_block_data_order(ptr nocapture noundef %h, ptr nocapture noundef readonly %data, i64 noundef range(i64 1, 288230376151711744) %num) unnamed_addr #0 {
+define internal fastcc void @ripemd160_block_data_order(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %data, i64 noundef range(i64 1, 288230376151711744) %num) unnamed_addr #0 {
 entry:
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %h, i64 4
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %h, i64 8
@@ -1721,17 +1721,17 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @RIPEMD160_Transform(ptr nocapture noundef %c, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define hidden void @RIPEMD160_Transform(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @ripemd160_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @RIPEMD160_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr nocapture noundef %c) local_unnamed_addr #0 {
+define hidden noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) initializes((0, 20)) %md, ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %c, i64 92
   %0 = load i32, ptr %num, align 4
@@ -1878,7 +1878,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @RIPEMD160_Init(ptr nocapture noundef writeonly initializes((0, 96)) %ctx) local_unnamed_addr #3 {
+define hidden noundef i32 @RIPEMD160_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %ctx) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
@@ -1895,7 +1895,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @RIPEMD160(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly initializes((0, 20)) %out) local_unnamed_addr #0 {
+define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef returned writeonly initializes((0, 20)) %out) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RIPEMD160state_st, align 4
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 20

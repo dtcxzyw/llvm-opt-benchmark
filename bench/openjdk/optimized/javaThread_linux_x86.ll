@@ -140,13 +140,13 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %42, %48, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10JavaThread35pd_get_top_frame_for_signal_handlerEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10JavaThread35pd_get_top_frame_for_signal_handlerEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN10JavaThread16pd_get_top_frameEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10JavaThread16pd_get_top_frameEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10JavaThread16pd_get_top_frameEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.frame, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -476,20 +476,20 @@ _ZN5frameC2EPlS0_Ph.exit23:                       ; preds = %146, %152, %153
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10JavaThread30pd_get_top_frame_for_profilingEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10JavaThread30pd_get_top_frame_for_profilingEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN10JavaThread16pd_get_top_frameEP5framePvb(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10JavaThread22cache_global_variablesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1800) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10JavaThread22cache_global_variablesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1800) %0) local_unnamed_addr #3 align 2 {
   ret void
 }
 

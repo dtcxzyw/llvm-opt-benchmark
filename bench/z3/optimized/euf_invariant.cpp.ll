@@ -23,7 +23,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3euf6solver25check_eqc_bool_assignmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3euf6solver25check_eqc_bool_assignmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 1832
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -94,7 +94,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3euf6solver36check_missing_bool_enode_propagationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3euf6solver36check_missing_bool_enode_propagationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 1832
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -193,7 +193,7 @@ for.end41:                                        ; preds = %for.inc40, %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3euf6solver28check_missing_eq_propagationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3euf6solver28check_missing_eq_propagationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9136) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_solver.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_solver.i, align 8

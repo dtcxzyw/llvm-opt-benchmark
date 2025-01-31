@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 1, 5) i32 @_ZN3re210chartoruneEPiPKc(ptr nocapture noundef writeonly initializes((0, 4)) %rune, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define noundef range(i32 1, 5) i32 @_ZN3re210chartoruneEPiPKc(ptr noundef writeonly captures(none) initializes((0, 4)) %rune, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %str, align 1
   %conv = zext i8 %0 to i32
@@ -93,7 +93,7 @@ return:                                           ; preds = %if.end8, %entry, %b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 1, 5) i32 @_ZN3re210runetocharEPcPKi(ptr nocapture noundef writeonly initializes((0, 1)) %str, ptr nocapture noundef readonly %rune) local_unnamed_addr #0 {
+define noundef range(i32 1, 5) i32 @_ZN3re210runetocharEPcPKi(ptr noundef writeonly captures(none) initializes((0, 1)) %str, ptr noundef readonly captures(none) %rune) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %rune, align 4
   %cmp = icmp ult i32 %0, 128
@@ -194,7 +194,7 @@ _ZN3re210runetocharEPcPKi.exit:                   ; preds = %if.end10.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN3re28fullruneEPKci(ptr nocapture noundef readonly %str, i32 noundef %n) local_unnamed_addr #2 {
+define noundef range(i32 0, 2) i32 @_ZN3re28fullruneEPKci(ptr noundef readonly captures(none) %str, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end16
@@ -231,7 +231,7 @@ return:                                           ; preds = %if.then9, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3re26utflenEPKc(ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define noundef i32 @_ZN3re26utflenEPKc(ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   br label %for.cond
 

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [61 x i8] c"Possible integer overflow in zend_arena_calloc() (%zu * %zu)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @zend_analyze_calls(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %8 = load ptr, ptr %7, align 8
@@ -377,7 +377,7 @@ declare ptr @zend_optimizer_get_called_func(ptr noundef, ptr noundef, ptr nounde
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zend_build_call_graph(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define void @zend_build_call_graph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 8
   tail call void @zend_foreach_op_array(ptr noundef %1, ptr noundef nonnull @zend_op_array_calc, ptr noundef nonnull %2) #10
   %4 = load i32, ptr %2, align 8
@@ -492,7 +492,7 @@ define void @zend_build_call_graph(ptr nocapture noundef %0, ptr noundef %1, ptr
 declare void @zend_foreach_op_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @zend_op_array_calc(ptr nocapture readnone %0, ptr nocapture noundef %1) #3 {
+define internal void @zend_op_array_calc(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %1, align 8
@@ -500,7 +500,7 @@ define internal void @zend_op_array_calc(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @zend_op_array_collect(ptr noundef %0, ptr nocapture noundef %1) #4 {
+define internal void @zend_op_array_collect(ptr noundef %0, ptr noundef captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -525,7 +525,7 @@ define internal void @zend_op_array_collect(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_analyze_call_graph(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @zend_analyze_call_graph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -555,7 +555,7 @@ define void @zend_analyze_call_graph(ptr nocapture noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_analyze_recursion(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 63
@@ -655,7 +655,7 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @zend_build_call_map(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -804,10 +804,10 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) unnamed_addr #7 {
   %4 = icmp eq ptr %1, %0
   br i1 %4, label %.loopexit, label %5
 

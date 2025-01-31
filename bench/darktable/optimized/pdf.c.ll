@@ -100,17 +100,17 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readnone captures(none) %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca float, align 4
   %14 = alloca float, align 4
   %15 = alloca float, align 4
@@ -616,10 +616,10 @@ define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #1 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -700,7 +700,7 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @dt_colorspaces_get_output_profile(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -712,14 +712,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @dt_pdf_add_icc_from_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #6
+declare void @free(ptr allocptr noundef captures(none)) #6
 
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -737,14 +737,14 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @bpp(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 4, !tbaa !59
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 256, 259) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 256, 259) i32 @levels(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 4, !tbaa !59
   %4 = icmp eq i32 %3, 8
@@ -753,12 +753,12 @@ define range(i32 256, 259) i32 @levels(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @mime(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @mime(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @extension(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @extension(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.3
 }
 
@@ -769,12 +769,12 @@ define ptr @name() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @flags(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @flags(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @dimension(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -1038,7 +1038,7 @@ declare void @gtk_grid_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @dt_action_entry_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @title_changed_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @title_changed_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i64 @gtk_entry_get_type() #20
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call ptr @gtk_entry_get_text(ptr noundef %4) #17
@@ -1247,7 +1247,7 @@ define internal fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %1) unn
   %99 = call i32 @dt_pdf_parse_paper_size(ptr noundef nonnull %96, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
   %100 = icmp eq i32 %99, 0
   %101 = select i1 %100, ptr @.str.62, ptr %96
-  call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef nonnull %101)
+  call fastcc void @_set_paper_size(ptr noundef nonnull %0, ptr noundef nonnull %101)
   call void @g_free(ptr noundef nonnull %96) #17
   br label %102
 
@@ -1258,21 +1258,21 @@ define internal fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %1) unn
 
 103:                                              ; preds = %102, %86
   %104 = load ptr, ptr %14, align 8, !tbaa !79
-  %105 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %104, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef %0) #17
+  %105 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %104, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef nonnull %0) #17
   ret void
 }
 
 declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @orientation_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @orientation_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.16, i32 noundef %3) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @border_changed_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @border_changed_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i64 @gtk_entry_get_type() #20
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call ptr @gtk_entry_get_text(ptr noundef %4) #17
@@ -1296,7 +1296,7 @@ declare float @dt_conf_get_float(ptr noundef) local_unnamed_addr #3
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @dpi_changed_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @dpi_changed_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i64 @gtk_spin_button_get_type() #20
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #17
   %5 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %4) #17
@@ -1308,7 +1308,7 @@ define internal void @dpi_changed_callback(ptr noundef %0, ptr nocapture readnon
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @rotate_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @rotate_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = icmp eq i32 %3, 1
   %5 = zext i1 %4 to i32
@@ -1317,7 +1317,7 @@ define internal void @rotate_toggle_callback(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pages_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @pages_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %3) #17
   ret void
@@ -1326,7 +1326,7 @@ define internal void @pages_toggle_callback(ptr noundef %0, ptr nocapture readno
 declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @icc_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @icc_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = icmp eq i32 %3, 1
   %5 = zext i1 %4 to i32
@@ -1339,7 +1339,7 @@ declare ptr @dt_bauhaus_combobox_new_action(ptr noundef) local_unnamed_addr #3
 declare ptr @dt_bauhaus_widget_set_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @bpp_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @bpp_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %9
@@ -1358,21 +1358,21 @@ define internal void @bpp_toggle_callback(ptr noundef %0, ptr nocapture readnone
 declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @compression_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @compression_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.50, i32 noundef %3) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mode_toggle_callback(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @mode_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.57, i32 noundef %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   tail call void @free(ptr noundef %3) #17
@@ -1471,12 +1471,12 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @params_size(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @params_size(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 440
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_params(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef ptr @get_params(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(480) ptr @calloc(i64 noundef 1, i64 noundef 480) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %30, label %4
@@ -1524,7 +1524,7 @@ define noundef ptr @get_params(ptr nocapture noundef readnone %0) local_unnamed_
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = icmp eq ptr %4, null
@@ -1700,7 +1700,7 @@ declare i32 @g_signal_handlers_block_matched(ptr noundef, i32 noundef, i32 nound
 declare i32 @dt_bauhaus_combobox_length(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @dt_bauhaus_combobox_get_entry(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1712,7 +1712,7 @@ declare double @gtk_spin_button_get_value(ptr noundef) local_unnamed_addr #3
 declare i16 @llvm.bswap.i16(i16) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

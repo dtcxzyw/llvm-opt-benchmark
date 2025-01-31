@@ -106,7 +106,7 @@ return:                                           ; preds = %if.end39, %if.end22
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr nocapture noundef writeonly initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr noundef writeonly captures(none) initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %bs, i64 4
   store i32 2, ptr %type, align 4
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr nocapture noundef initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr noundef captures(none) initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr noundef %bs, ptr noundef %buf, i32 noundef %size)
   %cmp.not = icmp eq i32 %call, 0

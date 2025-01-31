@@ -73,7 +73,7 @@ declare i32 @pmi2_start_agent() local_unnamed_addr #1
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @mpi_p_slurmstepd_task(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @task_socks, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -181,7 +181,7 @@ define noundef ptr @mpi_p_client_prelaunch(ptr noundef %0, ptr noundef %1) local
 declare i32 @pmi2_setup_srun(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mpi_p_client_fini(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @mpi_p_client_fini(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pmi2_stop_agent() #3
   tail call void @spawn_job_wait() #3
   ret i32 0
@@ -206,12 +206,12 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 declare void @pmi2_cleanup_stepd() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @mpi_p_conf_options(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define void @mpi_p_conf_options(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @mpi_p_conf_set(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define void @mpi_p_conf_set(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret void
 }
 

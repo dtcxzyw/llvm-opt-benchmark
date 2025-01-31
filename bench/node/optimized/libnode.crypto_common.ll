@@ -253,7 +253,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %issuer = alloca ptr, align 8
   %call = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %ctx) #17
@@ -294,7 +294,7 @@ declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @X509_STORE_CTX_get1_issuer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto9LogSecretERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEEPKcPKhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl, ptr noundef %name, ptr noundef %secret, i64 noundef %secretlen) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto9LogSecretERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEEPKcPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl, ptr noundef %name, ptr noundef %secret, i64 noundef %secretlen) local_unnamed_addr #3 {
 entry:
   %crandom = alloca [32 x i8], align 16
   %line = alloca %"class.std::__cxx11::basic_string", align 8
@@ -398,12 +398,12 @@ return:                                           ; preds = %if.end, %entry
 declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @_ZN4node6Buffer4CopyEPNS_11EnvironmentEPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto13SetTLSSessionERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEERKS1_I14ssl_session_stNS3_IS8_XadL_Z16SSL_SESSION_freeEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %session) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto13SetTLSSessionERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEERKS1_I14ssl_session_stNS3_IS8_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %session) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %session, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
@@ -423,7 +423,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto13GetTLSSessionEPKhm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.21") align 8 initializes((0, 8)) %agg.result, ptr noundef %buf, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto13GetTLSSessionEPKhm(ptr noalias writeonly sret(%"class.std::unique_ptr.21") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %buf, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %buf.addr = alloca ptr, align 8
   store ptr %buf, ptr %buf.addr, align 8
@@ -435,7 +435,7 @@ entry:
 declare ptr @d2i_SSL_SESSION(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node6crypto21VerifyPeerCertificateERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl, i64 noundef %def) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN4node6crypto21VerifyPeerCertificateERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl, i64 noundef %def) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get1_peer_certificate(ptr noundef %0) #17
@@ -491,7 +491,7 @@ declare i32 @SSL_SESSION_get_protocol_version(ptr noundef) local_unnamed_addr #0
 declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto13UseSNIContextERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEENS_17BaseObjectPtrImplINS0_13SecureContextELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl, ptr nocapture noundef readonly %context) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto13UseSNIContextERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEENS_17BaseObjectPtrImplINS0_13SecureContextELb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl, ptr noundef readonly captures(none) %context) local_unnamed_addr #3 {
 entry:
   %chain = alloca ptr, align 8
   %0 = load ptr, ptr %context, align 8
@@ -542,7 +542,7 @@ declare i32 @SSL_use_certificate(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @SSL_use_PrivateKey(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto18GetClientHelloALPNERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto18GetClientHelloALPNERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %buf = alloca ptr, align 8
   %rem = alloca i64, align 8
@@ -577,7 +577,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @SSL_client_hello_get0_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto24GetClientHelloServerNameERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto24GetClientHelloServerNameERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS2_XadL_Z8SSL_freeEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %buf = alloca ptr, align 8
   %rem = alloca i64, align 8
@@ -645,7 +645,7 @@ entry:
 declare ptr @SSL_get_servername(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto9SetGroupsEPNS0_13SecureContextEPKc(ptr nocapture noundef readonly %sc, ptr noundef %groups) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto9SetGroupsEPNS0_13SecureContextEPKc(ptr noundef readonly captures(none) %sc, ptr noundef %groups) local_unnamed_addr #3 {
 entry:
   %ctx_.i = getelementptr inbounds nuw i8, ptr %sc, i64 32
   %0 = load ptr, ptr %ctx_.i, align 8
@@ -778,7 +778,7 @@ sw.epilog:                                        ; preds = %sw.bb27, %sw.bb26, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto24GetValidationErrorReasonEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef %err) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto24GetValidationErrorReasonEPNS_11EnvironmentEi(ptr noundef readonly captures(none) %env, i32 noundef %err) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %err, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto22GetValidationErrorCodeEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef %err) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto22GetValidationErrorCodeEPNS_11EnvironmentEi(ptr noundef readonly captures(none) %env, i32 noundef %err) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %err, 0
   %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -842,7 +842,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto7GetCertEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto7GetCertEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get_certificate(ptr noundef %0) #17
@@ -1716,10 +1716,10 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
@@ -1909,7 +1909,7 @@ declare ptr @_ZN4node6Buffer3NewEPNS_11EnvironmentEN2v85LocalINS3_11ArrayBufferE
 declare noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto15GetSerialNumberEPNS_11EnvironmentEP7x509_st(ptr nocapture noundef readonly %env, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto15GetSerialNumberEPNS_11EnvironmentEP7x509_st(ptr noundef readonly captures(none) %env, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %buf = alloca %"class.node::crypto::ByteSource", align 8
   %call = tail call ptr @X509_get_serialNumber(ptr noundef %cert) #17
@@ -1924,7 +1924,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %call5 = tail call ptr @BN_bn2hex(ptr noundef nonnull %call1) #17
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call5) #19
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %buf, ptr noundef %call5, i64 noundef %call6) #17
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %buf, ptr noundef nonnull %call5, i64 noundef %call6) #17
   %0 = load ptr, ptr %buf, align 8
   %cmp.i6.not = icmp eq ptr %0, null
   br i1 %cmp.i6.not, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit, label %if.then8
@@ -1968,13 +1968,13 @@ declare ptr @BN_bn2hex(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr sret(%"class.node::crypto::ByteSource") align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto11GetKeyUsageEPNS_11EnvironmentEP7x509_st(ptr nocapture noundef readonly %env, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto11GetKeyUsageEPNS_11EnvironmentEP7x509_st(ptr noundef readonly captures(none) %env, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %ext_key_usage = alloca %"class.node::MaybeStackBuffer", align 8
   %buf = alloca [256 x i8], align 16
@@ -2102,7 +2102,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto20GetCurrentCipherNameEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto20GetCurrentCipherNameEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get_current_cipher(ptr noundef %0) #17
@@ -2133,7 +2133,7 @@ _ZN4node6crypto12_GLOBAL__N_114GetCipherValueIXadL_Z19SSL_CIPHER_get_nameEEEEN2v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto23GetCurrentCipherVersionEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto23GetCurrentCipherVersionEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get_current_cipher(ptr noundef %0) #17
@@ -2164,7 +2164,7 @@ _ZN4node6crypto12_GLOBAL__N_114GetCipherValueIXadL_Z22SSL_CIPHER_get_versionEEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr nocapture noundef readonly %env, ptr noundef %method, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef readonly captures(none) %env, ptr noundef %method, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %md = alloca [64 x i8], align 16
   %md_size = alloca i32, align 4
@@ -2243,7 +2243,7 @@ return:                                           ; preds = %if.then.i.i, %_ZN4n
 declare i32 @X509_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
@@ -2281,7 +2281,7 @@ declare i32 @ASN1_TIME_print(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
@@ -2317,7 +2317,7 @@ _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15Functio
 declare ptr @X509_get0_notBefore(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto27SafeX509SubjectAltNamePrintERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEP17X509_extension_st(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %ext) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto27SafeX509SubjectAltNamePrintERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEP17X509_extension_st(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %out, ptr noundef %ext) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @X509V3_EXT_get(ptr noundef %ext) #17
   %call1 = tail call ptr @X509V3_EXT_get_nid(i32 noundef 85) #17
@@ -2379,7 +2379,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #0
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node6cryptoL16PrintGeneralNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPK15GENERAL_NAME_st(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %out, ptr nocapture noundef readonly %gen) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node6cryptoL16PrintGeneralNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPK15GENERAL_NAME_st(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %out, ptr noundef readonly captures(none) %gen) unnamed_addr #3 {
 entry:
   %oline = alloca ptr, align 8
   %oline108 = alloca [256 x i8], align 16
@@ -2642,7 +2642,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @GENERAL_NAME_free(ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto23SafeX509InfoAccessPrintERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEP17X509_extension_st(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %ext) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto23SafeX509InfoAccessPrintERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEP17X509_extension_st(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %out, ptr noundef %ext) local_unnamed_addr #3 {
 entry:
   %objtmp = alloca [80 x i8], align 16
   %call = tail call ptr @X509V3_EXT_get(ptr noundef %ext) #17
@@ -2709,7 +2709,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 declare void @ACCESS_DESCRIPTION_free(ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto23GetSubjectAltNameStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto23GetSubjectAltNameStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %call = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 85, i32 noundef -1) #17
@@ -2795,7 +2795,7 @@ declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_un
 declare ptr @X509_get_ext(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto19GetInfoAccessStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto19GetInfoAccessStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %call = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 177, i32 noundef -1) #17
@@ -2877,7 +2877,7 @@ return:                                           ; preds = %_ZN4node6crypto9ToV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto15GetIssuerStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto15GetIssuerStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %call = tail call ptr @X509_get_issuer_name(ptr noundef %cert) #17
@@ -2943,7 +2943,7 @@ declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #0
 declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto10GetSubjectEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr nocapture noundef readonly %env, ptr noundef %cert, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto10GetSubjectEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %cert, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio) local_unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
@@ -3007,7 +3007,7 @@ return:                                           ; preds = %_ZN4node6crypto9ToV
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto21GetClientHelloCiphersEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %buf = alloca ptr, align 8
@@ -3335,7 +3335,7 @@ return:                                           ; preds = %if.end5.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto13GetCipherInfoEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %0 = load ptr, ptr %ssl, align 8
@@ -3551,7 +3551,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4node6crypto15GetEphemeralKeyEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl) local_unnamed_addr #3 {
 entry:
   %raw_key = alloca ptr, align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -4017,7 +4017,7 @@ declare i64 @EC_POINT_point2oct(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto11GetPeerCertEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEEbb(ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ssl, i1 noundef zeroext %abbreviated, i1 noundef zeroext %is_server) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto11GetPeerCertEPNS_11EnvironmentERKSt10unique_ptrI6ssl_stNS_15FunctionDeleterIS4_XadL_Z8SSL_freeEEEEEbb(ptr noundef %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ssl, i1 noundef zeroext %abbreviated, i1 noundef zeroext %is_server) local_unnamed_addr #3 {
 entry:
   %issuer.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %ssl, align 8
@@ -4443,7 +4443,7 @@ declare ptr @EVP_PKEY_get1_RSA(ptr noundef) local_unnamed_addr #0
 declare void @RSA_get0_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_116GetModulusStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio, ptr noundef %n) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_116GetModulusStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio, ptr noundef %n) unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
@@ -4476,7 +4476,7 @@ _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_117GetExponentStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bio, ptr noundef %e) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_117GetExponentStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef readonly captures(none) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bio, ptr noundef %e) unnamed_addr #3 {
 entry:
   %mem.i = alloca ptr, align 8
   %call = tail call i64 @BN_get_word(ptr noundef %e) #17
@@ -4510,7 +4510,7 @@ _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_19GetPubKeyEPNS_11EnvironmentERKSt10unique_ptrI6rsa_stNS_15FunctionDeleterIS5_XadL_Z8RSA_freeEEEEE(ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rsa) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_19GetPubKeyEPNS_11EnvironmentERKSt10unique_ptrI6rsa_stNS_15FunctionDeleterIS5_XadL_Z8RSA_freeEEEEE(ptr noundef %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %rsa) unnamed_addr #3 {
 entry:
   %bs = alloca %"class.std::unique_ptr.310", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.310", align 8
@@ -4661,7 +4661,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit13: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_110GetECGroupEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr nocapture noundef readonly %env, ptr noundef %group) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_110GetECGroupEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef readonly captures(none) %env, ptr noundef %group) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %if.then, label %if.end
@@ -4697,7 +4697,7 @@ return:                                           ; preds = %if.end19, %if.then9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_111GetECPubKeyEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef %env, ptr noundef %group, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ec) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_111GetECPubKeyEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef %env, ptr noundef %group, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ec) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %call1 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %0) #17
@@ -4724,7 +4724,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef readonly captures(none) %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @OBJ_nid2sn(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null
@@ -4753,7 +4753,7 @@ cond.end:                                         ; preds = %if.then.i.i, %cond.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef readonly captures(none) %env, i32 noundef range(i32 1, 0) %nid) unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @EC_curve_nid2nist(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null
@@ -4800,7 +4800,7 @@ declare void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceab
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %name, i64 noundef %length, i1 noundef zeroext %utf8, ptr noundef %safe_prefix) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %out, ptr noundef %name, i64 noundef %length, i1 noundef zeroext %utf8, ptr noundef %safe_prefix) unnamed_addr #3 {
 entry:
   %c = alloca i8, align 1
   %u = alloca [6 x i8], align 1
@@ -5332,10 +5332,10 @@ do.end5:                                          ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 
@@ -5385,10 +5385,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

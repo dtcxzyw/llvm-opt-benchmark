@@ -724,7 +724,7 @@ escape_quotes.exit:                               ; preds = %94
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @pg_logging_init(ptr noundef) local_unnamed_addr #2
 
@@ -873,7 +873,7 @@ define dso_local void @check_objfilter() local_unnamed_addr #3 {
 declare void @setup_cancel_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 {
   %8 = tail call ptr @connectMaintenanceDatabase(ptr noundef nonnull %0, ptr noundef %4, i1 noundef zeroext %5) #9
   %9 = tail call ptr @executeQuery(ptr noundef %8, ptr noundef nonnull @.str.119, i1 noundef zeroext %5) #9
   tail call void @PQfinish(ptr noundef %8) #9
@@ -929,12 +929,12 @@ define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 -2147483648, 3) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
+define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 -2147483648, 3) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = alloca %struct.PQExpBufferData, align 8
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = alloca %struct.PQExpBufferData, align 8
@@ -1747,7 +1747,7 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @PQdb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 

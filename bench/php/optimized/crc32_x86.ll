@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__cpu_model = external dso_local local_unnamed_addr global { i32, i32, i32, [1 x i32] }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i64 @crc32_pclmul_batch(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %2, 16
   br i1 %5, label %116, label %6
 
@@ -182,7 +182,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
 declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i64 @crc32_pclmul_reflected_batch(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %2, 16
   br i1 %5, label %98, label %6
 
@@ -333,7 +333,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = icmp ugt i32 %0, 3
   br i1 %5, label %13, label %6
 
@@ -388,7 +388,7 @@ define hidden noundef i32 @zm_startup_crc32_x86_intrin(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @crc32_x86_simd_update_default(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #4 {
+define internal noundef i64 @crc32_x86_simd_update_default(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3) #4 {
   ret i64 0
 }
 

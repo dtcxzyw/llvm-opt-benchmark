@@ -106,7 +106,7 @@ _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7po
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = load double, ptr %3, align 8
   %6 = fsub double %2, %1
   %7 = fmul double %6, 2.000000e+00
@@ -137,7 +137,7 @@ _ZL8clenshawddPKdi.exit:                          ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %0, %3
   %5 = tail call double @sin(double noundef %4) #7

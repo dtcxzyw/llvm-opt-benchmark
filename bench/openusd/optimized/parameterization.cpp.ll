@@ -542,7 +542,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization21convertSubF
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr16ParameterizationC2ENS0_3Sdc10SchemeTypeEi(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr16ParameterizationC2ENS0_3Sdc10SchemeTypeEi(ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits18GetRegularFaceSizeENS1_10SchemeTypeE(i32 noundef %1)
   %5 = icmp ne i32 %4, 4
   %6 = zext i1 %5 to i8

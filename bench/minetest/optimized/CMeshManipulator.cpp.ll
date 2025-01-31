@@ -394,7 +394,7 @@ $_ZTIN3irr5scene11CMeshBufferINS_5video17S3DVertexTangentsEEE = comdat any
 @_ZTIN3irr5scene11CMeshBufferINS_5video17S3DVertexTangentsEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5scene11CMeshBufferINS_5video17S3DVertexTangentsEEE, ptr @_ZTIN3irr5scene11IMeshBufferE }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr5scene16CMeshManipulator18recalculateNormalsEPNS0_11IMeshBufferEbb(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buffer, i1 noundef zeroext %smooth, i1 noundef zeroext %angleWeighted) unnamed_addr #0 align 2 {
+define void @_ZNK3irr5scene16CMeshManipulator18recalculateNormalsEPNS0_11IMeshBufferEbb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buffer, i1 noundef zeroext %smooth, i1 noundef zeroext %angleWeighted) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %buffer, null
   br i1 %tobool.not, label %if.end8, label %if.end
@@ -1233,7 +1233,7 @@ return:                                           ; preds = %if.then22, %for.con
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr5scene16CMeshManipulator14createMeshCopyEPNS0_5IMeshE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3irr5scene16CMeshManipulator14createMeshCopyEPNS0_5IMeshE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3131,10 +3131,10 @@ if.end21.i.3:                                     ; preds = %if.else18.i.3, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr5scene16CMeshManipulator12getPolyCountEPNS0_5IMeshE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3irr5scene16CMeshManipulator12getPolyCountEPNS0_5IMeshE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -3202,7 +3202,7 @@ return:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZNK3irr5scene16CMeshManipulator18createAnimatedMeshEPNS0_5IMeshENS0_20E_ANIMATED_MESH_TYPEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %mesh, i32 noundef %type) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK3irr5scene16CMeshManipulator18createAnimatedMeshEPNS0_5IMeshENS0_20E_ANIMATED_MESH_TYPEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh, i32 noundef %type) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 72
@@ -3837,7 +3837,7 @@ _ZN3irr5scene5SMeshD0Ev.exit:                     ; preds = %if.then.i.i.i.i.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #9
@@ -4199,7 +4199,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #10
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene13SAnimatedMesh22recalculateBoundingBoxEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 comdat align 2 {

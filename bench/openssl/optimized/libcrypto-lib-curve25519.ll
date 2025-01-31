@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ge_scalarmult_base(ptr nocapture noundef nonnull %h, ptr nocapture noundef nonnull readonly %a) unnamed_addr #0 {
+define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(none) %h, ptr noundef nonnull readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %q.i = alloca %struct.ge_p2, align 4
   %e = alloca [64 x i8], align 16
@@ -1012,7 +1012,7 @@ for.end63:                                        ; preds = %for.body57
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p3_tobytes(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
+define internal fastcc void @ge_p3_tobytes(ptr noundef captures(none) initializes((0, 32)) %s, ptr noundef nonnull readonly captures(none) %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
@@ -1037,7 +1037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sc_muladd(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %b, ptr nocapture noundef nonnull readonly %c) unnamed_addr #2 {
+define internal fastcc void @sc_muladd(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef nonnull readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %b, ptr noundef nonnull readonly captures(none) %c) unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %a, align 1
   %1 = zext i16 %0 to i64
@@ -2704,10 +2704,10 @@ return:                                           ; preds = %if.end36, %ge_fromb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_double_scalarmult_vartime(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %A, ptr nocapture noundef readonly %b) unnamed_addr #3 {
+define internal fastcc void @ge_double_scalarmult_vartime(ptr noundef nonnull captures(none) %r, ptr noundef nonnull readonly captures(none) %a, ptr noundef nonnull readonly captures(none) %A, ptr noundef readonly captures(none) %b) unnamed_addr #3 {
 entry:
   %t0.i329 = alloca [10 x i32], align 16
   %t0.i = alloca [10 x i32], align 16
@@ -3596,7 +3596,7 @@ for.end80:                                        ; preds = %for.inc, %if.end77,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_tobytes(ptr nocapture noundef nonnull initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
+define internal fastcc void @ge_tobytes(ptr noundef nonnull captures(none) initializes((0, 32)) %s, ptr noundef nonnull readonly captures(none) %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
@@ -3623,7 +3623,7 @@ entry:
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %ctx, ptr nocapture noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %ctx, ptr noundef captures(none) %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %s.i.i = alloca [32 x i8], align 16
   %recip.i = alloca [10 x i32], align 16
@@ -3687,7 +3687,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x25519(ptr noundef %out_shared_key, ptr nocapture noundef readonly %private_key, ptr nocapture noundef readonly %peer_public_value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x25519(ptr noundef %out_shared_key, ptr noundef readonly captures(none) %private_key, ptr noundef readonly captures(none) %peer_public_value) local_unnamed_addr #0 {
 entry:
   %t0.i.i = alloca [5 x i64], align 16
   %t1.i.i = alloca [5 x i64], align 16
@@ -4619,7 +4619,7 @@ x25519_scalar_mult.exit:                          ; preds = %x25519_scalar_mulx.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_x25519_public_from_private(ptr nocapture noundef writeonly %out_public_value, ptr nocapture noundef readonly %private_key) local_unnamed_addr #0 {
+define void @ossl_x25519_public_from_private(ptr noundef writeonly captures(none) %out_public_value, ptr noundef readonly captures(none) %private_key) local_unnamed_addr #0 {
 entry:
   %e = alloca [32 x i8], align 16
   %A = alloca %struct.ge_p3, align 4
@@ -4675,7 +4675,7 @@ fe_sub.exit:                                      ; preds = %for.body.i1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_invert(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull readonly %z) unnamed_addr #3 {
+define internal fastcc void @fe_invert(ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull readonly captures(none) %z) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %t1 = alloca [10 x i32], align 16
@@ -4787,7 +4787,7 @@ for.end107:                                       ; preds = %for.body102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_mul(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #2 {
+define internal fastcc void @fe_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %h, ptr noundef readonly captures(none) %f, ptr noundef readonly captures(none) %g) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %f, i64 4
@@ -5159,7 +5159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #2 {
+define internal fastcc void @fe_tobytes(ptr noundef writeonly captures(none) initializes((0, 32)) %s, ptr noundef nonnull readonly captures(none) %h) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %h, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %h, i64 4
@@ -5377,7 +5377,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @table_select(ptr nocapture noundef nonnull initializes((0, 120)) %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #3 {
+define internal fastcc void @table_select(ptr noundef nonnull captures(none) initializes((0, 120)) %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #3 {
 entry:
   %minust = alloca %struct.ge_precomp, align 4
   %and = tail call i8 @llvm.smin.i8(i8 %b, i8 0)
@@ -5926,7 +5926,7 @@ cmov.exit355:                                     ; preds = %for.body.i19.i346
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_madd(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #3 {
+define internal fastcc void @ge_madd(ptr noundef nonnull captures(none) %r, ptr noundef nonnull readonly captures(none) %p, ptr noundef readonly captures(none) %q) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %Y = getelementptr inbounds nuw i8, ptr %p, i64 40
@@ -6040,7 +6040,7 @@ fe_sub.exit76:                                    ; preds = %for.body.i68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull initializes((0, 40), (80, 160)) %r, ptr nocapture noundef nonnull readonly %p) unnamed_addr #3 {
+define internal fastcc void @ge_p2_dbl(ptr noundef nonnull captures(none) initializes((0, 40), (80, 160)) %r, ptr noundef nonnull readonly captures(none) %p) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   tail call fastcc void @fe_sq(ptr noundef %r, ptr noundef %p)
@@ -6379,10 +6379,10 @@ fe_sub.exit57:                                    ; preds = %for.body.i49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_sq(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef nonnull readonly %f) unnamed_addr #2 {
+define internal fastcc void @fe_sq(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %h, ptr noundef nonnull readonly captures(none) %f) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %f, i64 4
@@ -6633,7 +6633,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_add(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef nonnull readonly %q) unnamed_addr #3 {
+define internal fastcc void @ge_add(ptr noundef nonnull captures(none) %r, ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull readonly captures(none) %q) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   %Y = getelementptr inbounds nuw i8, ptr %p, i64 40
@@ -6769,16 +6769,16 @@ declare void @x25519_fe64_mul121666(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @x25519_fe64_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

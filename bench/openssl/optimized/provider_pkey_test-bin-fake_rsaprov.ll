@@ -114,7 +114,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @OSSL_PARAM_dup(ptr noundef) local_unnamed_addr #3
 
@@ -145,7 +145,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr readnone captures(none) %handle, ptr readnone captures(none) %in, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %provctx) #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #12
   store ptr %call, ptr %provctx, align 8
@@ -180,7 +180,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #3
 declare void @OSSL_LIB_CTX_free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @fake_rsa_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #4 {
+define internal noundef ptr @fake_rsa_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef writeonly captures(none) initializes((0, 4)) %no_cache) #4 {
 entry:
   store i32 0, ptr %no_cache, align 4
   switch i32 %operation_id, label %sw.epilog [
@@ -204,7 +204,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_sig_newctx(ptr nocapture readnone %provctx, ptr nocapture readnone %propq) #1 {
+define internal noundef ptr @fake_rsa_sig_newctx(ptr readnone captures(none) %provctx, ptr readnone captures(none) %propq) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1, ptr noundef nonnull @.str.9, i32 noundef 301) #12
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 303, ptr noundef nonnull @.str.17, ptr noundef %call) #12
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_sig_sign_init(ptr noundef %ctx, ptr noundef %provkey, ptr nocapture readnone %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign_init(ptr noundef %ctx, ptr noundef %provkey, ptr readnone captures(none) %params) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 320, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -247,7 +247,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly %sig, ptr nocapture noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef captures(none) %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 339, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -283,7 +283,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_sig_dupctx(ptr nocapture noundef readonly %ctx) #1 {
+define internal noundef ptr @fake_rsa_sig_dupctx(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %0 = load i8, ptr %ctx, align 1
   %1 = and i8 %0, -96
@@ -307,14 +307,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn_init(ptr noundef %ctx, ptr readnone captures(none) %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
 entry:
   %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 1, ptr noundef %provkey, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %ctx, ptr nocapture readnone %data, i64 %datalen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %ctx, ptr readnone captures(none) %data, i64 %datalen) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -404,7 +404,7 @@ return:                                           ; preds = %if.end36, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -484,14 +484,14 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_init(ptr noundef %ctx, ptr readnone captures(none) %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
 entry:
   %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 2, ptr noundef %provkey, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_final(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_final(ptr noundef %ctx, ptr readnone captures(none) %sig, i64 %siglen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -521,7 +521,7 @@ fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen, ptr nocapture readnone %tbv, i64 %tbvlen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %ctx, ptr readnone captures(none) %sig, i64 %siglen, ptr readnone captures(none) %tbv, i64 %tbvlen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -576,7 +576,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext range(i8 1, 3) %type, ptr noundef %provkey, ptr noundef %params) unnamed_addr #1 {
@@ -629,7 +629,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @fake_rsa_keymgmt_new(ptr nocapture readnone %provctx) #1 {
+define internal ptr @fake_rsa_keymgmt_new(ptr readnone captures(none) %provctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.9, i32 noundef 49) #12
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @.str.28, ptr noundef %call) #12
@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fake_rsa_keymgmt_has(ptr nocapture readnone %key, i32 %selection) #6 {
+define internal noundef i32 @fake_rsa_keymgmt_has(ptr readnone captures(none) %key, i32 %selection) #6 {
 entry:
   ret i32 1
 }
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fake_rsa_keymgmt_import(ptr nocapture noundef writeonly initializes((4, 8)) %keydata, i32 %selection, ptr nocapture readnone %p) #4 {
+define internal noundef i32 @fake_rsa_keymgmt_import(ptr noundef writeonly captures(none) initializes((4, 8)) %keydata, i32 %selection, ptr readnone captures(none) %p) #4 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %keydata, i64 4
   store i32 1, ptr %status, align 4
@@ -672,7 +672,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fake_rsa_keymgmt_export(ptr nocapture readnone %keydata, i32 noundef %selection, ptr nocapture noundef readonly %param_callback, ptr noundef %cbarg) #1 {
+define internal i32 @fake_rsa_keymgmt_export(ptr readnone captures(none) %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_callback, ptr noundef %cbarg) #1 {
 entry:
   %params1.i = alloca [3 x %struct.ossl_param_st], align 16
   %and = and i32 %selection, 1
@@ -705,7 +705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @fake_rsa_keymgmt_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #7 {
+define internal ptr @fake_rsa_keymgmt_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #7 {
 entry:
   %cmp.not = icmp eq i64 %reference_sz, 8
   br i1 %cmp.not, label %if.end, label %return
@@ -727,7 +727,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_gen_init(ptr nocapture readnone %provctx, i32 %selection, ptr nocapture readnone %params) #1 {
+define internal noundef ptr @fake_rsa_gen_init(ptr readnone captures(none) %provctx, i32 %selection, ptr readnone captures(none) %params) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str.9, i32 noundef 240) #12
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 240, ptr noundef nonnull @.str.31, ptr noundef %call) #12
@@ -744,7 +744,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_gen(ptr noundef %genctx, ptr nocapture readnone %osslcb, ptr nocapture readnone %cbarg) #1 {
+define internal noundef ptr @fake_rsa_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 254, ptr noundef nonnull @.str.32, ptr noundef %genctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -788,7 +788,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_st_open(ptr nocapture readnone %provctx, ptr nocapture noundef readonly %uri) #1 {
+define internal noundef ptr @fake_rsa_st_open(ptr readnone captures(none) %provctx, ptr noundef readonly captures(none) %uri) #1 {
 entry:
   %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(10) @fake_rsa_scheme, i64 noundef 9) #13
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -816,7 +816,7 @@ fake_rsa_st_open_ex.exit:                         ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_st_open_ex(ptr nocapture readnone %provctx, ptr nocapture noundef readonly %uri, ptr nocapture readnone %params, ptr noundef readonly %pw_cb, ptr noundef %pw_cbarg) #1 {
+define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %provctx, ptr noundef readonly captures(none) %uri, ptr readnone captures(none) %params, ptr noundef readonly %pw_cb, ptr noundef %pw_cbarg) #1 {
 entry:
   %fakepw = alloca [20 x i8], align 16
   %fakepw_len = alloca i64, align 8
@@ -871,19 +871,19 @@ return:                                           ; preds = %if.end16, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fake_rsa_st_settable_ctx_params(ptr nocapture readnone %provctx) #6 {
+define internal noundef nonnull ptr @fake_rsa_st_settable_ctx_params(ptr readnone captures(none) %provctx) #6 {
 entry:
   ret ptr @fake_rsa_st_settable_ctx_params.known_settable_ctx_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fake_rsa_st_set_ctx_params(ptr nocapture readnone %loaderctx, ptr nocapture readnone %params) #6 {
+define internal noundef i32 @fake_rsa_st_set_ctx_params(ptr readnone captures(none) %loaderctx, ptr readnone captures(none) %params) #6 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_st_load(ptr nocapture noundef %loaderctx, ptr nocapture noundef readonly %object_cb, ptr noundef %object_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #1 {
+define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %loaderctx, ptr noundef readonly captures(none) %object_cb, ptr noundef %object_cbarg, ptr readnone captures(none) %pw_cb, ptr readnone captures(none) %pw_cbarg) #1 {
 entry:
   %params = alloca [4 x %struct.ossl_param_st], align 16
   %object_type = alloca i32, align 4
@@ -968,7 +968,7 @@ if.end23:                                         ; preds = %if.then22, %sw.epil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_st_eof(ptr nocapture noundef readonly %loaderctx) #8 {
+define internal range(i32 0, 2) i32 @fake_rsa_st_eof(ptr noundef readonly captures(none) %loaderctx) #8 {
 entry:
   %0 = load i8, ptr %loaderctx, align 1
   %cmp = icmp ne i8 %0, 0
@@ -984,7 +984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @fake_rsa_st_delete(ptr nocapture readnone %loaderctx, ptr nocapture readnone %uri, ptr nocapture readnone %params, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
+define internal noundef i32 @fake_rsa_st_delete(ptr readnone captures(none) %loaderctx, ptr readnone captures(none) %uri, ptr readnone captures(none) %params, ptr readnone captures(none) %pw_cb, ptr readnone captures(none) %pw_cbarg) #0 {
 entry:
   store i1 true, ptr @key_deleted, align 4
   ret i32 1
@@ -993,7 +993,7 @@ entry:
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1004,13 +1004,13 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

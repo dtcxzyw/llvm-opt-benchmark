@@ -268,7 +268,7 @@ rb_float_new_inline.exit23:                       ; preds = %50, %48, %44, %rb_f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_complex_new(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1427,7 +1427,7 @@ f_complex_new2.exit44:                            ; preds = %rb_class_of.exit41,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5) unnamed_addr #0 {
+define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #0 {
   %7 = and i64 %0, 3
   %8 = icmp eq i64 %7, 2
   br i1 %8, label %18, label %9
@@ -1981,7 +1981,7 @@ define dso_local i64 @rb_complex_div(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_divide(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 3569, 3586) %3) unnamed_addr #0 {
+define internal fastcc i64 @f_divide(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 3569, 3586) %3) unnamed_addr #0 {
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
@@ -9912,7 +9912,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #4
 declare ptr @rb_str_to_cstr(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -10182,7 +10182,7 @@ skip_ws.exit10:                                   ; preds = %skip_ws.exit10.loop
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @rb_free_tmp_buffer(ptr noundef) local_unnamed_addr #4
 
@@ -10193,7 +10193,7 @@ declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 nou
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #12 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %5, 46
@@ -10567,16 +10567,16 @@ define internal fastcc i64 @str2num(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @rb_cstr_to_rat(ptr noundef %0, i32 noundef 0) #15
+  %4 = tail call i64 @rb_cstr_to_rat(ptr noundef nonnull %0, i32 noundef 0) #15
   br label %rb_float_new_inline.exit
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @strpbrk(ptr noundef %0, ptr noundef nonnull @.str.70) #20
+  %6 = tail call ptr @strpbrk(ptr noundef nonnull %0, ptr noundef nonnull @.str.70) #20
   %.not5 = icmp eq ptr %6, null
   br i1 %.not5, label %23, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call double @rb_cstr_to_dbl(ptr noundef %0, i32 noundef 0) #15
+  %8 = tail call double @rb_cstr_to_dbl(ptr noundef nonnull %0, i32 noundef 0) #15
   %9 = bitcast double %8 to i64
   %cond.i = icmp eq i64 %9, 3458764513820540928
   br i1 %cond.i, label %21, label %10
@@ -10604,7 +10604,7 @@ define internal fastcc i64 @str2num(ptr noundef %0) unnamed_addr #0 {
   br label %rb_float_new_inline.exit
 
 23:                                               ; preds = %5
-  %24 = tail call i64 @rb_cstr_to_inum(ptr noundef %0, i32 noundef 10, i32 noundef 0) #15
+  %24 = tail call i64 @rb_cstr_to_inum(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 0) #15
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %21, %19, %15, %23, %3
@@ -10618,7 +10618,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i64 @rb_cstr_to_rat(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare double @rb_cstr_to_dbl(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -10684,10 +10684,10 @@ declare ptr @rb_str_fill_terminator(i64 noundef, i32 noundef) local_unnamed_addr
 declare i64 @rb_const_get(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

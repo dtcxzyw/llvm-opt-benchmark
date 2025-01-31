@@ -319,7 +319,7 @@ if.then5.i.i:                                     ; preds = %release.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -349,14 +349,14 @@ terminate.lpad:                                   ; preds = %do.body2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE(ptr nocapture noundef readnone %mu, ptr noundef %w) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE(ptr noundef readnone captures(none) %mu, ptr noundef %w) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @AbslInternalPerThreadSemPost(ptr noundef %w)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl5Mutex17DecrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchENS_24synchronization_internal13KernelTimeoutE(ptr nocapture noundef readnone %mu, ptr nocapture noundef readnone %w, i64 %t.coerce) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl5Mutex17DecrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchENS_24synchronization_internal13KernelTimeoutE(ptr noundef readnone captures(none) %mu, ptr noundef readnone captures(none) %w, i64 %t.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef zeroext i1 @AbslInternalPerThreadSemWait(i64 %t.coerce)
   ret i1 %call.i
@@ -662,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this monotonic, align 8
   %and = and i64 %0, 77
@@ -934,7 +934,7 @@ if.end40:                                         ; preds = %do.body27, %do.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %y) unnamed_addr #7 {
 entry:
   %waitp = getelementptr inbounds nuw i8, ptr %x, i64 32
   %0 = load ptr, ptr %waitp, align 8
@@ -994,7 +994,7 @@ land.end:                                         ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i.i.i.i.i.i.i11 = alloca %"class.absl::Duration", align 8
   %lhs.i.i.i.i.i.i.i.i.i.i12 = alloca %"class.absl::Duration", align 8
@@ -1293,7 +1293,7 @@ do.end20:                                         ; preds = %do.body, %lor.rhs
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef %w) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef %w) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %w, align 8
   store ptr null, ptr %w, align 8
@@ -1304,13 +1304,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4absl5Mutex13AssertNotHeldEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK4absl5Mutex13AssertNotHeldEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -4096,7 +4096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %w) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %w) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %enable_rescheduling.i = alloca %"class.absl::base_internal::SchedulingGuard::ScopedEnable", align 4
   %waitp = getelementptr inbounds nuw i8, ptr %w, i64 32
@@ -4390,7 +4390,7 @@ _ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %_ZN4absl13base_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl7CondVar6RemoveEPNS_13base_internal14PerThreadSynchE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl7CondVar6RemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lhs.i.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
   %lhs.i.i.i.i.i.i.i.i.i.i = alloca %"class.absl::Duration", align 8
@@ -4927,7 +4927,7 @@ for.end:                                          ; preds = %_ZN4absl24synchroni
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl19ReleasableMutexLock7ReleaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl19ReleasableMutexLock7ReleaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -4967,7 +4967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %func, ptr noundef %arg) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %func, ptr noundef %arg) unnamed_addr #10 align 2 {
 entry:
   %arrayinit.end = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4980,7 +4980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9Condition19CallVoidPtrFunctionEPKS0_(ptr nocapture noundef readonly %c) #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl9Condition19CallVoidPtrFunctionEPKS0_(ptr noundef readonly captures(none) %c) #0 align 2 {
 entry:
   %function_pointer.0.copyload = load ptr, ptr %c, align 8
   %arg_ = getelementptr inbounds nuw i8, ptr %c, i64 24
@@ -4990,7 +4990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPKb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %cond) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPKb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %cond) unnamed_addr #10 align 2 {
 entry:
   %arrayinit.end = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5003,7 +5003,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN4abslL11DereferenceEPv(ptr nocapture noundef readonly %arg) #11 {
+define internal noundef zeroext i1 @_ZN4abslL11DereferenceEPv(ptr noundef readonly captures(none) %arg) #11 {
 entry:
   %0 = load i8, ptr %arg, align 1
   %tobool = trunc i8 %0 to i1
@@ -5100,12 +5100,12 @@ declare zeroext i1 @AbslInternalPerThreadSemWait(i64) local_unnamed_addr #4
 declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: cold
 declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #18
@@ -5118,7 +5118,7 @@ declare noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv(
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
@@ -5129,16 +5129,16 @@ declare i64 @pthread_self() local_unnamed_addr #20
 declare noundef double @_ZN4absl13base_internal18UnscaledCycleClock9FrequencyEv() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

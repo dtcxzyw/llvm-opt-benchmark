@@ -143,7 +143,7 @@ if.end:                                           ; preds = %entry
 declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %addr, ptr nocapture noundef readonly %expected, i64 noundef %size, i64 noundef %timeout_ns, ptr noundef %park_arg, i32 noundef %detach) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %addr, ptr noundef readonly captures(none) %expected, i64 noundef %size, i64 noundef %timeout_ns, ptr noundef %park_arg, i32 noundef %detach) local_unnamed_addr #0 {
 entry:
   %wait = alloca %struct.wait_entry, align 8
   %0 = getelementptr inbounds nuw i8, ptr %wait, i64 16
@@ -360,10 +360,10 @@ return:                                           ; preds = %if.end.i14, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_PyParkingLot_Unpark(ptr noundef %addr, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local void @_PyParkingLot_Unpark(ptr noundef %addr, ptr noundef readonly captures(none) %fn, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %rem = urem i64 %0, 257
@@ -591,10 +591,10 @@ declare void @_PyRawMutex_LockSlow(ptr noundef) local_unnamed_addr #3
 declare void @_PyRawMutex_UnlockSlow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

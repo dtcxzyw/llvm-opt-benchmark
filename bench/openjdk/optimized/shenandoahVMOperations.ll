@@ -105,12 +105,12 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN22VM_ShenandoahOperation13doit_prologueEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22VM_ShenandoahOperation13doit_prologueEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22VM_ShenandoahOperation13doit_epilogueEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22VM_ShenandoahOperation13doit_epilogueEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN11OopMapCache19try_trigger_cleanupEv() #5
   ret void
 }
@@ -118,7 +118,7 @@ define hidden void @_ZN22VM_ShenandoahOperation13doit_epilogueEv(ptr nocapture n
 declare void @_ZN11OopMapCache19try_trigger_cleanupEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN31VM_ShenandoahReferenceOperation13doit_prologueEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN31VM_ShenandoahReferenceOperation13doit_prologueEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @Heap_lock, align 8
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #5
   ret i1 true
@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZN31VM_ShenandoahReferenceOperation13doit_pro
 declare void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31VM_ShenandoahReferenceOperation13doit_epilogueEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN31VM_ShenandoahReferenceOperation13doit_epilogueEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN11OopMapCache19try_trigger_cleanupEv() #5
   %2 = tail call noundef zeroext i1 @_ZN8Universe26has_reference_pending_listEv() #5
   br i1 %2, label %3, label %5
@@ -150,7 +150,7 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21VM_ShenandoahInitMark4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN21VM_ShenandoahInitMark4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -179,7 +179,7 @@ declare void @_ZN22ShenandoahConcurrentGC15entry_init_markEv(ptr noundef nonnull
 declare void @_ZN14ShenandoahHeap34propagate_gc_state_to_java_threadsEv(ptr noundef nonnull align 8 dereferenceable(2657)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31VM_ShenandoahFinalMarkStartEvac4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN31VM_ShenandoahFinalMarkStartEvac4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -204,7 +204,7 @@ define hidden void @_ZN31VM_ShenandoahFinalMarkStartEvac4doitEv(ptr nocapture no
 declare void @_ZN22ShenandoahConcurrentGC16entry_final_markEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19VM_ShenandoahFullGC4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN19VM_ShenandoahFullGC4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -231,7 +231,7 @@ define hidden void @_ZN19VM_ShenandoahFullGC4doitEv(ptr nocapture noundef nonnul
 declare void @_ZN16ShenandoahFullGC10entry_fullEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26VM_ShenandoahDegeneratedGC4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN26VM_ShenandoahDegeneratedGC4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -256,7 +256,7 @@ define hidden void @_ZN26VM_ShenandoahDegeneratedGC4doitEv(ptr nocapture noundef
 declare void @_ZN17ShenandoahDegenGC17entry_degeneratedEv(ptr noundef nonnull align 8 dereferenceable(13)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27VM_ShenandoahInitUpdateRefs4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN27VM_ShenandoahInitUpdateRefs4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -281,7 +281,7 @@ define hidden void @_ZN27VM_ShenandoahInitUpdateRefs4doitEv(ptr nocapture nounde
 declare void @_ZN22ShenandoahConcurrentGC21entry_init_updaterefsEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28VM_ShenandoahFinalUpdateRefs4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN28VM_ShenandoahFinalUpdateRefs4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -306,7 +306,7 @@ define hidden void @_ZN28VM_ShenandoahFinalUpdateRefs4doitEv(ptr nocapture nound
 declare void @_ZN22ShenandoahConcurrentGC22entry_final_updaterefsEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23VM_ShenandoahFinalRoots4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN23VM_ShenandoahFinalRoots4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahGCPauseMark, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8

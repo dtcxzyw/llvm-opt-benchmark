@@ -419,10 +419,10 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @mca_fbtl_base_check_atomicity(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @mca_fbtl_base_check_atomicity(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   ret i1 false
 }
 

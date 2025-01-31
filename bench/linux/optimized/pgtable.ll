@@ -53,7 +53,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_setup_userpte], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pte_alloc_one(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @pte_alloc_one(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @__userpte_alloc_gfp, align 4
   %3 = or i32 %2, 262144
   %4 = tail call ptr @alloc_pages(i32 noundef %3, i32 noundef 0) #14
@@ -190,10 +190,10 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -271,7 +271,7 @@ define dso_local void @___p4d_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @pgd_page_get_mm(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @pgd_page_get_mm(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -349,7 +349,7 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pgd_free(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @pgd_free(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #14
   %4 = load i64, ptr @vmemmap_base, align 8
@@ -378,7 +378,7 @@ define dso_local void @pgd_free(ptr nocapture noundef readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local range(i32 0, 2) i32 @ptep_set_access_flags(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @ptep_set_access_flags(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #4 align 16 {
   %6 = alloca i64, align 8
   %7 = load i64, ptr %2, align 8
   %8 = icmp eq i64 %7, %3
@@ -401,7 +401,7 @@ define dso_local range(i32 0, 2) i32 @ptep_set_access_flags(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ptep_test_and_clear_young(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ptep_test_and_clear_young(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = and i64 %4, 32
   %6 = icmp eq i64 %5, 0
@@ -420,7 +420,7 @@ define dso_local range(i32 0, 2) i32 @ptep_test_and_clear_young(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @pmdp_test_and_clear_young(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @pmdp_test_and_clear_young(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = and i64 %4, 32
   %6 = icmp eq i64 %5, 0
@@ -439,7 +439,7 @@ define dso_local range(i32 0, 2) i32 @pmdp_test_and_clear_young(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ptep_clear_flush_young(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ptep_clear_flush_young(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = and i64 %4, 32
   %6 = icmp eq i64 %5, 0
@@ -521,12 +521,12 @@ define dso_local void @native_set_fixmap(i32 noundef %0, i64 noundef %1, i64 %2)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @p4d_set_huge(ptr nocapture noundef readnone %0, i64 noundef %1, i64 %2) local_unnamed_addr #7 align 16 {
+define dso_local noundef i32 @p4d_set_huge(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 %2) local_unnamed_addr #7 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @p4d_clear_huge(ptr nocapture noundef readnone %0) local_unnamed_addr #7 align 16 {
+define dso_local void @p4d_clear_huge(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 align 16 {
   ret void
 }
 
@@ -815,7 +815,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
 declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @flush_tlb_kernel_range(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -845,7 +845,7 @@ define dso_local noundef i32 @pmd_free_pte_page(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local range(i64 2, -288230376151711744) i64 @pte_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 2, -288230376151711744) i64 @pte_mkwrite(i64 %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 align 16 {
   %3 = lshr i64 %0, 52
   %4 = and i64 %3, 64
   %5 = and i64 %0, -288230376151711747
@@ -855,7 +855,7 @@ define dso_local range(i64 2, -288230376151711744) i64 @pte_mkwrite(i64 %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local range(i64 2, -288230376151711744) i64 @pmd_mkwrite(i64 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 2, -288230376151711744) i64 @pmd_mkwrite(i64 %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 align 16 {
   %3 = lshr i64 %0, 52
   %4 = and i64 %3, 64
   %5 = and i64 %0, -288230376151711747
@@ -865,12 +865,12 @@ define dso_local range(i64 2, -288230376151711744) i64 @pmd_mkwrite(i64 %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @arch_check_zapped_pte(ptr nocapture noundef readnone %0, i64 %1) local_unnamed_addr #7 align 16 {
+define dso_local void @arch_check_zapped_pte(ptr noundef readnone captures(none) %0, i64 %1) local_unnamed_addr #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @arch_check_zapped_pmd(ptr nocapture noundef readnone %0, i64 %1) local_unnamed_addr #7 align 16 {
+define dso_local void @arch_check_zapped_pmd(ptr noundef readnone captures(none) %0, i64 %1) local_unnamed_addr #7 align 16 {
   ret void
 }
 
@@ -884,7 +884,7 @@ declare dso_local void @mod_node_page_state(ptr noundef, i32 noundef, i64 nounde
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #12

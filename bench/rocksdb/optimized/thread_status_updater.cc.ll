@@ -147,7 +147,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #1 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #1 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -167,7 +167,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.22(ptr nocapture readnone %0) #1 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.22(ptr readnone captures(none) %0) #1 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -184,7 +184,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.25(ptr nocapture readnone %0) #1 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.25(ptr readnone captures(none) %0) #1 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -201,7 +201,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.33(ptr nocapture readnone %0) #1 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.33(ptr readnone captures(none) %0) #1 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -218,7 +218,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.36(ptr nocapture readnone %0) #1 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.36(ptr readnone captures(none) %0) #1 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -322,7 +322,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater30ClearThreadOperationPropertiesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater30ClearThreadOperationPropertiesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -398,7 +398,7 @@ if.end:                                           ; preds = %delete.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater17ResetThreadStatusEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater17ResetThreadStatusEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -457,7 +457,7 @@ _ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -479,7 +479,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -517,7 +517,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, ptr noundef %cf_key) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef %cf_key) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -535,7 +535,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater17SetEnableTrackingEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i1 noundef zeroext %enable_tracking) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19ThreadStatusUpdater17SetEnableTrackingEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i1 noundef zeroext %enable_tracking) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -552,7 +552,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7rocksdb19ThreadStatusUpdater22GetColumnFamilyInfoKeyEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN7rocksdb19ThreadStatusUpdater22GetColumnFamilyInfoKeyEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -576,7 +576,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -595,7 +595,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater18SetThreadOperationENS_12ThreadStatus13OperationTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i32 noundef %type) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater18SetThreadOperationENS_12ThreadStatus13OperationTypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i32 noundef %type) local_unnamed_addr #7 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -637,7 +637,7 @@ if.end4:                                          ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN7rocksdb19ThreadStatusUpdater18GetThreadOperationEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZN7rocksdb19ThreadStatusUpdater18GetThreadOperationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -660,7 +660,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater26SetThreadOperationPropertyEim(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i32 noundef %i, i64 noundef %value) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater26SetThreadOperationPropertyEim(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i32 noundef %i, i64 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -684,7 +684,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater31IncreaseThreadOperationPropertyEim(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i32 noundef %i, i64 noundef %delta) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater31IncreaseThreadOperationPropertyEim(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i32 noundef %i, i64 noundef %delta) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -708,7 +708,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater21SetOperationStartTimeEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i64 noundef %start_time) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater21SetOperationStartTimeEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i64 noundef %start_time) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -730,7 +730,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN7rocksdb19ThreadStatusUpdater23SetThreadOperationStageENS_12ThreadStatus14OperationStageE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i32 noundef %stage) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZN7rocksdb19ThreadStatusUpdater23SetThreadOperationStageENS_12ThreadStatus14OperationStageE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i32 noundef %stage) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater14SetThreadStateENS_12ThreadStatus9StateTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %this, i32 noundef %type) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19ThreadStatusUpdater14SetThreadStateENS_12ThreadStatus9StateTypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, i32 noundef %type) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb19ThreadStatusUpdater19thread_status_data_E)
   %1 = load ptr, ptr %0, align 8
@@ -775,7 +775,7 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19ThreadStatusUpdater13GetThreadListEPSt6vectorINS_12ThreadStatusESaIS2_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %thread_list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19ThreadStatusUpdater13GetThreadListEPSt6vectorINS_12ThreadStatusESaIS2_EE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %thread_list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %valid_list = alloca %"class.std::vector.51", align 8
   %thread_id = alloca i64, align 8
@@ -1194,7 +1194,7 @@ ehcleanup91:                                      ; preds = %ehcleanup90, %lpad
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(156) ptr @_ZNSt6vectorIN7rocksdb12ThreadStatusESaIS1_EE12emplace_backIJRmRNS1_10ThreadTypeEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RNS1_13OperationTypeES5_RNS1_14OperationStageERA6_mRNS1_9StateTypeEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3, ptr noundef nonnull align 8 dereferenceable(32) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7, ptr noundef nonnull align 8 dereferenceable(8) %__args9, ptr noundef nonnull align 4 dereferenceable(4) %__args11, ptr noundef nonnull align 8 dereferenceable(48) %__args13, ptr noundef nonnull align 4 dereferenceable(4) %__args15) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1750,7 +1750,7 @@ if.end:                                           ; preds = %if.end3.i.i.i.i, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19ThreadStatusUpdater17EraseDatabaseInfoEPKv(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %db_key) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -5839,10 +5839,10 @@ define weak_odr hidden noundef ptr @_ZTWN7rocksdb19ThreadStatusUpdater19thread_s
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

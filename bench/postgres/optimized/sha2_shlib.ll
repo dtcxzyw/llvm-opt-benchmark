@@ -26,13 +26,13 @@ define void @pg_sha256_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @pg_sha256_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %33, label %5
 
@@ -108,7 +108,7 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @SHA256_Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 4
@@ -287,7 +287,7 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @pg_sha256_final(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 
@@ -383,7 +383,7 @@ define void @pg_sha512_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @pg_sha512_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %54, label %5
 
@@ -493,7 +493,7 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @SHA512_Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 8
@@ -692,7 +692,7 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @pg_sha512_final(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %41, label %3
 
@@ -795,13 +795,13 @@ define void @pg_sha384_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha384_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @pg_sha384_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   tail call void @pg_sha512_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @pg_sha384_final(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %41, label %3
 
@@ -904,7 +904,7 @@ define void @pg_sha224_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @pg_sha224_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %pg_sha256_update.exit, label %5
 
@@ -980,7 +980,7 @@ pg_sha256_update.exit:                            ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define void @pg_sha224_final(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 

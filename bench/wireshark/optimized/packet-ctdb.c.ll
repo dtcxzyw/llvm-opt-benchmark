@@ -364,7 +364,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_ctdb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_ctdb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1206,7 +1206,7 @@ proto_item_set_generated.exit:                    ; preds = %ctdb_hash.exit, %26
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1407,7 +1407,7 @@ proto_item_set_generated.exit28:                  ; preds = %45, %42, %37, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_control_get_recmaster_reply(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_control_get_recmaster_reply(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_ctdb_recmaster, align 4
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %4) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1417,7 +1417,7 @@ define internal noundef i32 @dissect_control_get_recmaster_reply(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_control_get_recmode_reply(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_control_get_recmode_reply(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_ctdb_recmode, align 4
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %4) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1478,7 +1478,7 @@ define internal noundef i32 @dissect_control_get_nodemap_reply(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_control_process_exist_request(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal noundef i32 @dissect_control_process_exist_request(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_ctdb_pid, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef %5) #4
   %.not = icmp eq i32 %5, 0
@@ -1502,7 +1502,7 @@ define internal noundef i32 @dissect_control_process_exist_request(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_control_process_exist_reply(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_control_process_exist_reply(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef returned %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_ctdb_process_exists, align 4
   %8 = zext i32 %4 to i64
   %9 = tail call ptr @proto_tree_add_boolean(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 4, i64 noundef %8) #4
@@ -1514,10 +1514,10 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

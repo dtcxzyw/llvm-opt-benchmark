@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @noodExec(ptr noundef readonly %n, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @noodExec(ptr noundef readonly %n, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr noundef readonly captures(none) %cb, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %v.i2292 = alloca <2 x i64>, align 16
   %v.i2210 = alloca <2 x i64>, align 16
@@ -2946,7 +2946,7 @@ scan.exit:                                        ; preds = %match.i1194, %match
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @noodExecStreaming(ptr noundef readonly %n, ptr nocapture noundef readonly %hbuf, i64 noundef %hlen, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @noodExecStreaming(ptr noundef readonly %n, ptr noundef readonly captures(none) %hbuf, i64 noundef %hlen, ptr noundef %buf, i64 noundef %len, ptr noundef readonly captures(none) %cb, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %v.i2438 = alloca <2 x i64>, align 16
   %v.i2355 = alloca <2 x i64>, align 16
@@ -6103,13 +6103,13 @@ return:                                           ; preds = %if.then52, %match.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #3
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
