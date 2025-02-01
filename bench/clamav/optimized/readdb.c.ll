@@ -13792,7 +13792,7 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkign(ptr noundef nonnull %0, p
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %2, null
   %or.cond3 = and i1 %6, %7
-  br i1 %or.cond3, label %8, label %52
+  br i1 %or.cond3, label %8, label %51
 
 8:                                                ; preds = %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
@@ -13854,48 +13854,46 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkign(ptr noundef nonnull %0, p
 
 .lr.ph.preheader.i:                               ; preds = %34
   %37 = getelementptr i8, ptr %33, i64 %.029.i
-  %38 = getelementptr i8, ptr %37, i64 %spec.select40.i
-  %scevgep.i = getelementptr i8, ptr %38, i64 -3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 32, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 32, i64 %spec.select.i, i1 false)
   br label %cli_signorm.exit
 
 cli_signorm.exit:                                 ; preds = %16, %22, %24, %29, %31, %34, %.lr.ph.preheader.i
   %.0.i = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ null, %31 ], [ null, %22 ], [ %33, %34 ], [ %33, %.lr.ph.preheader.i ]
   %.not = icmp eq ptr %.0.i, null
   %spec.select = select i1 %.not, ptr %1, ptr %.0.i
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
-  %40 = trunc i64 %39 to i32
-  %41 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %spec.select, i32 noundef %40, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #21
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %50
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
+  %39 = trunc i64 %38 to i32
+  %40 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %spec.select, i32 noundef %39, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  %41 = icmp eq i32 %40, 1
+  br i1 %41, label %42, label %49
 
-43:                                               ; preds = %cli_signorm.exit
-  %44 = load ptr, ptr %4, align 8
-  %.not24 = icmp eq ptr %44, null
-  br i1 %.not24, label %49, label %45
+42:                                               ; preds = %cli_signorm.exit
+  %43 = load ptr, ptr %4, align 8
+  %.not24 = icmp eq ptr %43, null
+  br i1 %.not24, label %48, label %44
 
-45:                                               ; preds = %43
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
-  %47 = call ptr @cl_hash_data(ptr noundef nonnull @.str.219, ptr noundef nonnull %2, i64 noundef %46, ptr noundef nonnull %5, ptr noundef null) #21
-  %48 = load ptr, ptr %4, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %48, i64 16)
+44:                                               ; preds = %42
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %46 = call ptr @cl_hash_data(ptr noundef nonnull @.str.219, ptr noundef nonnull %2, i64 noundef %45, ptr noundef nonnull %5, ptr noundef null) #21
+  %47 = load ptr, ptr %4, align 8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %47, i64 16)
   %.not25 = icmp eq i32 %bcmp, 0
-  br i1 %.not25, label %49, label %50
+  br i1 %.not25, label %48, label %49
 
-49:                                               ; preds = %45, %43
+48:                                               ; preds = %44, %42
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.220, ptr noundef nonnull %spec.select) #21
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %45, %cli_signorm.exit
-  %.0 = phi i32 [ 0, %45 ], [ 1, %49 ], [ 0, %cli_signorm.exit ]
-  br i1 %.not, label %52, label %51
+49:                                               ; preds = %48, %44, %cli_signorm.exit
+  %.0 = phi i32 [ 0, %44 ], [ 1, %48 ], [ 0, %cli_signorm.exit ]
+  br i1 %.not, label %51, label %50
 
-51:                                               ; preds = %50
+50:                                               ; preds = %49
   call void @free(ptr noundef nonnull %.0.i) #21
-  br label %52
+  br label %51
 
-52:                                               ; preds = %50, %51, %3
-  %.018 = phi i32 [ 0, %3 ], [ %.0, %51 ], [ %.0, %50 ]
+51:                                               ; preds = %49, %50, %3
+  %.018 = phi i32 [ 0, %3 ], [ %.0, %50 ], [ %.0, %49 ]
   ret i32 %.018
 }
 

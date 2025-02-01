@@ -1401,12 +1401,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %numa_node, i32 -1)
   %cmp7 = icmp sgt i32 %numa_node, -1
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end3
-  %conv = zext nneg i32 %spec.store.select to i64
+  %conv = zext nneg i32 %numa_node to i64
   %0 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %if.else.i, label %_mi_os_numa_node_count.exit
@@ -1422,7 +1421,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %if.then8, %if.else.
   br label %if.end10
 
 if.end10:                                         ; preds = %_mi_os_numa_node_count.exit, %if.end3
-  %numa_node.addr.0 = phi i32 [ %conv9, %_mi_os_numa_node_count.exit ], [ %spec.store.select, %if.end3 ]
+  %numa_node.addr.0 = phi i32 [ %conv9, %_mi_os_numa_node_count.exit ], [ -1, %if.end3 ]
   store i64 0, ptr %hsize, align 8
   store i64 0, ptr %pages_reserved, align 8
   %call11 = call ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node.addr.0, i64 noundef %timeout_msecs, ptr noundef nonnull %pages_reserved, ptr noundef nonnull %hsize, ptr noundef nonnull %memid) #11
@@ -1681,9 +1680,6 @@ declare zeroext i1 @_mi_bitmap_claim(ptr noundef, i64 noundef, i64 noundef, i64 
 declare ptr @_mi_os_alloc(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i64 @_mi_os_numa_node_count_get() local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

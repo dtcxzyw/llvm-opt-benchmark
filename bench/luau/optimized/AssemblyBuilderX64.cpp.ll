@@ -4870,7 +4870,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645alignEjNS1_16Ali
   %37 = phi ptr [ %29, %28 ], [ %51, %.preheader.loopexit ]
   %38 = phi ptr [ %33, %28 ], [ %36, %.preheader.loopexit ]
   %.not = icmp eq i32 %15, %11
-  br i1 %.not, label %._crit_edge32, label %.lr.ph31
+  br i1 %.not, label %._crit_edge32, label %.lr.ph31.preheader
+
+.lr.ph31.preheader:                               ; preds = %.preheader
+  %umax = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
+  br label %.lr.ph31
 
 39:                                               ; preds = %.lr.ph28, %39
   %40 = phi ptr [ %.pre39, %.lr.ph28 ], [ %52, %39 ]
@@ -4897,14 +4901,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645alignEjNS1_16Ali
   %58 = icmp ugt ptr %57, %52
   br i1 %58, label %39, label %.preheader.loopexit, !llvm.loop !13
 
-.lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
-  %.01930 = phi i32 [ %61, %.lr.ph31 ], [ 0, %.preheader ]
+.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
+  %.01930 = phi i32 [ %61, %.lr.ph31 ], [ 0, %.lr.ph31.preheader ]
   %59 = load ptr, ptr %4, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %60, ptr %4, align 8
   store i8 -52, ptr %59, align 1
   %61 = add nuw i32 %.01930, 1
-  %exitcond.not = icmp eq i32 %61, %16
+  %exitcond.not = icmp eq i32 %61, %umax
   br i1 %exitcond.not, label %._crit_edge32.loopexit, label %.lr.ph31, !llvm.loop !14
 
 ._crit_edge32.loopexit:                           ; preds = %.lr.ph31
@@ -7728,6 +7732,9 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6112,13 +6112,13 @@ define internal fastcc { ptr, i64 } @"_ZN12actix_router4path13Path$LT$T$GT$3get1
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i", %45, %35
   %.sroa.4.0.i.i.i = phi i64 [ %30, %45 ], [ %42, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i" ], [ %30, %35 ]
   %51 = icmp eq i64 %.sroa.4.0.i.i.i, 0
-  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
-  %spec.select.i.i = select i1 %51, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %40
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
+  %spec.select5.i.i = select i1 %51, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %40
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i: ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i, %41, %32
-  %.sroa.3.0.i.i = phi i64 [ 0, %32 ], [ 1, %41 ], [ %spec.select.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
-  %.sroa.0.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %32 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %41 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.3.0.i.i = phi i64 [ 0, %32 ], [ 1, %41 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %32 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %41 ], [ %spec.select5.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
   %52 = icmp ne ptr %.sroa.0.0.i.i, null
   tail call void @llvm.assume(i1 %52)
   br label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h615f2e82a6c54815E.exit"
@@ -94069,13 +94069,13 @@ _ZN10actix_http10extensions10Extensions3get17h41e41eb924be1bd6E.exit.i: ; preds 
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i", %67, %57
   %.sroa.4.0.i.i = phi i64 [ %52, %67 ], [ %64, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i" ], [ %52, %57 ]
   %73 = icmp eq i64 %.sroa.4.0.i.i, 0
-  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
-  %spec.select.i = select i1 %73, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %62
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
+  %spec.select5.i = select i1 %73, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %62
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %54, %63, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i
-  %.sroa.3.0.i = phi i64 [ 0, %54 ], [ 1, %63 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
-  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %54 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %63 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.3.0.i = phi i64 [ 0, %54 ], [ 1, %63 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %54 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %63 ], [ %spec.select5.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
   %74 = icmp ne ptr %.sroa.0.0.i27, null
   call void @llvm.assume(i1 %74)
   %75 = call { ptr, i64 } @_ZN9actix_web4rmap11ResourceMap10match_name17h7eeb7cf6a243c743E(ptr noundef nonnull align 8 %48, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i27, i64 noundef %.sroa.3.0.i)
@@ -94130,13 +94130,13 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %54, %63, %_ZN4http3
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35", %96, %86
   %.sroa.4.0.i.i30 = phi i64 [ %81, %96 ], [ %93, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35" ], [ %81, %86 ]
   %102 = icmp eq i64 %.sroa.4.0.i.i30, 0
-  %spec.select.i.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
-  %spec.select.i32 = select i1 %102, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %91
+  %spec.select.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
+  %spec.select5.i32 = select i1 %102, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %91
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %83, %92, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29
-  %.sroa.3.0.i33 = phi i64 [ 0, %83 ], [ 1, %92 ], [ %spec.select.i.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
-  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %83 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %92 ], [ %spec.select.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.3.0.i33 = phi i64 [ 0, %83 ], [ 1, %92 ], [ %spec.select.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %83 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %92 ], [ %spec.select5.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
   %103 = icmp ne ptr %.sroa.0.0.i34, null
   call void @llvm.assume(i1 %103)
   br label %106
@@ -94348,13 +94348,13 @@ _ZN10actix_http10extensions10Extensions3get17h7783fdce9c45e53dE.exit.i: ; preds 
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i", %68, %58
   %.sroa.4.0.i.i = phi i64 [ %53, %68 ], [ %65, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i" ], [ %53, %58 ]
   %74 = icmp eq i64 %.sroa.4.0.i.i, 0
-  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
-  %spec.select.i = select i1 %74, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %63
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
+  %spec.select5.i = select i1 %74, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %63
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %55, %64, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i
-  %.sroa.3.0.i = phi i64 [ 0, %55 ], [ 1, %64 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
-  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %64 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.3.0.i = phi i64 [ 0, %55 ], [ 1, %64 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %64 ], [ %spec.select5.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
   %75 = icmp ne ptr %.sroa.0.0.i27, null
   call void @llvm.assume(i1 %75)
   %76 = call { ptr, i64 } @_ZN9actix_web4rmap11ResourceMap10match_name17h7eeb7cf6a243c743E(ptr noundef nonnull align 8 %49, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i27, i64 noundef %.sroa.3.0.i)
@@ -94409,13 +94409,13 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %55, %64, %_ZN4http3
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35", %97, %87
   %.sroa.4.0.i.i30 = phi i64 [ %82, %97 ], [ %94, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35" ], [ %82, %87 ]
   %103 = icmp eq i64 %.sroa.4.0.i.i30, 0
-  %spec.select.i.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
-  %spec.select.i32 = select i1 %103, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %92
+  %spec.select.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
+  %spec.select5.i32 = select i1 %103, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %92
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29
-  %.sroa.3.0.i33 = phi i64 [ 0, %84 ], [ 1, %93 ], [ %spec.select.i.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
-  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %84 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %93 ], [ %spec.select.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.3.0.i33 = phi i64 [ 0, %84 ], [ 1, %93 ], [ %spec.select.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %84 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %93 ], [ %spec.select5.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
   %104 = icmp ne ptr %.sroa.0.0.i34, null
   call void @llvm.assume(i1 %104)
   br label %107
@@ -94627,13 +94627,13 @@ _ZN10actix_http10extensions10Extensions3get17h342f2f3807c7debcE.exit.i: ; preds 
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i", %68, %58
   %.sroa.4.0.i.i = phi i64 [ %53, %68 ], [ %65, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i" ], [ %53, %58 ]
   %74 = icmp eq i64 %.sroa.4.0.i.i, 0
-  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
-  %spec.select.i = select i1 %74, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %63
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i, i64 1)
+  %spec.select5.i = select i1 %74, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %63
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %55, %64, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i
-  %.sroa.3.0.i = phi i64 [ 0, %55 ], [ 1, %64 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
-  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %64 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.3.0.i = phi i64 [ 0, %55 ], [ 1, %64 ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
+  %.sroa.0.0.i27 = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %64 ], [ %spec.select5.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i ]
   %75 = icmp ne ptr %.sroa.0.0.i27, null
   call void @llvm.assume(i1 %75)
   %76 = call { ptr, i64 } @_ZN9actix_web4rmap11ResourceMap10match_name17h7eeb7cf6a243c743E(ptr noundef nonnull align 8 %49, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i27, i64 noundef %.sroa.3.0.i)
@@ -94688,13 +94688,13 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit:   ; preds = %55, %64, %_ZN4http3
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35", %97, %87
   %.sroa.4.0.i.i30 = phi i64 [ %82, %97 ], [ %94, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i35" ], [ %82, %87 ]
   %103 = icmp eq i64 %.sroa.4.0.i.i30, 0
-  %spec.select.i.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
-  %spec.select.i32 = select i1 %103, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %92
+  %spec.select.i31 = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i30, i64 1)
+  %spec.select5.i32 = select i1 %103, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %92
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit37: ; preds = %84, %93, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29
-  %.sroa.3.0.i33 = phi i64 [ 0, %84 ], [ 1, %93 ], [ %spec.select.i.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
-  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %84 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %93 ], [ %spec.select.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.3.0.i33 = phi i64 [ 0, %84 ], [ 1, %93 ], [ %spec.select.i31, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
+  %.sroa.0.0.i34 = phi ptr [ inttoptr (i64 1 to ptr), %84 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %93 ], [ %spec.select5.i32, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i29 ]
   %104 = icmp ne ptr %.sroa.0.0.i34, null
   call void @llvm.assume(i1 %104)
   br label %107
@@ -94947,13 +94947,13 @@ define hidden void @"_ZN87_$LT$actix_router..de..PathDeserializer$LT$T$GT$$u20$a
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i.i", %46, %36
   %.sroa.4.0.i.i.i.i = phi i64 [ %31, %46 ], [ %43, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i.i" ], [ %31, %36 ]
   %52 = icmp eq i64 %.sroa.4.0.i.i.i.i, 0
-  %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i.i, i64 1)
-  %spec.select.i.i.i = select i1 %52, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %41
+  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i.i, i64 1)
+  %spec.select5.i.i.i = select i1 %52, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %41
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i.i
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i.i: ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i, %42, %33
-  %.sroa.3.0.i.i.i = phi i64 [ 0, %33 ], [ 1, %42 ], [ %spec.select.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %33 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %42 ], [ %spec.select.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i ]
+  %.sroa.3.0.i.i.i = phi i64 [ 0, %33 ], [ 1, %42 ], [ %spec.select.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %33 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %42 ], [ %spec.select5.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i ]
   %53 = icmp ne ptr %.sroa.0.0.i.i.i, null
   tail call void @llvm.assume(i1 %53)
   br label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h615f2e82a6c54815E.exit.i"
@@ -95357,7 +95357,6 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %7 = icmp ugt i64 %5, 16
   %8 = load ptr, ptr %0, align 8, !alias.scope !18303, !noalias !18306, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 16)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %10
@@ -95392,7 +95391,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %6, label %29, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 40)
+  %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 40)
   %25 = extractvalue { i64, i1 } %24, 1
   br i1 %25, label %47, label %26
 
@@ -95428,7 +95427,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %40 = mul i64 %.val, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %40, i1 false)
   store i64 %.val, ptr %4, align 8
-  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 40)
+  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 40)
   %42 = extractvalue { i64, i1 } %41, 1
   br i1 %42, label %46, label %43
 
@@ -95464,7 +95463,6 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %7 = icmp ugt i64 %5, 8
   %8 = load ptr, ptr %0, align 8, !alias.scope !18311, !noalias !18314, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 8)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %10
@@ -95499,7 +95497,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %6, label %29, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 56)
+  %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 56)
   %25 = extractvalue { i64, i1 } %24, 1
   br i1 %25, label %47, label %26
 
@@ -95535,7 +95533,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %40 = mul i64 %.val, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %40, i1 false)
   store i64 %.val, ptr %4, align 8
-  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 56)
+  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 56)
   %42 = extractvalue { i64, i1 } %41, 1
   br i1 %42, label %46, label %43
 
@@ -98167,13 +98165,13 @@ define internal fastcc void @"_ZN96_$LT$actix_router..path..PathIter$LT$T$GT$$u2
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i", %47, %37
   %.sroa.4.0.i.i.i = phi i64 [ %32, %47 ], [ %44, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i" ], [ %32, %37 ]
   %53 = icmp eq i64 %.sroa.4.0.i.i.i, 0
-  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
-  %spec.select.i.i = select i1 %53, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %42
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
+  %spec.select5.i.i = select i1 %53, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %42
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i: ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i, %43, %34
-  %.sroa.3.0.i.i = phi i64 [ 0, %34 ], [ 1, %43 ], [ %spec.select.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
-  %.sroa.0.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %34 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %43 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.3.0.i.i = phi i64 [ 0, %34 ], [ 1, %43 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ inttoptr (i64 1 to ptr), %34 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %43 ], [ %spec.select5.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
   %54 = icmp ne ptr %.sroa.0.0.i.i, null
   tail call void @llvm.assume(i1 %54)
   br label %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h615f2e82a6c54815E.exit"
@@ -108490,13 +108488,13 @@ _ZN10actix_http10extensions10Extensions3get17h829d8b9e1482cd88E.exit.i.i.i.i: ; 
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i.i.i", %148, %138
   %.sroa.4.0.i.i.i.i.i = phi i64 [ %133, %148 ], [ %145, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i.i.i" ], [ %133, %138 ]
   %154 = icmp eq i64 %.sroa.4.0.i.i.i.i.i, 0
-  %spec.select.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i.i.i, i64 1)
-  %spec.select.i.i.i.i = select i1 %154, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %143
+  %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i.i.i, i64 1)
+  %spec.select5.i.i.i.i = select i1 %154, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %143
   br label %155
 
 155:                                              ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i, %144, %135
-  %.sroa.3.0.i.i.i.i = phi i64 [ 0, %135 ], [ 1, %144 ], [ %spec.select.i.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %135 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %144 ], [ %spec.select.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i ]
+  %.sroa.3.0.i.i.i.i = phi i64 [ 0, %135 ], [ 1, %144 ], [ %spec.select.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %135 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %144 ], [ %spec.select5.i.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i.i.i ]
   %156 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
   call void @llvm.assume(i1 %156)
   store ptr %.sroa.0.0.i.i.i.i, ptr %17, align 8, !noalias !20074
@@ -109098,13 +109096,13 @@ _ZN10actix_http10extensions10Extensions3get17h40eb6a7a9f7b992eE.exit.i.i: ; pred
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i", %348, %338
   %.sroa.4.0.i.i.i = phi i64 [ %333, %348 ], [ %345, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i.i" ], [ %333, %338 ]
   %356 = icmp eq i64 %.sroa.4.0.i.i.i, 0
-  %spec.select.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
-  %spec.select.i.i = select i1 %356, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %343
+  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i.i, i64 1)
+  %spec.select5.i.i = select i1 %356, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %343
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i: ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i, %344, %335
-  %.sroa.3.0.i.i25 = phi i64 [ 0, %335 ], [ 1, %344 ], [ %spec.select.i.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
-  %.sroa.0.0.i33.i = phi ptr [ inttoptr (i64 1 to ptr), %335 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %344 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.3.0.i.i25 = phi i64 [ 0, %335 ], [ 1, %344 ], [ %spec.select.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
+  %.sroa.0.0.i33.i = phi ptr [ inttoptr (i64 1 to ptr), %335 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %344 ], [ %spec.select5.i.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i.i ]
   %357 = icmp ne ptr %.sroa.0.0.i33.i, null
   call void @llvm.assume(i1 %357)
   %358 = invoke { ptr, i64 } @_ZN9actix_web4rmap11ResourceMap10match_name17h7eeb7cf6a243c743E(ptr noundef nonnull align 8 %329, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i33.i, i64 noundef %.sroa.3.0.i.i25)
@@ -109158,13 +109156,13 @@ _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit.i: ; preds = %_ZN4http3uri4path12
 _ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i41.i", %379, %369
   %.sroa.4.0.i.i36.i = phi i64 [ %364, %379 ], [ %376, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i41.i" ], [ %364, %369 ]
   %384 = icmp eq i64 %.sroa.4.0.i.i36.i, 0
-  %spec.select.i.i37.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i36.i, i64 1)
-  %spec.select.i38.i = select i1 %384, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %374
+  %spec.select.i37.i = call i64 @llvm.umax.i64(i64 %.sroa.4.0.i.i36.i, i64 1)
+  %spec.select5.i38.i = select i1 %384, ptr @anon.3c3b56e5edcc756f701afb43044d2d8e.137, ptr %374
   br label %_ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i
 
 _ZN4http3uri3Uri4path17hf57cadb2c80ff2daE.exit43.i: ; preds = %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i, %375, %366
-  %.sroa.3.0.i39.i = phi i64 [ 0, %366 ], [ 1, %375 ], [ %spec.select.i.i37.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i ]
-  %.sroa.0.0.i40.i = phi ptr [ inttoptr (i64 1 to ptr), %366 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %375 ], [ %spec.select.i38.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i ]
+  %.sroa.3.0.i39.i = phi i64 [ 0, %366 ], [ 1, %375 ], [ %spec.select.i37.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i ]
+  %.sroa.0.0.i40.i = phi ptr [ inttoptr (i64 1 to ptr), %366 ], [ @anon.3c3b56e5edcc756f701afb43044d2d8e.137, %375 ], [ %spec.select5.i38.i, %_ZN4http3uri4path12PathAndQuery4path17ha91ade02c7ca6971E.exit.i35.i ]
   %385 = icmp ne ptr %.sroa.0.0.i40.i, null
   call void @llvm.assume(i1 %385)
   br label %388

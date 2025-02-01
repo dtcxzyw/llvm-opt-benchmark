@@ -381,10 +381,14 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc51
-  br i1 %44, label %.preheader65.us.i, label %.preheader64.i
+  br i1 %44, label %.preheader65.lr.ph.i, label %.preheader64.i
 
-.preheader65.us.i:                                ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i, %._crit_edge.us.i
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %._crit_edge.us.i ], [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i ]
+.preheader65.lr.ph.i:                             ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
+  %wide.trip.count.i = and i64 %113, 2147483647
+  br label %.preheader65.us.i
+
+.preheader65.us.i:                                ; preds = %._crit_edge.us.i, %.preheader65.lr.ph.i
+  %indvars.iv89.i = phi i64 [ 0, %.preheader65.lr.ph.i ], [ %indvars.iv.next90.i, %._crit_edge.us.i ]
   %126 = mul nuw nsw i64 %indvars.iv89.i, %118
   %invariant.gep.i = getelementptr inbounds nuw float, ptr %26, i64 %126
   br label %127
@@ -398,7 +402,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   %131 = fadd float %128, %130
   store float %131, ptr %129, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %118
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %127, !llvm.loop !7
 
 ._crit_edge.us.i:                                 ; preds = %127
@@ -2068,6 +2072,7 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %37, %39
 
 .lr.ph.i.preheader:                               ; preds = %56
   %63 = lshr i32 %61, 3
+  %umax = tail call i32 @llvm.umax.i32(i32 %63, i32 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -2079,7 +2084,7 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %37, %39
   store i8 %64, ptr %.sroa.0.2, align 1
   %66 = lshr i64 %.0711.i, 8
   %67 = add nuw nsw i32 %.012.i, 1
-  %exitcond.not = icmp eq i32 %67, %63
+  %exitcond.not = icmp eq i32 %67, %umax
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %56
@@ -2472,6 +2477,7 @@ define void @_ZNK5faiss16ProductQuantizer32compute_code_from_distance_tableEPKfP
 
 .lr.ph.i.preheader:                               ; preds = %25
   %32 = lshr i32 %30, 3
+  %umax = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -2483,7 +2489,7 @@ define void @_ZNK5faiss16ProductQuantizer32compute_code_from_distance_tableEPKfP
   store i8 %33, ptr %.sroa.0.2, align 1
   %35 = lshr i64 %.0711.i, 8
   %36 = add nuw nsw i32 %.012.i, 1
-  %exitcond44.not = icmp eq i32 %36, %32
+  %exitcond44.not = icmp eq i32 %36, %umax
   br i1 %exitcond44.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %25
@@ -3140,6 +3146,7 @@ define internal void @_ZNK5faiss16ProductQuantizer13compute_codesEPKfPhm.omp_out
 
 .lr.ph.i.preheader.i:                             ; preds = %51
   %58 = lshr i32 %56, 3
+  %umax.i = call i32 @llvm.umax.i32(i32 %58, i32 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -3151,7 +3158,7 @@ define internal void @_ZNK5faiss16ProductQuantizer13compute_codesEPKfPhm.omp_out
   store i8 %59, ptr %.sroa.0.2.i, align 1
   %61 = lshr i64 %.0711.i.i, 8
   %62 = add nuw nsw i32 %.012.i.i, 1
-  %exitcond44.not.i = icmp eq i32 %62, %58
+  %exitcond44.not.i = icmp eq i32 %62, %umax.i
   br i1 %exitcond44.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %51
@@ -7802,14 +7809,14 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

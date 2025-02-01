@@ -742,15 +742,12 @@ if.end200.thread.i:                               ; preds = %if.end185.i
   br i1 %cmp204.not145.i, label %if.then223.i, label %if.end235.i
 
 if.end200.i:                                      ; preds = %if.end185.i
-  %sub197.i = sub nuw nsw i64 1, %17
-  call void @llvm.memset.p0.i64(ptr align 1 %p.2.i, i8 48, i64 %sub197.i, i1 false)
-  %add.ptr199.i = getelementptr i8, ptr %p.2.i, i64 %sub197.i
   %cmp204.not.i = icmp sgt i64 %16, %sub.ptr.sub.i
   br i1 %cmp204.not.i, label %if.end220.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end200.i
-  %call208.i = call ptr @strncpy(ptr noundef %add.ptr199.i, ptr noundef nonnull %call5140.i, i64 noundef %16) #13
-  %add.ptr210.i = getelementptr i8, ptr %add.ptr199.i, i64 %16
+  %call208.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %16) #13
+  %add.ptr210.i = getelementptr i8, ptr %p.2.i, i64 %16
   %incdec.ptr211.i = getelementptr i8, ptr %add.ptr210.i, i64 1
   store i8 46, ptr %add.ptr210.i, align 1
   %add.ptr212.i = getelementptr i8, ptr %call5140.i, i64 %16
@@ -760,8 +757,8 @@ if.then206.i:                                     ; preds = %if.end200.i
   br label %if.end235.i
 
 if.end220.i:                                      ; preds = %if.end200.i
-  %call218.i = call ptr @strncpy(ptr noundef %add.ptr199.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
-  %add.ptr219.i = getelementptr i8, ptr %add.ptr199.i, i64 %sub.ptr.sub.i
+  %call218.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
+  %add.ptr219.i = getelementptr i8, ptr %p.2.i, i64 %sub.ptr.sub.i
   br label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end220.i, %if.end200.thread.i

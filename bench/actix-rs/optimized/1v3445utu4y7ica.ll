@@ -5294,6 +5294,7 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17h5182
 22:                                               ; preds = %.loopexit.us.us.us, %.lr.ph196.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.us.us.us ], [ %21, %.lr.ph196.us ]
   %.0195.us.us.us = phi i64 [ %61, %.loopexit.us.us.us ], [ %.0.ph247.us, %.lr.ph196.us ]
+  %umax = tail call i64 @llvm.umax.i64(i64 %.0195.us.us.us, i64 1)
   %23 = load float, ptr %18, align 4, !noundef !4
   %24 = fcmp ult float %23, %.092.ph246.us
   br i1 %24, label %25, label %.outer.loopexit.split.us.split.us.us
@@ -5360,14 +5361,15 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit.us.
   %57 = load i32, ptr %56, align 4, !noundef !4
   %58 = icmp eq i32 %57, %27
   %.neg = add i64 %.1186.us.us.us, 1
-  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %55
+  %exitcond469.not = icmp eq i64 %.neg, %umax
   %indvars.iv.next471 = add i64 %indvars.iv470, -1
-  br i1 %.not332, label %.thread.us.us.us, label %.preheader.us.us.us
+  br i1 %exitcond469.not, label %.thread.us.us.us, label %.preheader.us.us.us
 
 60:                                               ; preds = %55
+  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %.not332, label %.thread.us.us.us, label %.lr.ph188.us.us.us
 
 .thread.us.us.us:                                 ; preds = %59, %99, %60
@@ -5556,6 +5558,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit.us.
 120:                                              ; preds = %.lr.ph196, %.loopexit
   %indvars.iv484 = phi i64 [ %124, %.lr.ph196 ], [ %indvars.iv.next485, %.loopexit ]
   %.0195 = phi i64 [ %.0.ph247, %.lr.ph196 ], [ %161, %.loopexit ]
+  %umax482 = tail call i64 @llvm.umax.i64(i64 %.0195, i64 1)
   %121 = load float, ptr %18, align 4, !noundef !4
   %122 = fcmp ult float %121, %.092.ph246
   br i1 %122, label %126, label %.outer.loopexit.split
@@ -5674,7 +5677,6 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
   %165 = load i32, ptr %164, align 4, !noundef !4
   %166 = icmp eq i32 %165, %128
   %.neg496 = add i64 %.1186, 1
-  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %166, label %168, label %167
 
 .split208.us:                                     ; preds = %.preheader.us.us.us, %.preheader
@@ -5682,10 +5684,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
   unreachable
 
 167:                                              ; preds = %163
+  %exitcond483.not = icmp eq i64 %.neg496, %umax482
   %indvars.iv.next487 = add i64 %indvars.iv486, -1
-  br i1 %.not329, label %.thread, label %.preheader
+  br i1 %exitcond483.not, label %.thread, label %.preheader
 
 168:                                              ; preds = %163
+  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %.not329, label %.thread, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %168
@@ -5911,6 +5915,7 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17h738d
 22:                                               ; preds = %.loopexit.us.us.us, %.lr.ph196.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.us.us.us ], [ %21, %.lr.ph196.us ]
   %.0195.us.us.us = phi i64 [ %61, %.loopexit.us.us.us ], [ %.0.ph247.us, %.lr.ph196.us ]
+  %umax = tail call i64 @llvm.umax.i64(i64 %.0195.us.us.us, i64 1)
   %23 = load float, ptr %18, align 4, !noundef !4
   %24 = fcmp ult float %23, %.092.ph246.us
   br i1 %24, label %25, label %.outer.loopexit.split.us.split.us.us
@@ -5977,14 +5982,15 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit.us.
   %57 = load i32, ptr %56, align 4, !noundef !4
   %58 = icmp eq i32 %57, %27
   %.neg = add i64 %.1186.us.us.us, 1
-  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %55
+  %exitcond469.not = icmp eq i64 %.neg, %umax
   %indvars.iv.next471 = add i64 %indvars.iv470, -1
-  br i1 %.not332, label %.thread.us.us.us, label %.preheader.us.us.us
+  br i1 %exitcond469.not, label %.thread.us.us.us, label %.preheader.us.us.us
 
 60:                                               ; preds = %55
+  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %.not332, label %.thread.us.us.us, label %.lr.ph188.us.us.us
 
 .thread.us.us.us:                                 ; preds = %59, %99, %60
@@ -6173,6 +6179,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit.us.
 120:                                              ; preds = %.lr.ph196, %.loopexit
   %indvars.iv484 = phi i64 [ %124, %.lr.ph196 ], [ %indvars.iv.next485, %.loopexit ]
   %.0195 = phi i64 [ %.0.ph247, %.lr.ph196 ], [ %161, %.loopexit ]
+  %umax482 = tail call i64 @llvm.umax.i64(i64 %.0195, i64 1)
   %121 = load float, ptr %18, align 4, !noundef !4
   %122 = fcmp ult float %121, %.092.ph246
   br i1 %122, label %126, label %.outer.loopexit.split
@@ -6291,7 +6298,6 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
   %165 = load i32, ptr %164, align 4, !noundef !4
   %166 = icmp eq i32 %165, %128
   %.neg496 = add i64 %.1186, 1
-  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %166, label %168, label %167
 
 .split208.us:                                     ; preds = %.preheader.us.us.us, %.preheader
@@ -6299,10 +6305,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
   unreachable
 
 167:                                              ; preds = %163
+  %exitcond483.not = icmp eq i64 %.neg496, %umax482
   %indvars.iv.next487 = add i64 %indvars.iv486, -1
-  br i1 %.not329, label %.thread, label %.preheader
+  br i1 %exitcond483.not, label %.thread, label %.preheader
 
 168:                                              ; preds = %163
+  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %.not329, label %.thread, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %168
@@ -6528,6 +6536,7 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17hc9fd
 22:                                               ; preds = %.loopexit.us.us.us, %.lr.ph196.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.us.us.us ], [ %21, %.lr.ph196.us ]
   %.0195.us.us.us = phi i64 [ %61, %.loopexit.us.us.us ], [ %.0.ph247.us, %.lr.ph196.us ]
+  %umax = tail call i64 @llvm.umax.i64(i64 %.0195.us.us.us, i64 1)
   %23 = load float, ptr %18, align 4, !noundef !4
   %24 = fcmp ult float %23, %.092.ph246.us
   br i1 %24, label %25, label %.outer.loopexit.split.us.split.us.us
@@ -6594,14 +6603,15 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit.us.
   %57 = load i32, ptr %56, align 4, !noundef !4
   %58 = icmp eq i32 %57, %27
   %.neg = add i64 %.1186.us.us.us, 1
-  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %55
+  %exitcond469.not = icmp eq i64 %.neg, %umax
   %indvars.iv.next471 = add i64 %indvars.iv470, -1
-  br i1 %.not332, label %.thread.us.us.us, label %.preheader.us.us.us
+  br i1 %exitcond469.not, label %.thread.us.us.us, label %.preheader.us.us.us
 
 60:                                               ; preds = %55
+  %.not332 = icmp eq i64 %.0195.us.us.us, %.neg
   br i1 %.not332, label %.thread.us.us.us, label %.lr.ph188.us.us.us
 
 .thread.us.us.us:                                 ; preds = %59, %99, %60
@@ -6790,6 +6800,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit.us.
 120:                                              ; preds = %.lr.ph196, %.loopexit
   %indvars.iv484 = phi i64 [ %124, %.lr.ph196 ], [ %indvars.iv.next485, %.loopexit ]
   %.0195 = phi i64 [ %.0.ph247, %.lr.ph196 ], [ %161, %.loopexit ]
+  %umax482 = tail call i64 @llvm.umax.i64(i64 %.0195, i64 1)
   %121 = load float, ptr %18, align 4, !noundef !4
   %122 = fcmp ult float %121, %.092.ph246
   br i1 %122, label %126, label %.outer.loopexit.split
@@ -6908,7 +6919,6 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
   %165 = load i32, ptr %164, align 4, !noundef !4
   %166 = icmp eq i32 %165, %128
   %.neg496 = add i64 %.1186, 1
-  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %166, label %168, label %167
 
 .split208.us:                                     ; preds = %.preheader.us.us.us, %.preheader
@@ -6916,10 +6926,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
   unreachable
 
 167:                                              ; preds = %163
+  %exitcond483.not = icmp eq i64 %.neg496, %umax482
   %indvars.iv.next487 = add i64 %indvars.iv486, -1
-  br i1 %.not329, label %.thread, label %.preheader
+  br i1 %exitcond483.not, label %.thread, label %.preheader
 
 168:                                              ; preds = %163
+  %.not329 = icmp eq i64 %.0195, %.neg496
   br i1 %.not329, label %.thread, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %168

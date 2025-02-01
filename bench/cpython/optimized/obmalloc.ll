@@ -10121,12 +10121,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %numa_node, i32 -1)
   %cmp7 = icmp sgt i32 %numa_node, -1
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end3
-  %conv = zext nneg i32 %spec.store.select to i64
+  %conv = zext nneg i32 %numa_node to i64
   %0 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %if.else.i, label %_mi_os_numa_node_count.exit
@@ -10180,7 +10179,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %if.then8, %if.else.
   br label %if.end10
 
 if.end10:                                         ; preds = %_mi_os_numa_node_count.exit, %if.end3
-  %numa_node.addr.0 = phi i32 [ %conv9, %_mi_os_numa_node_count.exit ], [ %spec.store.select, %if.end3 ]
+  %numa_node.addr.0 = phi i32 [ %conv9, %_mi_os_numa_node_count.exit ], [ -1, %if.end3 ]
   store i64 0, ptr %hsize, align 8
   store i64 0, ptr %pages_reserved, align 8
   %call11 = call ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node.addr.0, i64 noundef %timeout_msecs, ptr noundef nonnull %pages_reserved, ptr noundef nonnull %hsize, ptr noundef nonnull %memid)
@@ -10666,7 +10665,7 @@ for.body:                                         ; preds = %cond.end9, %if.end1
 if.end18:                                         ; preds = %for.body
   %pages.addr.1 = call i64 @llvm.usub.sat.i64(i64 %pages.addr.019, i64 %spec.select)
   %inc23 = add nuw i64 %numa_node.020, 1
-  %cmp11 = icmp ult i64 %inc23, %cond
+  %cmp11 = icmp ugt i64 %cond, %inc23
   %cmp12 = icmp ugt i64 %pages.addr.019, %spec.select
   %4 = select i1 %cmp11, i1 %cmp12, i1 false
   br i1 %4, label %for.body, label %return, !llvm.loop !51
@@ -29551,7 +29550,7 @@ if.then.i.i.i:                                    ; preds = %cond.end
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
-  %mul5.i.i.i = mul nuw nsw i64 %cond11.i, 3
+  %mul5.i.i.i = mul nuw nsw i64 %cond, 3
   br label %_mi_segment_page_start.exit.i18
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -29600,7 +29599,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end5.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
-  %mul5.i.i.i.i.i = mul nuw nsw i64 %cond11.i, 3
+  %mul5.i.i.i.i.i = mul nuw nsw i64 %cond, 3
   br label %_mi_page_start.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
@@ -29636,7 +29635,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cond.end21.i.i
   br i1 %cmp2.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %mul5.i.i.i.i.i.i = mul nuw nsw i64 %cond11.i, 3
+  %mul5.i.i.i.i.i.i = mul nuw nsw i64 %cond, 3
   br label %_mi_page_start.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
@@ -30210,8 +30209,8 @@ cond.end:                                         ; preds = %entry, %lor.lhs.fal
   br i1 %cmp4, label %if.then6, label %if.end13
 
 if.then6:                                         ; preds = %cond.end
-  %add = add i64 %slice_index, -1
-  %sub = add i64 %add, %spec.store.select
+  %add = add i64 %slice_count, -1
+  %sub = add i64 %add, %slice_index
   %arrayidx8 = getelementptr [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %sub
   store i32 0, ptr %arrayidx8, align 8
   %3 = mul i32 %conv, 80
@@ -31180,8 +31179,7 @@ cond.end.i:                                       ; preds = %mi_span_queue_for.e
   br i1 %cmp4.i, label %if.then6.i, label %if.end13.i
 
 if.then6.i:                                       ; preds = %cond.end.i
-  %add.i45 = add nsw i64 %info_slices.0, -1
-  %sub.i46 = add i64 %add.i45, %spec.store.select.i
+  %sub.i46 = add i64 %41, -1
   %arrayidx8.i = getelementptr [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %sub.i46
   store i32 0, ptr %arrayidx8.i, align 8
   %44 = mul i32 %conv.i, 80
@@ -32154,9 +32152,6 @@ declare i64 @llvm.umin.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #48
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #48

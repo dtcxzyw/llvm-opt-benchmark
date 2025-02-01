@@ -8785,6 +8785,7 @@ invoke.cont86.lr.ph.split.us:                     ; preds = %invoke.cont86.lr.ph
   %34 = load ptr, ptr %ptr.i.i82, align 8
   %tobool.not.i.i83.us = icmp eq ptr %34, null
   %cond.i.i84.us = select i1 %tobool.not.i.i83.us, ptr %31, ptr %34
+  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %invoke.cont86.us
 
 invoke.cont86.us:                                 ; preds = %for.inc.us, %invoke.cont86.lr.ph.split.us
@@ -8809,7 +8810,7 @@ if.end89.us:                                      ; preds = %invoke.cont86.us
 
 for.inc.us:                                       ; preds = %if.end89.us, %invoke.cont86.us
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next206, %32
+  %exitcond.not = icmp eq i64 %indvars.iv.next206, %umax
   br i1 %exitcond.not, label %for.end, label %invoke.cont86.us, !llvm.loop !87
 
 invoke.cont86:                                    ; preds = %invoke.cont86.lr.ph, %for.inc
@@ -9542,6 +9543,7 @@ invoke.cont93.lr.ph.split.us:                     ; preds = %invoke.cont93.lr.ph
   %35 = load ptr, ptr %ptr.i.i83, align 8
   %tobool.not.i.i84.us = icmp eq ptr %35, null
   %cond.i.i85.us = select i1 %tobool.not.i.i84.us, ptr %32, ptr %35
+  %umax = call i64 @llvm.umax.i64(i64 %33, i64 1)
   br label %invoke.cont93.us
 
 invoke.cont93.us:                                 ; preds = %for.inc.us, %invoke.cont93.lr.ph.split.us
@@ -9567,7 +9569,7 @@ if.end96.us:                                      ; preds = %invoke.cont93.us
 
 for.inc.us:                                       ; preds = %if.end96.us, %invoke.cont93.us
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next207, %33
+  %exitcond.not = icmp eq i64 %indvars.iv.next207, %umax
   br i1 %exitcond.not, label %for.end, label %invoke.cont93.us, !llvm.loop !99
 
 invoke.cont93:                                    ; preds = %invoke.cont93.lr.ph, %for.inc
@@ -10258,6 +10260,7 @@ invoke.cont94.lr.ph.split.us:                     ; preds = %invoke.cont94.lr.ph
   %34 = load ptr, ptr %ptr.i.i83, align 8
   %tobool.not.i.i84.us = icmp eq ptr %34, null
   %cond.i.i85.us = select i1 %tobool.not.i.i84.us, ptr %31, ptr %34
+  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %invoke.cont94.us
 
 invoke.cont94.us:                                 ; preds = %for.inc.us, %invoke.cont94.lr.ph.split.us
@@ -10286,7 +10289,7 @@ if.end97.us:                                      ; preds = %invoke.cont94.us
 
 for.inc.us:                                       ; preds = %if.end97.us, %invoke.cont94.us
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next212, %32
+  %exitcond.not = icmp eq i64 %indvars.iv.next212, %umax
   br i1 %exitcond.not, label %for.end, label %invoke.cont94.us, !llvm.loop !111
 
 invoke.cont94:                                    ; preds = %invoke.cont94.lr.ph, %for.inc

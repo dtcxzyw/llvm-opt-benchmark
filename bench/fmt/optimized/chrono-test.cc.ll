@@ -124705,9 +124705,9 @@ if.then127:                                       ; preds = %if.then125.thread, 
   %prod.2309315 = phi i64 [ %prod.0, %if.then125.thread ], [ %mul17.i, %if.then125 ]
   %digits.1310314 = phi i32 [ %digits.1307, %if.then125.thread ], [ %digits.1, %if.then125 ]
   %conv128 = trunc i64 %prod.2309315 to i32
-  %sub129 = sub nsw i32 8, %27
-  %idxprom.i = sext i32 %sub129 to i64
-  %arrayidx.i120 = getelementptr inbounds [9 x i32], ptr @.str.1091, i64 0, i64 %idxprom.i
+  %sub129 = sub nsw i32 8, %precision.addr.0
+  %idxprom.i = zext nneg i32 %sub129 to i64
+  %arrayidx.i120 = getelementptr inbounds nuw [9 x i32], ptr @.str.1091, i64 0, i64 %idxprom.i
   %34 = load i32, ptr %arrayidx.i120, align 4
   %cmp131.not = icmp ugt i32 %34, %conv128
   br i1 %cmp131.not, label %lor.rhs, label %if.then199

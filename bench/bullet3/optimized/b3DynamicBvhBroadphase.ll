@@ -2104,11 +2104,11 @@ if.then82:                                        ; preds = %if.then79
   %div88 = sdiv i32 %mul87, 100
   %25 = load i32, ptr %m_newpairs, align 4
   %26 = call i32 @llvm.smax.i32(i32 %25, i32 %div88)
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %23, i32 %26)
   %cmp9159 = icmp sgt i32 %26, 0
   br i1 %cmp9159, label %for.body.lr.ph, label %if.then114
 
 for.body.lr.ph:                                   ; preds = %if.then82
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %23, i32 %26)
   %m_cid = getelementptr inbounds nuw i8, ptr %this, i64 308
   %m_data.i = getelementptr inbounds nuw i8, ptr %call80, i64 16
   %m_data.i43 = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -2208,7 +2208,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp113, label %if.then114, label %if.else
 
 if.then114:                                       ; preds = %if.then82, %for.end
-  %ni.0.lcssa66 = phi i32 [ %ni.1, %for.end ], [ %.sroa.speculated, %if.then82 ]
+  %ni.0.lcssa66 = phi i32 [ %ni.1, %for.end ], [ %26, %if.then82 ]
   %51 = phi i32 [ %.pre62, %for.end ], [ %23, %if.then82 ]
   %m_cid115 = getelementptr inbounds nuw i8, ptr %this, i64 308
   %52 = load i32, ptr %m_cid115, align 4

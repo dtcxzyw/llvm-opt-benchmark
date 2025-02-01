@@ -2190,7 +2190,7 @@ _ZN11arrow_array5array5Array7is_null17h8e0c2a9e5f48cdbaE.exit: ; preds = %.lr.ph
 
 69:                                               ; preds = %61, %59
   %70 = add nsw i64 %18, -10
-  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %70)
+  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %70, i64 10)
   %71 = icmp ult i64 %.0.sroa.speculated.i85, %18
   br i1 %71, label %.lr.ph103, label %.thread94
 
@@ -2505,7 +2505,7 @@ _ZN11arrow_array5array5Array7is_null17h0e1afd9a1349a208E.exit: ; preds = %.lr.ph
 
 69:                                               ; preds = %61, %59
   %70 = add nsw i64 %18, -10
-  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %70)
+  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %70, i64 10)
   %71 = icmp ult i64 %.0.sroa.speculated.i85, %18
   br i1 %71, label %.lr.ph103, label %.thread94
 
@@ -2820,7 +2820,7 @@ _ZN11arrow_array5array5Array7is_null17h3397e6307cb11555E.exit: ; preds = %.lr.ph
 
 69:                                               ; preds = %61, %59
   %70 = add nsw i64 %18, -10
-  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %70)
+  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %70, i64 10)
   %71 = icmp ult i64 %.0.sroa.speculated.i85, %18
   br i1 %71, label %.lr.ph103, label %.thread94
 
@@ -3135,7 +3135,7 @@ _ZN11arrow_array5array5Array7is_null17h2518884237183180E.exit: ; preds = %.lr.ph
 
 69:                                               ; preds = %61, %59
   %70 = add nsw i64 %18, -10
-  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %70)
+  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %70, i64 10)
   %71 = icmp ult i64 %.0.sroa.speculated.i85, %18
   br i1 %71, label %.lr.ph103, label %.thread94
 
@@ -3450,7 +3450,7 @@ _ZN11arrow_array5array5Array7is_null17h0a7bd7eebd23635eE.exit: ; preds = %.lr.ph
 
 69:                                               ; preds = %61, %59
   %70 = add nsw i64 %18, -10
-  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %70)
+  %.0.sroa.speculated.i85 = call noundef i64 @llvm.umax.i64(i64 %70, i64 10)
   %71 = icmp ult i64 %.0.sroa.speculated.i85, %18
   br i1 %71, label %.lr.ph103, label %.thread94
 
@@ -13517,11 +13517,11 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_array..Gen
   %27 = load i64, ptr %26, align 8, !alias.scope !2045, !noalias !2048, !noundef !4
   %28 = lshr i64 %27, 2
   %29 = add nsw i64 %28, -1
-  %.0.sroa.speculated.i.i = call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %29, i64 10)
   %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
+  %.0.sroa.speculated.i.i = call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %29, i64 10)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8, !alias.scope !2050, !noalias !2048, !noundef !4
   %32 = icmp eq ptr %31, null
@@ -13655,7 +13655,7 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.i: ; preds = %.lr.
 
 90:                                               ; preds = %82, %80
   %91 = add nsw i64 %28, -11
-  %.0.sroa.speculated.i78.i = call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 %91)
+  %.0.sroa.speculated.i78.i = call noundef i64 @llvm.umax.i64(i64 %91, i64 10)
   %92 = icmp ult i64 %.0.sroa.speculated.i78.i, %29
   br i1 %92, label %.lr.ph101.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit
 

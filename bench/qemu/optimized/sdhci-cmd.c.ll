@@ -114,8 +114,9 @@ while.body.i:                                     ; preds = %entry, %while.end.i
 
 while.body6.preheader.i:                          ; preds = %while.body.i
   %0 = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 4)
-  %1 = add nsw i32 %0, -1
-  %2 = zext nneg i32 %1 to i64
+  %1 = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
+  %2 = add nsw i32 %0, -1
+  %3 = zext nneg i32 %2 to i64
   br label %while.body6.i
 
 while.body6.i:                                    ; preds = %while.body6.i, %while.body6.preheader.i
@@ -124,22 +125,22 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %index.19.i = phi i64 [ %inc.i, %while.body6.i ], [ %index.014.i, %while.body6.preheader.i ]
   %inc.i = add i64 %index.19.i, 1
   %arrayidx.i = getelementptr i8, ptr %msg, i64 %index.19.i
-  %3 = load i8, ptr %arrayidx.i, align 1
-  %conv7.i = sext i8 %3 to i32
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %conv7.i = sext i8 %4 to i32
   %mul.i = shl i32 %frag_i.011.i, 3
   %shl.i = shl i32 %conv7.i, %mul.i
   %or.i = or i32 %shl.i, %msg_frag.010.i
   %inc8.i = add nuw nsw i32 %frag_i.011.i, 1
-  %exitcond.not.i = icmp eq i32 %inc8.i, %0
+  %exitcond.not.i = icmp eq i32 %inc8.i, %1
   br i1 %exitcond.not.i, label %while.end.i.loopexit, label %while.body6.i, !llvm.loop !8
 
 while.end.i.loopexit:                             ; preds = %while.body6.i
-  %4 = add i64 %index.014.i, 1
-  %5 = add i64 %4, %2
+  %5 = add i64 %index.014.i, 1
+  %6 = add i64 %5, %3
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %while.body.i
-  %index.1.lcssa.i = phi i64 [ %index.014.i, %while.body.i ], [ %5, %while.end.i.loopexit ]
+  %index.1.lcssa.i = phi i64 [ %index.014.i, %while.body.i ], [ %6, %while.end.i.loopexit ]
   %msg_frag.0.lcssa.i = phi i32 [ 0, %while.body.i ], [ %or.i, %while.end.i.loopexit ]
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add, i32 noundef %msg_frag.0.lcssa.i) #3
   %cmp.i = icmp ult i64 %index.1.lcssa.i, %count
@@ -173,6 +174,9 @@ declare i32 @qtest_readl(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #2
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

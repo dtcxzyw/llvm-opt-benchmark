@@ -16095,7 +16095,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %10 = load i32, ptr %length, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i, i32 %10)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %add, i32 %10)
   %cmp.not.i.i = icmp ugt i32 %.sroa.speculated.i.i, %9
   %shr.i.i = lshr i32 %9, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -16232,7 +16232,6 @@ entry:
 if.end.i.i.i.i:                                   ; preds = %entry
   %length.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %length.i, align 4
-  %cond.i.i.i = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
   %cmp.not.i.i.i.i.not = icmp slt i32 %0, 1
   br i1 %cmp.not.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit, label %lor.rhs.i.i.i.i
 
@@ -16241,7 +16240,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %1, label %cleanup.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
-  %2 = shl nuw i32 %cond.i.i.i, 2
+  %2 = shl nuw i32 %0, 2
   %mul.i.i.i.i.i = zext i32 %2 to i64
   %calloc = tail call ptr @calloc(i64 1, i64 %mul.i.i.i.i.i)
   %tobool27.not.i.i.i.i = icmp eq ptr %calloc, null
@@ -16252,7 +16251,7 @@ cleanup.thread:                                   ; preds = %lor.rhs.i.i.i.i, %_
   br label %if.then.i.i33
 
 _ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit: ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i, %if.end.i.i.i.i
-  %compact_workspace.sroa.7.0 = phi i32 [ 0, %if.end.i.i.i.i ], [ %cond.i.i.i, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
+  %compact_workspace.sroa.7.0 = phi i32 [ 0, %if.end.i.i.i.i ], [ %0, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
   %compact_workspace.sroa.15.1 = phi ptr [ null, %if.end.i.i.i.i ], [ %calloc, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
   %length = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load i32, ptr %length, align 4
@@ -16338,8 +16337,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %tobool.i.i.not3.i.i, label %_Z7hb_fillI10hb_array_tIjEjTnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEvOS3_RKT0_.exit.i, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.preheader.i
 
 _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.preheader.i: ; preds = %for.end
-  %15 = zext nneg i32 %compact_workspace.sroa.7.0 to i64
-  %16 = shl nuw nsw i64 %15, 2
+  %15 = shl nuw i32 %compact_workspace.sroa.7.0, 2
+  %16 = zext i32 %15 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %compact_workspace.sroa.15.1, i8 -1, i64 %16, i1 false)
   br label %_Z7hb_fillI10hb_array_tIjEjTnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEvOS3_RKT0_.exit.i
 
@@ -16517,7 +16516,7 @@ if.end.i.i36:                                     ; preds = %lor.lhs.false.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i36
   %42 = load i32, ptr %length, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i, i32 %42)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %42, i32 1)
   %cmp.not.i.i44 = icmp ugt i32 %.sroa.speculated.i.i, %41
   %shr.i.i = lshr i32 %41, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -81025,19 +81024,16 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %length, align 4
   %length4 = getelementptr inbounds nuw i8, ptr %other, i64 36
   %2 = load i32, ptr %length4, align 4
-  br i1 %passthru_left, label %if.end7, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end
-  %cond.i.i.i = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %cmp.not.i.i.i.i.not = icmp slt i32 %1, 1
-  br i1 %cmp.not.i.i.i.i.not, label %if.end7, label %lor.rhs.i.i.i.i
+  %or.cond338 = select i1 %passthru_left, i1 true, i1 %cmp.not.i.i.i.i.not
+  br i1 %or.cond338, label %if.end7, label %lor.rhs.i.i.i.i
 
-lor.rhs.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
+lor.rhs.i.i.i.i:                                  ; preds = %if.end
   %3 = icmp samesign ugt i32 %1, 1073741823
   br i1 %3, label %cleanup.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
-  %4 = shl nuw i32 %cond.i.i.i, 2
+  %4 = shl nuw i32 %1, 2
   %mul.i.i.i.i.i = zext i32 %4 to i64
   %calloc = tail call ptr @calloc(i64 1, i64 %mul.i.i.i.i.i)
   %tobool27.not.i.i.i.i = icmp eq ptr %calloc, null
@@ -81047,9 +81043,9 @@ cleanup.thread:                                   ; preds = %lor.rhs.i.i.i.i, %_
   store i8 0, ptr %this, align 8
   br label %if.then.i.i198
 
-if.end7:                                          ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i, %if.end.i.i.i.i, %if.end
-  %compact_workspace.sroa.0.0 = phi i32 [ 0, %if.end ], [ 0, %if.end.i.i.i.i ], [ %cond.i.i.i, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
-  %compact_workspace.sroa.15.0 = phi ptr [ null, %if.end ], [ null, %if.end.i.i.i.i ], [ %calloc, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
+if.end7:                                          ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i, %if.end
+  %compact_workspace.sroa.0.0 = phi i32 [ 0, %if.end ], [ %1, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
+  %compact_workspace.sroa.15.0 = phi ptr [ null, %if.end ], [ %calloc, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i ]
   %cmp299 = icmp ne i32 %1, 0
   %cmp8300 = icmp ne i32 %2, 0
   %5 = select i1 %cmp299, i1 %cmp8300, i1 false
@@ -81210,8 +81206,8 @@ if.then58:                                        ; preds = %for.end
   br i1 %tobool.i.i.not3.i.i, label %_Z7hb_fillI10hb_array_tIjEjTnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEvOS3_RKT0_.exit.i, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.preheader.i
 
 _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.preheader.i: ; preds = %if.then58
-  %24 = zext nneg i32 %compact_workspace.sroa.0.0 to i64
-  %25 = shl nuw nsw i64 %24, 2
+  %24 = shl nuw i32 %compact_workspace.sroa.0.0, 2
+  %25 = zext i32 %24 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %compact_workspace.sroa.15.0, i8 -1, i64 %25, i1 false)
   br label %_Z7hb_fillI10hb_array_tIjEjTnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEvOS3_RKT0_.exit.i
 
@@ -81393,7 +81389,7 @@ if.end.i.i201:                                    ; preds = %lor.lhs.false.i
 if.then2.i.i:                                     ; preds = %if.end.i.i201
   %length.i.i208 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %53 = load i32, ptr %length.i.i208, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i, i32 %53)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %53, i32 1)
   %cmp.not.i.i209 = icmp ugt i32 %.sroa.speculated.i.i, %52
   %shr.i.i = lshr i32 %52, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -81694,7 +81690,7 @@ if.end.i.i212:                                    ; preds = %lor.lhs.false.i194
 
 if.then2.i.i252:                                  ; preds = %if.end.i.i212
   %103 = load i32, ptr %length.i203, align 4
-  %.sroa.speculated.i.i254 = call i32 @llvm.umax.i32(i32 %cond.i, i32 %103)
+  %.sroa.speculated.i.i254 = call i32 @llvm.umax.i32(i32 %103, i32 1)
   %cmp.not.i.i255 = icmp ugt i32 %.sroa.speculated.i.i254, %102
   %shr.i.i256 = lshr i32 %102, 2
   %cmp5.not.i.i257 = icmp ult i32 %.sroa.speculated.i.i254, %shr.i.i256

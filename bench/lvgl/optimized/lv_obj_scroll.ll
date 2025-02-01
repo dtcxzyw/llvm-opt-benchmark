@@ -723,7 +723,7 @@ lv_obj_scroll_by_raw.exit:                        ; preds = %lv_obj_get_scroll_y
 define void @lv_obj_scroll_by_bounded(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = or i32 %2, %1
   %or.cond = icmp eq i32 %5, 0
-  br i1 %or.cond, label %48, label %6
+  br i1 %or.cond, label %49, label %6
 
 6:                                                ; preds = %4
   tail call void @lv_obj_update_layout(ptr noundef %0) #5
@@ -748,9 +748,8 @@ lv_obj_get_scroll_x.exit:                         ; preds = %6, %10
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %lv_obj_get_scroll_x.exit
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %14, i32 0)
   %19 = icmp slt i32 %14, 0
-  br i1 %19, label %20, label %30
+  br i1 %19, label %20, label %31
 
 20:                                               ; preds = %18
   %21 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %0)
@@ -758,66 +757,65 @@ lv_obj_get_scroll_x.exit:                         ; preds = %6, %10
   %23 = add nsw i32 %22, %21
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %24 = sub nsw i32 0, %spec.store.select2
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 %24)
-  br label %30
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %14, i32 %24)
+  br label %31
 
 25:                                               ; preds = %lv_obj_get_scroll_x.exit
   %.not55 = icmp slt i32 %14, 1
-  br i1 %.not55, label %30, label %26
+  br i1 %.not55, label %31, label %26
 
 26:                                               ; preds = %25
   %27 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %0)
   %28 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %0)
   %29 = add nsw i32 %28, %27
-  %minmaxop = tail call i32 @llvm.smin.i32(i32 %29, i32 %14)
-  %.2 = tail call i32 @llvm.smax.i32(i32 %minmaxop, i32 0)
-  br label %30
+  %30 = icmp slt i32 %29, %14
+  %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.2 = select i1 %30, i32 %spec.store.select4, i32 %14
+  br label %31
 
-30:                                               ; preds = %25, %26, %18, %20
-  %.152 = phi i32 [ %spec.select, %20 ], [ %spec.store.select, %18 ], [ %.2, %26 ], [ 0, %25 ]
-  %31 = load ptr, ptr %7, align 8, !tbaa !3
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %lv_obj_get_scroll_y.exit, label %lv_obj_get_scroll_y.exit.thread
+31:                                               ; preds = %25, %26, %18, %20
+  %.152 = phi i32 [ %spec.select, %20 ], [ 0, %18 ], [ %.2, %26 ], [ 0, %25 ]
+  %32 = load ptr, ptr %7, align 8, !tbaa !3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %lv_obj_get_scroll_y.exit, label %lv_obj_get_scroll_y.exit.thread
 
-lv_obj_get_scroll_y.exit:                         ; preds = %30
-  %spec.store.select5 = tail call i32 @llvm.smin.i32(i32 %2, i32 0)
-  %33 = icmp slt i32 %2, 0
-  br i1 %33, label %lv_obj_get_scroll_top.exit, label %42
+lv_obj_get_scroll_y.exit:                         ; preds = %31
+  %34 = icmp slt i32 %2, 0
+  br i1 %34, label %lv_obj_get_scroll_top.exit, label %43
 
-lv_obj_get_scroll_y.exit.thread:                  ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 52
-  %35 = load i32, ptr %34, align 4, !tbaa !17
-  %36 = sub nsw i32 0, %35
-  %37 = add nsw i32 %35, %2
-  %spec.store.select560 = tail call i32 @llvm.smin.i32(i32 %37, i32 0)
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %lv_obj_get_scroll_top.exit, label %42
+lv_obj_get_scroll_y.exit.thread:                  ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 52
+  %36 = load i32, ptr %35, align 4, !tbaa !17
+  %37 = sub nsw i32 0, %36
+  %38 = add nsw i32 %36, %2
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %lv_obj_get_scroll_top.exit, label %43
 
 lv_obj_get_scroll_top.exit:                       ; preds = %lv_obj_get_scroll_y.exit.thread, %lv_obj_get_scroll_y.exit
-  %.0.i576269 = phi i32 [ 0, %lv_obj_get_scroll_y.exit ], [ %36, %lv_obj_get_scroll_y.exit.thread ]
-  %spec.store.select56367 = phi i32 [ %spec.store.select5, %lv_obj_get_scroll_y.exit ], [ %spec.store.select560, %lv_obj_get_scroll_y.exit.thread ]
-  %39 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %0)
-  %40 = add nsw i32 %39, %.0.i576269
-  %spec.store.select6 = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %41 = sub nsw i32 0, %spec.store.select6
-  %spec.select56 = tail call i32 @llvm.smax.i32(i32 %spec.store.select56367, i32 %41)
-  br label %42
+  %.0.i576269 = phi i32 [ 0, %lv_obj_get_scroll_y.exit ], [ %37, %lv_obj_get_scroll_y.exit.thread ]
+  %spec.store.select56367 = phi i32 [ %2, %lv_obj_get_scroll_y.exit ], [ %38, %lv_obj_get_scroll_y.exit.thread ]
+  %40 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %0)
+  %41 = add nsw i32 %40, %.0.i576269
+  %spec.store.select6 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
+  %42 = sub nsw i32 0, %spec.store.select6
+  %spec.select56 = tail call i32 @llvm.smax.i32(i32 %spec.store.select56367, i32 %42)
+  br label %43
 
-42:                                               ; preds = %lv_obj_get_scroll_y.exit.thread, %lv_obj_get_scroll_top.exit, %lv_obj_get_scroll_y.exit
-  %.0.i5761 = phi i32 [ %.0.i576269, %lv_obj_get_scroll_top.exit ], [ 0, %lv_obj_get_scroll_y.exit ], [ %36, %lv_obj_get_scroll_y.exit.thread ]
-  %.0 = phi i32 [ %spec.select56, %lv_obj_get_scroll_top.exit ], [ %spec.store.select5, %lv_obj_get_scroll_y.exit ], [ %spec.store.select560, %lv_obj_get_scroll_y.exit.thread ]
-  %43 = add nsw i32 %.152, %.0.i
-  %44 = add nsw i32 %.0, %.0.i5761
-  %45 = icmp ne i32 %43, 0
+43:                                               ; preds = %lv_obj_get_scroll_y.exit.thread, %lv_obj_get_scroll_top.exit, %lv_obj_get_scroll_y.exit
+  %.0.i5761 = phi i32 [ %.0.i576269, %lv_obj_get_scroll_top.exit ], [ 0, %lv_obj_get_scroll_y.exit ], [ %37, %lv_obj_get_scroll_y.exit.thread ]
+  %.0 = phi i32 [ %spec.select56, %lv_obj_get_scroll_top.exit ], [ 0, %lv_obj_get_scroll_y.exit ], [ 0, %lv_obj_get_scroll_y.exit.thread ]
+  %44 = add nsw i32 %.152, %.0.i
+  %45 = add nsw i32 %.0, %.0.i5761
   %46 = icmp ne i32 %44, 0
-  %or.cond8 = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond8, label %47, label %48
+  %47 = icmp ne i32 %45, 0
+  %or.cond8 = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond8, label %48, label %49
 
-47:                                               ; preds = %42
-  tail call void @lv_obj_scroll_by(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %44, i32 noundef %3)
-  br label %48
+48:                                               ; preds = %43
+  tail call void @lv_obj_scroll_by(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %45, i32 noundef %3)
+  br label %49
 
-48:                                               ; preds = %47, %42, %4
+49:                                               ; preds = %48, %43, %4
   ret void
 }
 

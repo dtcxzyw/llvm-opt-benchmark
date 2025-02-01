@@ -1767,11 +1767,15 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %170 = getelementptr inbounds i8, ptr %166, i64 %169
   %171 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef %170)
   %.not161 = icmp eq i32 %171, 0
-  br i1 %.not161, label %.preheader, label %214
+  br i1 %.not161, label %.preheader.preheader, label %214
 
-.preheader:                                       ; preds = %165, %175
-  %.2139 = phi ptr [ %176, %175 ], [ %170, %165 ]
-  %.1134 = phi i32 [ %177, %175 ], [ %.0133204, %165 ]
+.preheader.preheader:                             ; preds = %165
+  %smax = tail call i32 @llvm.smax.i32(i32 %.0133204, i32 63)
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %175
+  %.2139 = phi ptr [ %176, %175 ], [ %170, %.preheader.preheader ]
+  %.1134 = phi i32 [ %177, %175 ], [ %.0133204, %.preheader.preheader ]
   %172 = getelementptr inbounds nuw i8, ptr %.2139, i64 1
   %173 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef nonnull %172)
   %174 = icmp eq i32 %173, 0
@@ -1780,7 +1784,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 175:                                              ; preds = %.preheader
   %176 = getelementptr inbounds nuw i8, ptr %.2139, i64 3
   %177 = add i32 %.1134, 1
-  %exitcond = icmp eq i32 %.1134, 63
+  %exitcond = icmp eq i32 %.1134, %smax
   br i1 %exitcond, label %.loopexit174.sink.split, label %.preheader, !llvm.loop !23
 
 178:                                              ; preds = %.preheader

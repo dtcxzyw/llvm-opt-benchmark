@@ -298,7 +298,6 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
   %8 = load ptr, ptr %7, align 8, !alias.scope !35, !noalias !38, !nonnull !9
   %.sink10.idx.i = select i1 %6, i64 16, i64 0
   %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 3)
   %9 = load i64, ptr %.sink10.i, align 8, !noundef !9
   %.not = icmp ult i64 %1, %9
   br i1 %.not, label %10, label %11
@@ -332,7 +331,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
   br i1 %5, label %28, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 12)
+  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 12)
   %24 = extractvalue { i64, i1 } %23, 1
   br i1 %24, label %46, label %25
 
@@ -369,7 +368,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
   %39 = mul i64 %9, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull align 4 %8, i64 %39, i1 false)
   store i64 %9, ptr %0, align 8
-  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 12)
+  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 12)
   %41 = extractvalue { i64, i1 } %40, 1
   br i1 %41, label %45, label %42
 

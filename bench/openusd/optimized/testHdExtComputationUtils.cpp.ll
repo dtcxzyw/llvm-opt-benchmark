@@ -3268,14 +3268,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
   %44 = load ptr, ptr @_ZL6input2, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = xor i64 %45, %43
-  %47 = icmp ult i64 %46, 8
-  br i1 %47, label %.preheader39, label %.loopexit
-
-.preheader39:                                     ; preds = %41
+  %47 = icmp ugt i64 %46, 7
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %or.cond = or i1 %47, %.not
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader39
+.lr.ph:                                           ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %50 = inttoptr i64 %49 to ptr
@@ -3329,8 +3327,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33: ; preds = %_ZN32pxrInt
   %exitcond.not = icmp eq i64 %70, %.sroa.speculated
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %.preheader39, %.preheader, %41, %39
-  %.025 = phi i64 [ 0, %39 ], [ 0, %41 ], [ %.sroa.speculated, %.preheader ], [ %.sroa.speculated, %.preheader39 ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33 ]
+.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %.preheader, %41, %39
+  %.025 = phi i64 [ 0, %39 ], [ 0, %41 ], [ 0, %.preheader ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %.sroa.speculated, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit33 ]
   ret i64 %.025
 }
 

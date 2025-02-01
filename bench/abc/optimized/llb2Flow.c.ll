@@ -2273,12 +2273,13 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   %.val16.i = load ptr, ptr %41, align 8, !nonnull !31, !noundef !31
   %42 = getelementptr i8, ptr %.val16.i, i64 8
   %.val.i.i = load ptr, ptr %42, align 8
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %38, i32 1)
   %.val15.sink.i = load ptr, ptr %39, align 8
   br label %45
 
 43:                                               ; preds = %Aig_ManObj.exit.i
   %44 = add nuw nsw i32 %.01318.i, 1
-  %exitcond.not.i = icmp eq i32 %44, %38
+  %exitcond.not.i = icmp eq i32 %44, %umax.i
   br i1 %exitcond.not.i, label %Llb_ObjGetFanoutPath.exit.thread, label %45, !llvm.loop !32
 
 45:                                               ; preds = %43, %.lr.ph.i

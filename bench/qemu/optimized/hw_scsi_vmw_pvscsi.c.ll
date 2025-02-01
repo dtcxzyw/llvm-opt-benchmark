@@ -1908,13 +1908,17 @@ while.cond2.preheader.i.i.i:                      ; preds = %if.end.i.i.i, %whil
   %sg.sroa.4.043.i.i.i = phi i64 [ %sg.sroa.4.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %add.i.i.i, %if.end.i.i.i ]
   %sg.sroa.8.042.i.i.i = phi i32 [ %sg.sroa.8.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %82, %if.end.i.i.i ]
   %tobool3.not33.i.i.i = icmp eq i32 %sg.sroa.8.042.i.i.i, 0
-  br i1 %tobool3.not33.i.i.i, label %land.rhs4.i.i.i, label %if.end.i.i.i
+  br i1 %tobool3.not33.i.i.i, label %land.rhs4.preheader.i.i.i, label %if.end.i.i.i
 
-land.rhs4.i.i.i:                                  ; preds = %while.cond2.preheader.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i
-  %elmcnt.137.i.i.i = phi i32 [ %inc.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %elmcnt.046.i.i.i, %while.cond2.preheader.i.i.i ]
-  %sg.sroa.0.136.i.i.i = phi i64 [ %add.i.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %sg.sroa.0.044.i.i.i, %while.cond2.preheader.i.i.i ]
+land.rhs4.preheader.i.i.i:                        ; preds = %while.cond2.preheader.i.i.i
+  %umax.i.i.i = call i32 @llvm.umax.i32(i32 %elmcnt.046.i.i.i, i32 2048)
+  br label %land.rhs4.i.i.i
+
+land.rhs4.i.i.i:                                  ; preds = %trace_pvscsi_convert_sglist.exit.i.i.i, %land.rhs4.preheader.i.i.i
+  %elmcnt.137.i.i.i = phi i32 [ %inc.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %elmcnt.046.i.i.i, %land.rhs4.preheader.i.i.i ]
+  %sg.sroa.0.136.i.i.i = phi i64 [ %add.i.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %sg.sroa.0.044.i.i.i, %land.rhs4.preheader.i.i.i ]
   %inc.i.i.i = add i32 %elmcnt.137.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %elmcnt.137.i.i.i, 2048
+  %exitcond.not.i.i.i = icmp eq i32 %elmcnt.137.i.i.i, %umax.i.i.i
   br i1 %exitcond.not.i.i.i, label %pvscsi_build_sglist.exit.i, label %while.body7.i.i.i
 
 while.body7.i.i.i:                                ; preds = %land.rhs4.i.i.i
@@ -3979,6 +3983,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

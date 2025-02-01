@@ -745,10 +745,14 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %8 = trunc i64 %M to i32
   %conv21 = add i32 %8, 1
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %mModelValues, i32 noundef %conv21)
-          to label %for.body26 unwind label %lpad
+          to label %for.body26.preheader unwind label %lpad
 
-for.body26:                                       ; preds = %invoke.cont19, %for.inc32
-  %i23.039 = phi i64 [ %inc33, %for.inc32 ], [ 0, %invoke.cont19 ]
+for.body26.preheader:                             ; preds = %invoke.cont19
+  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
+  br label %for.body26
+
+for.body26:                                       ; preds = %for.body26.preheader, %for.inc32
+  %i23.039 = phi i64 [ %inc33, %for.inc32 ], [ 0, %for.body26.preheader ]
   %9 = load ptr, ptr %data, align 8
   %arrayidx.i29 = getelementptr inbounds i64, ptr %9, i64 %i23.039
   %10 = load i64, ptr %arrayidx.i29, align 8
@@ -759,7 +763,7 @@ for.body26:                                       ; preds = %invoke.cont19, %for
 
 for.inc32:                                        ; preds = %for.body26
   %inc33 = add nuw i64 %i23.039, 1
-  %exitcond42.not = icmp eq i64 %inc33, %1
+  %exitcond42.not = icmp eq i64 %inc33, %umax
   br i1 %exitcond42.not, label %for.end34, label %for.body26, !llvm.loop !13
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont, %if.end17
@@ -1320,10 +1324,14 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont13:                                    ; preds = %invoke.cont
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %bModel)
-          to label %for.body unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.body.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-for.body:                                         ; preds = %invoke.cont13, %for.inc
-  %i.027 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont13 ]
+for.body.preheader:                               ; preds = %invoke.cont13
+  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.027 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %6 = load ptr, ptr %data, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %6, i64 %i.027
   %7 = load i64, ptr %arrayidx.i, align 8
@@ -1333,7 +1341,7 @@ for.body:                                         ; preds = %invoke.cont13, %for
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.027, 1
-  %exitcond.not = icmp eq i64 %inc, %1
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 lpad.loopexit:                                    ; preds = %if.then.i.i
@@ -1545,10 +1553,14 @@ invoke.cont23:                                    ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %bModel1)
-          to label %for.body30 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %for.body30.preheader unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-for.body30:                                       ; preds = %invoke.cont25, %for.inc43
-  %i27.051 = phi i64 [ %inc44, %for.inc43 ], [ 0, %invoke.cont25 ]
+for.body30.preheader:                             ; preds = %invoke.cont25
+  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
+  br label %for.body30
+
+for.body30:                                       ; preds = %for.body30.preheader, %for.inc43
+  %i27.051 = phi i64 [ %inc44, %for.inc43 ], [ 0, %for.body30.preheader ]
   %9 = load ptr, ptr %data, align 8
   %arrayidx.i34 = getelementptr inbounds i64, ptr %9, i64 %i27.051
   %10 = load i64, ptr %arrayidx.i34, align 8
@@ -1644,7 +1656,7 @@ while.body4.i:                                    ; preds = %.noexc35, %.noexc36
 
 for.inc43:                                        ; preds = %.noexc36, %.noexc35, %if.then34
   %inc44 = add nuw i64 %i27.051, 1
-  %exitcond54.not = icmp eq i64 %inc44, %1
+  %exitcond54.not = icmp eq i64 %inc44, %umax
   br i1 %exitcond54.not, label %for.end45, label %for.body30, !llvm.loop !20
 
 for.end45:                                        ; preds = %for.inc43
@@ -2529,6 +2541,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 for.cond.preheader:                               ; preds = %invoke.cont3
   %m_size.i100 = getelementptr inbounds nuw i8, ptr %data, i64 16
+  %umax = call i64 @llvm.umax.i64(i64 %value.0.i36, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -2587,7 +2600,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %64, i64 %63
   store i64 %add12, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0110, 1
-  %exitcond.not = icmp eq i64 %inc, %value.0.i36
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2905,6 +2918,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 for.cond.preheader:                               ; preds = %invoke.cont9
   %m_size.i109 = getelementptr inbounds nuw i8, ptr %data, i64 16
+  %umax = call i64 @llvm.umax.i64(i64 %value.0.i39, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -3040,7 +3054,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %65, i64 %64
   store i64 %add22, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0124, 1
-  %exitcond.not = icmp eq i64 %inc, %value.0.i39
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
@@ -3260,6 +3274,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 for.cond.preheader:                               ; preds = %invoke.cont2
   %m_size.i55 = getelementptr inbounds nuw i8, ptr %data, i64 16
+  %umax = call i64 @llvm.umax.i64(i64 %value.0.i33, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -3317,7 +3332,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %47, i64 %46
   store i64 %conv7, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.067, 1
-  %exitcond.not = icmp eq i64 %inc, %value.0.i33
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 lpad.loopexit:                                    ; preds = %for.body, %if.then.i59

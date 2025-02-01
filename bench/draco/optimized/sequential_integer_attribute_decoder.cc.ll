@@ -4118,7 +4118,11 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %52, %56
           to label %59 unwind label %.loopexit.split-lp
 
 59:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  br i1 %58, label %.preheader, label %.thread
+  br i1 %58, label %.preheader.preheader, label %.thread
+
+.preheader.preheader:                             ; preds = %59
+  %umax = call i32 @llvm.umax.i32(i32 %23, i32 1)
+  br label %.preheader
 
 .thread:                                          ; preds = %59
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
@@ -4139,8 +4143,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %52, %56
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   resume { ptr, i32 } %lpad.phi
 
-.preheader:                                       ; preds = %59, %_ZNSt14_Bit_referenceaSEb.exit
-  %.030 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %59 ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt14_Bit_referenceaSEb.exit
+  %.030 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.preheader.preheader ]
   %61 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %62 unwind label %.loopexit
 
@@ -4169,7 +4173,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
   %storemerge = phi i64 [ %75, %72 ], [ %71, %69 ]
   store i64 %storemerge, ptr %65, align 8
   %76 = add nuw i32 %.030, 1
-  %exitcond.not = icmp eq i32 %76, %23
+  %exitcond.not = icmp eq i32 %76, %umax
   br i1 %exitcond.not, label %77, label %.preheader, !llvm.loop !29
 
 77:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
@@ -6140,7 +6144,11 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %51, %55
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  br i1 %57, label %.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+  br i1 %57, label %.preheader.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+
+.preheader.preheader:                             ; preds = %58
+  %umax = call i32 @llvm.umax.i32(i32 %20, i32 1)
+  br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6157,9 +6165,9 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %51, %55
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   resume { ptr, i32 } %lpad.phi
 
-.preheader:                                       ; preds = %58, %_ZNSt14_Bit_referenceaSEb.exit
-  %.022 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %58 ]
-  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %58 ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt14_Bit_referenceaSEb.exit
+  %.022 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.preheader.preheader ]
+  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %.preheader.preheader ]
   %60 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %61 unwind label %.loopexit
 
@@ -6192,7 +6200,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
   %storemerge = phi i64 [ %75, %72 ], [ %71, %69 ]
   store i64 %storemerge, ptr %65, align 8
   %76 = add nuw i32 %.022, 1
-  %exitcond.not = icmp eq i32 %76, %20
+  %exitcond.not = icmp eq i32 %76, %umax
   br i1 %exitcond.not, label %77, label %.preheader, !llvm.loop !41
 
 77:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
@@ -12357,7 +12365,11 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %50, %54
           to label %57 unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  br i1 %56, label %.preheader, label %.thread
+  br i1 %56, label %.preheader.preheader, label %.thread
+
+.preheader.preheader:                             ; preds = %57
+  %umax = call i32 @llvm.umax.i32(i32 %23, i32 1)
+  br label %.preheader
 
 .thread:                                          ; preds = %57
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
@@ -12378,8 +12390,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %50, %54
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   resume { ptr, i32 } %lpad.phi
 
-.preheader:                                       ; preds = %57, %_ZNSt14_Bit_referenceaSEb.exit
-  %.030 = phi i32 [ %74, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %57 ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt14_Bit_referenceaSEb.exit
+  %.030 = phi i32 [ %74, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.preheader.preheader ]
   %59 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %60 unwind label %.loopexit
 
@@ -12408,7 +12420,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %67, %70
   %storemerge = phi i64 [ %73, %70 ], [ %69, %67 ]
   store i64 %storemerge, ptr %63, align 8
   %74 = add nuw i32 %.030, 1
-  %exitcond.not = icmp eq i32 %74, %23
+  %exitcond.not = icmp eq i32 %74, %umax
   br i1 %exitcond.not, label %75, label %.preheader, !llvm.loop !197
 
 75:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
@@ -13625,7 +13637,11 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %49, %53
           to label %56 unwind label %.loopexit.split-lp
 
 56:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  br i1 %55, label %.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+  br i1 %55, label %.preheader.preheader, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
+
+.preheader.preheader:                             ; preds = %56
+  %umax = call i32 @llvm.umax.i32(i32 %20, i32 1)
+  br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -13642,9 +13658,9 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %49, %53
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   resume { ptr, i32 } %lpad.phi
 
-.preheader:                                       ; preds = %56, %_ZNSt14_Bit_referenceaSEb.exit
-  %.022 = phi i32 [ %74, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %56 ]
-  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %56 ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt14_Bit_referenceaSEb.exit
+  %.022 = phi i32 [ %74, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.preheader.preheader ]
+  %.01421 = phi i8 [ %spec.select, %_ZNSt14_Bit_referenceaSEb.exit ], [ 1, %.preheader.preheader ]
   %58 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %59 unwind label %.loopexit
 
@@ -13677,7 +13693,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %67, %70
   %storemerge = phi i64 [ %73, %70 ], [ %69, %67 ]
   store i64 %storemerge, ptr %63, align 8
   %74 = add nuw i32 %.022, 1
-  %exitcond.not = icmp eq i32 %74, %20
+  %exitcond.not = icmp eq i32 %74, %umax
   br i1 %exitcond.not, label %75, label %.preheader, !llvm.loop !205
 
 75:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit

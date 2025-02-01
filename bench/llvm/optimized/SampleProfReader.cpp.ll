@@ -10987,17 +10987,16 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof22SampleProfileReaderGCC10rea
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 4)
   %.not.i.i = icmp ugt i64 %13, 3
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %16
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %1
-  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr nonnull @.str.72, i64 %.sroa.speculated.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) @.str.72, i64 4)
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %18, label %_ZN4llvmeqENS_9StringRefES0_.exit18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit18.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %bcmp.i17.i = tail call i32 @bcmp(ptr %8, ptr nonnull @.str.73, i64 %.sroa.speculated.i.i)
+  %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) @.str.73, i64 4)
   %15 = icmp eq i32 %bcmp.i17.i, 0
   br i1 %15, label %18, label %16
 
@@ -11007,8 +11006,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit18.i:            ; preds = %_ZN4llvmeqENS_9Stri
 
 18:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %.sink.i = phi i8 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit18.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.speculated.i.i
-  %20 = sub nuw i64 %13, %.sroa.speculated.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %20 = add i64 %13, -4
   store ptr %19, ptr %4, align 8
   %.sroa.227.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %20, ptr %.sroa.227.0..sroa_idx.i, align 8

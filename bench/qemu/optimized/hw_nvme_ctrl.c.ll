@@ -22864,13 +22864,12 @@ if.end13:                                         ; preds = %while.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx14 = getelementptr [1024 x i32], ptr %nslist, i64 0, i64 %indvars.iv
   store i32 %conv5, ptr %arrayidx14, align 4
-  %rem.i = and i64 %cond.i, 63
-  %shl.i = shl nuw i64 1, %rem.i
-  %div2.i = lshr i64 %cond.i, 6
-  %add.ptr.i = getelementptr i64, ptr %changed_nsids, i64 %div2.i
+  %shl.i = shl nuw i64 1, %7
+  %8 = lshr exact i64 %result.011.i, 3
+  %add.ptr.i = getelementptr i8, ptr %changed_nsids, i64 %8
   %not.i = xor i64 %shl.i, -1
-  %8 = load i64, ptr %add.ptr.i, align 8
-  %and.i = and i64 %8, %not.i
+  %9 = load i64, ptr %add.ptr.i, align 8
+  %and.i = and i64 %9, %not.i
   store i64 %and.i, ptr %add.ptr.i, align 8
   br label %while.cond, !llvm.loop !59
 
@@ -22889,12 +22888,12 @@ if.end24:                                         ; preds = %if.then21, %while.e
 
 if.then25:                                        ; preds = %if.end24
   %aer_mask.i = getelementptr inbounds nuw i8, ptr %n, i64 7848
-  %9 = load i8, ptr %aer_mask.i, align 8
-  %and.i12 = and i8 %9, -5
+  %10 = load i8, ptr %aer_mask.i, align 8
+  %and.i12 = and i8 %10, -5
   store i8 %and.i12, ptr %aer_mask.i, align 8
   %aer_queue.i = getelementptr inbounds nuw i8, ptr %n, i64 7864
-  %10 = load ptr, ptr %aer_queue.i, align 8
-  %cmp.i13 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %aer_queue.i, align 8
+  %cmp.i13 = icmp eq ptr %11, null
   br i1 %cmp.i13, label %if.end26, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then25

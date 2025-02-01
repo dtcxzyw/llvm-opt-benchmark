@@ -2173,12 +2173,15 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   %125 = mul i64 %.1145, 10
   %126 = sdiv i64 %125, %.0143
   %127 = add i64 %126, 1
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %127, i64 9)
   %128 = icmp ult i64 %126, 9223372036854775807
-  br i1 %128, label %.lr.ph191, label %._crit_edge
+  br i1 %128, label %.lr.ph191.preheader, label %._crit_edge
 
-.lr.ph191:                                        ; preds = %124, %158
-  %.0147190 = phi i64 [ %159, %158 ], [ %spec.store.select1, %124 ]
+.lr.ph191.preheader:                              ; preds = %124
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %127, i64 9)
+  br label %.lr.ph191
+
+.lr.ph191:                                        ; preds = %.lr.ph191.preheader, %158
+  %.0147190 = phi i64 [ %159, %158 ], [ %spec.store.select1, %.lr.ph191.preheader ]
   %129 = getelementptr [10 x %struct.numeric], ptr %5, i64 0, i64 %.0147190
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
@@ -2247,7 +2250,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br label %170
 
 ._crit_edge:                                      ; preds = %.loopexit175, %124
-  %.0147.lcssa = phi i64 [ %spec.store.select1, %124 ], [ %.0147190, %.loopexit175 ]
+  %.0147.lcssa = phi i64 [ %127, %124 ], [ %.0147190, %.loopexit175 ]
   %.2 = phi i32 [ %.0140201, %124 ], [ %156, %.loopexit175 ]
   %165 = trunc i64 %.0147.lcssa to i8
   %166 = add i32 %.0148198, 1

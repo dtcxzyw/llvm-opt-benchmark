@@ -194,7 +194,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 92:                                               ; preds = %87
   %93 = load i32, ptr %89, align 8
-  %94 = icmp eq i32 %7, %93
+  %94 = icmp eq i32 %1, %93
   br i1 %94, label %95, label %138
 
 95:                                               ; preds = %92
@@ -248,7 +248,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %127 = load ptr, ptr %19, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
   store ptr null, ptr %128, align 8
-  %129 = mul nuw nsw i32 %7, 3
+  %129 = mul nuw nsw i32 %1, 3
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %132 = load i64, ptr %131, align 8
@@ -266,7 +266,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %292
 
 138:                                              ; preds = %92
-  store i32 %7, ptr %89, align 8
+  store i32 %1, ptr %89, align 8
   %139 = icmp eq ptr %2, null
   br i1 %139, label %140, label %141
 
@@ -280,7 +280,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %143 = load ptr, ptr %19, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 56
   store ptr null, ptr %144, align 8
-  %145 = zext nneg i32 %7 to i64
+  %145 = zext nneg i32 %1 to i64
   %146 = shl nuw nsw i64 %145, 3
   %147 = tail call noalias ptr @malloc(i64 noundef %146) #9
   %148 = load ptr, ptr %19, align 8
@@ -442,11 +442,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 112
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, null
-  br i1 %250, label %251, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %242
-  %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph
+  br i1 %250, label %251, label %.lr.ph
 
 251:                                              ; preds = %242
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 56
@@ -491,15 +487,15 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %wide.trip.count174 = zext nneg i32 %smax to i64
   br label %.lr.ph169
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %242, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %242 ]
   %276 = load ptr, ptr %19, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i32, ptr %278, i64 %indvars.iv
   store i32 0, ptr %279, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %145
   br i1 %exitcond.not, label %.lr.ph169.preheader, label %.lr.ph
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169

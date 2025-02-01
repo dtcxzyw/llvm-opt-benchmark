@@ -10397,9 +10397,8 @@ invoke.cont25:                                    ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body
 
 for.body:                                         ; preds = %while.end, %invoke.cont25
-  %c.0249 = phi i64 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
-  %sext = shl i64 %c.0249, 32
-  %idxprom = ashr exact i64 %sext, 32
+  %c.0249 = phi i32 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
+  %idxprom = sext i32 %c.0249 to i64
   %arrayidx = getelementptr inbounds i8, ptr %bytemap_.i, i64 %idxprom
   %26 = load i8, ptr %arrayidx, align 1
   br label %while.cond
@@ -10410,9 +10409,10 @@ while.cond:                                       ; preds = %land.rhs, %for.body
   br i1 %cmp32, label %land.rhs, label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.cond
+  %smax.le = call i32 @llvm.smax.i32(i32 %c.0249, i32 255)
   %conv41272 = zext i8 %26 to i64
   %add.ptr.i27273 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41272
-  store i32 255, ptr %add.ptr.i27273, align 4
+  store i32 %smax.le, ptr %add.ptr.i27273, align 4
   %27 = load i32, ptr %bytemap_range_.i, align 4
   %conv47 = sext i32 %27 to i64
   %add.ptr.i29 = getelementptr inbounds i32, ptr %input.sroa.0.0, i64 %conv47
@@ -10446,7 +10446,7 @@ while.end:                                        ; preds = %land.rhs
   %conv41 = zext i8 %26 to i64
   %add.ptr.i27 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41
   store i32 %32, ptr %add.ptr.i27, align 4
-  %inc43 = add i64 %indvars.iv, 1
+  %inc43 = add nsw i32 %32, 1
   br label %for.body, !llvm.loop !84
 
 if.then.i.i.i.i.i33:                              ; preds = %while.end.thread
@@ -10477,12 +10477,12 @@ invoke.cont52:                                    ; preds = %if.end.i.i.i.i.i.i.
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %cb, i64 24
   %34 = load ptr, ptr %_M_finish.i, align 8
   %35 = load ptr, ptr %_M_start.i, align 8
-  %cmp.i.i49283 = icmp eq ptr %34, %35
-  br i1 %cmp.i.i49283, label %while.end115, label %while.body55
+  %cmp.i.i49285 = icmp eq ptr %34, %35
+  br i1 %cmp.i.i49285, label %while.end115, label %while.body55
 
 while.body55:                                     ; preds = %invoke.cont52, %while.cond53.backedge
   %36 = phi ptr [ %87, %while.cond53.backedge ], [ %35, %invoke.cont52 ]
-  %oom.0284 = phi i8 [ %oom.1, %while.cond53.backedge ], [ 0, %invoke.cont52 ]
+  %oom.0286 = phi i8 [ %oom.1, %while.cond53.backedge ], [ 0, %invoke.cont52 ]
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %_M_last.i51, align 8
   %add.ptr.i52 = getelementptr inbounds i8, ptr %38, i64 -8
@@ -10791,7 +10791,7 @@ for.inc101:                                       ; preds = %if.then.i92, %if.en
   br i1 %cmp.i.not, label %for.end103, label %for.body62
 
 for.end103:                                       ; preds = %for.inc101, %invoke.cont66, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit
-  %oom.1 = phi i8 [ %oom.0284, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ], [ 1, %invoke.cont66 ], [ %oom.0284, %for.inc101 ]
+  %oom.1 = phi i8 [ %oom.0286, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ], [ 1, %invoke.cont66 ], [ %oom.0286, %for.inc101 ]
   %81 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %81, null
   %.pre = trunc nuw i8 %oom.1 to i1
@@ -13617,6 +13617,9 @@ declare i16 @llvm.cttz.i16(i16, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

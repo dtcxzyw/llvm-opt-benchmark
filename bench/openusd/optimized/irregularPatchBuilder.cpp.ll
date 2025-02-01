@@ -2681,7 +2681,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder20getCornerFaceIndicesEii.exit
   %144 = getelementptr inbounds nuw i8, ptr %55, i64 156
   %145 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %146 = add nsw i32 %141, -2
-  %147 = add nsw i32 %141, -2
+  %147 = tail call i32 @llvm.usub.sat.i32(i32 %141, i32 2)
   br label %148
 
 148:                                              ; preds = %.lr.ph120, %._crit_edge
@@ -3414,7 +3414,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder22getControlFaceVerticesEPiiiP
   %134 = trunc i64 %indvars.iv to i32
   %135 = add i32 %134, 1
   %136 = trunc nuw nsw i64 %indvars.iv to i32
-  %137 = add nsw i32 %126, -2
+  %137 = tail call i32 @llvm.usub.sat.i32(i32 %126, i32 2)
   br label %138
 
 138:                                              ; preds = %.lr.ph194, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
@@ -5689,6 +5689,9 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

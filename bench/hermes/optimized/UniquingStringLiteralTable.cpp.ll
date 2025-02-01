@@ -965,6 +965,7 @@ for.body61.preheader:                             ; preds = %_ZNSt6vectorIN4llvh
   %mul.i.i.i.i213 = mul nuw nsw i64 %sub, 12
   %call5.i.i.i.i214 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i213) #21
   %add.ptr21.i225 = getelementptr inbounds nuw %struct.KindedEntry, ptr %call5.i.i.i.i214, i64 %sub
+  %umax = call i64 @llvm.umax.i64(i64 %sub, i64 1)
   br label %for.body61
 
 for.body61:                                       ; preds = %for.body61.preheader, %_ZNSt6vectorIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE11KindedEntrySaIS3_EE12emplace_backIJRNS0_10StringKind4KindERNS0_16StringTableEntryEEEERS3_DpOT_.exit
@@ -1044,7 +1045,7 @@ _ZNSt6vectorIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE11Kind
   %kindedEntries.sroa.14.2 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i256.pn, i64 12
   %inc66 = add nuw i64 %i58.0398, 1
   %inc67 = add i64 %j.0397, 1
-  %exitcond.not = icmp eq i64 %inc66, %sub
+  %exitcond.not = icmp eq i64 %inc66, %umax
   br i1 %exitcond.not, label %for.end68, label %for.body61, !llvm.loop !43
 
 for.end68:                                        ; preds = %_ZNSt6vectorIZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE11KindedEntrySaIS3_EE12emplace_backIJRNS0_10StringKind4KindERNS0_16StringTableEntryEEEERS3_DpOT_.exit, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit
@@ -1056,11 +1057,15 @@ for.end68:                                        ; preds = %_ZNSt6vectorIZN6her
   call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEEEvT_SB_(ptr %add.ptr.i.i268, ptr %add.ptr.i.i276)
   %add.ptr.i.i284 = getelementptr inbounds nuw %struct.KindedEntry, ptr %kindedEntries.sroa.0.0.lcssa, i64 %sub
   call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEEEvT_SB_(ptr %add.ptr.i.i276, ptr %add.ptr.i.i284)
-  br i1 %cmp3.i.not, label %for.end110, label %for.body97
+  br i1 %cmp3.i.not, label %for.end110, label %for.body97.preheader
 
-for.body97:                                       ; preds = %for.end68, %_ZNSt14_Bit_referenceaSEb.exit
-  %j94.0402 = phi i64 [ %inc109, %_ZNSt14_Bit_referenceaSEb.exit ], [ %sub.ptr.div.i.i, %for.end68 ]
-  %i93.0401 = phi i64 [ %inc108, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %for.end68 ]
+for.body97.preheader:                             ; preds = %for.end68
+  %umax408 = call i64 @llvm.umax.i64(i64 %sub, i64 1)
+  br label %for.body97
+
+for.body97:                                       ; preds = %for.body97.preheader, %_ZNSt14_Bit_referenceaSEb.exit
+  %j94.0402 = phi i64 [ %inc109, %_ZNSt14_Bit_referenceaSEb.exit ], [ %sub.ptr.div.i.i, %for.body97.preheader ]
+  %i93.0401 = phi i64 [ %inc108, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %for.body97.preheader ]
   %add.ptr.i285 = getelementptr inbounds %struct.KindedEntry, ptr %kindedEntries.sroa.0.0.lcssa, i64 %i93.0401
   %entry99 = getelementptr inbounds nuw i8, ptr %add.ptr.i285, i64 4
   %arrayidx.i286 = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %20, i64 %j94.0402
@@ -1095,7 +1100,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %if.then.i301, %if.e
   store i64 %storemerge370, ptr %storemerge.i.i.i.i.i292, align 8
   %inc108 = add nuw i64 %i93.0401, 1
   %inc109 = add i64 %j94.0402, 1
-  %exitcond409.not = icmp eq i64 %inc108, %sub
+  %exitcond409.not = icmp eq i64 %inc108, %umax408
   br i1 %exitcond409.not, label %for.end110, label %for.body97, !llvm.loop !44
 
 for.end110:                                       ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %for.end68

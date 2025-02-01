@@ -2033,15 +2033,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %51, align 8
   store ptr %60, ptr %.1, align 8
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  br i1 %.not67, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %57
+  %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 2)
+  br label %.lr.ph
 
 61:                                               ; preds = %71
   %62 = add nuw i64 %.04881, 1
-  %exitcond.not = icmp eq i64 %62, %0
+  %exitcond.not = icmp eq i64 %62, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %57, %61
-  %.04881 = phi i64 [ %62, %61 ], [ 1, %57 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %.04881 = phi i64 [ %62, %61 ], [ 1, %.lr.ph.preheader ]
   %63 = getelementptr inbounds i64, ptr %1, i64 %.04881
   %64 = load i64, ptr %63, align 8
   %65 = tail call ptr @H5I_object_verify(i64 noundef %64, i32 noundef 5) #6
@@ -2673,15 +2677,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %51, align 8
   store ptr %60, ptr %.1, align 8
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  br i1 %.not67, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %57
+  %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 2)
+  br label %.lr.ph
 
 61:                                               ; preds = %71
   %62 = add nuw i64 %.04881, 1
-  %exitcond.not = icmp eq i64 %62, %0
+  %exitcond.not = icmp eq i64 %62, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %57, %61
-  %.04881 = phi i64 [ %62, %61 ], [ 1, %57 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %.04881 = phi i64 [ %62, %61 ], [ 1, %.lr.ph.preheader ]
   %63 = getelementptr inbounds i64, ptr %1, i64 %.04881
   %64 = load i64, ptr %63, align 8
   %65 = tail call ptr @H5I_object_verify(i64 noundef %64, i32 noundef 5) #6
@@ -5151,6 +5159,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

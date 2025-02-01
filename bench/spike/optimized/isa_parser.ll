@@ -1047,11 +1047,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   store i8 0, ptr %324, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #19
   %325 = load i64, ptr %298, align 8
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %325, i64 3)
   %326 = icmp eq i64 %325, 0
   br i1 %326, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit375.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %323
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %325, i64 3)
   %327 = load ptr, ptr %21, align 8
   %bcmp.i = call i32 @bcmp(ptr %327, ptr nonnull @.str.11, i64 %.sroa.speculated.i.i)
   %.not.i.i = icmp eq i32 %bcmp.i, 0
@@ -1107,7 +1107,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i279: ; preds = %_ZNSt11char_traits
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i293: ; preds = %331
   %341 = or i64 %333, 268435456
   store i64 %341, ptr %299, align 8
-  %bcmp.i294 = call i32 @bcmp(ptr %332, ptr nonnull @.str.11, i64 %.sroa.speculated.i.i)
+  %bcmp.i294 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %332, ptr noundef nonnull dereferenceable(3) @.str.11, i64 3)
   %.not.i.i295 = icmp eq i32 %bcmp.i294, 0
   %342 = icmp eq i64 %325, 3
   %or.cond1004 = and i1 %342, %.not.i.i295
@@ -1137,6 +1137,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307: ; preds = %_ZNSt11char_traits
   br i1 %or.cond1008, label %349, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit312.thread
 
 349:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i300
+  %.sroa.speculated.i.i2991205 = phi i64 [ %.sroa.speculated.i.i299, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i300 ]
   %350 = phi ptr [ %347, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307 ], [ %345, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i300 ]
   %351 = load i64, ptr %299, align 8
   %352 = and i64 %351, 4194304
@@ -1165,7 +1166,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i307: ; preds = %_ZNSt11char_traits
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i321: ; preds = %349
   %359 = or i64 %351, 9007199254740992
   store i64 %359, ptr %299, align 8
-  %bcmp.i322 = call i32 @bcmp(ptr %350, ptr nonnull @.str.14, i64 %.sroa.speculated.i.i299)
+  %bcmp.i322 = call i32 @bcmp(ptr %350, ptr nonnull @.str.14, i64 %.sroa.speculated.i.i2991205)
   %.not.i.i323 = icmp eq i32 %bcmp.i322, 0
   %360 = icmp eq i64 %325, 4
   %or.cond1010 = and i1 %360, %.not.i.i323

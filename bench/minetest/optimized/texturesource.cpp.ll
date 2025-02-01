@@ -5282,6 +5282,8 @@ for.body.us.preheader:                            ; preds = %call.i181.noexc, %i
   %area.0.fr437 = phi i32 [ %area.0.fr, %if.end67 ], [ 256, %call1.i.noexc343 ], [ 256, %invoke.cont48 ], [ 256, %invoke.cont46 ], [ 256, %invoke.cont44 ], [ 256, %invoke.cont42 ], [ 256, %invoke.cont40 ], [ 256, %call.i181.noexc ]
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %new_palette, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %new_palette, i64 16
+  %umax427 = call i32 @llvm.umax.i32(i32 %area.0.fr437, i32 1)
+  %umax = call i32 @llvm.umax.i32(i32 %div.zext438, i32 1)
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.cond75.for.cond.cleanup77_crit_edge.us, %for.body.us.preheader
@@ -5421,12 +5423,12 @@ for.inc.us:                                       ; preds = %_ZNSt6vectorIN3irr5
   %55 = phi ptr [ %add.ptr19.i.i.us, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.us ], [ %42, %if.then.i255.us ]
   %56 = phi ptr [ %incdec.ptr.i.i.us21, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.us ], [ %incdec.ptr.i.us, %if.then.i255.us ]
   %inc.us = add nuw nsw i32 %j.0416.us, 1
-  %exitcond.not = icmp eq i32 %inc.us, %div.zext438
+  %exitcond.not = icmp eq i32 %inc.us, %umax
   br i1 %exitcond.not, label %for.cond75.for.cond.cleanup77_crit_edge.us, label %for.body78.us, !llvm.loop !210
 
 for.cond75.for.cond.cleanup77_crit_edge.us:       ; preds = %for.inc.us
-  %inc82.us = add nuw i32 %i.0417.us, 1
-  %exitcond428.not = icmp eq i32 %inc82.us, %area.0.fr437
+  %inc82.us = add nuw nsw i32 %i.0417.us, 1
+  %exitcond428.not = icmp eq i32 %inc82.us, %umax427
   br i1 %exitcond428.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !211
 
 lpad71.split.us:                                  ; preds = %for.body.us

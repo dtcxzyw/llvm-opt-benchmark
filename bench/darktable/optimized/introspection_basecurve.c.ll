@@ -2045,7 +2045,7 @@ define hidden void @process_fusion(ptr readnone captures(none) %0, ptr noundef r
   br i1 %995, label %.preheader113, label %996
 
 996:                                              ; preds = %976
-  %997 = shl i64 %878, 2
+  %997 = shl i64 %873, 2
   %998 = add i64 %997, -4
   %999 = and i64 %998, -16
   %1000 = getelementptr i8, ptr %990, i64 %999

@@ -43610,9 +43610,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(57) ptr @_
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #40
   unreachable
 
-10:                                               ; preds = %139, %22, %13
-  %11 = phi ptr [ %20, %22 ], [ %137, %139 ], [ %8, %13 ]
-  %12 = phi { ptr, i32 } [ %23, %22 ], [ %140, %139 ], [ %14, %13 ]
+10:                                               ; preds = %140, %22, %13
+  %11 = phi ptr [ %20, %22 ], [ %138, %140 ], [ %8, %13 ]
+  %12 = phi { ptr, i32 } [ %23, %22 ], [ %141, %140 ], [ %14, %13 ]
   tail call void @__cxa_free_exception(ptr %11) #36
   resume { ptr, i32 } %12
 
@@ -43794,36 +43794,37 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(57) ptr @_
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %1, align 8, !tbaa !12
-  br label %130
+  %127 = tail call i64 @llvm.umax.i64(i64 %119, i64 1)
+  br label %131
 
-127:                                              ; preds = %130
-  %128 = add nuw i64 %131, 1
-  %129 = icmp eq i64 %128, %119
-  br i1 %129, label %.loopexit14, label %130, !llvm.loop !821
+128:                                              ; preds = %131
+  %129 = add nuw i64 %132, 1
+  %130 = icmp eq i64 %129, %127
+  br i1 %130, label %.loopexit14, label %131, !llvm.loop !821
 
-130:                                              ; preds = %127, %125
-  %131 = phi i64 [ 0, %125 ], [ %128, %127 ]
-  %132 = getelementptr inbounds i8, ptr %116, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !14
-  %134 = getelementptr inbounds i8, ptr %126, i64 %131
-  %135 = load i8, ptr %134, align 1, !tbaa !14
-  %136 = icmp eq i8 %133, %135
-  br i1 %136, label %127, label %.loopexit
+131:                                              ; preds = %128, %125
+  %132 = phi i64 [ 0, %125 ], [ %129, %128 ]
+  %133 = getelementptr inbounds i8, ptr %116, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !14
+  %135 = getelementptr inbounds i8, ptr %126, i64 %132
+  %136 = load i8, ptr %135, align 1, !tbaa !14
+  %137 = icmp eq i8 %134, %136
+  br i1 %137, label %128, label %.loopexit
 
-.loopexit14:                                      ; preds = %127, %123
+.loopexit14:                                      ; preds = %128, %123
   ret ptr %109
 
-.loopexit:                                        ; preds = %130, %112, %.loopexit17
-  %137 = tail call ptr @__cxa_allocate_exception(i64 16) #36
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull @.str.398)
-          to label %138 unwind label %139
-
-138:                                              ; preds = %.loopexit
-  tail call void @__cxa_throw(ptr nonnull %137, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #40
-  unreachable
+.loopexit:                                        ; preds = %131, %112, %.loopexit17
+  %138 = tail call ptr @__cxa_allocate_exception(i64 16) #36
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull @.str.398)
+          to label %139 unwind label %140
 
 139:                                              ; preds = %.loopexit
-  %140 = landingpad { ptr, i32 }
+  tail call void @__cxa_throw(ptr nonnull %138, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #40
+  unreachable
+
+140:                                              ; preds = %.loopexit
+  %141 = landingpad { ptr, i32 }
           cleanup
   br label %10
 }

@@ -45809,17 +45809,21 @@ _ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #19
-  br i1 %.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+  br i1 %.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader
 
-_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit: ; preds = %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
-  %.0200 = phi i64 [ %244, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit ], [ 0, %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader ]
+_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader: ; preds = %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader
+  %umax = call i64 @llvm.umax.i64(i64 %192, i64 1)
+  br label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+
+_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+  %.0200 = phi i64 [ %244, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit ], [ 0, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader ]
   %240 = getelementptr inbounds i8, ptr %187, i64 %.0200
   %241 = load i8, ptr %240, align 1
   %242 = load ptr, ptr %239, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 %.0200
   store i8 %241, ptr %243, align 1
   %244 = add nuw i64 %.0200, 1
-  %exitcond.not = icmp eq i64 %244, %192
+  %exitcond.not = icmp eq i64 %244, %umax
   br i1 %exitcond.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit, !llvm.loop !524
 
 245:                                              ; preds = %.noexc, %2
@@ -128803,17 +128807,21 @@ _ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #19
-  br i1 %.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+  br i1 %.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader
 
-_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit: ; preds = %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
-  %.0200 = phi i64 [ %244, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit ], [ 0, %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader ]
+_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader: ; preds = %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit.preheader
+  %umax = call i64 @llvm.umax.i64(i64 %192, i64 1)
+  br label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+
+_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit: ; preds = %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit
+  %.0200 = phi i64 [ %244, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit ], [ 0, %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit.preheader ]
   %240 = getelementptr inbounds i8, ptr %187, i64 %.0200
   %241 = load i8, ptr %240, align 1
   %242 = load ptr, ptr %239, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 %.0200
   store i8 %241, ptr %243, align 1
   %244 = add nuw i64 %.0200, 1
-  %exitcond.not = icmp eq i64 %244, %192
+  %exitcond.not = icmp eq i64 %244, %umax
   br i1 %exitcond.not, label %_ZN7xgboost6common9EraseTypeIKjKhEENS0_4SpanIT0_Lm18446744073709551615EEENS4_IT_Lm18446744073709551615EEE.exit._crit_edge, label %_ZNK7xgboost6common4SpanIKhLm18446744073709551615EEixEm.exit, !llvm.loop !2324
 
 245:                                              ; preds = %.noexc, %2

@@ -1710,6 +1710,7 @@ call.i.noexc:                                     ; preds = %invoke.cont140
 for.body.lr.ph.i.i:                               ; preds = %call.i.noexc
   %signal.i.i = getelementptr inbounds nuw i8, ptr %call.i952, i64 8
   %_M_finish.i.i.i.i947 = getelementptr inbounds nuw i8, ptr %call.i952, i64 16
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i946, i64 1)
   br label %for.body.i.i
 
 if.then.i.i.i.i948:                               ; preds = %_ZNK4entt4sighIFvR14one_more_eventESaIvEE7publishES2_.exit.i.i
@@ -1773,7 +1774,7 @@ for.body.i.i.i:                                   ; preds = %.noexc953, %for.bod
 
 _ZNK4entt4sighIFvR14one_more_eventESaIvEE7publishES2_.exit.i.i: ; preds = %.noexc953, %for.body.i.i
   %inc.i.i = add nuw i64 %pos.026.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.ptr.sub.i.i.i946
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
   br i1 %exitcond.not.i.i, label %if.then.i.i.i.i948, label %for.body.i.i, !llvm.loop !87
 
 invoke.cont143:                                   ; preds = %invoke.cont.i.i.i.i.i951, %if.end.i.i.i.i, %call.i.noexc
@@ -4535,6 +4536,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %signal.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i, i64 1)
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !111
   %3 = load ptr, ptr %signal.i, align 8, !tbaa !113
   %4 = icmp eq ptr %2, %3
@@ -4603,7 +4605,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZNK4entt4sighIFvR13another_eventESaIvEE7publishES2_.exit.i: ; preds = %for.body.i.i, %for.body.i
   %inc.i = add nuw i64 %pos.026.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.sub.i.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
   br i1 %exitcond.not.i, label %if.then.i.i.i.loopexit3, label %for.body.i, !llvm.loop !118
 
 _ZN4entt8internal18dispatcher_handlerI13another_eventSaIvEE7publishEv.exit: ; preds = %invoke.cont.i.i.i.i, %if.end.i.i.i, %entry
@@ -4685,6 +4687,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %signal.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i, i64 1)
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !96
   %3 = load ptr, ptr %signal.i, align 8, !tbaa !91
   %4 = icmp eq ptr %2, %3
@@ -4753,7 +4756,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZNK4entt4sighIFvR8an_eventESaIvEE7publishES2_.exit.i: ; preds = %for.body.i.i, %for.body.i
   %inc.i = add nuw i64 %pos.026.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.sub.i.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
   br i1 %exitcond.not.i, label %if.then.i.i.i.loopexit3, label %for.body.i, !llvm.loop !120
 
 _ZN4entt8internal18dispatcher_handlerI8an_eventSaIvEE7publishEv.exit: ; preds = %invoke.cont.i.i.i.i, %if.end.i.i.i, %entry
@@ -9721,6 +9724,7 @@ call.i382.noexc:                                  ; preds = %invoke.cont90
 for.body.lr.ph.i.i:                               ; preds = %call.i382.noexc
   %signal.i.i385 = getelementptr inbounds nuw i8, ptr %call.i382397, i64 8
   %_M_finish.i.i.i.i386 = getelementptr inbounds nuw i8, ptr %call.i382397, i64 16
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i, i64 1)
   %86 = load ptr, ptr %_M_finish.i.i.i.i386, align 8, !tbaa !96
   %87 = load ptr, ptr %signal.i.i385, align 8, !tbaa !91
   %88 = icmp eq ptr %86, %87
@@ -9792,7 +9796,7 @@ for.body.i.i.i390:                                ; preds = %.noexc398, %for.bod
 
 _ZNK4entt4sighIFvR8an_eventESaIvEE7publishES2_.exit.i.i: ; preds = %.noexc398, %for.body.i.i
   %inc.i.i = add nuw i64 %pos.026.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.ptr.sub.i.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
   br i1 %exitcond.not.i.i, label %if.then.i.i.i.i395.loopexit174, label %for.body.i.i, !llvm.loop !206
 
 invoke.cont94:                                    ; preds = %invoke.cont.i.i.i.i.i, %if.end.i.i.i.i, %call.i382.noexc
@@ -10021,6 +10025,7 @@ call.i459.noexc:                                  ; preds = %invoke.cont128
 for.body.lr.ph.i.i466:                            ; preds = %call.i459.noexc
   %signal.i.i467 = getelementptr inbounds nuw i8, ptr %call.i459504, i64 8
   %_M_finish.i.i.i.i468 = getelementptr inbounds nuw i8, ptr %call.i459504, i64 16
+  %umax.i.i469 = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i464, i64 1)
   %124 = load ptr, ptr %_M_finish.i.i.i.i468, align 8, !tbaa !96
   %125 = load ptr, ptr %signal.i.i467, align 8, !tbaa !91
   %126 = icmp eq ptr %124, %125
@@ -10092,7 +10097,7 @@ for.body.i.i.i479:                                ; preds = %.noexc505, %for.bod
 
 _ZNK4entt4sighIFvR8an_eventESaIvEE7publishES2_.exit.i.i485: ; preds = %.noexc505, %for.body.i.i470
   %inc.i.i486 = add nuw i64 %pos.026.i.i471, 1
-  %exitcond.not.i.i487 = icmp eq i64 %inc.i.i486, %sub.ptr.sub.i.i.i464
+  %exitcond.not.i.i487 = icmp eq i64 %inc.i.i486, %umax.i.i469
   br i1 %exitcond.not.i.i487, label %if.then.i.i.i.i488.loopexit173, label %for.body.i.i470, !llvm.loop !212
 
 invoke.cont132:                                   ; preds = %invoke.cont.i.i.i.i.i503, %if.end.i.i.i.i498, %call.i459.noexc
@@ -10378,6 +10383,7 @@ call.i595.noexc:                                  ; preds = %invoke.cont174
 for.body.lr.ph.i.i602:                            ; preds = %call.i595.noexc
   %signal.i.i603 = getelementptr inbounds nuw i8, ptr %call.i595640, i64 8
   %_M_finish.i.i.i.i604 = getelementptr inbounds nuw i8, ptr %call.i595640, i64 16
+  %umax.i.i605 = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i600, i64 1)
   %163 = load ptr, ptr %_M_finish.i.i.i.i604, align 8, !tbaa !96
   %164 = load ptr, ptr %signal.i.i603, align 8, !tbaa !91
   %165 = icmp eq ptr %163, %164
@@ -10449,7 +10455,7 @@ for.body.i.i.i615:                                ; preds = %.noexc641, %for.bod
 
 _ZNK4entt4sighIFvR8an_eventESaIvEE7publishES2_.exit.i.i621: ; preds = %.noexc641, %for.body.i.i606
   %inc.i.i622 = add nuw i64 %pos.026.i.i607, 1
-  %exitcond.not.i.i623 = icmp eq i64 %inc.i.i622, %sub.ptr.sub.i.i.i600
+  %exitcond.not.i.i623 = icmp eq i64 %inc.i.i622, %umax.i.i605
   br i1 %exitcond.not.i.i623, label %if.then.i.i.i.i624.loopexit172, label %for.body.i.i606, !llvm.loop !218
 
 invoke.cont179:                                   ; preds = %invoke.cont.i.i.i.i.i639, %if.end.i.i.i.i634, %call.i595.noexc
@@ -12376,6 +12382,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %signal = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !96
   %3 = load ptr, ptr %signal, align 8, !tbaa !91
   %4 = icmp eq ptr %2, %3
@@ -12447,7 +12454,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZNK4entt4sighIFvR8an_eventESaIvEE7publishES2_.exit: ; preds = %for.body.i, %for.body
   %inc = add nuw i64 %pos.026, 1
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit3, label %for.body, !llvm.loop !250
 }
 
@@ -13306,6 +13313,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %signal = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !76
   %3 = load ptr, ptr %signal, align 8, !tbaa !78
   %4 = icmp eq ptr %2, %3
@@ -13377,7 +13385,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZNK4entt4sighIFvR14one_more_eventESaIvEE7publishES2_.exit: ; preds = %for.body.i, %for.body
   %inc = add nuw i64 %pos.026, 1
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit3, label %for.body, !llvm.loop !275
 }
 
@@ -14034,6 +14042,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %signal = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !111
   %3 = load ptr, ptr %signal, align 8, !tbaa !113
   %4 = icmp eq ptr %2, %3
@@ -14105,7 +14114,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZNK4entt4sighIFvR13another_eventESaIvEE7publishES2_.exit: ; preds = %for.body.i, %for.body
   %inc = add nuw i64 %pos.026, 1
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit3, label %for.body, !llvm.loop !295
 }
 

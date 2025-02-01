@@ -2140,6 +2140,7 @@ if.end24:                                         ; preds = %if.end20, %land.lhs
   %reentrancy_guard_applied.0.not = phi i1 [ true, %land.lhs.true ], [ true, %land.lhs.true6 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true10 ], [ true, %land.lhs.true12 ], [ false, %if.end20 ], [ true, %entry ]
   %cond = tail call i32 @llvm.umin.i32(i32 %size, i32 %spec.store.select1)
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %access_size_min, i32 %cond)
+  %cond31 = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
   %mul = shl i32 %spec.store.select, 3
   %sub = sub i32 64, %mul
   %sh_prom = zext nneg i32 %sub to i64
@@ -2156,10 +2157,10 @@ for.body:                                         ; preds = %if.end24, %for.body
   %r.048 = phi i32 [ %or, %for.body ], [ 0, %if.end24 ]
   %conv = zext nneg i32 %i.049 to i64
   %add = add i64 %addr, %conv
-  %9 = add i32 %i.049, %spec.store.select
+  %9 = add i32 %i.049, %cond31
   %sub36 = sub i32 %size, %9
   %mul37 = shl i32 %sub36, 3
-  %call39 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add, ptr noundef %value, i32 noundef %spec.store.select, i32 noundef %mul37, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
+  %call39 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul37, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
   %or = or i32 %call39, %r.048
   %cmp34 = icmp ult i32 %9, %size
   br i1 %cmp34, label %for.body, label %if.end54, !llvm.loop !29
@@ -2170,9 +2171,9 @@ for.body44:                                       ; preds = %if.end24, %for.body
   %conv45 = zext nneg i32 %i.147 to i64
   %add46 = add i64 %addr, %conv45
   %mul47 = shl nuw nsw i32 %i.147, 3
-  %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %spec.store.select, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
+  %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
   %or50 = or i32 %call49, %r.246
-  %add52 = add i32 %i.147, %spec.store.select
+  %add52 = add i32 %i.147, %cond31
   %cmp42 = icmp ult i32 %add52, %size
   br i1 %cmp42, label %for.body44, label %if.end54, !llvm.loop !30
 

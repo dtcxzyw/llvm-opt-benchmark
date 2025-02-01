@@ -717,21 +717,20 @@ for.cond8.preheader:                              ; preds = %for.body
 
 for.body11.preheader:                             ; preds = %for.cond8.preheader
   %scevgep = getelementptr i8, ptr %seedArray, i64 2500
-  %1 = add i32 %nSeedArraySize, -2
-  %2 = sub i32 %1, %cond
-  %3 = zext i32 %2 to i64
-  %4 = shl nuw nsw i64 %3, 2
-  %5 = add nuw nsw i64 %4, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %5, i1 false)
+  %1 = add i32 %nSeedArraySize, -626
+  %2 = zext i32 %1 to i64
+  %3 = shl nuw nsw i64 %2, 2
+  %4 = add nuw nsw i64 %3, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %4, i1 false)
   br label %for.end17
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx5 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %indvars.iv
-  %6 = load i32, ptr %arrayidx5, align 4
+  %5 = load i32, ptr %arrayidx5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx7 = getelementptr inbounds nuw i32, ptr %seedArray, i64 %indvars.iv.next
-  store i32 %6, ptr %arrayidx7, align 4
+  store i32 %5, ptr %arrayidx7, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !13
 

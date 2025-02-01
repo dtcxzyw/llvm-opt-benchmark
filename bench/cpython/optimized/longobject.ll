@@ -2335,6 +2335,7 @@ if.end10:                                         ; preds = %if.end
 if.end10.thread:                                  ; preds = %if.end10, %if.end
   %is_signed.addr.071 = phi i1 [ true, %if.end ], [ %1, %if.end10 ]
   %2 = phi i32 [ 0, %if.end ], [ %spec.select84, %if.end10 ]
+  %umax = tail call i64 @llvm.umax.i64(i64 %n, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %if.end10.thread, %for.inc
@@ -2348,11 +2349,11 @@ for.body:                                         ; preds = %if.end10.thread, %f
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.055, 1
   %add.ptr21 = getelementptr i8, ptr %p.056, i64 %incr.0.neg
-  %exitcond.not = icmp eq i64 %inc, %n
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %for.inc
-  %i.0.lcssa = phi i64 [ %i.055, %for.body ], [ %n, %for.inc ]
+  %i.0.lcssa = phi i64 [ %i.055, %for.body ], [ %umax, %for.inc ]
   %sub22 = sub i64 %n, %i.0.lcssa
   %cmp24 = icmp uge i64 %sub22, %n
   %or.cond.not = or i1 %is_signed.addr.071, %cmp24

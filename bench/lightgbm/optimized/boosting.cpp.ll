@@ -3719,19 +3719,22 @@ thread-pre-split.i:                               ; preds = %135, %thread-pre-sp
   br i1 %or.cond164.i, label %.lr.ph221.i, label %.critedge4.i, !llvm.loop !38
 
 .critedge4.i:                                     ; preds = %.lr.ph221.i
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %176, i32 308)
   %180 = icmp ugt i32 %176, 49
-  br i1 %180, label %.lr.ph226.i, label %.preheader193.i
+  br i1 %180, label %.lr.ph226.i.preheader, label %.preheader193.i
+
+.lr.ph226.i.preheader:                            ; preds = %.critedge4.i
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %176, i32 308)
+  br label %.lr.ph226.i
 
 .preheader193.i:                                  ; preds = %.lr.ph226.i, %.critedge4.i
   %.1132.lcssa.i = phi double [ 1.000000e+00, %.critedge4.i ], [ %182, %.lr.ph226.i ]
-  %.1126.lcssa.i = phi i32 [ %spec.store.select.i, %.critedge4.i ], [ %183, %.lr.ph226.i ]
+  %.1126.lcssa.i = phi i32 [ %176, %.critedge4.i ], [ %183, %.lr.ph226.i ]
   %181 = icmp samesign ugt i32 %.1126.lcssa.i, 7
   br i1 %181, label %.lr.ph231.i, label %.preheader.i
 
-.lr.ph226.i:                                      ; preds = %.critedge4.i, %.lr.ph226.i
-  %.1126225.i = phi i32 [ %183, %.lr.ph226.i ], [ %spec.store.select.i, %.critedge4.i ]
-  %.1132224.i = phi double [ %182, %.lr.ph226.i ], [ 1.000000e+00, %.critedge4.i ]
+.lr.ph226.i:                                      ; preds = %.lr.ph226.i.preheader, %.lr.ph226.i
+  %.1126225.i = phi i32 [ %183, %.lr.ph226.i ], [ %spec.store.select.i, %.lr.ph226.i.preheader ]
+  %.1132224.i = phi double [ %182, %.lr.ph226.i ], [ 1.000000e+00, %.lr.ph226.i.preheader ]
   %182 = fmul double %.1132224.i, 1.000000e+50
   %183 = add i32 %.1126225.i, -50
   %184 = icmp ugt i32 %183, 49

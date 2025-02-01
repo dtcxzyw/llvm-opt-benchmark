@@ -1952,11 +1952,15 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body28.i, !llvm.loop !34
 
-for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i515253.i, %for.body28.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
+for.end.i.loopexit:                               ; preds = %for.body28.i
+  %15 = tail call i32 @llvm.umax.i32(i32 %div.i515253.i, i32 1)
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %15, %for.end.i.loopexit ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.end.i.loopexit ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -1969,17 +1973,17 @@ for.end.i:                                        ; preds = %for.body28.i, %_ZN5
   %conv40.i = sext i32 %sub34.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key_left37.i, ptr align 8 %add.ptr39.i, i64 %conv40.i, i1 false)
   %arrayidx43.i = getelementptr inbounds nuw i64, ptr %add.ptr18.i, i64 %idx.ext38.i
-  %15 = load i64, ptr %arrayidx43.i, align 8
+  %16 = load i64, ptr %arrayidx43.i, align 8
   %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i = load i64, ptr %key_left37.i, align 8
-  %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %15
+  %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %16
   %and.i10 = and i64 %xor44.i, %shr.i
   %or45.i = or i64 %and.i10, %result_or.1.lcssa.i
-  %16 = icmp eq i64 %or45.i, 0
-  %17 = sext i1 %16 to i8
+  %17 = icmp eq i64 %or45.i, 0
+  %18 = sext i1 %17 to i8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.0.i = phi i8 [ %17, %for.end.i ], [ -1, %for.body.i ]
+  %result_or.0.i = phi i8 [ %18, %for.end.i ], [ -1, %for.body.i ]
   %cmp47.i = icmp eq i32 %sub.i, %sub.i.i
   %conv50.i = select i1 %cmp47.i, i8 %result_or.0.i, i8 0
   %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv46.i
@@ -2088,11 +2092,15 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body28.i, !llvm.loop !36
 
-for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i525354.i, %for.body28.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
+for.end.i.loopexit:                               ; preds = %for.body28.i
+  %18 = tail call i32 @llvm.umax.i32(i32 %div.i525354.i, i32 1)
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %18, %for.end.i.loopexit ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.end.i.loopexit ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -2105,17 +2113,17 @@ for.end.i:                                        ; preds = %for.body28.i, %_ZN5
   %conv40.i = sext i32 %sub34.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key_left37.i, ptr align 8 %add.ptr39.i, i64 %conv40.i, i1 false)
   %arrayidx43.i = getelementptr inbounds nuw i64, ptr %add.ptr18.i, i64 %idx.ext38.i
-  %18 = load i64, ptr %arrayidx43.i, align 8
+  %19 = load i64, ptr %arrayidx43.i, align 8
   %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i = load i64, ptr %key_left37.i, align 8
-  %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %18
+  %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %19
   %and.i10 = and i64 %xor44.i, %shr.i
   %or45.i = or i64 %and.i10, %result_or.1.lcssa.i
-  %19 = icmp eq i64 %or45.i, 0
-  %20 = sext i1 %19 to i8
+  %20 = icmp eq i64 %or45.i, 0
+  %21 = sext i1 %20 to i8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.0.i = phi i8 [ %20, %for.end.i ], [ -1, %for.body.i ]
+  %result_or.0.i = phi i8 [ %21, %for.end.i ], [ -1, %for.body.i ]
   %cmp47.i = icmp eq i32 %sub.i, %sub15.i.i
   %conv50.i = select i1 %cmp47.i, i8 %result_or.0.i, i8 0
   %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv47.i
@@ -2214,11 +2222,15 @@ for.body25.i:                                     ; preds = %for.body25.i, %for.
   %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body25.i, !llvm.loop !38
 
-for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i515253.i, %for.body25.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
+for.end.i.loopexit:                               ; preds = %for.body25.i
+  %14 = tail call i32 @llvm.umax.i32(i32 %div.i515253.i, i32 1)
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %14, %for.end.i.loopexit ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.end.i.loopexit ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2231,17 +2243,17 @@ for.end.i:                                        ; preds = %for.body25.i, %_ZN5
   %conv37.i = sext i32 %sub31.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key_left34.i, ptr align 8 %add.ptr36.i, i64 %conv37.i, i1 false)
   %arrayidx40.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %idx.ext35.i
-  %14 = load i64, ptr %arrayidx40.i, align 8
+  %15 = load i64, ptr %arrayidx40.i, align 8
   %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i = load i64, ptr %key_left34.i, align 8
-  %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %14
+  %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %15
   %and.i10 = and i64 %xor41.i, %shr.i
   %or42.i = or i64 %and.i10, %result_or.1.lcssa.i
-  %15 = icmp eq i64 %or42.i, 0
-  %16 = sext i1 %15 to i8
+  %16 = icmp eq i64 %or42.i, 0
+  %17 = sext i1 %16 to i8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.0.i = phi i8 [ %16, %for.end.i ], [ -1, %for.body.i ]
+  %result_or.0.i = phi i8 [ %17, %for.end.i ], [ -1, %for.body.i ]
   %cmp44.i = icmp eq i32 %sub.i, %sub.i.i
   %conv47.i = select i1 %cmp44.i, i8 %result_or.0.i, i8 0
   %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv46.i
@@ -2347,11 +2359,15 @@ for.body25.i:                                     ; preds = %for.body25.i, %for.
   %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body25.i, !llvm.loop !40
 
-for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i535455.i, %for.body25.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
+for.end.i.loopexit:                               ; preds = %for.body25.i
+  %17 = tail call i32 @llvm.umax.i32(i32 %div.i535455.i, i32 1)
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %17, %for.end.i.loopexit ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.end.i.loopexit ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2364,17 +2380,17 @@ for.end.i:                                        ; preds = %for.body25.i, %_ZN5
   %conv37.i = sext i32 %sub31.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key_left34.i, ptr align 8 %add.ptr36.i, i64 %conv37.i, i1 false)
   %arrayidx40.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %idx.ext35.i
-  %17 = load i64, ptr %arrayidx40.i, align 8
+  %18 = load i64, ptr %arrayidx40.i, align 8
   %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i = load i64, ptr %key_left34.i, align 8
-  %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %17
+  %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %18
   %and.i10 = and i64 %xor41.i, %shr.i
   %or42.i = or i64 %and.i10, %result_or.1.lcssa.i
-  %18 = icmp eq i64 %or42.i, 0
-  %19 = sext i1 %18 to i8
+  %19 = icmp eq i64 %or42.i, 0
+  %20 = sext i1 %19 to i8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.0.i = phi i8 [ %19, %for.end.i ], [ -1, %for.body.i ]
+  %result_or.0.i = phi i8 [ %20, %for.end.i ], [ -1, %for.body.i ]
   %cmp44.i = icmp eq i32 %sub.i, %sub15.i.i
   %conv47.i = select i1 %cmp44.i, i8 %result_or.0.i, i8 0
   %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv48.i
@@ -2786,6 +2802,9 @@ declare noundef i32 @_ZN5arrow7compute10KeyCompare32CompareVarBinaryColumnToRow_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8

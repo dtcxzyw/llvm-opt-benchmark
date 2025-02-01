@@ -9283,6 +9283,7 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
 .lr.ph115.preheader:                              ; preds = %13
   %spec.store.select = call i32 @llvm.umin.i32(i32 %25, i32 32)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %umax = call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
   br label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.loopexit
@@ -9411,13 +9412,13 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
   %.188 = phi i32 [ %.087110, %40 ], [ %110, %._crit_edge ], [ %.087110, %51 ], [ %.087110, %.lr.ph ]
   %.185 = phi i32 [ %.084111, %40 ], [ %67, %._crit_edge ], [ %67, %51 ], [ %67, %.lr.ph ]
   %111 = add nuw nsw i32 %.083112, 1
-  %exitcond.not = icmp eq i32 %111, %spec.store.select
+  %exitcond.not = icmp eq i32 %111, %umax
   br i1 %exitcond.not, label %._crit_edge116, label %.lr.ph115, !llvm.loop !65
 
 ._crit_edge116:                                   ; preds = %.loopexit, %.lr.ph115, %30, %13
   %.087.lcssa = phi i32 [ 0, %13 ], [ %.087110, %30 ], [ %.087110, %.lr.ph115 ], [ %.188, %.loopexit ]
   %.084.lcssa = phi i32 [ 0, %13 ], [ %.084111, %30 ], [ %.084111, %.lr.ph115 ], [ %.185, %.loopexit ]
-  %.083.lcssa = phi i32 [ 0, %13 ], [ %.083112, %30 ], [ %.083112, %.lr.ph115 ], [ %spec.store.select, %.loopexit ]
+  %.083.lcssa = phi i32 [ 0, %13 ], [ %.083112, %30 ], [ %.083112, %.lr.ph115 ], [ %umax, %.loopexit ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store i32 %.083.lcssa, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1380
@@ -12604,11 +12605,15 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
   %45 = add nsw i64 %41, -1
   %46 = icmp ult i64 %45, %42
   %or.cond143 = select i1 %46, i1 %44, i1 false
-  br i1 %or.cond143, label %.lr.ph, label %.loopexit
+  br i1 %or.cond143, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %22, %256
-  %.0100141 = phi ptr [ %54, %256 ], [ %23, %22 ]
-  %.0101140 = phi i64 [ %257, %256 ], [ 0, %22 ]
+.lr.ph.preheader:                                 ; preds = %22
+  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %256
+  %.0100141 = phi ptr [ %54, %256 ], [ %23, %.lr.ph.preheader ]
+  %.0101140 = phi i64 [ %257, %256 ], [ 0, %.lr.ph.preheader ]
   %47 = load i8, ptr %.0100141, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 8
@@ -12885,7 +12890,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
 
 256:                                              ; preds = %.lr.ph, %55
   %257 = add nuw nsw i64 %.0101140, 1
-  %exitcond.not = icmp eq i64 %257, %41
+  %exitcond.not = icmp eq i64 %257, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %256, %152, %81, %64, %22, %19, %11, %8, %3, %252

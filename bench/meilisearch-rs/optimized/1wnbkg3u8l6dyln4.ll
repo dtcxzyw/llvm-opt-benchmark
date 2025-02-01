@@ -18125,7 +18125,11 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
 
 .preheader.i:                                     ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit.i", %57
   %.not15.i = icmp eq i64 %50, 2
-  br i1 %.not15.i, label %.loopexit73, label %.lr.ph10.i
+  br i1 %.not15.i, label %.loopexit73, label %.lr.ph10.preheader.i
+
+.lr.ph10.preheader.i:                             ; preds = %.preheader.i
+  %umax18.i = tail call i64 @llvm.umax.i64(i64 %50, i64 3)
+  br label %.lr.ph10.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit.i": ; preds = %53
   %62 = icmp ult i64 %.val57.i, %.val59.i
@@ -18133,11 +18137,15 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
 
 .preheader3.i:                                    ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit.i", %57
   %.not.i = icmp eq i64 %50, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader3.i, %74
-  %.val63.i = phi i64 [ %.val61.i, %74 ], [ %.val57.i, %.preheader3.i ]
-  %.sroa.01.15.i = phi i64 [ %75, %74 ], [ 2, %.preheader3.i ]
+.lr.ph.preheader.i:                               ; preds = %.preheader3.i
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %50, i64 3)
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %74, %.lr.ph.preheader.i
+  %.val63.i = phi i64 [ %.val61.i, %74 ], [ %.val57.i, %.lr.ph.preheader.i ]
+  %.sroa.01.15.i = phi i64 [ %75, %74 ], [ 2, %.lr.ph.preheader.i ]
   %63 = getelementptr inbounds { i16, [3 x i16], { ptr, i64 } }, ptr %51, i64 %.sroa.01.15.i
   %64 = add i64 %.sroa.01.15.i, -1
   %65 = icmp ult i64 %64, %50
@@ -18162,12 +18170,12 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
 
 74:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit69.i", %68
   %75 = add nuw i64 %.sroa.01.15.i, 1
-  %exitcond.not.i = icmp eq i64 %75, %50
+  %exitcond.not.i = icmp eq i64 %75, %umax.i
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph10.i:                                       ; preds = %.preheader.i, %87
-  %.val67.i = phi i64 [ %.val65.i, %87 ], [ %.val57.i, %.preheader.i ]
-  %.sroa.01.09.i = phi i64 [ %88, %87 ], [ 2, %.preheader.i ]
+.lr.ph10.i:                                       ; preds = %87, %.lr.ph10.preheader.i
+  %.val67.i = phi i64 [ %.val65.i, %87 ], [ %.val57.i, %.lr.ph10.preheader.i ]
+  %.sroa.01.09.i = phi i64 [ %88, %87 ], [ 2, %.lr.ph10.preheader.i ]
   %76 = getelementptr inbounds { i16, [3 x i16], { ptr, i64 } }, ptr %51, i64 %.sroa.01.09.i
   %77 = add i64 %.sroa.01.09.i, -1
   %78 = icmp ult i64 %77, %50
@@ -18192,11 +18200,11 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
 
 87:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit71.i", %81
   %88 = add nuw i64 %.sroa.01.09.i, 1
-  %exitcond19.not.i = icmp eq i64 %88, %50
+  %exitcond19.not.i = icmp eq i64 %88, %umax18.i
   br i1 %exitcond19.not.i, label %.loopexit73, label %.lr.ph10.i
 
 .thread:                                          ; preds = %68, %74, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit69.i", %47, %.preheader3.i
-  %.sroa.0.0.i.ph = phi i64 [ 2, %.preheader3.i ], [ %50, %47 ], [ %.sroa.01.15.i, %68 ], [ %50, %74 ], [ %.sroa.01.15.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit69.i" ]
+  %.sroa.0.0.i.ph = phi i64 [ 2, %.preheader3.i ], [ %50, %47 ], [ %.sroa.01.15.i, %68 ], [ %umax.i, %74 ], [ %.sroa.01.15.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit69.i" ]
   %89 = add i64 %.sroa.0.0.i.ph, %.sroa.0.0104
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h944b33a210df0792E.exit"
 
@@ -18248,7 +18256,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hede21f4670b3359dE.exit unwind label %.loopexit75
 
 .loopexit73:                                      ; preds = %81, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit71.i", %87, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %87 ], [ %.sroa.01.09.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit71.i" ], [ %.sroa.01.09.i, %81 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %umax18.i, %87 ], [ %.sroa.01.09.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8be9d0e7243bc772E.exit71.i" ], [ %.sroa.01.09.i, %81 ]
   %104 = add i64 %.sroa.0.0.i, %.sroa.0.0104
   %105 = icmp ugt i64 %.sroa.0.0104, %104
   br i1 %105, label %.invoke, label %106

@@ -161,6 +161,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph580.preheader:                              ; preds = %73
   %74 = lshr i64 %69, 3
+  %umax704 = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
   br label %.lr.ph580
 
 .lr.ph580:                                        ; preds = %.lr.ph580.preheader, %.lr.ph580
@@ -174,11 +175,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %78 = getelementptr inbounds nuw i8, ptr %.3392575, i64 8
   store i64 %75, ptr %.3392575, align 8
   %79 = add nuw nsw i64 %.1365577, 1
-  %exitcond705.not = icmp eq i64 %79, %74
+  %exitcond705.not = icmp eq i64 %79, %umax704
   br i1 %exitcond705.not, label %._crit_edge581.loopexit, label %.lr.ph580, !llvm.loop !7
 
 ._crit_edge581.loopexit:                          ; preds = %.lr.ph580
-  %80 = and i64 %69, -8
+  %80 = shl nuw i64 %umax704, 3
   br label %._crit_edge581
 
 ._crit_edge581:                                   ; preds = %._crit_edge581.loopexit, %73
@@ -407,6 +408,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph504.preheader:                              ; preds = %154
   %155 = lshr i64 %148, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %155, i64 1)
   br label %.lr.ph504
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %.lr.ph504
@@ -420,11 +422,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %159 = getelementptr inbounds nuw i8, ptr %.10399500, i64 8
   store i64 %156, ptr %.10399500, align 8
   %160 = add nuw nsw i64 %.2366502, 1
-  %exitcond.not = icmp eq i64 %160, %155
+  %exitcond.not = icmp eq i64 %160, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph504, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph504
-  %161 = and i64 %148, -8
+  %161 = shl nuw i64 %umax, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %154
@@ -644,6 +646,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph628.preheader:                              ; preds = %.preheader481
   %240 = lshr i64 %232, 3
+  %umax707 = tail call i64 @llvm.umax.i64(i64 %240, i64 1)
   br label %.lr.ph628
 
 .preheader:                                       ; preds = %226
@@ -651,6 +654,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph635.preheader:                              ; preds = %.preheader
   %241 = lshr i64 %232, 3
+  %umax709 = tail call i64 @llvm.umax.i64(i64 %241, i64 1)
   br label %.lr.ph635
 
 .lr.ph635:                                        ; preds = %.lr.ph635.preheader, %.lr.ph635
@@ -661,7 +665,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %243 = load i64, ptr %.15634, align 8
   %244 = add i64 %243, %.16387632
   %245 = add nuw nsw i64 %.3367633, 1
-  %exitcond710.not = icmp eq i64 %245, %241
+  %exitcond710.not = icmp eq i64 %245, %umax709
   br i1 %exitcond710.not, label %.loopexit, label %.lr.ph635, !llvm.loop !16
 
 .lr.ph628:                                        ; preds = %.lr.ph628.preheader, %.lr.ph628
@@ -673,13 +677,13 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %247 = add i64 %246, %.18625
   %248 = getelementptr inbounds nuw i8, ptr %.17627, i64 8
   %249 = add nuw nsw i64 %.5369626, 1
-  %exitcond708.not = icmp eq i64 %249, %240
+  %exitcond708.not = icmp eq i64 %249, %umax707
   br i1 %exitcond708.not, label %.loopexit, label %.lr.ph628, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph628, %.lr.ph635, %.thread, %.preheader481, %.preheader
   %.0370716 = phi i64 [ %232, %.preheader ], [ %232, %.preheader481 ], [ 0, %.thread ], [ %232, %.lr.ph635 ], [ %232, %.lr.ph628 ]
   %.17388 = phi i64 [ %.15386, %.preheader ], [ %.15386, %.preheader481 ], [ %.15386714, %.thread ], [ %244, %.lr.ph635 ], [ %247, %.lr.ph628 ]
-  %.4368 = phi i64 [ 0, %.preheader ], [ 0, %.preheader481 ], [ 0, %.thread ], [ %241, %.lr.ph635 ], [ %240, %.lr.ph628 ]
+  %.4368 = phi i64 [ 0, %.preheader ], [ 0, %.preheader481 ], [ 0, %.thread ], [ %umax709, %.lr.ph635 ], [ %umax707, %.lr.ph628 ]
   %.16 = phi ptr [ %231, %.preheader ], [ %231, %.preheader481 ], [ %225, %.thread ], [ %242, %.lr.ph635 ], [ %248, %.lr.ph628 ]
   %250 = shl nuw i64 %.4368, 3
   %.not443 = icmp eq i64 %.0370716, %250
@@ -858,6 +862,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .lr.ph580.preheader:                              ; preds = %73
   %74 = lshr i64 %69, 2
+  %umax704 = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
   br label %.lr.ph580
 
 .lr.ph580:                                        ; preds = %.lr.ph580.preheader, %.lr.ph580
@@ -871,11 +876,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %78 = getelementptr inbounds nuw i8, ptr %.3392575, i64 4
   store i32 %75, ptr %.3392575, align 4
   %79 = add nuw nsw i64 %.1365577, 1
-  %exitcond705.not = icmp eq i64 %79, %74
+  %exitcond705.not = icmp eq i64 %79, %umax704
   br i1 %exitcond705.not, label %._crit_edge581.loopexit, label %.lr.ph580, !llvm.loop !20
 
 ._crit_edge581.loopexit:                          ; preds = %.lr.ph580
-  %80 = and i64 %69, -4
+  %80 = shl nuw i64 %umax704, 2
   br label %._crit_edge581
 
 ._crit_edge581:                                   ; preds = %._crit_edge581.loopexit, %73
@@ -1104,6 +1109,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .lr.ph504.preheader:                              ; preds = %154
   %155 = lshr i64 %148, 2
+  %umax = tail call i64 @llvm.umax.i64(i64 %155, i64 1)
   br label %.lr.ph504
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %.lr.ph504
@@ -1117,11 +1123,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %159 = getelementptr inbounds nuw i8, ptr %.10399500, i64 4
   store i32 %156, ptr %.10399500, align 4
   %160 = add nuw nsw i64 %.2366502, 1
-  %exitcond.not = icmp eq i64 %160, %155
+  %exitcond.not = icmp eq i64 %160, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph504, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph504
-  %161 = and i64 %148, -4
+  %161 = shl nuw i64 %umax, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %154
@@ -1341,6 +1347,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .lr.ph628.preheader:                              ; preds = %.preheader481
   %240 = lshr i64 %232, 2
+  %umax707 = tail call i64 @llvm.umax.i64(i64 %240, i64 1)
   br label %.lr.ph628
 
 .preheader:                                       ; preds = %226
@@ -1348,6 +1355,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 
 .lr.ph635.preheader:                              ; preds = %.preheader
   %241 = lshr i64 %232, 2
+  %umax709 = tail call i64 @llvm.umax.i64(i64 %241, i64 1)
   br label %.lr.ph635
 
 .lr.ph635:                                        ; preds = %.lr.ph635.preheader, %.lr.ph635
@@ -1358,7 +1366,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %243 = load i32, ptr %.15634, align 4
   %244 = add i32 %243, %.16387632
   %245 = add nuw nsw i64 %.3367633, 1
-  %exitcond710.not = icmp eq i64 %245, %241
+  %exitcond710.not = icmp eq i64 %245, %umax709
   br i1 %exitcond710.not, label %.loopexit, label %.lr.ph635, !llvm.loop !29
 
 .lr.ph628:                                        ; preds = %.lr.ph628.preheader, %.lr.ph628
@@ -1370,13 +1378,13 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %247 = add i32 %246, %.18625
   %248 = getelementptr inbounds nuw i8, ptr %.17627, i64 4
   %249 = add nuw nsw i64 %.5369626, 1
-  %exitcond708.not = icmp eq i64 %249, %240
+  %exitcond708.not = icmp eq i64 %249, %umax707
   br i1 %exitcond708.not, label %.loopexit, label %.lr.ph628, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph628, %.lr.ph635, %.thread, %.preheader481, %.preheader
   %.0370716 = phi i64 [ %232, %.preheader ], [ %232, %.preheader481 ], [ 0, %.thread ], [ %232, %.lr.ph635 ], [ %232, %.lr.ph628 ]
   %.17388 = phi i32 [ %.15386, %.preheader ], [ %.15386, %.preheader481 ], [ %.15386714, %.thread ], [ %244, %.lr.ph635 ], [ %247, %.lr.ph628 ]
-  %.4368 = phi i64 [ 0, %.preheader ], [ 0, %.preheader481 ], [ 0, %.thread ], [ %241, %.lr.ph635 ], [ %240, %.lr.ph628 ]
+  %.4368 = phi i64 [ 0, %.preheader ], [ 0, %.preheader481 ], [ 0, %.thread ], [ %umax709, %.lr.ph635 ], [ %umax707, %.lr.ph628 ]
   %.16 = phi ptr [ %231, %.preheader ], [ %231, %.preheader481 ], [ %225, %.thread ], [ %242, %.lr.ph635 ], [ %248, %.lr.ph628 ]
   %250 = shl nuw i64 %.4368, 2
   %.not443 = icmp eq i64 %.0370716, %250
@@ -1432,6 +1440,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
 
 .lr.ph206.preheader:                              ; preds = %14
   %21 = lshr i64 %20, 3
+  %umax245 = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
@@ -1442,11 +1451,11 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %23 = add i64 %22, %.0133203
   %24 = getelementptr inbounds nuw i8, ptr %.0137202, i64 8
   %25 = add nuw nsw i64 %.0132204, 1
-  %exitcond246.not = icmp eq i64 %25, %21
+  %exitcond246.not = icmp eq i64 %25, %umax245
   br i1 %exitcond246.not, label %._crit_edge207.loopexit, label %.lr.ph206, !llvm.loop !31
 
 ._crit_edge207.loopexit:                          ; preds = %.lr.ph206
-  %26 = and i64 %20, -8
+  %26 = shl nuw i64 %umax245, 3
   br label %._crit_edge207
 
 ._crit_edge207:                                   ; preds = %._crit_edge207.loopexit, %14
@@ -1540,6 +1549,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
 
 .lr.ph.preheader:                                 ; preds = %.preheader174
   %58 = lshr i64 %55, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %58, i64 1)
   br label %.lr.ph
 
 .preheader173:                                    ; preds = %49
@@ -1547,6 +1557,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
 
 .lr.ph184.preheader:                              ; preds = %.preheader173
   %59 = lshr i64 %55, 3
+  %umax243 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
@@ -1557,11 +1568,11 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %61 = load i64, ptr %.3140181, align 8
   %62 = add i64 %61, %.3136182
   %63 = add nuw nsw i64 %.2183, 1
-  %exitcond244.not = icmp eq i64 %63, %59
+  %exitcond244.not = icmp eq i64 %63, %umax243
   br i1 %exitcond244.not, label %._crit_edge185.loopexit, label %.lr.ph184, !llvm.loop !33
 
 ._crit_edge185.loopexit:                          ; preds = %.lr.ph184
-  %64 = and i64 %55, -8
+  %64 = shl nuw i64 %umax243, 3
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %.preheader173
@@ -1581,11 +1592,11 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
   %67 = add i64 %66, %.4176
   %68 = getelementptr inbounds nuw i8, ptr %.4141175, i64 8
   %69 = add nuw nsw i64 %.3177, 1
-  %exitcond.not = icmp eq i64 %69, %58
+  %exitcond.not = icmp eq i64 %69, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %70 = and i64 %55, -8
+  %70 = shl nuw i64 %umax, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader174
@@ -1731,6 +1742,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
 
 .lr.ph206.preheader:                              ; preds = %14
   %21 = lshr i64 %20, 2
+  %umax245 = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
@@ -1741,11 +1753,11 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   %23 = add i32 %22, %.0133203
   %24 = getelementptr inbounds nuw i8, ptr %.0137202, i64 4
   %25 = add nuw nsw i64 %.0132204, 1
-  %exitcond246.not = icmp eq i64 %25, %21
+  %exitcond246.not = icmp eq i64 %25, %umax245
   br i1 %exitcond246.not, label %._crit_edge207.loopexit, label %.lr.ph206, !llvm.loop !36
 
 ._crit_edge207.loopexit:                          ; preds = %.lr.ph206
-  %26 = and i64 %20, -4
+  %26 = shl nuw i64 %umax245, 2
   br label %._crit_edge207
 
 ._crit_edge207:                                   ; preds = %._crit_edge207.loopexit, %14
@@ -1839,6 +1851,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
 
 .lr.ph.preheader:                                 ; preds = %.preheader174
   %58 = lshr i64 %55, 2
+  %umax = tail call i64 @llvm.umax.i64(i64 %58, i64 1)
   br label %.lr.ph
 
 .preheader173:                                    ; preds = %49
@@ -1846,6 +1859,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
 
 .lr.ph184.preheader:                              ; preds = %.preheader173
   %59 = lshr i64 %55, 2
+  %umax243 = tail call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
@@ -1856,11 +1870,11 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   %61 = load i32, ptr %.3140181, align 4
   %62 = add i32 %61, %.3136182
   %63 = add nuw nsw i64 %.2183, 1
-  %exitcond244.not = icmp eq i64 %63, %59
+  %exitcond244.not = icmp eq i64 %63, %umax243
   br i1 %exitcond244.not, label %._crit_edge185.loopexit, label %.lr.ph184, !llvm.loop !38
 
 ._crit_edge185.loopexit:                          ; preds = %.lr.ph184
-  %64 = and i64 %55, -4
+  %64 = shl nuw i64 %umax243, 2
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %.preheader173
@@ -1880,11 +1894,11 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
   %67 = add i32 %66, %.4176
   %68 = getelementptr inbounds nuw i8, ptr %.4141175, i64 4
   %69 = add nuw nsw i64 %.3177, 1
-  %exitcond.not = icmp eq i64 %69, %58
+  %exitcond.not = icmp eq i64 %69, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %70 = and i64 %55, -4
+  %70 = shl nuw i64 %umax, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader174
@@ -2345,6 +2359,9 @@ prte_initialize_crc_table.exit:                   ; preds = %10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5

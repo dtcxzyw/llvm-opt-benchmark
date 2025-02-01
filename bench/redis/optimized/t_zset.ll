@@ -10733,7 +10733,7 @@ if.then69:                                        ; preds = %if.then65
   br i1 %cmp70.not, label %if.end83, label %if.then72
 
 if.then72:                                        ; preds = %if.then69
-  %sub73 = sub nsw i64 %length.0.i, %spec.store.select
+  %sub73 = sub nsw i64 %length.0.i, %spec.select
   %level.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %level.i, align 8
   %cmp13.i.i = icmp sgt i32 %19, 0
@@ -10784,7 +10784,7 @@ if.else76:                                        ; preds = %if.then65
   br i1 %cmp77.not, label %if.end83, label %if.then79
 
 if.then79:                                        ; preds = %if.else76
-  %add80 = add nuw nsw i64 %spec.store.select, 1
+  %add80 = add nuw nsw i64 %spec.select, 1
   %level.i85 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load i32, ptr %level.i85, align 8
   %cmp13.i.i86 = icmp sgt i32 %26, 0
@@ -14693,6 +14693,7 @@ if.else214:                                       ; preds = %if.end139
   %slen.i = getelementptr inbounds nuw i8, ptr %key222, i64 8
   %lval.i = getelementptr inbounds nuw i8, ptr %key222, i64 16
   %resp237 = getelementptr inbounds nuw i8, ptr %c, i64 24
+  %umax = tail call i64 @llvm.umax.i64(i64 %l, i64 1)
   br label %while.body221.us.preheader
 
 while.body221.us.preheader:                       ; preds = %if.end244, %if.else214
@@ -14777,7 +14778,7 @@ if.else.i201:                                     ; preds = %if.end244.critedge
   br label %if.end244
 
 if.end244:                                        ; preds = %if.else.i201, %if.then.i198, %if.then243
-  %exitcond.not = icmp eq i64 %inc, %l
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %if.end246, label %while.body221.us.preheader, !llvm.loop !97
 
 if.end246:                                        ; preds = %if.end244, %while.end213
@@ -15486,6 +15487,9 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

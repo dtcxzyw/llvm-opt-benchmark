@@ -7562,6 +7562,7 @@ GC_find_header.exit:                              ; preds = %130
 
 .lr.ph.preheader:                                 ; preds = %143
   %147 = lshr i64 %146, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %147, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7569,7 +7570,7 @@ GC_find_header.exit:                              ; preds = %130
   %148 = getelementptr inbounds nuw i64, ptr %0, i64 %.058
   store i64 -1171307680339476753, ptr %148, align 8
   %149 = add nuw nsw i64 %.058, 1
-  %exitcond.not = icmp eq i64 %149, %147
+  %exitcond.not = icmp eq i64 %149, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %143
@@ -38711,6 +38712,7 @@ GC_find_header.exit.i.i37:                        ; preds = %GC_has_other_debug_
 
 .lr.ph.preheader.i.i:                             ; preds = %GC_find_header.exit.i.i37
   %164 = lshr i64 %163, 3
+  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %164, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %191, %.lr.ph.preheader.i.i
@@ -38773,7 +38775,7 @@ GC_add_smashed.exit.i.i:                          ; preds = %189, %GC_set_mark_b
 
 191:                                              ; preds = %.lr.ph.i.i
   %192 = add nuw nsw i64 %.01115.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %192, %164
+  %exitcond.not.i.i = icmp eq i64 %192, %umax.i.i
   br i1 %exitcond.not.i.i, label %GC_add_leaked.exit, label %.lr.ph.i.i, !llvm.loop !215
 
 GC_check_leaked.exit.i:                           ; preds = %149, %143, %GC_size.exit.i.i.i, %115
@@ -39296,6 +39298,7 @@ GC_find_header.exit.i:                            ; preds = %GC_has_other_debug_
 
 .lr.ph.preheader.i:                               ; preds = %GC_find_header.exit.i
   %50 = lshr i64 %49, 3
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %50, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77, %.lr.ph.preheader.i
@@ -39358,7 +39361,7 @@ GC_add_smashed.exit.i:                            ; preds = %75, %GC_set_mark_bi
 
 77:                                               ; preds = %.lr.ph.i
   %78 = add nuw nsw i64 %.01115.i, 1
-  %exitcond.not.i = icmp eq i64 %78, %50
+  %exitcond.not.i = icmp eq i64 %78, %umax.i
   br i1 %exitcond.not.i, label %GC_set_mark_bit.exit, label %.lr.ph.i, !llvm.loop !215
 
 GC_check_leaked.exit:                             ; preds = %35, %29, %GC_size.exit.i.i, %1
@@ -44401,139 +44404,140 @@ define internal fastcc void @resend_lost_signals_retry(i32 noundef %0, ptr nound
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14, %9
+  %18 = call i32 @llvm.umax.i32(i32 %0, i32 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.018 = phi i32 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
-  %18 = call i32 @sem_timedwait(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %4) #41
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %._crit_edge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.018 = phi i32 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
+  %19 = call i32 @sem_timedwait(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %4) #41
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %20, label %._crit_edge
 
-19:                                               ; preds = %.lr.ph
-  %20 = add nuw nsw i32 %.018, 1
-  %exitcond.not = icmp eq i32 %20, %0
+20:                                               ; preds = %.lr.ph
+  %21 = add nuw nsw i32 %.018, 1
+  %exitcond.not = icmp eq i32 %21, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
 
-._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.0.lcssa.ph = phi i32 [ %.018, %.lr.ph ], [ %0, %19 ]
-  %21 = sub nsw i32 %0, %.0.lcssa.ph
+._crit_edge:                                      ; preds = %.lr.ph, %20
+  %.0.lcssa.ph = phi i32 [ %.018, %.lr.ph ], [ %18, %20 ]
+  %22 = sub nsw i32 %0, %.0.lcssa.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.preheader.i, label %resend_lost_signals.exit.thread
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.preheader.i, label %resend_lost_signals.exit.thread
 
 .preheader.i:                                     ; preds = %.thread, %._crit_edge
-  %.0814 = phi i32 [ %0, %.thread ], [ %21, %._crit_edge ]
-  %23 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
-  %24 = load i32, ptr %3, align 4
-  %25 = icmp eq i32 %24, %.0814
-  br i1 %25, label %resend_lost_signals.exit.thread21, label %.lr.ph.i
+  %.0814 = phi i32 [ %0, %.thread ], [ %22, %._crit_edge ]
+  %24 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
+  %25 = load i32, ptr %3, align 4
+  %26 = icmp eq i32 %25, %.0814
+  br i1 %26, label %resend_lost_signals.exit.thread21, label %.lr.ph.i
 
 resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %.preheader.i11.preheader
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %47
-  %.130.i = phi i32 [ %.2.i, %47 ], [ %.0814, %.preheader.i ]
-  %.01429.i = phi i32 [ %.115.i, %47 ], [ 0, %.preheader.i ]
-  %.01628.i = phi i32 [ %.117.i, %47 ], [ 0, %.preheader.i ]
-  %.01927.i = phi i64 [ %49, %47 ], [ 0, %.preheader.i ]
-  %26 = icmp ugt i64 %.01927.i, 100000
-  br i1 %26, label %27, label %47
+.lr.ph.i:                                         ; preds = %.preheader.i, %48
+  %.130.i = phi i32 [ %.2.i, %48 ], [ %.0814, %.preheader.i ]
+  %.01429.i = phi i32 [ %.115.i, %48 ], [ 0, %.preheader.i ]
+  %.01628.i = phi i32 [ %.117.i, %48 ], [ 0, %.preheader.i ]
+  %.01927.i = phi i64 [ %50, %48 ], [ 0, %.preheader.i ]
+  %27 = icmp ugt i64 %.01927.i, 100000
+  br i1 %27, label %28, label %48
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = call i32 %1() #41, !callees !258
-  %.not.i = icmp eq i32 %28, %.01429.i
-  br i1 %.not.i, label %29, label %35
+28:                                               ; preds = %.lr.ph.i
+  %29 = call i32 %1() #41, !callees !258
+  %.not.i = icmp eq i32 %29, %.01429.i
+  br i1 %.not.i, label %30, label %36
 
-29:                                               ; preds = %27
-  %30 = add nsw i32 %.01628.i, 1
-  %31 = icmp sgt i32 %.01628.i, 148
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %28
+  %31 = add nsw i32 %.01628.i, 1
+  %32 = icmp sgt i32 %.01628.i, 148
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr @GC_gc_no, align 8
-  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.296, i64 noundef %33)
-  %34 = load ptr, ptr @GC_on_abort, align 8
-  call void %34(ptr noundef nonnull @.str.297) #41
+33:                                               ; preds = %30
+  %34 = load i64, ptr @GC_gc_no, align 8
+  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.296, i64 noundef %34)
+  %35 = load ptr, ptr @GC_on_abort, align 8
+  call void %35(ptr noundef nonnull @.str.297) #41
   call void @abort() #47
   unreachable
 
-35:                                               ; preds = %29, %27
-  %.218.i = phi i32 [ %30, %29 ], [ 0, %27 ]
-  %36 = load i32, ptr @GC_print_stats, align 4
-  %.not25.i = icmp eq i32 %36, 0
-  br i1 %.not25.i, label %38, label %37
+36:                                               ; preds = %30, %28
+  %.218.i = phi i32 [ %31, %30 ], [ 0, %28 ]
+  %37 = load i32, ptr @GC_print_stats, align 4
+  %.not25.i = icmp eq i32 %37, 0
+  br i1 %.not25.i, label %39, label %38
 
-37:                                               ; preds = %35
-  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.298, i32 noundef %28, i32 noundef %.218.i)
-  br label %38
+38:                                               ; preds = %36
+  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.298, i32 noundef %29, i32 noundef %.218.i)
+  br label %39
 
-38:                                               ; preds = %37, %35
-  %39 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
-  %40 = load i32, ptr %3, align 4
-  %41 = sub nsw i32 %.130.i, %40
-  %42 = icmp slt i32 %28, %41
-  br i1 %42, label %43, label %47
+39:                                               ; preds = %38, %36
+  %40 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
+  %41 = load i32, ptr %3, align 4
+  %42 = sub nsw i32 %.130.i, %41
+  %43 = icmp slt i32 %29, %42
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %44(ptr noundef nonnull @.str.299, i64 noundef 0) #41
-  %45 = load i32, ptr %3, align 4
-  %46 = add nsw i32 %45, %28
-  br label %47
+44:                                               ; preds = %39
+  %45 = load ptr, ptr @GC_current_warn_proc, align 8
+  call void %45(ptr noundef nonnull @.str.299, i64 noundef 0) #41
+  %46 = load i32, ptr %3, align 4
+  %47 = add nsw i32 %46, %29
+  br label %48
 
-47:                                               ; preds = %43, %38, %.lr.ph.i
-  %.120.i = phi i64 [ %.01927.i, %.lr.ph.i ], [ 0, %43 ], [ 0, %38 ]
-  %.117.i = phi i32 [ %.01628.i, %.lr.ph.i ], [ %.218.i, %43 ], [ %.218.i, %38 ]
-  %.115.i = phi i32 [ %.01429.i, %.lr.ph.i ], [ %28, %43 ], [ %28, %38 ]
-  %.2.i = phi i32 [ %.130.i, %.lr.ph.i ], [ %46, %43 ], [ %.130.i, %38 ]
-  %48 = call i32 @usleep(i32 noundef 3000) #41
-  %49 = add nuw nsw i64 %.120.i, 3000
-  %50 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
-  %51 = load i32, ptr %3, align 4
-  %52 = icmp eq i32 %51, %.2.i
-  br i1 %52, label %resend_lost_signals.exit, label %.lr.ph.i
+48:                                               ; preds = %44, %39, %.lr.ph.i
+  %.120.i = phi i64 [ %.01927.i, %.lr.ph.i ], [ 0, %44 ], [ 0, %39 ]
+  %.117.i = phi i32 [ %.01628.i, %.lr.ph.i ], [ %.218.i, %44 ], [ %.218.i, %39 ]
+  %.115.i = phi i32 [ %.01429.i, %.lr.ph.i ], [ %29, %44 ], [ %29, %39 ]
+  %.2.i = phi i32 [ %.130.i, %.lr.ph.i ], [ %47, %44 ], [ %.130.i, %39 ]
+  %49 = call i32 @usleep(i32 noundef 3000) #41
+  %50 = add nuw nsw i64 %.120.i, 3000
+  %51 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #41
+  %52 = load i32, ptr %3, align 4
+  %53 = icmp eq i32 %52, %.2.i
+  br i1 %53, label %resend_lost_signals.exit, label %.lr.ph.i
 
 resend_lost_signals.exit.thread:                  ; preds = %._crit_edge, %.thread15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %suspend_restart_barrier.exit
 
-resend_lost_signals.exit:                         ; preds = %47
+resend_lost_signals.exit:                         ; preds = %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %53 = icmp sgt i32 %.2.i, 0
-  br i1 %53, label %.preheader.i11.preheader, label %suspend_restart_barrier.exit
+  %54 = icmp sgt i32 %.2.i, 0
+  br i1 %54, label %.preheader.i11.preheader, label %suspend_restart_barrier.exit
 
 .preheader.i11.preheader:                         ; preds = %resend_lost_signals.exit.thread21, %resend_lost_signals.exit
   %.0.i23 = phi i32 [ %.0814, %resend_lost_signals.exit.thread21 ], [ %.2.i, %resend_lost_signals.exit ]
   br label %.preheader.i11
 
-.preheader.i11:                                   ; preds = %.preheader.i11.preheader, %61
-  %.04.i = phi i32 [ %62, %61 ], [ 0, %.preheader.i11.preheader ]
-  br label %54
+.preheader.i11:                                   ; preds = %.preheader.i11.preheader, %62
+  %.04.i = phi i32 [ %63, %62 ], [ 0, %.preheader.i11.preheader ]
+  br label %55
 
-54:                                               ; preds = %56, %.preheader.i11
-  %55 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #41
-  %.not.i12 = icmp eq i32 %55, 0
-  br i1 %.not.i12, label %61, label %56
+55:                                               ; preds = %57, %.preheader.i11
+  %56 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #41
+  %.not.i12 = icmp eq i32 %56, 0
+  br i1 %.not.i12, label %62, label %57
 
-56:                                               ; preds = %54
-  %57 = tail call ptr @__errno_location() #48
-  %58 = load i32, ptr %57, align 4
-  %.not3.i = icmp eq i32 %58, 4
-  br i1 %.not3.i, label %54, label %59, !llvm.loop !30
+57:                                               ; preds = %55
+  %58 = tail call ptr @__errno_location() #48
+  %59 = load i32, ptr %58, align 4
+  %.not3.i = icmp eq i32 %59, 4
+  br i1 %.not3.i, label %55, label %60, !llvm.loop !30
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr @GC_on_abort, align 8
-  call void %60(ptr noundef nonnull @.str.119) #41
+60:                                               ; preds = %57
+  %61 = load ptr, ptr @GC_on_abort, align 8
+  call void %61(ptr noundef nonnull @.str.119) #41
   call void @abort() #47
   unreachable
 
-61:                                               ; preds = %54
-  %62 = add nuw nsw i32 %.04.i, 1
-  %exitcond.not.i = icmp eq i32 %62, %.0.i23
+62:                                               ; preds = %55
+  %63 = add nuw nsw i32 %.04.i, 1
+  %exitcond.not.i = icmp eq i32 %63, %.0.i23
   br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i11, !llvm.loop !31
 
-suspend_restart_barrier.exit:                     ; preds = %61, %resend_lost_signals.exit.thread, %resend_lost_signals.exit
+suspend_restart_barrier.exit:                     ; preds = %62, %resend_lost_signals.exit.thread, %resend_lost_signals.exit
   ret void
 }
 
@@ -45085,6 +45089,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #45
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #43

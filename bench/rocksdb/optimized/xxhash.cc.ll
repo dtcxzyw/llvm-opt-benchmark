@@ -1477,6 +1477,7 @@ entry:
 for.body.lr.ph.i.i:                               ; preds = %entry
   %div2.i.i1 = lshr i64 %sub1.i.i, 10
   %0 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
+  %umax = tail call i64 @llvm.umax.i64(i64 %div2.i.i1, i64 1)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i, %for.body.lr.ph.i.i
@@ -1520,7 +1521,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i: ; preds = %for.body.i.i.
   %15 = mul <8 x i64> %12, splat (i64 -7046029290881679360)
   %add.i.i.i.i = add <8 x i64> %14, %15
   %inc.i.i = add nuw nsw i64 %n.02.i.i, 1
-  %exitcond.not = icmp eq i64 %inc.i.i, %div2.i.i1
+  %exitcond.not = icmp eq i64 %inc.i.i, %umax
   br i1 %exitcond.not, label %for.end.i.i, label %for.body.i.i, !llvm.loop !19
 
 for.end.i.i:                                      ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i, %entry
@@ -1801,6 +1802,7 @@ if.then.i:                                        ; preds = %entry
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i
   %div2.i.i2.i = lshr i64 %sub1.i.i.i, 10
   %0 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64
+  %umax3.i = tail call i64 @llvm.umax.i64(i64 %div2.i.i2.i, i64 1)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i.i, %for.body.lr.ph.i.i.i
@@ -1844,7 +1846,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i.i: ; preds = %for.body.i.
   %15 = mul <8 x i64> %12, splat (i64 -7046029290881679360)
   %add.i.i.i.i.i = add <8 x i64> %14, %15
   %inc.i.i.i = add nuw nsw i64 %n.02.i.i.i, 1
-  %exitcond4.not.i = icmp eq i64 %inc.i.i.i, %div2.i.i2.i
+  %exitcond4.not.i = icmp eq i64 %inc.i.i.i, %umax3.i
   br i1 %exitcond4.not.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !19
 
 for.end.i.i.i:                                    ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i.i, %if.then.i
@@ -1961,6 +1963,7 @@ for.body.lr.ph.i.i12.i:                           ; preds = %_ZL28XXH3_initCusto
   %div2.i.i91.i = lshr i64 %sub1.i.i8.i, 10
   %add.ptr6.i.i.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 128
   %34 = load <16 x i32>, ptr %add.ptr6.i.i.i, align 64
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %div2.i.i91.i, i64 1)
   br label %for.body.i.i13.i
 
 for.body.i.i13.i:                                 ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i, %for.body.lr.ph.i.i12.i
@@ -2004,7 +2007,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i: ; preds = %for.body.
   %49 = mul <8 x i64> %46, splat (i64 -7046029290881679360)
   %add.i.i.i.i33.i = add <8 x i64> %48, %49
   %inc.i.i34.i = add nuw nsw i64 %n.02.i.i15.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i.i34.i, %div2.i.i91.i
+  %exitcond.not.i = icmp eq i64 %inc.i.i34.i, %umax.i
   br i1 %exitcond.not.i, label %for.end.i.i36.i, label %for.body.i.i13.i, !llvm.loop !19
 
 for.end.i.i36.i:                                  ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
@@ -4895,6 +4898,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

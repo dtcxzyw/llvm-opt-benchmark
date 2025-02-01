@@ -603,6 +603,7 @@ if.then134:                                       ; preds = %lor.lhs.false128, %
   %21 = select i1 %cmp139, i32 1, i32 %20
   %conv151 = select i1 %cmp143, i32 0, i32 %21
   %22 = getelementptr i32, ptr %counts, i64 %i.4155
+  %umax166 = tail call i64 @llvm.umax.i64(i64 %stride.0152, i64 1)
   br label %for.body150
 
 for.body150:                                      ; preds = %if.then134, %for.body150
@@ -611,7 +612,7 @@ for.body150:                                      ; preds = %if.then134, %for.bo
   %arrayidx154 = getelementptr i32, ptr %22, i64 %23
   store i32 %conv151, ptr %arrayidx154, align 4
   %inc156 = add nuw i64 %k135.0151, 1
-  %exitcond167.not = icmp eq i64 %inc156, %stride.0152
+  %exitcond167.not = icmp eq i64 %inc156, %umax166
   br i1 %exitcond167.not, label %if.end158, label %for.body150, !llvm.loop !18
 
 if.end158:                                        ; preds = %for.body150, %lor.lhs.false128
@@ -1236,6 +1237,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

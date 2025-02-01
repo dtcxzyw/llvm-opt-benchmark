@@ -479,16 +479,17 @@ land.lhs.true.i:                                  ; preds = %if.end27
   %cmp3.i296 = icmp ne i32 %orig_params.sroa.10.0.copyload, %29
   %cmp41.i = icmp ne i64 %num_commands, 0
   %or.cond.i = and i1 %cmp41.i, %cmp3.i296
-  br i1 %or.cond.i, label %for.body.i274.preheader, label %RecomputeDistancePrefixes.exit
+  br i1 %or.cond.i, label %for.body.lr.ph.i272, label %RecomputeDistancePrefixes.exit
 
 if.end.i271:                                      ; preds = %if.end27
-  br i1 %cmp450.not56.i, label %RecomputeDistancePrefixes.exit, label %for.body.i274.preheader
+  br i1 %cmp450.not56.i, label %RecomputeDistancePrefixes.exit, label %for.body.lr.ph.i272
 
-for.body.i274.preheader:                          ; preds = %if.end.i271, %land.lhs.true.i
+for.body.lr.ph.i272:                              ; preds = %if.end.i271, %land.lhs.true.i
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %num_commands, i64 1)
   br label %for.body.i274
 
-for.body.i274:                                    ; preds = %for.body.i274.preheader, %for.inc.i282
-  %i.02.i = phi i64 [ %inc.i283, %for.inc.i282 ], [ 0, %for.body.i274.preheader ]
+for.body.i274:                                    ; preds = %for.inc.i282, %for.body.lr.ph.i272
+  %i.02.i = phi i64 [ 0, %for.body.lr.ph.i272 ], [ %inc.i283, %for.inc.i282 ]
   %arrayidx.i275 = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.02.i
   %copy_len_.i.i276 = getelementptr inbounds nuw i8, ptr %arrayidx.i275, i64 4
   %30 = load i32, ptr %copy_len_.i.i276, align 4
@@ -585,7 +586,7 @@ for.inc.sink.split.i:                             ; preds = %if.else.i23.i, %if.
 
 for.inc.i282:                                     ; preds = %for.inc.sink.split.i, %land.lhs.true5.i279, %for.body.i274
   %inc.i283 = add nuw i64 %i.02.i, 1
-  %exitcond.not.i284 = icmp eq i64 %inc.i283, %num_commands
+  %exitcond.not.i284 = icmp eq i64 %inc.i283, %umax.i
   br i1 %exitcond.not.i284, label %RecomputeDistancePrefixes.exit, label %for.body.i274, !llvm.loop !9
 
 RecomputeDistancePrefixes.exit:                   ; preds = %for.inc.i282, %land.lhs.true.i, %if.end.i271

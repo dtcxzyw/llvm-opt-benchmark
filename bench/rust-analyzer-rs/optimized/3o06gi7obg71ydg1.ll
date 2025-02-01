@@ -24133,7 +24133,6 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %7 = icmp ugt i64 %5, 2
   %8 = load ptr, ptr %0, align 8, !alias.scope !6188, !noalias !6191, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %10
@@ -24167,7 +24166,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %6, label %27, label %22
 
 22:                                               ; preds = %21
-  %23 = shl i64 %.sink.i, 4
+  %23 = shl i64 %5, 4
   %24 = icmp ult i64 %5, 1152921504606846976
   br i1 %24, label %25, label %_ZN8smallvec12layout_array17h55386ee8e14d09b8E.exit.thread
 
@@ -24202,7 +24201,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %36 = shl i64 %.val, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %36, i1 false)
   store i64 %.val, ptr %4, align 8
-  %37 = shl i64 %.sink.i, 4
+  %37 = shl i64 %5, 4
   %38 = icmp ugt i64 %5, 1152921504606846975
   %39 = icmp ugt i64 %37, 9223372036854775800
   %or.cond.i = or i1 %38, %39
@@ -24237,7 +24236,6 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %7 = icmp ugt i64 %5, 2
   %8 = load ptr, ptr %0, align 8, !alias.scope !6196, !noalias !6199, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %10
@@ -24271,7 +24269,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %6, label %27, label %22
 
 22:                                               ; preds = %21
-  %23 = shl i64 %.sink.i, 4
+  %23 = shl i64 %5, 4
   %24 = icmp ult i64 %5, 1152921504606846976
   br i1 %24, label %25, label %_ZN8smallvec12layout_array17h53b73a30d2b86467E.exit.thread
 
@@ -24306,7 +24304,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %36 = shl i64 %.val, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %36, i1 false)
   store i64 %.val, ptr %4, align 8
-  %37 = shl i64 %.sink.i, 4
+  %37 = shl i64 %5, 4
   %38 = icmp ugt i64 %5, 1152921504606846975
   %39 = icmp ugt i64 %37, 9223372036854775800
   %or.cond.i = or i1 %38, %39
@@ -24341,7 +24339,6 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %7 = icmp ugt i64 %5, 2
   %8 = load ptr, ptr %0, align 8, !alias.scope !6204, !noalias !6207, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %10
@@ -24375,7 +24372,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %6, label %27, label %22
 
 22:                                               ; preds = %21
-  %23 = shl i64 %.sink.i, 3
+  %23 = shl i64 %5, 3
   %24 = icmp ult i64 %5, 2305843009213693952
   br i1 %24, label %25, label %_ZN8smallvec12layout_array17h91a10b4a459da604E.exit.thread
 
@@ -24410,7 +24407,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %36 = shl i64 %.val, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %36, i1 false)
   store i64 %.val, ptr %4, align 8
-  %37 = shl i64 %.sink.i, 3
+  %37 = shl i64 %5, 3
   %38 = icmp ugt i64 %5, 2305843009213693951
   %39 = icmp ugt i64 %37, 9223372036854775800
   %or.cond.i = or i1 %38, %39

@@ -3661,12 +3661,11 @@ if.then10:                                        ; preds = %do.end8
 
 do.end21:                                         ; preds = %if.then10
   %4 = load i64, ptr %newp, align 8
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 8388608)
   %cmp.i = icmp ult i64 %4, 4097
   br i1 %cmp.i, label %if.then.i, label %if.end14.i
 
 if.then.i:                                        ; preds = %do.end21
-  %sub.i46 = add nuw nsw i64 %spec.store.select, 7
+  %sub.i46 = add nuw nsw i64 %4, 7
   %shr.i = lshr i64 %sub.i46, 3
   %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i
   %5 = load i8, ptr %arrayidx.i, align 1
@@ -3676,20 +3675,15 @@ if.then.i:                                        ; preds = %do.end21
   br label %sz_s2u.exit
 
 if.end14.i:                                       ; preds = %do.end21
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 8388608)
   %shl15.i = shl nuw nsw i64 %spec.store.select, 1
   %sub.i = add nsw i64 %shl15.i, -1
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2) %sub.i, i1 true)
-  %8 = trunc nuw nsw i64 %7 to i32
-  %conv1.i.i.i = xor i32 %8, 63
-  %cmp18.i = icmp samesign ult i32 %conv1.i.i.i, 7
-  %conv17.i = zext nneg i32 %conv1.i.i.i to i64
-  %sub23.i = add nsw i64 %conv17.i, -3
+  %sub23.i = sub nsw i64 60, %7
   %notmask = shl nsw i64 -1, %sub23.i
-  %9 = xor i64 %notmask, -1
-  %sub27.i = select i1 %cmp18.i, i64 15, i64 %9
-  %add.i = add nuw i64 %sub27.i, %spec.store.select
-  %not.i = xor i64 %sub27.i, -1
-  %and.i = and i64 %add.i, %not.i
+  %8 = xor i64 %notmask, -1
+  %add.i = add nuw nsw i64 %spec.store.select, %8
+  %and.i = and i64 %add.i, %notmask
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %if.end14.i, %if.then.i

@@ -33734,7 +33734,6 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 8
-  %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 7)
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
@@ -33753,7 +33752,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %19, align 8
-  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.mux.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.0.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
   %.fca.0.extract.i = extractvalue { ptr, i32 } %22, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %22, 1
   store ptr %.fca.0.extract.i, ptr %1, align 8
@@ -33795,7 +33794,6 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 16
-  %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 15)
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
@@ -33814,7 +33812,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %19, align 8
-  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.mux.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.0.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
   %.fca.0.extract.i = extractvalue { ptr, i32 } %22, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %22, 1
   store ptr %.fca.0.extract.i, ptr %1, align 8
@@ -33856,7 +33854,6 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 32
-  %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 31)
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
@@ -33875,7 +33872,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %19, align 8
-  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.mux.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.0.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
   %.fca.0.extract.i = extractvalue { ptr, i32 } %22, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %22, 1
   store ptr %.fca.0.extract.i, ptr %1, align 8
@@ -33917,7 +33914,6 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 64
-  %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 63)
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
@@ -33936,7 +33932,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %19, align 8
-  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.mux.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %22 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %.64.val, i64 noundef %.0.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
   %.fca.0.extract.i = extractvalue { ptr, i32 } %22, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %22, 1
   store ptr %.fca.0.extract.i, ptr %1, align 8

@@ -891,17 +891,21 @@ stream_read_bit.exit.i36:                         ; preds = %102, %._crit_edge.i
 
 .preheader.i39:                                   ; preds = %stream_read_bit.exit.i36
   %.not110.i = icmp eq i32 %.13385.i, 3
-  br i1 %.not110.i, label %.critedge2.thread.i, label %.lr.ph.i40
+  br i1 %.not110.i, label %.critedge2.thread.i, label %.lr.ph.preheader.i
 
 .critedge2.thread.i:                              ; preds = %.preheader.i39
   %107 = add i64 %.086.i, 8
   br label %.critedge.i
 
-.lr.ph.i40:                                       ; preds = %.preheader.i39, %114
-  %.274.i = phi i32 [ %115, %114 ], [ %.13385.i, %.preheader.i39 ]
-  %.sroa.0.373.i = phi i64 [ %111, %114 ], [ %104, %.preheader.i39 ]
-  %.sroa.19.372.i = phi ptr [ %.sroa.19.7.i, %114 ], [ %.sroa.19.6.i, %.preheader.i39 ]
-  %.sroa.11.371.i = phi i64 [ %112, %114 ], [ %105, %.preheader.i39 ]
+.lr.ph.preheader.i:                               ; preds = %.preheader.i39
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %.13385.i, i32 2)
+  br label %.lr.ph.i40
+
+.lr.ph.i40:                                       ; preds = %114, %.lr.ph.preheader.i
+  %.274.i = phi i32 [ %115, %114 ], [ %.13385.i, %.lr.ph.preheader.i ]
+  %.sroa.0.373.i = phi i64 [ %111, %114 ], [ %104, %.lr.ph.preheader.i ]
+  %.sroa.19.372.i = phi ptr [ %.sroa.19.7.i, %114 ], [ %.sroa.19.6.i, %.lr.ph.preheader.i ]
+  %.sroa.11.371.i = phi i64 [ %112, %114 ], [ %105, %.lr.ph.preheader.i ]
   %.not.i41.i = icmp eq i64 %.sroa.0.373.i, 0
   br i1 %.not.i41.i, label %109, label %._crit_edge.i42.i
 
@@ -925,7 +929,7 @@ stream_read_bit.exit45.i:                         ; preds = %109, %._crit_edge.i
 
 114:                                              ; preds = %stream_read_bit.exit45.i
   %115 = add nuw nsw i32 %.274.i, 1
-  %exitcond.not.i = icmp eq i32 %.274.i, 2
+  %exitcond.not.i = icmp eq i32 %.274.i, %umax.i
   br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph.i40
 
 .critedge2.i:                                     ; preds = %114, %stream_read_bit.exit45.i
@@ -1040,6 +1044,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

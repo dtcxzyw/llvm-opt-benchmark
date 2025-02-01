@@ -48000,6 +48000,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit255.preheader:
 
 .lr.ph:                                           ; preds = %_ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit255.preheader
   %350 = add i64 %storemerge1828, 1
+  %umax = call i64 @llvm.umax.i64(i64 %349, i64 1)
   br label %439
 
 _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i257: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307, %_ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit255.preheader
@@ -48346,7 +48347,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i306, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #55
   %470 = add nuw i64 %.0691772, 1
-  %exitcond.not = icmp eq i64 %470, %349
+  %exitcond.not = icmp eq i64 %470, %umax
   br i1 %exitcond.not, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i257, label %439, !llvm.loop !980
 
 471:                                              ; preds = %443, %441
@@ -48696,6 +48697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit354: ; preds = %_Z
   %.sroa.29.1.lcssa2342 = phi ptr [ %352, %.critedge159.thread ], [ %.sroa.29.1.lcssa, %.critedge159 ]
   %585 = load i64, ptr %81, align 8, !tbaa !11
   %586 = load ptr, ptr %20, align 8
+  %umax2333 = call i64 @llvm.umax.i64(i64 %583, i64 1)
   br label %.preheader649
 
 .preheader649:                                    ; preds = %.preheader649.lr.ph, %.thread
@@ -48807,7 +48809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit354: ; preds = %_Z
   %.1.lcssa = phi i64 [ %.0671805, %.preheader649 ], [ %.11793, %603 ], [ %.3, %._crit_edge ]
   %616 = add nuw i64 %.0661806, 1
   %indvars.iv.next = add i64 %indvars.iv, -1
-  %exitcond2334.not = icmp eq i64 %616, %583
+  %exitcond2334.not = icmp eq i64 %616, %umax2333
   br i1 %exitcond2334.not, label %._crit_edge1807.loopexit, label %.preheader649, !llvm.loop !984
 
 _ZN5boost10test_tools16assertion_result7messageEv.exit361: ; preds = %.noexc358, %._crit_edge1807

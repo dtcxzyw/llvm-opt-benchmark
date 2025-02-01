@@ -1656,17 +1656,18 @@ for.body220.preheader:                            ; preds = %if.then210
   %and.lobit = lshr exact i64 %and, 1
   %mul = xor i64 %and.lobit, 1
   %spec.select184 = shl nuw nsw i64 %57, %mul
+  %61 = call i64 @llvm.umax.i64(i64 %spec.select184, i64 1)
   %.pre214 = load ptr, ptr %lp_ele, align 8
   br label %for.body220
 
 for.body220:                                      ; preds = %for.body220.preheader, %for.body220
-  %61 = phi ptr [ %call223, %for.body220 ], [ %.pre214, %for.body220.preheader ]
+  %62 = phi ptr [ %call223, %for.body220 ], [ %.pre214, %for.body220.preheader ]
   %i216.0202 = phi i64 [ %inc226, %for.body220 ], [ 0, %for.body220.preheader ]
-  %62 = load ptr, ptr %lp, align 8
-  %call223 = call ptr @lpNext(ptr noundef %62, ptr noundef %61) #16
+  %63 = load ptr, ptr %lp, align 8
+  %call223 = call ptr @lpNext(ptr noundef %63, ptr noundef %62) #16
   store ptr %call223, ptr %lp_ele, align 8
   %inc226 = add nuw nsw i64 %i216.0202, 1
-  %exitcond.not = icmp eq i64 %inc226, %spec.select184
+  %exitcond.not = icmp eq i64 %inc226, %61
   br i1 %exitcond.not, label %while.body72.backedge, label %for.body220, !llvm.loop !17
 
 if.else228:                                       ; preds = %if.else176, %land.lhs.true183
@@ -1675,19 +1676,19 @@ if.else228:                                       ; preds = %if.else176, %land.l
   br label %while.body237
 
 while.body237:                                    ; preds = %if.else228, %while.body237
-  %63 = phi ptr [ %.pre213, %if.else228 ], [ %call240, %while.body237 ]
+  %64 = phi ptr [ %.pre213, %if.else228 ], [ %call240, %while.body237 ]
   %prev_times.1200 = phi i64 [ %spec.select, %if.else228 ], [ %dec235, %while.body237 ]
   %dec235 = add nsw i64 %prev_times.1200, -1
-  %64 = load ptr, ptr %lp, align 8
-  %call240 = call ptr @lpPrev(ptr noundef %64, ptr noundef %63) #16
+  %65 = load ptr, ptr %lp, align 8
+  %call240 = call ptr @lpPrev(ptr noundef %65, ptr noundef %64) #16
   store ptr %call240, ptr %lp_ele, align 8
   %tobool236.not = icmp eq i64 %dec235, 0
   br i1 %tobool236.not, label %while.body72.backedge, label %while.body237, !llvm.loop !18
 
 return.sink.split:                                ; preds = %if.end197, %if.end168
-  %65 = load ptr, ptr %master_fields_start, align 8
+  %66 = load ptr, ptr %master_fields_start, align 8
   %master_fields_ptr204 = getelementptr inbounds nuw i8, ptr %si, i64 40
-  store ptr %65, ptr %master_fields_ptr204, align 8
+  store ptr %66, ptr %master_fields_ptr204, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true6, %land.lhs.true, %return.sink.split, %if.end197, %if.then189, %if.end168, %if.then161
@@ -12009,6 +12010,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13

@@ -12884,7 +12884,6 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e96
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !alias.scope !1175, !noalias !1178, !nonnull !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 4)
   %.val = load i64, ptr %10, align 8
   %11 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %11
@@ -12924,7 +12923,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e96
   br i1 %24, label %36, label %30
 
 25:                                               ; preds = %20
-  %26 = shl nuw nsw i64 %.sink.i, 4
+  %26 = shl nuw nsw i64 %5, 4
   %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %9, i64 noundef %26, i64 noundef 8, i64 noundef %19) #32
   %28 = icmp eq ptr %27, null
   br i1 %28, label %36, label %29
@@ -12957,7 +12956,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h9a837e96
   unreachable
 
 _ZN8smallvec10deallocate17hf8a56af8cc07b024E.exit: ; preds = %32
-  %35 = shl nuw nsw i64 %.sink.i, 4
+  %35 = shl nuw nsw i64 %5, 4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %35, i64 noundef 8) #32
   br label %36
 
@@ -12979,7 +12978,6 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !alias.scope !1183, !noalias !1186, !nonnull !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 4)
   %.val = load i64, ptr %10, align 8
   %11 = select i1 %7, i64 %.val, i64 %5
   %.not = icmp ult i64 %1, %11
@@ -13019,7 +13017,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b
   br i1 %24, label %36, label %30
 
 25:                                               ; preds = %20
-  %26 = shl nuw nsw i64 %.sink.i, 4
+  %26 = shl nuw nsw i64 %5, 4
   %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %9, i64 noundef %26, i64 noundef 8, i64 noundef %19) #32
   %28 = icmp eq ptr %27, null
   br i1 %28, label %36, label %29
@@ -13052,7 +13050,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17he20b9f1b
   unreachable
 
 _ZN8smallvec10deallocate17h634ea17a07011191E.exit: ; preds = %32
-  %35 = shl nuw nsw i64 %.sink.i, 4
+  %35 = shl nuw nsw i64 %5, 4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %35, i64 noundef 8) #32
   br label %36
 

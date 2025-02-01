@@ -14851,19 +14851,19 @@ define hidden range(i32 0, 86) i32 @FT_Stream_Read(ptr noundef %0, ptr noundef %
   br label %18
 
 13:                                               ; preds = %8
-  %14 = sub i64 %7, %5
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
   %.not32.i = icmp eq i64 %2, 0
-  br i1 %.not32.i, label %18, label %15
+  br i1 %.not32.i, label %18, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
+  %15 = sub i64 %7, %5
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %17, i64 %spec.select.i, i1 false)
   br label %18
 
-18:                                               ; preds = %15, %13, %11
-  %.0.i = phi i64 [ %12, %11 ], [ %spec.select.i, %15 ], [ %spec.select.i, %13 ]
+18:                                               ; preds = %14, %13, %11
+  %.0.i = phi i64 [ %12, %11 ], [ %spec.select.i, %14 ], [ 0, %13 ]
   %19 = add i64 %.0.i, %5
   store i64 %19, ptr %4, align 8
   %20 = icmp ult i64 %.0.i, %2
@@ -15862,19 +15862,19 @@ define hidden range(i32 0, 86) i32 @FT_Stream_ReadAt(ptr noundef %0, i64 noundef
   br label %17
 
 12:                                               ; preds = %7
-  %13 = sub i64 %6, %1
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 %3)
   %.not32 = icmp eq i64 %3, 0
-  br i1 %.not32, label %17, label %14
+  br i1 %.not32, label %17, label %13
 
-14:                                               ; preds = %12
+13:                                               ; preds = %12
+  %14 = sub i64 %6, %1
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 %3)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %16, i64 %spec.select, i1 false)
   br label %17
 
-17:                                               ; preds = %12, %14, %10
-  %.0 = phi i64 [ %11, %10 ], [ %spec.select, %14 ], [ %spec.select, %12 ]
+17:                                               ; preds = %12, %13, %10
+  %.0 = phi i64 [ %11, %10 ], [ %spec.select, %13 ], [ 0, %12 ]
   %18 = add i64 %.0, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %18, ptr %19, align 8
@@ -15907,19 +15907,19 @@ define hidden i64 @FT_Stream_TryRead(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %18
 
 13:                                               ; preds = %8
-  %14 = sub i64 %7, %5
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
   %.not26 = icmp eq i64 %2, 0
-  br i1 %.not26, label %18, label %15
+  br i1 %.not26, label %18, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
+  %15 = sub i64 %7, %5
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %17, i64 %spec.select, i1 false)
   br label %18
 
-18:                                               ; preds = %13, %15, %11
-  %.1 = phi i64 [ %12, %11 ], [ %spec.select, %15 ], [ %spec.select, %13 ]
+18:                                               ; preds = %13, %14, %11
+  %.1 = phi i64 [ %12, %11 ], [ %spec.select, %14 ], [ 0, %13 ]
   %19 = load i64, ptr %4, align 8
   %20 = add i64 %19, %.1
   store i64 %20, ptr %4, align 8
@@ -18736,55 +18736,70 @@ ft_lookup_PS_in_sfnt_stream.exit:                 ; preds = %192, %188, %184
 211:                                              ; preds = %206
   %212 = call i32 @FT_Stream_Read(ptr noundef nonnull %1, ptr noundef nonnull %209, i64 noundef %.216)
   %.not33 = icmp eq i32 %212, 0
-  br i1 %.not33, label %217, label %214
+  br i1 %.not33, label %222, label %219
 
 .thread:                                          ; preds = %210
-  %213 = call i32 @FT_Stream_Read(ptr noundef nonnull %1, ptr noundef null, i64 noundef 0)
-  %.not3334 = icmp eq i32 %213, 0
-  br i1 %.not3334, label %217, label %ft_mem_qalloc.exit
+  %213 = load i64, ptr %16, align 8
+  %.not.i.i58 = icmp ult i64 %199, %213
+  br i1 %.not.i.i58, label %214, label %ft_mem_qalloc.exit.thread41
 
-214:                                              ; preds = %211
-  %215 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %216 = load ptr, ptr %215, align 8
-  call void %216(ptr noundef nonnull %10, ptr noundef nonnull %209) #34
+214:                                              ; preds = %.thread
+  %215 = load ptr, ptr %20, align 8
+  %.not31.i.i = icmp eq ptr %215, null
+  br i1 %.not31.i.i, label %FT_Stream_Read.exit.thread, label %216
+
+216:                                              ; preds = %214
+  %217 = call i64 %215(ptr noundef nonnull %1, i64 noundef %199, ptr noundef null, i64 noundef 0) #34
+  br label %FT_Stream_Read.exit.thread
+
+FT_Stream_Read.exit.thread:                       ; preds = %216, %214
+  %.0.i.i = phi i64 [ %217, %216 ], [ 0, %214 ]
+  %218 = add i64 %.0.i.i, %199
+  store i64 %218, ptr %13, align 8
+  br label %222
+
+219:                                              ; preds = %211
+  %220 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef nonnull %10, ptr noundef nonnull %209) #34
   br label %ft_mem_qalloc.exit
 
-217:                                              ; preds = %.thread, %211
-  %.0.i.ph36 = phi ptr [ null, %.thread ], [ %209, %211 ]
-  %218 = call i64 @llvm.smin.i64(i64 %spec.select, i64 0)
+222:                                              ; preds = %FT_Stream_Read.exit.thread, %211
+  %.0.i.ph36 = phi ptr [ %209, %211 ], [ null, %FT_Stream_Read.exit.thread ]
+  %223 = call i64 @llvm.smin.i64(i64 %spec.select, i64 0)
   %.not34 = icmp eq i8 %.2, 0
-  %219 = select i1 %.not34, ptr @.str.17, ptr @.str.16
-  %220 = call fastcc i32 @open_face_from_buffer(ptr noundef nonnull %0, ptr noundef %.0.i.ph36, i64 noundef %.216, i64 noundef %218, ptr noundef nonnull %219, ptr noundef %3)
+  %224 = select i1 %.not34, ptr @.str.17, ptr @.str.16
+  %225 = call fastcc i32 @open_face_from_buffer(ptr noundef nonnull %0, ptr noundef %.0.i.ph36, i64 noundef %.216, i64 noundef %223, ptr noundef nonnull %224, ptr noundef %3)
   br label %ft_mem_qalloc.exit
 
-ft_mem_qalloc.exit:                               ; preds = %.thread, %214, %217
-  %.020 = phi i32 [ %220, %217 ], [ %212, %214 ], [ %213, %.thread ]
-  %221 = and i32 %.020, 255
-  %222 = icmp eq i32 %221, 2
-  br i1 %222, label %ft_mem_qalloc.exit.thread50, label %ft_mem_qalloc.exit.thread41
+ft_mem_qalloc.exit:                               ; preds = %219, %222
+  %.020 = phi i32 [ %225, %222 ], [ %212, %219 ]
+  %226 = and i32 %.020, 255
+  %227 = icmp eq i32 %226, 2
+  br i1 %227, label %ft_mem_qalloc.exit.thread50, label %ft_mem_qalloc.exit.thread41
 
 ft_mem_qalloc.exit.thread50:                      ; preds = %28, %.thread.i, %ft_mem_qalloc.exit
   %.02052 = phi i32 [ %.020, %ft_mem_qalloc.exit ], [ 2, %.thread.i ], [ 2, %28 ]
-  %223 = load ptr, ptr %20, align 8
-  %.not.i39 = icmp eq ptr %223, null
-  br i1 %.not.i39, label %226, label %224
+  %228 = load ptr, ptr %20, align 8
+  %.not.i39 = icmp eq ptr %228, null
+  br i1 %.not.i39, label %231, label %229
 
-224:                                              ; preds = %ft_mem_qalloc.exit.thread50
-  %225 = call i64 %223(ptr noundef nonnull %1, i64 noundef %14, ptr noundef null, i64 noundef 0) #34
-  %.not10.i40 = icmp eq i64 %225, 0
+229:                                              ; preds = %ft_mem_qalloc.exit.thread50
+  %230 = call i64 %228(ptr noundef nonnull %1, i64 noundef %14, ptr noundef null, i64 noundef 0) #34
+  %.not10.i40 = icmp eq i64 %230, 0
   br i1 %.not10.i40, label %FT_Stream_Seek.exit43, label %ft_mem_qalloc.exit.thread41
 
-226:                                              ; preds = %ft_mem_qalloc.exit.thread50
-  %227 = load i64, ptr %16, align 8
-  %.not17.i42 = icmp ugt i64 %14, %227
+231:                                              ; preds = %ft_mem_qalloc.exit.thread50
+  %232 = load i64, ptr %16, align 8
+  %.not17.i42 = icmp ugt i64 %14, %232
   br i1 %.not17.i42, label %ft_mem_qalloc.exit.thread41, label %FT_Stream_Seek.exit43
 
-FT_Stream_Seek.exit43:                            ; preds = %224, %226
+FT_Stream_Seek.exit43:                            ; preds = %229, %231
   store i64 %14, ptr %13, align 8
   br label %ft_mem_qalloc.exit.thread41
 
-ft_mem_qalloc.exit.thread41:                      ; preds = %79, %115, %117, %FT_Stream_ReadULong.exit.thread.i, %FT_Stream_ReadUShort.exit.thread.i, %FT_Stream_ReadULong.exit94.thread.i, %FT_Stream_ReadULong.exit82.thread.i, %FT_Stream_ReadULong.exit65.thread.i, %70, %72, %75, %226, %224, %206, %203, %201, %210, %ft_lookup_PS_in_sfnt_stream.exit, %ft_mem_qalloc.exit, %FT_Stream_Seek.exit43
-  %.0 = phi i32 [ %.02052, %FT_Stream_Seek.exit43 ], [ %.020, %ft_mem_qalloc.exit ], [ 6, %210 ], [ 8, %ft_lookup_PS_in_sfnt_stream.exit ], [ 85, %201 ], [ 85, %203 ], [ 64, %206 ], [ 85, %224 ], [ 85, %226 ], [ 85, %FT_Stream_ReadULong.exit.thread.i ], [ 85, %FT_Stream_ReadUShort.exit.thread.i ], [ 85, %FT_Stream_ReadULong.exit94.thread.i ], [ 85, %FT_Stream_ReadULong.exit82.thread.i ], [ 85, %FT_Stream_ReadULong.exit65.thread.i ], [ 85, %70 ], [ 85, %72 ], [ 142, %75 ], [ 85, %117 ], [ 85, %115 ], [ 142, %79 ]
+ft_mem_qalloc.exit.thread41:                      ; preds = %79, %115, %117, %.thread, %FT_Stream_ReadULong.exit.thread.i, %FT_Stream_ReadUShort.exit.thread.i, %FT_Stream_ReadULong.exit94.thread.i, %FT_Stream_ReadULong.exit82.thread.i, %FT_Stream_ReadULong.exit65.thread.i, %70, %72, %75, %231, %229, %206, %203, %201, %210, %ft_lookup_PS_in_sfnt_stream.exit, %ft_mem_qalloc.exit, %FT_Stream_Seek.exit43
+  %.0 = phi i32 [ %.02052, %FT_Stream_Seek.exit43 ], [ %.020, %ft_mem_qalloc.exit ], [ 6, %210 ], [ 8, %ft_lookup_PS_in_sfnt_stream.exit ], [ 85, %201 ], [ 85, %203 ], [ 64, %206 ], [ 85, %229 ], [ 85, %231 ], [ 85, %FT_Stream_ReadULong.exit.thread.i ], [ 85, %FT_Stream_ReadUShort.exit.thread.i ], [ 85, %FT_Stream_ReadULong.exit94.thread.i ], [ 85, %FT_Stream_ReadULong.exit82.thread.i ], [ 85, %FT_Stream_ReadULong.exit65.thread.i ], [ 85, %70 ], [ 85, %72 ], [ 142, %75 ], [ 85, %.thread ], [ 142, %79 ], [ 85, %115 ], [ 85, %117 ]
   ret i32 %.0
 }
 

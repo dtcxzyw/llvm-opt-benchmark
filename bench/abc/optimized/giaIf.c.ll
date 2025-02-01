@@ -6727,6 +6727,7 @@ If_CutTruthW.exit163:                             ; preds = %.lr.ph.i.i152, %.lr
 
 .lr.ph232.preheader:                              ; preds = %If_CutTruthW.exit163
   %229 = lshr i32 %227, 24
+  %umax253 = call i32 @llvm.umax.i32(i32 %229, i32 1)
   br label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %241
@@ -6775,7 +6776,7 @@ default.unreachable:                              ; preds = %.lr.ph232
   %.1108 = phi i32 [ %.0107230, %.lr.ph232 ], [ %.1108.ph, %.sink.split ]
   %.1 = phi i32 [ %.0106231, %.lr.ph232 ], [ %.1.ph, %.sink.split ]
   %242 = add nuw nsw i32 %.1112228, 1
-  %exitcond254.not = icmp eq i32 %242, %229
+  %exitcond254.not = icmp eq i32 %242, %umax253
   br i1 %exitcond254.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !74
 
 ._crit_edge233:                                   ; preds = %241
@@ -16625,16 +16626,17 @@ Abc_TtShrink.exit:                                ; preds = %113, %Abc_TtCopy.ex
   %161 = icmp eq i32 %159, 0
   %162 = trunc i64 %160 to i1
   %163 = select i1 %162, i64 3, i64 0
+  %.0.i = call i32 @llvm.umax.i32(i32 %159, i32 1)
   %164 = icmp ult i32 %159, 2
   %165 = and i64 %160, 3
   %166 = select i1 %161, i64 %163, i64 %165
   %167 = mul nuw nsw i64 %166, 5
   %.126.i = select i1 %164, i64 %167, i64 %160
-  %.1.i = call i32 @llvm.umax.i32(i32 %159, i32 2)
-  %168 = icmp ult i32 %159, 3
+  %.1.i = select i1 %164, i32 2, i32 %.0.i
+  %168 = icmp eq i32 %.1.i, 2
   %169 = and i64 %.126.i, 15
   %170 = mul nuw nsw i64 %169, 17
-  %.227.i = select i1 %168, i64 %170, i64 %160
+  %.227.i = select i1 %168, i64 %170, i64 %.126.i
   %.2.i = select i1 %168, i32 3, i32 %.1.i
   %171 = icmp eq i32 %.2.i, 3
   %172 = and i64 %.227.i, 255
