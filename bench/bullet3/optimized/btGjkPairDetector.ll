@@ -233,8 +233,8 @@ entry:
 land.rhs:                                         ; preds = %entry
   %m_shapeType.i.i91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %m_shapeType.i.i91, align 8
-  %.fr953 = freeze i32 %11
-  %12 = add i32 %.fr953, -17
+  %.fr954 = freeze i32 %11
+  %12 = add i32 %.fr954, -17
   %13 = icmp ult i32 %12, 2
   br label %land.end
 
@@ -1225,10 +1225,10 @@ land.lhs.true200:                                 ; preds = %if.end187, %land.rh
   %377 = phi i1 [ false, %if.end187 ], [ %cmp196, %land.rhs194 ]
   %tobool201.not = xor i1 %isValid.0, true
   %or.cond = or i1 %status.1, %377
-  %or.cond57 = select i1 %tobool201.not, i1 true, i1 %or.cond
-  br i1 %or.cond57, label %if.then205, label %land.lhs.true291
+  %or.cond.not = select i1 %tobool201.not, i1 true, i1 %or.cond
+  br i1 %or.cond.not, label %if.then205, label %land.lhs.true291
 
-if.then205:                                       ; preds = %land.lhs.true200
+if.then208:                                       ; preds = %land.lhs.true200
   br i1 %tobool190.not, label %if.end289, label %if.then208
 
 if.then208:                                       ; preds = %if.then205
@@ -1362,7 +1362,7 @@ if.then257:                                       ; preds = %if.else253
   %sub263 = fsub float %sqrt.i394, %add
   %cmp266 = fcmp uge float %sub263, %distance.0
   %or.cond59.not = select i1 %isValid.0, i1 %cmp266, i1 false
-  br i1 %or.cond59.not, label %if.else281, label %if.then267
+  br i1 %or.cond59.not, label %if.end289.sink.split, label %if.then267
 
 if.then267:                                       ; preds = %if.then257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pointOnA, ptr noundef nonnull align 4 dereferenceable(16) %tmpPointOnA, i64 16, i1 false)
@@ -1413,7 +1413,7 @@ if.then267:                                       ; preds = %if.then257
   store i32 6, ptr %m_lastUsedMethod, align 8
   br label %land.lhs.true291
 
-if.else281:                                       ; preds = %if.then257
+if.end289.sink.split:                             ; preds = %if.then257
   store i32 5, ptr %m_lastUsedMethod, align 8
   br label %land.lhs.true291
 

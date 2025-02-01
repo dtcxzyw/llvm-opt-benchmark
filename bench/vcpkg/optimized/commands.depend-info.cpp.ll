@@ -1160,7 +1160,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %or.cond.not = and i1 %.not, %79
   br i1 %or.cond.not, label %.noexc, label %.thread
 
-.noexc:                                           ; preds = %78
+_ZN12_GLOBAL__N_120emplace_inconsistentIN5vcpkg16DependInfoFormatEEEbRNS1_8OptionalIT_EERKS4_.exit: ; preds = %78
   %.sroa.018.0.copyload = load i64, ptr @_ZN5vcpkg30msgCmdDependInfoFormatConflictE, align 8
   call void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %14)
   invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 %.sroa.018.0.copyload)
@@ -1469,8 +1469,8 @@ _ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 _ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152.thread: ; preds = %155, %139, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i146, %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152
   %.sroa.4.0 = phi i32 [ 2147483647, %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152 ], [ 2147483647, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i146 ], [ 2147483647, %139 ], [ %spec.select, %155 ]
   %switch = icmp samesign ugt i32 %131, 1
-  %or.cond292.not = select i1 %140, i1 %switch, i1 false
-  br i1 %or.cond292.not, label %.noexc158, label %172
+  %or.cond.not = select i1 %140, i1 %switch, i1 false
+  br i1 %or.cond.not, label %.noexc158, label %172
 
 .noexc158:                                        ; preds = %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152.thread
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg39msgCmdDependInfoShowDepthFormatMismatchE, align 8
@@ -1503,11 +1503,11 @@ _ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpN
   br label %175
 
 .critedge56:                                      ; preds = %129, %126
-  %.sink294 = phi ptr [ %22, %126 ], [ %23, %129 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink294) #20
+  %.sink288 = phi ptr [ %22, %126 ], [ %23, %129 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink288) #20
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %174, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink294) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink288) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   br label %175
 
@@ -1515,9 +1515,9 @@ _ZN5vcpkg3msg12format_errorIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpN
   ret void
 
 .body:                                            ; preds = %127, %169, %165, %80, %91, %67
-  %.sink295 = phi ptr [ %16, %127 ], [ %27, %169 ], [ %26, %165 ], [ %14, %80 ], [ %15, %91 ], [ %6, %67 ]
+  %.sink289 = phi ptr [ %16, %127 ], [ %27, %169 ], [ %26, %165 ], [ %14, %80 ], [ %15, %91 ], [ %6, %67 ]
   %.pn53 = phi { ptr, i32 } [ %128, %127 ], [ %170, %169 ], [ %166, %165 ], [ %81, %80 ], [ %92, %91 ], [ %68, %67 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink295) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink289) #20
   resume { ptr, i32 } %.pn53
 }
 

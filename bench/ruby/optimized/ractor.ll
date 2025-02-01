@@ -7467,36 +7467,36 @@ define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0
   %32 = trunc nuw i8 %.2 to i1
   br i1 %32, label %33, label %ractor_queue_compact.exit
 
-33:                                               ; preds = %._crit_edge
+33: ; preds = %._crit_edge
   %34 = icmp sgt i32 %29, 0
   br i1 %34, label %.lr.ph.i, label %ractor_queue_compact.exit
 
-.lr.ph.i:                                         ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
+.lr.ph.i:; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br label %39
 
-39:                                               ; preds = %ractor_queue_advance.exit.i, %.lr.ph.i
-  %40 = phi i32 [ %29, %.lr.ph.i ], [ %58, %ractor_queue_advance.exit.i ]
+39:; preds = %ractor_queue_advance.exit.i, %.lr.ph.i
+  %41 = phi i32 [ %29, %.lr.ph.i ], [ %58, %ractor_queue_advance.exit.i ]
   %41 = load ptr, ptr %3, align 8
   %42 = load i32, ptr %35, align 8
   %43 = load i32, ptr %36, align 8
   %44 = srem i32 %42, %43
   %45 = sext i32 %44 to i64
-  %46 = getelementptr %struct.rb_ractor_basket, ptr %41, i64 %45
-  %.val.i = load i32, ptr %46, align 8
+  %.val.i = getelementptr %struct.rb_ractor_basket, ptr %41, i64 %45
+  %46 = load i32, ptr %.val.i, align 8
   %47 = icmp eq i32 %.val.i, 5
   br i1 %47, label %48, label %ractor_queue_compact.exit
 
-48:                                               ; preds = %39
+48:; preds = %39
   %49 = load i32, ptr %37, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %57
 
-51:                                               ; preds = %48
-  %52 = add nsw i32 %40, -1
+51:; preds = %48
+  %52 = add nsw i32 %41, -1
   store i32 %52, ptr %8, align 4
   %53 = add i32 %42, 1
   %54 = srem i32 %53, %43
@@ -7506,15 +7506,15 @@ define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0
   store i32 %56, ptr %38, align 4
   br label %ractor_queue_advance.exit.i
 
-57:                                               ; preds = %48
+56:                                               ; preds = %48
   store i32 5, ptr %46, align 8
   %.pre.i = load i32, ptr %8, align 4
   br label %ractor_queue_advance.exit.i
 
-ractor_queue_advance.exit.i:                      ; preds = %57, %51
-  %58 = phi i32 [ %52, %51 ], [ %.pre.i, %57 ]
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %39, label %ractor_queue_compact.exit, !llvm.loop !10
+ractor_queue_advance.exit.i:                      ; preds = %56, %51
+  %57 = phi i32 [ %52, %51 ], [ %.pre.i, %56 ]
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %39, label %ractor_queue_compact.exit, !llvm.loop !10
 
 ractor_queue_compact.exit:                        ; preds = %ractor_queue_advance.exit.i, %39, %.preheader, %33, %._crit_edge, %2
   %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %33 ], [ false, %.preheader ], [ true, %39 ], [ true, %ractor_queue_advance.exit.i ]

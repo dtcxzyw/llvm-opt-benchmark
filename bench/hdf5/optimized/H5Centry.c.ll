@@ -5374,8 +5374,8 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
   %591 = load i32, ptr %543, align 4
   %592 = and i32 %591, 1
   %.not142.i = icmp eq i32 %592, 0
-  %.0.not.i = xor i1 %.0.i, true
-  %brmerge.i = select i1 %.not142.i, i1 true, i1 %.0.not.i
+  %brmerge.not.i = xor i1 %.0.i, true
+  %brmerge.i = select i1 %.not142.i, i1 true, i1 %brmerge.not.i
   %.0.mux.i = select i1 %.not142.i, i1 %.0.i, i1 false
   br i1 %brmerge.i, label %630, label %593
 

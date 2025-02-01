@@ -28782,7 +28782,7 @@ lpad.loopexit.split-lp101.loopexit.loopexit:      ; preds = %do.body276, %sw.bb8
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp101.loopexit.loopexit.split-lp: ; preds = %if.then46, %invoke.cont47, %do.body367, %if.then397, %if.then440, %if.else446, %do.body455, %sw.bb330, %if.then401.invoke
+lpad.loopexit.split-lp101.loopexit.loopexit.split-lp: ; preds = %if.then46, %invoke.cont47, %do.body367, %if.then397, %if.then440, %if.else446, %do.body455, %sw.bb330, %if.then401
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -29280,7 +29280,7 @@ if.then320:                                       ; preds = %land.lhs.true316
 
 do.end326:                                        ; preds = %do.end313, %land.lhs.true316
   switch i64 %consecutive_delimiters.0, label %sw.default353 [
-    i64 1, label %if.then401.invoke
+    i64 1, label %if.then401
     i64 2, label %sw.bb330
     i64 3, label %cleanup
     i64 4, label %sw.bb337
@@ -29337,10 +29337,10 @@ if.then397:                                       ; preds = %if.end391
 
 invoke.cont398:                                   ; preds = %if.then397
   %tobool400 = trunc nuw i8 %skipping_whitespace.0.ph to i1
-  br i1 %tobool400, label %do.cond462thread-pre-split, label %if.then401.invoke
+  br i1 %tobool400, label %do.cond462thread-pre-split, label %if.then401
 
-if.then401.invoke:                                ; preds = %invoke.cont398, %do.end326
-  %53 = phi i8 [ 34, %do.end326 ], [ 10, %invoke.cont398 ]
+if.then401:                                       ; preds = %invoke.cont398, %do.end326
+  %call403 = phi i8 [ 34, %do.end326 ], [ 10, %invoke.cont398 ]
   %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer, i8 noundef signext %53)
           to label %do.cond462thread-pre-split unwind label %lpad.loopexit.split-lp101.loopexit.loopexit.split-lp
 
@@ -29361,9 +29361,9 @@ do.body413:                                       ; preds = %if.end405, %_ZN4tom
   br label %do.body468.invoke
 
 if.end419:                                        ; preds = %_ZN4toml2v34impl27is_nontab_control_characterEDi.exit
-  %55 = and i32 %46, -2048
-  %56 = icmp eq i32 %55, 55296
-  br i1 %56, label %do.body427, label %if.end433
+  %53 = and i32 %46, -2048
+  %54 = icmp eq i32 %53, 55296
+  br i1 %54, label %do.body427, label %if.end433
 
 do.body427:                                       ; preds = %if.end419
   store i64 73, ptr %ref.tmp428, align 8
@@ -29383,8 +29383,8 @@ lor.lhs.false:                                    ; preds = %if.then435
   ]
 
 lor.rhs.i90:                                      ; preds = %lor.lhs.false
-  %57 = add i32 %46, -65280
-  %or.cond.i.i = icmp ult i32 %57, -65120
+  %55 = add i32 %46, -65280
+  %or.cond.i.i = icmp ult i32 %55, -65120
   br i1 %or.cond.i.i, label %if.then440, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.rhs.i90
@@ -29416,8 +29416,8 @@ sw.bb.i.i:                                        ; preds = %if.end10.i.i
   ]
 
 _ZN4toml2v34impl24is_horizontal_whitespaceEDi.exit: ; preds = %if.end10.i.i
-  %58 = add nsw i32 %46, -8192
-  %or.cond3.i.i = icmp ult i32 %58, 12
+  %56 = add nsw i32 %46, -8192
+  %or.cond3.i.i = icmp ult i32 %56, 12
   br i1 %or.cond3.i.i, label %do.body455, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN4toml2v34impl24is_horizontal_whitespaceEDi.exit
@@ -29430,30 +29430,30 @@ switch.early.test:                                ; preds = %_ZN4toml2v34impl24i
 if.then440:                                       ; preds = %switch.early.test, %sw.bb.i.i, %if.end.i.i, %lor.rhs.i90, %if.then435
   %bytes = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %count = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %59 = load i64, ptr %count, align 8
-  %call444 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer, ptr noundef nonnull %bytes, i64 noundef %59)
+  %57 = load i64, ptr %count, align 8
+  %call444 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer, ptr noundef nonnull %bytes, i64 noundef %57)
           to label %do.body455 unwind label %lpad.loopexit.split-lp101.loopexit.loopexit.split-lp
 
 if.else446:                                       ; preds = %if.end433
   %bytes448 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %count451 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %60 = load i64, ptr %count451, align 8
-  %call453 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer, ptr noundef nonnull %bytes448, i64 noundef %60)
+  %58 = load i64, ptr %count451, align 8
+  %call453 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string_buffer, ptr noundef nonnull %bytes448, i64 noundef %58)
           to label %do.body455 unwind label %lpad.loopexit.split-lp101.loopexit.loopexit.split-lp
 
 do.body455:                                       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZN4toml2v34impl24is_horizontal_whitespaceEDi.exit, %sw.bb.i.i, %sw.bb.i.i, %if.end3.i.i, %if.end3.i.i, %if.end3.i.i, %lor.lhs.false, %lor.lhs.false, %if.then440, %if.else446
   %skipping_whitespace.2 = phi i8 [ 1, %switch.early.test ], [ 0, %if.then440 ], [ %skipping_whitespace.0.ph, %if.else446 ], [ 1, %sw.bb.i.i ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false ], [ 1, %if.end3.i.i ], [ 1, %if.end3.i.i ], [ 1, %if.end3.i.i ], [ 1, %sw.bb.i.i ], [ 1, %_ZN4toml2v34impl24is_horizontal_whitespaceEDi.exit ], [ 1, %switch.early.test ], [ 1, %switch.early.test ]
-  %61 = load ptr, ptr %cp, align 8
-  %cmp457 = icmp ne ptr %61, null
+  %59 = load ptr, ptr %cp, align 8
+  %cmp457 = icmp ne ptr %59, null
   tail call void @llvm.assume(i1 %cmp457)
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %this)
           to label %do.cond462thread-pre-split unwind label %lpad.loopexit.split-lp101.loopexit.loopexit.split-lp
 
-do.cond462thread-pre-split:                       ; preds = %if.then401.invoke, %invoke.cont398, %do.body455, %invoke.cont49, %if.end262, %sw.bb330
-  %skipping_whitespace.1.ph = phi i8 [ 0, %sw.bb330 ], [ %skipping_whitespace.0.ph, %if.end262 ], [ 1, %invoke.cont49 ], [ %skipping_whitespace.2, %do.body455 ], [ 1, %invoke.cont398 ], [ 0, %if.then401.invoke ]
+do.cond462thread-pre-split:                       ; preds = %if.then401, %invoke.cont398, %do.body455, %invoke.cont49, %if.end262, %sw.bb330
+  %skipping_whitespace.1.ph = phi i8 [ 0, %sw.bb330 ], [ %skipping_whitespace.0.ph, %if.end262 ], [ 1, %invoke.cont49 ], [ %skipping_whitespace.2, %do.body455 ], [ 1, %invoke.cont398 ], [ 0, %if.then401 ]
   %.pr = load ptr, ptr %cp, align 8
-  %62 = icmp eq ptr %.pr, null
-  br i1 %62, label %do.body468, label %do.body39.outer.backedge
+  %60 = icmp eq ptr %.pr, null
+  br i1 %60, label %do.body468, label %do.body39.outer.backedge
 
 do.body39.outer.backedge:                         ; preds = %do.cond462thread-pre-split, %do.body371
   %escaped.0.ph.be = phi i1 [ true, %do.body371 ], [ false, %do.cond462thread-pre-split ]

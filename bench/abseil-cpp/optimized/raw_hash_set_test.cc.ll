@@ -115627,8 +115627,8 @@ if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %call25.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i ]
   %19 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 0
-  %cmp.i.i.not = icmp eq ptr %19, null
-  br i1 %cmp.i.i.not, label %invoke.cont15, label %cond.false.i
+  %cmp.i.i = icmp eq ptr %19, null
+  br i1 %cmp.i.i, label %invoke.cont15, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i
   %20 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 1
@@ -115822,7 +115822,7 @@ invoke.cont42.loopexit:                           ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %invoke.cont42.loopexit, %invoke.cont.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit
-  %tobool.i102.not.not = phi i1 [ true, %invoke.cont.i.i.i ], [ true, %_ZN7testing15AssertionResultD2Ev.exit ], [ false, %invoke.cont42.loopexit ]
+  %node.sroa.0.3 = phi i1 [ true, %invoke.cont.i.i.i ], [ true, %_ZN7testing15AssertionResultD2Ev.exit ], [ false, %invoke.cont42.loopexit ]
   %node.sroa.0.3 = phi i8 [ 1, %invoke.cont.i.i.i ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ], [ 0, %invoke.cont42.loopexit ]
   %res.sroa.4.01825.i = phi ptr [ %add.ptr3.i.i.i.i.i19.i.i, %invoke.cont.i.i.i ], [ undef, %_ZN7testing15AssertionResultD2Ev.exit ], [ %add.ptr21.i.i.i.i.i.i.i.le, %invoke.cont42.loopexit ]
   store i32 3, ptr %ref.tmp36, align 4

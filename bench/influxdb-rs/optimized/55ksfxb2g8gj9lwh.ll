@@ -18608,21 +18608,21 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7135)
   br label %"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1"
 
-"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread":; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7141)
-  %13 = load ptr, ptr %12, align 8, !alias.scope !7144, !nonnull !4, !noundef !4
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !7144
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1"
+  %15 = load ptr, ptr %14, align 8, !alias.scope !7144, !nonnull !4, !noundef !4
+  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !7144
+  %17 = icmp eq i64 %16, 1
+  br i1 %17, label %18, label %"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1"
 
-16:                                               ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread"
+18:                                               ; preds = %13
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb28834ce1ad13a0fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb28834ce1ad13a0fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   br label %"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1"
 
-"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1": ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit", %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread", %16
+"_ZN4core3ptr54drop_in_place$LT$arrow_buffer..alloc..Deallocation$GT$17h23270c8c7397b57aE.llvm.12494526139044184965.exit1": ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit", %13, %18
   ret void
 }
 
@@ -35912,21 +35912,21 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..ArcInner$LT$arr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15926)
   br label %"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit"
 
-"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread.i": ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread.i":; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15929)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15932)
-  %14 = load ptr, ptr %13, align 8, !alias.scope !15935, !nonnull !4, !noundef !4
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !15935
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit"
+  %16 = load ptr, ptr %15, align 8, !alias.scope !15935, !nonnull !4, !noundef !4
+  %17 = atomicrmw sub ptr %16, i64 1 release, align 8, !noalias !15935
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %19, label %"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit"
 
-17:                                               ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread.i"
+19:                                               ; preds = %14
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb28834ce1ad13a0fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb28834ce1ad13a0fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
   br label %"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit"
 
-"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit": ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.i", %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.thread.i", %17
+"_ZN4core3ptr47drop_in_place$LT$arrow_buffer..bytes..Bytes$GT$17h295938365482ac5dE.llvm.12494526139044184965.exit": ; preds = %"_ZN68_$LT$arrow_buffer..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba8b6d9302610c7E.llvm.12494526139044184965.exit.i", %14, %19
   ret void
 }
 

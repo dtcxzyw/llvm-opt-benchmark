@@ -7496,8 +7496,8 @@ if.end18:                                         ; preds = %entry
   %conv = trunc i64 %len to i32
   %avail_in = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %conv, ptr %avail_in, align 8
-  %cmp2043.not = icmp eq i32 %conv, 0
-  br i1 %cmp2043.not, label %return, label %while.body.lr.ph
+  %cmp2041.not = icmp eq i32 %conv, 0
+  br i1 %cmp2041.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end18
   %next_out = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -7568,7 +7568,7 @@ land.end38:                                       ; preds = %_ZN4base12LazyInsta
   %8 = phi i1 [ false, %if.end33 ], [ %cmp37, %land.rhs35 ], [ false, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit ]
   %cmp39 = icmp eq i32 %rv.040, 0
   %brmerge = select i1 %cmp39, i1 true, i1 %8
-  br i1 %brmerge, label %if.then41, label %if.else67
+  br i1 %brmerge, label %if.then41, label %if.end68.thread
 
 if.then41:                                        ; preds = %land.end38
   %9 = load i32, ptr %avail_out, align 8
@@ -7583,16 +7583,16 @@ if.then45:                                        ; preds = %if.then41
   br i1 %tobool46, label %if.end63, label %if.else58
 
 if.else58:                                        ; preds = %if.then45
-  %11 = load ptr, ptr %visitor_.i34, align 8
-  %vtable = load ptr, ptr %11, align 8
+  %14 = load ptr, ptr %visitor_.i34, align 8
+  %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
-  %12 = load ptr, ptr %vfn, align 8
-  %call60 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
+  %15 = load ptr, ptr %vfn, align 8
+  %call60 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
   br i1 %call60, label %if.end68, label %if.then65
 
 if.end63:                                         ; preds = %if.then45
-  %13 = load ptr, ptr %header_parser_, align 8
-  %call50 = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %13, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
+  %processed_successfully.1 = load ptr, ptr %header_parser_, align 8
+  %tobool64 = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %processed_successfully.1, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
   %14 = load ptr, ptr %header_parser_, align 8
   %error_.i = getelementptr inbounds nuw i8, ptr %14, i64 100
   %15 = load i32, ptr %error_.i, align 4
@@ -7609,26 +7609,26 @@ if.then65:                                        ; preds = %if.else58, %if.end6
   store i32 0, ptr %state_.i32, align 8
   br label %return.sink.split
 
-if.else67:                                        ; preds = %land.end38
+if.end68.thread:                                  ; preds = %land.end38
   store i32 6, ptr %error_code_.i29, align 8
   store i32 0, ptr %expect_continuation_.i30, align 4
   store i8 0, ptr %end_stream_when_done_.i31, align 8
-  %17 = load i32, ptr %state_.i32, align 8
-  store i32 %17, ptr %previous_state_.i33, align 4
+  %19 = load i32, ptr %state_.i32, align 8
+  store i32 %19, ptr %previous_state_.i33, align 4
   store i32 0, ptr %state_.i32, align 8
   br label %return.sink.split
 
 if.end68:                                         ; preds = %if.else58, %if.then41, %if.end63
-  %18 = load i32, ptr %avail_in, align 8
-  %cmp20.not = icmp eq i32 %18, 0
-  br i1 %cmp20.not, label %return, label %while.body, !llvm.loop !26
+  %20 = load i32, ptr %avail_in, align 8
+  %cmp20 = icmp eq i32 %20, 0
+  br i1 %cmp20, label %return, label %while.body, !llvm.loop !26
 
-return.sink.split:                                ; preds = %cleanup.done, %if.then65, %if.else67
+return.sink.split:; preds = %cleanup.done, %if.then65, %if.else67
   %.sink48.in = phi ptr [ %visitor_.i34, %if.else67 ], [ %visitor_.i34, %if.then65 ], [ %visitor_.i, %cleanup.done ]
   %.sink48 = load ptr, ptr %.sink48.in, align 8
-  %vtable.i35 = load ptr, ptr %.sink48, align 8
+  %.sink49.in = load ptr, ptr %.sink48, align 8
   %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 16
-  %19 = load ptr, ptr %vfn.i36, align 8
+  %22 = load ptr, ptr %vfn.i36, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %.sink48, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 

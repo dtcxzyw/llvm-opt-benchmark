@@ -1865,7 +1865,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 3
   %.not63.i.i.i.i = icmp eq i64 %64, %.0.lcssa.i
-  br i1 %.not63.i.i.i.i, label %65, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76"
+  br i1 %.not63.i.i.i.i, label %65, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit74"
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.050.075.i.i.i.i, i64 72
@@ -1877,7 +1877,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
   %.not64.i.i.i.i = icmp eq i64 %71, %.0.lcssa.i
-  br i1 %.not64.i.i.i.i, label %72, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit78"
+  br i1 %.not64.i.i.i.i, label %72, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76"
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.050.075.i.i.i.i, i64 96
@@ -1948,16 +1948,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.050.075.i.i.i.i, i64 24
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76": ; preds = %58
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit74": ; preds = %58
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.050.075.i.i.i.i, i64 48
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit78": ; preds = %65
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76": ; preds = %65
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.050.075.i.i.i.i, i64 72
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit": ; preds = %45, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit78", %77, %._crit_edge._crit_edge83.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %77 ], [ %.sroa.050.1.i.i.i.i, %._crit_edge._crit_edge83.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %97, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit" ], [ %98, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76" ], [ %99, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit78" ], [ %.sroa.050.075.i.i.i.i, %45 ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit": ; preds = %45, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit74", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76", %77, %._crit_edge._crit_edge83.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %77 ], [ %.sroa.050.1.i.i.i.i, %._crit_edge._crit_edge83.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %97, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit" ], [ %98, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit74" ], [ %99, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.loopexit.split.loop.exit76" ], [ %.sroa.050.075.i.i.i.i, %45 ]
   %100 = icmp eq ptr %.8.val.fr.i, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %100, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread", label %101
 
@@ -1984,7 +1984,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i36, label %._crit_edge14.thread.i, label %.preheader1.lr.ph.i
 
 .preheader1.lr.ph.i:                              ; preds = %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
-  %108 = ptrtoint ptr %106 to i64
+  %.not43.i = ptrtoint ptr %106 to i64
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 3
@@ -1997,7 +1997,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not47.i, label %._crit_edge14.thread.i, label %.preheader1.us.us.i
 
 .preheader1.us.us.i:                              ; preds = %.preheader1.lr.ph.split.us.i, %.loopexit.us.us.i
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.loopexit.us.us.i ], [ 0, %.preheader1.lr.ph.split.us.i ]
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.loopexit.us.us.i ], [ 0, %.preheader1.lr.ph.split.us.i ]
   %.03112.us.us.i = phi i8 [ %.1.us.us.i, %.loopexit.us.us.i ], [ 1, %.preheader1.lr.ph.split.us.i ]
   %.03211.us.us.i = phi i8 [ %.133.us.us.i, %.loopexit.us.us.i ], [ 1, %.preheader1.lr.ph.split.us.i ]
   %.03410.us.us.i = phi double [ %.135.us.us.i, %.loopexit.us.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ]
@@ -2021,92 +2021,92 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %120, label %.preheader.us.us.i, label %.loopexit.us.us.i
 
 121:                                              ; preds = %122
-  %indvars.iv.next64.i = add nuw i64 %indvars.iv63.i, 1
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %41
-  br i1 %exitcond66.not.i, label %.loopexit.us.us.i, label %122, !llvm.loop !40
+  %indvars.iv.next59.i = add nuw i64 %indvars.iv58.i, 1
+  %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, %41
+  br i1 %exitcond61.not.i, label %.loopexit.us.us.i, label %122, !llvm.loop !40
 
 122:                                              ; preds = %.preheader.us.us.i, %121
-  %indvars.iv63.i = phi i64 [ 1, %.preheader.us.us.i ], [ %indvars.iv.next64.i, %121 ]
-  %123 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv63.i
+  %indvars.iv58.i = phi i64 [ 1, %.preheader.us.us.i ], [ %indvars.iv.next59.i, %121 ]
+  %123 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv58.i
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv67.i
+  %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv62.i
   %126 = load double, ptr %125, align 8
   %127 = fcmp une double %135, %126
   br i1 %127, label %.loopexit.us.us.i, label %121
 
 .loopexit.us.us.i:                                ; preds = %122, %121, %119
   %.1.us.us.i = phi i8 [ 0, %119 ], [ 0, %122 ], [ %.03112.us.us.i, %121 ]
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %umax77.i
-  br i1 %exitcond70.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %umax77.i
+  br i1 %exitcond65.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
 
 128:                                              ; preds = %128, %.preheader1.us.us.i
-  %indvars.iv59.i = phi i64 [ 0, %.preheader1.us.us.i ], [ %indvars.iv.next60.i, %128 ]
+  %indvars.iv54.i = phi i64 [ 0, %.preheader1.us.us.i ], [ %indvars.iv.next55.i, %128 ]
   %.0292.us.us.i = phi double [ 0.000000e+00, %.preheader1.us.us.i ], [ %133, %128 ]
-  %129 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv59.i
+  %129 = getelementptr inbounds nuw %"class.std::vector.26", ptr %35, i64 %indvars.iv54.i
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv67.i
+  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv62.i
   %132 = load double, ptr %131, align 8
   %133 = fadd double %.0292.us.us.i, %132
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, %41
-  br i1 %exitcond62.not.i, label %._crit_edge.us.us.i, label %128, !llvm.loop !42
+  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
+  %exitcond57.not.i = icmp eq i64 %indvars.iv.next55.i, %41
+  br i1 %exitcond57.not.i, label %._crit_edge.us.us.i, label %128, !llvm.loop !42
 
 .preheader.us.us.i:                               ; preds = %119
-  %134 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv67.i
+  %134 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv62.i
   %135 = load double, ptr %134, align 8
   br label %122
 
 ._crit_edge.us.us.i:                              ; preds = %128
-  %136 = icmp eq i64 %indvars.iv67.i, 0
+  %136 = icmp eq i64 %indvars.iv62.i, 0
   br i1 %136, label %119, label %113
 
 .preheader1.lr.ph.split.i:                        ; preds = %.preheader1.lr.ph.i
-  br i1 %.not47.i, label %._crit_edge14.thread.i, label %._crit_edge.us34.i
+  br i1 %.not47.i, label %._crit_edge14.thread.i, label %._crit_edge.us32.i
 
-137:                                              ; preds = %._crit_edge.us34.i
-  %138 = trunc nuw i8 %.03211.us23.i to i1
-  br i1 %138, label %139, label %.preheader.us32.i
+137:                                              ; preds = %._crit_edge.us32.i
+  %138 = trunc nuw i8 %.03211.us22.i to i1
+  br i1 %138, label %139, label %.preheader.us26.i
 
 139:                                              ; preds = %137
-  %140 = fsub double %143, %.03410.us24.i
+  %140 = fsub double %143, %.03410.us23.i
   %141 = call double @llvm.fabs.f64(double %140)
   %142 = fcmp ole double %141, 0x3EB0C6F7A0000000
-  %spec.select.us26.i = select i1 %142, i8 %.03211.us23.i, i8 0
-  br label %.preheader.us32.i
+  %spec.select.us25.i = select i1 %142, i8 %.03211.us22.i, i8 0
+  br label %.preheader.us26.i
 
-.preheader.us32.i:                                ; preds = %._crit_edge.us34.i, %139, %137
-  %.135.us27.i = phi double [ %.03410.us24.i, %137 ], [ %143, %._crit_edge.us34.i ], [ %.03410.us24.i, %139 ]
-  %.133.us28.i = phi i8 [ 0, %137 ], [ %.03211.us23.i, %._crit_edge.us34.i ], [ %spec.select.us26.i, %139 ]
+.preheader.us26.i:                                ; preds = %._crit_edge.us32.i, %139, %137
+  %.135.us27.i = phi double [ %.03410.us23.i, %137 ], [ %143, %._crit_edge.us32.i ], [ %.03410.us23.i, %139 ]
+  %.133.us28.i = phi i8 [ 0, %137 ], [ %.03211.us22.i, %._crit_edge.us32.i ], [ %spec.select.us25.i, %139 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax77.i
-  br i1 %exitcond.not.i, label %._crit_edge14.i, label %._crit_edge.us34.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %._crit_edge14.i, label %._crit_edge.us32.i, !llvm.loop !41
 
-._crit_edge.us34.i:                               ; preds = %.preheader1.lr.ph.split.i, %.preheader.us32.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us32.i ], [ 0, %.preheader1.lr.ph.split.i ]
-  %.03211.us23.i = phi i8 [ %.133.us28.i, %.preheader.us32.i ], [ 1, %.preheader1.lr.ph.split.i ]
-  %.03410.us24.i = phi double [ %.135.us27.i, %.preheader.us32.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
+._crit_edge.us32.i:                               ; preds = %.preheader1.lr.ph.split.i, %.preheader.us32.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us26.i ], [ 0, %.preheader1.lr.ph.split.i ]
+  %.03211.us22.i = phi i8 [ %.133.us28.i, %.preheader.us26.i ], [ 1, %.preheader1.lr.ph.split.i ]
+  %.03410.us23.i = phi double [ %.135.us27.i, %.preheader.us26.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
   %.phi.trans.insert.i = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv.i
   %.pre.i = load double, ptr %.phi.trans.insert.i, align 8
   %143 = fadd double %.pre.i, 0.000000e+00
   %144 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %144, label %.preheader.us32.i, label %137
+  br i1 %144, label %.preheader.us26.i, label %137
 
 ._crit_edge14.i.loopexit:                         ; preds = %.loopexit.us.us.i
   %145 = trunc nuw i8 %.1.us.us.i to i1
   %146 = select i1 %145, i32 3, i32 2
   br label %._crit_edge14.i
 
-._crit_edge14.i:                                  ; preds = %.preheader.us32.i, %._crit_edge14.i.loopexit
-  %.034.lcssa.i = phi double [ %.135.us.us.i, %._crit_edge14.i.loopexit ], [ %.135.us27.i, %.preheader.us32.i ]
-  %.032.lcssa.i = phi i8 [ %.133.us.us.i, %._crit_edge14.i.loopexit ], [ %.133.us28.i, %.preheader.us32.i ]
-  %.031.lcssa.i = phi i32 [ %146, %._crit_edge14.i.loopexit ], [ 3, %.preheader.us32.i ]
+._crit_edge14.i:                                  ; preds = %.preheader.us26.i, %._crit_edge14.i.loopexit
+  %.034.lcssa.i = phi double [ %.135.us.us.i, %._crit_edge14.i.loopexit ], [ %.135.us27.i, %.preheader.us26.i ]
+  %.032.lcssa.i = phi i8 [ %.133.us.us.i, %._crit_edge14.i.loopexit ], [ %.133.us28.i, %.preheader.us26.i ]
+  %.031.lcssa.i = phi i32 [ %146, %._crit_edge14.i.loopexit ], [ 3, %.preheader.us26.i ]
   %147 = trunc nuw i8 %.032.lcssa.i to i1
   br i1 %147, label %._crit_edge14.thread.i, label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
 
 ._crit_edge14.thread.i:                           ; preds = %.preheader1.lr.ph.split.i, %.preheader1.lr.ph.split.us.i, %._crit_edge14.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
-  %.034.lcssa82.i = phi double [ %.034.lcssa.i, %._crit_edge14.i ], [ 0.000000e+00, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread" ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
-  %148 = call double @llvm.fabs.f64(double %.034.lcssa82.i)
+  %.034.lcssa78.i = phi double [ %.034.lcssa.i, %._crit_edge14.i ], [ 0.000000e+00, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread" ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ]
+  %148 = call double @llvm.fabs.f64(double %.034.lcssa78.i)
   %149 = fcmp ugt double %148, 0x3EB0C6F7A0000000
   %.mux.i = zext i1 %149 to i32
   br label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit

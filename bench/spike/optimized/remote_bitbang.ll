@@ -280,19 +280,19 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %11
 
 11:                                               ; preds = %.thread51, %1
-  %12 = phi i64 [ %.pre, %1 ], [ %82, %.thread51 ]
+  %12 = phi i64 [ %.pre, %1 ], [ %83, %.thread51 ]
   %.028 = phi i1 [ %5, %1 ], [ %.129385056, %.thread51 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1414759, %.thread51 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.141, %.thread51 ]
   %13 = load i64, ptr %6, align 8
   %14 = icmp slt i64 %13, %12
-  br i1 %14, label %.lr.ph, label %.thread51
+  br i1 %14, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %11, %59
   %15 = phi i64 [ %52, %59 ], [ %13, %11 ]
-  %.266 = phi i32 [ %53, %59 ], [ %.0, %11 ]
-  %.22065 = phi i1 [ %.4, %59 ], [ false, %11 ]
-  %.02264 = phi i32 [ %.224, %59 ], [ 0, %11 ]
-  %.23063 = phi i1 [ false, %59 ], [ %.028, %11 ]
+  %.246 = phi i32 [ %53, %59 ], [ %.0, %11 ]
+  %.22045 = phi i1 [ %.4, %59 ], [ false, %11 ]
+  %.02244 = phi i32 [ %.224, %59 ], [ 0, %11 ]
+  %.23043 = phi i1 [ false, %59 ], [ %.028, %11 ]
   %16 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %46 [
@@ -362,8 +362,8 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   %41 = select i1 %40, i8 49, i8 48
-  %42 = add i32 %.02264, 1
-  %43 = zext i32 %.02264 to i64
+  %42 = add i32 %.02244, 1
+  %43 = zext i32 %.02244 to i64
   %44 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %43
   store i8 %41, ptr %44, align 1
   br label %50
@@ -378,13 +378,13 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %50
 
 50:                                               ; preds = %.lr.ph, %.lr.ph, %46, %45, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18
-  %.224 = phi i32 [ %.02264, %46 ], [ %.02264, %45 ], [ %42, %36 ], [ %.02264, %34 ], [ %.02264, %32 ], [ %.02264, %30 ], [ %.02264, %28 ], [ %.02264, %26 ], [ %.02264, %24 ], [ %.02264, %22 ], [ %.02264, %20 ], [ %.02264, %18 ], [ %.02264, %.lr.ph ], [ %.02264, %.lr.ph ]
-  %.4 = phi i1 [ %.22065, %46 ], [ true, %45 ], [ %.22065, %36 ], [ %.22065, %34 ], [ %.22065, %32 ], [ %.22065, %30 ], [ %.22065, %28 ], [ %.22065, %26 ], [ %.22065, %24 ], [ %.22065, %22 ], [ %.22065, %20 ], [ %.22065, %18 ], [ %.22065, %.lr.ph ], [ %.22065, %.lr.ph ]
+  %.224 = phi i32 [ %.02244, %46 ], [ %.02244, %45 ], [ %42, %36 ], [ %.02244, %34 ], [ %.02244, %32 ], [ %.02244, %30 ], [ %.02244, %28 ], [ %.02244, %26 ], [ %.02244, %24 ], [ %.02244, %22 ], [ %.02244, %20 ], [ %.02244, %18 ], [ %.02244, %.lr.ph ], [ %.02244, %.lr.ph ]
+  %.4 = phi i1 [ %.22045, %46 ], [ true, %45 ], [ %.22045, %36 ], [ %.22045, %34 ], [ %.22045, %32 ], [ %.22045, %30 ], [ %.22045, %28 ], [ %.22045, %26 ], [ %.22045, %24 ], [ %.22045, %22 ], [ %.22045, %20 ], [ %.22045, %18 ], [ %.22045, %.lr.ph ], [ %.22045, %.lr.ph ]
   %51 = load i64, ptr %6, align 8
   %52 = add nsw i64 %51, 1
   store i64 %52, ptr %6, align 8
-  %53 = add i32 %.266, 1
-  br i1 %.23063, label %59, label %54
+  %53 = add i32 %.246, 1
+  br i1 %.23043, label %59, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %0, align 8
@@ -399,24 +399,24 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %54
-  %.lcssa.ph = phi i1 [ false, %59 ], [ true, %54 ]
+  %.227.ph = phi i1 [ false, %59 ], [ true, %54 ]
   %.not = icmp eq i32 %.224, 0
-  br i1 %.not, label %._crit_edge80, label %.lr.ph79
+  br i1 %.not, label %._crit_edge60, label %.lr.ph59
 
-.lr.ph79:                                         ; preds = %._crit_edge
+.lr.ph59:                                         ; preds = %._crit_edge
   %62 = zext i32 %.224 to i64
   br label %67
 
 63:                                               ; preds = %67
   %64 = trunc i64 %71 to i32
-  %65 = add i32 %.01777, %64
+  %65 = add i32 %.01757, %64
   %66 = icmp ult i32 %65, %.224
-  br i1 %66, label %67, label %._crit_edge80, !llvm.loop !6
+  br i1 %66, label %67, label %._crit_edge60, !llvm.loop !6
 
-67:                                               ; preds = %.lr.ph79, %63
-  %.01777 = phi i32 [ 0, %.lr.ph79 ], [ %65, %63 ]
+67:                                               ; preds = %.lr.ph59, %63
+  %.01757 = phi i32 [ 0, %.lr.ph59 ], [ %65, %63 ]
   %68 = load i32, ptr %10, align 4
-  %69 = zext i32 %.01777 to i64
+  %69 = zext i32 %.01757 to i64
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 %69
   %71 = tail call i64 @write(i32 noundef %68, ptr noundef nonnull %70, i64 noundef %62)
   %72 = icmp eq i64 %71, -1
@@ -432,47 +432,47 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   tail call void @abort() #13
   unreachable
 
-._crit_edge80:                                    ; preds = %63, %._crit_edge
+._crit_edge60:                                    ; preds = %63, %._crit_edge
   %80 = icmp ugt i32 %53, 65536
   %brmerge = select i1 %80, i1 true, i1 %.4
   %brmerge60 = or i1 %.lcssa.ph, %brmerge
   br i1 %brmerge60, label %.loopexit, label %.thread51
 
-.thread51:                                        ; preds = %._crit_edge80, %11
-  %.1414759 = phi i32 [ %.0, %11 ], [ %53, %._crit_edge80 ]
-  %.129385056 = phi i1 [ %.028, %11 ], [ false, %._crit_edge80 ]
+.thread:                                          ; preds = %._crit_edge60, %11
+  %.141 = phi i32 [ %.0, %11 ], [ %53, %._crit_edge60 ]
+  %.11940 = phi i1 [ %.028, %11 ], [ false, %._crit_edge80 ]
   store i64 0, ptr %6, align 8
-  %81 = load i32, ptr %10, align 4
-  %82 = tail call i64 @read(i32 noundef %81, ptr noundef nonnull %8, i64 noundef 65536)
-  store i64 %82, ptr %7, align 8
-  switch i64 %82, label %11 [
-    i64 -1, label %83
-    i64 0, label %92
+  %82 = load i32, ptr %10, align 4
+  %83 = tail call i64 @read(i32 noundef %82, ptr noundef nonnull %8, i64 noundef 65536)
+  store i64 %83, ptr %7, align 8
+  switch i64 %83, label %11 [
+    i64 -1, label %84
+    i64 0, label %93
   ]
 
-83:                                               ; preds = %.thread51
-  %84 = tail call ptr @__errno_location() #11
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %85, 11
-  br i1 %86, label %.loopexit, label %87
+84:                                               ; preds = %.thread51
+  %85 = tail call ptr @__errno_location() #11
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp eq i32 %86, 11
+  br i1 %87, label %.loopexit, label %88
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr @stderr, align 8
-  %89 = tail call ptr @strerror(i32 noundef %85) #10
-  %90 = load i32, ptr %84, align 4
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, ptr noundef %89, i32 noundef %90) #12
+88:                                               ; preds = %84
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = tail call ptr @strerror(i32 noundef %86) #10
+  %91 = load i32, ptr %85, align 4
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.9, ptr noundef %90, i32 noundef %91) #12
   tail call void @abort() #13
   unreachable
 
-92:                                               ; preds = %.thread51
-  %93 = load ptr, ptr @stderr, align 8
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %93) #14
-  %95 = load i32, ptr %10, align 4
-  %96 = tail call i32 @close(i32 noundef %95)
+93:                                               ; preds = %.thread51
+  %94 = load ptr, ptr @stderr, align 8
+  %95 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %94) #14
+  %96 = load i32, ptr %10, align 4
+  %97 = tail call i32 @close(i32 noundef %96)
   store i32 0, ptr %10, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge80, %83, %92
+.loopexit:                                        ; preds = %._crit_edge60, %84, %93
   ret void
 }
 

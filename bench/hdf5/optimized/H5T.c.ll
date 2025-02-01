@@ -13648,8 +13648,8 @@ declare i32 @H5T__print_path_stats(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #6 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %.loopexit.sink.split, %2
-  %.tr = phi ptr [ %0, %2 ], [ %.sink, %.loopexit.sink.split ]
+tailrecurse:                                      ; preds = %.loopexit.loopexit, %2
+  %.tr = phi ptr [ %0, %2 ], [ %.sink, %.loopexit.loopexit ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -13662,8 +13662,8 @@ tailrecurse:                                      ; preds = %.loopexit.sink.spli
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %.loopexit [
     i32 6, label %.preheader
-    i32 9, label %20
-    i32 10, label %23
+    i32 9, label %22
+    i32 10, label %25
   ]
 
 .preheader:                                       ; preds = %8
@@ -13691,25 +13691,25 @@ tailrecurse:                                      ; preds = %.loopexit.sink.spli
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %14
 
-20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %.not21 = icmp eq ptr %22, null
-  br i1 %.not21, label %.loopexit, label %.loopexit.sink.split
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %.not21 = icmp eq ptr %24, null
+  br i1 %.not21, label %.loopexit, label %.loopexit.loopexit
 
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.loopexit, label %.loopexit.sink.split
+25:                                               ; preds = %8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %.loopexit, label %.loopexit.loopexit
 
-.loopexit.sink.split:                             ; preds = %23, %20
-  %.sink = phi ptr [ %22, %20 ], [ %25, %23 ]
+.loopexit.loopexit:                               ; preds = %23, %20
+  %.017.ph = phi ptr [ %22, %20 ], [ %25, %23 ]
   br label %tailrecurse
 
-.loopexit:                                        ; preds = %15, %14, %.preheader, %8, %20, %23, %tailrecurse
-  %.017.shrunk = phi i1 [ true, %tailrecurse ], [ false, %23 ], [ false, %20 ], [ false, %8 ], [ false, %.preheader ], [ %19, %15 ], [ true, %14 ]
-  ret i1 %.017.shrunk
+.loopexit:                                        ; preds = %15, %14, %.preheader, %8, %22, %25, %tailrecurse
+  %.017 = phi i1 [ true, %tailrecurse ], [ false, %25 ], [ false, %22 ], [ false, %8 ], [ false, %.preheader ], [ %19, %15 ], [ true, %14 ]
+  ret i1 %.017
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

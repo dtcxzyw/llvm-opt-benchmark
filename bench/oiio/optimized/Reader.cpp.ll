@@ -416,8 +416,8 @@ _ZN6cineon5Block5CheckEv.exit:                    ; preds = %if.end.i, %if.then7
   %6 = load i8, ptr %bitDepth.i, align 2
   %pixelsPerLine.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %7 = load i32, ptr %pixelsPerLine.i, align 8
-  %cmp54 = icmp ugt i8 %5, 1
-  br i1 %cmp54, label %for.body.preheader, label %land.lhs.true23
+  %cmp52 = icmp ugt i8 %5, 1
+  br i1 %cmp52, label %for.body.preheader, label %land.lhs.true23
 
 for.body.preheader:                               ; preds = %_ZN6cineon5Block5CheckEv.exit
   %wide.trip.count = zext i8 %5 to i64
@@ -426,8 +426,8 @@ for.body.preheader:                               ; preds = %_ZN6cineon5Block5Ch
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %consistentDepth.056 = phi i8 [ 1, %for.body.preheader ], [ %consistentDepth.2, %for.inc ]
-  %consistentWidth.055 = phi i8 [ 1, %for.body.preheader ], [ %consistentWidth.2, %for.inc ]
+  %consistentDepth.054 = phi i8 [ 1, %for.body.preheader ], [ %consistentDepth.2, %for.inc ]
+  %consistentWidth.053 = phi i8 [ 1, %for.body.preheader ], [ %consistentWidth.2, %for.inc ]
   %or.cond.i = icmp samesign ugt i64 %indvars.iv, 7
   br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader8BitDepthEi.exit, label %if.end.i38
 
@@ -443,11 +443,11 @@ _ZNK6cineon13GenericHeader8BitDepthEi.exit:       ; preds = %for.body, %if.end.i
   br i1 %cmp10.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %_ZNK6cineon13GenericHeader8BitDepthEi.exit
-  %tobool = trunc nuw i8 %consistentWidth.055 to i1
+  %tobool = trunc nuw i8 %consistentWidth.053 to i1
   br i1 %tobool, label %if.end12, label %if.end84
 
 if.end12:                                         ; preds = %if.then, %_ZNK6cineon13GenericHeader8BitDepthEi.exit
-  %consistentDepth.2 = phi i8 [ 0, %if.then ], [ %consistentDepth.056, %_ZNK6cineon13GenericHeader8BitDepthEi.exit ]
+  %consistentDepth.2 = phi i8 [ 0, %if.then ], [ %consistentDepth.054, %_ZNK6cineon13GenericHeader8BitDepthEi.exit ]
   br i1 %or.cond.i, label %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.end12
@@ -466,7 +466,7 @@ if.then16:                                        ; preds = %_ZNK6cineon13Generi
   br i1 %tobool17, label %for.inc, label %if.end84
 
 for.inc:                                          ; preds = %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit, %if.then16
-  %consistentWidth.2 = phi i8 [ 0, %if.then16 ], [ %consistentWidth.055, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit ]
+  %consistentWidth.2 = phi i8 [ 0, %if.then16 ], [ %consistentWidth.053, %_ZNK6cineon13GenericHeader13PixelsPerLineEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4

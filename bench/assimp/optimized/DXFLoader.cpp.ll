@@ -6338,8 +6338,8 @@ _ZNSt10shared_ptrIN6Assimp3DXF8PolyLineEED2Ev.exit: ; preds = %invoke.cont4, %_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clr, ptr noundef nonnull align 4 dereferenceable(16) @_ZL20AI_DXF_DEFAULT_COLOR, i64 16, i1 false)
   %end.i.i = getelementptr inbounds nuw i8, ptr %reader, i64 96
   %25 = load i32, ptr %end.i.i, align 8
-  %cmp.i.i171 = icmp sgt i32 %25, 1
-  br i1 %cmp.i.i171, label %if.then89, label %while.body.lr.ph
+  %cmp.i.i170 = icmp sgt i32 %25, 1
+  br i1 %cmp.i.i170, label %if.then89, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNSt10shared_ptrIN6Assimp3DXF8PolyLineEED2Ev.exit
   %groupcode.i = getelementptr inbounds nuw i8, ptr %reader, i64 56
@@ -6370,10 +6370,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %34 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %67, %sw.epilog ]
   %35 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %68, %sw.epilog ]
   %36 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %69, %sw.epilog ]
-  %b.sroa.16.0175 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.16.1, %sw.epilog ]
-  %b.sroa.12.0174 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.12.1, %sw.epilog ]
-  %b.sroa.6.0173 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.6.1, %sw.epilog ]
-  %b.sroa.0.0172 = phi i8 [ 0, %while.body.lr.ph ], [ %b.sroa.0.1, %sw.epilog ]
+  %b.sroa.16.0174 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.16.1, %sw.epilog ]
+  %b.sroa.12.0173 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.12.1, %sw.epilog ]
+  %b.sroa.6.0172 = phi i1 [ false, %while.body.lr.ph ], [ %b.sroa.6.1, %sw.epilog ]
+  %b.sroa.0.0171 = phi i8 [ 0, %while.body.lr.ph ], [ %b.sroa.0.1, %sw.epilog ]
   %37 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %70, %sw.epilog ]
   %38 = load i32, ptr %groupcode.i, align 8
   switch i32 %38, label %sw.epilog [
@@ -6557,51 +6557,51 @@ sw.epilog:                                        ; preds = %while.body, %_ZNK6A
   %68 = phi float [ %35, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %35, %sw.bb66 ], [ %50, %sw.bb61 ], [ %35, %sw.bb56 ], [ %35, %sw.bb51 ], [ %35, %sw.bb46 ], [ %35, %sw.bb41 ], [ %35, %sw.bb36 ], [ %35, %sw.bb31 ], [ %35, %sw.bb26 ], [ %35, %sw.bb22 ], [ %35, %sw.bb18 ], [ %35, %sw.bb15 ], [ %35, %sw.bb ], [ %35, %while.body ]
   %69 = phi float [ %36, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %51, %sw.bb66 ], [ %36, %sw.bb61 ], [ %36, %sw.bb56 ], [ %36, %sw.bb51 ], [ %36, %sw.bb46 ], [ %36, %sw.bb41 ], [ %36, %sw.bb36 ], [ %36, %sw.bb31 ], [ %36, %sw.bb26 ], [ %36, %sw.bb22 ], [ %36, %sw.bb18 ], [ %36, %sw.bb15 ], [ %36, %sw.bb ], [ %36, %while.body ]
   %70 = phi float [ %37, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %37, %sw.bb66 ], [ %37, %sw.bb61 ], [ %37, %sw.bb56 ], [ %37, %sw.bb51 ], [ %37, %sw.bb46 ], [ %37, %sw.bb41 ], [ %37, %sw.bb36 ], [ %37, %sw.bb31 ], [ %37, %sw.bb26 ], [ %37, %sw.bb22 ], [ %37, %sw.bb18 ], [ %40, %sw.bb15 ], [ %37, %sw.bb ], [ %37, %while.body ]
-  %b.sroa.0.1 = phi i8 [ %b.sroa.0.0172, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.0.0172, %sw.bb66 ], [ %b.sroa.0.0172, %sw.bb61 ], [ %b.sroa.0.0172, %sw.bb56 ], [ 1, %sw.bb51 ], [ 1, %sw.bb46 ], [ 1, %sw.bb41 ], [ %b.sroa.0.0172, %sw.bb36 ], [ %b.sroa.0.0172, %sw.bb31 ], [ %b.sroa.0.0172, %sw.bb26 ], [ %b.sroa.0.0172, %sw.bb22 ], [ %b.sroa.0.0172, %sw.bb18 ], [ %b.sroa.0.0172, %sw.bb15 ], [ %b.sroa.0.0172, %sw.bb ], [ %b.sroa.0.0172, %while.body ]
-  %b.sroa.6.1 = phi i1 [ %b.sroa.6.0173, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ true, %sw.bb66 ], [ true, %sw.bb61 ], [ true, %sw.bb56 ], [ %b.sroa.6.0173, %sw.bb51 ], [ %b.sroa.6.0173, %sw.bb46 ], [ %b.sroa.6.0173, %sw.bb41 ], [ %b.sroa.6.0173, %sw.bb36 ], [ %b.sroa.6.0173, %sw.bb31 ], [ %b.sroa.6.0173, %sw.bb26 ], [ %b.sroa.6.0173, %sw.bb22 ], [ %b.sroa.6.0173, %sw.bb18 ], [ %b.sroa.6.0173, %sw.bb15 ], [ %b.sroa.6.0173, %sw.bb ], [ %b.sroa.6.0173, %while.body ]
-  %b.sroa.12.1 = phi i1 [ %b.sroa.12.0174, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.12.0174, %sw.bb66 ], [ %b.sroa.12.0174, %sw.bb61 ], [ %b.sroa.12.0174, %sw.bb56 ], [ %b.sroa.12.0174, %sw.bb51 ], [ %b.sroa.12.0174, %sw.bb46 ], [ %b.sroa.12.0174, %sw.bb41 ], [ %b.sroa.12.0174, %sw.bb36 ], [ %b.sroa.12.0174, %sw.bb31 ], [ %b.sroa.12.0174, %sw.bb26 ], [ true, %sw.bb22 ], [ true, %sw.bb18 ], [ true, %sw.bb15 ], [ %b.sroa.12.0174, %sw.bb ], [ %b.sroa.12.0174, %while.body ]
-  %b.sroa.16.1 = phi i1 [ %b.sroa.16.0175, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.16.0175, %sw.bb66 ], [ %b.sroa.16.0175, %sw.bb61 ], [ %b.sroa.16.0175, %sw.bb56 ], [ %b.sroa.16.0175, %sw.bb51 ], [ %b.sroa.16.0175, %sw.bb46 ], [ %b.sroa.16.0175, %sw.bb41 ], [ true, %sw.bb36 ], [ true, %sw.bb31 ], [ true, %sw.bb26 ], [ %b.sroa.16.0175, %sw.bb22 ], [ %b.sroa.16.0175, %sw.bb18 ], [ %b.sroa.16.0175, %sw.bb15 ], [ %b.sroa.16.0175, %sw.bb ], [ %b.sroa.16.0175, %while.body ]
+  %b.sroa.0.1 = phi i8 [ %b.sroa.0.0171, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.0.0171, %sw.bb66 ], [ %b.sroa.0.0171, %sw.bb61 ], [ %b.sroa.0.0171, %sw.bb56 ], [ 1, %sw.bb51 ], [ 1, %sw.bb46 ], [ 1, %sw.bb41 ], [ %b.sroa.0.0171, %sw.bb36 ], [ %b.sroa.0.0171, %sw.bb31 ], [ %b.sroa.0.0171, %sw.bb26 ], [ %b.sroa.0.0171, %sw.bb22 ], [ %b.sroa.0.0171, %sw.bb18 ], [ %b.sroa.0.0171, %sw.bb15 ], [ %b.sroa.0.0171, %sw.bb ], [ %b.sroa.0.0171, %while.body ]
+  %b.sroa.6.1 = phi i1 [ %b.sroa.6.0172, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ true, %sw.bb66 ], [ true, %sw.bb61 ], [ true, %sw.bb56 ], [ %b.sroa.6.0172, %sw.bb51 ], [ %b.sroa.6.0172, %sw.bb46 ], [ %b.sroa.6.0172, %sw.bb41 ], [ %b.sroa.6.0172, %sw.bb36 ], [ %b.sroa.6.0172, %sw.bb31 ], [ %b.sroa.6.0172, %sw.bb26 ], [ %b.sroa.6.0172, %sw.bb22 ], [ %b.sroa.6.0172, %sw.bb18 ], [ %b.sroa.6.0172, %sw.bb15 ], [ %b.sroa.6.0172, %sw.bb ], [ %b.sroa.6.0172, %while.body ]
+  %b.sroa.12.1 = phi i1 [ %b.sroa.12.0173, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.12.0173, %sw.bb66 ], [ %b.sroa.12.0173, %sw.bb61 ], [ %b.sroa.12.0173, %sw.bb56 ], [ %b.sroa.12.0173, %sw.bb51 ], [ %b.sroa.12.0173, %sw.bb46 ], [ %b.sroa.12.0173, %sw.bb41 ], [ %b.sroa.12.0173, %sw.bb36 ], [ %b.sroa.12.0173, %sw.bb31 ], [ %b.sroa.12.0173, %sw.bb26 ], [ true, %sw.bb22 ], [ true, %sw.bb18 ], [ true, %sw.bb15 ], [ %b.sroa.12.0173, %sw.bb ], [ %b.sroa.12.0173, %while.body ]
+  %b.sroa.16.1 = phi i1 [ %b.sroa.16.0174, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit ], [ %b.sroa.16.0174, %sw.bb66 ], [ %b.sroa.16.0174, %sw.bb61 ], [ %b.sroa.16.0174, %sw.bb56 ], [ %b.sroa.16.0174, %sw.bb51 ], [ %b.sroa.16.0174, %sw.bb46 ], [ %b.sroa.16.0174, %sw.bb41 ], [ true, %sw.bb36 ], [ true, %sw.bb31 ], [ true, %sw.bb26 ], [ %b.sroa.16.0174, %sw.bb22 ], [ %b.sroa.16.0174, %sw.bb18 ], [ %b.sroa.16.0174, %sw.bb15 ], [ %b.sroa.16.0174, %sw.bb ], [ %b.sroa.16.0174, %while.body ]
   %call74 = call noundef nonnull align 8 dereferenceable(100) ptr @_ZN6Assimp3DXF10LineReaderppEv(ptr noundef nonnull align 8 dereferenceable(100) %reader)
   %71 = load i32, ptr %end.i.i, align 8
   %cmp.i.i = icmp sgt i32 %71, 1
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !38
 
 while.end:                                        ; preds = %sw.epilog, %while.body
-  %.lcssa319.sink = phi float [ %36, %while.body ], [ %69, %sw.epilog ]
-  %.lcssa320.sink = phi float [ %35, %while.body ], [ %68, %sw.epilog ]
-  %.lcssa321.sink = phi float [ %34, %while.body ], [ %67, %sw.epilog ]
-  %.lcssa322.sink = phi float [ %33, %while.body ], [ %66, %sw.epilog ]
-  %.lcssa323.sink = phi float [ %32, %while.body ], [ %65, %sw.epilog ]
-  %.lcssa324.sink = phi float [ %31, %while.body ], [ %64, %sw.epilog ]
-  %.lcssa325.sink = phi float [ %30, %while.body ], [ %63, %sw.epilog ]
-  %.lcssa326.sink = phi float [ %29, %while.body ], [ %62, %sw.epilog ]
-  %.lcssa327.sink = phi float [ %28, %while.body ], [ %61, %sw.epilog ]
-  %.lcssa328.sink = phi float [ %27, %while.body ], [ %60, %sw.epilog ]
-  %.lcssa329.sink = phi float [ %26, %while.body ], [ %59, %sw.epilog ]
+  %.lcssa313.sink = phi float [ %36, %while.body ], [ %69, %sw.epilog ]
+  %.lcssa314.sink = phi float [ %35, %while.body ], [ %68, %sw.epilog ]
+  %.lcssa315.sink = phi float [ %34, %while.body ], [ %67, %sw.epilog ]
+  %.lcssa316.sink = phi float [ %33, %while.body ], [ %66, %sw.epilog ]
+  %.lcssa317.sink = phi float [ %32, %while.body ], [ %65, %sw.epilog ]
+  %.lcssa318.sink = phi float [ %31, %while.body ], [ %64, %sw.epilog ]
+  %.lcssa319.sink = phi float [ %30, %while.body ], [ %63, %sw.epilog ]
+  %.lcssa320.sink = phi float [ %29, %while.body ], [ %62, %sw.epilog ]
+  %.lcssa321.sink = phi float [ %28, %while.body ], [ %61, %sw.epilog ]
+  %.lcssa322.sink = phi float [ %27, %while.body ], [ %60, %sw.epilog ]
+  %.lcssa323.sink = phi float [ %26, %while.body ], [ %59, %sw.epilog ]
   %.lcssa = phi float [ %37, %while.body ], [ %70, %sw.epilog ]
-  %b.sroa.0.0.lcssa = phi i8 [ %b.sroa.0.0172, %while.body ], [ %b.sroa.0.1, %sw.epilog ]
-  %b.sroa.6.0.lcssa = phi i1 [ %b.sroa.6.0173, %while.body ], [ %b.sroa.6.1, %sw.epilog ]
-  %b.sroa.12.0.lcssa = phi i1 [ %b.sroa.12.0174, %while.body ], [ %b.sroa.12.1, %sw.epilog ]
-  %b.sroa.16.0.lcssa = phi i1 [ %b.sroa.16.0175, %while.body ], [ %b.sroa.16.1, %sw.epilog ]
-  store float %.lcssa319.sink, ptr %z69, align 4
-  store float %.lcssa320.sink, ptr %y64, align 8
-  store float %.lcssa321.sink, ptr %arrayidx58, align 4
-  store float %.lcssa322.sink, ptr %z54, align 16
-  store float %.lcssa323.sink, ptr %y49, align 4
-  store float %.lcssa324.sink, ptr %arrayidx43, align 8
-  store float %.lcssa325.sink, ptr %z39, align 4
-  store float %.lcssa326.sink, ptr %y34, align 16
-  store float %.lcssa327.sink, ptr %arrayidx28, align 4
-  store float %.lcssa328.sink, ptr %z, align 8
-  store float %.lcssa329.sink, ptr %y, align 4
+  %b.sroa.0.0.lcssa = phi i8 [ %b.sroa.0.0171, %while.body ], [ %b.sroa.0.1, %sw.epilog ]
+  %b.sroa.6.0.lcssa = phi i1 [ %b.sroa.6.0172, %while.body ], [ %b.sroa.6.1, %sw.epilog ]
+  %b.sroa.12.0.lcssa = phi i1 [ %b.sroa.12.0173, %while.body ], [ %b.sroa.12.1, %sw.epilog ]
+  %b.sroa.16.0.lcssa = phi i1 [ %b.sroa.16.0174, %while.body ], [ %b.sroa.16.1, %sw.epilog ]
+  store float %.lcssa313.sink, ptr %z69, align 4
+  store float %.lcssa314.sink, ptr %y64, align 8
+  store float %.lcssa315.sink, ptr %arrayidx58, align 4
+  store float %.lcssa316.sink, ptr %z54, align 16
+  store float %.lcssa317.sink, ptr %y49, align 4
+  store float %.lcssa318.sink, ptr %arrayidx43, align 8
+  store float %.lcssa319.sink, ptr %z39, align 4
+  store float %.lcssa320.sink, ptr %y34, align 16
+  store float %.lcssa321.sink, ptr %arrayidx28, align 4
+  store float %.lcssa322.sink, ptr %z, align 8
+  store float %.lcssa323.sink, ptr %y, align 4
   store float %.lcssa, ptr %vip, align 16
-  %cmp.i = fcmp oeq float %.lcssa321.sink, %.lcssa324.sink
-  %cmp4.i = fcmp oeq float %.lcssa320.sink, %.lcssa323.sink
+  %cmp.i = fcmp oeq float %.lcssa315.sink, %.lcssa318.sink
+  %cmp4.i = fcmp oeq float %.lcssa314.sink, %.lcssa317.sink
   %or.cond = select i1 %cmp.i, i1 %cmp4.i, i1 false
   br i1 %or.cond, label %_ZNK10aiVector3tIfEeqERKS0_.exit, label %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
 
 _ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %while.end
-  %cmp6.i = fcmp oeq float %.lcssa319.sink, %.lcssa322.sink
+  %cmp6.i = fcmp oeq float %.lcssa313.sink, %.lcssa316.sink
   %cond.fr = freeze i1 %cmp6.i
   %b.sroa.6.0.not = xor i1 %b.sroa.6.0.lcssa, true
   %brmerge = select i1 %cond.fr, i1 true, i1 %b.sroa.6.0.not
@@ -6615,7 +6615,7 @@ land.lhs.true:                                    ; preds = %_ZNK10aiVector3tIfE
   br i1 %tobool83, label %lor.lhs.false, label %if.then89
 
 lor.lhs.false:                                    ; preds = %_ZNK10aiVector3tIfEeqERKS0_.exit, %land.lhs.true, %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
-  %b.sroa.0.0.lcssa255 = phi i8 [ 1, %land.lhs.true ], [ %b.sroa.0.0.lcssa, %_ZNK10aiVector3tIfEeqERKS0_.exit.thread ], [ %b.sroa.0.0.lcssa, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
+  %72 = phi i8 [ 1, %land.lhs.true ], [ %b.sroa.0.0.lcssa, %_ZNK10aiVector3tIfEeqERKS0_.exit.thread ], [ %b.sroa.0.0.lcssa, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
   %72 = phi i8 [ 1, %land.lhs.true ], [ 0, %_ZNK10aiVector3tIfEeqERKS0_.exit.thread ], [ 0, %_ZNK10aiVector3tIfEeqERKS0_.exit ]
   %73 = select i1 %b.sroa.12.0.lcssa, i1 %b.sroa.16.0.lcssa, i1 false
   br i1 %73, label %if.end94, label %if.then89
@@ -6704,7 +6704,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
 if.end94:                                         ; preds = %lor.lhs.false
   %87 = and i8 %b.sroa.0.0.lcssa255, 1
   %88 = or disjoint i8 %87, 2
-  %narrow = add nuw nsw i8 %88, %72
+  %tobool.mask = add nuw nsw i8 %88, %72
   %add100 = zext nneg i8 %narrow to i32
   %counts = getelementptr inbounds nuw i8, ptr %24, i64 72
   %_M_finish.i91 = getelementptr inbounds nuw i8, ptr %24, i64 80
