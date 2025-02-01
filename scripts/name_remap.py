@@ -132,8 +132,6 @@ for file in patch:
                         mapping[b[1]] = {a[1]}
                     else:
                         mapping[b[1]].add(a[1])
-    if len(mapping) == 0:
-        continue
     path = file.source_file.removeprefix('a/')
     with open(path, "r") as f:
         lines = f.readlines()
