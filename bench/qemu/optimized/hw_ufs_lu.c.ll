@@ -132,8 +132,7 @@ ufs_emulate_report_luns.exit:                     ; preds = %for.inc.i
   %sub.i = add nsw i32 %len.1.i, -8
   %5 = tail call i32 @llvm.bswap.i32(i32 %sub.i)
   store i32 %5, ptr %outbuf, align 16
-  %cmp = icmp eq i32 %len.1.i, -1
-  br i1 %cmp, label %sw.epilog.thread, label %sw.epilog
+  br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %arrayidx.i = getelementptr i8, ptr %req, i64 65
@@ -209,9 +208,9 @@ sw.bb19:                                          ; preds = %entry
   %cmp21 = icmp eq i8 %10, -48
   br i1 %cmp21, label %sw.epilog, label %sw.epilog.thread
 
-sw.epilog.thread:                                 ; preds = %entry, %sw.bb19, %if.then1.i, %if.end2.i, %ufs_emulate_report_luns.exit, %sw.bb
-  %sense_code_INVALID_OPCODE.sink = phi ptr [ @sense_code_INVALID_FIELD, %sw.bb ], [ @sense_code_INVALID_FIELD, %ufs_emulate_report_luns.exit ], [ @sense_code_INVALID_FIELD, %if.end2.i ], [ @sense_code_INVALID_FIELD, %if.then1.i ], [ @sense_code_INVALID_OPCODE, %sw.bb19 ], [ @sense_code_INVALID_OPCODE, %entry ]
-  %len.0.ph = phi i32 [ -1, %sw.bb ], [ -1, %ufs_emulate_report_luns.exit ], [ -1, %if.end2.i ], [ -1, %if.then1.i ], [ 0, %sw.bb19 ], [ 0, %entry ]
+sw.epilog.thread:                                 ; preds = %entry, %sw.bb19, %if.then1.i, %if.end2.i, %sw.bb
+  %sense_code_INVALID_OPCODE.sink = phi ptr [ @sense_code_INVALID_FIELD, %sw.bb ], [ @sense_code_INVALID_FIELD, %if.end2.i ], [ @sense_code_INVALID_FIELD, %if.then1.i ], [ @sense_code_INVALID_OPCODE, %sw.bb19 ], [ @sense_code_INVALID_OPCODE, %entry ]
+  %len.0.ph = phi i32 [ -1, %sw.bb ], [ -1, %if.end2.i ], [ -1, %if.then1.i ], [ 0, %sw.bb19 ], [ 0, %entry ]
   %sense_code_INVALID_OPCODE.coerce.0.copyload = load i24, ptr %sense_code_INVALID_OPCODE.sink, align 1
   %call26 = call i32 @scsi_build_sense(ptr noundef nonnull %sense_buf, i24 %sense_code_INVALID_OPCODE.coerce.0.copyload) #9
   %data_len43 = getelementptr inbounds nuw i8, ptr %req, i64 632
@@ -219,7 +218,7 @@ sw.epilog.thread:                                 ; preds = %entry, %sw.bb19, %i
   %cond44 = call i32 @llvm.smin.i32(i32 %len.0.ph, i32 %11)
   br label %if.end68
 
-sw.epilog:                                        ; preds = %if.end10.i, %if.end.i.i, %ufs_emulate_report_luns.exit.thread34, %sw.bb19, %ufs_emulate_report_luns.exit, %sw.bb16
+sw.epilog:                                        ; preds = %ufs_emulate_report_luns.exit, %if.end10.i, %if.end.i.i, %ufs_emulate_report_luns.exit.thread34, %sw.bb19, %sw.bb16
   %len.0 = phi i32 [ %call18, %sw.bb16 ], [ %len.1.i, %ufs_emulate_report_luns.exit ], [ 0, %sw.bb19 ], [ %len.01.i, %ufs_emulate_report_luns.exit.thread34 ], [ 36, %if.end10.i ], [ %buflen.0.i.i, %if.end.i.i ]
   %data_len = getelementptr inbounds nuw i8, ptr %req, i64 632
   %12 = load i32, ptr %data_len, align 8
