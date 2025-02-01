@@ -18558,7 +18558,7 @@ invoke.cont288:                                   ; preds = %if.else280
   %d_kind.i940 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %bf.load.i941 = load i16, ptr %d_kind.i940, align 8
   %bf.clear.i942 = and i16 %bf.load.i941, 1023
-  %cmp290.not = icmp eq i16 %bf.clear.i942, 36
+  %cmp290 = icmp eq i16 %bf.clear.i942, 36
   br i1 %cmp290.not, label %if.then294, label %if.end313
 
 if.then294:                                       ; preds = %invoke.cont288

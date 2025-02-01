@@ -2086,8 +2086,8 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %.lr.ph.i.i
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %19, ptr nonnull %5, ptr nonnull %6)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit unwind label %20
 
-common.resume:                                    ; preds = %128, %87, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %88, %87 ], [ %129, %128 ]
+common.resume:                                    ; preds = %127, %88, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %89, %88 ], [ %128, %127 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i
@@ -2238,30 +2238,30 @@ _ZN2cvL9mapSymbolEc.exit34:                       ; preds = %54, %58, %60, %61, 
   %69 = icmp eq i32 %.0.i, -1
   br i1 %69, label %_ZN2cvL9mapSymbolEc.exit44.thread53, label %70
 
-70:                                               ; preds = %_ZN2cvL9mapSymbolEc.exit34
+70: ; preds = %_ZN2cvL9mapSymbolEc.exit34
   %71 = mul nuw nsw i32 %.0.i, 45
   %72 = add nsw i32 %.0.i33, %71
-  %73 = tail call noalias noundef nonnull dereferenceable(11) ptr @_Znwm(i64 noundef 11) #28
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 11
+  %72 = tail call noalias noundef nonnull dereferenceable(11) ptr @_Znwm(i64 noundef 11) #28
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %73, i8 0, i64 11, i1 false)
   br label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %.lr.ph.i.i35, %70
   %indvars.iv.i.i36 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i37, %.lr.ph.i.i35 ]
-  %75 = trunc nuw nsw i64 %indvars.iv.i.i36 to i32
-  %76 = ashr i32 %72, %75
-  %77 = srem i32 %76, 2
-  %78 = trunc nsw i32 %77 to i8
-  %79 = xor i64 %indvars.iv.i.i36, -1
-  %80 = getelementptr i8, ptr %74, i64 %79
-  store i8 %78, ptr %80, align 1
+  %76 = trunc nuw nsw i64 %indvars.iv.i.i36 to i32
+  %77 = ashr i32 %72, %76
+  %78 = srem i32 %77, 2
+  %79 = trunc nsw i32 %78 to i8
+  %80 = xor i64 %indvars.iv.i.i36, -1
+  %81 = getelementptr i8, ptr %74, i64 %80
+  store i8 %79, ptr %81, align 1
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 11
   br i1 %exitcond.not.i.i38, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39, label %.lr.ph.i.i35, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39:   ; preds = %.lr.ph.i.i35
-  %81 = load ptr, ptr %13, align 8
-  %82 = load ptr, ptr %2, align 8
+  %82 = load ptr, ptr %13, align 8
+  %83 = load ptr, ptr %2, align 8
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
@@ -2269,8 +2269,8 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39:   ; preds = %.lr.ph.i.i35
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %86, ptr nonnull %73, ptr nonnull %74)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit40 unwind label %87
 
-87:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39
+  %89 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %73) #29
   br label %common.resume
@@ -2278,29 +2278,29 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39:   ; preds = %.lr.ph.i.i35
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit40: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i39
   tail call void @_ZdlPv(ptr noundef nonnull %73) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %89 = trunc nuw i64 %indvars.iv.next to i32
-  %90 = icmp sgt i32 %27, %89
-  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %90 = trunc nuw i64 %indvars.iv.next to i32
+  %91 = icmp sgt i32 %27, %90
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit40, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit
-  %91 = and i32 %26, 1
-  %.not = icmp eq i32 %91, 0
-  br i1 %.not, label %_ZN2cvL9mapSymbolEc.exit44.thread53, label %92
+  %92 = and i32 %26, 1
+  %.not = icmp eq i32 %92, 0
+  br i1 %.not, label %_ZN2cvL9mapSymbolEc.exit44.thread53, label %93
 
-92:                                               ; preds = %._crit_edge
+93:                                               ; preds = %._crit_edge
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %93 = load i64, ptr %4, align 8
-  %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds i8, ptr %94, i64 -1
-  %96 = load i8, ptr %95, align 1
-  %97 = sext i8 %96 to i32
-  %98 = add i8 %96, -48
-  %or.cond.i41 = icmp ult i8 %98, 10
+  %94 = load i64, ptr %4, align 8
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds i8, ptr %95, i64 -1
+  %97 = load i8, ptr %96, align 1
+  %98 = sext i8 %97 to i32
+  %99 = add i8 %97, -48
+  %or.cond.i41 = icmp ult i8 %99, 10
   br i1 %or.cond.i41, label %99, label %101
 
-99:                                               ; preds = %92
-  %100 = add nsw i32 %97, -48
-  br label %_ZN2cvL9mapSymbolEc.exit44.thread
+100:                                              ; preds = %93
+  %101 = add nsw i32 %97, -48
+  br label %_ZN2cvL9mapSymbolEc.exit44
 
 101:                                              ; preds = %92
   %102 = add i8 %96, -65
@@ -2314,15 +2314,24 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit40: ; preds = %_ZN2cvL8decToBin
 105:                                              ; preds = %101
   switch i8 %96, label %_ZN2cvL9mapSymbolEc.exit44.thread53 [
     i8 32, label %_ZN2cvL9mapSymbolEc.exit44.thread
-    i8 36, label %106
-    i8 37, label %107
-    i8 42, label %108
-    i8 43, label %109
-    i8 45, label %110
-    i8 46, label %111
-    i8 47, label %112
-    i8 58, label %113
+    i8 36, label %103
+    i8 37, label %104
+    i8 42, label %105
+    i8 43, label %106
+    i8 45, label %107
+    i8 46, label %108
+    i8 47, label %109
+    i8 58, label %110
   ]
+
+103:                                              ; preds = %105
+  br label %_ZN2cvL9mapSymbolEc.exit44.thread
+
+104:                                              ; preds = %105
+  br label %_ZN2cvL9mapSymbolEc.exit44.thread
+
+105:                                              ; preds = %105
+  br label %_ZN2cvL9mapSymbolEc.exit44.thread
 
 106:                                              ; preds = %105
   br label %_ZN2cvL9mapSymbolEc.exit44.thread
@@ -2339,38 +2348,29 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit40: ; preds = %_ZN2cvL8decToBin
 110:                                              ; preds = %105
   br label %_ZN2cvL9mapSymbolEc.exit44.thread
 
-111:                                              ; preds = %105
-  br label %_ZN2cvL9mapSymbolEc.exit44.thread
-
-112:                                              ; preds = %105
-  br label %_ZN2cvL9mapSymbolEc.exit44.thread
-
-113:                                              ; preds = %105
-  br label %_ZN2cvL9mapSymbolEc.exit44.thread
-
-_ZN2cvL9mapSymbolEc.exit44.thread:                ; preds = %103, %99, %105, %106, %107, %108, %109, %110, %111, %112, %113
-  %.0.i4352 = phi i32 [ 36, %105 ], [ 37, %106 ], [ 38, %107 ], [ 39, %108 ], [ 40, %109 ], [ 41, %110 ], [ 42, %111 ], [ 43, %112 ], [ 44, %113 ], [ %100, %99 ], [ %104, %103 ]
-  %114 = call noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #28
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 6
+_ZN2cvL9mapSymbolEc.exit44:                ; preds = %103, %100, %105, %106, %107, %108, %109, %110, %111, %112, %113
+  %.sink = phi i32 [ 36, %105 ], [ 37, %106 ], [ 38, %107 ], [ 39, %108 ], [ 40, %109 ], [ 41, %110 ], [ 42, %111 ], [ 43, %112 ], [ 44, %113 ], [ %100, %100 ], [ %104, %103 ]
+  %111 = call noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #28
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %114, i8 0, i64 6, i1 false)
   br label %.lr.ph.i.i45
 
 .lr.ph.i.i45:                                     ; preds = %.lr.ph.i.i45, %_ZN2cvL9mapSymbolEc.exit44.thread
   %indvars.iv.i.i46 = phi i64 [ 0, %_ZN2cvL9mapSymbolEc.exit44.thread ], [ %indvars.iv.next.i.i47, %.lr.ph.i.i45 ]
-  %116 = trunc nuw nsw i64 %indvars.iv.i.i46 to i32
-  %117 = ashr i32 %.0.i4352, %116
-  %118 = srem i32 %117, 2
-  %119 = trunc nsw i32 %118 to i8
-  %120 = xor i64 %indvars.iv.i.i46, -1
-  %121 = getelementptr i8, ptr %115, i64 %120
-  store i8 %119, ptr %121, align 1
+  %115 = trunc nuw nsw i64 %indvars.iv.i.i46 to i32
+  %116 = ashr i32 %.0.i4352, %115
+  %117 = srem i32 %116, 2
+  %118 = trunc nsw i32 %117 to i8
+  %119 = xor i64 %indvars.iv.i.i46, -1
+  %120 = getelementptr i8, ptr %115, i64 %119
+  store i8 %118, ptr %120, align 1
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i46, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 6
   br i1 %exitcond.not.i.i48, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i49, label %.lr.ph.i.i45, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i49:   ; preds = %.lr.ph.i.i45
-  %122 = load ptr, ptr %13, align 8
-  %123 = load ptr, ptr %2, align 8
+  %121 = load ptr, ptr %13, align 8
+  %122 = load ptr, ptr %2, align 8
   %124 = ptrtoint ptr %122 to i64
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %124, %125
@@ -2378,8 +2378,8 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i49:   ; preds = %.lr.ph.i.i45
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %127, ptr nonnull %114, ptr nonnull %115)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit50 unwind label %128
 
-128:                                              ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i49
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i49
+  %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %114) #29
   br label %common.resume
@@ -3279,8 +3279,8 @@ define hidden noundef zeroext i1 @_ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKN
   %5 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.09) #26
   %6 = load i8, ptr %5, align 1
   %7 = add i8 %6, -48
-  %or.cond.i = icmp ult i8 %7, 10
-  %8 = add i8 %6, -65
+  %8 = icmp ult i8 %7, 10
+  %or.cond.i = add i8 %6, -65
   %or.cond5.i = icmp ult i8 %8, 26
   %or.cond = or i1 %or.cond.i, %or.cond5.i
   br i1 %or.cond, label %_ZN2cvL9mapSymbolEc.exit.thread, label %9
@@ -3298,10 +3298,10 @@ define hidden noundef zeroext i1 @_ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKN
     i8 58, label %_ZN2cvL9mapSymbolEc.exit.thread
   ]
 
-_ZN2cvL9mapSymbolEc.exit.thread:                  ; preds = %.lr.ph, %9, %9, %9, %9, %9, %9, %9, %9, %9
-  %10 = add nuw i64 %.09, 1
-  %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %.not = icmp ult i64 %10, %11
+_ZN2cvL9mapSymbolEc.exit:                  ; preds = %.lr.ph, %9, %9, %9, %9, %9, %9, %9, %9, %9
+  %.sink = add nuw i64 %.09, 1
+  %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %13 = icmp ult i64 %10, %11
   br i1 %.not, label %.lr.ph, label %_ZN2cvL9mapSymbolEc.exit.thread7, !llvm.loop !19
 
 _ZN2cvL9mapSymbolEc.exit.thread7:                 ; preds = %_ZN2cvL9mapSymbolEc.exit.thread, %9, %2
@@ -3344,8 +3344,8 @@ _ZNK2cv17QRCodeEncoderImpl9isNumericERKNSt7__cxx1112basic_stringIcSt11char_trait
   %17 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.09.i) #26
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, -48
-  %or.cond.i.i = icmp ult i8 %19, 10
-  %20 = add i8 %18, -65
+  %20 = icmp ult i8 %19, 10
+  %or.cond.i.i = add i8 %18, -65
   %or.cond5.i.i = icmp ult i8 %20, 26
   %or.cond.i = or i1 %or.cond.i.i, %or.cond5.i.i
   br i1 %or.cond.i, label %_ZN2cvL9mapSymbolEc.exit.thread.i, label %21
@@ -3363,10 +3363,10 @@ _ZNK2cv17QRCodeEncoderImpl9isNumericERKNSt7__cxx1112basic_stringIcSt11char_trait
     i8 58, label %_ZN2cvL9mapSymbolEc.exit.thread.i
   ]
 
-_ZN2cvL9mapSymbolEc.exit.thread.i:                ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %.lr.ph.i3
-  %22 = add nuw i64 %.09.i, 1
-  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %.not.i4 = icmp ult i64 %22, %23
+_ZN2cvL9mapSymbolEc.exit.i:                ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %.lr.ph.i3
+  %.sink.i = add nuw i64 %.09.i, 1
+  %24 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %25 = icmp ult i64 %22, %23
   br i1 %.not.i4, label %.lr.ph.i3, label %_ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !19
 
 _ZNK2cv17QRCodeEncoderImpl14isAlphaNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %5, %21, %_ZN2cvL9mapSymbolEc.exit.thread.i, %2, %_ZNK2cv17QRCodeEncoderImpl9isNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

@@ -2736,7 +2736,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i3
   br label %return.sink.split.i
 
 if.end.i:                                         ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
-  %16 = xor i8 %11, 7
+  %14 = xor i8 %11, 7
   %cmp.not.i = icmp eq i8 %11, 0
   br i1 %cmp.not.i, label %if.end.if.then12_crit_edge.i, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i
 
@@ -2746,7 +2746,7 @@ if.end.if.then12_crit_edge.i:                     ; preds = %if.end.i
   br label %if.then12.i
 
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i: ; preds = %if.end.i
-  %sub.i = zext nneg i8 %16 to i32
+  %sub.i = zext nneg i8 %14 to i32
   %conv6.i = zext nneg i8 %previous_index.0244 to i32
   %shr.i2 = lshr i32 %conv6.i, %sub.i
   %conv7.i = trunc nuw nsw i32 %shr.i2 to i8
@@ -2754,36 +2754,36 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i: ; preds = %if.end.i
   %sub.i.i36.i = xor i8 %notmask.i, -1
   %and10.i.i = and i8 %conv7.i, %sub.i.i36.i
   %current.i39.i = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %17 = load i8, ptr %current.i39.i, align 8, !tbaa !186
-  %conv7.i.i = or i8 %17, %and10.i.i
-  %18 = load ptr, ptr %state, align 8, !tbaa !185
+  %15 = load i8, ptr %current.i39.i, align 8, !tbaa !186
+  %conv7.i.i = or i8 %15, %and10.i.i
+  %16 = load ptr, ptr %state, align 8, !tbaa !185
   %stream_index.i.i.i41.i = getelementptr inbounds nuw i8, ptr %state, i64 16
-  %19 = load i64, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
-  %inc.i.i.i42.i = add i64 %19, 1
+  %17 = load i64, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
+  %inc.i.i.i42.i = add i64 %17, 1
   store i64 %inc.i.i.i42.i, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
-  %arrayidx.i.i.i43.i = getelementptr inbounds i8, ptr %18, i64 %19
+  %arrayidx.i.i.i43.i = getelementptr inbounds i8, ptr %16, i64 %17
   store i8 %conv7.i.i, ptr %arrayidx.i.i.i43.i, align 1, !tbaa !63
   br label %if.then12.i
 
 if.then12.i:                                      ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i, %if.end.if.then12_crit_edge.i
   %conv2.i46.pre-phi.i = phi i32 [ 7, %if.end.if.then12_crit_edge.i ], [ %sub.i, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %20 = phi i8 [ %.pre.i, %if.end.if.then12_crit_edge.i ], [ 0, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %21 = phi i8 [ 0, %if.end.if.then12_crit_edge.i ], [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %conv.i45.i = zext nneg i8 %21 to i32
+  %18 = phi i8 [ %.pre.i, %if.end.if.then12_crit_edge.i ], [ 0, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
+  %19 = phi i8 [ 0, %if.end.if.then12_crit_edge.i ], [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
+  %conv.i45.i = zext nneg i8 %19 to i32
   %sub.i47.i = sub nsw i32 %conv.i45.i, %conv2.i46.pre-phi.i
-  %notmask72.i = shl nsw i8 -1, %16
+  %notmask72.i = shl nsw i8 -1, %14
   %sub.i.i49.i = xor i8 %notmask72.i, -1
   %and10.i50.i = and i8 %previous_index.0244, %sub.i.i49.i
   %and.i51.i = zext nneg i8 %and10.i50.i to i32
   %shl.i52.i = shl nuw nsw i32 %and.i51.i, %sub.i47.i
   %current.i53.i = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %22 = trunc i32 %shl.i52.i to i8
-  %conv7.i54.i = or i8 %20, %22
+  %20 = trunc i32 %shl.i52.i to i8
+  %conv7.i54.i = or i8 %18, %20
   store i8 %conv7.i54.i, ptr %current.i53.i, align 8, !tbaa !186
-  %sub.i11.i55.i = sub nsw i8 %21, %16
+  %sub.i11.i55.i = sub nsw i8 %19, %14
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.then12.i, %if.then.i.i.i
+return.sink.split.i: ; preds = %if.then12.i, %if.then.i.i.i
   %sub.i11.i55.sink.i = phi i8 [ %sub.i11.i55.i, %if.then12.i ], [ 8, %if.then.i.i.i ]
   store i8 %sub.i11.i55.sink.i, ptr %free_bits.i.i, align 1, !tbaa !137
   br label %_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_.exit
@@ -6862,7 +6862,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i3
   br label %return.sink.split.i
 
 if.end.i:                                         ; preds = %_ZN6duckdb10FlagBufferILb0EE6InsertENS_14ChimpConstants5FlagsE.exit
-  %15 = xor i8 %10, 7
+  %13 = xor i8 %10, 7
   %cmp.not.i = icmp eq i8 %10, 0
   br i1 %cmp.not.i, label %if.end.if.then12_crit_edge.i, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i
 
@@ -6872,7 +6872,7 @@ if.end.if.then12_crit_edge.i:                     ; preds = %if.end.i
   br label %if.then12.i
 
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i: ; preds = %if.end.i
-  %sub.i = zext nneg i8 %15 to i32
+  %sub.i = zext nneg i8 %13 to i32
   %conv6.i = zext nneg i8 %previous_index.0234 to i32
   %shr.i2 = lshr i32 %conv6.i, %sub.i
   %conv7.i = trunc nuw nsw i32 %shr.i2 to i8
@@ -6880,36 +6880,36 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i: ; preds = %if.end.i
   %sub.i.i36.i = xor i8 %notmask.i, -1
   %and10.i.i = and i8 %conv7.i, %sub.i.i36.i
   %current.i39.i = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %16 = load i8, ptr %current.i39.i, align 8, !tbaa !186
-  %conv7.i.i = or i8 %16, %and10.i.i
-  %17 = load ptr, ptr %state, align 8, !tbaa !185
+  %14 = load i8, ptr %current.i39.i, align 8, !tbaa !186
+  %conv7.i.i = or i8 %14, %and10.i.i
+  %15 = load ptr, ptr %state, align 8, !tbaa !185
   %stream_index.i.i.i41.i = getelementptr inbounds nuw i8, ptr %state, i64 16
-  %18 = load i64, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
-  %inc.i.i.i42.i = add i64 %18, 1
+  %16 = load i64, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
+  %inc.i.i.i42.i = add i64 %16, 1
   store i64 %inc.i.i.i42.i, ptr %stream_index.i.i.i41.i, align 8, !tbaa !195
-  %arrayidx.i.i.i43.i = getelementptr inbounds i8, ptr %17, i64 %18
+  %arrayidx.i.i.i43.i = getelementptr inbounds i8, ptr %15, i64 %16
   store i8 %conv7.i.i, ptr %arrayidx.i.i.i43.i, align 1, !tbaa !63
   br label %if.then12.i
 
 if.then12.i:                                      ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i, %if.end.if.then12_crit_edge.i
   %conv2.i46.pre-phi.i = phi i32 [ 7, %if.end.if.then12_crit_edge.i ], [ %sub.i, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %19 = phi i8 [ %.pre.i, %if.end.if.then12_crit_edge.i ], [ 0, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %20 = phi i8 [ 0, %if.end.if.then12_crit_edge.i ], [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
-  %conv.i45.i = zext nneg i8 %20 to i32
+  %17 = phi i8 [ %.pre.i, %if.end.if.then12_crit_edge.i ], [ 0, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
+  %18 = phi i8 [ 0, %if.end.if.then12_crit_edge.i ], [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit.i ]
+  %conv.i45.i = zext nneg i8 %18 to i32
   %sub.i47.i = sub nsw i32 %conv.i45.i, %conv2.i46.pre-phi.i
-  %notmask72.i = shl nsw i8 -1, %15
+  %notmask72.i = shl nsw i8 -1, %13
   %sub.i.i49.i = xor i8 %notmask72.i, -1
   %and10.i50.i = and i8 %previous_index.0234, %sub.i.i49.i
   %and.i51.i = zext nneg i8 %and10.i50.i to i32
   %shl.i52.i = shl nuw nsw i32 %and.i51.i, %sub.i47.i
   %current.i53.i = getelementptr inbounds nuw i8, ptr %state, i64 8
-  %21 = trunc i32 %shl.i52.i to i8
-  %conv7.i54.i = or i8 %19, %21
+  %19 = trunc i32 %shl.i52.i to i8
+  %conv7.i54.i = or i8 %17, %19
   store i8 %conv7.i54.i, ptr %current.i53.i, align 8, !tbaa !186
-  %sub.i11.i55.i = sub nsw i8 %20, %15
+  %sub.i11.i55.i = sub nsw i8 %18, %13
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.then12.i, %if.then.i.i.i
+return.sink.split.i: ; preds = %if.then12.i, %if.then.i.i.i
   %sub.i11.i55.sink.i = phi i8 [ %sub.i11.i55.i, %if.then12.i ], [ 8, %if.then.i.i.i ]
   store i8 %sub.i11.i55.sink.i, ptr %free_bits.i.i, align 1, !tbaa !137
   br label %_ZN6duckdb15OutputBitStreamILb0EE10WriteValueIhLh7EEEvT_.exit

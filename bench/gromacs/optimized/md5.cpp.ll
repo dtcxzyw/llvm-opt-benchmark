@@ -728,7 +728,7 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
 
 28:                                               ; preds = %26, %14
   %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %._crit_edge.i.thread, label %29
+  br i1 %.not.i, label %._crit_edge.i40, label %29
 
 29:                                               ; preds = %28
   %30 = add nuw nsw i32 %19, %20
@@ -744,8 +744,8 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %39 = icmp samesign ult i32 %38, 64
   br i1 %39, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %.thread
 
-.thread:                                          ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37
+40:                                          ; preds = %29
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37
   %41 = sub nsw i32 %19, %33
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %34)
   %.not41.i = icmp eq i32 %41, 0
@@ -754,79 +754,79 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
 ._crit_edge.i.thread:                             ; preds = %28, %.thread
   %.1.lcssa.i32 = phi ptr [ %40, %.thread ], [ @_ZZ14gmx_md5_finishP11md5_state_sE3pad, %28 ]
   %.138.lcssa.i31 = phi i32 [ %41, %.thread ], [ %19, %28 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = sext i32 %.138.lcssa.i31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i32, i64 %43, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = sext i32 %.138.lcssa.i31 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i32, i64 %45, i1 false)
   br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
 
-_Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %.thread, %._crit_edge.i.thread
-  %44 = load i32, ptr %0, align 4
-  %45 = lshr i32 %44, 3
-  %46 = and i32 %45, 63
-  %47 = load i32, ptr %22, align 4
-  %48 = add i32 %44, 64
-  store i32 %48, ptr %0, align 4
-  %49 = icmp ugt i32 %44, -65
-  br i1 %49, label %50, label %52
+_Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %40, %._crit_edge.i.thread
+  %46 = load i32, ptr %0, align 4
+  %47 = lshr i32 %46, 3
+  %48 = and i32 %47, 63
+  %49 = load i32, ptr %22, align 4
+  %50 = add i32 %46, 64
+  store i32 %50, ptr %0, align 4
+  %51 = icmp ugt i32 %46, -65
+  br i1 %51, label %52, label %54
 
-50:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
-  %51 = add i32 %47, 1
-  store i32 %51, ptr %22, align 4
-  br label %52
+52:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
+  %53 = add i32 %49, 1
+  store i32 %53, ptr %22, align 4
+  br label %54
 
-52:                                               ; preds = %50, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
-  %.not.i15 = icmp eq i32 %46, 0
-  br i1 %.not.i15, label %._crit_edge.i18.thread, label %53
+54:                                               ; preds = %52, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
+  %.not.i15 = icmp eq i32 %48, 0
+  br i1 %.not.i15, label %._crit_edge.i18.thread, label %55
 
-53:                                               ; preds = %52
-  %54 = icmp samesign ugt i32 %46, 56
-  %55 = sub nuw nsw i32 64, %46
-  %56 = select i1 %54, i32 %55, i32 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = zext nneg i32 %46 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %60 = zext nneg i32 %56 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %60, i1 false)
-  %61 = add nuw nsw i32 %56, %46
-  %62 = icmp samesign ult i32 %61, 64
-  br i1 %62, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18
+55:                                               ; preds = %54
+  %56 = icmp samesign ugt i32 %48, 56
+  %57 = sub nuw nsw i32 64, %48
+  %58 = select i1 %56, i32 %57, i32 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %60 = zext nneg i32 %48 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
+  %62 = zext nneg i32 %58 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %62, i1 false)
+  %63 = add nuw nsw i32 %58, %48
+  %64 = icmp samesign ult i32 %63, 64
+  br i1 %64, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18
 
-._crit_edge.i18:                                  ; preds = %53
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %60
-  %64 = sub nsw i32 8, %56
-  tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %57)
-  %.not41.i21 = icmp eq i32 %56, 8
+._crit_edge.i18:                                  ; preds = %55
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %62
+  %66 = sub nsw i32 8, %58
+  tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %59)
+  %.not41.i21 = icmp eq i32 %58, 8
   br i1 %.not41.i21, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18.thread
 
-._crit_edge.i18.thread:                           ; preds = %52, %._crit_edge.i18
-  %.1.lcssa.i2037 = phi ptr [ %63, %._crit_edge.i18 ], [ %3, %52 ]
-  %.138.lcssa.i1936 = phi i32 [ %64, %._crit_edge.i18 ], [ 8, %52 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = sext i32 %.138.lcssa.i1936 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 1 %.1.lcssa.i2037, i64 %66, i1 false)
+._crit_edge.i18.thread:                           ; preds = %54, %._crit_edge.i18
+  %.1.lcssa.i2037 = phi ptr [ %65, %._crit_edge.i18 ], [ %3, %54 ]
+  %.138.lcssa.i1936 = phi i32 [ %66, %._crit_edge.i18 ], [ 8, %54 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = sext i32 %.138.lcssa.i1936 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr nonnull align 1 %.1.lcssa.i2037, i64 %68, i1 false)
   br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25
 
-_Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i18, %._crit_edge.i18.thread
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %68
+_Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %55, %._crit_edge.i18, %._crit_edge.i18.thread
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %70
 
-68:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, %68
-  %.039 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25 ], [ %77, %68 ]
-  %69 = lshr i64 %.039, 2
-  %70 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %.0.tr = trunc nuw i64 %.039 to i32
-  %72 = shl nuw nsw i32 %.0.tr, 3
-  %73 = and i32 %72, 24
-  %74 = lshr i32 %71, %73
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
-  store i8 %75, ptr %76, align 1
-  %77 = add nuw nsw i64 %.039, 1
-  %exitcond41.not = icmp eq i64 %77, 16
-  br i1 %exitcond41.not, label %78, label %68, !llvm.loop !8
+70:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, %70
+  %.040 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25 ], [ %79, %70 ]
+  %71 = lshr i64 %.040, 2
+  %72 = getelementptr inbounds nuw [4 x i32], ptr %69, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %.0.tr = trunc nuw i64 %.040 to i32
+  %74 = shl nuw nsw i32 %.0.tr, 3
+  %75 = and i32 %74, 24
+  %76 = lshr i32 %73, %75
+  %77 = trunc i32 %76 to i8
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.040
+  store i8 %77, ptr %78, align 1
+  %79 = add nuw nsw i64 %.040, 1
+  %exitcond43.not = icmp eq i64 %79, 16
+  br i1 %exitcond43.not, label %80, label %70, !llvm.loop !8
 
-78:                                               ; preds = %68
+80:                                               ; preds = %70
   %.fca.0.load = load i64, ptr %2, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -1868,9 +1868,9 @@ invoke.cont:                                      ; preds = %entry
   %cmp.i = icmp sgt i32 %0, 0
   %cmp = icmp slt i32 %call, 1
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp
-  br i1 %or.cond, label %cleanup, label %if.end4.lr.ph
+  br i1 %or.cond, label %cleanup, label %for.cond.preheader
 
-if.end4.lr.ph:                                    ; preds = %invoke.cont
+for.cond.preheader:                               ; preds = %invoke.cont
   %div1118 = lshr i32 %call, 1
   %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %id, i64 8
   %fLength.i5.i = getelementptr inbounds nuw i8, ptr %copy, i64 12
@@ -1889,10 +1889,10 @@ lpad.loopexit.split-lp:                           ; preds = %entry
           cleanup
   br label %ehcleanup
 
-if.end4:                                          ; preds = %if.end4.lr.ph, %if.else
-  %div1122 = phi i32 [ %div1118, %if.end4.lr.ph ], [ %div11, %if.else ]
-  %start.021 = phi i32 [ 0, %if.end4.lr.ph ], [ %start.0.div11, %if.else ]
-  %limit.020 = phi i32 [ %call, %if.end4.lr.ph ], [ %div11.limit.0, %if.else ]
+if.end4:                                          ; preds = %for.cond.preheader, %if.else
+  %div1122 = phi i32 [ %div1118, %for.cond.preheader ], [ %div11, %if.else ]
+  %start.021 = phi i32 [ 0, %for.cond.preheader ], [ %start.0.div11, %if.else ]
+  %limit.020 = phi i32 [ %call, %for.cond.preheader ], [ %div11.limit.0, %if.else ]
   %call6 = invoke ptr @ures_getStringByIndex_75(ptr noundef %array, i32 noundef %div1122, ptr noundef nonnull %len, ptr noundef nonnull %status)
           to label %invoke.cont5 unwind label %lpad.loopexit
 

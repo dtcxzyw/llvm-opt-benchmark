@@ -4285,14 +4285,14 @@ sub_2:                                            ; preds = %sub_1
   %55 = tail call fastcc i32 @AlsaOpen(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %54)
   store i32 %55, ptr @paUtilErr_, align 4
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %59
+  br i1 %56, label %.thread, label %59
 
-57:                                               ; preds = %.thread64
+.thread:                                          ; preds = %.thread64
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.111) #25
-  %58 = load i32, ptr @paUtilErr_, align 4
-  br label %.thread
+  %57 = load i32, ptr @paUtilErr_, align 4
+  br label %99
 
-59:                                               ; preds = %.thread64
+69:                                               ; preds = %.thread64
   %60 = load ptr, ptr %54, align 8
   %61 = tail call i32 @snd_pcm_poll_descriptors_count(ptr noundef %60) #25, !callees !77
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4309,15 +4309,12 @@ sub_2:                                            ; preds = %sub_1
   store i64 %65, ptr %0, align 8
   switch i64 %65, label %74 [
     i64 1, label %Pa2AlsaFormat.exit
-    i64 8, label %69
-    i64 4, label %70
-    i64 2, label %71
-    i64 16, label %72
-    i64 32, label %73
+    i64 8, label %70
+    i64 4, label %71
+    i64 2, label %72
+    i64 16, label %73
+    i64 32, label %74
   ]
-
-69:                                               ; preds = %68
-  br label %Pa2AlsaFormat.exit
 
 70:                                               ; preds = %68
   br label %Pa2AlsaFormat.exit
@@ -4334,59 +4331,62 @@ sub_2:                                            ; preds = %sub_1
 74:                                               ; preds = %68
   br label %Pa2AlsaFormat.exit
 
+75:                                               ; preds = %68
+  br label %Pa2AlsaFormat.exit
+
 Pa2AlsaFormat.exit:                               ; preds = %68, %69, %70, %71, %72, %73, %74
-  %.0.i = phi i32 [ -1, %74 ], [ 1, %73 ], [ 0, %72 ], [ 10, %71 ], [ 32, %70 ], [ 2, %69 ], [ 14, %68 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.0.i, ptr %75, align 8
-  %76 = and i64 %7, 2147483648
-  %.not56 = icmp eq i64 %76, 0
-  %77 = zext i1 %.not56 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %77, ptr %79, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %81, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %3, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %86, align 8
+  %.0.i = phi i32 [ -1, %75 ], [ 1, %74 ], [ 0, %73 ], [ 10, %72 ], [ 32, %71 ], [ 2, %70 ], [ 14, %68 ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.0.i, ptr %76, align 8
+  %77 = and i64 %7, 2147483648
+  %.not56 = icmp eq i64 %77, 0
+  %78 = zext i1 %.not56 to i32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %78, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %78, ptr %80, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %82, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %3, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %87, align 8
   %.not57 = icmp ne i32 %4, 0
   %or.cond.not = select i1 %.not57, i1 true, i1 %.not56
-  br i1 %or.cond.not, label %.thread, label %87
+  br i1 %or.cond.not, label %99, label %88
 
-87:                                               ; preds = %Pa2AlsaFormat.exit
-  %88 = sext i32 %81 to i64
-  %89 = shl nsw i64 %88, 3
-  %90 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %89) #25
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %90, ptr %91, align 8
-  %92 = icmp eq ptr %90, null
-  br i1 %92, label %93, label %.thread
+88:                                               ; preds = %Pa2AlsaFormat.exit
+  %89 = sext i32 %82 to i64
+  %90 = shl nsw i64 %89, 3
+  %91 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %90) #25
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %91, ptr %92, align 8
+  %93 = icmp eq ptr %91, null
+  br i1 %93, label %94, label %99
 
-93:                                               ; preds = %87
+94:                                               ; preds = %88
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.113) #25
-  br label %.thread
+  br label %99
 
-94:                                               ; preds = %59
+95:                                               ; preds = %59
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.112) #25
-  %95 = load i32, ptr @paUtilErr_, align 4
+  %96 = load i32, ptr @paUtilErr_, align 4
   %96 = icmp eq i64 %65, -9994
   br i1 %96, label %97, label %.thread
 
-97:                                               ; preds = %94
+97:                                               ; preds = %95
   %98 = load ptr, ptr %54, align 8
   tail call fastcc void @LogAllAvailableFormats(ptr noundef %98)
-  br label %.thread
+  br label %99
 
-.thread:                                          ; preds = %87, %93, %Pa2AlsaFormat.exit, %57, %97, %94
-  %.061 = phi i32 [ %95, %97 ], [ %95, %94 ], [ 0, %87 ], [ -9992, %93 ], [ 0, %Pa2AlsaFormat.exit ], [ %58, %57 ]
+99:                                          ; preds = %87, %93, %Pa2AlsaFormat.exit, %.thread, %97, %95
+  %.061 = phi i32 [ %95, %97 ], [ %95, %95 ], [ 0, %87 ], [ -9992, %93 ], [ 0, %Pa2AlsaFormat.exit ], [ %58, %57 ]
   ret i32 %.061
 }
 

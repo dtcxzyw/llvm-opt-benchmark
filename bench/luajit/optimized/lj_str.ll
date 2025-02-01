@@ -203,7 +203,7 @@ for.body.lr.ph:                                   ; preds = %if.then9
   %7 = zext i32 %6 to i64
   br label %for.body
 
-for.body31.preheader:                             ; preds = %for.inc, %if.then9
+for.cond28.preheader:                             ; preds = %for.inc, %if.then9
   %8 = zext nneg i32 %newmask to i64
   br label %for.body31
 
@@ -310,7 +310,7 @@ cond.end:                                         ; preds = %cond.false, %hash_s
 for.inc:                                          ; preds = %cond.end, %for.body
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp11.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp11.not, label %for.body31.preheader, label %for.body, !llvm.loop !9
+  br i1 %cmp11.not, label %for.cond28.preheader, label %for.body, !llvm.loop !9
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.body31
   %indvars.iv159 = phi i64 [ %8, %for.body31.preheader ], [ %indvars.iv.next160, %for.body31 ]

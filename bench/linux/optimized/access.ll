@@ -1284,14 +1284,14 @@ define dso_local i32 @pcie_capability_read_dword(ptr noundef readonly captures(n
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   br i1 %30, label %34, label %.thread
 
-.thread:                                          ; preds = %9, %.thread1, %23
-  %33 = phi i32 [ %29, %23 ], [ 135, %.thread1 ], [ 134, %9 ]
+33:                                          ; preds = %9, %.thread1, %23
+  %34 = phi i32 [ %29, %23 ], [ 135, %.thread1 ], [ 134, %9 ]
   store i32 0, ptr %2, align 4
-  br label %34
+  br label %35
 
 34:                                               ; preds = %7, %.thread, %23, %3
-  %35 = phi i32 [ 135, %3 ], [ 0, %23 ], [ %33, %.thread ], [ 0, %7 ]
-  ret i32 %35
+  %35 = phi i32 [ 135, %3 ], [ 0, %23 ], [ %33, %33 ], [ 0, %7 ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1645,46 +1645,46 @@ define dso_local i32 @pcie_capability_clear_and_set_dword(ptr noundef readonly c
   %31 = icmp eq i32 %30, 0
   %32 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  br i1 %31, label %33, label %pci_bus_write_config_dword.exit
+  br i1 %31, label %34, label %pci_bus_write_config_dword.exit
 
 33:                                               ; preds = %8, %24
-  %.0 = phi i32 [ %32, %24 ], [ 0, %8 ]
-  %34 = xor i32 %2, -1
-  %35 = and i32 %.0, %34
+  %34 = phi i32 [ %32, %24 ], [ 0, %8 ]
+  %35 = xor i32 %2, -1
+  %36 = and i32 %35, %34
   %36 = or i32 %35, %3
   %37 = tail call fastcc zeroext i1 @pcie_capability_reg_implemented(ptr noundef %0, i32 noundef %1)
   br i1 %37, label %38, label %pci_bus_write_config_dword.exit
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 3
-  br i1 %41, label %pci_bus_write_config_dword.exit, label %42
+38:; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %40, 3
+  br i1 %42, label %pci_bus_write_config_dword.exit, label %42
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %44 = load i8, ptr %43, align 4
+42:; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %spec.select = load i8, ptr %46, align 4
   %45 = zext i8 %44 to i32
   %46 = and i32 %45, 3
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %pci_bus_write_config_dword.exit
 
-48:                                               ; preds = %42
-  %49 = add i32 %1, %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
+48:; preds = %42
+  %50 = add i32 %1, %45
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 192
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %53, i64 192
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %57(ptr noundef %53, i32 noundef %51, i32 noundef %49, i32 noundef 4, i32 noundef %36) #7
   br label %pci_bus_write_config_dword.exit
 
 pci_bus_write_config_dword.exit:                  ; preds = %24, %10, %.thread3, %4, %48, %42, %38, %33
-  %59 = phi i32 [ 0, %33 ], [ 134, %38 ], [ %58, %48 ], [ 135, %42 ], [ 135, %.thread3 ], [ 135, %4 ], [ 134, %10 ], [ %30, %24 ]
-  ret i32 %59
+  %73 = phi i32 [ 0, %34 ], [ 134, %38 ], [ %58, %48 ], [ 135, %42 ], [ 135, %.thread3 ], [ 135, %4 ], [ 134, %10 ], [ %30, %24 ]
+  ret i32 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
