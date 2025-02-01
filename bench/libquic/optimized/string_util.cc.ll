@@ -1400,7 +1400,6 @@ invoke.cont9.us:                                  ; preds = %if.then7.us
   br label %if.end.us
 
 if.end.us:                                        ; preds = %invoke.cont9.us, %if.then.us
-  %in_whitespace.1.us = phi i8 [ %in_whitespace.024.us, %if.then.us ], [ 1, %invoke.cont9.us ]
   %chars_written.1.us = phi i32 [ %chars_written.026.us, %if.then.us ], [ %inc.us, %invoke.cont9.us ]
   %tobool12.us = trunc nuw i8 %already_trimmed.025.us to i1
   br i1 %tobool12.us, label %for.inc.us, label %land.lhs.true13.us
@@ -1417,8 +1416,8 @@ if.then19.us:                                     ; preds = %land.lhs.true13.us,
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then19.us, %land.lhs.true13.us, %if.end.us, %invoke.cont24.us
-  %in_whitespace.2.us = phi i8 [ %in_whitespace.1.us, %if.end.us ], [ %in_whitespace.1.us, %if.then19.us ], [ 0, %invoke.cont24.us ], [ %in_whitespace.1.us, %land.lhs.true13.us ]
-  %already_trimmed.1.us = phi i8 [ %already_trimmed.025.us, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ %already_trimmed.025.us, %land.lhs.true13.us ]
+  %in_whitespace.2.us = phi i8 [ 1, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ 1, %land.lhs.true13.us ]
+  %already_trimmed.1.us = phi i8 [ 1, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ 0, %land.lhs.true13.us ]
   %chars_written.2.us = phi i32 [ %chars_written.1.us, %if.end.us ], [ %dec.us, %if.then19.us ], [ %inc22.us, %invoke.cont24.us ], [ %chars_written.1.us, %land.lhs.true13.us ]
   %incdec.ptr.i10.us = getelementptr inbounds nuw i8, ptr %i.sroa.0.023.us, i64 2
   %call2.us = tail call ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #21
@@ -1491,9 +1490,9 @@ invoke.cont24:                                    ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %invoke.cont9, %invoke.cont24
-  %in_whitespace.2 = phi i8 [ 0, %invoke.cont24 ], [ %in_whitespace.024, %if.then ], [ 1, %invoke.cont9 ]
-  %already_trimmed.1 = phi i8 [ 0, %invoke.cont24 ], [ %already_trimmed.025, %if.then ], [ %already_trimmed.025, %invoke.cont9 ]
-  %chars_written.2 = phi i32 [ %inc22, %invoke.cont24 ], [ %chars_written.026, %if.then ], [ %inc, %invoke.cont9 ]
+  %in_whitespace.2 = phi i8 [ 0, %invoke.cont24 ], [ 1, %invoke.cont9 ], [ 1, %if.then ]
+  %already_trimmed.1 = phi i8 [ 0, %invoke.cont24 ], [ %already_trimmed.025, %invoke.cont9 ], [ %already_trimmed.025, %if.then ]
+  %chars_written.2 = phi i32 [ %inc22, %invoke.cont24 ], [ %inc, %invoke.cont9 ], [ %chars_written.026, %if.then ]
   %incdec.ptr.i10 = getelementptr inbounds nuw i8, ptr %i.sroa.0.023, i64 2
   %call2 = tail call ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #21
   %cmp.i.not = icmp eq ptr %incdec.ptr.i10, %call2
@@ -1587,7 +1586,6 @@ invoke.cont9.us:                                  ; preds = %if.then7.us
   br label %if.end.us
 
 if.end.us:                                        ; preds = %invoke.cont9.us, %if.then.us
-  %in_whitespace.1.us = phi i8 [ %in_whitespace.024.us, %if.then.us ], [ 1, %invoke.cont9.us ]
   %chars_written.1.us = phi i32 [ %chars_written.026.us, %if.then.us ], [ %inc.us, %invoke.cont9.us ]
   %tobool12.us = trunc nuw i8 %already_trimmed.025.us to i1
   br i1 %tobool12.us, label %for.inc.us, label %land.lhs.true13.us
@@ -1604,8 +1602,8 @@ if.then19.us:                                     ; preds = %land.lhs.true13.us,
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then19.us, %land.lhs.true13.us, %if.end.us, %invoke.cont24.us
-  %in_whitespace.2.us = phi i8 [ %in_whitespace.1.us, %if.end.us ], [ %in_whitespace.1.us, %if.then19.us ], [ 0, %invoke.cont24.us ], [ %in_whitespace.1.us, %land.lhs.true13.us ]
-  %already_trimmed.1.us = phi i8 [ %already_trimmed.025.us, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ %already_trimmed.025.us, %land.lhs.true13.us ]
+  %in_whitespace.2.us = phi i8 [ 1, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ 1, %land.lhs.true13.us ]
+  %already_trimmed.1.us = phi i8 [ 1, %if.end.us ], [ 1, %if.then19.us ], [ 0, %invoke.cont24.us ], [ 0, %land.lhs.true13.us ]
   %chars_written.2.us = phi i32 [ %chars_written.1.us, %if.end.us ], [ %dec.us, %if.then19.us ], [ %inc22.us, %invoke.cont24.us ], [ %chars_written.1.us, %land.lhs.true13.us ]
   %incdec.ptr.i10.us = getelementptr inbounds nuw i8, ptr %i.sroa.0.023.us, i64 1
   %call2.us = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #21
@@ -1678,9 +1676,9 @@ invoke.cont24:                                    ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %invoke.cont9, %invoke.cont24
-  %in_whitespace.2 = phi i8 [ 0, %invoke.cont24 ], [ %in_whitespace.024, %if.then ], [ 1, %invoke.cont9 ]
-  %already_trimmed.1 = phi i8 [ 0, %invoke.cont24 ], [ %already_trimmed.025, %if.then ], [ %already_trimmed.025, %invoke.cont9 ]
-  %chars_written.2 = phi i32 [ %inc22, %invoke.cont24 ], [ %chars_written.026, %if.then ], [ %inc, %invoke.cont9 ]
+  %in_whitespace.2 = phi i8 [ 0, %invoke.cont24 ], [ 1, %invoke.cont9 ], [ 1, %if.then ]
+  %already_trimmed.1 = phi i8 [ 0, %invoke.cont24 ], [ %already_trimmed.025, %invoke.cont9 ], [ %already_trimmed.025, %if.then ]
+  %chars_written.2 = phi i32 [ %inc22, %invoke.cont24 ], [ %inc, %invoke.cont9 ], [ %chars_written.026, %if.then ]
   %incdec.ptr.i10 = getelementptr inbounds nuw i8, ptr %i.sroa.0.023, i64 1
   %call2 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #21
   %cmp.i.not = icmp eq ptr %incdec.ptr.i10, %call2

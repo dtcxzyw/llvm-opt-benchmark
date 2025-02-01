@@ -3737,7 +3737,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.then.i, %entry, %if.then.i.i
   %count.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %record, i64 16
-  %.pre136.pre = load i64, ptr %count.i.i.phi.trans.insert, align 8
+  %.pre137.pre = load i64, ptr %count.i.i.phi.trans.insert, align 8
   %out_offset_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %record, i64 272
   %.pre.pre = load i64, ptr %out_offset_.i.phi.trans.insert, align 8
   %out_offset_.i = getelementptr inbounds nuw i8, ptr %record, i64 272
@@ -3760,7 +3760,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.then.i, %entry, 
   br label %while.body
 
 while.body:                                       ; preds = %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %1 = phi i64 [ %68, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre136.pre, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
+  %1 = phi i64 [ %68, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre137.pre, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %out_offset_.i.promoted = phi i64 [ %67, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre.pre, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %2 = load i64, ptr %byte_idx.i, align 8
   %cmp11.not.i = icmp eq i64 %out_offset_.i.promoted, %1
@@ -3771,11 +3771,11 @@ for.body.lr.ph.i:                                 ; preds = %while.body
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %inc.i115 = phi i64 [ %out_offset_.i.promoted, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
+  %inc.i116 = phi i64 [ %out_offset_.i.promoted, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %4 = phi i64 [ %2, %for.body.lr.ph.i ], [ 0, %for.body.i ]
   %sending_length.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
   %iov_size.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc22.i, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.grpc_slice, ptr %3, i64 %inc.i115
+  %arrayidx.i.i = getelementptr inbounds %struct.grpc_slice, ptr %3, i64 %inc.i116
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   %bytes.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
@@ -3794,7 +3794,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i64 %sub.i, ptr %iov_len.i, align 8
   %add.i = add i64 %sub.i, %sending_length.0
-  %inc.i = add i64 %inc.i115, 1
+  %inc.i = add i64 %inc.i116, 1
   store i64 %inc.i, ptr %out_offset_.i, align 8
   store i64 0, ptr %byte_idx.i, align 8
   %inc22.i = add nuw nsw i64 %iov_size.012.i, 1
@@ -3833,18 +3833,18 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %call5, label %lor.lhs.false.if.end12_crit_edge, label %if.then6
 
 lor.lhs.false.if.end12_crit_edge:                 ; preds = %lor.lhs.false
-  %.pre139 = load i32, ptr %saved_errno, align 4
+  %.pre140 = load i32, ptr %saved_errno, align 4
   br label %if.end12
 
 if.then6:                                         ; preds = %lor.lhs.false
-  %.pre137 = load ptr, ptr %outgoing_buffer_arg_, align 16
+  %.pre138 = load ptr, ptr %outgoing_buffer_arg_, align 16
   store i8 0, ptr %ts_capable_, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.not.i13 = icmp eq ptr %.pre137, null
+  %cmp.not.i13 = icmp eq ptr %.pre138, null
   br i1 %cmp.not.i13, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then6.thread, %if.then6
-  %13 = phi ptr [ %11, %if.then6.thread ], [ %.pre137, %if.then6 ]
+  %13 = phi ptr [ %11, %if.then6.thread ], [ %.pre138, %if.then6 ]
   call void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp.i, i64 26, ptr nonnull @.str.12)
   invoke void @_ZN17grpc_event_engine12experimental16TracedBufferList8ShutdownEPvN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %traced_buffers_.i, ptr noundef nonnull %13, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3895,15 +3895,15 @@ if.then10.critedge:                               ; preds = %_ZN17grpc_event_eng
   %saved_errno.promoted = phi i32 [ 0, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec.exit ], [ %saved_errno.promoted.pre, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg_control, i8 0, i64 16, i1 false)
   %19 = load i32, ptr %fd_, align 4
-  %call.i116 = call i64 @sendmsg(i32 noundef %19, ptr noundef nonnull %msg, i32 noundef 67125248)
-  %cmp.i15117 = icmp slt i64 %call.i116, 0
-  br i1 %cmp.i15117, label %land.rhs.i.lr.ph, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit
+  %call.i117 = call i64 @sendmsg(i32 noundef %19, ptr noundef nonnull %msg, i32 noundef 67125248)
+  %cmp.i15118 = icmp slt i64 %call.i117, 0
+  br i1 %cmp.i15118, label %land.rhs.i.lr.ph, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit
 
 land.rhs.i.lr.ph:                                 ; preds = %if.then10.critedge
   %call1.i = tail call ptr @__errno_location() #32
   %20 = load i32, ptr %call1.i, align 4
-  %cmp2.i169 = icmp eq i32 %20, 4
-  br i1 %cmp2.i169, label %do.body.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit, !llvm.loop !53
+  %cmp2.i170 = icmp eq i32 %20, 4
+  br i1 %cmp2.i170, label %do.body.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit, !llvm.loop !53
 
 do.body.i:                                        ; preds = %land.rhs.i.lr.ph, %land.rhs.i
   %call.i = call i64 @sendmsg(i32 noundef %19, ptr noundef nonnull %msg, i32 noundef 67125248)
@@ -3917,13 +3917,13 @@ land.rhs.i:                                       ; preds = %do.body.i
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit: ; preds = %do.body.i, %land.rhs.i, %land.rhs.i.lr.ph, %if.then10.critedge
   %22 = phi i32 [ %saved_errno.promoted, %if.then10.critedge ], [ %20, %land.rhs.i.lr.ph ], [ %21, %land.rhs.i ], [ 4, %do.body.i ]
-  %call.i.lcssa = phi i64 [ %call.i116, %if.then10.critedge ], [ %call.i116, %land.rhs.i.lr.ph ], [ %call.i, %land.rhs.i ], [ %call.i, %do.body.i ]
+  %call.i.lcssa = phi i64 [ %call.i117, %if.then10.critedge ], [ %call.i117, %land.rhs.i.lr.ph ], [ %call.i, %land.rhs.i ], [ %call.i, %do.body.i ]
   store i32 %22, ptr %saved_errno, align 4
   store i64 %call.i.lcssa, ptr %sent_length, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %lor.lhs.false.if.end12_crit_edge, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit
-  %23 = phi i32 [ %.pre139, %lor.lhs.false.if.end12_crit_edge ], [ %22, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit ]
+  %23 = phi i32 [ %.pre140, %lor.lhs.false.if.end12_crit_edge ], [ %22, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit ]
   %24 = load ptr, ptr %tcp_zerocopy_send_ctx_, align 8
   %cmp15 = icmp eq i32 %23, 105
   %mu_.i = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -3961,7 +3961,7 @@ if.then11.i:                                      ; preds = %if.else8.i
 
 cleanup.i:                                        ; preds = %if.then11.i, %if.else8.i, %if.else.i, %if.then4.i
   %constrained.0.shrunk = phi i1 [ %cmp.i17, %if.then4.i ], [ %cmp.i17, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
-  %retval.0.i = phi i1 [ true, %if.then4.i ], [ %cmp.i17, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
+  %retval.0.i = phi i1 [ true, %if.then4.i ], [ false, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
           to label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit unwind label %terminate.lpad.i2.i
 
@@ -3973,7 +3973,10 @@ terminate.lpad.i2.i:                              ; preds = %cleanup.i
   unreachable
 
 _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit: ; preds = %cleanup.i
-  br i1 %retval.0.i, label %if.then19, label %if.end38
+  br i1 %retval.0.i, label %if.then19, label %lor.lhs.false17
+
+lor.lhs.false17:                                  ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit
+  br i1 %constrained.0.shrunk, label %do.body, label %if.end38
 
 if.then19:                                        ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit
   br i1 %constrained.0.shrunk, label %do.body, label %if.then21
@@ -3986,7 +3989,7 @@ if.then21:                                        ; preds = %if.then19
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30)
   br label %if.end38
 
-do.body:                                          ; preds = %if.then19
+do.body:                                          ; preds = %lor.lhs.false17, %if.then19
   %call24 = call { i64, i64 } @gpr_now(i32 noundef 0)
   %32 = extractvalue { i64, i64 } %call24, 0
   %33 = extractvalue { i64, i64 } %call24, 1
@@ -4049,7 +4052,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_120GetUlimitHardMemLockEv.exit:
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 978, i32 noundef 1, ptr noundef nonnull @.str.13, i64 noundef %38, i64 noundef %42)
   br label %if.end38
 
-if.end38:                                         ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit, %if.then21, %lor.lhs.false29, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_120GetUlimitHardMemLockEv.exit
+if.end38:                                         ; preds = %if.then21, %lor.lhs.false29, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_120GetUlimitHardMemLockEv.exit, %lor.lhs.false17
   %43 = load i64, ptr %sent_length, align 8
   %cmp39 = icmp slt i64 %43, 0
   br i1 %cmp39, label %if.then40, label %if.end55

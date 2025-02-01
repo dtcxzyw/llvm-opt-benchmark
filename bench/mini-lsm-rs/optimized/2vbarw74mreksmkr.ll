@@ -9852,6 +9852,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %128 = load i64, ptr %66, align 8, !noundef !7
   %129 = icmp ne i64 %128, 0
   %brmerge = select i1 %129, i1 true, i1 %.03698
+  %not. = xor i1 %129, true
+  %.036.mux = select i1 %not., i1 true, i1 %.03698
   br i1 %brmerge, label %149, label %148
 
 130:                                              ; preds = %95
@@ -9905,7 +9907,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   br i1 %.not41, label %154, label %151, !prof !836
 
 149:                                              ; preds = %127, %167
-  %.137 = phi i1 [ true, %167 ], [ %.03698, %127 ]
+  %.137 = phi i1 [ true, %167 ], [ %.036.mux, %127 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %150 = icmp eq ptr %73, %61
   br i1 %150, label %._crit_edge, label %72

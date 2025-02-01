@@ -10266,37 +10266,36 @@ _ZNK5Catch8TextFlow6Column5beginEv.exit:          ; preds = %._ZNK5Catch8TextFlo
   br i1 %.not3.i8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK5Catch8TextFlow6Column5beginEv.exit
+  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %13, i64 noundef %7)
+  br label %21
+
+.critedge:                                        ; preds = %23
   %17 = load i64, ptr %6, align 8, !noalias !111
-  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %13, i64 noundef %17)
-  br label %22
+  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %25, i64 noundef %17)
+  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 10)
+          to label %21 unwind label %19
 
-.critedge:                                        ; preds = %24
-  %18 = load i64, ptr %6, align 8, !noalias !111
-  call void @_ZNK5Catch8TextFlow6Column14const_iterator18addIndentAndSuffixB5cxx11Emm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(33) %3, i64 noundef %26, i64 noundef %18)
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 10)
-          to label %22 unwind label %20
-
-20:                                               ; preds = %22, %.critedge
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %21, %.critedge
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #56
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
-22:                                               ; preds = %.lr.ph, %.critedge
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %24 unwind label %20
+21:                                               ; preds = %.lr.ph, %.critedge
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %23 unwind label %19
 
-24:                                               ; preds = %22
+23:                                               ; preds = %21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #56
-  %25 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(33) %3)
-  %26 = load i64, ptr %5, align 8
-  %27 = icmp ne i64 %26, %14
-  %28 = load ptr, ptr %3, align 8
-  %29 = icmp ne ptr %28, %1
-  %.not3.i = select i1 %27, i1 true, i1 %29
+  %24 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN5Catch8TextFlow6Column14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(33) %3)
+  %25 = load i64, ptr %5, align 8
+  %26 = icmp ne i64 %25, %14
+  %27 = load ptr, ptr %3, align 8
+  %28 = icmp ne ptr %27, %1
+  %.not3.i = select i1 %26, i1 true, i1 %28
   br i1 %.not3.i, label %.critedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %24, %_ZNK5Catch8TextFlow6Column5beginEv.exit
+._crit_edge:                                      ; preds = %23, %_ZNK5Catch8TextFlow6Column5beginEv.exit
   ret ptr %0
 }
 
@@ -31908,7 +31907,7 @@ define dso_local void @_ZNK5Catch5Clara6Parser13writeToStreamERSo(ptr noundef no
   br label %32
 
 32:                                               ; preds = %30, %28, %24
-  %.1 = phi i8 [ 0, %30 ], [ %.085, %28 ], [ %.085, %24 ]
+  %.1 = phi i8 [ 0, %30 ], [ 0, %28 ], [ %.085, %24 ]
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 60)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.076.083, i64 32
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) %34)

@@ -68,66 +68,56 @@ define dso_local void @_ZN18AttributeGenerator6OutputERSo(ptr noundef nonnull re
   %.not13 = icmp eq ptr %5, %7
   br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %26
-  %.015 = phi i8 [ %.1, %26 ], [ 0, %2 ]
-  %.sroa.08.014 = phi ptr [ %27, %26 ], [ %5, %2 ]
+.lr.ph:                                           ; preds = %2, %20
+  %.015 = phi i8 [ %.1, %20 ], [ 0, %2 ]
+  %.sroa.08.014 = phi ptr [ %21, %20 ], [ %5, %2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   %8 = load ptr, ptr %.sroa.08.014, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(44) %8)
-          to label %11 unwind label %20
+          to label %11 unwind label %17
 
 11:                                               ; preds = %.lr.ph
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   %13 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str) #9
   %.not11 = icmp eq i32 %13, 0
-  br i1 %.not11, label %26, label %14
+  br i1 %.not11, label %20, label %.invoke17
 
-14:                                               ; preds = %11
-  %15 = trunc nuw i8 %.015 to i1
-  br i1 %15, label %22, label %16
+.invoke17:                                        ; preds = %11
+  %14 = trunc nuw i8 %.015 to i1
+  %15 = select i1 %14, ptr @.str.2, ptr @.str.1
+  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %15)
+          to label %.invoke unwind label %17
 
-16:                                               ; preds = %14
-  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1)
-          to label %18 unwind label %20
-
-18:                                               ; preds = %16
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %26 unwind label %20
-
-20:                                               ; preds = %24, %22, %18, %16, %.lr.ph
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %.invoke17, %.invoke, %.lr.ph
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %18
 
-22:                                               ; preds = %14
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2)
-          to label %24 unwind label %20
+.invoke:                                          ; preds = %.invoke17
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %20 unwind label %17
 
-24:                                               ; preds = %22
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %26 unwind label %20
-
-26:                                               ; preds = %18, %24, %11
-  %.1 = phi i8 [ %.015, %24 ], [ %.015, %11 ], [ 1, %18 ]
+20:                                               ; preds = %.invoke, %11
+  %.1 = phi i8 [ %.015, %11 ], [ 1, %.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
-  %28 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %27, %28
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
+  %22 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %21, %22
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %26
-  %29 = trunc nuw i8 %.1 to i1
-  br i1 %29, label %30, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %20
+  %23 = trunc nuw i8 %.1 to i1
+  br i1 %23, label %24, label %._crit_edge.thread
 
-30:                                               ; preds = %._crit_edge
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
+24:                                               ; preds = %._crit_edge
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %30, %._crit_edge
+._crit_edge.thread:                               ; preds = %2, %24, %._crit_edge
   ret void
 }
 

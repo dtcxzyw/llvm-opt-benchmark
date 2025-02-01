@@ -809,12 +809,14 @@ define internal void @_ZN12_GLOBAL__N_19GliftPass7executeESt6vectorINSt7__cxx111
   unreachable
 
 79:                                               ; preds = %77, %75, %._crit_edge
-  %.mask = and i8 %.0.lcssa.ph, 1
-  %.mask70 = and i8 %.050.lcssa.ph, 1
-  %80 = trunc nuw i8 %.052.lcssa.ph to i1
-  %.mask71 = and i8 %.052.lcssa.ph, 1
+  %.0.lcssa380 = phi i8 [ 0, %77 ], [ 0, %75 ], [ 1, %._crit_edge ]
+  %.050.lcssa378 = phi i8 [ 0, %77 ], [ 1, %75 ], [ %.050.lcssa.ph, %._crit_edge ]
+  %.052.lcssa376 = phi i8 [ 1, %77 ], [ %.052.lcssa.ph, %75 ], [ %.052.lcssa.ph, %._crit_edge ]
+  %.mask70 = and i8 %.050.lcssa378, 1
+  %80 = trunc nuw i8 %.052.lcssa376 to i1
+  %.mask71 = and i8 %.052.lcssa376, 1
   %narrow = add nuw nsw i8 %.mask70, %.mask71
-  %narrow72 = add nuw nsw i8 %narrow, %.mask
+  %narrow72 = add nuw nsw i8 %narrow, %.0.lcssa380
   %.not = icmp eq i8 %narrow72, 1
   br i1 %.not, label %82, label %81
 
@@ -2275,7 +2277,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEEixERKS3_.exit: ; p
   store i32 %742, ptr %659, align 4, !alias.scope !22
   store ptr %666, ptr %657, align 8
   store i8 %.011.i.i, ptr %15, align 8
-  store i8 %.mask, ptr %647, align 1
+  store i8 %.0.lcssa380, ptr %647, align 1
   store i8 %.mask70, ptr %648, align 2
   store i8 %.mask71, ptr %649, align 1
   store i8 %71, ptr %650, align 4

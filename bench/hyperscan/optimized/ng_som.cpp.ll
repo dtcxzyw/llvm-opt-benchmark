@@ -10896,17 +10896,14 @@ invoke.cont63.i119:                               ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont71.i:                                  ; preds = %invoke.cont63.i119, %invoke.cont71.i
   %ai.sroa.0.0353.i = phi ptr [ %ai.sroa.0.0.i, %invoke.cont71.i ], [ %ai.sroa.0.0350.i, %invoke.cont63.i119 ]
-  %lhs_all_vac.0352.i = phi i8 [ %spec.select.i, %invoke.cont71.i ], [ 1, %invoke.cont63.i119 ]
   %target.i.i.i135.i = getelementptr inbounds nuw i8, ptr %ai.sroa.0.0353.i, i64 40
   %204 = load ptr, ptr %target.i.i.i135.i, align 8
   %index.i.i120 = getelementptr inbounds nuw i8, ptr %204, i64 80
   %205 = load i64, ptr %index.i.i120, align 8
   %cmp.i136.i = icmp ult i64 %205, 4
-  %spec.select.i = select i1 %cmp.i136.i, i8 %lhs_all_vac.0352.i, i8 0
   %ai.sroa.0.0.i = load ptr, ptr %ai.sroa.0.0353.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne ptr %ai.sroa.0.0.i, %m_header.i.i.i.i.i.i
-  %tobool69.i = trunc nuw i8 %spec.select.i to i1
-  %206 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %tobool69.i, i1 false
+  %206 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i136.i, i1 false
   br i1 %206, label %invoke.cont71.i, label %invoke.cont84.i121
 
 lpad47.loopexit.i:                                ; preds = %for.body.i.i
@@ -10932,33 +10929,29 @@ lpad54.i:                                         ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup366.i
 
 invoke.cont84.i121:                               ; preds = %invoke.cont71.i, %invoke.cont63.i119
-  %lhs_all_vac.0.lcssa.i = phi i8 [ 1, %invoke.cont63.i119 ], [ %spec.select.i, %invoke.cont71.i ]
+  %lhs_all_vac.0.lcssa.i = phi i1 [ true, %invoke.cont63.i119 ], [ %cmp.i136.i, %invoke.cont71.i ]
   %start82.i = getelementptr inbounds nuw i8, ptr %203, i64 72
   %agg.tmp80.sroa.0.0.copyload.i = load ptr, ptr %start82.i, align 8
   %m_header.i.i.i.i.i137.i = getelementptr inbounds nuw i8, ptr %agg.tmp80.sroa.0.0.copyload.i, i64 136
   %ai.sroa.0.1354.i = load ptr, ptr %m_header.i.i.i.i.i137.i, align 8
   %cmp.i.i.i.i.i.i.i141355.i = icmp ne ptr %ai.sroa.0.1354.i, %m_header.i.i.i.i.i137.i
-  %tobool92356.i = trunc nuw i8 %lhs_all_vac.0.lcssa.i to i1
-  %209 = select i1 %cmp.i.i.i.i.i.i.i141355.i, i1 %tobool92356.i, i1 false
+  %209 = select i1 %cmp.i.i.i.i.i.i.i141355.i, i1 %lhs_all_vac.0.lcssa.i, i1 false
   br i1 %209, label %invoke.cont96.i, label %for.end105.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont84.i121, %invoke.cont96.i
   %ai.sroa.0.1358.i = phi ptr [ %ai.sroa.0.1.i, %invoke.cont96.i ], [ %ai.sroa.0.1354.i, %invoke.cont84.i121 ]
-  %lhs_all_vac.2357.i = phi i8 [ %spec.select60.i, %invoke.cont96.i ], [ %lhs_all_vac.0.lcssa.i, %invoke.cont84.i121 ]
   %target.i.i.i142.i = getelementptr inbounds nuw i8, ptr %ai.sroa.0.1358.i, i64 40
   %210 = load ptr, ptr %target.i.i.i142.i, align 8
   %index.i146.i = getelementptr inbounds nuw i8, ptr %210, i64 80
   %211 = load i64, ptr %index.i146.i, align 8
   %cmp.i147.i = icmp ult i64 %211, 4
-  %spec.select60.i = select i1 %cmp.i147.i, i8 %lhs_all_vac.2357.i, i8 0
   %ai.sroa.0.1.i = load ptr, ptr %ai.sroa.0.1358.i, align 8
   %cmp.i.i.i.i.i.i.i141.i = icmp ne ptr %ai.sroa.0.1.i, %m_header.i.i.i.i.i137.i
-  %tobool92.i = trunc nuw i8 %spec.select60.i to i1
-  %212 = select i1 %cmp.i.i.i.i.i.i.i141.i, i1 %tobool92.i, i1 false
+  %212 = select i1 %cmp.i.i.i.i.i.i.i141.i, i1 %cmp.i147.i, i1 false
   br i1 %212, label %invoke.cont96.i, label %for.end105.i
 
 for.end105.i:                                     ; preds = %invoke.cont96.i, %invoke.cont84.i121
-  %tobool92.lcssa.i = phi i1 [ %tobool92356.i, %invoke.cont84.i121 ], [ %tobool92.i, %invoke.cont96.i ]
+  %tobool92.lcssa.i = phi i1 [ %lhs_all_vac.0.lcssa.i, %invoke.cont84.i121 ], [ %cmp.i147.i, %invoke.cont96.i ]
   br i1 %tobool92.lcssa.i, label %if.then107.i, label %if.else.i
 
 if.then107.i:                                     ; preds = %for.end105.i

@@ -1268,22 +1268,23 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %278
 
 278:                                              ; preds = %278, %276
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %276 ], [ %spec.select8.i.i.i.i, %278 ]
-  %279 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, %268
-  %280 = zext i1 %279 to i64
-  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.012.i.i.i.i, %280
-  %281 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, 12
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %276 ], [ %spec.select8.i.i.i.i, %278 ]
+  %279 = icmp samesign uge i64 %.sroa.0.011.i.i.i.i, %268
+  %not..i.i.i.i = xor i1 %279, true
+  %280 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %280
+  %281 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %281)
-  %282 = getelementptr inbounds nuw ptr, ptr %269, i64 %.sroa.0.012.i.i.i.i
+  %282 = getelementptr inbounds nuw ptr, ptr %269, i64 %.sroa.0.011.i.i.i.i
   %283 = load ptr, ptr %282, align 8, !alias.scope !196, !noalias !199, !nonnull !4, !noundef !4
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 176
   store ptr %221, ptr %284, align 8, !noalias !202
-  %285 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i to i16
+  %285 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 184
   store i16 %285, ptr %286, align 8, !noalias !199
-  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i, %268
-  %or.cond.i.not.i.i.i = select i1 %279, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %278, label %290
+  %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %268
+  %or.cond.i.i.i.i = select i1 %279, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %290, label %278
 
 287:                                              ; preds = %255
   %288 = landingpad { ptr, i32 }
@@ -1837,21 +1838,22 @@ _ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i.i: ; 
   br label %190
 
 190:                                              ; preds = %190, %188
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %188 ], [ %spec.select8.i.i.i.i, %190 ]
-  %191 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, %180
-  %192 = zext i1 %191 to i64
-  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.012.i.i.i.i, %192
-  %193 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, 12
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %188 ], [ %spec.select8.i.i.i.i, %190 ]
+  %191 = icmp samesign uge i64 %.sroa.0.011.i.i.i.i, %180
+  %not..i.i.i.i = xor i1 %191, true
+  %192 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %192
+  %193 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %193)
-  %194 = getelementptr inbounds nuw ptr, ptr %181, i64 %.sroa.0.012.i.i.i.i
+  %194 = getelementptr inbounds nuw ptr, ptr %181, i64 %.sroa.0.011.i.i.i.i
   %195 = load ptr, ptr %194, align 8, !alias.scope !313, !noalias !316, !nonnull !4, !noundef !4
   store ptr %142, ptr %195, align 8, !noalias !319
-  %196 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i to i16
+  %196 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 140
   store i16 %196, ptr %197, align 4, !noalias !316
-  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i, %180
-  %or.cond.i.not.i.i.i = select i1 %191, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %190, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h0e0716c86665e83eE.exit.i"
+  %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %180
+  %or.cond.i.i.i.i = select i1 %191, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h0e0716c86665e83eE.exit.i", label %190
 
 198:                                              ; preds = %165, %163
   %.pn.i.i = phi { ptr, i32 } [ %166, %165 ], [ %164, %163 ]
@@ -2435,21 +2437,22 @@ _ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i.i: ; 
   br label %160
 
 160:                                              ; preds = %160, %158
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %158 ], [ %spec.select8.i.i.i.i, %160 ]
-  %161 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, %150
-  %162 = zext i1 %161 to i64
-  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.012.i.i.i.i, %162
-  %163 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, 12
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %158 ], [ %spec.select8.i.i.i.i, %160 ]
+  %161 = icmp samesign uge i64 %.sroa.0.011.i.i.i.i, %150
+  %not..i.i.i.i = xor i1 %161, true
+  %162 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %162
+  %163 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %163)
-  %164 = getelementptr inbounds nuw ptr, ptr %151, i64 %.sroa.0.012.i.i.i.i
+  %164 = getelementptr inbounds nuw ptr, ptr %151, i64 %.sroa.0.011.i.i.i.i
   %165 = load ptr, ptr %164, align 8, !alias.scope !434, !noalias !437, !nonnull !4, !noundef !4
   store ptr %119, ptr %165, align 8, !noalias !440
-  %166 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i to i16
+  %166 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 448
   store i16 %166, ptr %167, align 8, !noalias !437
-  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i, %150
-  %or.cond.i.not.i.i.i = select i1 %161, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %160, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17he73eaee6e10befebE.exit.i"
+  %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %150
+  %or.cond.i.i.i.i = select i1 %161, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17he73eaee6e10befebE.exit.i", label %160
 
 168:                                              ; preds = %138, %136
   %.pn.i.i = phi { ptr, i32 } [ %139, %138 ], [ %137, %136 ]

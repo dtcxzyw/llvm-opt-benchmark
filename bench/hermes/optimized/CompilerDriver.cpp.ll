@@ -3541,7 +3541,7 @@ if.end.i.i42.i:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i.i42.i, %if.then.i.i39.i, %if.then7.i, %land.lhs.true5.i, %land.lhs.true3.i, %if.end.i13
-  %errored.1.i = phi i8 [ %errored.0.i, %land.lhs.true5.i ], [ %errored.0.i, %land.lhs.true3.i ], [ %errored.0.i, %if.end.i13 ], [ %errored.0.i, %if.then7.i ], [ 1, %if.end.i.i42.i ], [ 1, %if.then.i.i39.i ]
+  %errored.1.i = phi i8 [ %errored.0.i, %land.lhs.true5.i ], [ %errored.0.i, %land.lhs.true3.i ], [ %errored.0.i, %if.end.i13 ], [ 1, %if.then7.i ], [ 1, %if.end.i.i42.i ], [ 1, %if.then.i.i39.i ]
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15LazyCompilationE, i64 152), align 8
   %tobool.i.i47.i = trunc i8 %28 to i1
   br i1 %tobool.i.i47.i, label %land.lhs.true10.i, label %if.end13.i15
@@ -3600,7 +3600,7 @@ if.end.i.i71.i:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %if.end13.i15
 
 if.end13.i15:                                     ; preds = %if.end.i.i71.i, %if.then.i.i68.i, %if.then12.i, %land.lhs.true10.i, %if.end8.i
-  %errored.2.i = phi i8 [ %errored.1.i, %land.lhs.true10.i ], [ %errored.1.i, %if.end8.i ], [ %errored.1.i, %if.then12.i ], [ 1, %if.end.i.i71.i ], [ 1, %if.then.i.i68.i ]
+  %errored.2.i = phi i8 [ %errored.1.i, %land.lhs.true10.i ], [ %errored.1.i, %if.end8.i ], [ 1, %if.then12.i ], [ 1, %if.end.i.i71.i ], [ 1, %if.then.i.i68.i ]
   %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15LazyCompilationE, i64 152), align 8
   %tobool.i.i76.i = trunc i8 %35 to i1
   br i1 %tobool.i.i76.i, label %if.then15.i, label %if.end37.i
@@ -3659,7 +3659,7 @@ if.end.i.i99.i:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end.i.i99.i, %if.then.i.i96.i, %if.then18.i19, %if.then15.i
-  %errored.4.i = phi i8 [ %errored.2.i, %if.then15.i ], [ %errored.2.i, %if.then18.i19 ], [ 1, %if.end.i.i99.i ], [ 1, %if.then.i.i96.i ]
+  %errored.4.i = phi i8 [ %errored.2.i, %if.then15.i ], [ 1, %if.then18.i19 ], [ 1, %if.end.i.i99.i ], [ 1, %if.then.i.i96.i ]
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL10DumpTargetE, i64 152), align 8
   %cmp21.not.i = icmp eq i32 %42, 12
   br i1 %cmp21.not.i, label %if.end23.i, label %if.then22.i
@@ -3713,7 +3713,7 @@ if.end.i.i126.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end.i.i126.i, %if.then.i.i123.i, %if.then22.i, %if.end19.i
-  %errored.5.i = phi i8 [ %errored.4.i, %if.end19.i ], [ %errored.4.i, %if.then22.i ], [ 1, %if.end.i.i126.i ], [ 1, %if.then.i.i123.i ]
+  %errored.5.i = phi i8 [ %errored.4.i, %if.end19.i ], [ 1, %if.then22.i ], [ 1, %if.end.i.i126.i ], [ 1, %if.then.i.i123.i ]
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cl17OptimizationLevelE, i64 152), align 8
   %cmp25.i20 = icmp sgt i32 %48, 1
   br i1 %cmp25.i20, label %if.then26.i21, label %if.end27.i
@@ -3767,7 +3767,7 @@ if.end.i.i153.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end.i.i153.i, %if.then.i.i150.i, %if.then26.i21, %if.end23.i
-  %errored.6.i = phi i8 [ %errored.5.i, %if.end23.i ], [ %errored.5.i, %if.then26.i21 ], [ 1, %if.end.i.i153.i ], [ 1, %if.then.i.i150.i ]
+  %errored.6.i = phi i8 [ %errored.5.i, %if.end23.i ], [ 1, %if.then26.i21 ], [ 1, %if.end.i.i153.i ], [ 1, %if.then.i.i150.i ]
   %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL12BytecodeModeE, i64 152), align 8
   %tobool.i.i158.i = trunc i8 %54 to i1
   br i1 %tobool.i.i158.i, label %if.then29.i, label %if.end30.i
@@ -3821,7 +3821,7 @@ if.end.i.i181.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.end.i.i181.i, %if.then.i.i178.i, %if.then29.i, %if.end27.i
-  %errored.7.i = phi i8 [ %errored.6.i, %if.end27.i ], [ %errored.6.i, %if.then29.i ], [ 1, %if.end.i.i181.i ], [ 1, %if.then.i.i178.i ]
+  %errored.7.i = phi i8 [ %errored.6.i, %if.end27.i ], [ 1, %if.then29.i ], [ 1, %if.end.i.i181.i ], [ 1, %if.then.i.i178.i ]
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 152), align 8
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 160), align 8
   %cmp.i.i.i186.i = icmp eq ptr %60, %61
@@ -3876,7 +3876,7 @@ if.end.i.i209.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end.i.i209.i, %if.then.i.i206.i, %if.then32.i, %if.end30.i
-  %errored.8.i = phi i8 [ %errored.7.i, %if.end30.i ], [ %errored.7.i, %if.then32.i ], [ 1, %if.end.i.i209.i ], [ 1, %if.then.i.i206.i ]
+  %errored.8.i = phi i8 [ %errored.7.i, %if.end30.i ], [ 1, %if.then32.i ], [ 1, %if.end.i.i209.i ], [ 1, %if.then.i.i206.i ]
   %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL8CommonJSE, i64 152), align 8
   %tobool.i.i214.i = trunc i8 %67 to i1
   br i1 %tobool.i.i214.i, label %if.then35.i, label %if.end37.i
@@ -3930,7 +3930,7 @@ if.end.i.i237.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end.i.i237.i, %if.then.i.i234.i, %if.then35.i, %if.end33.i, %if.end13.i15
-  %errored.3.i = phi i8 [ %errored.8.i, %if.end33.i ], [ %errored.2.i, %if.end13.i15 ], [ %errored.8.i, %if.then35.i ], [ 1, %if.end.i.i237.i ], [ 1, %if.then.i.i234.i ]
+  %errored.3.i = phi i8 [ %errored.8.i, %if.end33.i ], [ %errored.2.i, %if.end13.i15 ], [ 1, %if.then35.i ], [ 1, %if.end.i.i237.i ], [ 1, %if.then.i.i234.i ]
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 160), align 8
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 152), align 8
   %sub.ptr.lhs.cast.i.i.i16 = ptrtoint ptr %73 to i64
@@ -3993,7 +3993,7 @@ if.end.i.i265.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end.i.i265.i, %if.then.i.i262.i, %if.then42.i, %if.then40.i
-  %errored.10.i = phi i8 [ %errored.3.i, %if.then40.i ], [ %errored.3.i, %if.then42.i ], [ 1, %if.end.i.i265.i ], [ 1, %if.then.i.i262.i ]
+  %errored.10.i = phi i8 [ %errored.3.i, %if.then40.i ], [ 1, %if.then42.i ], [ 1, %if.end.i.i265.i ], [ 1, %if.then.i.i262.i ]
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14BytecodeFormatE, i64 152), align 8
   %cmp45.not.i = icmp eq i32 %81, 0
   br i1 %cmp45.not.i, label %if.end47.i, label %if.then46.i
@@ -4047,7 +4047,7 @@ if.end.i.i292.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end.i.i292.i, %if.then.i.i289.i, %if.then46.i, %if.end43.i
-  %errored.11.i = phi i8 [ %errored.10.i, %if.end43.i ], [ %errored.10.i, %if.then46.i ], [ 1, %if.end.i.i292.i ], [ 1, %if.then.i.i289.i ]
+  %errored.11.i = phi i8 [ %errored.10.i, %if.end43.i ], [ 1, %if.then46.i ], [ 1, %if.end.i.i292.i ], [ 1, %if.then.i.i289.i ]
   %87 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL8CommonJSE, i64 152), align 8
   %tobool.i.i297.i = trunc i8 %87 to i1
   br i1 %tobool.i.i297.i, label %if.end51.i, label %if.then49.i
@@ -4101,7 +4101,7 @@ if.end.i.i320.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end.i.i320.i, %if.then.i.i317.i, %if.then49.i, %if.end47.i, %if.end37.i
-  %errored.9.i = phi i8 [ %errored.11.i, %if.end47.i ], [ %errored.3.i, %if.end37.i ], [ %errored.11.i, %if.then49.i ], [ 1, %if.end.i.i320.i ], [ 1, %if.then.i.i317.i ]
+  %errored.9.i = phi i8 [ %errored.11.i, %if.end47.i ], [ %errored.3.i, %if.end37.i ], [ 1, %if.then49.i ], [ 1, %if.end.i.i320.i ], [ 1, %if.then.i.i317.i ]
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OutputSourceMapE, i64 152), align 8
   %tobool.i.i325.i = trunc i8 %93 to i1
   br i1 %tobool.i.i325.i, label %if.then53.i, label %if.end65.i
@@ -4159,7 +4159,7 @@ if.end.i.i348.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end.i.i348.i, %if.then.i.i345.i, %if.then55.i, %if.then53.i
-  %errored.13.i = phi i8 [ %errored.9.i, %if.then53.i ], [ %errored.9.i, %if.then55.i ], [ 1, %if.end.i.i348.i ], [ 1, %if.then.i.i345.i ]
+  %errored.13.i = phi i8 [ %errored.9.i, %if.then53.i ], [ 1, %if.then55.i ], [ 1, %if.end.i.i348.i ], [ 1, %if.then.i.i345.i ]
   %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14BytecodeFormatE, i64 152), align 8
   %cmp58.not.i = icmp eq i32 %99, 0
   br i1 %cmp58.not.i, label %if.end60.i, label %if.then59.i
@@ -4213,7 +4213,7 @@ if.end.i.i375.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.end.i.i375.i, %if.then.i.i372.i, %if.then59.i, %if.end56.i
-  %errored.14.i = phi i8 [ %errored.13.i, %if.end56.i ], [ %errored.13.i, %if.then59.i ], [ 1, %if.end.i.i375.i ], [ 1, %if.then.i.i372.i ]
+  %errored.14.i = phi i8 [ %errored.13.i, %if.end56.i ], [ 1, %if.then59.i ], [ 1, %if.end.i.i375.i ], [ 1, %if.then.i.i372.i ]
   %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL10DumpTargetE, i64 152), align 8
   %cmp62.not.i = icmp eq i32 %105, 11
   br i1 %cmp62.not.i, label %if.end65.i, label %if.then63.i
@@ -4267,7 +4267,7 @@ if.end.i.i402.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.end.i.i402.i, %if.then.i.i399.i, %if.then63.i, %if.end60.i, %if.end51.i
-  %errored.12.i = phi i8 [ %errored.14.i, %if.end60.i ], [ %errored.9.i, %if.end51.i ], [ %errored.14.i, %if.then63.i ], [ 1, %if.end.i.i402.i ], [ 1, %if.then.i.i399.i ]
+  %errored.12.i = phi i8 [ %errored.14.i, %if.end60.i ], [ %errored.9.i, %if.end51.i ], [ 1, %if.then63.i ], [ 1, %if.end.i.i402.i ], [ 1, %if.then.i.i399.i ]
   %111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL12BytecodeModeE, i64 152), align 8
   %tobool.i.i407.i = trunc i8 %111 to i1
   br i1 %tobool.i.i407.i, label %land.lhs.true67.i, label %if.end79.i
@@ -4331,13 +4331,12 @@ if.end.i.i430.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end74thread-pre-split.i
 
 if.end74thread-pre-split.i:                       ; preds = %if.end.i.i430.i, %if.then.i.i427.i, %if.then73.i
-  %errored.16.ph.i = phi i8 [ 1, %if.then.i.i427.i ], [ 1, %if.end.i.i430.i ], [ %errored.12.i, %if.then73.i ]
   %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL10DumpTargetE, i64 152), align 8
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end74thread-pre-split.i, %if.then70.i
   %119 = phi i32 [ %.pr.i, %if.end74thread-pre-split.i ], [ %112, %if.then70.i ]
-  %errored.16.i = phi i8 [ %errored.16.ph.i, %if.end74thread-pre-split.i ], [ %errored.12.i, %if.then70.i ]
+  %errored.16.i = phi i8 [ 1, %if.end74thread-pre-split.i ], [ %errored.12.i, %if.then70.i ]
   %cmp76.not.i = icmp eq i32 %119, 10
   br i1 %cmp76.not.i, label %if.end79.i, label %if.then77.i
 
@@ -4390,7 +4389,7 @@ if.end.i.i457.i:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %if.end79.i
 
 if.end79.i:                                       ; preds = %if.end.i.i457.i, %if.then.i.i454.i, %if.then77.i, %if.end74.i, %land.lhs.true67.i, %if.end65.i
-  %errored.15.i = phi i8 [ %errored.12.i, %land.lhs.true67.i ], [ %errored.16.i, %if.end74.i ], [ %errored.12.i, %if.end65.i ], [ %errored.16.i, %if.then77.i ], [ 1, %if.end.i.i457.i ], [ 1, %if.then.i.i454.i ]
+  %errored.15.i = phi i8 [ %errored.12.i, %land.lhs.true67.i ], [ %errored.16.i, %if.end74.i ], [ %errored.12.i, %if.end65.i ], [ 1, %if.then77.i ], [ 1, %if.end.i.i457.i ], [ 1, %if.then.i.i454.i ]
   %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL12InstrumentIRE, i64 152), align 8
   %tobool.i.i462.i = trunc i8 %125 to i1
   %tobool.i463.i = trunc nuw i8 %errored.15.i to i1
@@ -4446,7 +4445,7 @@ if.end.i.i485.i:                                  ; preds = %_ZN4llvh11raw_ostre
 _ZN12_GLOBAL__N_113validateFlagsEv.exit:          ; preds = %if.end79.i
   br i1 %tobool.i463.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %if.then81.i, %if.then.i.i482.i, %if.end.i.i485.i, %_ZN12_GLOBAL__N_113validateFlagsEv.exit
+if.then:                                          ; preds = %if.then.i.i482.i, %if.end.i.i485.i, %if.then81.i, %_ZN12_GLOBAL__N_113validateFlagsEv.exit
   store i32 1, ptr %agg.result, align 8
   %bytecodeProvider.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %filename.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40

@@ -13648,8 +13648,8 @@ declare i32 @H5T__print_path_stats(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #6 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %25, %22, %2
-  %.tr = phi ptr [ %0, %2 ], [ %24, %22 ], [ %27, %25 ]
+tailrecurse:                                      ; preds = %.loopexit.sink.split, %2
+  %.tr = phi ptr [ %0, %2 ], [ %.sink, %.loopexit.sink.split ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -13662,8 +13662,8 @@ tailrecurse:                                      ; preds = %25, %22, %2
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %.loopexit [
     i32 6, label %.preheader
-    i32 9, label %22
-    i32 10, label %25
+    i32 9, label %20
+    i32 10, label %23
   ]
 
 .preheader:                                       ; preds = %8
@@ -13677,42 +13677,39 @@ tailrecurse:                                      ; preds = %25, %22, %2
   %wide.trip.count = zext i32 %12 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.122 = phi i8 [ 0, %.lr.ph ], [ %21, %16 ]
-  %15 = trunc nuw i8 %.122 to i1
-  br i1 %15, label %.loopexit.loopexit, label %16
+14:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %.122 = phi i1 [ false, %.lr.ph ], [ %19, %15 ]
+  br i1 %.122, label %.loopexit, label %15
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %17, i64 %indvars.iv, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %19, ptr noundef %1)
-  %21 = zext i1 %20 to i8
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %16, i64 %indvars.iv, i32 3
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef %18, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %14
+  br i1 %exitcond.not, label %.loopexit, label %14
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %.not21 = icmp eq ptr %24, null
-  br i1 %.not21, label %.loopexit, label %tailrecurse
+20:                                               ; preds = %8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %.not21 = icmp eq ptr %22, null
+  br i1 %.not21, label %.loopexit, label %.loopexit.sink.split
 
-25:                                               ; preds = %8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %27 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.loopexit, label %tailrecurse
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.loopexit:                               ; preds = %14, %16
-  %.017.ph = phi i8 [ %.122, %14 ], [ %21, %16 ]
-  %28 = trunc nuw i8 %.017.ph to i1
-  br label %.loopexit
+.loopexit.sink.split:                             ; preds = %23, %20
+  %.sink = phi ptr [ %22, %20 ], [ %25, %23 ]
+  br label %tailrecurse
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %8, %22, %25, %tailrecurse
-  %.017 = phi i1 [ true, %tailrecurse ], [ false, %25 ], [ false, %22 ], [ false, %8 ], [ false, %.preheader ], [ %28, %.loopexit.loopexit ]
-  ret i1 %.017
+.loopexit:                                        ; preds = %15, %14, %.preheader, %8, %20, %23, %tailrecurse
+  %.017.shrunk = phi i1 [ true, %tailrecurse ], [ false, %23 ], [ false, %20 ], [ false, %8 ], [ false, %.preheader ], [ %19, %15 ], [ true, %14 ]
+  ret i1 %.017.shrunk
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

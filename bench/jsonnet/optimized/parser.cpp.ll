@@ -7999,13 +7999,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not242252, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %346, %366
-  %.026254 = phi i1 [ %.mux, %366 ], [ false, %346 ]
+  %.026254 = phi i1 [ %.not69, %366 ], [ false, %346 ]
   %.sroa.0205.0253 = phi ptr [ %367, %366 ], [ %347, %346 ]
   %349 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0253, i64 24
   %350 = load ptr, ptr %349, align 8
   %.not69 = icmp ne ptr %350, null
   %.026.not = xor i1 %.026254, true
-  %brmerge = select i1 %.not69, i1 true, i1 %.026.not
+  %brmerge = or i1 %.not69, %.026.not
   br i1 %brmerge, label %366, label %355
 
 351:                                              ; preds = %.noexc152, %342
@@ -8061,7 +8061,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %422
 
 366:                                              ; preds = %.lr.ph
-  %.mux = select i1 %.not69, i1 true, i1 %.026254
   %367 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0253, i64 88
   %.not242 = icmp eq ptr %367, %348
   br i1 %.not242, label %._crit_edge, label %.lr.ph

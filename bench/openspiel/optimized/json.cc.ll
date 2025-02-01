@@ -3681,7 +3681,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit22:       ; preds = %_ZN4absl7debian211s
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %49
+  br label %48
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 1
@@ -3694,14 +3694,14 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23
 
-.lr.ph:                                           ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i, %40
-  %10 = phi i64 [ %43, %40 ], [ %8, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
-  %11 = phi ptr [ %42, %40 ], [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
-  %.036 = phi i8 [ %.1, %40 ], [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
-  %.02135 = phi ptr [ %41, %40 ], [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
+.lr.ph:                                           ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i, %39
+  %10 = phi i64 [ %42, %39 ], [ %8, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
+  %11 = phi ptr [ %41, %39 ], [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
+  %.036 = phi i8 [ %.1, %39 ], [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
+  %.02135 = phi ptr [ %40, %39 ], [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ]
   %12 = load i8, ptr %.02135, align 1
   %13 = sext i8 %12 to i32
-  %14 = trunc i8 %.036 to i1
+  %14 = trunc nuw i8 %.036 to i1
   switch i8 %12, label %32 [
     i8 92, label %15
     i8 34, label %20
@@ -3714,7 +3714,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext 92)
           to label %18 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %switch.lookup, %.invoke, %16, %39
+.loopexit:                                        ; preds = %switch.lookup, %.invoke, %16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -3731,15 +3731,15 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
 
 18:                                               ; preds = %16, %15
   %19 = xor i8 %.036, 1
-  br label %40
+  br label %39
 
 20:                                               ; preds = %.lr.ph
   br i1 %14, label %.invoke, label %22
 
-.invoke:                                          ; preds = %switch.hole_check, %33, %20
-  %21 = phi i8 [ 34, %20 ], [ %12, %33 ], [ %12, %switch.hole_check ]
+.invoke:                                          ; preds = %switch.hole_check, %33, %32, %20
+  %21 = phi i8 [ 34, %20 ], [ %12, %33 ], [ %12, %32 ], [ %12, %switch.hole_check ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %21)
-          to label %40 unwind label %.loopexit
+          to label %39 unwind label %.loopexit
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %.02135 to i64
@@ -3761,10 +3761,10 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   store i8 1, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  br label %48
+  br label %47
 
 32:                                               ; preds = %.lr.ph
-  br i1 %14, label %33, label %39
+  br i1 %14, label %33, label %.invoke
 
 33:                                               ; preds = %32
   %34 = add nsw i32 %13, -98
@@ -3783,38 +3783,34 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %switch.load)
-          to label %40 unwind label %.loopexit
+          to label %39 unwind label %.loopexit
 
-39:                                               ; preds = %32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %12)
-          to label %40 unwind label %.loopexit
+39:                                               ; preds = %switch.lookup, %.invoke, %18
+  %.1 = phi i8 [ %19, %18 ], [ 0, %.invoke ], [ 0, %switch.lookup ]
+  %40 = getelementptr inbounds nuw i8, ptr %.02135, i64 1
+  %41 = load ptr, ptr %1, align 8
+  %42 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  %44 = icmp ult ptr %40, %43
+  br i1 %44, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !38
 
-40:                                               ; preds = %switch.lookup, %.invoke, %18, %39
-  %.1 = phi i8 [ %.036, %39 ], [ %19, %18 ], [ 0, %.invoke ], [ 0, %switch.lookup ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02135, i64 1
-  %42 = load ptr, ptr %1, align 8
-  %43 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  %45 = icmp ult ptr %41, %44
-  br i1 %45, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !38
-
-_ZN4absl7debian211string_viewC2EPKc.exit23:       ; preds = %40, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
-  %.lcssa30 = phi ptr [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %42, %40 ]
-  %.lcssa = phi i64 [ %8, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %43, %40 ]
+_ZN4absl7debian211string_viewC2EPKc.exit23:       ; preds = %39, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
+  %.lcssa30 = phi ptr [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %41, %39 ]
+  %.lcssa = phi i64 [ %8, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %42, %39 ]
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.41, i64 17, ptr %.lcssa30, i64 %.lcssa)
-          to label %46 unwind label %.loopexit.split-lp
+          to label %45 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit23
+45:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit23
   store i8 0, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
+  br label %47
+
+47:                                               ; preds = %28, %45
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   br label %48
 
-48:                                               ; preds = %28, %46
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  br label %49
-
-49:                                               ; preds = %48, %_ZN4absl7debian211string_viewC2EPKc.exit22
+48:                                               ; preds = %47, %_ZN4absl7debian211string_viewC2EPKc.exit22
   ret void
 }
 

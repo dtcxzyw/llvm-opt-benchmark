@@ -7410,7 +7410,7 @@ define internal noundef i32 @ractor_selector_release_i(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %4) #20
@@ -7465,60 +7465,61 @@ define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr no
 
 ._crit_edge:                                      ; preds = %28
   %32 = trunc nuw i8 %.2 to i1
-  %33 = icmp sgt i32 %29, 0
-  %or.cond = and i1 %33, %32
-  br i1 %or.cond, label %.lr.ph.i, label %ractor_queue_compact.exit
+  br i1 %32, label %33, label %ractor_queue_compact.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  br label %38
+33:                                               ; preds = %._crit_edge
+  %34 = icmp sgt i32 %29, 0
+  br i1 %34, label %.lr.ph.i, label %ractor_queue_compact.exit
 
-38:                                               ; preds = %ractor_queue_advance.exit.i, %.lr.ph.i
-  %39 = phi i32 [ %29, %.lr.ph.i ], [ %57, %ractor_queue_advance.exit.i ]
-  %40 = load ptr, ptr %3, align 8
-  %41 = load i32, ptr %34, align 8
+.lr.ph.i:                                         ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  br label %39
+
+39:                                               ; preds = %ractor_queue_advance.exit.i, %.lr.ph.i
+  %40 = phi i32 [ %29, %.lr.ph.i ], [ %58, %ractor_queue_advance.exit.i ]
+  %41 = load ptr, ptr %3, align 8
   %42 = load i32, ptr %35, align 8
-  %43 = srem i32 %41, %42
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct.rb_ractor_basket, ptr %40, i64 %44
-  %.val.i = load i32, ptr %45, align 8
-  %46 = icmp eq i32 %.val.i, 5
-  br i1 %46, label %47, label %ractor_queue_compact.exit
+  %43 = load i32, ptr %36, align 8
+  %44 = srem i32 %42, %43
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr %struct.rb_ractor_basket, ptr %41, i64 %45
+  %.val.i = load i32, ptr %46, align 8
+  %47 = icmp eq i32 %.val.i, 5
+  br i1 %47, label %48, label %ractor_queue_compact.exit
 
-47:                                               ; preds = %38
-  %48 = load i32, ptr %36, align 8
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %56
+48:                                               ; preds = %39
+  %49 = load i32, ptr %37, align 8
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %57
 
-50:                                               ; preds = %47
-  %51 = add nsw i32 %39, -1
-  store i32 %51, ptr %8, align 4
-  %52 = add i32 %41, 1
-  %53 = srem i32 %52, %42
-  store i32 %53, ptr %34, align 8
-  %54 = load i32, ptr %37, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %37, align 4
+51:                                               ; preds = %48
+  %52 = add nsw i32 %40, -1
+  store i32 %52, ptr %8, align 4
+  %53 = add i32 %42, 1
+  %54 = srem i32 %53, %43
+  store i32 %54, ptr %35, align 8
+  %55 = load i32, ptr %38, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %38, align 4
   br label %ractor_queue_advance.exit.i
 
-56:                                               ; preds = %47
-  store i32 5, ptr %45, align 8
+57:                                               ; preds = %48
+  store i32 5, ptr %46, align 8
   %.pre.i = load i32, ptr %8, align 4
   br label %ractor_queue_advance.exit.i
 
-ractor_queue_advance.exit.i:                      ; preds = %56, %50
-  %57 = phi i32 [ %51, %50 ], [ %.pre.i, %56 ]
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %38, label %ractor_queue_compact.exit, !llvm.loop !10
+ractor_queue_advance.exit.i:                      ; preds = %57, %51
+  %58 = phi i32 [ %52, %51 ], [ %.pre.i, %57 ]
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %39, label %ractor_queue_compact.exit, !llvm.loop !10
 
-ractor_queue_compact.exit:                        ; preds = %ractor_queue_advance.exit.i, %38, %.preheader, %2, %._crit_edge
-  %.0 = phi i8 [ %.2, %._crit_edge ], [ 0, %2 ], [ 0, %.preheader ], [ %.2, %38 ], [ %.2, %ractor_queue_advance.exit.i ]
+ractor_queue_compact.exit:                        ; preds = %ractor_queue_advance.exit.i, %39, %.preheader, %33, %._crit_edge, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %33 ], [ false, %.preheader ], [ true, %39 ], [ true, %ractor_queue_advance.exit.i ]
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %4) #20
-  %59 = trunc nuw i8 %.0 to i1
-  ret i1 %59
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -286,7 +286,7 @@ while.cond.i:                                     ; preds = %while.cond.i.backed
   %widths.sroa.7.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.7.1.i, %while.cond.i.backedge ]
   %widths.sroa.16.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.16.1.i, %while.cond.i.backedge ]
   %widths.sroa.0.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.0.1.i, %while.cond.i.backedge ]
-  %is_special_char.0.i = phi i8 [ 0, %if.end.i8 ], [ %is_special_char.0.i.be, %while.cond.i.backedge ]
+  %is_special_char.0.i = phi i1 [ false, %if.end.i8 ], [ %is_special_char.0.i.be, %while.cond.i.backedge ]
   %10 = load ptr, ptr @_ZN7consoleL3outE, align 8
   %call1.i9 = call i32 @fflush(ptr noundef %10)
   %call.i44.i = invoke noundef i32 @getwchar()
@@ -338,8 +338,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %l
   resume { ptr, i32 } %lpad.phi.i
 
 if.end12.i10:                                     ; preds = %invoke.cont2.i
-  %tobool.i11 = trunc nuw i8 %is_special_char.0.i to i1
-  br i1 %tobool.i11, label %if.then13.i, label %if.end17.i
+  br i1 %is_special_char.0.i, label %if.then13.i, label %if.end17.i
 
 if.then13.i:                                      ; preds = %if.end12.i10
   %11 = load i8, ptr @_ZN7consoleL16advanced_displayE, align 1
@@ -368,7 +367,6 @@ invoke.cont14.i:                                  ; preds = %if.then.i.i, %if.th
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %invoke.cont14.i, %if.end12.i10
-  %is_special_char.1.i = phi i8 [ %is_special_char.0.i, %if.end12.i10 ], [ 0, %invoke.cont14.i ]
   switch i32 %call.i44.i, label %if.else56.i [
     i32 27, label %if.then19.i
     i32 127, label %if.then45.i
@@ -725,12 +723,11 @@ invoke.cont82.i:                                  ; preds = %if.then.i93.i, %if.
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %invoke.cont82.i, %lor.lhs.false77.i, %if.end71.i
-  %is_special_char.0.i.be = phi i8 [ 1, %invoke.cont82.i ], [ %is_special_char.1.i, %lor.lhs.false77.i ], [ %is_special_char.1.i, %if.end71.i ]
+  %is_special_char.0.i.be = phi i1 [ true, %invoke.cont82.i ], [ false, %lor.lhs.false77.i ], [ false, %if.end71.i ]
   br label %while.cond.i, !llvm.loop !9
 
 while.end86.i:                                    ; preds = %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i, %invoke.cont2.i
-  %tobool89.i = trunc nuw i8 %is_special_char.0.i to i1
-  br i1 %tobool89.i, label %invoke.cont92.i, label %if.else115.i
+  br i1 %is_special_char.0.i, label %invoke.cont92.i, label %if.else115.i
 
 invoke.cont92.i:                                  ; preds = %while.end86.i
   %64 = load ptr, ptr @_ZN7consoleL3outE, align 8

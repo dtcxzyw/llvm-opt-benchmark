@@ -19644,8 +19644,7 @@ if.end3:                                          ; preds = %if.end
   %appendonly = getelementptr inbounds nuw i8, ptr %call, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %if.end3, %for.inc
-  %cmp6 = phi i1 [ true, %if.end3 ], [ false, %for.inc ]
+for.body:                                         ; preds = %for.inc, %if.end3
   %i.051 = phi i1 [ false, %if.end3 ], [ true, %for.inc ]
   %reply.050 = phi ptr [ null, %if.end3 ], [ %0, %for.inc ]
   %call7 = call i32 @redisGetReply(ptr noundef nonnull %call1, ptr noundef nonnull %r) #22
@@ -19684,27 +19683,21 @@ if.end24:                                         ; preds = %lor.lhs.false21
   %tobool25.not = icmp eq ptr %5, null
   %spec.store.select = select i1 %tobool25.not, ptr @.str.16420, ptr %5
   %call30 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #22
-  br i1 %i.051, label %sw.bb29, label %sw.bb
+  br i1 %i.051, label %for.end, label %for.inc
 
-sw.bb:                                            ; preds = %if.end24
+for.inc:                                          ; preds = %if.end24
   store ptr %call30, ptr %call, align 8
-  br label %for.inc
+  br label %for.body, !llvm.loop !24
 
-sw.bb29:                                          ; preds = %if.end24
+for.end:                                          ; preds = %if.end24
   store ptr %call30, ptr %appendonly, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %sw.bb, %sw.bb29
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !24
-
-for.end:                                          ; preds = %for.inc
   call void @freeReplyObject(ptr noundef nonnull %0) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
   br label %return
 
 fail:                                             ; preds = %if.end10
-  %tobool31.not73 = icmp ne ptr %0, null
-  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not73, i1 false
+  %tobool31.not75 = icmp ne ptr %0, null
+  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not75, i1 false
   br i1 %tobool31.not.not, label %fail.land.lhs.truethread-pre-split_crit_edge, label %if.end49.critedge
 
 fail.land.lhs.truethread-pre-split_crit_edge:     ; preds = %fail

@@ -9678,7 +9678,6 @@ if.end.i:                                         ; preds = %if.end37
           to label %invoke.cont38 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont38:                                    ; preds = %if.end37, %if.end.i
-  %first.3 = phi i8 [ 0, %if.end37 ], [ %first.0176, %if.end.i ]
   %28 = load i8, ptr %options_.i.i, align 8
   %tobool.i.i = trunc i8 %28 to i1
   br i1 %tobool.i.i, label %if.then.i.i64, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -10286,7 +10285,7 @@ invoke.cont73:                                    ; preds = %invoke.cont69
   br label %cleanup86
 
 cleanup86:                                        ; preds = %invoke.cont73, %cleanup53, %cleanup26, %invoke.cont34
-  %first.2 = phi i8 [ %first.0176, %invoke.cont34 ], [ %first.3, %cleanup53 ], [ %first.0176, %cleanup26 ], [ %first.3, %invoke.cont73 ]
+  %first.2 = phi i8 [ %first.0176, %invoke.cont34 ], [ 0, %cleanup53 ], [ %first.0176, %cleanup26 ], [ 0, %invoke.cont73 ]
   %cleanup.dest.slot.3 = phi i1 [ false, %invoke.cont34 ], [ true, %cleanup53 ], [ true, %cleanup26 ], [ %cmp.i115, %invoke.cont73 ]
   %88 = load i64, ptr %is_empty, align 8
   %and.i.i.i.i.i = and i64 %88, 1
@@ -10744,7 +10743,6 @@ if.end.i:                                         ; preds = %if.end10
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WriteCommaERb.exit
 
 _ZN6google8protobuf13json_internal10JsonWriter10WriteCommaERb.exit: ; preds = %if.end10, %if.end.i
-  %first.2 = phi i8 [ %first.0533, %if.end.i ], [ 0, %if.end10 ]
   %33 = load i8, ptr %options_.i.i, align 8
   %tobool.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i, label %if.then.i.i19, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -11587,7 +11585,7 @@ cleanup19:                                        ; preds = %sw.epilog.i, %invok
   br i1 %cmp.i23, label %for.inc, label %return
 
 for.inc:                                          ; preds = %cleanup.thread.thread, %cleanup.thread, %cleanup19, %do.end
-  %first.1 = phi i8 [ %first.0533, %do.end ], [ %first.2, %cleanup19 ], [ %first.0533, %cleanup.thread ], [ %first.0533, %cleanup.thread.thread ]
+  %first.1 = phi i8 [ %first.0533, %do.end ], [ 0, %cleanup19 ], [ %first.0533, %cleanup.thread ], [ %first.0533, %cleanup.thread.thread ]
   %inc = add nuw i64 %storemerge534, 1
   %exitcond.not = icmp eq i64 %inc, %retval.0.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !479
@@ -18479,7 +18477,6 @@ if.end.i:                                         ; preds = %if.end37
           to label %invoke.cont38 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont38:                                    ; preds = %if.end37, %if.end.i
-  %first.3 = phi i8 [ 0, %if.end37 ], [ %first.0154, %if.end.i ]
   %26 = load i8, ptr %options_.i.i, align 8
   %tobool.i.i = trunc i8 %26 to i1
   br i1 %tobool.i.i, label %if.then.i.i57, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -18989,7 +18986,7 @@ invoke.cont73:                                    ; preds = %invoke.cont69
   br label %cleanup86
 
 cleanup86:                                        ; preds = %invoke.cont73, %cleanup53, %cleanup26, %invoke.cont34
-  %first.2 = phi i8 [ %first.0154, %invoke.cont34 ], [ %first.3, %cleanup53 ], [ %first.0154, %cleanup26 ], [ %first.3, %invoke.cont73 ]
+  %first.2 = phi i8 [ %first.0154, %invoke.cont34 ], [ 0, %cleanup53 ], [ %first.0154, %cleanup26 ], [ 0, %invoke.cont73 ]
   %cleanup.dest.slot.3 = phi i1 [ false, %invoke.cont34 ], [ true, %cleanup53 ], [ true, %cleanup26 ], [ %cmp.i96, %invoke.cont73 ]
   %84 = load i64, ptr %is_empty, align 8
   %and.i.i.i.i.i = and i64 %84, 1
@@ -19559,7 +19556,6 @@ if.end.i:                                         ; preds = %if.end10
   br label %_ZN6google8protobuf13json_internal10JsonWriter10WriteCommaERb.exit
 
 _ZN6google8protobuf13json_internal10JsonWriter10WriteCommaERb.exit: ; preds = %if.end10, %if.end.i
-  %first.2 = phi i8 [ %first.0544, %if.end.i ], [ 0, %if.end10 ]
   %46 = load i8, ptr %options_.i.i, align 8
   %tobool.i.i = trunc i8 %46 to i1
   br i1 %tobool.i.i, label %if.then.i.i22, label %_ZN6google8protobuf13json_internal10JsonWriter10WhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -20322,7 +20318,7 @@ cleanup19:                                        ; preds = %sw.epilog.i, %invok
   br i1 %cmp.i28, label %for.inc, label %return
 
 for.inc:                                          ; preds = %cleanup19, %do.end
-  %first.1 = phi i8 [ %first.0544, %do.end ], [ %first.2, %cleanup19 ]
+  %first.1 = phi i8 [ %first.0544, %do.end ], [ 0, %cleanup19 ]
   %inc = add nuw i64 %storemerge545, 1
   %exitcond.not = icmp eq i64 %inc, %call2.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !712

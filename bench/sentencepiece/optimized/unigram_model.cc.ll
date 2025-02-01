@@ -4057,6 +4057,8 @@ _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE9push_b
   %626 = add i64 %624, %625
   %627 = icmp ult i64 %626, 1000000000
   %brmerge = select i1 %627, i1 true, i1 %.094.ph
+  %not. = xor i1 %627, true
+  %.094.mux = select i1 %not., i1 true, i1 %.094.ph
   br i1 %brmerge, label %.critedge113, label %628
 
 628:                                              ; preds = %._crit_edge810
@@ -4139,7 +4141,7 @@ _ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE9push_b
   br label %_ZNSt14priority_queueIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS4_SaIS4_EEZNS1_7Lattice5NBestEmbfE20HypothesisComparatorED2Ev.exit274
 
 .critedge113:                                     ; preds = %662, %._crit_edge810, %630
-  %.195 = phi i1 [ %.094.ph, %._crit_edge810 ], [ true, %630 ], [ true, %662 ]
+  %.195 = phi i1 [ %.094.mux, %._crit_edge810 ], [ true, %630 ], [ true, %662 ]
   %.val125 = load ptr, ptr %162, align 8
   %669 = ptrtoint ptr %.val125 to i64
   %670 = ptrtoint ptr %.val124 to i64
@@ -6478,7 +6480,7 @@ _ZNSt6vectorIN5Darts15DoubleArrayImplIvvivE16result_pair_typeESaIS3_EEC2EmRKS4_.
   br label %129
 
 129:                                              ; preds = %125, %121, %82
-  %.141 = phi i8 [ %.04070, %82 ], [ %.04070, %121 ], [ %spec.select, %125 ]
+  %.141 = phi i8 [ %.04070, %82 ], [ 1, %121 ], [ %spec.select, %125 ]
   %130 = add nuw i64 %.03971, 1
   %exitcond.not = icmp eq i64 %130, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
