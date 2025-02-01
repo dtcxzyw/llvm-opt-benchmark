@@ -53,7 +53,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %spec.store.select, -1
-  %add = add nsw i32 %argc, -31
+  %sub12 = add nsw i32 %argc, -31
   %0 = zext i32 %sub to i64
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   %arrayidx = getelementptr inbounds nuw ptr, ptr %call2, i64 %0

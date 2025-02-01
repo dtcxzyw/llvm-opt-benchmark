@@ -5480,13 +5480,13 @@ for.body50:                                       ; preds = %for.body50.preheade
   %pRegion.157 = phi ptr [ %incdec.ptr66, %if.end61 ], [ %call37, %for.body50.preheader ]
   store i32 0, ptr %status, align 4
   %call51 = call ptr @ures_getStringByIndex_75(ptr noundef %call29, i32 noundef %i47.058, ptr noundef nonnull %len, ptr noundef nonnull %status)
-  %8 = load i32, ptr %status, align 4
-  %cmp.i47 = icmp slt i32 %8, 1
+  %7 = load i32, ptr %status, align 4
+  %cmp.i47 = icmp slt i32 %7, 1
   br i1 %cmp.i47, label %if.end55, label %if.end70
 
 if.end55:                                         ; preds = %for.body50
-  %9 = load i32, ptr %len, align 4
-  %add = add nsw i32 %9, 1
+  %8 = load i32, ptr %len, align 4
+  %add = add nsw i32 %8, 1
   %conv56 = sext i32 %add to i64
   %call58 = call noalias ptr @uprv_malloc_75(i64 noundef %conv56) #22
   store ptr %call58, ptr %pRegion.157, align 8
@@ -5494,12 +5494,12 @@ if.end55:                                         ; preds = %for.body50
   br i1 %cmp59, label %if.end70, label %if.end61
 
 if.end61:                                         ; preds = %if.end55
-  %10 = load i32, ptr %len, align 4
-  call void @u_UCharsToChars_75(ptr noundef %call51, ptr noundef nonnull %call58, i32 noundef %10)
-  %11 = load ptr, ptr %pRegion.157, align 8
-  %12 = load i32, ptr %len, align 4
-  %idxprom62 = sext i32 %12 to i64
-  %arrayidx63 = getelementptr inbounds i8, ptr %11, i64 %idxprom62
+  %9 = load i32, ptr %len, align 4
+  call void @u_UCharsToChars_75(ptr noundef %call51, ptr noundef nonnull %call58, i32 noundef %9)
+  %10 = load ptr, ptr %pRegion.157, align 8
+  %11 = load i32, ptr %len, align 4
+  %idxprom62 = sext i32 %11 to i64
+  %arrayidx63 = getelementptr inbounds i8, ptr %10, i64 %idxprom62
   store i8 0, ptr %arrayidx63, align 1
   %inc65 = add nuw nsw i32 %i47.058, 1
   %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %pRegion.157, i64 8
@@ -5526,8 +5526,8 @@ for.cond79.preheader:                             ; preds = %if.then74
 for.body81:                                       ; preds = %for.cond79.preheader, %for.body81
   %i78.063 = phi i32 [ %inc84, %for.body81 ], [ 0, %for.cond79.preheader ]
   %p.062 = phi ptr [ %incdec.ptr83, %for.body81 ], [ %regions.0, %for.cond79.preheader ]
-  %13 = load ptr, ptr %p.062, align 8
-  call void @uprv_free_75(ptr noundef %13)
+  %12 = load ptr, ptr %p.062, align 8
+  call void @uprv_free_75(ptr noundef %12)
   %incdec.ptr83 = getelementptr inbounds nuw i8, ptr %p.062, i64 8
   %inc84 = add nuw nsw i32 %i78.063, 1
   %exitcond64.not = icmp eq i32 %inc84, %numRegions.0
@@ -5543,10 +5543,10 @@ new.notnull:                                      ; preds = %if.end87
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %new.notnull
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call88) #21
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %13
 
 return.sink.split:                                ; preds = %for.body81, %for.cond79.preheader, %if.end22
   %regions.0.sink = phi ptr [ %call7, %if.end22 ], [ %regions.0, %for.cond79.preheader ], [ %regions.0, %for.body81 ]

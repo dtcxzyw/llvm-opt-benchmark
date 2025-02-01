@@ -8864,7 +8864,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc21
   br i1 %23, label %.lr.ph.us.preheader, label %.lr.ph25.split.preheader
 
 .lr.ph25.split.preheader:                         ; preds = %.lr.ph25
-  %26 = fdiv double 0.000000e+00, %24
+  %25 = fdiv double 0.000000e+00, %24
   br label %.lr.ph25.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph25
@@ -8872,35 +8872,35 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc21
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.01923.us = phi i64 [ %35, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %27 = getelementptr inbounds nuw double, ptr %15, i64 %.01923.us
+  %.01923.us = phi i64 [ %34, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %26 = getelementptr inbounds nuw double, ptr %15, i64 %.01923.us
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %.01923.us
-  br label %28
+  br label %27
 
-28:                                               ; preds = %.lr.ph.us, %28
-  %29 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %32, %28 ]
-  %.022.us = phi i64 [ 0, %.lr.ph.us ], [ %33, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %gep, i64 %.022.us
-  %31 = load double, ptr %30, align 8
-  %32 = fadd double %31, %29
-  store double %32, ptr %27, align 8
-  %33 = add nuw nsw i64 %.022.us, 1
-  %exitcond28.not = icmp eq i64 %33, %2
-  br i1 %exitcond28.not, label %._crit_edge.us, label %28, !llvm.loop !45
+27:                                               ; preds = %.lr.ph.us, %27
+  %28 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %31, %27 ]
+  %.022.us = phi i64 [ 0, %.lr.ph.us ], [ %32, %27 ]
+  %29 = getelementptr inbounds nuw double, ptr %gep, i64 %.022.us
+  %30 = load double, ptr %29, align 8
+  %31 = fadd double %30, %28
+  store double %31, ptr %26, align 8
+  %32 = add nuw nsw i64 %.022.us, 1
+  %exitcond28.not = icmp eq i64 %32, %2
+  br i1 %exitcond28.not, label %._crit_edge.us, label %27, !llvm.loop !45
 
-._crit_edge.us:                                   ; preds = %28
-  %34 = fdiv double %32, %24
-  store double %34, ptr %27, align 8
-  %35 = add nuw nsw i64 %.01923.us, 1
-  %exitcond30.not = icmp eq i64 %35, %25
+._crit_edge.us:                                   ; preds = %27
+  %33 = fdiv double %31, %24
+  store double %33, ptr %26, align 8
+  %34 = add nuw nsw i64 %.01923.us, 1
+  %exitcond30.not = icmp eq i64 %34, %25
   br i1 %exitcond30.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !46
 
 .lr.ph25.split:                                   ; preds = %.lr.ph25.split.preheader, %.lr.ph25.split
-  %.01923 = phi i64 [ %37, %.lr.ph25.split ], [ 0, %.lr.ph25.split.preheader ]
-  %36 = getelementptr inbounds nuw double, ptr %15, i64 %.01923
-  store double %26, ptr %36, align 8
-  %37 = add nuw nsw i64 %.01923, 1
-  %exitcond.not = icmp eq i64 %37, %25
+  %.01923 = phi i64 [ %36, %.lr.ph25.split ], [ 0, %.lr.ph25.split.preheader ]
+  %35 = getelementptr inbounds nuw double, ptr %15, i64 %.01923
+  store double %25, ptr %35, align 8
+  %36 = add nuw nsw i64 %.01923, 1
+  %exitcond.not = icmp eq i64 %36, %25
   br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph25.split, !llvm.loop !46
 
 ._crit_edge26:                                    ; preds = %.lr.ph25.split, %._crit_edge.us, %21

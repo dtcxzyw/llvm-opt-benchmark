@@ -1226,8 +1226,8 @@ entry:
 
 _ZNK6icu_7513UnicodeString7indexOfERKS0_.exit:    ; preds = %entry
   %fUnion.i.i2.i = getelementptr inbounds nuw i8, ptr %child, i64 8
-  %4 = load i16, ptr %fUnion.i.i2.i, align 8
-  %cmp.i.i3.i = icmp slt i16 %4, 0
+  %3 = load i16, ptr %fUnion.i.i2.i, align 8
+  %cmp.i.i3.i = icmp slt i16 %3, 0
   %fLength.i5.i = getelementptr inbounds nuw i8, ptr %child, i64 12
   %5 = load i32, ptr %fLength.i5.i, align 4
   %6 = ashr i16 %4, 5
@@ -1261,15 +1261,15 @@ land.rhs:                                         ; preds = %_ZNK6icu_7513Unicod
 
 lor.rhs:                                          ; preds = %land.rhs
   %cmp.i.i16 = icmp ult i32 %cond.i9, %cond.i
-  br i1 %cmp.i.i16, label %if.then.i.i, label %land.end
+  br i1 %cmp.i.i16, label %if.then.i.i18, label %land.end
 
-if.then.i.i:                                      ; preds = %lor.rhs
+if.then.i.i18:                                    ; preds = %lor.rhs
   %15 = and i16 %9, 2
-  %tobool.not.i.i.i18 = icmp eq i16 %15, 0
-  %fBuffer.i.i.i19 = getelementptr inbounds nuw i8, ptr %child, i64 10
-  %fArray.i.i.i20 = getelementptr inbounds nuw i8, ptr %child, i64 24
-  %16 = load ptr, ptr %fArray.i.i.i20, align 8
-  %cond.i2.i.i = select i1 %tobool.not.i.i.i18, ptr %16, ptr %fBuffer.i.i.i19
+  %tobool.not.i.i.i19 = icmp eq i16 %15, 0
+  %fBuffer.i.i.i20 = getelementptr inbounds nuw i8, ptr %child, i64 10
+  %fArray.i.i.i21 = getelementptr inbounds nuw i8, ptr %child, i64 24
+  %16 = load ptr, ptr %fArray.i.i.i21, align 8
+  %cond.i2.i.i = select i1 %tobool.not.i.i.i19, ptr %16, ptr %fBuffer.i.i.i20
   %idxprom.i.i = sext i32 %cond.i9 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %17 = load i16, ptr %arrayidx.i.i, align 2
@@ -1277,8 +1277,8 @@ if.then.i.i:                                      ; preds = %lor.rhs
   %19 = zext i1 %18 to i8
   br label %land.end
 
-land.end:                                         ; preds = %if.then.i.i, %lor.rhs, %entry, %land.rhs, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
-  %conv7 = phi i8 [ 0, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit ], [ 1, %land.rhs ], [ 0, %entry ], [ %19, %if.then.i.i ], [ 0, %lor.rhs ]
+land.end:                                         ; preds = %if.then.i.i18, %lor.rhs, %entry, %land.rhs, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
+  %conv7 = phi i8 [ 0, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit ], [ 1, %land.rhs ], [ 0, %entry ], [ %19, %if.then.i.i18 ], [ 0, %lor.rhs ]
   ret i8 %conv7
 }
 

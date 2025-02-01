@@ -8984,9 +8984,9 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
   %7 = and i1 %5, %6
   br i1 %7, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %28
+.split.us:; preds = %3, %28
   %8 = phi i64 [ %30, %28 ], [ 0, %3 ]
-  %9 = phi i32 [ %29, %28 ], [ 0, %3 ]
+  %9 = phi i32 [ %31, %30 ], [ 0, %3 ]
   %10 = getelementptr [88 x %struct.drm_display_mode], ptr @drm_dmt_modes, i64 0, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4
@@ -8994,60 +8994,60 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
   %14 = icmp samesign ult i32 %1, %13
   br i1 %14, label %28, label %15
 
-15:                                               ; preds = %.split.us
+15:; preds = %.split.us
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 14
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp samesign ult i32 %2, %18
-  br i1 %19, label %28, label %20
+  br i1 %19, label %30, label %20
 
-20:                                               ; preds = %15
+20:; preds = %15
   %21 = tail call i32 @drm_mode_vrefresh(ptr noundef %10) #21
   %22 = icmp sgt i32 %21, 61
   br i1 %22, label %28, label %23
 
-23:                                               ; preds = %20
+23:; preds = %20
   %24 = tail call ptr @drm_mode_duplicate(ptr noundef %4, ptr noundef %10) #21
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %28, label %26
+  br i1 %25, label %28, label %28
 
-26:                                               ; preds = %23
+28:                                               ; preds = %23
   tail call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %24) #21
-  %27 = add i32 %9, 1
-  br label %28
+  %29 = add i32 %9, 1
+  br label %30
 
-28:                                               ; preds = %26, %23, %20, %15, %.split.us
-  %29 = phi i32 [ %9, %15 ], [ %9, %.split.us ], [ %9, %20 ], [ %27, %26 ], [ %9, %23 ]
-  %30 = add nuw nsw i64 %8, 1
-  %31 = icmp eq i64 %30, 88
-  br i1 %31, label %.split3.us, label %.split.us, !llvm.loop !94
+30:                                               ; preds = %28, %23, %20, %15, %.split.us
+  %31 = phi i32 [ %9, %15 ], [ %9, %.split.us ], [ %9, %20 ], [ %29, %28 ], [ %9, %23 ]
+  %32 = add nuw nsw i64 %8, 1
+  %33 = icmp eq i64 %32, 88
+  br i1 %33, label %.split3.us, label %.split.us, !llvm.loop !94
 
-.split:                                           ; preds = %3, %42
-  %32 = phi i64 [ %44, %42 ], [ 0, %3 ]
-  %33 = phi i32 [ %43, %42 ], [ 0, %3 ]
-  %34 = getelementptr [88 x %struct.drm_display_mode], ptr @drm_dmt_modes, i64 0, i64 %32
-  %35 = tail call i32 @drm_mode_vrefresh(ptr noundef %34) #21
-  %36 = icmp sgt i32 %35, 61
-  br i1 %36, label %42, label %37
+.split:                                           ; preds = %3, %44
+  %34 = phi i64 [ %46, %44 ], [ 0, %3 ]
+  %35 = phi i32 [ %45, %44 ], [ 0, %3 ]
+  %36 = getelementptr [88 x %struct.drm_display_mode], ptr @drm_dmt_modes, i64 0, i64 %34
+  %37 = tail call i32 @drm_mode_vrefresh(ptr noundef %36) #21
+  %38 = icmp sgt i32 %37, 61
+  br i1 %38, label %44, label %39
 
-37:                                               ; preds = %.split
-  %38 = tail call ptr @drm_mode_duplicate(ptr noundef %4, ptr noundef %34) #21
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %42, label %40
+39:                                               ; preds = %.split
+  %40 = tail call ptr @drm_mode_duplicate(ptr noundef %4, ptr noundef %36) #21
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %44, label %42
 
-40:                                               ; preds = %37
-  tail call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %38) #21
-  %41 = add i32 %33, 1
-  br label %42
+42:                                               ; preds = %39
+  tail call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %40) #21
+  %43 = add i32 %35, 1
+  br label %44
 
-42:                                               ; preds = %40, %37, %.split
-  %43 = phi i32 [ %33, %.split ], [ %41, %40 ], [ %33, %37 ]
-  %44 = add nuw nsw i64 %32, 1
-  %45 = icmp eq i64 %44, 88
-  br i1 %45, label %.split3.us, label %.split, !llvm.loop !94
+44:                                               ; preds = %42, %39, %.split
+  %45 = phi i32 [ %35, %.split ], [ %43, %42 ], [ %35, %39 ]
+  %46 = add nuw nsw i64 %34, 1
+  %47 = icmp eq i64 %46, 88
+  br i1 %47, label %.split3.us, label %.split, !llvm.loop !94
 
-.split3.us:                                       ; preds = %42, %28
-  %.us-phi = phi i32 [ %29, %28 ], [ %43, %42 ]
+.split3.us:                                       ; preds = %44, %30
+  %.us-phi = phi i32 [ %31, %30 ], [ %45, %44 ]
   ret i32 %.us-phi
 }
 

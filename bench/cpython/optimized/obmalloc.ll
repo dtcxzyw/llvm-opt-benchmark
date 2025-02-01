@@ -31179,7 +31179,7 @@ cond.end.i:                                       ; preds = %mi_span_queue_for.e
   br i1 %cmp4.i, label %if.then6.i, label %if.end13.i
 
 if.then6.i:                                       ; preds = %cond.end.i
-  %sub.i46 = add i64 %41, -1
+  %add.i45 = add i64 %41, -1
   %arrayidx8.i = getelementptr [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %sub.i46
   store i32 0, ptr %arrayidx8.i, align 8
   %44 = mul i32 %conv.i, 80

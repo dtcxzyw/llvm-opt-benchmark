@@ -332,24 +332,24 @@ land.rhs.preheader:                               ; preds = %if.else6.i19, %if.e
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
   %arrayidx7 = getelementptr inbounds nuw i16, ptr %s, i64 %indvars.iv
-  %18 = load i16, ptr %arrayidx7, align 2
-  %cmp1.i28 = icmp ult i16 %18, 256
+  %17 = load i16, ptr %arrayidx7, align 2
+  %cmp1.i28 = icmp ult i16 %17, 256
   br i1 %cmp1.i28, label %if.then2.i34, label %if.else6.i29
 
 if.then2.i34:                                     ; preds = %land.rhs
-  %idxprom.i35 = zext nneg i16 %18 to i64
+  %idxprom.i35 = zext nneg i16 %17 to i64
   %arrayidx.i36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i35
-  %19 = load i8, ptr %arrayidx.i36, align 1
-  %20 = and i8 %19, 4
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %while.end, label %while.body
+  %18 = load i8, ptr %arrayidx.i36, align 1
+  %19 = and i8 %18, 4
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %while.end, label %while.body
 
 if.else6.i29:                                     ; preds = %land.rhs
-  %22 = add i16 %18, -8234
-  %or.cond.i30 = icmp ult i16 %22, -28
-  %23 = add nsw i16 %18, -8208
-  %24 = icmp ult i16 %23, 24
-  %or.cond74 = select i1 %or.cond.i30, i1 true, i1 %24
+  %21 = add i16 %17, -8234
+  %or.cond.i30 = icmp ult i16 %21, -28
+  %22 = add nsw i16 %17, -8208
+  %23 = icmp ult i16 %22, 24
+  %or.cond74 = select i1 %or.cond.i30, i1 true, i1 %23
   br i1 %or.cond74, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.else6.i29, %if.then2.i34
@@ -358,32 +358,32 @@ while.body:                                       ; preds = %if.else6.i29, %if.t
   br i1 %exitcond.not, label %if.end22, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %if.then2.i34, %if.else6.i29
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %invariant.gep = getelementptr i8, ptr %s, i64 -2
-  %26 = zext nneg i32 %0 to i64
+  %25 = zext nneg i32 %0 to i64
   br label %while.cond13
 
 while.cond13:                                     ; preds = %while.end, %while.body20
-  %indvars.iv64 = phi i64 [ %26, %while.end ], [ %indvars.iv.next65, %while.body20 ]
+  %indvars.iv64 = phi i64 [ %25, %while.end ], [ %indvars.iv.next65, %while.body20 ]
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv64
-  %27 = load i16, ptr %gep, align 2
-  %cmp1.i38 = icmp ult i16 %27, 256
+  %26 = load i16, ptr %gep, align 2
+  %cmp1.i38 = icmp ult i16 %26, 256
   br i1 %cmp1.i38, label %if.then2.i44, label %if.else6.i39
 
 if.then2.i44:                                     ; preds = %while.cond13
-  %idxprom.i45 = zext nneg i16 %27 to i64
+  %idxprom.i45 = zext nneg i16 %26 to i64
   %arrayidx.i46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i45
-  %28 = load i8, ptr %arrayidx.i46, align 1
-  %29 = and i8 %28, 4
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %if.end22.loopexit, label %while.body20
+  %27 = load i8, ptr %arrayidx.i46, align 1
+  %28 = and i8 %27, 4
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %if.end22.loopexit, label %while.body20
 
 if.else6.i39:                                     ; preds = %while.cond13
-  %31 = add i16 %27, -8234
-  %or.cond.i40 = icmp ult i16 %31, -28
-  %32 = add nsw i16 %27, -8208
-  %33 = icmp ult i16 %32, 24
-  %or.cond76 = select i1 %or.cond.i40, i1 true, i1 %33
+  %30 = add i16 %26, -8234
+  %or.cond.i40 = icmp ult i16 %30, -28
+  %31 = add nsw i16 %26, -8208
+  %32 = icmp ult i16 %31, 24
+  %or.cond76 = select i1 %or.cond.i40, i1 true, i1 %32
   br i1 %or.cond76, label %if.end22.loopexit, label %while.body20
 
 while.body20:                                     ; preds = %if.else6.i39, %if.then2.i44
@@ -391,12 +391,12 @@ while.body20:                                     ; preds = %if.else6.i39, %if.t
   br label %while.cond13, !llvm.loop !8
 
 if.end22.loopexit:                                ; preds = %if.then2.i44, %if.else6.i39
-  %34 = trunc nsw i64 %indvars.iv64 to i32
+  %33 = trunc nsw i64 %indvars.iv64 to i32
   br label %if.end22
 
 if.end22:                                         ; preds = %while.body, %if.end22.loopexit
-  %start.058 = phi i32 [ %25, %if.end22.loopexit ], [ %17, %while.body ]
-  %limit.0 = phi i32 [ %34, %if.end22.loopexit ], [ %0, %while.body ]
+  %start.058 = phi i32 [ %24, %if.end22.loopexit ], [ %17, %while.body ]
+  %limit.0 = phi i32 [ %33, %if.end22.loopexit ], [ %0, %while.body ]
   %sub23 = sub nsw i32 %limit.0, %start.058
   store i32 %sub23, ptr %length, align 4
   %idx.ext = zext nneg i32 %start.058 to i64

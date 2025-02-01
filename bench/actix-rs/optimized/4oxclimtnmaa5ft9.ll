@@ -49,7 +49,7 @@ define hidden noundef i64 @"_ZN14regex_automata4util4pool5inner9THREAD_ID7__geti
   store ptr @anon.84fd7598a9219390f98210afab096d30.3.llvm.10269372283281669187, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84fd7598a9219390f98210afab096d30.5.llvm.10269372283281669187) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84fd7598a9219390f98210afab096d30.5.llvm.10269372283281669187) #11
   unreachable
 }
 
@@ -255,7 +255,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 
 52:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h873a10c9ae4074ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #13
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h873a10c9ae4074ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #12
           to label %142 unwind label %140
 
 53:                                               ; preds = %.noexc36, %41
@@ -467,7 +467,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 140:                                              ; preds = %52
   %141 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
 142:                                              ; preds = %52
@@ -505,7 +505,7 @@ define void @_ZN12actix_router6quoter6Quoter17requote_str_lossy17h5728e3337d87a4
 17:                                               ; preds = %26, %12
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h873a10c9ae4074ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #13
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h873a10c9ae4074ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
           to label %41 unwind label %39, !noalias !74
 
 19:                                               ; preds = %12

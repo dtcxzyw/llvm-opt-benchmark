@@ -745,10 +745,10 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %8 = trunc i64 %M to i32
   %conv21 = add i32 %8, 1
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %mModelValues, i32 noundef %conv21)
-          to label %for.body26.preheader unwind label %lpad
+          to label %for.body26 unwind label %lpad
 
-for.body26.preheader:                             ; preds = %invoke.cont19
-  %umax = call i64 @llvm.umax.i64(i64 %1, i64 1)
+for.body26:                                       ; preds = %invoke.cont19
+  %i23.039 = call i64 @llvm.umax.i64(i64 %1, i64 1)
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.preheader, %for.inc32
@@ -2600,7 +2600,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %64, i64 %63
   store i64 %add12, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0110, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %i23.039
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -3054,7 +3054,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %65, i64 %64
   store i64 %add22, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0124, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %i23.039
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
@@ -3332,7 +3332,7 @@ for.inc:                                          ; preds = %if.end14.i, %entry.
   %arrayidx.i = getelementptr inbounds i64, ptr %47, i64 %46
   store i64 %conv7, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.067, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %i23.039
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 lpad.loopexit:                                    ; preds = %for.body, %if.then.i59

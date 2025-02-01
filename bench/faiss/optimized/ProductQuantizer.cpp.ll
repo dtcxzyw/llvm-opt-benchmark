@@ -381,10 +381,10 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc51
-  br i1 %44, label %.preheader65.lr.ph.i, label %.preheader64.i
+  br i1 %44, label %.preheader65.us.i, label %.preheader64.i
 
-.preheader65.lr.ph.i:                             ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
-  %wide.trip.count.i = and i64 %113, 2147483647
+.preheader65.us.i:                                ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
+  %indvars.iv89.i = and i64 %113, 2147483647
   br label %.preheader65.us.i
 
 .preheader65.us.i:                                ; preds = %._crit_edge.us.i, %.preheader65.lr.ph.i
@@ -402,7 +402,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   %131 = fadd float %128, %130
   store float %131, ptr %129, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv89.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %127, !llvm.loop !7
 
 ._crit_edge.us.i:                                 ; preds = %127

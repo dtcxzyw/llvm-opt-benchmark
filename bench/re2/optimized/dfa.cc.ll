@@ -10398,7 +10398,7 @@ invoke.cont25:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 for.body:                                         ; preds = %while.end, %invoke.cont25
   %c.0249 = phi i32 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
-  %idxprom = sext i32 %c.0249 to i64
+  %sext = sext i32 %c.0249 to i64
   %arrayidx = getelementptr inbounds i8, ptr %bytemap_.i, i64 %idxprom
   %26 = load i8, ptr %arrayidx, align 1
   br label %while.cond
@@ -10477,12 +10477,12 @@ invoke.cont52:                                    ; preds = %if.end.i.i.i.i.i.i.
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %cb, i64 24
   %34 = load ptr, ptr %_M_finish.i, align 8
   %35 = load ptr, ptr %_M_start.i, align 8
-  %cmp.i.i49285 = icmp eq ptr %34, %35
-  br i1 %cmp.i.i49285, label %while.end115, label %while.body55
+  %cmp.i.i49283 = icmp eq ptr %34, %35
+  br i1 %cmp.i.i49283, label %while.end115, label %while.body55
 
 while.body55:                                     ; preds = %invoke.cont52, %while.cond53.backedge
   %36 = phi ptr [ %87, %while.cond53.backedge ], [ %35, %invoke.cont52 ]
-  %oom.0286 = phi i8 [ %oom.1, %while.cond53.backedge ], [ 0, %invoke.cont52 ]
+  %oom.0284 = phi i8 [ %oom.1, %while.cond53.backedge ], [ 0, %invoke.cont52 ]
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %_M_last.i51, align 8
   %add.ptr.i52 = getelementptr inbounds i8, ptr %38, i64 -8
@@ -10791,7 +10791,7 @@ for.inc101:                                       ; preds = %if.then.i92, %if.en
   br i1 %cmp.i.not, label %for.end103, label %for.body62
 
 for.end103:                                       ; preds = %for.inc101, %invoke.cont66, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit
-  %oom.1 = phi i8 [ %oom.0286, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ], [ 1, %invoke.cont66 ], [ %oom.0286, %for.inc101 ]
+  %oom.1 = phi i8 [ %oom.0284, %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EE9pop_frontEv.exit ], [ 1, %invoke.cont66 ], [ %oom.0284, %for.inc101 ]
   %81 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %81, null
   %.pre = trunc nuw i8 %oom.1 to i1

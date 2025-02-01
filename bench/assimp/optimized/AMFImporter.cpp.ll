@@ -1719,10 +1719,10 @@ if.end3:                                          ; preds = %if.then2, %if.end
   %1 = phi i8 [ %.pre, %if.then2 ], [ %0, %if.end ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %pOutString, i8 noundef signext %1)
   %cmp525.not = icmp eq i64 %call, 1
-  br i1 %cmp525.not, label %for.end, label %for.body.preheader
+  br i1 %cmp525.not, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %if.end3
-  %umax = tail call i64 @llvm.umax.i64(i64 %call, i64 2)
+for.body:                                         ; preds = %if.end3
+  %ci.026 = tail call i64 @llvm.umax.i64(i64 %call, i64 2)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

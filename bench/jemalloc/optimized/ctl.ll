@@ -3679,11 +3679,11 @@ if.end14.i:                                       ; preds = %do.end21
   %shl15.i = shl nuw nsw i64 %spec.store.select, 1
   %sub.i = add nsw i64 %shl15.i, -1
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2) %sub.i, i1 true)
-  %sub23.i = sub nsw i64 60, %7
+  %8 = sub nsw i64 60, %7
   %notmask = shl nsw i64 -1, %sub23.i
-  %8 = xor i64 %notmask, -1
-  %add.i = add nuw nsw i64 %spec.store.select, %8
-  %and.i = and i64 %add.i, %notmask
+  %9 = xor i64 %notmask, -1
+  %sub27.i = add nuw nsw i64 %spec.store.select, %9
+  %add.i = and i64 %sub27.i, %notmask
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %if.end14.i, %if.then.i

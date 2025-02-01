@@ -1661,10 +1661,10 @@ for.body220.preheader:                            ; preds = %if.then210
   br label %for.body220
 
 for.body220:                                      ; preds = %for.body220.preheader, %for.body220
-  %62 = phi ptr [ %call223, %for.body220 ], [ %.pre214, %for.body220.preheader ]
+  %61 = phi ptr [ %call223, %for.body220 ], [ %.pre214, %for.body220.preheader ]
   %i216.0202 = phi i64 [ %inc226, %for.body220 ], [ 0, %for.body220.preheader ]
-  %63 = load ptr, ptr %lp, align 8
-  %call223 = call ptr @lpNext(ptr noundef %63, ptr noundef %62) #16
+  %62 = load ptr, ptr %lp, align 8
+  %call223 = call ptr @lpNext(ptr noundef %62, ptr noundef %61) #16
   store ptr %call223, ptr %lp_ele, align 8
   %inc226 = add nuw nsw i64 %i216.0202, 1
   %exitcond.not = icmp eq i64 %inc226, %61
@@ -1676,19 +1676,19 @@ if.else228:                                       ; preds = %if.else176, %land.l
   br label %while.body237
 
 while.body237:                                    ; preds = %if.else228, %while.body237
-  %64 = phi ptr [ %.pre213, %if.else228 ], [ %call240, %while.body237 ]
+  %63 = phi ptr [ %.pre213, %if.else228 ], [ %call240, %while.body237 ]
   %prev_times.1200 = phi i64 [ %spec.select, %if.else228 ], [ %dec235, %while.body237 ]
   %dec235 = add nsw i64 %prev_times.1200, -1
-  %65 = load ptr, ptr %lp, align 8
-  %call240 = call ptr @lpPrev(ptr noundef %65, ptr noundef %64) #16
+  %64 = load ptr, ptr %lp, align 8
+  %call240 = call ptr @lpPrev(ptr noundef %64, ptr noundef %63) #16
   store ptr %call240, ptr %lp_ele, align 8
   %tobool236.not = icmp eq i64 %dec235, 0
   br i1 %tobool236.not, label %while.body72.backedge, label %while.body237, !llvm.loop !18
 
 return.sink.split:                                ; preds = %if.end197, %if.end168
-  %66 = load ptr, ptr %master_fields_start, align 8
+  %65 = load ptr, ptr %master_fields_start, align 8
   %master_fields_ptr204 = getelementptr inbounds nuw i8, ptr %si, i64 40
-  store ptr %66, ptr %master_fields_ptr204, align 8
+  store ptr %65, ptr %master_fields_ptr204, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true6, %land.lhs.true, %return.sink.split, %if.end197, %if.then189, %if.end168, %if.then161

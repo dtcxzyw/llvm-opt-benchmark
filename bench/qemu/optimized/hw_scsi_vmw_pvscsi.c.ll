@@ -1908,10 +1908,10 @@ while.cond2.preheader.i.i.i:                      ; preds = %if.end.i.i.i, %whil
   %sg.sroa.4.043.i.i.i = phi i64 [ %sg.sroa.4.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %add.i.i.i, %if.end.i.i.i ]
   %sg.sroa.8.042.i.i.i = phi i32 [ %sg.sroa.8.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %82, %if.end.i.i.i ]
   %tobool3.not33.i.i.i = icmp eq i32 %sg.sroa.8.042.i.i.i, 0
-  br i1 %tobool3.not33.i.i.i, label %land.rhs4.preheader.i.i.i, label %if.end.i.i.i
+  br i1 %tobool3.not33.i.i.i, label %land.rhs4.i.i.i, label %if.end.i.i.i
 
-land.rhs4.preheader.i.i.i:                        ; preds = %while.cond2.preheader.i.i.i
-  %umax.i.i.i = call i32 @llvm.umax.i32(i32 %elmcnt.046.i.i.i, i32 2048)
+land.rhs4.i.i.i:                                  ; preds = %while.cond2.preheader.i.i.i
+  %elmcnt.137.i.i.i = call i32 @llvm.umax.i32(i32 %elmcnt.046.i.i.i, i32 2048)
   br label %land.rhs4.i.i.i
 
 land.rhs4.i.i.i:                                  ; preds = %trace_pvscsi_convert_sglist.exit.i.i.i, %land.rhs4.preheader.i.i.i

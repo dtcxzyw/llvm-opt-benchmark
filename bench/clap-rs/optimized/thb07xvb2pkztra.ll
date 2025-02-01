@@ -826,13 +826,13 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h72c3cbc44b1c2993E(ptr noal
 
 .critedge.preheader.i:                            ; preds = %55, %53
   %.not.i = icmp eq i64 %44, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge.preheader.i
   %umax.i = tail call i64 @llvm.umax.i64(i64 %44, i64 3)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i", %.lr.ph.preheader.i
+.lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i", %.lr.ph.i
   %65 = phi i64 [ %71, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i" ], [ %49, %.lr.ph.preheader.i ]
   %.111.i = phi i64 [ %84, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i" ], [ 2, %.lr.ph.preheader.i ]
   %66 = getelementptr inbounds { { { { { i64, ptr }, i64 } } }, i64, ptr }, ptr %45, i64 %.111.i
@@ -873,7 +873,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h72c3cbc44b1c2993E(ptr noal
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i": ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.i", %73
   %84 = add nuw i64 %.111.i, 1
-  %exitcond.not.i = icmp eq i64 %84, %umax.i
+  %exitcond.not.i = icmp eq i64 %84, %65
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph15.i:                                       ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit43.thread.i", %.lr.ph15.preheader.i
@@ -936,7 +936,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h72c3cbc44b1c2993E(ptr noal
           to label %25 unwind label %289
 
 .thread:                                          ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.i", %.lr.ph.i, %41, %.critedge.preheader.i
-  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %44, %41 ], [ %umax.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.i" ], [ %.111.i, %.lr.ph.i ]
+  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %44, %41 ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h33d5ad3b53ae74a3E.exit35.i" ], [ %.111.i, %.lr.ph.i ]
   %106 = add i64 %.sroa.0.0.i.ph, %.0117
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6de9a733248339d0E.exit"
 
@@ -3473,10 +3473,10 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcffdddb182622ddbE(ptr noal
 
 .critedge.preheader.i:                            ; preds = %57, %55
   %.not.i = icmp eq i64 %45, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.critedge.preheader.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %45, i64 3)
+.lr.ph.i:                                         ; preds = %.critedge.preheader.i
+  %65 = tail call i64 @llvm.umax.i64(i64 %45, i64 3)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.thread5.i", %.lr.ph.preheader.i
@@ -3518,7 +3518,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcffdddb182622ddbE(ptr noal
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.thread5.i": ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.i", %73
   %82 = add nuw i64 %.111.i, 1
-  %exitcond.not.i = icmp eq i64 %82, %umax.i
+  %exitcond.not.i = icmp eq i64 %82, %65
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph15.i:                                       ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit43.thread.i", %.lr.ph15.preheader.i
@@ -3579,7 +3579,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcffdddb182622ddbE(ptr noal
           to label %26 unwind label %274
 
 .thread:                                          ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.thread5.i", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.i", %.lr.ph.i, %42, %.critedge.preheader.i
-  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %45, %42 ], [ %umax.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.i" ], [ %.111.i, %.lr.ph.i ]
+  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %45, %42 ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h826997466916b64eE.exit35.i" ], [ %.111.i, %.lr.ph.i ]
   %102 = add i64 %.sroa.0.0.i.ph, %.0117
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h2d6d8224e7b89d36E.exit"
 
@@ -4169,13 +4169,13 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he5155f35c0c6d848E(ptr noal
 
 .critedge.preheader.i:                            ; preds = %54, %52
   %.not.i = icmp eq i64 %44, 2
-  br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge.preheader.i
   %umax.i = tail call i64 @llvm.umax.i64(i64 %44, i64 3)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i", %.lr.ph.preheader.i
+.lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i", %.lr.ph.i
   %64 = phi i64 [ %69, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i" ], [ %49, %.lr.ph.preheader.i ]
   %.111.i = phi i64 [ %82, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i" ], [ 2, %.lr.ph.preheader.i ]
   %65 = getelementptr inbounds { { i64, { { { i64, ptr }, i64 } } }, ptr }, ptr %45, i64 %.111.i
@@ -4215,7 +4215,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he5155f35c0c6d848E(ptr noal
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i": ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.i", %71
   %82 = add nuw i64 %.111.i, 1
-  %exitcond.not.i = icmp eq i64 %82, %umax.i
+  %exitcond.not.i = icmp eq i64 %82, %65
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph15.i:                                       ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit43.thread.i", %.lr.ph15.preheader.i
@@ -4277,7 +4277,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he5155f35c0c6d848E(ptr noal
           to label %25 unwind label %281
 
 .thread:                                          ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.i", %.lr.ph.i, %41, %.critedge.preheader.i
-  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %44, %41 ], [ %umax.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.i" ], [ %.111.i, %.lr.ph.i ]
+  %.sroa.0.0.i.ph = phi i64 [ 2, %.critedge.preheader.i ], [ %44, %41 ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.thread5.i" ], [ %.111.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63edbfe7761ccff1E.exit35.i" ], [ %.111.i, %.lr.ph.i ]
   %103 = add i64 %.sroa.0.0.i.ph, %.0117
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1ffa77812d1ab8baE.exit"
 

@@ -245,27 +245,27 @@ if.end25.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp30.i, label %land.lhs.true.i, label %if.end37.i
 
 land.lhs.true.i:                                  ; preds = %if.end25.i
-  br i1 %cmp34.i, label %for.inc557.i, label %for.body46.preheader.i
+  br i1 %cmp34.i, label %for.inc557.i, label %for.body46.i.preheader
 
 if.end37.i:                                       ; preds = %if.end25.i
-  br i1 %cmp34.i, label %if.else315.i, label %for.body46.preheader.i
+  br i1 %cmp34.i, label %if.else315.i, label %for.body46.i.preheader
 
-for.body46.preheader.i:                           ; preds = %if.end37.i, %land.lhs.true.i
+for.body46.i.preheader:                           ; preds = %if.end37.i, %land.lhs.true.i
   %umax.i = tail call i64 @llvm.umax.i64(i64 %call4.i, i64 2)
   br label %for.body46.i
 
 for.body46.i:                                     ; preds = %for.inc.i, %for.body46.preheader.i
-  %i.2781.i = phi i32 [ %i.3.i, %for.inc.i ], [ %i.0804.i, %for.body46.preheader.i ]
-  %j.0780.i = phi i64 [ %inc314.i, %for.inc.i ], [ 1, %for.body46.preheader.i ]
-  %next_option_index.2779.i = phi i32 [ %next_option_index.3.i, %for.inc.i ], [ %inc27.i, %for.body46.preheader.i ]
-  %command.2778.i = phi i32 [ %command.3.i, %for.inc.i ], [ %command.0802.i, %for.body46.preheader.i ]
-  %suffix_set.2777.i = phi i32 [ %suffix_set.3.i, %for.inc.i ], [ %suffix_set.0800.i, %for.body46.preheader.i ]
-  %lgwin_set.2776.i = phi i32 [ %lgwin_set.3.i, %for.inc.i ], [ %lgwin_set.0799.i, %for.body46.preheader.i ]
-  %squash_set.2775.i = phi i32 [ %squash_set.3.i, %for.inc.i ], [ %squash_set.0798.i, %for.body46.preheader.i ]
-  %keep_set.2774.i = phi i32 [ %keep_set.3.i, %for.inc.i ], [ %keep_set.0797.i, %for.body46.preheader.i ]
-  %output_set.2773.i = phi i32 [ %output_set.3.i, %for.inc.i ], [ %output_set.0796.i, %for.body46.preheader.i ]
-  %quality_set.2772.i = phi i32 [ %quality_set.3.i, %for.inc.i ], [ %quality_set.0795.i, %for.body46.preheader.i ]
-  %command_set.2771.i = phi i32 [ %command_set.3.i, %for.inc.i ], [ %command_set.0794.i, %for.body46.preheader.i ]
+  %i.2781.i = phi i32 [ %i.3.i, %for.inc.i ], [ %i.0804.i, %for.body46.i.preheader ]
+  %j.0780.i = phi i64 [ %inc314.i, %for.inc.i ], [ 1, %for.body46.i.preheader ]
+  %next_option_index.2779.i = phi i32 [ %next_option_index.3.i, %for.inc.i ], [ %inc27.i, %for.body46.i.preheader ]
+  %command.2778.i = phi i32 [ %command.3.i, %for.inc.i ], [ %command.0802.i, %for.body46.i.preheader ]
+  %suffix_set.2777.i = phi i32 [ %suffix_set.3.i, %for.inc.i ], [ %suffix_set.0800.i, %for.body46.i.preheader ]
+  %lgwin_set.2776.i = phi i32 [ %lgwin_set.3.i, %for.inc.i ], [ %lgwin_set.0799.i, %for.body46.i.preheader ]
+  %squash_set.2775.i = phi i32 [ %squash_set.3.i, %for.inc.i ], [ %squash_set.0798.i, %for.body46.i.preheader ]
+  %keep_set.2774.i = phi i32 [ %keep_set.3.i, %for.inc.i ], [ %keep_set.0797.i, %for.body46.i.preheader ]
+  %output_set.2773.i = phi i32 [ %output_set.3.i, %for.inc.i ], [ %output_set.0796.i, %for.body46.i.preheader ]
+  %quality_set.2772.i = phi i32 [ %quality_set.3.i, %for.inc.i ], [ %quality_set.0795.i, %for.body46.i.preheader ]
+  %command_set.2771.i = phi i32 [ %command_set.3.i, %for.inc.i ], [ %command_set.0794.i, %for.body46.i.preheader ]
   %arrayidx47.i = getelementptr inbounds i8, ptr %3, i64 %j.0780.i
   %8 = load i8, ptr %arrayidx47.i, align 1
   %conv48.i = sext i8 %8 to i32

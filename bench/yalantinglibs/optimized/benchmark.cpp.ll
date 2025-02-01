@@ -21033,7 +21033,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI5rect2IiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = shl nuw nsw i64 %.sroa.speculated, 4
@@ -21050,9 +21050,9 @@ _ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.rect2, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit:    ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI5rect2IiESaIS1_EE13_M_deallocateEPS1_m.exit.i
   %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
@@ -21061,8 +21061,8 @@ for.cond:                                         ; preds = %_ZNSt6vectorI5rect2
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !385
 
-for.body:                                         ; preds = %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit, %for.cond
-  %i.024 = phi i64 [ 0, %_ZNSt6vectorI5rect2IiESaIS1_EE7reserveEm.exit ], [ %inc, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.024 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.cond ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -24156,7 +24156,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_personSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 40
@@ -24173,14 +24173,14 @@ _ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_person, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_personSaIS0_EE13_M_deallocateEPS0_m.exit.i
   %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_personSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -30824,7 +30824,7 @@ if.end.i10:                                       ; preds = %invoke.cont.i.i, %i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %.sroa.speculated
-  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br i1 %cmp3.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %for.body.preheader
 
 _ZNSt6vectorI9zc_WeaponSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %if.end.i10
   %mul.i.i.i.i = mul nuw nsw i64 %.sroa.speculated, 24
@@ -30841,14 +30841,14 @@ _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %i
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %struct.zc_Weapon, ptr %call5.i.i.i.i, i64 %.sroa.speculated
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit:   ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
+for.body.preheader:                               ; preds = %if.end.i10, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE13_M_deallocateEPS0_m.exit.i
   %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit, %for.inc
-  %i.033 = phi i64 [ 0, %_ZNSt6vectorI9zc_WeaponSaIS0_EE7reserveEm.exit ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.033 = phi i64 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7

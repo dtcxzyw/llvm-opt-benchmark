@@ -6238,8 +6238,8 @@ entry:
   br i1 %cmp.not.i, label %stbtt__buf_get8.exit, label %if.then
 
 stbtt__buf_get8.exit:                             ; preds = %entry
-  %0 = load i8, ptr %fdselect.sroa.0.0.copyload, align 1
-  switch i8 %0, label %if.end26 [
+  %idxprom.i = load i8, ptr %fdselect.sroa.0.0.copyload, align 1
+  switch i8 %idxprom.i, label %if.end26 [
     i8 0, label %if.then
     i8 3, label %for.body.i
   ]
@@ -6248,16 +6248,16 @@ if.then:                                          ; preds = %entry, %stbtt__buf_
   %fdselect.sroa.7.195 = phi i32 [ 1, %stbtt__buf_get8.exit ], [ %fdselect.sroa.22.0.copyload, %entry ]
   %add.i = add nsw i32 %fdselect.sroa.7.195, %glyph_index
   %cmp1.i.i = icmp slt i32 %add.i, 0
-  %1 = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %fdselect.sroa.22.0.copyload)
-  %.o.i.i = select i1 %cmp1.i.i, i32 %fdselect.sroa.22.0.copyload, i32 %1
+  %2 = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %fdselect.sroa.22.0.copyload)
+  %.o.i.i = select i1 %cmp1.i.i, i32 %fdselect.sroa.22.0.copyload, i32 %2
   %cmp.not.i20 = icmp slt i32 %.o.i.i, %fdselect.sroa.22.0.copyload
   br i1 %cmp.not.i20, label %if.end.i22, label %if.end26
 
 if.end.i22:                                       ; preds = %if.then
   %idxprom.i24 = sext i32 %.o.i.i to i64
   %arrayidx.i25 = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload, i64 %idxprom.i24
-  %2 = load i8, ptr %arrayidx.i25, align 1
-  %3 = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i25, align 1
+  %4 = zext i8 %3 to i32
   br label %if.end26
 
 for.body.i:                                       ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit.i
@@ -6273,14 +6273,14 @@ if.end.i.i:                                       ; preds = %for.body.i
   %inc.i.i = add nsw i32 %inc.i7.i, 1
   %idxprom.i.i = sext i32 %inc.i7.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload, i64 %idxprom.i.i
-  %4 = load i8, ptr %arrayidx.i.i, align 1
-  %5 = zext i8 %4 to i32
+  %5 = load i8, ptr %arrayidx.i.i, align 1
+  %6 = zext i8 %5 to i32
   br label %stbtt__buf_get8.exit.i
 
 stbtt__buf_get8.exit.i:                           ; preds = %if.end.i.i, %for.body.i
   %fdselect.sroa.7.3 = phi i32 [ %inc.i.i, %if.end.i.i ], [ %fdselect.sroa.7.2, %for.body.i ]
   %inc.i6.i = phi i32 [ %inc.i.i, %if.end.i.i ], [ %inc.i7.i, %for.body.i ]
-  %retval.0.i.i = phi i32 [ %5, %if.end.i.i ], [ 0, %for.body.i ]
+  %retval.0.i.i = phi i32 [ %6, %if.end.i.i ], [ 0, %for.body.i ]
   %or.i = or disjoint i32 %retval.0.i.i, %shl.i
   %inc.i28 = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i28, 2
@@ -6299,14 +6299,14 @@ if.end.i.i44:                                     ; preds = %for.body.i32
   %inc.i.i45 = add nsw i32 %inc.i7.i33, 1
   %idxprom.i.i46 = sext i32 %inc.i7.i33 to i64
   %arrayidx.i.i47 = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload, i64 %idxprom.i.i46
-  %6 = load i8, ptr %arrayidx.i.i47, align 1
-  %7 = zext i8 %6 to i32
+  %7 = load i8, ptr %arrayidx.i.i47, align 1
+  %8 = zext i8 %7 to i32
   br label %stbtt__buf_get8.exit.i38
 
 stbtt__buf_get8.exit.i38:                         ; preds = %if.end.i.i44, %for.body.i32
   %fdselect.sroa.7.5 = phi i32 [ %inc.i.i45, %if.end.i.i44 ], [ %fdselect.sroa.7.4, %for.body.i32 ]
   %inc.i6.i39 = phi i32 [ %inc.i.i45, %if.end.i.i44 ], [ %inc.i7.i33, %for.body.i32 ]
-  %retval.0.i.i40 = phi i32 [ %7, %if.end.i.i44 ], [ 0, %for.body.i32 ]
+  %retval.0.i.i40 = phi i32 [ %8, %if.end.i.i44 ], [ 0, %for.body.i32 ]
   %or.i41 = or disjoint i32 %retval.0.i.i40, %shl.i36
   %inc.i42 = add nuw nsw i32 %i.05.i34, 1
   %exitcond.not.i43 = icmp eq i32 %inc.i42, 2
@@ -6317,12 +6317,12 @@ for.cond.preheader:                               ; preds = %stbtt__buf_get8.exi
   br i1 %cmp1098, label %for.body.preheader, label %if.end26
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %8 = or disjoint i32 %retval.0.i.i, %shl.i
+  %9 = or disjoint i32 %retval.0.i.i, %shl.i
   br label %for.body
 
 for.cond:                                         ; preds = %stbtt__buf_get.exit77
   %inc = add nuw nsw i32 %i.0100, 1
-  %exitcond.not = icmp eq i32 %inc, %8
+  %exitcond.not = icmp eq i32 %inc, %9
   br i1 %exitcond.not, label %if.end26, label %for.body, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
@@ -6336,13 +6336,13 @@ if.end.i53:                                       ; preds = %for.body
   %inc.i54 = add nsw i32 %fdselect.sroa.7.099, 1
   %idxprom.i55 = sext i32 %fdselect.sroa.7.099 to i64
   %arrayidx.i56 = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload, i64 %idxprom.i55
-  %9 = load i8, ptr %arrayidx.i56, align 1
-  %10 = zext i8 %9 to i32
+  %10 = load i8, ptr %arrayidx.i56, align 1
+  %11 = zext i8 %10 to i32
   br label %stbtt__buf_get8.exit57
 
 stbtt__buf_get8.exit57:                           ; preds = %for.body, %if.end.i53
   %fdselect.sroa.7.6 = phi i32 [ %inc.i54, %if.end.i53 ], [ %fdselect.sroa.7.099, %for.body ]
-  %retval.0.i52 = phi i32 [ %10, %if.end.i53 ], [ 0, %for.body ]
+  %retval.0.i52 = phi i32 [ %11, %if.end.i53 ], [ 0, %for.body ]
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %stbtt__buf_get8.exit.i67, %stbtt__buf_get8.exit57
@@ -6358,14 +6358,14 @@ if.end.i.i73:                                     ; preds = %for.body.i61
   %inc.i.i74 = add nsw i32 %inc.i7.i62, 1
   %idxprom.i.i75 = sext i32 %inc.i7.i62 to i64
   %arrayidx.i.i76 = getelementptr inbounds i8, ptr %fdselect.sroa.0.0.copyload, i64 %idxprom.i.i75
-  %11 = load i8, ptr %arrayidx.i.i76, align 1
-  %12 = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx.i.i76, align 1
+  %13 = zext i8 %12 to i32
   br label %stbtt__buf_get8.exit.i67
 
 stbtt__buf_get8.exit.i67:                         ; preds = %if.end.i.i73, %for.body.i61
   %fdselect.sroa.7.8 = phi i32 [ %inc.i.i74, %if.end.i.i73 ], [ %fdselect.sroa.7.7, %for.body.i61 ]
   %inc.i6.i68 = phi i32 [ %inc.i.i74, %if.end.i.i73 ], [ %inc.i7.i62, %for.body.i61 ]
-  %retval.0.i.i69 = phi i32 [ %12, %if.end.i.i73 ], [ 0, %for.body.i61 ]
+  %retval.0.i.i69 = phi i32 [ %13, %if.end.i.i73 ], [ 0, %for.body.i61 ]
   %or.i70 = or disjoint i32 %retval.0.i.i69, %shl.i65
   %inc.i71 = add nuw nsw i32 %i.05.i63, 1
   %exitcond.not.i72 = icmp eq i32 %inc.i71, 2
@@ -6378,19 +6378,19 @@ stbtt__buf_get.exit77:                            ; preds = %stbtt__buf_get8.exi
   br i1 %or.cond, label %if.end26, label %for.cond
 
 if.end26:                                         ; preds = %for.cond, %stbtt__buf_get.exit77, %stbtt__buf_get8.exit, %for.cond.preheader, %if.then, %if.end.i22
-  %fdselector.0.sink = phi i32 [ %3, %if.end.i22 ], [ 0, %if.then ], [ -1, %for.cond.preheader ], [ -1, %stbtt__buf_get8.exit ], [ %retval.0.i52, %stbtt__buf_get.exit77 ], [ -1, %for.cond ]
+  %fdselector.0.sink = phi i32 [ %4, %if.end.i22 ], [ 0, %if.then ], [ -1, %for.cond.preheader ], [ -1, %stbtt__buf_get8.exit ], [ %retval.0.i52, %stbtt__buf_get.exit77 ], [ -1, %for.cond ]
   %fontdicts10 = getelementptr inbounds nuw i8, ptr %info, i64 128
-  %13 = load ptr, ptr %fontdicts10, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %info, i64 136
-  %15 = load i64, ptr %14, align 8
-  %call2711 = tail call { ptr, i64 } @stbtt__cff_index_get(ptr %13, i64 %15, i32 noundef %fdselector.0.sink)
-  %16 = getelementptr inbounds nuw i8, ptr %info, i64 64
-  %17 = extractvalue { ptr, i64 } %call2711, 0
-  %18 = extractvalue { ptr, i64 } %call2711, 1
-  %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %info, i64 72
-  %21 = load i64, ptr %20, align 8
-  %call28 = tail call { ptr, i64 } @stbtt__get_subrs(ptr %19, i64 %21, ptr %17, i64 %18)
+  %14 = load ptr, ptr %fontdicts10, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %info, i64 136
+  %16 = load i64, ptr %15, align 8
+  %call2711 = tail call { ptr, i64 } @stbtt__cff_index_get(ptr %14, i64 %16, i32 noundef %fdselector.0.sink)
+  %17 = getelementptr inbounds nuw i8, ptr %info, i64 64
+  %18 = extractvalue { ptr, i64 } %call2711, 0
+  %19 = extractvalue { ptr, i64 } %call2711, 1
+  %20 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %info, i64 72
+  %22 = load i64, ptr %21, align 8
+  %call28 = tail call { ptr, i64 } @stbtt__get_subrs(ptr %20, i64 %22, ptr %18, i64 %19)
   ret { ptr, i64 } %call28
 }
 

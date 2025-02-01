@@ -727,10 +727,10 @@ for.body11.preheader:                             ; preds = %for.cond8.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx5 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx5, align 4
+  %6 = load i32, ptr %arrayidx5, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx7 = getelementptr inbounds nuw i32, ptr %seedArray, i64 %indvars.iv.next
-  store i32 %5, ptr %arrayidx7, align 4
+  store i32 %6, ptr %arrayidx7, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !13
 

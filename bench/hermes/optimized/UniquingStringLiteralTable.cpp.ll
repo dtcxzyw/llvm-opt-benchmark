@@ -1057,10 +1057,10 @@ for.end68:                                        ; preds = %_ZNSt6vectorIZN6her
   call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEEEvT_SB_(ptr %add.ptr.i.i268, ptr %add.ptr.i.i276)
   %add.ptr.i.i284 = getelementptr inbounds nuw %struct.KindedEntry, ptr %kindedEntries.sroa.0.0.lcssa, i64 %sub
   call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEEEvT_SB_(ptr %add.ptr.i.i276, ptr %add.ptr.i.i284)
-  br i1 %cmp3.i.not, label %for.end110, label %for.body97.preheader
+  br i1 %cmp3.i.not, label %for.end110, label %for.body97
 
-for.body97.preheader:                             ; preds = %for.end68
-  %umax408 = call i64 @llvm.umax.i64(i64 %sub, i64 1)
+for.body97:                                       ; preds = %for.end68
+  %j94.0402 = call i64 @llvm.umax.i64(i64 %sub, i64 1)
   br label %for.body97
 
 for.body97:                                       ; preds = %for.body97.preheader, %_ZNSt14_Bit_referenceaSEb.exit

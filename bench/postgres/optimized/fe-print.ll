@@ -1498,7 +1498,7 @@ define void @PQprintTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 24:                                               ; preds = %17
   %25 = load ptr, ptr @stderr, align 8
   %26 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str) #13
-  br label %52
+  br label %51
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader59
   %27 = sext i32 %18 to i64
@@ -1511,14 +1511,14 @@ define void @PQprintTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %30 = phi ptr [ @.str.10, %16 ], [ @.str.25, %._crit_edge ]
   %.150 = phi ptr [ null, %16 ], [ %21, %._crit_edge ]
   %.not58 = icmp eq i32 %2, 0
-  br i1 %.not58, label %._crit_edge64.thread, label %.lr.ph63.split.preheader
+  br i1 %.not58, label %._crit_edge64.thread, label %.lr.ph63.split
 
-.lr.ph63.split.preheader:                         ; preds = %.lr.ph63
-  %31 = call i32 @llvm.umax.i32(i32 %7, i32 1)
+.lr.ph63.split:                                   ; preds = %.lr.ph63
+  %.161 = call i32 @llvm.umax.i32(i32 %7, i32 1)
   br label %.lr.ph63.split
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63.split.preheader, %.lr.ph63.split
-  %.161 = phi i32 [ %34, %.lr.ph63.split ], [ 0, %.lr.ph63.split.preheader ]
+.lr.ph63.split:; preds = %.lr.ph63.split, %.lr.ph63.split
+  %exitcond.not = phi i32 [ %34, %.lr.ph63.split ], [ 0, %.lr.ph63.split ]
   %32 = call ptr @PQfname(ptr noundef %0, i32 noundef %.161) #13
   %33 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %30, ptr noundef %32) #13
   %34 = add nuw nsw i32 %.161, 1
@@ -1526,61 +1526,61 @@ define void @PQprintTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63.split, !llvm.loop !26
 
 ._crit_edge64:                                    ; preds = %.lr.ph63.split
-  br i1 %.not, label %37, label %35
+  br i1 %.not, label %36, label %34
 
-35:                                               ; preds = %._crit_edge64
-  %36 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.19) #13
+34:                                               ; preds = %._crit_edge64
+  %35 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.19) #13
   br label %._crit_edge64.thread
 
-37:                                               ; preds = %._crit_edge64
-  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef %.150) #13
+36:                                               ; preds = %._crit_edge64
+  %37 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef %.150) #13
   br label %._crit_edge64.thread
 
-._crit_edge64.thread:                             ; preds = %.lr.ph63, %35, %37
-  %39 = icmp sgt i32 %8, 0
-  br i1 %39, label %.preheader.us.preheader, label %.loopexit
+._crit_edge64.thread:                             ; preds = %.lr.ph63, %34, %36
+  %38 = icmp sgt i32 %8, 0
+  br i1 %38, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %._crit_edge64.thread
-  %40 = select i1 %.not, ptr @.str.25, ptr @.str.10
+  %39 = select i1 %.not, ptr @.str.25, ptr @.str.10
   %smax75 = call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %45
-  %.268.us = phi i32 [ %46, %45 ], [ 0, %.preheader.us.preheader ]
-  br label %47
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %44
+  %.268.us = phi i32 [ %45, %44 ], [ 0, %.preheader.us.preheader ]
+  br label %46
 
-41:                                               ; preds = %._crit_edge67.us
-  %42 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.19) #13
-  br label %45
+40:                                               ; preds = %._crit_edge67.us
+  %41 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.19) #13
+  br label %44
 
-43:                                               ; preds = %._crit_edge67.us
-  %44 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef %.150) #13
-  br label %45
+42:                                               ; preds = %._crit_edge67.us
+  %43 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef %.150) #13
+  br label %44
 
-45:                                               ; preds = %43, %41
-  %46 = add nuw nsw i32 %.268.us, 1
-  %exitcond77.not = icmp eq i32 %46, %8
+44:                                               ; preds = %42, %40
+  %45 = add nuw nsw i32 %.268.us, 1
+  %exitcond77.not = icmp eq i32 %45, %8
   br i1 %exitcond77.not, label %.loopexit, label %.preheader.us, !llvm.loop !27
 
-47:                                               ; preds = %.preheader.us, %47
-  %.04865.us = phi i32 [ 0, %.preheader.us ], [ %51, %47 ]
-  %48 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.268.us, i32 noundef %.04865.us) #13
-  %.not57.us = icmp eq ptr %48, null
-  %49 = select i1 %.not57.us, ptr @.str.10, ptr %48
-  %50 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %40, ptr noundef nonnull %49) #13
-  %51 = add nuw nsw i32 %.04865.us, 1
-  %exitcond76.not = icmp eq i32 %51, %smax75
-  br i1 %exitcond76.not, label %._crit_edge67.us, label %47, !llvm.loop !28
+46:                                               ; preds = %.preheader.us, %46
+  %.04865.us = phi i32 [ 0, %.preheader.us ], [ %50, %46 ]
+  %47 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.268.us, i32 noundef %.04865.us) #13
+  %.not57.us = icmp eq ptr %47, null
+  %48 = select i1 %.not57.us, ptr @.str.10, ptr %47
+  %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %39, ptr noundef nonnull %48) #13
+  %50 = add nuw nsw i32 %.04865.us, 1
+  %exitcond76.not = icmp eq i32 %50, %smax75
+  br i1 %exitcond76.not, label %._crit_edge67.us, label %46, !llvm.loop !28
 
-._crit_edge67.us:                                 ; preds = %47
-  br i1 %.not, label %43, label %41
+._crit_edge67.us:                                 ; preds = %46
+  br i1 %.not, label %42, label %40
 
-.loopexit:                                        ; preds = %45, %._crit_edge64.thread, %14
-  %.049 = phi ptr [ null, %14 ], [ %.150, %._crit_edge64.thread ], [ %.150, %45 ]
+.loopexit:                                        ; preds = %44, %._crit_edge64.thread, %14
+  %.049 = phi ptr [ null, %14 ], [ %.150, %._crit_edge64.thread ], [ %.150, %44 ]
   call void @free(ptr noundef %.049) #13
-  br label %52
+  br label %51
 
-52:                                               ; preds = %.loopexit, %24
+51:                                               ; preds = %.loopexit, %24
   ret void
 }
 

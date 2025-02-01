@@ -37,16 +37,16 @@ entry:
   br i1 %cmp843.i, label %for.body.preheader.i, label %for.body17.preheader.i
 
 for.body.preheader.i:                             ; preds = %entry
-  %3 = tail call i32 @llvm.umin.i32(i32 %call, i32 128)
+  %wide.trip.count.i = tail call i32 @llvm.umin.i32(i32 %call, i32 128)
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %key, i64 %indvars.iv.i
-  %4 = load i8, ptr %arrayidx9.i, align 1
+  %3 = load i8, ptr %arrayidx9.i, align 1
   %arrayidx11.i = getelementptr inbounds nuw i8, ptr %ks, i64 %indvars.iv.i
-  store i8 %4, ptr %arrayidx11.i, align 1
+  store i8 %3, ptr %arrayidx11.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
@@ -56,18 +56,18 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp1545.i, label %for.body17.preheader.i, label %for.end30.i
 
 for.body17.preheader.i:                           ; preds = %for.end.i, %entry
-  %5 = sext i32 %call to i64
-  %6 = getelementptr i8, ptr %ks, i64 %5
-  %arrayidx13.i = getelementptr i8, ptr %6, i64 -1
-  %7 = load i8, ptr %arrayidx13.i, align 1
-  %8 = sub i32 128, %call
+  %4 = sext i32 %call to i64
+  %5 = getelementptr i8, ptr %ks, i64 %4
+  %arrayidx13.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx13.i, align 1
+  %7 = sub i32 128, %call
   %wide.trip.count59.i = zext i32 %8 to i64
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.body17.i, %for.body17.preheader.i
   %indvars.iv57.i = phi i64 [ %5, %for.body17.preheader.i ], [ %indvars.iv.next58.i, %for.body17.i ]
   %indvars.iv55.i = phi i64 [ 0, %for.body17.preheader.i ], [ %indvars.iv.next56.i, %for.body17.i ]
-  %d.0.in48.i = phi i8 [ %7, %for.body17.preheader.i ], [ %10, %for.body17.i ]
+  %d.0.in48.i = phi i8 [ %6, %for.body17.preheader.i ], [ %10, %for.body17.i ]
   %arrayidx19.i = getelementptr inbounds nuw i8, ptr %ks, i64 %indvars.iv55.i
   %9 = load i8, ptr %arrayidx19.i, align 1
   %add.narrow.i = add i8 %9, %d.0.in48.i

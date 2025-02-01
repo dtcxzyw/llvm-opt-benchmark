@@ -12605,10 +12605,10 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
   %45 = add nsw i64 %41, -1
   %46 = icmp ult i64 %45, %42
   %or.cond143 = select i1 %46, i1 %44, i1 false
-  br i1 %or.cond143, label %.lr.ph.preheader, label %.loopexit
+  br i1 %or.cond143, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %22
-  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
+.lr.ph:                                           ; preds = %22
+  %.0100141 = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %256
@@ -12890,7 +12890,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
 
 256:                                              ; preds = %.lr.ph, %55
   %257 = add nuw nsw i64 %.0101140, 1
-  %exitcond.not = icmp eq i64 %257, %umax
+  %exitcond.not = icmp eq i64 %257, %.0100141
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %256, %152, %81, %64, %22, %19, %11, %8, %3, %252

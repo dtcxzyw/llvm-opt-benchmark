@@ -27016,13 +27016,13 @@ define internal void @_GLOBAL__sub_I_cmCTestCoverageHandler.cxx() #15 section ".
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
@@ -27034,7 +27034,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #17
+declare i64 @llvm.uadd.sat.i64(i64, i64) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
