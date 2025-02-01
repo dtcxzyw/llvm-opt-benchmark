@@ -6290,9 +6290,9 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
-17:                                               ; preds = %.lr.ph275, %230
-  %.0227274 = phi i32 [ %3, %.lr.ph275 ], [ %.1228, %230 ]
-  %.0229273 = phi i32 [ %5, %.lr.ph275 ], [ %.1230, %230 ]
+17:                                               ; preds = %.lr.ph275, %228
+  %.0227274 = phi i32 [ %3, %.lr.ph275 ], [ %.1228, %228 ]
+  %.0229273 = phi i32 [ %5, %.lr.ph275 ], [ %.1230, %228 ]
   %18 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef %7) #7
   %19 = trunc i64 %18 to i32
   %20 = shl i32 %19, 3
@@ -6303,7 +6303,7 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
 23:                                               ; preds = %17
   %24 = lshr i64 %18, 16
   %trunc = trunc i64 %24 to i16
-  switch i16 %trunc, label %223 [
+  switch i16 %trunc, label %221 [
     i16 512, label %25
     i16 0, label %83
     i16 256, label %104
@@ -6403,7 +6403,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   %80 = add i32 %.0227274, 8
   %81 = call fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %80, i64 noundef %32, i32 noundef %.0232, i32 noundef %6, i32 noundef %7)
   %82 = add nsw i32 %.0229273, -1
-  br label %230
+  br label %228
 
 83:                                               ; preds = %23
   %84 = lshr i64 %18, 32
@@ -6449,7 +6449,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %94, %87
   %.2 = phi i32 [ 0, %87 ], [ %98, %94 ], [ %.0229273, %.preheader ], [ %102, %.loopexit.loopexit ]
   %103 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 104:                                              ; preds = %23
   %105 = load i32, ptr @hf_afp_bool, align 4
@@ -6459,7 +6459,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   %108 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, i64 noundef %106, ptr noundef nonnull @.str.1074, ptr noundef nonnull %107) #7
   %109 = add nsw i32 %.0229273, -1
   %110 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 111:                                              ; preds = %23
   %112 = load i32, ptr @ett_afp_spotlight_query_line, align 4
@@ -6483,7 +6483,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
 spotlight_int64.exit:                             ; preds = %.lr.ph.i, %111
   %120 = sub i32 %.0229273, %116
   %121 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 122:                                              ; preds = %23
   %123 = load i32, ptr @ett_afp_spotlight_query_line, align 4
@@ -6511,7 +6511,7 @@ spotlight_int64.exit:                             ; preds = %.lr.ph.i, %111
 spotlight_uuid.exit:                              ; preds = %.lr.ph.i247, %122
   %133 = sub i32 %.0229273, %127
   %134 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 135:                                              ; preds = %23
   %136 = load i32, ptr @ett_afp_spotlight_query_line, align 4
@@ -6535,7 +6535,7 @@ spotlight_uuid.exit:                              ; preds = %.lr.ph.i247, %122
 spotlight_float.exit:                             ; preds = %.lr.ph.i250, %135
   %144 = sub i32 %.0229273, %140
   %145 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 146:                                              ; preds = %23
   switch i16 %trunc242, label %179 [
@@ -6601,7 +6601,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
 179:                                              ; preds = %172, %174, %spotlight_get_utf16_string_byte_order.exit260, %147, %146
   %180 = add nsw i32 %.0229273, -1
   %181 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 182:                                              ; preds = %23
   %183 = load i32, ptr @ett_afp_spotlight_query_line, align 4
@@ -6644,7 +6644,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
 spotlight_CNID_array.exit:                        ; preds = %.lr.ph.i261, %188, %186
   %205 = add nsw i32 %.0229273, -1
   %206 = add i32 %21, %.0227274
-  br label %230
+  br label %228
 
 207:                                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -6680,33 +6680,29 @@ spotlight_date.exit.thread:                       ; preds = %207
 
 spotlight_date.exit:                              ; preds = %.lr.ph.i265, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %219 = icmp eq i64 %209, 4294967295
-  br i1 %219, label %.loopexit268, label %220
+  %219 = sub nsw i32 %.0229273, %210
+  %220 = add i32 %21, %.0227274
+  br label %228
 
-220:                                              ; preds = %spotlight_date.exit
-  %221 = sub nsw i32 %.0229273, %210
-  %222 = add i32 %21, %.0227274
-  br label %230
+221:                                              ; preds = %23
+  %222 = and i64 %24, 65535
+  %223 = load i32, ptr @hf_afp_query_type, align 4
+  %224 = call ptr @val64_to_str_const(i64 noundef %222, ptr noundef nonnull @qtype_string_values, ptr noundef nonnull @.str.1101) #7
+  %225 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, ptr noundef %224) #7
+  %226 = add nsw i32 %.0229273, -1
+  %227 = add i32 %21, %.0227274
+  br label %228
 
-223:                                              ; preds = %23
-  %224 = and i64 %24, 65535
-  %225 = load i32, ptr @hf_afp_query_type, align 4
-  %226 = call ptr @val64_to_str_const(i64 noundef %224, ptr noundef nonnull @qtype_string_values, ptr noundef nonnull @.str.1101) #7
-  %227 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %225, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, ptr noundef %226) #7
-  %228 = add nsw i32 %.0229273, -1
-  %229 = add i32 %21, %.0227274
-  br label %230
+228:                                              ; preds = %221, %spotlight_date.exit, %spotlight_CNID_array.exit, %179, %spotlight_float.exit, %spotlight_uuid.exit, %spotlight_int64.exit, %104, %.loopexit, %79
+  %.1230 = phi i32 [ %226, %221 ], [ %219, %spotlight_date.exit ], [ %205, %spotlight_CNID_array.exit ], [ %180, %179 ], [ %144, %spotlight_float.exit ], [ %133, %spotlight_uuid.exit ], [ %120, %spotlight_int64.exit ], [ %109, %104 ], [ %.2, %.loopexit ], [ %82, %79 ]
+  %.1228 = phi i32 [ %227, %221 ], [ %220, %spotlight_date.exit ], [ %206, %spotlight_CNID_array.exit ], [ %181, %179 ], [ %145, %spotlight_float.exit ], [ %134, %spotlight_uuid.exit ], [ %121, %spotlight_int64.exit ], [ %110, %104 ], [ %103, %.loopexit ], [ %81, %79 ]
+  %229 = icmp slt i32 %.1228, %11
+  %230 = icmp sgt i32 %.1230, 0
+  %231 = select i1 %229, i1 %230, i1 false
+  br i1 %231, label %17, label %.loopexit268, !llvm.loop !21
 
-230:                                              ; preds = %223, %220, %spotlight_CNID_array.exit, %179, %spotlight_float.exit, %spotlight_uuid.exit, %spotlight_int64.exit, %104, %.loopexit, %79
-  %.1230 = phi i32 [ %228, %223 ], [ %221, %220 ], [ %205, %spotlight_CNID_array.exit ], [ %180, %179 ], [ %144, %spotlight_float.exit ], [ %133, %spotlight_uuid.exit ], [ %120, %spotlight_int64.exit ], [ %109, %104 ], [ %.2, %.loopexit ], [ %82, %79 ]
-  %.1228 = phi i32 [ %229, %223 ], [ %222, %220 ], [ %206, %spotlight_CNID_array.exit ], [ %181, %179 ], [ %145, %spotlight_float.exit ], [ %134, %spotlight_uuid.exit ], [ %121, %spotlight_int64.exit ], [ %110, %104 ], [ %103, %.loopexit ], [ %81, %79 ]
-  %231 = icmp slt i32 %.1228, %11
-  %232 = icmp sgt i32 %.1230, 0
-  %233 = select i1 %231, i1 %232, i1 false
-  br i1 %233, label %17, label %.loopexit268, !llvm.loop !21
-
-.loopexit268:                                     ; preds = %spotlight_date.exit, %17, %230, %8, %spotlight_date.exit.thread
-  %.0227270 = phi i32 [ %.0227274, %spotlight_date.exit.thread ], [ %3, %8 ], [ %.0227274, %spotlight_date.exit ], [ %.0227274, %17 ], [ %.1228, %230 ]
+.loopexit268:                                     ; preds = %17, %228, %8, %spotlight_date.exit.thread
+  %.0227270 = phi i32 [ %.0227274, %spotlight_date.exit.thread ], [ %3, %8 ], [ %.0227274, %17 ], [ %.1228, %228 ]
   ret i32 %.0227270
 }
 

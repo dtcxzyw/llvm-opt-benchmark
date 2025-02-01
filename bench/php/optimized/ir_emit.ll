@@ -43106,7 +43106,7 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %1866 [
+  switch i8 %6, label %1867 [
     i8 14, label %7
     i8 15, label %7
     i8 16, label %7
@@ -43147,37 +43147,37 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
     i8 63, label %637
     i8 71, label %644
     i8 75, label %653
-    i8 78, label %1044
-    i8 79, label %1050
-    i8 76, label %1061
-    i8 77, label %1070
-    i8 89, label %1158
-    i8 91, label %1158
-    i8 92, label %1158
-    i8 93, label %1158
-    i8 94, label %1158
-    i8 95, label %1158
-    i8 96, label %1158
-    i8 97, label %1158
-    i8 104, label %1158
-    i8 102, label %1161
-    i8 100, label %1170
-    i8 86, label %1403
-    i8 87, label %1403
-    i8 35, label %1640
-    i8 31, label %1657
-    i8 32, label %1657
-    i8 36, label %1657
-    i8 37, label %1657
-    i8 33, label %1694
-    i8 38, label %1694
-    i8 34, label %1732
-    i8 54, label %1753
-    i8 55, label %1753
-    i8 53, label %1788
-    i8 82, label %1795
-    i8 83, label %1843
-    i8 73, label %1844
+    i8 78, label %1045
+    i8 79, label %1051
+    i8 76, label %1062
+    i8 77, label %1071
+    i8 89, label %1159
+    i8 91, label %1159
+    i8 92, label %1159
+    i8 93, label %1159
+    i8 94, label %1159
+    i8 95, label %1159
+    i8 96, label %1159
+    i8 97, label %1159
+    i8 104, label %1159
+    i8 102, label %1162
+    i8 100, label %1171
+    i8 86, label %1404
+    i8 87, label %1404
+    i8 35, label %1641
+    i8 31, label %1658
+    i8 32, label %1658
+    i8 36, label %1658
+    i8 37, label %1658
+    i8 33, label %1695
+    i8 38, label %1695
+    i8 34, label %1733
+    i8 54, label %1754
+    i8 55, label %1754
+    i8 53, label %1789
+    i8 82, label %1796
+    i8 83, label %1844
+    i8 73, label %1845
   ]
 
 7:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -43210,8 +43210,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %26 = icmp eq i64 %25, 0
   %27 = add nsw i32 %1, -1
   %28 = icmp eq i32 %9, %27
-  %or.cond1146 = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond1146, label %29, label %63
+  %or.cond = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond, label %29, label %63
 
 29:                                               ; preds = %23
   %30 = load i8, ptr %11, align 8
@@ -43251,8 +43251,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %46 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 2048
-  %.not1144 = icmp eq i32 %48, 0
-  br i1 %.not1144, label %55, label %49
+  %.not1145 = icmp eq i32 %48, 0
+  br i1 %.not1145, label %55, label %49
 
 49:                                               ; preds = %.thread
   tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef %1)
@@ -43281,16 +43281,16 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   br label %ir_match_fuse_load_cmp_fp.exit
 
 64:                                               ; preds = %7
-  switch i8 %6, label %._crit_edge1259 [
+  switch i8 %6, label %._crit_edge1262 [
     i8 14, label %71
     i8 15, label %71
     i8 16, label %65
     i8 18, label %65
   ]
 
-._crit_edge1259:                                  ; preds = %64
-  %.phi.trans.insert1260 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre1261 = load i32, ptr %.phi.trans.insert1260, align 8
+._crit_edge1262:                                  ; preds = %64
+  %.phi.trans.insert1263 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre1264 = load i32, ptr %.phi.trans.insert1263, align 8
   br label %69
 
 65:                                               ; preds = %64, %64
@@ -43302,8 +43302,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   store i8 %68, ptr %5, align 8
   br label %69
 
-69:                                               ; preds = %._crit_edge1259, %65
-  %70 = phi i32 [ %.pre1261, %._crit_edge1259 ], [ %9, %65 ]
+69:                                               ; preds = %._crit_edge1262, %65
+  %70 = phi i32 [ %.pre1264, %._crit_edge1262 ], [ %9, %65 ]
   tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %70, i32 noundef %1)
   br label %ir_match_fuse_load_cmp_fp.exit
 
@@ -43363,14 +43363,14 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
 
 107:                                              ; preds = %104, %101, %90
   %108 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef nonnull %0, i32 noundef %91, i32 noundef %1)
-  br i1 %108, label %._crit_edge1257, label %ir_match_fuse_load_cmp_fp.exit
+  br i1 %108, label %._crit_edge1260, label %ir_match_fuse_load_cmp_fp.exit
 
-._crit_edge1257:                                  ; preds = %107
-  %.pre1258 = load i32, ptr %8, align 4
+._crit_edge1260:                                  ; preds = %107
+  %.pre1261 = load i32, ptr %8, align 4
   br label %109
 
-109:                                              ; preds = %._crit_edge1257, %104, %101
-  %110 = phi i32 [ %.pre1258, %._crit_edge1257 ], [ %91, %104 ], [ %91, %101 ]
+109:                                              ; preds = %._crit_edge1260, %104, %101
+  %110 = phi i32 [ %.pre1261, %._crit_edge1260 ], [ %91, %104 ], [ %91, %101 ]
   %111 = load i32, ptr %72, align 8
   store i32 %111, ptr %8, align 4
   store i32 %110, ptr %72, align 8
@@ -43394,8 +43394,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, 524288
-  %.not1135 = icmp eq i32 %123, 0
-  br i1 %.not1135, label %.thread1218, label %124
+  %.not1136 = icmp eq i32 %123, 0
+  br i1 %.not1136, label %.thread1218, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -43423,14 +43423,14 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
 
 138:                                              ; preds = %136
   %139 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %130)
-  br i1 %139, label %._crit_edge1252, label %..thread1218_crit_edge
+  br i1 %139, label %._crit_edge1255, label %..thread1218_crit_edge
 
 ..thread1218_crit_edge:                           ; preds = %138
-  %.pre1254 = load i8, ptr %5, align 8
+  %.pre1257 = load i8, ptr %5, align 8
   br label %.thread1218
 
-._crit_edge1252:                                  ; preds = %138
-  %.pre1253 = load i32, ptr %131, align 4
+._crit_edge1255:                                  ; preds = %138
+  %.pre1256 = load i32, ptr %131, align 4
   br label %156
 
 140:                                              ; preds = %134
@@ -43457,11 +43457,11 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %154 = icmp eq i8 %6, 25
   %155 = add i64 %142, 2147483647
   %or.cond1149 = icmp ult i64 %155, 4294967295
-  %or.cond = and i1 %154, %or.cond1149
-  br i1 %or.cond, label %156, label %195
+  %or.cond1236 = and i1 %154, %or.cond1149
+  br i1 %or.cond1236, label %156, label %195
 
-156:                                              ; preds = %._crit_edge1252, %153, %149
-  %157 = phi i32 [ %.pre1253, %._crit_edge1252 ], [ %132, %153 ], [ %132, %149 ]
+156:                                              ; preds = %._crit_edge1255, %153, %149
+  %157 = phi i32 [ %.pre1256, %._crit_edge1255 ], [ %132, %153 ], [ %132, %149 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %159 = load i32, ptr %158, align 8
   %160 = icmp sgt i32 %157, %159
@@ -43481,8 +43481,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds i32, ptr %170, i64 %164
   %172 = load i32, ptr %171, align 4
-  %.not1142 = icmp eq i32 %172, 0
-  br i1 %.not1142, label %173, label %179
+  %.not1143 = icmp eq i32 %172, 0
+  br i1 %.not1143, label %173, label %179
 
 173:                                              ; preds = %168
   %174 = tail call fastcc i32 @ir_match_insn(ptr noundef nonnull %0, i32 noundef %157)
@@ -43558,8 +43558,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
 208:                                              ; preds = %203
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %210 = load i32, ptr %209, align 4
-  %.not1137 = icmp eq i32 %210, %126
-  br i1 %.not1137, label %ir_match_fuse_load_cmp_fp.exit, label %211
+  %.not1138 = icmp eq i32 %210, %126
+  br i1 %.not1138, label %ir_match_fuse_load_cmp_fp.exit, label %211
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -43581,8 +43581,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds i32, ptr %224, i64 %218
   %226 = load i32, ptr %225, align 4
-  %.not1138 = icmp eq i32 %226, 0
-  br i1 %.not1138, label %227, label %233
+  %.not1139 = icmp eq i32 %226, 0
+  br i1 %.not1139, label %227, label %233
 
 227:                                              ; preds = %222
   %228 = tail call fastcc i32 @ir_match_insn(ptr noundef nonnull %0, i32 noundef %210)
@@ -43595,14 +43595,14 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
 
 233:                                              ; preds = %227, %222
   %.0999 = phi i32 [ %226, %222 ], [ %228, %227 ]
-  switch i32 %.0999, label %._crit_edge1249 [
+  switch i32 %.0999, label %._crit_edge1252 [
     i32 115, label %234
     i32 116, label %265
   ]
 
-._crit_edge1249:                                  ; preds = %233
-  %.pre1250 = load i32, ptr %125, align 8
-  %.pre1251 = load i32, ptr %212, align 8
+._crit_edge1252:                                  ; preds = %233
+  %.pre1253 = load i32, ptr %125, align 8
+  %.pre1254 = load i32, ptr %212, align 8
   br label %296
 
 234:                                              ; preds = %233
@@ -43628,8 +43628,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %249 = load ptr, ptr %223, align 8
   %250 = getelementptr inbounds i32, ptr %249, i64 %244
   %251 = load i32, ptr %250, align 4
-  %.not1141 = icmp eq i32 %251, 0
-  br i1 %.not1141, label %252, label %258
+  %.not1142 = icmp eq i32 %251, 0
+  br i1 %.not1142, label %252, label %258
 
 252:                                              ; preds = %248
   %253 = tail call fastcc i32 @ir_match_insn(ptr noundef nonnull %0, i32 noundef %239)
@@ -43676,8 +43676,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %280 = load ptr, ptr %223, align 8
   %281 = getelementptr inbounds i32, ptr %280, i64 %275
   %282 = load i32, ptr %281, align 4
-  %.not1140 = icmp eq i32 %282, 0
-  br i1 %.not1140, label %283, label %289
+  %.not1141 = icmp eq i32 %282, 0
+  br i1 %.not1141, label %283, label %289
 
 283:                                              ; preds = %279
   %284 = tail call fastcc i32 @ir_match_insn(ptr noundef nonnull %0, i32 noundef %270)
@@ -43701,9 +43701,9 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   store i32 -1610612621, ptr %295, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-296:                                              ; preds = %._crit_edge1249, %215, %211
-  %297 = phi i32 [ %.pre1251, %._crit_edge1249 ], [ %213, %215 ], [ %213, %211 ]
-  %298 = phi i32 [ %.pre1250, %._crit_edge1249 ], [ %126, %215 ], [ %126, %211 ]
+296:                                              ; preds = %._crit_edge1252, %215, %211
+  %297 = phi i32 [ %.pre1254, %._crit_edge1252 ], [ %213, %215 ], [ %213, %211 ]
+  %298 = phi i32 [ %.pre1253, %._crit_edge1252 ], [ %126, %215 ], [ %126, %211 ]
   %299 = icmp sgt i32 %298, %297
   br i1 %299, label %300, label %ir_match_fuse_load_cmp_fp.exit
 
@@ -43721,8 +43721,8 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds i32, ptr %309, i64 %303
   %311 = load i32, ptr %310, align 4
-  %.not1139 = icmp eq i32 %311, 0
-  br i1 %.not1139, label %312, label %318
+  %.not1140 = icmp eq i32 %311, 0
+  br i1 %.not1140, label %312, label %318
 
 312:                                              ; preds = %307
   %313 = tail call fastcc i32 @ir_match_insn(ptr noundef nonnull %0, i32 noundef %298)
@@ -43757,15 +43757,15 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   br label %ir_match_fuse_load_cmp_fp.exit
 
 .thread1218:                                      ; preds = %..thread1218_crit_edge, %120, %2, %2, %2, %507, %195, %499, %503, %515, %511, %2, %2, %484, %136, %140, %128, %203, %201
-  %329 = phi i8 [ %.pre1254, %..thread1218_crit_edge ], [ %6, %120 ], [ %6, %2 ], [ %6, %2 ], [ %6, %2 ], [ 41, %507 ], [ %6, %195 ], [ 41, %499 ], [ 41, %503 ], [ 41, %515 ], [ 41, %511 ], [ %6, %2 ], [ %6, %2 ], [ 26, %484 ], [ 25, %136 ], [ %6, %140 ], [ %6, %128 ], [ 24, %203 ], [ 25, %201 ]
+  %329 = phi i8 [ %.pre1257, %..thread1218_crit_edge ], [ %6, %120 ], [ %6, %2 ], [ %6, %2 ], [ %6, %2 ], [ 41, %507 ], [ %6, %195 ], [ 41, %499 ], [ 41, %503 ], [ 41, %515 ], [ 41, %511 ], [ %6, %2 ], [ %6, %2 ], [ 26, %484 ], [ 25, %136 ], [ %6, %140 ], [ %6, %128 ], [ 24, %203 ], [ 25, %201 ]
   %330 = zext i8 %329 to i64
   %331 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = and i32 %332, 2048
-  %.not1143 = icmp eq i32 %333, 0
+  %.not1144 = icmp eq i32 %333, 0
   %334 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %335 = load i32, ptr %334, align 8
-  br i1 %.not1143, label %353, label %336
+  br i1 %.not1144, label %353, label %336
 
 336:                                              ; preds = %.thread1218
   %337 = icmp slt i32 %335, 0
@@ -43776,14 +43776,14 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %340 = sext i32 %335 to i64
   %341 = getelementptr inbounds %struct._ir_insn, ptr %339, i64 %340
   %342 = tail call fastcc zeroext i1 @ir_may_fuse_imm(ptr noundef nonnull %0, ptr noundef nonnull %341)
-  br i1 %342, label %ir_match_fuse_load_cmp_fp.exit, label %._crit_edge1255
+  br i1 %342, label %ir_match_fuse_load_cmp_fp.exit, label %._crit_edge1258
 
-._crit_edge1255:                                  ; preds = %338
-  %.pre1256 = load i32, ptr %334, align 8
+._crit_edge1258:                                  ; preds = %338
+  %.pre1259 = load i32, ptr %334, align 8
   br label %343
 
-343:                                              ; preds = %._crit_edge1255, %336
-  %344 = phi i32 [ %.pre1256, %._crit_edge1255 ], [ %335, %336 ]
+343:                                              ; preds = %._crit_edge1258, %336
+  %344 = phi i32 [ %.pre1259, %._crit_edge1258 ], [ %335, %336 ]
   %345 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef nonnull %0, i32 noundef %344, i32 noundef %1)
   br i1 %345, label %ir_match_fuse_load_cmp_fp.exit, label %346
 
@@ -43858,10 +43858,10 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
   %389 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %388
   %390 = load i32, ptr %389, align 4
   %391 = and i32 %390, 2048
-  %.not1132 = icmp eq i32 %391, 0
+  %.not1133 = icmp eq i32 %391, 0
   %392 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %393 = load i32, ptr %392, align 8
-  br i1 %.not1132, label %410, label %394
+  br i1 %.not1133, label %410, label %394
 
 394:                                              ; preds = %387
   %395 = icmp slt i32 %393, 0
@@ -43879,14 +43879,14 @@ define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %
 
 402:                                              ; preds = %398
   %403 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef nonnull %0, i32 noundef %400, i32 noundef %1)
-  br i1 %403, label %._crit_edge1247, label %ir_match_fuse_load_commutative_fp.exit
+  br i1 %403, label %._crit_edge1250, label %ir_match_fuse_load_commutative_fp.exit
 
-._crit_edge1247:                                  ; preds = %402
-  %.pre1248 = load i32, ptr %399, align 4
+._crit_edge1250:                                  ; preds = %402
+  %.pre1251 = load i32, ptr %399, align 4
   br label %404
 
-404:                                              ; preds = %._crit_edge1247, %398
-  %405 = phi i32 [ %.pre1248, %._crit_edge1247 ], [ %400, %398 ]
+404:                                              ; preds = %._crit_edge1250, %398
+  %405 = phi i32 [ %.pre1251, %._crit_edge1250 ], [ %400, %398 ]
   %406 = load i32, ptr %392, align 8
   store i32 %406, ptr %399, align 4
   store i32 %405, ptr %392, align 8
@@ -43896,8 +43896,8 @@ ir_match_fuse_load_commutative_fp.exit:           ; preds = %394, %396, %402, %4
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %408 = load i32, ptr %407, align 4
   %409 = and i32 %408, 32
-  %.not1134 = icmp eq i32 %409, 0
-  %.1151 = select i1 %.not1134, i32 134217869, i32 142
+  %.not1135 = icmp eq i32 %409, 0
+  %.1151 = select i1 %.not1135, i32 134217869, i32 142
   br label %ir_match_fuse_load_cmp_fp.exit
 
 410:                                              ; preds = %387
@@ -43956,8 +43956,8 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %444 = load i32, ptr %443, align 4
   %445 = and i32 %444, 32
-  %.not1133 = icmp eq i32 %445, 0
-  %.1152 = select i1 %.not1133, i32 141, i32 142
+  %.not1134 = icmp eq i32 %445, 0
+  %.1152 = select i1 %.not1134, i32 141, i32 142
   br label %ir_match_fuse_load_cmp_fp.exit
 
 446:                                              ; preds = %2
@@ -43970,8 +43970,8 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %452 = load i32, ptr %451, align 8
   %453 = and i32 %452, 524288
-  %.not1128 = icmp eq i32 %453, 0
-  br i1 %.not1128, label %484, label %454
+  %.not1129 = icmp eq i32 %453, 0
+  br i1 %.not1129, label %484, label %454
 
 454:                                              ; preds = %450
   %455 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -44013,18 +44013,18 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
 
 476:                                              ; preds = %switch.hole_check, %474, %469
   %477 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %468)
-  %.not1129 = icmp samesign ult i64 %477, 2
-  br i1 %.not1129, label %ir_match_fuse_load_cmp_fp.exit, label %478
+  %.not1130 = icmp samesign ult i64 %477, 2
+  br i1 %.not1130, label %ir_match_fuse_load_cmp_fp.exit, label %478
 
 478:                                              ; preds = %476
   %479 = icmp samesign ugt i8 %448, 6
   br i1 %479, label %480, label %484
 
 480:                                              ; preds = %478
-  %.not1130 = icmp ne i8 %472, 1
+  %.not1131 = icmp ne i8 %472, 1
   %481 = add i64 %468, 2147483648
   %482 = icmp ult i64 %481, 4294967296
-  %or.cond1155 = and i1 %482, %.not1130
+  %or.cond1155 = and i1 %482, %.not1131
   br i1 %or.cond1155, label %483, label %484
 
 483:                                              ; preds = %480
@@ -44035,8 +44035,8 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %485 = zext nneg i8 %448 to i64
   %486 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %485
   %487 = load i8, ptr %486, align 1
-  %.not1131 = icmp eq i8 %487, 1
-  br i1 %.not1131, label %488, label %.thread1218
+  %.not1132 = icmp eq i8 %487, 1
+  br i1 %.not1132, label %488, label %.thread1218
 
 488:                                              ; preds = %484
   %489 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -44055,15 +44055,15 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %496 = zext nneg i8 %493 to i64
   %497 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %496
   %498 = load i8, ptr %497, align 1
-  %.not1126 = icmp eq i8 %498, 1
-  br i1 %.not1126, label %520, label %499
+  %.not1127 = icmp eq i8 %498, 1
+  br i1 %.not1127, label %520, label %499
 
 499:                                              ; preds = %495
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %501 = load i32, ptr %500, align 8
   %502 = and i32 %501, 524288
-  %.not1127 = icmp eq i32 %502, 0
-  br i1 %.not1127, label %.thread1218, label %503
+  %.not1128 = icmp eq i32 %502, 0
+  br i1 %.not1128, label %.thread1218, label %503
 
 503:                                              ; preds = %499
   %504 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -44112,76 +44112,76 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %529 = load i32, ptr %528, align 8
   %530 = and i32 %529, 524288
-  %.not1124 = icmp ne i32 %530, 0
-  %.phi.trans.insert1245 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre1246 = load i32, ptr %.phi.trans.insert1245, align 8
-  %531 = icmp slt i32 %.pre1246, 0
-  %or.cond1267 = select i1 %.not1124, i1 %531, i1 false
-  br i1 %or.cond1267, label %532, label %._crit_edge1244
+  %.not1125 = icmp ne i32 %530, 0
+  %.phi.trans.insert1248 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre1249 = load i32, ptr %.phi.trans.insert1248, align 8
+  %531 = icmp slt i32 %.pre1249, 0
+  %or.cond1270 = select i1 %.not1125, i1 %531, i1 false
+  br i1 %or.cond1270, label %532, label %._crit_edge1247
 
 532:                                              ; preds = %527
-  %533 = sext i32 %.pre1246 to i64
+  %533 = sext i32 %.pre1249 to i64
   %534 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %533
   %535 = load i8, ptr %534, align 8
   %.off1186 = add i8 %535, -66
   %switch1187 = icmp ult i8 %.off1186, 3
-  br i1 %switch1187, label %._crit_edge1244, label %536
+  br i1 %switch1187, label %._crit_edge1247, label %536
 
 536:                                              ; preds = %532
   %537 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %538 = load i32, ptr %537, align 4
   %539 = icmp slt i32 %538, 0
-  br i1 %539, label %._crit_edge1244, label %540
+  br i1 %539, label %._crit_edge1247, label %540
 
 540:                                              ; preds = %536
   %541 = getelementptr inbounds nuw i8, ptr %534, i64 8
   %542 = load i64, ptr %541, align 8
   %543 = icmp ne i64 %542, 1
   %544 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %542)
-  %.not1125 = icmp samesign ult i64 %544, 2
-  %or.cond1158 = select i1 %543, i1 %.not1125, i1 false
-  br i1 %or.cond1158, label %545, label %._crit_edge1244
+  %.not1126 = icmp samesign ult i64 %544, 2
+  %or.cond1158 = select i1 %543, i1 %.not1126, i1 false
+  br i1 %or.cond1158, label %545, label %._crit_edge1247
 
 545:                                              ; preds = %540
   %546 = icmp samesign ult i8 %525, 7
   %.1159 = select i1 %546, i32 131, i32 133
   br label %ir_match_fuse_load_cmp_fp.exit
 
-._crit_edge1244:                                  ; preds = %527, %532, %540, %536
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %.pre1246, i32 noundef %1)
+._crit_edge1247:                                  ; preds = %527, %532, %540, %536
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %.pre1249, i32 noundef %1)
   br label %ir_match_fuse_load_cmp_fp.exit
 
 547:                                              ; preds = %2
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %549 = load i32, ptr %548, align 8
   %550 = and i32 %549, 524288
-  %.not1122 = icmp ne i32 %550, 0
-  %.phi.trans.insert1242 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre1243 = load i32, ptr %.phi.trans.insert1242, align 8
-  %551 = icmp slt i32 %.pre1243, 0
-  %or.cond1268 = select i1 %.not1122, i1 %551, i1 false
-  br i1 %or.cond1268, label %552, label %._crit_edge1241
+  %.not1123 = icmp ne i32 %550, 0
+  %.phi.trans.insert1245 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre1246 = load i32, ptr %.phi.trans.insert1245, align 8
+  %551 = icmp slt i32 %.pre1246, 0
+  %or.cond1271 = select i1 %.not1123, i1 %551, i1 false
+  br i1 %or.cond1271, label %552, label %._crit_edge1244
 
 552:                                              ; preds = %547
-  %553 = sext i32 %.pre1243 to i64
+  %553 = sext i32 %.pre1246 to i64
   %554 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %553
   %555 = load i8, ptr %554, align 8
   %.off1188 = add i8 %555, -66
   %switch1189 = icmp ult i8 %.off1188, 3
-  br i1 %switch1189, label %._crit_edge1241, label %556
+  br i1 %switch1189, label %._crit_edge1244, label %556
 
 556:                                              ; preds = %552
   %557 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %558 = load i32, ptr %557, align 4
   %559 = icmp slt i32 %558, 0
-  br i1 %559, label %._crit_edge1241, label %560
+  br i1 %559, label %._crit_edge1244, label %560
 
 560:                                              ; preds = %556
   %561 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %562 = load i64, ptr %561, align 8
   %563 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %562)
-  %.not1123 = icmp samesign ult i64 %563, 2
-  br i1 %.not1123, label %564, label %._crit_edge1241
+  %.not1124 = icmp samesign ult i64 %563, 2
+  br i1 %.not1124, label %564, label %._crit_edge1244
 
 564:                                              ; preds = %560
   %565 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -44190,8 +44190,8 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %.1160 = select i1 %567, i32 132, i32 134
   br label %ir_match_fuse_load_cmp_fp.exit
 
-._crit_edge1241:                                  ; preds = %547, %552, %560, %556
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %.pre1243, i32 noundef %1)
+._crit_edge1244:                                  ; preds = %547, %552, %560, %556
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %.pre1246, i32 noundef %1)
   br label %ir_match_fuse_load_cmp_fp.exit
 
 568:                                              ; preds = %2, %2
@@ -44321,8 +44321,8 @@ ir_match_fuse_load.exit1212:                      ; preds = %600, %606, %611, %6
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %646 = load i32, ptr %645, align 8
   %647 = and i32 %646, 1
-  %.not1116 = icmp eq i32 %647, 0
-  br i1 %.not1116, label %ir_match_fuse_load_cmp_fp.exit, label %648
+  %.not1117 = icmp eq i32 %647, 0
+  br i1 %.not1117, label %ir_match_fuse_load_cmp_fp.exit, label %648
 
 648:                                              ; preds = %644
   %649 = or i32 %646, 512
@@ -44343,11 +44343,11 @@ ir_match_fuse_load.exit1212:                      ; preds = %600, %606, %611, %6
   %660 = icmp ult i8 %659, 12
   br i1 %660, label %661, label %ir_match_fuse_load_cmp_fp.exit
 
-661:                                              ; preds = %1050, %653
-  %662 = phi ptr [ %3, %653 ], [ %1053, %1050 ]
-  %663 = phi i32 [ %655, %653 ], [ %1055, %1050 ]
-  %.0997 = phi i32 [ 74, %653 ], [ 78, %1050 ]
-  %.0996 = phi i32 [ 168, %653 ], [ 172, %1050 ]
+661:                                              ; preds = %1051, %653
+  %662 = phi ptr [ %3, %653 ], [ %1054, %1051 ]
+  %663 = phi i32 [ %655, %653 ], [ %1056, %1051 ]
+  %.0997 = phi i32 [ 74, %653 ], [ 78, %1051 ]
+  %.0996 = phi i32 [ 168, %653 ], [ 172, %1051 ]
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %665 = load i32, ptr %664, align 8
   %666 = and i32 %665, 524288
@@ -44406,31 +44406,24 @@ ir_match_fuse_load.exit1212:                      ; preds = %600, %606, %611, %6
 
 697:                                              ; preds = %694
   %698 = load i8, ptr %683, align 8
-  %.fr = freeze i8 %698
-  %.not1233 = icmp eq i8 %.fr, 26
-  br i1 %.not1233, label %switch.early.test, label %700
-
-switch.early.test:                                ; preds = %697
-  switch i32 %.01001, label %ir_match_fuse_load_cmp_fp.exit [
-    i32 144, label %978
-    i32 143, label %945
-  ]
+  %.not1114.not = icmp eq i8 %698, 26
+  br i1 %.not1114.not, label %780, label %700
 
 699:                                              ; preds = %694
   switch i32 %.01001, label %ir_match_fuse_load_cmp_fp.exit [
     i32 115, label %700
     i32 118, label %700
-    i32 128, label %780
-    i32 129, label %813
-    i32 130, label %846
-    i32 131, label %879
-    i32 132, label %912
-    i32 143, label %945
-    i32 144, label %978
-    i32 137, label %thread-pre-split
+    i32 128, label %781
+    i32 129, label %814
+    i32 130, label %847
+    i32 131, label %880
+    i32 132, label %913
+    i32 143, label %946
+    i32 144, label %979
+    i32 137, label %1012
   ]
 
-700:                                              ; preds = %697, %699, %699
+700:                                              ; preds = %699, %699, %697
   %701 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %702 = load i32, ptr %701, align 4
   %703 = getelementptr inbounds nuw i8, ptr %683, i64 4
@@ -44496,8 +44489,8 @@ switch.early.test:                                ; preds = %697
   %746 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %745
   %747 = load i32, ptr %746, align 4
   %748 = and i32 %747, 2048
-  %.not1115 = icmp eq i32 %748, 0
-  br i1 %.not1115, label %ir_match_fuse_load_cmp_fp.exit, label %749
+  %.not1116 = icmp eq i32 %748, 0
+  br i1 %.not1116, label %ir_match_fuse_load_cmp_fp.exit, label %749
 
 749:                                              ; preds = %743
   %750 = getelementptr inbounds nuw i8, ptr %683, i64 8
@@ -44544,1704 +44537,1710 @@ switch.early.test:                                ; preds = %697
   store i32 %775, ptr %779, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-780:                                              ; preds = %699
-  %781 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %782 = load i32, ptr %781, align 4
-  %783 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %784 = load i32, ptr %783, align 4
-  %785 = icmp eq i32 %782, %784
-  br i1 %785, label %786, label %ir_match_fuse_load_cmp_fp.exit
+780:                                              ; preds = %697
+  switch i32 %.01001, label %ir_match_fuse_load_cmp_fp.exit [
+    i32 144, label %979
+    i32 143, label %946
+  ]
 
-786:                                              ; preds = %780
-  %787 = load ptr, ptr %0, align 8
-  %788 = sext i32 %782 to i64
-  %789 = getelementptr inbounds %struct._ir_insn, ptr %787, i64 %788
-  %790 = load i8, ptr %789, align 8
-  %791 = zext i8 %790 to i32
-  %792 = icmp eq i32 %.0997, %791
-  br i1 %792, label %793, label %ir_match_fuse_load_cmp_fp.exit
+781:                                              ; preds = %699
+  %782 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %783 = load i32, ptr %782, align 4
+  %784 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %785 = load i32, ptr %784, align 4
+  %786 = icmp eq i32 %783, %785
+  br i1 %786, label %787, label %ir_match_fuse_load_cmp_fp.exit
 
-793:                                              ; preds = %786
-  %794 = getelementptr inbounds nuw i8, ptr %789, i64 8
-  %795 = load i32, ptr %794, align 8
-  %796 = load i32, ptr %668, align 8
-  %797 = icmp eq i32 %795, %796
-  br i1 %797, label %798, label %ir_match_fuse_load_cmp_fp.exit
+787:                                              ; preds = %781
+  %788 = load ptr, ptr %0, align 8
+  %789 = sext i32 %783 to i64
+  %790 = getelementptr inbounds %struct._ir_insn, ptr %788, i64 %789
+  %791 = load i8, ptr %790, align 8
+  %792 = zext i8 %791 to i32
+  %793 = icmp eq i32 %.0997, %792
+  br i1 %793, label %794, label %ir_match_fuse_load_cmp_fp.exit
 
-798:                                              ; preds = %793
-  %799 = load ptr, ptr %674, align 8
-  %800 = getelementptr inbounds %struct._ir_use_list, ptr %799, i64 %788, i32 1
-  %801 = load i32, ptr %800, align 4
-  %802 = icmp eq i32 %801, 2
-  br i1 %802, label %803, label %ir_match_fuse_load_cmp_fp.exit
+794:                                              ; preds = %787
+  %795 = getelementptr inbounds nuw i8, ptr %790, i64 8
+  %796 = load i32, ptr %795, align 8
+  %797 = load i32, ptr %668, align 8
+  %798 = icmp eq i32 %796, %797
+  br i1 %798, label %799, label %ir_match_fuse_load_cmp_fp.exit
 
-803:                                              ; preds = %798
-  %804 = load ptr, ptr %684, align 8
-  %805 = load i32, ptr %669, align 4
-  %806 = sext i32 %805 to i64
-  %807 = getelementptr inbounds i32, ptr %804, i64 %806
-  store i32 1073741952, ptr %807, align 4
-  %808 = or disjoint i32 %.0997, 1073741824
-  %809 = load ptr, ptr %684, align 8
-  %810 = load i32, ptr %783, align 4
-  %811 = sext i32 %810 to i64
-  %812 = getelementptr inbounds i32, ptr %809, i64 %811
-  store i32 %808, ptr %812, align 4
+799:                                              ; preds = %794
+  %800 = load ptr, ptr %674, align 8
+  %801 = getelementptr inbounds %struct._ir_use_list, ptr %800, i64 %789, i32 1
+  %802 = load i32, ptr %801, align 4
+  %803 = icmp eq i32 %802, 2
+  br i1 %803, label %804, label %ir_match_fuse_load_cmp_fp.exit
+
+804:                                              ; preds = %799
+  %805 = load ptr, ptr %684, align 8
+  %806 = load i32, ptr %669, align 4
+  %807 = sext i32 %806 to i64
+  %808 = getelementptr inbounds i32, ptr %805, i64 %807
+  store i32 1073741952, ptr %808, align 4
+  %809 = or disjoint i32 %.0997, 1073741824
+  %810 = load ptr, ptr %684, align 8
+  %811 = load i32, ptr %784, align 4
+  %812 = sext i32 %811 to i64
+  %813 = getelementptr inbounds i32, ptr %810, i64 %812
+  store i32 %809, ptr %813, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-813:                                              ; preds = %699
-  %814 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %815 = load i32, ptr %814, align 4
-  %816 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %817 = load i32, ptr %816, align 4
-  %818 = icmp eq i32 %815, %817
-  br i1 %818, label %819, label %ir_match_fuse_load_cmp_fp.exit
+814:                                              ; preds = %699
+  %815 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %816 = load i32, ptr %815, align 4
+  %817 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %818 = load i32, ptr %817, align 4
+  %819 = icmp eq i32 %816, %818
+  br i1 %819, label %820, label %ir_match_fuse_load_cmp_fp.exit
 
-819:                                              ; preds = %813
-  %820 = load ptr, ptr %0, align 8
-  %821 = sext i32 %815 to i64
-  %822 = getelementptr inbounds %struct._ir_insn, ptr %820, i64 %821
-  %823 = load i8, ptr %822, align 8
-  %824 = zext i8 %823 to i32
-  %825 = icmp eq i32 %.0997, %824
-  br i1 %825, label %826, label %ir_match_fuse_load_cmp_fp.exit
+820:                                              ; preds = %814
+  %821 = load ptr, ptr %0, align 8
+  %822 = sext i32 %816 to i64
+  %823 = getelementptr inbounds %struct._ir_insn, ptr %821, i64 %822
+  %824 = load i8, ptr %823, align 8
+  %825 = zext i8 %824 to i32
+  %826 = icmp eq i32 %.0997, %825
+  br i1 %826, label %827, label %ir_match_fuse_load_cmp_fp.exit
 
-826:                                              ; preds = %819
-  %827 = getelementptr inbounds nuw i8, ptr %822, i64 8
-  %828 = load i32, ptr %827, align 8
-  %829 = load i32, ptr %668, align 8
-  %830 = icmp eq i32 %828, %829
-  br i1 %830, label %831, label %ir_match_fuse_load_cmp_fp.exit
+827:                                              ; preds = %820
+  %828 = getelementptr inbounds nuw i8, ptr %823, i64 8
+  %829 = load i32, ptr %828, align 8
+  %830 = load i32, ptr %668, align 8
+  %831 = icmp eq i32 %829, %830
+  br i1 %831, label %832, label %ir_match_fuse_load_cmp_fp.exit
 
-831:                                              ; preds = %826
-  %832 = load ptr, ptr %674, align 8
-  %833 = getelementptr inbounds %struct._ir_use_list, ptr %832, i64 %821, i32 1
-  %834 = load i32, ptr %833, align 4
-  %835 = icmp eq i32 %834, 2
-  br i1 %835, label %836, label %ir_match_fuse_load_cmp_fp.exit
+832:                                              ; preds = %827
+  %833 = load ptr, ptr %674, align 8
+  %834 = getelementptr inbounds %struct._ir_use_list, ptr %833, i64 %822, i32 1
+  %835 = load i32, ptr %834, align 4
+  %836 = icmp eq i32 %835, 2
+  br i1 %836, label %837, label %ir_match_fuse_load_cmp_fp.exit
 
-836:                                              ; preds = %831
-  %837 = load ptr, ptr %684, align 8
-  %838 = load i32, ptr %669, align 4
-  %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds i32, ptr %837, i64 %839
-  store i32 1073741953, ptr %840, align 4
-  %841 = or disjoint i32 %.0997, 1073741824
-  %842 = load ptr, ptr %684, align 8
-  %843 = load i32, ptr %816, align 4
-  %844 = sext i32 %843 to i64
-  %845 = getelementptr inbounds i32, ptr %842, i64 %844
-  store i32 %841, ptr %845, align 4
+837:                                              ; preds = %832
+  %838 = load ptr, ptr %684, align 8
+  %839 = load i32, ptr %669, align 4
+  %840 = sext i32 %839 to i64
+  %841 = getelementptr inbounds i32, ptr %838, i64 %840
+  store i32 1073741953, ptr %841, align 4
+  %842 = or disjoint i32 %.0997, 1073741824
+  %843 = load ptr, ptr %684, align 8
+  %844 = load i32, ptr %817, align 4
+  %845 = sext i32 %844 to i64
+  %846 = getelementptr inbounds i32, ptr %843, i64 %845
+  store i32 %842, ptr %846, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-846:                                              ; preds = %699
-  %847 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %848 = load i32, ptr %847, align 4
-  %849 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %850 = load i32, ptr %849, align 4
-  %851 = icmp eq i32 %848, %850
-  br i1 %851, label %852, label %ir_match_fuse_load_cmp_fp.exit
+847:                                              ; preds = %699
+  %848 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %849 = load i32, ptr %848, align 4
+  %850 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %851 = load i32, ptr %850, align 4
+  %852 = icmp eq i32 %849, %851
+  br i1 %852, label %853, label %ir_match_fuse_load_cmp_fp.exit
 
-852:                                              ; preds = %846
-  %853 = load ptr, ptr %0, align 8
-  %854 = sext i32 %848 to i64
-  %855 = getelementptr inbounds %struct._ir_insn, ptr %853, i64 %854
-  %856 = load i8, ptr %855, align 8
-  %857 = zext i8 %856 to i32
-  %858 = icmp eq i32 %.0997, %857
-  br i1 %858, label %859, label %ir_match_fuse_load_cmp_fp.exit
+853:                                              ; preds = %847
+  %854 = load ptr, ptr %0, align 8
+  %855 = sext i32 %849 to i64
+  %856 = getelementptr inbounds %struct._ir_insn, ptr %854, i64 %855
+  %857 = load i8, ptr %856, align 8
+  %858 = zext i8 %857 to i32
+  %859 = icmp eq i32 %.0997, %858
+  br i1 %859, label %860, label %ir_match_fuse_load_cmp_fp.exit
 
-859:                                              ; preds = %852
-  %860 = getelementptr inbounds nuw i8, ptr %855, i64 8
-  %861 = load i32, ptr %860, align 8
-  %862 = load i32, ptr %668, align 8
-  %863 = icmp eq i32 %861, %862
-  br i1 %863, label %864, label %ir_match_fuse_load_cmp_fp.exit
+860:                                              ; preds = %853
+  %861 = getelementptr inbounds nuw i8, ptr %856, i64 8
+  %862 = load i32, ptr %861, align 8
+  %863 = load i32, ptr %668, align 8
+  %864 = icmp eq i32 %862, %863
+  br i1 %864, label %865, label %ir_match_fuse_load_cmp_fp.exit
 
-864:                                              ; preds = %859
-  %865 = load ptr, ptr %674, align 8
-  %866 = getelementptr inbounds %struct._ir_use_list, ptr %865, i64 %854, i32 1
-  %867 = load i32, ptr %866, align 4
-  %868 = icmp eq i32 %867, 2
-  br i1 %868, label %869, label %ir_match_fuse_load_cmp_fp.exit
+865:                                              ; preds = %860
+  %866 = load ptr, ptr %674, align 8
+  %867 = getelementptr inbounds %struct._ir_use_list, ptr %866, i64 %855, i32 1
+  %868 = load i32, ptr %867, align 4
+  %869 = icmp eq i32 %868, 2
+  br i1 %869, label %870, label %ir_match_fuse_load_cmp_fp.exit
 
-869:                                              ; preds = %864
-  %870 = load ptr, ptr %684, align 8
-  %871 = load i32, ptr %669, align 4
-  %872 = sext i32 %871 to i64
-  %873 = getelementptr inbounds i32, ptr %870, i64 %872
-  store i32 1073741954, ptr %873, align 4
-  %874 = or disjoint i32 %.0997, 1073741824
-  %875 = load ptr, ptr %684, align 8
-  %876 = load i32, ptr %849, align 4
-  %877 = sext i32 %876 to i64
-  %878 = getelementptr inbounds i32, ptr %875, i64 %877
-  store i32 %874, ptr %878, align 4
+870:                                              ; preds = %865
+  %871 = load ptr, ptr %684, align 8
+  %872 = load i32, ptr %669, align 4
+  %873 = sext i32 %872 to i64
+  %874 = getelementptr inbounds i32, ptr %871, i64 %873
+  store i32 1073741954, ptr %874, align 4
+  %875 = or disjoint i32 %.0997, 1073741824
+  %876 = load ptr, ptr %684, align 8
+  %877 = load i32, ptr %850, align 4
+  %878 = sext i32 %877 to i64
+  %879 = getelementptr inbounds i32, ptr %876, i64 %878
+  store i32 %875, ptr %879, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-879:                                              ; preds = %699
-  %880 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %881 = load i32, ptr %880, align 4
-  %882 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %883 = load i32, ptr %882, align 4
-  %884 = icmp eq i32 %881, %883
-  br i1 %884, label %885, label %ir_match_fuse_load_cmp_fp.exit
+880:                                              ; preds = %699
+  %881 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %882 = load i32, ptr %881, align 4
+  %883 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %884 = load i32, ptr %883, align 4
+  %885 = icmp eq i32 %882, %884
+  br i1 %885, label %886, label %ir_match_fuse_load_cmp_fp.exit
 
-885:                                              ; preds = %879
-  %886 = load ptr, ptr %0, align 8
-  %887 = sext i32 %881 to i64
-  %888 = getelementptr inbounds %struct._ir_insn, ptr %886, i64 %887
-  %889 = load i8, ptr %888, align 8
-  %890 = zext i8 %889 to i32
-  %891 = icmp eq i32 %.0997, %890
-  br i1 %891, label %892, label %ir_match_fuse_load_cmp_fp.exit
+886:                                              ; preds = %880
+  %887 = load ptr, ptr %0, align 8
+  %888 = sext i32 %882 to i64
+  %889 = getelementptr inbounds %struct._ir_insn, ptr %887, i64 %888
+  %890 = load i8, ptr %889, align 8
+  %891 = zext i8 %890 to i32
+  %892 = icmp eq i32 %.0997, %891
+  br i1 %892, label %893, label %ir_match_fuse_load_cmp_fp.exit
 
-892:                                              ; preds = %885
-  %893 = getelementptr inbounds nuw i8, ptr %888, i64 8
-  %894 = load i32, ptr %893, align 8
-  %895 = load i32, ptr %668, align 8
-  %896 = icmp eq i32 %894, %895
-  br i1 %896, label %897, label %ir_match_fuse_load_cmp_fp.exit
+893:                                              ; preds = %886
+  %894 = getelementptr inbounds nuw i8, ptr %889, i64 8
+  %895 = load i32, ptr %894, align 8
+  %896 = load i32, ptr %668, align 8
+  %897 = icmp eq i32 %895, %896
+  br i1 %897, label %898, label %ir_match_fuse_load_cmp_fp.exit
 
-897:                                              ; preds = %892
-  %898 = load ptr, ptr %674, align 8
-  %899 = getelementptr inbounds %struct._ir_use_list, ptr %898, i64 %887, i32 1
-  %900 = load i32, ptr %899, align 4
-  %901 = icmp eq i32 %900, 2
-  br i1 %901, label %902, label %ir_match_fuse_load_cmp_fp.exit
+898:                                              ; preds = %893
+  %899 = load ptr, ptr %674, align 8
+  %900 = getelementptr inbounds %struct._ir_use_list, ptr %899, i64 %888, i32 1
+  %901 = load i32, ptr %900, align 4
+  %902 = icmp eq i32 %901, 2
+  br i1 %902, label %903, label %ir_match_fuse_load_cmp_fp.exit
 
-902:                                              ; preds = %897
-  %903 = load ptr, ptr %684, align 8
-  %904 = load i32, ptr %669, align 4
-  %905 = sext i32 %904 to i64
-  %906 = getelementptr inbounds i32, ptr %903, i64 %905
-  store i32 1073741955, ptr %906, align 4
-  %907 = or disjoint i32 %.0997, 1073741824
-  %908 = load ptr, ptr %684, align 8
-  %909 = load i32, ptr %882, align 4
-  %910 = sext i32 %909 to i64
-  %911 = getelementptr inbounds i32, ptr %908, i64 %910
-  store i32 %907, ptr %911, align 4
+903:                                              ; preds = %898
+  %904 = load ptr, ptr %684, align 8
+  %905 = load i32, ptr %669, align 4
+  %906 = sext i32 %905 to i64
+  %907 = getelementptr inbounds i32, ptr %904, i64 %906
+  store i32 1073741955, ptr %907, align 4
+  %908 = or disjoint i32 %.0997, 1073741824
+  %909 = load ptr, ptr %684, align 8
+  %910 = load i32, ptr %883, align 4
+  %911 = sext i32 %910 to i64
+  %912 = getelementptr inbounds i32, ptr %909, i64 %911
+  store i32 %908, ptr %912, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-912:                                              ; preds = %699
-  %913 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %914 = load i32, ptr %913, align 4
-  %915 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %916 = load i32, ptr %915, align 4
-  %917 = icmp eq i32 %914, %916
-  br i1 %917, label %918, label %ir_match_fuse_load_cmp_fp.exit
+913:                                              ; preds = %699
+  %914 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %915 = load i32, ptr %914, align 4
+  %916 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %917 = load i32, ptr %916, align 4
+  %918 = icmp eq i32 %915, %917
+  br i1 %918, label %919, label %ir_match_fuse_load_cmp_fp.exit
 
-918:                                              ; preds = %912
-  %919 = load ptr, ptr %0, align 8
-  %920 = sext i32 %914 to i64
-  %921 = getelementptr inbounds %struct._ir_insn, ptr %919, i64 %920
-  %922 = load i8, ptr %921, align 8
-  %923 = zext i8 %922 to i32
-  %924 = icmp eq i32 %.0997, %923
-  br i1 %924, label %925, label %ir_match_fuse_load_cmp_fp.exit
+919:                                              ; preds = %913
+  %920 = load ptr, ptr %0, align 8
+  %921 = sext i32 %915 to i64
+  %922 = getelementptr inbounds %struct._ir_insn, ptr %920, i64 %921
+  %923 = load i8, ptr %922, align 8
+  %924 = zext i8 %923 to i32
+  %925 = icmp eq i32 %.0997, %924
+  br i1 %925, label %926, label %ir_match_fuse_load_cmp_fp.exit
 
-925:                                              ; preds = %918
-  %926 = getelementptr inbounds nuw i8, ptr %921, i64 8
-  %927 = load i32, ptr %926, align 8
-  %928 = load i32, ptr %668, align 8
-  %929 = icmp eq i32 %927, %928
-  br i1 %929, label %930, label %ir_match_fuse_load_cmp_fp.exit
+926:                                              ; preds = %919
+  %927 = getelementptr inbounds nuw i8, ptr %922, i64 8
+  %928 = load i32, ptr %927, align 8
+  %929 = load i32, ptr %668, align 8
+  %930 = icmp eq i32 %928, %929
+  br i1 %930, label %931, label %ir_match_fuse_load_cmp_fp.exit
 
-930:                                              ; preds = %925
-  %931 = load ptr, ptr %674, align 8
-  %932 = getelementptr inbounds %struct._ir_use_list, ptr %931, i64 %920, i32 1
-  %933 = load i32, ptr %932, align 4
-  %934 = icmp eq i32 %933, 2
-  br i1 %934, label %935, label %ir_match_fuse_load_cmp_fp.exit
+931:                                              ; preds = %926
+  %932 = load ptr, ptr %674, align 8
+  %933 = getelementptr inbounds %struct._ir_use_list, ptr %932, i64 %921, i32 1
+  %934 = load i32, ptr %933, align 4
+  %935 = icmp eq i32 %934, 2
+  br i1 %935, label %936, label %ir_match_fuse_load_cmp_fp.exit
 
-935:                                              ; preds = %930
-  %936 = load ptr, ptr %684, align 8
-  %937 = load i32, ptr %669, align 4
-  %938 = sext i32 %937 to i64
-  %939 = getelementptr inbounds i32, ptr %936, i64 %938
-  store i32 1073741956, ptr %939, align 4
-  %940 = or disjoint i32 %.0997, 1073741824
-  %941 = load ptr, ptr %684, align 8
-  %942 = load i32, ptr %915, align 4
-  %943 = sext i32 %942 to i64
-  %944 = getelementptr inbounds i32, ptr %941, i64 %943
-  store i32 %940, ptr %944, align 4
+936:                                              ; preds = %931
+  %937 = load ptr, ptr %684, align 8
+  %938 = load i32, ptr %669, align 4
+  %939 = sext i32 %938 to i64
+  %940 = getelementptr inbounds i32, ptr %937, i64 %939
+  store i32 1073741956, ptr %940, align 4
+  %941 = or disjoint i32 %.0997, 1073741824
+  %942 = load ptr, ptr %684, align 8
+  %943 = load i32, ptr %916, align 4
+  %944 = sext i32 %943 to i64
+  %945 = getelementptr inbounds i32, ptr %942, i64 %944
+  store i32 %941, ptr %945, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-945:                                              ; preds = %switch.early.test, %699
-  %946 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %947 = load i32, ptr %946, align 4
-  %948 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %949 = load i32, ptr %948, align 4
-  %950 = icmp eq i32 %947, %949
-  br i1 %950, label %951, label %ir_match_fuse_load_cmp_fp.exit
+946:                                              ; preds = %780, %699
+  %947 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %948 = load i32, ptr %947, align 4
+  %949 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %950 = load i32, ptr %949, align 4
+  %951 = icmp eq i32 %948, %950
+  br i1 %951, label %952, label %ir_match_fuse_load_cmp_fp.exit
 
-951:                                              ; preds = %945
-  %952 = load ptr, ptr %0, align 8
-  %953 = sext i32 %947 to i64
-  %954 = getelementptr inbounds %struct._ir_insn, ptr %952, i64 %953
-  %955 = load i8, ptr %954, align 8
-  %956 = zext i8 %955 to i32
-  %957 = icmp eq i32 %.0997, %956
-  br i1 %957, label %958, label %ir_match_fuse_load_cmp_fp.exit
+952:                                              ; preds = %946
+  %953 = load ptr, ptr %0, align 8
+  %954 = sext i32 %948 to i64
+  %955 = getelementptr inbounds %struct._ir_insn, ptr %953, i64 %954
+  %956 = load i8, ptr %955, align 8
+  %957 = zext i8 %956 to i32
+  %958 = icmp eq i32 %.0997, %957
+  br i1 %958, label %959, label %ir_match_fuse_load_cmp_fp.exit
 
-958:                                              ; preds = %951
-  %959 = getelementptr inbounds nuw i8, ptr %954, i64 8
-  %960 = load i32, ptr %959, align 8
-  %961 = load i32, ptr %668, align 8
-  %962 = icmp eq i32 %960, %961
-  br i1 %962, label %963, label %ir_match_fuse_load_cmp_fp.exit
+959:                                              ; preds = %952
+  %960 = getelementptr inbounds nuw i8, ptr %955, i64 8
+  %961 = load i32, ptr %960, align 8
+  %962 = load i32, ptr %668, align 8
+  %963 = icmp eq i32 %961, %962
+  br i1 %963, label %964, label %ir_match_fuse_load_cmp_fp.exit
 
-963:                                              ; preds = %958
-  %964 = load ptr, ptr %674, align 8
-  %965 = getelementptr inbounds %struct._ir_use_list, ptr %964, i64 %953, i32 1
-  %966 = load i32, ptr %965, align 4
-  %967 = icmp eq i32 %966, 2
-  br i1 %967, label %968, label %ir_match_fuse_load_cmp_fp.exit
+964:                                              ; preds = %959
+  %965 = load ptr, ptr %674, align 8
+  %966 = getelementptr inbounds %struct._ir_use_list, ptr %965, i64 %954, i32 1
+  %967 = load i32, ptr %966, align 4
+  %968 = icmp eq i32 %967, 2
+  br i1 %968, label %969, label %ir_match_fuse_load_cmp_fp.exit
 
-968:                                              ; preds = %963
-  %969 = load ptr, ptr %684, align 8
-  %970 = load i32, ptr %669, align 4
-  %971 = sext i32 %970 to i64
-  %972 = getelementptr inbounds i32, ptr %969, i64 %971
-  store i32 -2147483505, ptr %972, align 4
-  %973 = or disjoint i32 %.0997, 1073741824
-  %974 = load ptr, ptr %684, align 8
-  %975 = load i32, ptr %948, align 4
-  %976 = sext i32 %975 to i64
-  %977 = getelementptr inbounds i32, ptr %974, i64 %976
-  store i32 %973, ptr %977, align 4
+969:                                              ; preds = %964
+  %970 = load ptr, ptr %684, align 8
+  %971 = load i32, ptr %669, align 4
+  %972 = sext i32 %971 to i64
+  %973 = getelementptr inbounds i32, ptr %970, i64 %972
+  store i32 -2147483505, ptr %973, align 4
+  %974 = or disjoint i32 %.0997, 1073741824
+  %975 = load ptr, ptr %684, align 8
+  %976 = load i32, ptr %949, align 4
+  %977 = sext i32 %976 to i64
+  %978 = getelementptr inbounds i32, ptr %975, i64 %977
+  store i32 %974, ptr %978, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-978:                                              ; preds = %switch.early.test, %699
-  %979 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %980 = load i32, ptr %979, align 4
-  %981 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %982 = load i32, ptr %981, align 4
-  %983 = icmp eq i32 %980, %982
-  br i1 %983, label %984, label %ir_match_fuse_load_cmp_fp.exit
+979:                                              ; preds = %780, %699
+  %980 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %981 = load i32, ptr %980, align 4
+  %982 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %983 = load i32, ptr %982, align 4
+  %984 = icmp eq i32 %981, %983
+  br i1 %984, label %985, label %ir_match_fuse_load_cmp_fp.exit
 
-984:                                              ; preds = %978
-  %985 = load ptr, ptr %0, align 8
-  %986 = sext i32 %980 to i64
-  %987 = getelementptr inbounds %struct._ir_insn, ptr %985, i64 %986
-  %988 = load i8, ptr %987, align 8
-  %989 = zext i8 %988 to i32
-  %990 = icmp eq i32 %.0997, %989
-  br i1 %990, label %991, label %ir_match_fuse_load_cmp_fp.exit
+985:                                              ; preds = %979
+  %986 = load ptr, ptr %0, align 8
+  %987 = sext i32 %981 to i64
+  %988 = getelementptr inbounds %struct._ir_insn, ptr %986, i64 %987
+  %989 = load i8, ptr %988, align 8
+  %990 = zext i8 %989 to i32
+  %991 = icmp eq i32 %.0997, %990
+  br i1 %991, label %992, label %ir_match_fuse_load_cmp_fp.exit
 
-991:                                              ; preds = %984
-  %992 = getelementptr inbounds nuw i8, ptr %987, i64 8
-  %993 = load i32, ptr %992, align 8
-  %994 = load i32, ptr %668, align 8
-  %995 = icmp eq i32 %993, %994
-  br i1 %995, label %996, label %ir_match_fuse_load_cmp_fp.exit
+992:                                              ; preds = %985
+  %993 = getelementptr inbounds nuw i8, ptr %988, i64 8
+  %994 = load i32, ptr %993, align 8
+  %995 = load i32, ptr %668, align 8
+  %996 = icmp eq i32 %994, %995
+  br i1 %996, label %997, label %ir_match_fuse_load_cmp_fp.exit
 
-996:                                              ; preds = %991
-  %997 = load ptr, ptr %674, align 8
-  %998 = getelementptr inbounds %struct._ir_use_list, ptr %997, i64 %986, i32 1
-  %999 = load i32, ptr %998, align 4
-  %1000 = icmp eq i32 %999, 2
-  br i1 %1000, label %1001, label %ir_match_fuse_load_cmp_fp.exit
+997:                                              ; preds = %992
+  %998 = load ptr, ptr %674, align 8
+  %999 = getelementptr inbounds %struct._ir_use_list, ptr %998, i64 %987, i32 1
+  %1000 = load i32, ptr %999, align 4
+  %1001 = icmp eq i32 %1000, 2
+  br i1 %1001, label %1002, label %ir_match_fuse_load_cmp_fp.exit
 
-1001:                                             ; preds = %996
-  %1002 = load ptr, ptr %684, align 8
-  %1003 = load i32, ptr %669, align 4
-  %1004 = sext i32 %1003 to i64
-  %1005 = getelementptr inbounds i32, ptr %1002, i64 %1004
-  store i32 1073741968, ptr %1005, align 4
-  %1006 = or disjoint i32 %.0997, 1073741824
-  %1007 = load ptr, ptr %684, align 8
-  %1008 = load i32, ptr %981, align 4
-  %1009 = sext i32 %1008 to i64
-  %1010 = getelementptr inbounds i32, ptr %1007, i64 %1009
-  store i32 %1006, ptr %1010, align 4
+1002:                                             ; preds = %997
+  %1003 = load ptr, ptr %684, align 8
+  %1004 = load i32, ptr %669, align 4
+  %1005 = sext i32 %1004 to i64
+  %1006 = getelementptr inbounds i32, ptr %1003, i64 %1005
+  store i32 1073741968, ptr %1006, align 4
+  %1007 = or disjoint i32 %.0997, 1073741824
+  %1008 = load ptr, ptr %684, align 8
+  %1009 = load i32, ptr %982, align 4
+  %1010 = sext i32 %1009 to i64
+  %1011 = getelementptr inbounds i32, ptr %1008, i64 %1010
+  store i32 %1007, ptr %1011, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-thread-pre-split:                                 ; preds = %699
+1012:                                             ; preds = %699
   %.pr = load i8, ptr %683, align 8
-  %.not1114 = icmp eq i8 %.pr, 52
-  br i1 %.not1114, label %ir_match_fuse_load_cmp_fp.exit, label %1011
+  %.not1115 = icmp eq i8 %.pr, 52
+  br i1 %.not1115, label %ir_match_fuse_load_cmp_fp.exit, label %.thread1220
 
-1011:                                             ; preds = %thread-pre-split
-  %1012 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1013 = load i32, ptr %1012, align 4
-  %1014 = getelementptr inbounds nuw i8, ptr %683, i64 4
-  %1015 = load i32, ptr %1014, align 4
-  %1016 = icmp eq i32 %1013, %1015
-  br i1 %1016, label %1017, label %ir_match_fuse_load_cmp_fp.exit
+.thread1220:                                      ; preds = %1012
+  %1013 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1014 = load i32, ptr %1013, align 4
+  %1015 = getelementptr inbounds nuw i8, ptr %683, i64 4
+  %1016 = load i32, ptr %1015, align 4
+  %1017 = icmp eq i32 %1014, %1016
+  br i1 %1017, label %1018, label %ir_match_fuse_load_cmp_fp.exit
 
-1017:                                             ; preds = %1011
-  %1018 = load ptr, ptr %0, align 8
-  %1019 = sext i32 %1013 to i64
-  %1020 = getelementptr inbounds %struct._ir_insn, ptr %1018, i64 %1019
-  %1021 = load i8, ptr %1020, align 8
-  %1022 = zext i8 %1021 to i32
-  %1023 = icmp eq i32 %.0997, %1022
-  br i1 %1023, label %1024, label %ir_match_fuse_load_cmp_fp.exit
+1018:                                             ; preds = %.thread1220
+  %1019 = load ptr, ptr %0, align 8
+  %1020 = sext i32 %1014 to i64
+  %1021 = getelementptr inbounds %struct._ir_insn, ptr %1019, i64 %1020
+  %1022 = load i8, ptr %1021, align 8
+  %1023 = zext i8 %1022 to i32
+  %1024 = icmp eq i32 %.0997, %1023
+  br i1 %1024, label %1025, label %ir_match_fuse_load_cmp_fp.exit
 
-1024:                                             ; preds = %1017
-  %1025 = getelementptr inbounds nuw i8, ptr %1020, i64 8
-  %1026 = load i32, ptr %1025, align 8
-  %1027 = load i32, ptr %668, align 8
-  %1028 = icmp eq i32 %1026, %1027
-  br i1 %1028, label %1029, label %ir_match_fuse_load_cmp_fp.exit
+1025:                                             ; preds = %1018
+  %1026 = getelementptr inbounds nuw i8, ptr %1021, i64 8
+  %1027 = load i32, ptr %1026, align 8
+  %1028 = load i32, ptr %668, align 8
+  %1029 = icmp eq i32 %1027, %1028
+  br i1 %1029, label %1030, label %ir_match_fuse_load_cmp_fp.exit
 
-1029:                                             ; preds = %1024
-  %1030 = load ptr, ptr %674, align 8
-  %1031 = getelementptr inbounds %struct._ir_use_list, ptr %1030, i64 %1019, i32 1
-  %1032 = load i32, ptr %1031, align 4
-  %1033 = icmp eq i32 %1032, 2
-  br i1 %1033, label %1034, label %ir_match_fuse_load_cmp_fp.exit
+1030:                                             ; preds = %1025
+  %1031 = load ptr, ptr %674, align 8
+  %1032 = getelementptr inbounds %struct._ir_use_list, ptr %1031, i64 %1020, i32 1
+  %1033 = load i32, ptr %1032, align 4
+  %1034 = icmp eq i32 %1033, 2
+  br i1 %1034, label %1035, label %ir_match_fuse_load_cmp_fp.exit
 
-1034:                                             ; preds = %1029
-  %1035 = load ptr, ptr %684, align 8
-  %1036 = load i32, ptr %669, align 4
-  %1037 = sext i32 %1036 to i64
-  %1038 = getelementptr inbounds i32, ptr %1035, i64 %1037
-  store i32 1073741961, ptr %1038, align 4
-  %1039 = or disjoint i32 %.0997, 1073741824
-  %1040 = load ptr, ptr %684, align 8
-  %1041 = load i32, ptr %1014, align 4
-  %1042 = sext i32 %1041 to i64
-  %1043 = getelementptr inbounds i32, ptr %1040, i64 %1042
-  store i32 %1039, ptr %1043, align 4
+1035:                                             ; preds = %1030
+  %1036 = load ptr, ptr %684, align 8
+  %1037 = load i32, ptr %669, align 4
+  %1038 = sext i32 %1037 to i64
+  %1039 = getelementptr inbounds i32, ptr %1036, i64 %1038
+  store i32 1073741961, ptr %1039, align 4
+  %1040 = or disjoint i32 %.0997, 1073741824
+  %1041 = load ptr, ptr %684, align 8
+  %1042 = load i32, ptr %1015, align 4
+  %1043 = sext i32 %1042 to i64
+  %1044 = getelementptr inbounds i32, ptr %1041, i64 %1043
+  store i32 %1040, ptr %1044, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1044:                                             ; preds = %2
-  %1045 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1046 = load i32, ptr %1045, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1046)
-  %1047 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %1048 = load i8, ptr %1047, align 1
-  %1049 = icmp ult i8 %1048, 12
-  %.1168 = select i1 %1049, i32 170, i32 171
+1045:                                             ; preds = %2
+  %1046 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1047 = load i32, ptr %1046, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1047)
+  %1048 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %1049 = load i8, ptr %1048, align 1
+  %1050 = icmp ult i8 %1049, 12
+  %.1168 = select i1 %1050, i32 170, i32 171
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1050:                                             ; preds = %2
-  %1051 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1052 = load i32, ptr %1051, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1052)
-  %1053 = load ptr, ptr %0, align 8
-  %1054 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %1055 = load i32, ptr %1054, align 4
-  %1056 = sext i32 %1055 to i64
-  %1057 = getelementptr inbounds %struct._ir_insn, ptr %1053, i64 %1056
-  %1058 = getelementptr inbounds nuw i8, ptr %1057, i64 1
-  %1059 = load i8, ptr %1058, align 1
-  %1060 = icmp ult i8 %1059, 12
-  br i1 %1060, label %661, label %ir_match_fuse_load_cmp_fp.exit
+1051:                                             ; preds = %2
+  %1052 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1053 = load i32, ptr %1052, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1053)
+  %1054 = load ptr, ptr %0, align 8
+  %1055 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %1056 = load i32, ptr %1055, align 4
+  %1057 = sext i32 %1056 to i64
+  %1058 = getelementptr inbounds %struct._ir_insn, ptr %1054, i64 %1057
+  %1059 = getelementptr inbounds nuw i8, ptr %1058, i64 1
+  %1060 = load i8, ptr %1059, align 1
+  %1061 = icmp ult i8 %1060, 12
+  br i1 %1061, label %661, label %ir_match_fuse_load_cmp_fp.exit
 
-1061:                                             ; preds = %2
-  %1062 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1063 = load i64, ptr %1062, align 8
-  %1064 = trunc i64 %1063 to i32
-  %1065 = or i32 %1064, 16
-  %1066 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1067 = load i32, ptr %1066, align 8
-  %1068 = shl nuw i32 1, %1067
-  %1069 = and i32 %1065, %1068
-  %.not1111 = icmp eq i32 %1069, 0
+1062:                                             ; preds = %2
+  %1063 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1064 = load i64, ptr %1063, align 8
+  %1065 = trunc i64 %1064 to i32
+  %1066 = or i32 %1065, 16
+  %1067 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1068 = load i32, ptr %1067, align 8
+  %1069 = shl nuw i32 1, %1068
+  %1070 = and i32 %1066, %1069
+  %.not1111 = icmp eq i32 %1070, 0
   %.1169 = select i1 %.not1111, i32 76, i32 1073741900
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1070:                                             ; preds = %2
-  %1071 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1072 = load i32, ptr %1071, align 8
-  %1073 = sext i32 %1072 to i64
-  %1074 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1073
-  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 1
-  %1076 = load i8, ptr %1075, align 1
-  %1077 = icmp ult i8 %1076, 12
-  br i1 %1077, label %1078, label %1157
+1071:                                             ; preds = %2
+  %1072 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1073 = load i32, ptr %1072, align 8
+  %1074 = sext i32 %1073 to i64
+  %1075 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1074
+  %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 1
+  %1077 = load i8, ptr %1076, align 1
+  %1078 = icmp ult i8 %1077, 12
+  br i1 %1078, label %1079, label %1158
 
-1078:                                             ; preds = %1070
-  %1079 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1080 = load i32, ptr %1079, align 8
-  %1081 = and i32 %1080, 524288
-  %.not1109 = icmp eq i32 %1081, 0
-  br i1 %.not1109, label %1157, label %1082
+1079:                                             ; preds = %1071
+  %1080 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1081 = load i32, ptr %1080, align 8
+  %1082 = and i32 %1081, 524288
+  %.not1109 = icmp eq i32 %1082, 0
+  br i1 %.not1109, label %1158, label %1083
 
-1082:                                             ; preds = %1078
-  %1083 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1084 = load i32, ptr %1083, align 8
-  %1085 = icmp sgt i32 %1072, %1084
-  br i1 %1085, label %1086, label %1157
+1083:                                             ; preds = %1079
+  %1084 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1085 = load i32, ptr %1084, align 8
+  %1086 = icmp sgt i32 %1073, %1085
+  br i1 %1086, label %1087, label %1158
 
-1086:                                             ; preds = %1082
-  %1087 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1088 = load ptr, ptr %1087, align 8
-  %1089 = getelementptr inbounds %struct._ir_use_list, ptr %1088, i64 %1073, i32 1
-  %1090 = load i32, ptr %1089, align 4
-  %1091 = icmp eq i32 %1090, 1
-  br i1 %1091, label %1092, label %1157
+1087:                                             ; preds = %1083
+  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1089 = load ptr, ptr %1088, align 8
+  %1090 = getelementptr inbounds %struct._ir_use_list, ptr %1089, i64 %1074, i32 1
+  %1091 = load i32, ptr %1090, align 4
+  %1092 = icmp eq i32 %1091, 1
+  br i1 %1092, label %1093, label %1158
 
-1092:                                             ; preds = %1086
-  %1093 = load i8, ptr %1074, align 8
-  switch i8 %1093, label %1157 [
-    i8 24, label %1094
-    i8 25, label %1094
-    i8 44, label %1094
-    i8 45, label %1094
-    i8 46, label %1094
+1093:                                             ; preds = %1087
+  %1094 = load i8, ptr %1075, align 8
+  switch i8 %1094, label %1158 [
+    i8 24, label %1095
+    i8 25, label %1095
+    i8 44, label %1095
+    i8 45, label %1095
+    i8 46, label %1095
   ]
 
-1094:                                             ; preds = %1092, %1092, %1092, %1092, %1092
-  %1095 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1096 = load i32, ptr %1095, align 4
-  %1097 = getelementptr inbounds nuw i8, ptr %1074, i64 4
-  %1098 = load i32, ptr %1097, align 4
-  %1099 = icmp eq i32 %1096, %1098
-  br i1 %1099, label %1100, label %1123
+1095:                                             ; preds = %1093, %1093, %1093, %1093, %1093
+  %1096 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1097 = load i32, ptr %1096, align 4
+  %1098 = getelementptr inbounds nuw i8, ptr %1075, i64 4
+  %1099 = load i32, ptr %1098, align 4
+  %1100 = icmp eq i32 %1097, %1099
+  br i1 %1100, label %1101, label %1124
 
-1100:                                             ; preds = %1094
-  %1101 = sext i32 %1096 to i64
-  %1102 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1101
-  %1103 = load i8, ptr %1102, align 8
-  %1104 = icmp eq i8 %1103, 76
-  br i1 %1104, label %1105, label %1123
+1101:                                             ; preds = %1095
+  %1102 = sext i32 %1097 to i64
+  %1103 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1102
+  %1104 = load i8, ptr %1103, align 8
+  %1105 = icmp eq i8 %1104, 76
+  br i1 %1105, label %1106, label %1124
 
-1105:                                             ; preds = %1100
-  %1106 = getelementptr inbounds nuw i8, ptr %1102, i64 8
-  %1107 = load i32, ptr %1106, align 8
-  %1108 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %1109 = load i32, ptr %1108, align 4
-  %1110 = icmp eq i32 %1107, %1109
-  br i1 %1110, label %1111, label %1123
+1106:                                             ; preds = %1101
+  %1107 = getelementptr inbounds nuw i8, ptr %1103, i64 8
+  %1108 = load i32, ptr %1107, align 8
+  %1109 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %1110 = load i32, ptr %1109, align 4
+  %1111 = icmp eq i32 %1108, %1110
+  br i1 %1111, label %1112, label %1124
 
-1111:                                             ; preds = %1105
-  %1112 = getelementptr inbounds %struct._ir_use_list, ptr %1088, i64 %1101, i32 1
-  %1113 = load i32, ptr %1112, align 4
-  %1114 = icmp eq i32 %1113, 2
-  br i1 %1114, label %1115, label %1123
+1112:                                             ; preds = %1106
+  %1113 = getelementptr inbounds %struct._ir_use_list, ptr %1089, i64 %1102, i32 1
+  %1114 = load i32, ptr %1113, align 4
+  %1115 = icmp eq i32 %1114, 2
+  br i1 %1115, label %1116, label %1124
 
-1115:                                             ; preds = %1111
-  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1117 = load ptr, ptr %1116, align 8
-  %1118 = getelementptr inbounds i32, ptr %1117, i64 %1073
-  store i32 -2147483508, ptr %1118, align 4
-  %1119 = load ptr, ptr %1116, align 8
-  %1120 = load i32, ptr %1097, align 4
-  %1121 = sext i32 %1120 to i64
-  %1122 = getelementptr inbounds i32, ptr %1119, i64 %1121
-  store i32 1073741900, ptr %1122, align 4
+1116:                                             ; preds = %1112
+  %1117 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1118 = load ptr, ptr %1117, align 8
+  %1119 = getelementptr inbounds i32, ptr %1118, i64 %1074
+  store i32 -2147483508, ptr %1119, align 4
+  %1120 = load ptr, ptr %1117, align 8
+  %1121 = load i32, ptr %1098, align 4
+  %1122 = sext i32 %1121 to i64
+  %1123 = getelementptr inbounds i32, ptr %1120, i64 %1122
+  store i32 1073741900, ptr %1123, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1123:                                             ; preds = %1111, %1105, %1100, %1094
-  %1124 = zext nneg i8 %1093 to i64
-  %1125 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1124
-  %1126 = load i32, ptr %1125, align 4
-  %1127 = and i32 %1126, 2048
-  %.not1110 = icmp eq i32 %1127, 0
-  br i1 %.not1110, label %1157, label %1128
+1124:                                             ; preds = %1112, %1106, %1101, %1095
+  %1125 = zext nneg i8 %1094 to i64
+  %1126 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1125
+  %1127 = load i32, ptr %1126, align 4
+  %1128 = and i32 %1127, 2048
+  %.not1110 = icmp eq i32 %1128, 0
+  br i1 %.not1110, label %1158, label %1129
 
-1128:                                             ; preds = %1123
-  %1129 = getelementptr inbounds nuw i8, ptr %1074, i64 8
-  %1130 = load i32, ptr %1129, align 8
-  %1131 = icmp eq i32 %1096, %1130
-  br i1 %1131, label %1132, label %1157
+1129:                                             ; preds = %1124
+  %1130 = getelementptr inbounds nuw i8, ptr %1075, i64 8
+  %1131 = load i32, ptr %1130, align 8
+  %1132 = icmp eq i32 %1097, %1131
+  br i1 %1132, label %1133, label %1158
 
-1132:                                             ; preds = %1128
-  %1133 = sext i32 %1096 to i64
-  %1134 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1133
-  %1135 = load i8, ptr %1134, align 8
-  %1136 = icmp eq i8 %1135, 76
-  br i1 %1136, label %1137, label %1157
+1133:                                             ; preds = %1129
+  %1134 = sext i32 %1097 to i64
+  %1135 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1134
+  %1136 = load i8, ptr %1135, align 8
+  %1137 = icmp eq i8 %1136, 76
+  br i1 %1137, label %1138, label %1158
 
-1137:                                             ; preds = %1132
-  %1138 = getelementptr inbounds nuw i8, ptr %1134, i64 8
-  %1139 = load i32, ptr %1138, align 8
-  %1140 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %1141 = load i32, ptr %1140, align 4
-  %1142 = icmp eq i32 %1139, %1141
-  br i1 %1142, label %1143, label %1157
+1138:                                             ; preds = %1133
+  %1139 = getelementptr inbounds nuw i8, ptr %1135, i64 8
+  %1140 = load i32, ptr %1139, align 8
+  %1141 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %1142 = load i32, ptr %1141, align 4
+  %1143 = icmp eq i32 %1140, %1142
+  br i1 %1143, label %1144, label %1158
 
-1143:                                             ; preds = %1137
-  %1144 = getelementptr inbounds %struct._ir_use_list, ptr %1088, i64 %1133, i32 1
-  %1145 = load i32, ptr %1144, align 4
-  %1146 = icmp eq i32 %1145, 2
-  br i1 %1146, label %1147, label %1157
+1144:                                             ; preds = %1138
+  %1145 = getelementptr inbounds %struct._ir_use_list, ptr %1089, i64 %1134, i32 1
+  %1146 = load i32, ptr %1145, align 4
+  %1147 = icmp eq i32 %1146, 2
+  br i1 %1147, label %1148, label %1158
 
-1147:                                             ; preds = %1143
-  store i32 %1096, ptr %1097, align 4
-  store i32 %1098, ptr %1129, align 8
-  %1148 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1149 = load ptr, ptr %1148, align 8
-  %1150 = load i32, ptr %1071, align 8
-  %1151 = sext i32 %1150 to i64
-  %1152 = getelementptr inbounds i32, ptr %1149, i64 %1151
-  store i32 -2147483508, ptr %1152, align 4
-  %1153 = load ptr, ptr %1148, align 8
-  %1154 = load i32, ptr %1097, align 4
-  %1155 = sext i32 %1154 to i64
-  %1156 = getelementptr inbounds i32, ptr %1153, i64 %1155
-  store i32 1073741900, ptr %1156, align 4
+1148:                                             ; preds = %1144
+  store i32 %1097, ptr %1098, align 4
+  store i32 %1099, ptr %1130, align 8
+  %1149 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = load i32, ptr %1072, align 8
+  %1152 = sext i32 %1151 to i64
+  %1153 = getelementptr inbounds i32, ptr %1150, i64 %1152
+  store i32 -2147483508, ptr %1153, align 4
+  %1154 = load ptr, ptr %1149, align 8
+  %1155 = load i32, ptr %1098, align 4
+  %1156 = sext i32 %1155 to i64
+  %1157 = getelementptr inbounds i32, ptr %1154, i64 %1156
+  store i32 1073741900, ptr %1157, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1157:                                             ; preds = %1092, %1078, %1082, %1086, %1143, %1137, %1132, %1128, %1123, %1070
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1072, i32 noundef %1)
+1158:                                             ; preds = %1093, %1079, %1083, %1087, %1144, %1138, %1133, %1129, %1124, %1071
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1073, i32 noundef %1)
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1158:                                             ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %1159 = zext nneg i8 %6 to i32
-  %1160 = or disjoint i32 %1159, 1073741824
+1159:                                             ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %1160 = zext nneg i8 %6 to i32
+  %1161 = or disjoint i32 %1160, 1073741824
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1161:                                             ; preds = %2
-  %1162 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1163 = load i32, ptr %1162, align 8
-  %.not1108 = icmp eq i32 %1163, 0
-  br i1 %.not1108, label %ir_match_fuse_load_cmp_fp.exit, label %1164
+1162:                                             ; preds = %2
+  %1163 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1164 = load i32, ptr %1163, align 8
+  %.not1108 = icmp eq i32 %1164, 0
+  br i1 %.not1108, label %ir_match_fuse_load_cmp_fp.exit, label %1165
 
-1164:                                             ; preds = %1161
-  %1165 = sext i32 %1163 to i64
-  %1166 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1165
-  %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 1
-  %1168 = load i8, ptr %1167, align 1
-  %1169 = icmp ult i8 %1168, 12
-  %.1170 = select i1 %1169, i32 176, i32 177
+1165:                                             ; preds = %1162
+  %1166 = sext i32 %1164 to i64
+  %1167 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1166
+  %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 1
+  %1169 = load i8, ptr %1168, align 1
+  %1170 = icmp ult i8 %1169, 12
+  %.1170 = select i1 %1170, i32 176, i32 177
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1170:                                             ; preds = %2
-  %1171 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1172 = load i32, ptr %1171, align 8
-  %1173 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1174 = load i32, ptr %1173, align 8
-  %1175 = icmp sle i32 %1172, %1174
-  br i1 %1175, label %._crit_edge1262, label %1176
+1171:                                             ; preds = %2
+  %1172 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1173 = load i32, ptr %1172, align 8
+  %1174 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1175 = load i32, ptr %1174, align 8
+  %1176 = icmp sle i32 %1173, %1175
+  br i1 %1176, label %._crit_edge1265, label %1177
 
-._crit_edge1262:                                  ; preds = %1170
-  %.pre1263 = sext i32 %1172 to i64
-  br label %1269
+._crit_edge1265:                                  ; preds = %1171
+  %.pre1266 = sext i32 %1173 to i64
+  br label %1270
 
-1176:                                             ; preds = %1170
-  %1177 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1178 = load ptr, ptr %1177, align 8
-  %1179 = sext i32 %1172 to i64
-  %1180 = getelementptr inbounds %struct._ir_use_list, ptr %1178, i64 %1179, i32 1
-  %1181 = load i32, ptr %1180, align 4
-  %1182 = icmp eq i32 %1181, 1
-  br i1 %1182, label %1183, label %1269
+1177:                                             ; preds = %1171
+  %1178 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = sext i32 %1173 to i64
+  %1181 = getelementptr inbounds %struct._ir_use_list, ptr %1179, i64 %1180, i32 1
+  %1182 = load i32, ptr %1181, align 4
+  %1183 = icmp eq i32 %1182, 1
+  br i1 %1183, label %1184, label %1270
 
-1183:                                             ; preds = %1176
-  %1184 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1179
-  %1185 = load i8, ptr %1184, align 8
-  %1186 = add i8 %1185, -14
-  %or.cond1171 = icmp ult i8 %1186, 10
-  br i1 %or.cond1171, label %1187, label %1258
+1184:                                             ; preds = %1177
+  %1185 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1180
+  %1186 = load i8, ptr %1185, align 8
+  %1187 = add i8 %1186, -14
+  %or.cond1171 = icmp ult i8 %1187, 10
+  br i1 %or.cond1171, label %1188, label %1259
 
-1187:                                             ; preds = %1183
-  %1188 = getelementptr inbounds nuw i8, ptr %1184, i64 4
-  %1189 = load i32, ptr %1188, align 4
-  %1190 = sext i32 %1189 to i64
-  %1191 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1190
-  %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 1
-  %1193 = load i8, ptr %1192, align 1
-  %1194 = icmp ult i8 %1193, 12
-  br i1 %1194, label %1195, label %1252
+1188:                                             ; preds = %1184
+  %1189 = getelementptr inbounds nuw i8, ptr %1185, i64 4
+  %1190 = load i32, ptr %1189, align 4
+  %1191 = sext i32 %1190 to i64
+  %1192 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1191
+  %1193 = getelementptr inbounds nuw i8, ptr %1192, i64 1
+  %1194 = load i8, ptr %1193, align 1
+  %1195 = icmp ult i8 %1194, 12
+  br i1 %1195, label %1196, label %1253
 
-1195:                                             ; preds = %1187
-  %1196 = getelementptr inbounds nuw i8, ptr %1184, i64 8
-  %1197 = load i32, ptr %1196, align 8
-  %1198 = icmp slt i32 %1197, 0
-  br i1 %1198, label %1199, label %1246
+1196:                                             ; preds = %1188
+  %1197 = getelementptr inbounds nuw i8, ptr %1185, i64 8
+  %1198 = load i32, ptr %1197, align 8
+  %1199 = icmp slt i32 %1198, 0
+  br i1 %1199, label %1200, label %1247
 
-1199:                                             ; preds = %1195
-  %1200 = sext i32 %1197 to i64
-  %1201 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1200
-  %1202 = load i8, ptr %1201, align 8
-  %.off1200 = add i8 %1202, -66
+1200:                                             ; preds = %1196
+  %1201 = sext i32 %1198 to i64
+  %1202 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1201
+  %1203 = load i8, ptr %1202, align 8
+  %.off1200 = add i8 %1203, -66
   %switch1201 = icmp ult i8 %.off1200, 3
-  br i1 %switch1201, label %1246, label %1203
+  br i1 %switch1201, label %1247, label %1204
 
-1203:                                             ; preds = %1199
-  %1204 = getelementptr inbounds nuw i8, ptr %1201, i64 8
-  %1205 = load i64, ptr %1204, align 8
-  %1206 = icmp eq i64 %1205, 0
-  %1207 = add nsw i32 %1172, -1
-  %1208 = icmp eq i32 %1189, %1207
-  %or.cond1173 = select i1 %1206, i1 %1208, i1 false
-  br i1 %or.cond1173, label %1209, label %1246
+1204:                                             ; preds = %1200
+  %1205 = getelementptr inbounds nuw i8, ptr %1202, i64 8
+  %1206 = load i64, ptr %1205, align 8
+  %1207 = icmp eq i64 %1206, 0
+  %1208 = add nsw i32 %1173, -1
+  %1209 = icmp eq i32 %1190, %1208
+  %or.cond1173 = select i1 %1207, i1 %1209, i1 false
+  br i1 %or.cond1173, label %1210, label %1247
 
-1209:                                             ; preds = %1203
-  %1210 = load i8, ptr %1191, align 8
-  switch i8 %1210, label %1246 [
-    i8 45, label %1211
-    i8 44, label %.thread1220
-    i8 25, label %1225
-    i8 46, label %.thread1220
-    i8 24, label %1225
+1210:                                             ; preds = %1204
+  %1211 = load i8, ptr %1192, align 8
+  switch i8 %1211, label %1247 [
+    i8 45, label %1212
+    i8 44, label %.thread1222
+    i8 25, label %1226
+    i8 46, label %.thread1222
+    i8 24, label %1226
   ]
 
-1211:                                             ; preds = %1209
-  %1212 = getelementptr inbounds %struct._ir_use_list, ptr %1178, i64 %1190, i32 1
-  %1213 = load i32, ptr %1212, align 4
-  %1214 = icmp eq i32 %1213, 1
-  br i1 %1214, label %1215, label %.thread1220
+1212:                                             ; preds = %1210
+  %1213 = getelementptr inbounds %struct._ir_use_list, ptr %1179, i64 %1191, i32 1
+  %1214 = load i32, ptr %1213, align 4
+  %1215 = icmp eq i32 %1214, 1
+  br i1 %1215, label %1216, label %.thread1222
 
-1215:                                             ; preds = %1211
-  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1191, i32 noundef %1)
-  %1216 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1217 = load ptr, ptr %1216, align 8
-  %1218 = load i32, ptr %1188, align 4
-  %1219 = sext i32 %1218 to i64
-  %1220 = getelementptr inbounds i32, ptr %1217, i64 %1219
-  store i32 -2147483536, ptr %1220, align 4
-  %1221 = load ptr, ptr %1216, align 8
-  %1222 = load i32, ptr %1171, align 8
-  %1223 = sext i32 %1222 to i64
-  %1224 = getelementptr inbounds i32, ptr %1221, i64 %1223
-  store i32 -1610612736, ptr %1224, align 4
+1216:                                             ; preds = %1212
+  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1192, i32 noundef %1)
+  %1217 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1218 = load ptr, ptr %1217, align 8
+  %1219 = load i32, ptr %1189, align 4
+  %1220 = sext i32 %1219 to i64
+  %1221 = getelementptr inbounds i32, ptr %1218, i64 %1220
+  store i32 -2147483536, ptr %1221, align 4
+  %1222 = load ptr, ptr %1217, align 8
+  %1223 = load i32, ptr %1172, align 8
+  %1224 = sext i32 %1223 to i64
+  %1225 = getelementptr inbounds i32, ptr %1222, i64 %1224
+  store i32 -1610612736, ptr %1225, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1225:                                             ; preds = %1209, %1209
-  %1226 = and i8 %1185, 30
-  %switch1203 = icmp eq i8 %1226, 14
-  br i1 %switch1203, label %.thread1220, label %1246
+1226:                                             ; preds = %1210, %1210
+  %1227 = and i8 %1186, 30
+  %switch1203 = icmp eq i8 %1227, 14
+  br i1 %switch1203, label %.thread1222, label %1247
 
-.thread1220:                                      ; preds = %1209, %1209, %1211, %1225
-  %1227 = zext nneg i8 %1210 to i64
-  %1228 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1227
-  %1229 = load i32, ptr %1228, align 4
-  %1230 = and i32 %1229, 2048
-  %.not1107 = icmp eq i32 %1230, 0
-  br i1 %.not1107, label %1232, label %1231
+.thread1222:                                      ; preds = %1210, %1210, %1212, %1226
+  %1228 = zext nneg i8 %1211 to i64
+  %1229 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1228
+  %1230 = load i32, ptr %1229, align 4
+  %1231 = and i32 %1230, 2048
+  %.not1107 = icmp eq i32 %1231, 0
+  br i1 %.not1107, label %1233, label %1232
 
-1231:                                             ; preds = %.thread1220
-  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1191, i32 noundef %1)
-  br label %1235
+1232:                                             ; preds = %.thread1222
+  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1192, i32 noundef %1)
+  br label %1236
 
-1232:                                             ; preds = %.thread1220
-  %1233 = getelementptr inbounds nuw i8, ptr %1191, i64 8
-  %1234 = load i32, ptr %1233, align 8
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1234, i32 noundef %1)
-  br label %1235
+1233:                                             ; preds = %.thread1222
+  %1234 = getelementptr inbounds nuw i8, ptr %1192, i64 8
+  %1235 = load i32, ptr %1234, align 8
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1235, i32 noundef %1)
+  br label %1236
 
-1235:                                             ; preds = %1232, %1231
-  %.sink = phi i32 [ 140, %1232 ], [ 134217868, %1231 ]
-  %1236 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1237 = load ptr, ptr %1236, align 8
-  %1238 = load i32, ptr %1188, align 4
-  %1239 = sext i32 %1238 to i64
-  %1240 = getelementptr inbounds i32, ptr %1237, i64 %1239
-  store i32 %.sink, ptr %1240, align 4
-  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1242 = load ptr, ptr %1241, align 8
-  %1243 = load i32, ptr %1171, align 8
-  %1244 = sext i32 %1243 to i64
-  %1245 = getelementptr inbounds i32, ptr %1242, i64 %1244
-  store i32 -2147483541, ptr %1245, align 4
+1236:                                             ; preds = %1233, %1232
+  %.sink = phi i32 [ 140, %1233 ], [ 134217868, %1232 ]
+  %1237 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1238 = load ptr, ptr %1237, align 8
+  %1239 = load i32, ptr %1189, align 4
+  %1240 = sext i32 %1239 to i64
+  %1241 = getelementptr inbounds i32, ptr %1238, i64 %1240
+  store i32 %.sink, ptr %1241, align 4
+  %1242 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1243 = load ptr, ptr %1242, align 8
+  %1244 = load i32, ptr %1172, align 8
+  %1245 = sext i32 %1244 to i64
+  %1246 = getelementptr inbounds i32, ptr %1243, i64 %1245
+  store i32 -2147483541, ptr %1246, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1246:                                             ; preds = %1209, %1225, %1199, %1203, %1195
-  tail call fastcc void @ir_match_fuse_load_cmp_int(ptr noundef nonnull %0, ptr noundef nonnull %1184, i32 noundef %1)
-  %1247 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = load i32, ptr %1171, align 8
-  %1250 = sext i32 %1249 to i64
-  %1251 = getelementptr inbounds i32, ptr %1248, i64 %1250
-  store i32 -2147483541, ptr %1251, align 4
+1247:                                             ; preds = %1210, %1226, %1200, %1204, %1196
+  tail call fastcc void @ir_match_fuse_load_cmp_int(ptr noundef nonnull %0, ptr noundef nonnull %1185, i32 noundef %1)
+  %1248 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1249 = load ptr, ptr %1248, align 8
+  %1250 = load i32, ptr %1172, align 8
+  %1251 = sext i32 %1250 to i64
+  %1252 = getelementptr inbounds i32, ptr %1249, i64 %1251
+  store i32 -2147483541, ptr %1252, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1252:                                             ; preds = %1187
-  tail call fastcc void @ir_match_fuse_load_cmp_fp_br(ptr noundef nonnull %0, ptr noundef nonnull %1184, i32 noundef %1, i1 noundef zeroext true)
-  %1253 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1254 = load ptr, ptr %1253, align 8
-  %1255 = load i32, ptr %1171, align 8
-  %1256 = sext i32 %1255 to i64
-  %1257 = getelementptr inbounds i32, ptr %1254, i64 %1256
-  store i32 -2147483540, ptr %1257, align 4
+1253:                                             ; preds = %1188
+  tail call fastcc void @ir_match_fuse_load_cmp_fp_br(ptr noundef nonnull %0, ptr noundef nonnull %1185, i32 noundef %1, i1 noundef zeroext true)
+  %1254 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = load i32, ptr %1172, align 8
+  %1257 = sext i32 %1256 to i64
+  %1258 = getelementptr inbounds i32, ptr %1255, i64 %1257
+  store i32 -2147483540, ptr %1258, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1258:                                             ; preds = %1183
-  switch i8 %1185, label %1269 [
-    i8 45, label %1259
-    i8 42, label %1265
+1259:                                             ; preds = %1184
+  switch i8 %1186, label %1270 [
+    i8 45, label %1260
+    i8 42, label %1266
   ]
 
-1259:                                             ; preds = %1258
-  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1184, i32 noundef %1)
-  %1260 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1261 = load ptr, ptr %1260, align 8
-  %1262 = load i32, ptr %1171, align 8
-  %1263 = sext i32 %1262 to i64
-  %1264 = getelementptr inbounds i32, ptr %1261, i64 %1263
-  store i32 -2147483536, ptr %1264, align 4
+1260:                                             ; preds = %1259
+  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1185, i32 noundef %1)
+  %1261 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1262 = load ptr, ptr %1261, align 8
+  %1263 = load i32, ptr %1172, align 8
+  %1264 = sext i32 %1263 to i64
+  %1265 = getelementptr inbounds i32, ptr %1262, i64 %1264
+  store i32 -2147483536, ptr %1265, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1265:                                             ; preds = %1258
-  %1266 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = getelementptr inbounds i32, ptr %1267, i64 %1179
-  store i32 -1610612694, ptr %1268, align 4
+1266:                                             ; preds = %1259
+  %1267 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1268 = load ptr, ptr %1267, align 8
+  %1269 = getelementptr inbounds i32, ptr %1268, i64 %1180
+  store i32 -1610612694, ptr %1269, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1269:                                             ; preds = %._crit_edge1262, %1258, %1176
-  %.pre-phi = phi i64 [ %.pre1263, %._crit_edge1262 ], [ %1179, %1258 ], [ %1179, %1176 ]
-  %1270 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %.pre-phi
-  %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 1
-  %1272 = load i8, ptr %1271, align 1
-  %1273 = icmp ult i8 %1272, 12
-  br i1 %1273, label %1274, label %1866
+1270:                                             ; preds = %._crit_edge1265, %1259, %1177
+  %.pre-phi = phi i64 [ %.pre1266, %._crit_edge1265 ], [ %1180, %1259 ], [ %1180, %1177 ]
+  %1271 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %.pre-phi
+  %1272 = getelementptr inbounds nuw i8, ptr %1271, i64 1
+  %1273 = load i8, ptr %1272, align 1
+  %1274 = icmp ult i8 %1273, 12
+  br i1 %1274, label %1275, label %1867
 
-1274:                                             ; preds = %1269
-  %1275 = add nsw i32 %1, -1
-  %1276 = icmp ne i32 %1172, %1275
-  %brmerge = or i1 %1276, %1175
-  br i1 %brmerge, label %1298, label %1277
+1275:                                             ; preds = %1270
+  %1276 = add nsw i32 %1, -1
+  %1277 = icmp ne i32 %1173, %1276
+  %brmerge = or i1 %1277, %1176
+  br i1 %brmerge, label %1299, label %1278
 
-1277:                                             ; preds = %1274
-  %1278 = load i8, ptr %1270, align 8
-  switch i8 %1278, label %1402 [
-    i8 24, label %1279
-    i8 25, label %1279
-    i8 44, label %1279
-    i8 45, label %1279
-    i8 46, label %1279
+1278:                                             ; preds = %1275
+  %1279 = load i8, ptr %1271, align 8
+  switch i8 %1279, label %1403 [
+    i8 24, label %1280
+    i8 25, label %1280
+    i8 44, label %1280
+    i8 45, label %1280
+    i8 46, label %1280
   ]
 
-1279:                                             ; preds = %1277, %1277, %1277, %1277, %1277
-  %1280 = zext nneg i8 %1278 to i64
-  %1281 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1280
-  %1282 = load i32, ptr %1281, align 4
-  %1283 = and i32 %1282, 2048
-  %.not1106 = icmp eq i32 %1283, 0
-  br i1 %.not1106, label %1290, label %1284
+1280:                                             ; preds = %1278, %1278, %1278, %1278, %1278
+  %1281 = zext nneg i8 %1279 to i64
+  %1282 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1281
+  %1283 = load i32, ptr %1282, align 4
+  %1284 = and i32 %1283, 2048
+  %.not1106 = icmp eq i32 %1284, 0
+  br i1 %.not1106, label %1291, label %1285
 
-1284:                                             ; preds = %1279
-  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1270, i32 noundef %1)
-  %1285 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = load i32, ptr %1171, align 8
-  %1288 = sext i32 %1287 to i64
-  %1289 = getelementptr inbounds i32, ptr %1286, i64 %1288
-  store i32 134217868, ptr %1289, align 4
+1285:                                             ; preds = %1280
+  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1271, i32 noundef %1)
+  %1286 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1287 = load ptr, ptr %1286, align 8
+  %1288 = load i32, ptr %1172, align 8
+  %1289 = sext i32 %1288 to i64
+  %1290 = getelementptr inbounds i32, ptr %1287, i64 %1289
+  store i32 134217868, ptr %1290, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1290:                                             ; preds = %1279
-  %1291 = getelementptr inbounds nuw i8, ptr %1270, i64 8
-  %1292 = load i32, ptr %1291, align 8
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1292, i32 noundef %1)
-  %1293 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = load i32, ptr %1171, align 8
-  %1296 = sext i32 %1295 to i64
-  %1297 = getelementptr inbounds i32, ptr %1294, i64 %1296
-  store i32 140, ptr %1297, align 4
+1291:                                             ; preds = %1280
+  %1292 = getelementptr inbounds nuw i8, ptr %1271, i64 8
+  %1293 = load i32, ptr %1292, align 8
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1293, i32 noundef %1)
+  %1294 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1295 = load ptr, ptr %1294, align 8
+  %1296 = load i32, ptr %1172, align 8
+  %1297 = sext i32 %1296 to i64
+  %1298 = getelementptr inbounds i32, ptr %1295, i64 %1297
+  store i32 140, ptr %1298, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1298:                                             ; preds = %1274
-  %1299 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1300 = load i32, ptr %1299, align 8
-  %1301 = and i32 %1300, 524288
-  %.not1104 = icmp eq i32 %1301, 0
-  br i1 %.not1104, label %1402, label %1302
+1299:                                             ; preds = %1275
+  %1300 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1301 = load i32, ptr %1300, align 8
+  %1302 = and i32 %1301, 524288
+  %.not1104 = icmp eq i32 %1302, 0
+  br i1 %.not1104, label %1403, label %1303
 
-1302:                                             ; preds = %1298
-  %1303 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1304 = load i32, ptr %1303, align 4
-  %1305 = icmp ne i32 %1304, %1275
-  %1306 = add nsw i32 %1, -2
-  %1307 = icmp ne i32 %1172, %1306
-  %or.cond.not1232 = select i1 %1305, i1 true, i1 %1307
-  %brmerge1226 = or i1 %1175, %or.cond.not1232
-  br i1 %brmerge1226, label %1402, label %1308
+1303:                                             ; preds = %1299
+  %1304 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1305 = load i32, ptr %1304, align 4
+  %1306 = icmp ne i32 %1305, %1276
+  %1307 = add nsw i32 %1, -2
+  %1308 = icmp ne i32 %1173, %1307
+  %or.cond1227.not1235 = select i1 %1306, i1 true, i1 %1308
+  %brmerge1229 = or i1 %1176, %or.cond1227.not1235
+  br i1 %brmerge1229, label %1403, label %1309
 
-1308:                                             ; preds = %1302
-  %1309 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1310 = load ptr, ptr %1309, align 8
-  %1311 = getelementptr inbounds %struct._ir_use_list, ptr %1310, i64 %.pre-phi, i32 1
-  %1312 = load i32, ptr %1311, align 4
-  %1313 = icmp eq i32 %1312, 2
-  br i1 %1313, label %1314, label %1402
+1309:                                             ; preds = %1303
+  %1310 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1311 = load ptr, ptr %1310, align 8
+  %1312 = getelementptr inbounds %struct._ir_use_list, ptr %1311, i64 %.pre-phi, i32 1
+  %1313 = load i32, ptr %1312, align 4
+  %1314 = icmp eq i32 %1313, 2
+  br i1 %1314, label %1315, label %1403
 
-1314:                                             ; preds = %1308
-  %1315 = sext i32 %1275 to i64
-  %1316 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1315
-  %1317 = load i8, ptr %1316, align 8
-  %1318 = icmp eq i8 %1317, 79
-  br i1 %1318, label %1319, label %1402
+1315:                                             ; preds = %1309
+  %1316 = sext i32 %1276 to i64
+  %1317 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1316
+  %1318 = load i8, ptr %1317, align 8
+  %1319 = icmp eq i8 %1318, 79
+  br i1 %1319, label %1320, label %1403
 
-1319:                                             ; preds = %1314
-  %1320 = getelementptr inbounds nuw i8, ptr %1316, i64 8
-  %1321 = getelementptr inbounds nuw i8, ptr %1316, i64 12
-  %1322 = load i32, ptr %1321, align 4
-  %1323 = icmp eq i32 %1322, %1172
-  br i1 %1323, label %1324, label %1402
+1320:                                             ; preds = %1315
+  %1321 = getelementptr inbounds nuw i8, ptr %1317, i64 8
+  %1322 = getelementptr inbounds nuw i8, ptr %1317, i64 12
+  %1323 = load i32, ptr %1322, align 4
+  %1324 = icmp eq i32 %1323, %1173
+  br i1 %1324, label %1325, label %1403
 
-1324:                                             ; preds = %1319
-  %1325 = load i8, ptr %1270, align 8
-  switch i8 %1325, label %1402 [
-    i8 24, label %1326
-    i8 25, label %1326
-    i8 44, label %1326
-    i8 45, label %1326
-    i8 46, label %1326
+1325:                                             ; preds = %1320
+  %1326 = load i8, ptr %1271, align 8
+  switch i8 %1326, label %1403 [
+    i8 24, label %1327
+    i8 25, label %1327
+    i8 44, label %1327
+    i8 45, label %1327
+    i8 46, label %1327
   ]
 
-1326:                                             ; preds = %1324, %1324, %1324, %1324, %1324
-  %1327 = getelementptr inbounds nuw i8, ptr %1270, i64 4
-  %1328 = load i32, ptr %1327, align 4
-  %1329 = sext i32 %1328 to i64
-  %1330 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1329
-  %1331 = load i8, ptr %1330, align 8
-  %1332 = icmp eq i8 %1331, 78
-  br i1 %1332, label %1333, label %1361
+1327:                                             ; preds = %1325, %1325, %1325, %1325, %1325
+  %1328 = getelementptr inbounds nuw i8, ptr %1271, i64 4
+  %1329 = load i32, ptr %1328, align 4
+  %1330 = sext i32 %1329 to i64
+  %1331 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1330
+  %1332 = load i8, ptr %1331, align 8
+  %1333 = icmp eq i8 %1332, 78
+  br i1 %1333, label %1334, label %1362
 
-1333:                                             ; preds = %1326
-  %1334 = getelementptr inbounds nuw i8, ptr %1330, i64 8
-  %1335 = load i32, ptr %1334, align 8
-  %1336 = load i32, ptr %1320, align 8
-  %1337 = icmp eq i32 %1335, %1336
-  br i1 %1337, label %1338, label %1361
+1334:                                             ; preds = %1327
+  %1335 = getelementptr inbounds nuw i8, ptr %1331, i64 8
+  %1336 = load i32, ptr %1335, align 8
+  %1337 = load i32, ptr %1321, align 8
+  %1338 = icmp eq i32 %1336, %1337
+  br i1 %1338, label %1339, label %1362
 
-1338:                                             ; preds = %1333
-  %1339 = icmp sgt i32 %1328, %1174
-  br i1 %1339, label %1340, label %1402
+1339:                                             ; preds = %1334
+  %1340 = icmp sgt i32 %1329, %1175
+  br i1 %1340, label %1341, label %1403
 
-1340:                                             ; preds = %1338
-  %1341 = getelementptr inbounds %struct._ir_use_list, ptr %1310, i64 %1329, i32 1
-  %1342 = load i32, ptr %1341, align 4
-  %1343 = icmp eq i32 %1342, 2
-  br i1 %1343, label %1344, label %1402
+1341:                                             ; preds = %1339
+  %1342 = getelementptr inbounds %struct._ir_use_list, ptr %1311, i64 %1330, i32 1
+  %1343 = load i32, ptr %1342, align 4
+  %1344 = icmp eq i32 %1343, 2
+  br i1 %1344, label %1345, label %1403
 
-1344:                                             ; preds = %1340
-  %1345 = getelementptr inbounds nuw i8, ptr %1316, i64 4
-  %1346 = load i32, ptr %1345, align 4
-  %1347 = icmp eq i32 %1346, %1328
-  br i1 %1347, label %1348, label %1402
+1345:                                             ; preds = %1341
+  %1346 = getelementptr inbounds nuw i8, ptr %1317, i64 4
+  %1347 = load i32, ptr %1346, align 4
+  %1348 = icmp eq i32 %1347, %1329
+  br i1 %1348, label %1349, label %1403
 
-1348:                                             ; preds = %1344
-  %1349 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1350 = load ptr, ptr %1349, align 8
-  %1351 = getelementptr inbounds i32, ptr %1350, i64 %.pre-phi
-  store i32 -2147483508, ptr %1351, align 4
-  %1352 = load ptr, ptr %1349, align 8
-  %1353 = load i32, ptr %1327, align 4
-  %1354 = sext i32 %1353 to i64
-  %1355 = getelementptr inbounds i32, ptr %1352, i64 %1354
-  store i32 1073741902, ptr %1355, align 4
-  %1356 = load i32, ptr %1320, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1356)
-  %1357 = load ptr, ptr %1349, align 8
-  %1358 = load i32, ptr %1303, align 4
-  %1359 = sext i32 %1358 to i64
-  %1360 = getelementptr inbounds i32, ptr %1357, i64 %1359
-  store i32 164, ptr %1360, align 4
+1349:                                             ; preds = %1345
+  %1350 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1351 = load ptr, ptr %1350, align 8
+  %1352 = getelementptr inbounds i32, ptr %1351, i64 %.pre-phi
+  store i32 -2147483508, ptr %1352, align 4
+  %1353 = load ptr, ptr %1350, align 8
+  %1354 = load i32, ptr %1328, align 4
+  %1355 = sext i32 %1354 to i64
+  %1356 = getelementptr inbounds i32, ptr %1353, i64 %1355
+  store i32 1073741902, ptr %1356, align 4
+  %1357 = load i32, ptr %1321, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1357)
+  %1358 = load ptr, ptr %1350, align 8
+  %1359 = load i32, ptr %1304, align 4
+  %1360 = sext i32 %1359 to i64
+  %1361 = getelementptr inbounds i32, ptr %1358, i64 %1360
+  store i32 164, ptr %1361, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1361:                                             ; preds = %1333, %1326
-  %1362 = zext nneg i8 %1325 to i64
-  %1363 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1362
-  %1364 = load i32, ptr %1363, align 4
-  %1365 = and i32 %1364, 2048
-  %.not1105 = icmp eq i32 %1365, 0
-  br i1 %.not1105, label %1402, label %1366
+1362:                                             ; preds = %1334, %1327
+  %1363 = zext nneg i8 %1326 to i64
+  %1364 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1363
+  %1365 = load i32, ptr %1364, align 4
+  %1366 = and i32 %1365, 2048
+  %.not1105 = icmp eq i32 %1366, 0
+  br i1 %.not1105, label %1403, label %1367
 
-1366:                                             ; preds = %1361
-  %1367 = getelementptr inbounds nuw i8, ptr %1270, i64 8
-  %1368 = load i32, ptr %1367, align 8
-  %1369 = sext i32 %1368 to i64
-  %1370 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1369
-  %1371 = load i8, ptr %1370, align 8
-  %1372 = icmp eq i8 %1371, 78
-  br i1 %1372, label %1373, label %1402
+1367:                                             ; preds = %1362
+  %1368 = getelementptr inbounds nuw i8, ptr %1271, i64 8
+  %1369 = load i32, ptr %1368, align 8
+  %1370 = sext i32 %1369 to i64
+  %1371 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1370
+  %1372 = load i8, ptr %1371, align 8
+  %1373 = icmp eq i8 %1372, 78
+  br i1 %1373, label %1374, label %1403
 
-1373:                                             ; preds = %1366
-  %1374 = getelementptr inbounds nuw i8, ptr %1370, i64 8
-  %1375 = load i32, ptr %1374, align 8
-  %1376 = load i32, ptr %1320, align 8
-  %1377 = icmp eq i32 %1375, %1376
-  %1378 = icmp sgt i32 %1368, %1174
-  %or.cond1227 = and i1 %1378, %1377
-  br i1 %or.cond1227, label %1379, label %1402
+1374:                                             ; preds = %1367
+  %1375 = getelementptr inbounds nuw i8, ptr %1371, i64 8
+  %1376 = load i32, ptr %1375, align 8
+  %1377 = load i32, ptr %1321, align 8
+  %1378 = icmp eq i32 %1376, %1377
+  %1379 = icmp sgt i32 %1369, %1175
+  %or.cond1230 = and i1 %1379, %1378
+  br i1 %or.cond1230, label %1380, label %1403
 
-1379:                                             ; preds = %1373
-  %1380 = getelementptr inbounds %struct._ir_use_list, ptr %1310, i64 %1369, i32 1
-  %1381 = load i32, ptr %1380, align 4
-  %1382 = icmp eq i32 %1381, 2
-  br i1 %1382, label %1383, label %1402
+1380:                                             ; preds = %1374
+  %1381 = getelementptr inbounds %struct._ir_use_list, ptr %1311, i64 %1370, i32 1
+  %1382 = load i32, ptr %1381, align 4
+  %1383 = icmp eq i32 %1382, 2
+  br i1 %1383, label %1384, label %1403
 
-1383:                                             ; preds = %1379
-  %1384 = getelementptr inbounds nuw i8, ptr %1316, i64 4
-  %1385 = load i32, ptr %1384, align 4
-  %1386 = icmp eq i32 %1385, %1368
-  br i1 %1386, label %1387, label %1402
+1384:                                             ; preds = %1380
+  %1385 = getelementptr inbounds nuw i8, ptr %1317, i64 4
+  %1386 = load i32, ptr %1385, align 4
+  %1387 = icmp eq i32 %1386, %1369
+  br i1 %1387, label %1388, label %1403
 
-1387:                                             ; preds = %1383
-  store i32 %1368, ptr %1327, align 4
-  store i32 %1328, ptr %1367, align 8
-  %1388 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1389 = load ptr, ptr %1388, align 8
-  %1390 = load i32, ptr %1171, align 8
-  %1391 = sext i32 %1390 to i64
-  %1392 = getelementptr inbounds i32, ptr %1389, i64 %1391
-  store i32 -2147483508, ptr %1392, align 4
-  %1393 = load ptr, ptr %1388, align 8
-  %1394 = load i32, ptr %1327, align 4
-  %1395 = sext i32 %1394 to i64
-  %1396 = getelementptr inbounds i32, ptr %1393, i64 %1395
-  store i32 1073741902, ptr %1396, align 4
-  %1397 = load i32, ptr %1320, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1397)
-  %1398 = load ptr, ptr %1388, align 8
-  %1399 = load i32, ptr %1303, align 4
-  %1400 = sext i32 %1399 to i64
-  %1401 = getelementptr inbounds i32, ptr %1398, i64 %1400
-  store i32 164, ptr %1401, align 4
+1388:                                             ; preds = %1384
+  store i32 %1369, ptr %1328, align 4
+  store i32 %1329, ptr %1368, align 8
+  %1389 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1390 = load ptr, ptr %1389, align 8
+  %1391 = load i32, ptr %1172, align 8
+  %1392 = sext i32 %1391 to i64
+  %1393 = getelementptr inbounds i32, ptr %1390, i64 %1392
+  store i32 -2147483508, ptr %1393, align 4
+  %1394 = load ptr, ptr %1389, align 8
+  %1395 = load i32, ptr %1328, align 4
+  %1396 = sext i32 %1395 to i64
+  %1397 = getelementptr inbounds i32, ptr %1394, i64 %1396
+  store i32 1073741902, ptr %1397, align 4
+  %1398 = load i32, ptr %1321, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1398)
+  %1399 = load ptr, ptr %1389, align 8
+  %1400 = load i32, ptr %1304, align 4
+  %1401 = sext i32 %1400 to i64
+  %1402 = getelementptr inbounds i32, ptr %1399, i64 %1401
+  store i32 164, ptr %1402, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1402:                                             ; preds = %1302, %1324, %1277, %1298, %1308, %1361, %1366, %1373, %1383, %1379, %1338, %1340, %1344, %1319, %1314
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1172, i32 noundef %1)
+1403:                                             ; preds = %1303, %1325, %1278, %1299, %1309, %1362, %1367, %1374, %1384, %1380, %1339, %1341, %1345, %1320, %1315
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1173, i32 noundef %1)
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1403:                                             ; preds = %2, %2
-  %1404 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1405 = load i32, ptr %1404, align 8
-  %1406 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1407 = load i32, ptr %1406, align 8
-  %1408 = icmp sgt i32 %1405, %1407
-  br i1 %1408, label %1409, label %ir_match_fuse_load.exit1213
+1404:                                             ; preds = %2, %2
+  %1405 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1406 = load i32, ptr %1405, align 8
+  %1407 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1408 = load i32, ptr %1407, align 8
+  %1409 = icmp sgt i32 %1406, %1408
+  br i1 %1409, label %1410, label %ir_match_fuse_load.exit1213
 
-1409:                                             ; preds = %1403
-  %1410 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1411 = load ptr, ptr %1410, align 8
-  %1412 = sext i32 %1405 to i64
-  %1413 = getelementptr inbounds %struct._ir_use_list, ptr %1411, i64 %1412, i32 1
-  %1414 = load i32, ptr %1413, align 4
-  %1415 = icmp eq i32 %1414, 1
-  %1416 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1412
-  %1417 = load i8, ptr %1416, align 8
-  br i1 %1415, label %1418, label %1617
+1410:                                             ; preds = %1404
+  %1411 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1412 = load ptr, ptr %1411, align 8
+  %1413 = sext i32 %1406 to i64
+  %1414 = getelementptr inbounds %struct._ir_use_list, ptr %1412, i64 %1413, i32 1
+  %1415 = load i32, ptr %1414, align 4
+  %1416 = icmp eq i32 %1415, 1
+  %1417 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1413
+  %1418 = load i8, ptr %1417, align 8
+  br i1 %1416, label %1419, label %1618
 
-1418:                                             ; preds = %1409
-  %1419 = add i8 %1417, -14
-  %or.cond1174 = icmp ult i8 %1419, 10
-  br i1 %or.cond1174, label %1420, label %1606
+1419:                                             ; preds = %1410
+  %1420 = add i8 %1418, -14
+  %or.cond1174 = icmp ult i8 %1420, 10
+  br i1 %or.cond1174, label %1421, label %1607
 
-1420:                                             ; preds = %1418
-  %1421 = add nsw i32 %1, -1
-  %1422 = icmp eq i32 %1405, %1421
-  br i1 %1422, label %1435, label %1423
+1421:                                             ; preds = %1419
+  %1422 = add nsw i32 %1, -1
+  %1423 = icmp eq i32 %1406, %1422
+  br i1 %1423, label %1436, label %1424
 
-1423:                                             ; preds = %1420
-  %1424 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %1425 = load ptr, ptr %1424, align 8
-  %1426 = getelementptr inbounds i32, ptr %1425, i64 %4
-  %1427 = load i32, ptr %1426, align 4
-  %1428 = add nsw i32 %1427, -1
-  %1429 = icmp eq i32 %1405, %1428
-  br i1 %1429, label %1430, label %1606
+1424:                                             ; preds = %1421
+  %1425 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %1426 = load ptr, ptr %1425, align 8
+  %1427 = getelementptr inbounds i32, ptr %1426, i64 %4
+  %1428 = load i32, ptr %1427, align 4
+  %1429 = add nsw i32 %1428, -1
+  %1430 = icmp eq i32 %1406, %1429
+  br i1 %1430, label %1431, label %1607
 
-1430:                                             ; preds = %1423
-  %1431 = sext i32 %1427 to i64
-  %1432 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1431
-  %1433 = load i8, ptr %1432, align 8
-  %1434 = icmp eq i8 %1433, 88
-  br i1 %1434, label %1435, label %1606
+1431:                                             ; preds = %1424
+  %1432 = sext i32 %1428 to i64
+  %1433 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1432
+  %1434 = load i8, ptr %1433, align 8
+  %1435 = icmp eq i8 %1434, 88
+  br i1 %1435, label %1436, label %1607
 
-1435:                                             ; preds = %1430, %1420
-  %1436 = getelementptr inbounds nuw i8, ptr %1416, i64 4
-  %1437 = load i32, ptr %1436, align 4
-  %1438 = sext i32 %1437 to i64
-  %1439 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1438
-  %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 1
-  %1441 = load i8, ptr %1440, align 1
-  %1442 = icmp ult i8 %1441, 12
-  br i1 %1442, label %1443, label %1599
+1436:                                             ; preds = %1431, %1421
+  %1437 = getelementptr inbounds nuw i8, ptr %1417, i64 4
+  %1438 = load i32, ptr %1437, align 4
+  %1439 = sext i32 %1438 to i64
+  %1440 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1439
+  %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 1
+  %1442 = load i8, ptr %1441, align 1
+  %1443 = icmp ult i8 %1442, 12
+  br i1 %1443, label %1444, label %1600
 
-1443:                                             ; preds = %1435
-  %1444 = getelementptr inbounds nuw i8, ptr %1416, i64 8
-  %1445 = load i32, ptr %1444, align 8
-  %1446 = icmp slt i32 %1445, 0
-  br i1 %1446, label %1447, label %1593
+1444:                                             ; preds = %1436
+  %1445 = getelementptr inbounds nuw i8, ptr %1417, i64 8
+  %1446 = load i32, ptr %1445, align 8
+  %1447 = icmp slt i32 %1446, 0
+  br i1 %1447, label %1448, label %1594
 
-1447:                                             ; preds = %1443
-  %1448 = sext i32 %1445 to i64
-  %1449 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1448
-  %1450 = load i8, ptr %1449, align 8
-  %.off1204 = add i8 %1450, -66
+1448:                                             ; preds = %1444
+  %1449 = sext i32 %1446 to i64
+  %1450 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1449
+  %1451 = load i8, ptr %1450, align 8
+  %.off1204 = add i8 %1451, -66
   %switch1205 = icmp ult i8 %.off1204, 3
-  br i1 %switch1205, label %1593, label %1451
+  br i1 %switch1205, label %1594, label %1452
 
-1451:                                             ; preds = %1447
-  %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 8
-  %1453 = load i64, ptr %1452, align 8
-  %1454 = icmp eq i64 %1453, 0
-  br i1 %1454, label %1455, label %1593
+1452:                                             ; preds = %1448
+  %1453 = getelementptr inbounds nuw i8, ptr %1450, i64 8
+  %1454 = load i64, ptr %1453, align 8
+  %1455 = icmp eq i64 %1454, 0
+  br i1 %1455, label %1456, label %1594
 
-1455:                                             ; preds = %1451
-  %1456 = add nsw i32 %1405, -1
-  %1457 = icmp eq i32 %1437, %1456
-  br i1 %1457, label %1458, label %1482
+1456:                                             ; preds = %1452
+  %1457 = add nsw i32 %1406, -1
+  %1458 = icmp eq i32 %1438, %1457
+  br i1 %1458, label %1459, label %1483
 
-1458:                                             ; preds = %1455
-  %1459 = load i8, ptr %1439, align 8
-  switch i8 %1459, label %1593 [
-    i8 44, label %1462
-    i8 45, label %1462
-    i8 46, label %1462
-    i8 24, label %1460
-    i8 25, label %1460
+1459:                                             ; preds = %1456
+  %1460 = load i8, ptr %1440, align 8
+  switch i8 %1460, label %1594 [
+    i8 44, label %1463
+    i8 45, label %1463
+    i8 46, label %1463
+    i8 24, label %1461
+    i8 25, label %1461
   ]
 
-1460:                                             ; preds = %1458, %1458
-  %1461 = and i8 %1417, 30
-  %switch1207 = icmp eq i8 %1461, 14
-  br i1 %switch1207, label %1462, label %1593
+1461:                                             ; preds = %1459, %1459
+  %1462 = and i8 %1418, 30
+  %switch1207 = icmp eq i8 %1462, 14
+  br i1 %switch1207, label %1463, label %1594
 
-1462:                                             ; preds = %1460, %1458, %1458, %1458
-  %1463 = zext nneg i8 %1459 to i64
-  %1464 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1463
-  %1465 = load i32, ptr %1464, align 4
-  %1466 = and i32 %1465, 2048
-  %.not1103 = icmp eq i32 %1466, 0
-  br i1 %.not1103, label %1468, label %1467
+1463:                                             ; preds = %1461, %1459, %1459, %1459
+  %1464 = zext nneg i8 %1460 to i64
+  %1465 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1464
+  %1466 = load i32, ptr %1465, align 4
+  %1467 = and i32 %1466, 2048
+  %.not1103 = icmp eq i32 %1467, 0
+  br i1 %.not1103, label %1469, label %1468
 
-1467:                                             ; preds = %1462
-  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1439, i32 noundef %1)
-  br label %1471
+1468:                                             ; preds = %1463
+  tail call fastcc void @ir_match_fuse_load_commutative_int(ptr noundef nonnull %0, ptr noundef nonnull %1440, i32 noundef %1)
+  br label %1472
 
-1468:                                             ; preds = %1462
-  %1469 = getelementptr inbounds nuw i8, ptr %1439, i64 8
-  %1470 = load i32, ptr %1469, align 8
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1470, i32 noundef %1)
-  br label %1471
+1469:                                             ; preds = %1463
+  %1470 = getelementptr inbounds nuw i8, ptr %1440, i64 8
+  %1471 = load i32, ptr %1470, align 8
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1471, i32 noundef %1)
+  br label %1472
 
-1471:                                             ; preds = %1468, %1467
-  %.sink1274 = phi i32 [ 140, %1468 ], [ 134217868, %1467 ]
-  %1472 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1473 = load ptr, ptr %1472, align 8
-  %1474 = load i32, ptr %1436, align 4
-  %1475 = sext i32 %1474 to i64
-  %1476 = getelementptr inbounds i32, ptr %1473, i64 %1475
-  store i32 %.sink1274, ptr %1476, align 4
-  %1477 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1478 = load ptr, ptr %1477, align 8
-  %1479 = load i32, ptr %1404, align 8
-  %1480 = sext i32 %1479 to i64
-  %1481 = getelementptr inbounds i32, ptr %1478, i64 %1480
-  store i32 -2147483541, ptr %1481, align 4
+1472:                                             ; preds = %1469, %1468
+  %.sink1277 = phi i32 [ 140, %1469 ], [ 134217868, %1468 ]
+  %1473 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1474 = load ptr, ptr %1473, align 8
+  %1475 = load i32, ptr %1437, align 4
+  %1476 = sext i32 %1475 to i64
+  %1477 = getelementptr inbounds i32, ptr %1474, i64 %1476
+  store i32 %.sink1277, ptr %1477, align 4
+  %1478 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1479 = load ptr, ptr %1478, align 8
+  %1480 = load i32, ptr %1405, align 8
+  %1481 = sext i32 %1480 to i64
+  %1482 = getelementptr inbounds i32, ptr %1479, i64 %1481
+  store i32 -2147483541, ptr %1482, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1482:                                             ; preds = %1455
-  %1483 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1484 = load i32, ptr %1483, align 8
-  %1485 = and i32 %1484, 524288
-  %.not1101 = icmp ne i32 %1485, 0
-  %1486 = add nsw i32 %1405, -2
-  %1487 = icmp eq i32 %1437, %1486
-  %or.cond1176 = select i1 %.not1101, i1 %1487, i1 false
-  %1488 = icmp sgt i32 %1437, %1407
-  %or.cond1228 = and i1 %1488, %or.cond1176
-  br i1 %or.cond1228, label %1489, label %1593
+1483:                                             ; preds = %1456
+  %1484 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1485 = load i32, ptr %1484, align 8
+  %1486 = and i32 %1485, 524288
+  %.not1101 = icmp ne i32 %1486, 0
+  %1487 = add nsw i32 %1406, -2
+  %1488 = icmp eq i32 %1438, %1487
+  %or.cond1176 = select i1 %.not1101, i1 %1488, i1 false
+  %1489 = icmp sgt i32 %1438, %1408
+  %or.cond1231 = and i1 %1489, %or.cond1176
+  br i1 %or.cond1231, label %1490, label %1594
 
-1489:                                             ; preds = %1482
-  %1490 = getelementptr inbounds %struct._ir_use_list, ptr %1411, i64 %1438, i32 1
-  %1491 = load i32, ptr %1490, align 4
-  %1492 = icmp eq i32 %1491, 2
-  br i1 %1492, label %1493, label %1593
+1490:                                             ; preds = %1483
+  %1491 = getelementptr inbounds %struct._ir_use_list, ptr %1412, i64 %1439, i32 1
+  %1492 = load i32, ptr %1491, align 4
+  %1493 = icmp eq i32 %1492, 2
+  br i1 %1493, label %1494, label %1594
 
-1493:                                             ; preds = %1489
-  %1494 = sext i32 %1456 to i64
-  %1495 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1494
-  %1496 = load i8, ptr %1495, align 8
-  %1497 = icmp eq i8 %1496, 79
-  br i1 %1497, label %1498, label %1593
+1494:                                             ; preds = %1490
+  %1495 = sext i32 %1457 to i64
+  %1496 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1495
+  %1497 = load i8, ptr %1496, align 8
+  %1498 = icmp eq i8 %1497, 79
+  br i1 %1498, label %1499, label %1594
 
-1498:                                             ; preds = %1493
-  %1499 = getelementptr inbounds nuw i8, ptr %1495, i64 8
-  %1500 = getelementptr inbounds nuw i8, ptr %1495, i64 12
-  %1501 = load i32, ptr %1500, align 4
-  %1502 = icmp eq i32 %1501, %1437
-  br i1 %1502, label %1503, label %1593
+1499:                                             ; preds = %1494
+  %1500 = getelementptr inbounds nuw i8, ptr %1496, i64 8
+  %1501 = getelementptr inbounds nuw i8, ptr %1496, i64 12
+  %1502 = load i32, ptr %1501, align 4
+  %1503 = icmp eq i32 %1502, %1438
+  br i1 %1503, label %1504, label %1594
 
-1503:                                             ; preds = %1498
-  %1504 = load i8, ptr %1439, align 8
-  switch i8 %1504, label %1593 [
-    i8 44, label %1507
-    i8 45, label %1507
-    i8 46, label %1507
-    i8 24, label %1505
-    i8 25, label %1505
+1504:                                             ; preds = %1499
+  %1505 = load i8, ptr %1440, align 8
+  switch i8 %1505, label %1594 [
+    i8 44, label %1508
+    i8 45, label %1508
+    i8 46, label %1508
+    i8 24, label %1506
+    i8 25, label %1506
   ]
 
-1505:                                             ; preds = %1503, %1503
-  %1506 = and i8 %1417, 30
-  %switch1209 = icmp eq i8 %1506, 14
-  br i1 %switch1209, label %1507, label %1593
+1506:                                             ; preds = %1504, %1504
+  %1507 = and i8 %1418, 30
+  %switch1209 = icmp eq i8 %1507, 14
+  br i1 %switch1209, label %1508, label %1594
 
-1507:                                             ; preds = %1505, %1503, %1503, %1503
-  %1508 = getelementptr inbounds nuw i8, ptr %1439, i64 4
-  %1509 = load i32, ptr %1508, align 4
-  %1510 = sext i32 %1509 to i64
-  %1511 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1510
-  %1512 = load i8, ptr %1511, align 8
-  %1513 = icmp eq i8 %1512, 78
-  br i1 %1513, label %1514, label %1547
+1508:                                             ; preds = %1506, %1504, %1504, %1504
+  %1509 = getelementptr inbounds nuw i8, ptr %1440, i64 4
+  %1510 = load i32, ptr %1509, align 4
+  %1511 = sext i32 %1510 to i64
+  %1512 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1511
+  %1513 = load i8, ptr %1512, align 8
+  %1514 = icmp eq i8 %1513, 78
+  br i1 %1514, label %1515, label %1548
 
-1514:                                             ; preds = %1507
-  %1515 = getelementptr inbounds nuw i8, ptr %1511, i64 8
-  %1516 = load i32, ptr %1515, align 8
-  %1517 = load i32, ptr %1499, align 8
-  %1518 = icmp eq i32 %1516, %1517
-  br i1 %1518, label %1519, label %1547
+1515:                                             ; preds = %1508
+  %1516 = getelementptr inbounds nuw i8, ptr %1512, i64 8
+  %1517 = load i32, ptr %1516, align 8
+  %1518 = load i32, ptr %1500, align 8
+  %1519 = icmp eq i32 %1517, %1518
+  br i1 %1519, label %1520, label %1548
 
-1519:                                             ; preds = %1514
-  %1520 = icmp sgt i32 %1509, %1407
-  br i1 %1520, label %1521, label %1593
+1520:                                             ; preds = %1515
+  %1521 = icmp sgt i32 %1510, %1408
+  br i1 %1521, label %1522, label %1594
 
-1521:                                             ; preds = %1519
-  %1522 = getelementptr inbounds %struct._ir_use_list, ptr %1411, i64 %1510, i32 1
-  %1523 = load i32, ptr %1522, align 4
-  %1524 = icmp eq i32 %1523, 2
-  br i1 %1524, label %1525, label %1593
+1522:                                             ; preds = %1520
+  %1523 = getelementptr inbounds %struct._ir_use_list, ptr %1412, i64 %1511, i32 1
+  %1524 = load i32, ptr %1523, align 4
+  %1525 = icmp eq i32 %1524, 2
+  br i1 %1525, label %1526, label %1594
 
-1525:                                             ; preds = %1521
-  %1526 = getelementptr inbounds nuw i8, ptr %1495, i64 4
-  %1527 = load i32, ptr %1526, align 4
-  %1528 = icmp eq i32 %1527, %1509
-  br i1 %1528, label %1529, label %1593
+1526:                                             ; preds = %1522
+  %1527 = getelementptr inbounds nuw i8, ptr %1496, i64 4
+  %1528 = load i32, ptr %1527, align 4
+  %1529 = icmp eq i32 %1528, %1510
+  br i1 %1529, label %1530, label %1594
 
-1529:                                             ; preds = %1525
-  %1530 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1531 = load ptr, ptr %1530, align 8
-  %1532 = getelementptr inbounds i32, ptr %1531, i64 %1438
-  store i32 -2147483508, ptr %1532, align 4
-  %1533 = load ptr, ptr %1530, align 8
-  %1534 = load i32, ptr %1508, align 4
-  %1535 = sext i32 %1534 to i64
-  %1536 = getelementptr inbounds i32, ptr %1533, i64 %1535
-  store i32 1073741902, ptr %1536, align 4
-  %1537 = load i32, ptr %1499, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1537)
-  %1538 = load ptr, ptr %1530, align 8
-  %1539 = load i32, ptr %1404, align 8
-  %1540 = sext i32 %1539 to i64
-  %1541 = getelementptr i32, ptr %1538, i64 %1540
-  %1542 = getelementptr i8, ptr %1541, i64 -4
-  store i32 164, ptr %1542, align 4
-  %1543 = load ptr, ptr %1530, align 8
-  %1544 = load i32, ptr %1404, align 8
-  %1545 = sext i32 %1544 to i64
-  %1546 = getelementptr inbounds i32, ptr %1543, i64 %1545
-  store i32 1073741824, ptr %1546, align 4
+1530:                                             ; preds = %1526
+  %1531 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1532 = load ptr, ptr %1531, align 8
+  %1533 = getelementptr inbounds i32, ptr %1532, i64 %1439
+  store i32 -2147483508, ptr %1533, align 4
+  %1534 = load ptr, ptr %1531, align 8
+  %1535 = load i32, ptr %1509, align 4
+  %1536 = sext i32 %1535 to i64
+  %1537 = getelementptr inbounds i32, ptr %1534, i64 %1536
+  store i32 1073741902, ptr %1537, align 4
+  %1538 = load i32, ptr %1500, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1538)
+  %1539 = load ptr, ptr %1531, align 8
+  %1540 = load i32, ptr %1405, align 8
+  %1541 = sext i32 %1540 to i64
+  %1542 = getelementptr i32, ptr %1539, i64 %1541
+  %1543 = getelementptr i8, ptr %1542, i64 -4
+  store i32 164, ptr %1543, align 4
+  %1544 = load ptr, ptr %1531, align 8
+  %1545 = load i32, ptr %1405, align 8
+  %1546 = sext i32 %1545 to i64
+  %1547 = getelementptr inbounds i32, ptr %1544, i64 %1546
+  store i32 1073741824, ptr %1547, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1547:                                             ; preds = %1514, %1507
-  %1548 = zext nneg i8 %1504 to i64
-  %1549 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1548
-  %1550 = load i32, ptr %1549, align 4
-  %1551 = and i32 %1550, 2048
-  %.not1102 = icmp eq i32 %1551, 0
-  br i1 %.not1102, label %1593, label %1552
+1548:                                             ; preds = %1515, %1508
+  %1549 = zext nneg i8 %1505 to i64
+  %1550 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %1549
+  %1551 = load i32, ptr %1550, align 4
+  %1552 = and i32 %1551, 2048
+  %.not1102 = icmp eq i32 %1552, 0
+  br i1 %.not1102, label %1594, label %1553
 
-1552:                                             ; preds = %1547
-  %1553 = getelementptr inbounds nuw i8, ptr %1439, i64 8
-  %1554 = load i32, ptr %1553, align 8
-  %1555 = sext i32 %1554 to i64
-  %1556 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1555
-  %1557 = load i8, ptr %1556, align 8
-  %1558 = icmp eq i8 %1557, 78
-  br i1 %1558, label %1559, label %1593
+1553:                                             ; preds = %1548
+  %1554 = getelementptr inbounds nuw i8, ptr %1440, i64 8
+  %1555 = load i32, ptr %1554, align 8
+  %1556 = sext i32 %1555 to i64
+  %1557 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1556
+  %1558 = load i8, ptr %1557, align 8
+  %1559 = icmp eq i8 %1558, 78
+  br i1 %1559, label %1560, label %1594
 
-1559:                                             ; preds = %1552
-  %1560 = getelementptr inbounds nuw i8, ptr %1556, i64 8
-  %1561 = load i32, ptr %1560, align 8
-  %1562 = load i32, ptr %1499, align 8
-  %1563 = icmp eq i32 %1561, %1562
-  %1564 = icmp sgt i32 %1554, %1407
-  %or.cond1229 = and i1 %1564, %1563
-  br i1 %or.cond1229, label %1565, label %1593
+1560:                                             ; preds = %1553
+  %1561 = getelementptr inbounds nuw i8, ptr %1557, i64 8
+  %1562 = load i32, ptr %1561, align 8
+  %1563 = load i32, ptr %1500, align 8
+  %1564 = icmp eq i32 %1562, %1563
+  %1565 = icmp sgt i32 %1555, %1408
+  %or.cond1232 = and i1 %1565, %1564
+  br i1 %or.cond1232, label %1566, label %1594
 
-1565:                                             ; preds = %1559
-  %1566 = getelementptr inbounds %struct._ir_use_list, ptr %1411, i64 %1555, i32 1
-  %1567 = load i32, ptr %1566, align 4
-  %1568 = icmp eq i32 %1567, 2
-  br i1 %1568, label %1569, label %1593
+1566:                                             ; preds = %1560
+  %1567 = getelementptr inbounds %struct._ir_use_list, ptr %1412, i64 %1556, i32 1
+  %1568 = load i32, ptr %1567, align 4
+  %1569 = icmp eq i32 %1568, 2
+  br i1 %1569, label %1570, label %1594
 
-1569:                                             ; preds = %1565
-  %1570 = getelementptr inbounds nuw i8, ptr %1495, i64 4
-  %1571 = load i32, ptr %1570, align 4
-  %1572 = icmp eq i32 %1571, %1554
-  br i1 %1572, label %1573, label %1593
+1570:                                             ; preds = %1566
+  %1571 = getelementptr inbounds nuw i8, ptr %1496, i64 4
+  %1572 = load i32, ptr %1571, align 4
+  %1573 = icmp eq i32 %1572, %1555
+  br i1 %1573, label %1574, label %1594
 
-1573:                                             ; preds = %1569
-  store i32 %1554, ptr %1508, align 4
-  store i32 %1509, ptr %1553, align 8
-  %1574 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1575 = load ptr, ptr %1574, align 8
-  %1576 = load i32, ptr %1436, align 4
-  %1577 = sext i32 %1576 to i64
-  %1578 = getelementptr inbounds i32, ptr %1575, i64 %1577
-  store i32 -2147483508, ptr %1578, align 4
-  %1579 = load ptr, ptr %1574, align 8
-  %1580 = load i32, ptr %1508, align 4
-  %1581 = sext i32 %1580 to i64
-  %1582 = getelementptr inbounds i32, ptr %1579, i64 %1581
-  store i32 1073741902, ptr %1582, align 4
-  %1583 = load i32, ptr %1499, align 8
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1583)
-  %1584 = load ptr, ptr %1574, align 8
-  %1585 = load i32, ptr %1404, align 8
-  %1586 = sext i32 %1585 to i64
-  %1587 = getelementptr i32, ptr %1584, i64 %1586
-  %1588 = getelementptr i8, ptr %1587, i64 -4
-  store i32 164, ptr %1588, align 4
-  %1589 = load ptr, ptr %1574, align 8
-  %1590 = load i32, ptr %1404, align 8
-  %1591 = sext i32 %1590 to i64
-  %1592 = getelementptr inbounds i32, ptr %1589, i64 %1591
-  store i32 1073741824, ptr %1592, align 4
+1574:                                             ; preds = %1570
+  store i32 %1555, ptr %1509, align 4
+  store i32 %1510, ptr %1554, align 8
+  %1575 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1576 = load ptr, ptr %1575, align 8
+  %1577 = load i32, ptr %1437, align 4
+  %1578 = sext i32 %1577 to i64
+  %1579 = getelementptr inbounds i32, ptr %1576, i64 %1578
+  store i32 -2147483508, ptr %1579, align 4
+  %1580 = load ptr, ptr %1575, align 8
+  %1581 = load i32, ptr %1509, align 4
+  %1582 = sext i32 %1581 to i64
+  %1583 = getelementptr inbounds i32, ptr %1580, i64 %1582
+  store i32 1073741902, ptr %1583, align 4
+  %1584 = load i32, ptr %1500, align 8
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1584)
+  %1585 = load ptr, ptr %1575, align 8
+  %1586 = load i32, ptr %1405, align 8
+  %1587 = sext i32 %1586 to i64
+  %1588 = getelementptr i32, ptr %1585, i64 %1587
+  %1589 = getelementptr i8, ptr %1588, i64 -4
+  store i32 164, ptr %1589, align 4
+  %1590 = load ptr, ptr %1575, align 8
+  %1591 = load i32, ptr %1405, align 8
+  %1592 = sext i32 %1591 to i64
+  %1593 = getelementptr inbounds i32, ptr %1590, i64 %1592
+  store i32 1073741824, ptr %1593, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1593:                                             ; preds = %1505, %1460, %1447, %1503, %1458, %1493, %1498, %1525, %1521, %1519, %1565, %1569, %1559, %1552, %1547, %1489, %1482, %1451, %1443
-  tail call fastcc void @ir_match_fuse_load_cmp_int(ptr noundef nonnull %0, ptr noundef nonnull %1416, i32 noundef %1)
-  %1594 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1595 = load ptr, ptr %1594, align 8
-  %1596 = load i32, ptr %1404, align 8
-  %1597 = sext i32 %1596 to i64
-  %1598 = getelementptr inbounds i32, ptr %1595, i64 %1597
-  store i32 -2147483541, ptr %1598, align 4
+1594:                                             ; preds = %1506, %1461, %1448, %1504, %1459, %1494, %1499, %1526, %1522, %1520, %1566, %1570, %1560, %1553, %1548, %1490, %1483, %1452, %1444
+  tail call fastcc void @ir_match_fuse_load_cmp_int(ptr noundef nonnull %0, ptr noundef nonnull %1417, i32 noundef %1)
+  %1595 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1596 = load ptr, ptr %1595, align 8
+  %1597 = load i32, ptr %1405, align 8
+  %1598 = sext i32 %1597 to i64
+  %1599 = getelementptr inbounds i32, ptr %1596, i64 %1598
+  store i32 -2147483541, ptr %1599, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1599:                                             ; preds = %1435
-  %1600 = icmp eq i8 %6, 87
-  tail call fastcc void @ir_match_fuse_load_cmp_fp_br(ptr noundef nonnull %0, ptr noundef nonnull %1416, i32 noundef %1, i1 noundef zeroext %1600)
-  %1601 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1602 = load ptr, ptr %1601, align 8
-  %1603 = load i32, ptr %1404, align 8
-  %1604 = sext i32 %1603 to i64
-  %1605 = getelementptr inbounds i32, ptr %1602, i64 %1604
-  store i32 -2147483540, ptr %1605, align 4
+1600:                                             ; preds = %1436
+  %1601 = icmp eq i8 %6, 87
+  tail call fastcc void @ir_match_fuse_load_cmp_fp_br(ptr noundef nonnull %0, ptr noundef nonnull %1417, i32 noundef %1, i1 noundef zeroext %1601)
+  %1602 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1603 = load ptr, ptr %1602, align 8
+  %1604 = load i32, ptr %1405, align 8
+  %1605 = sext i32 %1604 to i64
+  %1606 = getelementptr inbounds i32, ptr %1603, i64 %1605
+  store i32 -2147483540, ptr %1606, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1606:                                             ; preds = %1430, %1423, %1418
-  switch i8 %1417, label %ir_match_fuse_load.exit1213 [
-    i8 45, label %1607
-    i8 42, label %1613
+1607:                                             ; preds = %1431, %1424, %1419
+  switch i8 %1418, label %ir_match_fuse_load.exit1213 [
+    i8 45, label %1608
+    i8 42, label %1614
   ]
 
-1607:                                             ; preds = %1606
-  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1416, i32 noundef %1)
-  %1608 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1609 = load ptr, ptr %1608, align 8
-  %1610 = load i32, ptr %1404, align 8
-  %1611 = sext i32 %1610 to i64
-  %1612 = getelementptr inbounds i32, ptr %1609, i64 %1611
-  store i32 -2147483536, ptr %1612, align 4
+1608:                                             ; preds = %1607
+  tail call fastcc void @ir_match_fuse_load_test_int(ptr noundef nonnull %0, ptr noundef nonnull %1417, i32 noundef %1)
+  %1609 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1610 = load ptr, ptr %1609, align 8
+  %1611 = load i32, ptr %1405, align 8
+  %1612 = sext i32 %1611 to i64
+  %1613 = getelementptr inbounds i32, ptr %1610, i64 %1612
+  store i32 -2147483536, ptr %1613, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1613:                                             ; preds = %1606
-  %1614 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1615 = load ptr, ptr %1614, align 8
-  %1616 = getelementptr inbounds i32, ptr %1615, i64 %1412
-  store i32 -1610612694, ptr %1616, align 4
+1614:                                             ; preds = %1607
+  %1615 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1616 = load ptr, ptr %1615, align 8
+  %1617 = getelementptr inbounds i32, ptr %1616, i64 %1413
+  store i32 -1610612694, ptr %1617, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1617:                                             ; preds = %1409
-  %1618 = icmp eq i8 %1417, 78
-  %1619 = icmp eq i32 %1414, 2
-  %or.cond1280 = and i1 %1618, %1619
-  br i1 %or.cond1280, label %1620, label %ir_match_fuse_load.exit1213
+1618:                                             ; preds = %1410
+  %1619 = icmp eq i8 %1418, 78
+  %1620 = icmp eq i32 %1415, 2
+  %or.cond1283 = and i1 %1619, %1620
+  br i1 %or.cond1283, label %1621, label %ir_match_fuse_load.exit1213
 
-1620:                                             ; preds = %1617
-  %1621 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1405, i32 noundef %1)
-  br i1 %1621, label %ir_match_fuse_load.exit1213, label %1622
+1621:                                             ; preds = %1618
+  %1622 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1406, i32 noundef %1)
+  br i1 %1622, label %ir_match_fuse_load.exit1213, label %1623
 
-1622:                                             ; preds = %1620
-  %1623 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1412, i32 1
-  %1624 = load i32, ptr %1623, align 8
-  %1625 = icmp slt i32 %1624, 0
-  br i1 %1625, label %1626, label %1634
+1623:                                             ; preds = %1621
+  %1624 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1413, i32 1
+  %1625 = load i32, ptr %1624, align 8
+  %1626 = icmp slt i32 %1625, 0
+  br i1 %1626, label %1627, label %1635
 
-1626:                                             ; preds = %1622
-  %1627 = sext i32 %1624 to i64
-  %1628 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1627
-  %1629 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1628)
-  br i1 %1629, label %1630, label %ir_match_fuse_load.exit1213
+1627:                                             ; preds = %1623
+  %1628 = sext i32 %1625 to i64
+  %1629 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1628
+  %1630 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1629)
+  br i1 %1630, label %1631, label %ir_match_fuse_load.exit1213
 
-1630:                                             ; preds = %1626
-  %1631 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1632 = load ptr, ptr %1631, align 8
-  %1633 = getelementptr inbounds i32, ptr %1632, i64 %1412
-  store i32 -1610612658, ptr %1633, align 4
+1631:                                             ; preds = %1627
+  %1632 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1633 = load ptr, ptr %1632, align 8
+  %1634 = getelementptr inbounds i32, ptr %1633, i64 %1413
+  store i32 -1610612658, ptr %1634, align 4
   br label %ir_match_fuse_load.exit1213
 
-1634:                                             ; preds = %1622
-  %1635 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1636 = load ptr, ptr %1635, align 8
-  %1637 = getelementptr inbounds i32, ptr %1636, i64 %1412
-  store i32 -1610612658, ptr %1637, align 4
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1624)
+1635:                                             ; preds = %1623
+  %1636 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1637 = load ptr, ptr %1636, align 8
+  %1638 = getelementptr inbounds i32, ptr %1637, i64 %1413
+  store i32 -1610612658, ptr %1638, align 4
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1625)
   br label %ir_match_fuse_load.exit1213
 
-ir_match_fuse_load.exit1213:                      ; preds = %1606, %1403, %1617, %1620, %1626, %1630, %1634
-  %1638 = load i8, ptr %5, align 8
-  %1639 = zext i8 %1638 to i32
+ir_match_fuse_load.exit1213:                      ; preds = %1607, %1404, %1618, %1621, %1627, %1631, %1635
+  %1639 = load i8, ptr %5, align 8
+  %1640 = zext i8 %1639 to i32
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1640:                                             ; preds = %2
-  %1641 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1642 = load i32, ptr %1641, align 4
-  %1643 = sext i32 %1642 to i64
-  %1644 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1643
-  %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 1
-  %1646 = load i8, ptr %1645, align 1
-  %1647 = zext i8 %1646 to i64
-  %1648 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %1647
-  %1649 = load i8, ptr %1648, align 1
-  %1650 = zext i8 %1649 to i32
-  %1651 = add i8 %1646, -7
-  %1652 = icmp ult i8 %1651, 5
-  %1653 = select i1 %1652, i32 2, i32 4
-  %1654 = icmp samesign ult i32 %1653, %1650
-  br i1 %1654, label %1655, label %ir_match_fuse_load_cmp_fp.exit
+1641:                                             ; preds = %2
+  %1642 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1643 = load i32, ptr %1642, align 4
+  %1644 = sext i32 %1643 to i64
+  %1645 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1644
+  %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 1
+  %1647 = load i8, ptr %1646, align 1
+  %1648 = zext i8 %1647 to i64
+  %1649 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %1648
+  %1650 = load i8, ptr %1649, align 1
+  %1651 = zext i8 %1650 to i32
+  %1652 = add i8 %1647, -7
+  %1653 = icmp ult i8 %1652, 5
+  %1654 = select i1 %1653, i32 2, i32 4
+  %1655 = icmp samesign ult i32 %1654, %1651
+  br i1 %1655, label %1656, label %ir_match_fuse_load_cmp_fp.exit
 
-1655:                                             ; preds = %1640
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1642, i32 noundef %1)
+1656:                                             ; preds = %1641
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1643, i32 noundef %1)
   %.pre = load i8, ptr %5, align 8
-  %1656 = zext i8 %.pre to i32
+  %1657 = zext i8 %.pre to i32
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1657:                                             ; preds = %2, %2, %2, %2
-  %1658 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1659 = load i32, ptr %1658, align 4
-  %1660 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1661 = load i32, ptr %1660, align 8
-  %1662 = icmp sgt i32 %1659, %1661
-  br i1 %1662, label %1663, label %ir_match_fuse_load.exit1214
+1658:                                             ; preds = %2, %2, %2, %2
+  %1659 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1660 = load i32, ptr %1659, align 4
+  %1661 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1662 = load i32, ptr %1661, align 8
+  %1663 = icmp sgt i32 %1660, %1662
+  br i1 %1663, label %1664, label %ir_match_fuse_load.exit1214
 
-1663:                                             ; preds = %1657
-  %1664 = sext i32 %1659 to i64
-  %1665 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1664
-  %1666 = load i8, ptr %1665, align 8
-  %1667 = icmp eq i8 %1666, 78
-  br i1 %1667, label %1668, label %ir_match_fuse_load.exit1214
+1664:                                             ; preds = %1658
+  %1665 = sext i32 %1660 to i64
+  %1666 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1665
+  %1667 = load i8, ptr %1666, align 8
+  %1668 = icmp eq i8 %1667, 78
+  br i1 %1668, label %1669, label %ir_match_fuse_load.exit1214
 
-1668:                                             ; preds = %1663
-  %1669 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1670 = load ptr, ptr %1669, align 8
-  %1671 = getelementptr inbounds %struct._ir_use_list, ptr %1670, i64 %1664, i32 1
-  %1672 = load i32, ptr %1671, align 4
-  %1673 = icmp eq i32 %1672, 2
-  br i1 %1673, label %1674, label %ir_match_fuse_load.exit1214
+1669:                                             ; preds = %1664
+  %1670 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1671 = load ptr, ptr %1670, align 8
+  %1672 = getelementptr inbounds %struct._ir_use_list, ptr %1671, i64 %1665, i32 1
+  %1673 = load i32, ptr %1672, align 4
+  %1674 = icmp eq i32 %1673, 2
+  br i1 %1674, label %1675, label %ir_match_fuse_load.exit1214
 
-1674:                                             ; preds = %1668
-  %1675 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1659, i32 noundef %1)
-  br i1 %1675, label %ir_match_fuse_load.exit1214, label %1676
+1675:                                             ; preds = %1669
+  %1676 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1660, i32 noundef %1)
+  br i1 %1676, label %ir_match_fuse_load.exit1214, label %1677
 
-1676:                                             ; preds = %1674
-  %1677 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1664, i32 1
-  %1678 = load i32, ptr %1677, align 8
-  %1679 = icmp slt i32 %1678, 0
-  br i1 %1679, label %1680, label %1688
+1677:                                             ; preds = %1675
+  %1678 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1665, i32 1
+  %1679 = load i32, ptr %1678, align 8
+  %1680 = icmp slt i32 %1679, 0
+  br i1 %1680, label %1681, label %1689
 
-1680:                                             ; preds = %1676
-  %1681 = sext i32 %1678 to i64
-  %1682 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1681
-  %1683 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1682)
-  br i1 %1683, label %1684, label %ir_match_fuse_load.exit1214
+1681:                                             ; preds = %1677
+  %1682 = sext i32 %1679 to i64
+  %1683 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1682
+  %1684 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1683)
+  br i1 %1684, label %1685, label %ir_match_fuse_load.exit1214
 
-1684:                                             ; preds = %1680
-  %1685 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1686 = load ptr, ptr %1685, align 8
-  %1687 = getelementptr inbounds i32, ptr %1686, i64 %1664
-  store i32 -1610612658, ptr %1687, align 4
+1685:                                             ; preds = %1681
+  %1686 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1687 = load ptr, ptr %1686, align 8
+  %1688 = getelementptr inbounds i32, ptr %1687, i64 %1665
+  store i32 -1610612658, ptr %1688, align 4
   br label %ir_match_fuse_load.exit1214
 
-1688:                                             ; preds = %1676
-  %1689 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1690 = load ptr, ptr %1689, align 8
-  %1691 = getelementptr inbounds i32, ptr %1690, i64 %1664
-  store i32 -1610612658, ptr %1691, align 4
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1678)
+1689:                                             ; preds = %1677
+  %1690 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1691 = load ptr, ptr %1690, align 8
+  %1692 = getelementptr inbounds i32, ptr %1691, i64 %1665
+  store i32 -1610612658, ptr %1692, align 4
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1679)
   br label %ir_match_fuse_load.exit1214
 
-ir_match_fuse_load.exit1214:                      ; preds = %1657, %1663, %1668, %1674, %1680, %1684, %1688
-  %1692 = load i8, ptr %5, align 8
-  %1693 = zext i8 %1692 to i32
+ir_match_fuse_load.exit1214:                      ; preds = %1658, %1664, %1669, %1675, %1681, %1685, %1689
+  %1693 = load i8, ptr %5, align 8
+  %1694 = zext i8 %1693 to i32
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1694:                                             ; preds = %2, %2
-  %1695 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1696 = load i32, ptr %1695, align 4
-  %1697 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1698 = load i32, ptr %1697, align 8
-  %1699 = icmp sgt i32 %1696, %1698
-  br i1 %1699, label %1700, label %ir_match_fuse_load.exit1215
+1695:                                             ; preds = %2, %2
+  %1696 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1697 = load i32, ptr %1696, align 4
+  %1698 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1699 = load i32, ptr %1698, align 8
+  %1700 = icmp sgt i32 %1697, %1699
+  br i1 %1700, label %1701, label %ir_match_fuse_load.exit1215
 
-1700:                                             ; preds = %1694
-  %1701 = sext i32 %1696 to i64
-  %1702 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1701
-  %1703 = load i8, ptr %1702, align 8
-  %1704 = icmp eq i8 %1703, 78
-  br i1 %1704, label %1705, label %ir_match_fuse_load.exit1215
+1701:                                             ; preds = %1695
+  %1702 = sext i32 %1697 to i64
+  %1703 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1702
+  %1704 = load i8, ptr %1703, align 8
+  %1705 = icmp eq i8 %1704, 78
+  br i1 %1705, label %1706, label %ir_match_fuse_load.exit1215
 
-1705:                                             ; preds = %1700
-  %1706 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1707 = load ptr, ptr %1706, align 8
-  %1708 = getelementptr inbounds %struct._ir_use_list, ptr %1707, i64 %1701, i32 1
-  %1709 = load i32, ptr %1708, align 4
-  %1710 = icmp eq i32 %1709, 2
-  br i1 %1710, label %1711, label %ir_match_fuse_load.exit1215
+1706:                                             ; preds = %1701
+  %1707 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1708 = load ptr, ptr %1707, align 8
+  %1709 = getelementptr inbounds %struct._ir_use_list, ptr %1708, i64 %1702, i32 1
+  %1710 = load i32, ptr %1709, align 4
+  %1711 = icmp eq i32 %1710, 2
+  br i1 %1711, label %1712, label %ir_match_fuse_load.exit1215
 
-1711:                                             ; preds = %1705
-  %1712 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1696, i32 noundef %1)
-  br i1 %1712, label %ir_match_fuse_load.exit1215, label %1713
+1712:                                             ; preds = %1706
+  %1713 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1697, i32 noundef %1)
+  br i1 %1713, label %ir_match_fuse_load.exit1215, label %1714
 
-1713:                                             ; preds = %1711
-  %1714 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1701, i32 1
-  %1715 = load i32, ptr %1714, align 8
-  %1716 = icmp slt i32 %1715, 0
-  br i1 %1716, label %1717, label %1725
+1714:                                             ; preds = %1712
+  %1715 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1702, i32 1
+  %1716 = load i32, ptr %1715, align 8
+  %1717 = icmp slt i32 %1716, 0
+  br i1 %1717, label %1718, label %1726
 
-1717:                                             ; preds = %1713
-  %1718 = sext i32 %1715 to i64
-  %1719 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1718
-  %1720 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1719)
-  br i1 %1720, label %1721, label %ir_match_fuse_load.exit1215
+1718:                                             ; preds = %1714
+  %1719 = sext i32 %1716 to i64
+  %1720 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1719
+  %1721 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1720)
+  br i1 %1721, label %1722, label %ir_match_fuse_load.exit1215
 
-1721:                                             ; preds = %1717
-  %1722 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1723 = load ptr, ptr %1722, align 8
-  %1724 = getelementptr inbounds i32, ptr %1723, i64 %1701
-  store i32 -1610612658, ptr %1724, align 4
+1722:                                             ; preds = %1718
+  %1723 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1724 = load ptr, ptr %1723, align 8
+  %1725 = getelementptr inbounds i32, ptr %1724, i64 %1702
+  store i32 -1610612658, ptr %1725, align 4
   br label %ir_match_fuse_load.exit1215
 
-1725:                                             ; preds = %1713
-  %1726 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1727 = load ptr, ptr %1726, align 8
-  %1728 = getelementptr inbounds i32, ptr %1727, i64 %1701
-  store i32 -1610612658, ptr %1728, align 4
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1715)
+1726:                                             ; preds = %1714
+  %1727 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1728 = load ptr, ptr %1727, align 8
+  %1729 = getelementptr inbounds i32, ptr %1728, i64 %1702
+  store i32 -1610612658, ptr %1729, align 4
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1716)
   br label %ir_match_fuse_load.exit1215
 
-ir_match_fuse_load.exit1215:                      ; preds = %1694, %1700, %1705, %1711, %1717, %1721, %1725
-  %1729 = load i8, ptr %5, align 8
-  %1730 = zext i8 %1729 to i32
-  %1731 = or disjoint i32 %1730, 67108864
+ir_match_fuse_load.exit1215:                      ; preds = %1695, %1701, %1706, %1712, %1718, %1722, %1726
+  %1730 = load i8, ptr %5, align 8
+  %1731 = zext i8 %1730 to i32
+  %1732 = or disjoint i32 %1731, 67108864
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1732:                                             ; preds = %2
-  %1733 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1734 = load i32, ptr %1733, align 4
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1734, i32 noundef %1)
-  %1735 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %1736 = load i8, ptr %1735, align 1
-  %1737 = icmp ult i8 %1736, 12
-  br i1 %1737, label %1738, label %1750
+1733:                                             ; preds = %2
+  %1734 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1735 = load i32, ptr %1734, align 4
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1735, i32 noundef %1)
+  %1736 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %1737 = load i8, ptr %1736, align 1
+  %1738 = icmp ult i8 %1737, 12
+  br i1 %1738, label %1739, label %1751
 
-1738:                                             ; preds = %1732
-  %1739 = load ptr, ptr %0, align 8
-  %1740 = load i32, ptr %1733, align 4
-  %1741 = sext i32 %1740 to i64
-  %1742 = getelementptr inbounds %struct._ir_insn, ptr %1739, i64 %1741
-  %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 1
-  %1744 = load i8, ptr %1743, align 1
-  %1745 = icmp ult i8 %1744, 12
-  br i1 %1745, label %1746, label %1750
+1739:                                             ; preds = %1733
+  %1740 = load ptr, ptr %0, align 8
+  %1741 = load i32, ptr %1734, align 4
+  %1742 = sext i32 %1741 to i64
+  %1743 = getelementptr inbounds %struct._ir_insn, ptr %1740, i64 %1742
+  %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 1
+  %1745 = load i8, ptr %1744, align 1
+  %1746 = icmp ult i8 %1745, 12
+  br i1 %1746, label %1747, label %1751
 
-1746:                                             ; preds = %1738
-  %1747 = load i8, ptr %5, align 8
-  %1748 = zext i8 %1747 to i32
-  %1749 = or disjoint i32 %1748, 67108864
+1747:                                             ; preds = %1739
+  %1748 = load i8, ptr %5, align 8
+  %1749 = zext i8 %1748 to i32
+  %1750 = or disjoint i32 %1749, 67108864
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1750:                                             ; preds = %1738, %1732
-  %1751 = load i8, ptr %5, align 8
-  %1752 = zext i8 %1751 to i32
+1751:                                             ; preds = %1739, %1733
+  %1752 = load i8, ptr %5, align 8
+  %1753 = zext i8 %1752 to i32
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1753:                                             ; preds = %2, %2
-  %1754 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1755 = load i32, ptr %1754, align 4
-  %1756 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %1757 = load i32, ptr %1756, align 8
-  %1758 = icmp sgt i32 %1755, %1757
-  br i1 %1758, label %1759, label %ir_match_fuse_load_cmp_fp.exit
+1754:                                             ; preds = %2, %2
+  %1755 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1756 = load i32, ptr %1755, align 4
+  %1757 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %1758 = load i32, ptr %1757, align 8
+  %1759 = icmp sgt i32 %1756, %1758
+  br i1 %1759, label %1760, label %ir_match_fuse_load_cmp_fp.exit
 
-1759:                                             ; preds = %1753
-  %1760 = sext i32 %1755 to i64
-  %1761 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1760
-  %1762 = load i8, ptr %1761, align 8
-  %1763 = icmp eq i8 %1762, 78
-  br i1 %1763, label %1764, label %ir_match_fuse_load_cmp_fp.exit
+1760:                                             ; preds = %1754
+  %1761 = sext i32 %1756 to i64
+  %1762 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1761
+  %1763 = load i8, ptr %1762, align 8
+  %1764 = icmp eq i8 %1763, 78
+  br i1 %1764, label %1765, label %ir_match_fuse_load_cmp_fp.exit
 
-1764:                                             ; preds = %1759
-  %1765 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1766 = load ptr, ptr %1765, align 8
-  %1767 = getelementptr inbounds %struct._ir_use_list, ptr %1766, i64 %1760, i32 1
-  %1768 = load i32, ptr %1767, align 4
-  %1769 = icmp eq i32 %1768, 2
-  br i1 %1769, label %1770, label %ir_match_fuse_load_cmp_fp.exit
+1765:                                             ; preds = %1760
+  %1766 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1767 = load ptr, ptr %1766, align 8
+  %1768 = getelementptr inbounds %struct._ir_use_list, ptr %1767, i64 %1761, i32 1
+  %1769 = load i32, ptr %1768, align 4
+  %1770 = icmp eq i32 %1769, 2
+  br i1 %1770, label %1771, label %ir_match_fuse_load_cmp_fp.exit
 
-1770:                                             ; preds = %1764
-  %1771 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1755, i32 noundef %1)
-  br i1 %1771, label %ir_match_fuse_load_cmp_fp.exit, label %1772
+1771:                                             ; preds = %1765
+  %1772 = tail call fastcc zeroext i1 @ir_match_has_mem_deps(ptr noundef nonnull %0, i32 noundef %1756, i32 noundef %1)
+  br i1 %1772, label %ir_match_fuse_load_cmp_fp.exit, label %1773
 
-1772:                                             ; preds = %1770
-  %1773 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1760, i32 1
-  %1774 = load i32, ptr %1773, align 8
-  %1775 = icmp slt i32 %1774, 0
-  br i1 %1775, label %1776, label %1784
+1773:                                             ; preds = %1771
+  %1774 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1761, i32 1
+  %1775 = load i32, ptr %1774, align 8
+  %1776 = icmp slt i32 %1775, 0
+  br i1 %1776, label %1777, label %1785
 
-1776:                                             ; preds = %1772
-  %1777 = sext i32 %1774 to i64
-  %1778 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1777
-  %1779 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1778)
-  br i1 %1779, label %1780, label %ir_match_fuse_load_cmp_fp.exit
+1777:                                             ; preds = %1773
+  %1778 = sext i32 %1775 to i64
+  %1779 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1778
+  %1780 = tail call fastcc zeroext i1 @ir_may_fuse_addr(ptr noundef nonnull %0, ptr noundef nonnull %1779)
+  br i1 %1780, label %1781, label %ir_match_fuse_load_cmp_fp.exit
 
-1780:                                             ; preds = %1776
-  %1781 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1782 = load ptr, ptr %1781, align 8
-  %1783 = getelementptr inbounds i32, ptr %1782, i64 %1760
-  store i32 -1610612658, ptr %1783, align 4
+1781:                                             ; preds = %1777
+  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1783 = load ptr, ptr %1782, align 8
+  %1784 = getelementptr inbounds i32, ptr %1783, i64 %1761
+  store i32 -1610612658, ptr %1784, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1784:                                             ; preds = %1772
-  %1785 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1786 = load ptr, ptr %1785, align 8
-  %1787 = getelementptr inbounds i32, ptr %1786, i64 %1760
-  store i32 -1610612658, ptr %1787, align 4
-  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1774)
+1785:                                             ; preds = %1773
+  %1786 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1787 = load ptr, ptr %1786, align 8
+  %1788 = getelementptr inbounds i32, ptr %1787, i64 %1761
+  store i32 -1610612658, ptr %1788, align 4
+  tail call fastcc void @ir_match_fuse_addr(ptr noundef nonnull %0, i32 noundef %1775)
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1788:                                             ; preds = %2
-  %1789 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %1790 = load i32, ptr %1789, align 4
-  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1790, i32 noundef %1)
-  %1791 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %1792 = load i32, ptr %1791, align 4
-  %1793 = and i32 %1792, 128
-  %.not1100 = icmp eq i32 %1793, 0
-  %1794 = select i1 %.not1100, i32 53, i32 178
+1789:                                             ; preds = %2
+  %1790 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %1791 = load i32, ptr %1790, align 4
+  tail call fastcc void @ir_match_fuse_load(ptr noundef nonnull %0, i32 noundef %1791, i32 noundef %1)
+  %1792 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %1793 = load i32, ptr %1792, align 4
+  %1794 = and i32 %1793, 128
+  %.not1100 = icmp eq i32 %1794, 0
+  %1795 = select i1 %.not1100, i32 53, i32 178
   br label %ir_match_fuse_load_cmp_fp.exit
 
-1795:                                             ; preds = %2
-  %1796 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1797 = load i32, ptr %1796, align 4
-  %1798 = or i32 %1797, 64
-  store i32 %1798, ptr %1796, align 4
-  %1799 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1800 = load i32, ptr %1799, align 8
-  %1801 = sext i32 %1800 to i64
-  %1802 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1801
-  %1803 = load i8, ptr %1802, align 8
-  switch i8 %1803, label %ir_match_fuse_load_cmp_fp.exit [
-    i8 71, label %1804
-    i8 73, label %1804
+1796:                                             ; preds = %2
+  %1797 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1798 = load i32, ptr %1797, align 4
+  %1799 = or i32 %1798, 64
+  store i32 %1799, ptr %1797, align 4
+  %1800 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1801 = load i32, ptr %1800, align 8
+  %1802 = sext i32 %1801 to i64
+  %1803 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1802
+  %1804 = load i8, ptr %1803, align 8
+  switch i8 %1804, label %ir_match_fuse_load_cmp_fp.exit [
+    i8 71, label %1805
+    i8 73, label %1805
   ]
 
-1804:                                             ; preds = %1795, %1795
-  %1805 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1806 = load ptr, ptr %1805, align 8
-  %1807 = getelementptr inbounds %struct._ir_use_list, ptr %1806, i64 %1801
-  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 4
-  %1809 = load i32, ptr %1808, align 4
-  %1810 = icmp sgt i32 %1809, 0
-  br i1 %1810, label %.lr.ph.preheader, label %ir_match_fuse_load_cmp_fp.exit
+1805:                                             ; preds = %1796, %1796
+  %1806 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1807 = load ptr, ptr %1806, align 8
+  %1808 = getelementptr inbounds %struct._ir_use_list, ptr %1807, i64 %1802
+  %1809 = getelementptr inbounds nuw i8, ptr %1808, i64 4
+  %1810 = load i32, ptr %1809, align 4
+  %1811 = icmp sgt i32 %1810, 0
+  br i1 %1811, label %.lr.ph.preheader, label %ir_match_fuse_load_cmp_fp.exit
 
-.lr.ph.preheader:                                 ; preds = %1804
-  %1811 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1812 = load ptr, ptr %1811, align 8
-  %1813 = load i32, ptr %1807, align 4
-  %1814 = sext i32 %1813 to i64
-  %1815 = getelementptr inbounds i32, ptr %1812, i64 %1814
+.lr.ph.preheader:                                 ; preds = %1805
+  %1812 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1813 = load ptr, ptr %1812, align 8
+  %1814 = load i32, ptr %1808, align 4
+  %1815 = sext i32 %1814 to i64
+  %1816 = getelementptr inbounds i32, ptr %1813, i64 %1815
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %1838
-  %1816 = phi i32 [ %1839, %1838 ], [ %1798, %.lr.ph.preheader ]
-  %.09941238 = phi i32 [ %1841, %1838 ], [ %1809, %.lr.ph.preheader ]
-  %.09951237 = phi ptr [ %1840, %1838 ], [ %1815, %.lr.ph.preheader ]
-  %1817 = load i32, ptr %.09951237, align 4
-  %1818 = sext i32 %1817 to i64
-  %1819 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1818
-  %1820 = load i8, ptr %1819, align 8
-  switch i8 %1820, label %1835 [
-    i8 82, label %1838
-    i8 83, label %1838
-    i8 84, label %1821
-    i8 85, label %1826
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %1839
+  %1817 = phi i32 [ %1840, %1839 ], [ %1799, %.lr.ph.preheader ]
+  %.09941241 = phi i32 [ %1842, %1839 ], [ %1810, %.lr.ph.preheader ]
+  %.09951240 = phi ptr [ %1841, %1839 ], [ %1816, %.lr.ph.preheader ]
+  %1818 = load i32, ptr %.09951240, align 4
+  %1819 = sext i32 %1818 to i64
+  %1820 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1819
+  %1821 = load i8, ptr %1820, align 8
+  switch i8 %1821, label %1836 [
+    i8 82, label %1839
+    i8 83, label %1839
+    i8 84, label %1822
+    i8 85, label %1827
   ]
 
-1821:                                             ; preds = %.lr.ph
-  %1822 = getelementptr inbounds nuw i8, ptr %1819, i64 12
-  %1823 = load i32, ptr %1822, align 4
-  %1824 = load i32, ptr %1799, align 8
-  %1825 = icmp eq i32 %1823, %1824
-  br i1 %1825, label %.sink.split, label %1838
+1822:                                             ; preds = %.lr.ph
+  %1823 = getelementptr inbounds nuw i8, ptr %1820, i64 12
+  %1824 = load i32, ptr %1823, align 4
+  %1825 = load i32, ptr %1800, align 8
+  %1826 = icmp eq i32 %1824, %1825
+  br i1 %1826, label %.sink.split, label %1839
 
-1826:                                             ; preds = %.lr.ph
-  %1827 = getelementptr inbounds nuw i8, ptr %1819, i64 8
-  %1828 = load i32, ptr %1827, align 8
-  %1829 = load i32, ptr %1799, align 8
-  %1830 = icmp eq i32 %1828, %1829
-  br i1 %1830, label %1831, label %1838
+1827:                                             ; preds = %.lr.ph
+  %1828 = getelementptr inbounds nuw i8, ptr %1820, i64 8
+  %1829 = load i32, ptr %1828, align 8
+  %1830 = load i32, ptr %1800, align 8
+  %1831 = icmp eq i32 %1829, %1830
+  br i1 %1831, label %1832, label %1839
 
-1831:                                             ; preds = %1826
-  %1832 = getelementptr inbounds nuw i8, ptr %1819, i64 1
-  %1833 = load i8, ptr %1832, align 1
-  %1834 = icmp ult i8 %1833, 12
-  %.1283 = select i1 %1834, i32 256, i32 512
+1832:                                             ; preds = %1827
+  %1833 = getelementptr inbounds nuw i8, ptr %1820, i64 1
+  %1834 = load i8, ptr %1833, align 1
+  %1835 = icmp ult i8 %1834, 12
+  %.1286 = select i1 %1835, i32 256, i32 512
   br label %.sink.split
 
-1835:                                             ; preds = %.lr.ph
-  %1836 = icmp sgt i32 %1817, %1
-  br i1 %1836, label %.sink.split, label %1838
+1836:                                             ; preds = %.lr.ph
+  %1837 = icmp sgt i32 %1818, %1
+  br i1 %1837, label %.sink.split, label %1839
 
-.sink.split:                                      ; preds = %1835, %1831, %1821
-  %.sink1282 = phi i32 [ 128, %1821 ], [ %.1283, %1831 ], [ 768, %1835 ]
-  %1837 = or i32 %1816, %.sink1282
-  store i32 %1837, ptr %1796, align 4
-  br label %1838
+.sink.split:                                      ; preds = %1836, %1832, %1822
+  %.sink1285 = phi i32 [ 128, %1822 ], [ %.1286, %1832 ], [ 768, %1836 ]
+  %1838 = or i32 %1817, %.sink1285
+  store i32 %1838, ptr %1797, align 4
+  br label %1839
 
-1838:                                             ; preds = %.sink.split, %.lr.ph, %.lr.ph, %1826, %1835, %1821
-  %1839 = phi i32 [ %1816, %.lr.ph ], [ %1816, %.lr.ph ], [ %1816, %1826 ], [ %1816, %1835 ], [ %1816, %1821 ], [ %1837, %.sink.split ]
-  %1840 = getelementptr inbounds nuw i8, ptr %.09951237, i64 4
-  %1841 = add nsw i32 %.09941238, -1
-  %1842 = icmp sgt i32 %.09941238, 1
-  br i1 %1842, label %.lr.ph, label %ir_match_fuse_load_cmp_fp.exit
-
-1843:                                             ; preds = %2
-  br label %ir_match_fuse_load_cmp_fp.exit
+1839:                                             ; preds = %.sink.split, %.lr.ph, %.lr.ph, %1827, %1836, %1822
+  %1840 = phi i32 [ %1817, %.lr.ph ], [ %1817, %.lr.ph ], [ %1817, %1827 ], [ %1817, %1836 ], [ %1817, %1822 ], [ %1838, %.sink.split ]
+  %1841 = getelementptr inbounds nuw i8, ptr %.09951240, i64 4
+  %1842 = add nsw i32 %.09941241, -1
+  %1843 = icmp sgt i32 %.09941241, 1
+  br i1 %1843, label %.lr.ph, label %ir_match_fuse_load_cmp_fp.exit
 
 1844:                                             ; preds = %2
-  %1845 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1846 = load ptr, ptr %1845, align 8
-  %1847 = getelementptr inbounds %struct._ir_use_list, ptr %1846, i64 %4
-  %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 4
-  %1849 = load i32, ptr %1848, align 4
-  %1850 = icmp sgt i32 %1849, 0
-  br i1 %1850, label %1851, label %ir_match_fuse_load_cmp_fp.exit
+  br label %ir_match_fuse_load_cmp_fp.exit
 
-1851:                                             ; preds = %1844
-  %1852 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1853 = load ptr, ptr %1852, align 8
-  %1854 = load i32, ptr %1847, align 4
-  %1855 = sext i32 %1854 to i64
-  %1856 = getelementptr inbounds i32, ptr %1853, i64 %1855
-  br label %1857
+1845:                                             ; preds = %2
+  %1846 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1847 = load ptr, ptr %1846, align 8
+  %1848 = getelementptr inbounds %struct._ir_use_list, ptr %1847, i64 %4
+  %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 4
+  %1850 = load i32, ptr %1849, align 4
+  %1851 = icmp sgt i32 %1850, 0
+  br i1 %1851, label %1852, label %ir_match_fuse_load_cmp_fp.exit
 
-1857:                                             ; preds = %1851, %1862
-  %.01236 = phi i32 [ %1849, %1851 ], [ %1864, %1862 ]
-  %.09921235 = phi ptr [ %1856, %1851 ], [ %1863, %1862 ]
-  %1858 = load i32, ptr %.09921235, align 4
-  %1859 = sext i32 %1858 to i64
-  %1860 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1859
-  %1861 = load i8, ptr %1860, align 8
-  %.not = icmp eq i8 %1861, 83
-  br i1 %.not, label %1862, label %ir_match_fuse_load_cmp_fp.exit
+1852:                                             ; preds = %1845
+  %1853 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1854 = load ptr, ptr %1853, align 8
+  %1855 = load i32, ptr %1848, align 4
+  %1856 = sext i32 %1855 to i64
+  %1857 = getelementptr inbounds i32, ptr %1854, i64 %1856
+  br label %1858
 
-1862:                                             ; preds = %1857
-  %1863 = getelementptr inbounds nuw i8, ptr %.09921235, i64 4
-  %1864 = add nsw i32 %.01236, -1
-  %1865 = icmp sgt i32 %.01236, 1
-  br i1 %1865, label %1857, label %ir_match_fuse_load_cmp_fp.exit
+1858:                                             ; preds = %1852, %1863
+  %.01239 = phi i32 [ %1850, %1852 ], [ %1865, %1863 ]
+  %.09921238 = phi ptr [ %1857, %1852 ], [ %1864, %1863 ]
+  %1859 = load i32, ptr %.09921238, align 4
+  %1860 = sext i32 %1859 to i64
+  %1861 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %1860
+  %1862 = load i8, ptr %1861, align 8
+  %.not = icmp eq i8 %1862, 83
+  br i1 %.not, label %1863, label %ir_match_fuse_load_cmp_fp.exit
 
-1866:                                             ; preds = %2, %1269
-  %1867 = zext i8 %6 to i32
+1863:                                             ; preds = %1858
+  %1864 = getelementptr inbounds nuw i8, ptr %.09921238, i64 4
+  %1865 = add nsw i32 %.01239, -1
+  %1866 = icmp sgt i32 %.01239, 1
+  br i1 %1866, label %1858, label %ir_match_fuse_load_cmp_fp.exit
+
+1867:                                             ; preds = %2, %1270
+  %1868 = zext i8 %6 to i32
   br label %ir_match_fuse_load_cmp_fp.exit
 
 switch.hole_check:                                ; preds = %474
@@ -46255,8 +46254,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ir_match_fuse_load_cmp_fp.exit
 
-ir_match_fuse_load_cmp_fp.exit:                   ; preds = %1862, %1857, %1838, %switch.lookup, %1640, %1655, %1804, %1784, %1780, %1776, %1770, %1764, %1759, %1753, %383, %379, %375, %369, %363, %357, %353, %350, %346, %343, %338, %114, %109, %107, %88, %85, %82, %69, %580, %584, %switch.early.test, %679, %1844, %1795, %1284, %1290, %1164, %1161, %1061, %1050, %1044, %653, %661, %667, %798, %793, %786, %780, %864, %859, %852, %846, %930, %925, %918, %912, %996, %991, %984, %978, %1011, %1017, %1024, %1029, %thread-pre-split, %945, %951, %958, %963, %879, %885, %892, %897, %813, %819, %826, %831, %765, %760, %753, %749, %743, %673, %699, %723, %736, %742, %644, %648, %2, %592, %588, %576, %572, %568, %564, %545, %476, %ir_match_fuse_load.exit1211, %ir_match_fuse_load_commutative_fp.exit, %208, %300, %296, %318, %265, %273, %289, %234, %242, %258, %200, %199, %156, %161, %179, %49, %55, %1866, %1843, %1788, %1750, %1746, %ir_match_fuse_load.exit1215, %ir_match_fuse_load.exit1214, %ir_match_fuse_load.exit1213, %1613, %1607, %1599, %1593, %1573, %1529, %1471, %1402, %1387, %1348, %1265, %1259, %1252, %1246, %1235, %1215, %1158, %1157, %1147, %1115, %1034, %1001, %968, %935, %902, %869, %836, %803, %770, %637, %ir_match_fuse_load.exit1212, %._crit_edge1241, %._crit_edge1244, %520, %519, %488, %483, %324, %319, %291, %260, %190, %185, %180, %63, %37
-  %.0993 = phi i32 [ %1867, %1866 ], [ 1073741824, %1843 ], [ %1794, %1788 ], [ %1749, %1746 ], [ %1752, %1750 ], [ %1731, %ir_match_fuse_load.exit1215 ], [ %1693, %ir_match_fuse_load.exit1214 ], [ 151, %1593 ], [ 154, %1471 ], [ 154, %1529 ], [ 154, %1573 ], [ 152, %1599 ], [ 153, %1607 ], [ 155, %1613 ], [ %1639, %ir_match_fuse_load.exit1213 ], [ 147, %1246 ], [ 149, %1215 ], [ 150, %1235 ], [ 148, %1252 ], [ 149, %1259 ], [ 156, %1265 ], [ 174, %1402 ], [ 150, %1348 ], [ 150, %1387 ], [ %1160, %1158 ], [ 167, %1115 ], [ 167, %1147 ], [ 77, %1157 ], [ 164, %770 ], [ 159, %803 ], [ 160, %836 ], [ 161, %869 ], [ 162, %902 ], [ 163, %935 ], [ 165, %968 ], [ 166, %1001 ], [ 158, %1034 ], [ %643, %637 ], [ %636, %ir_match_fuse_load.exit1212 ], [ 111, %._crit_edge1241 ], [ 110, %._crit_edge1244 ], [ 139, %519 ], [ 109, %520 ], [ 109, %488 ], [ 139, %483 ], [ 119, %180 ], [ 120, %185 ], [ 121, %190 ], [ 124, %260 ], [ 125, %291 ], [ 122, %319 ], [ 126, %324 ], [ 107, %63 ], [ 114, %37 ], [ 113, %55 ], [ 113, %49 ], [ 115, %179 ], [ 115, %161 ], [ 115, %156 ], [ %., %199 ], [ %.1150, %200 ], [ 123, %258 ], [ 123, %242 ], [ 123, %234 ], [ 127, %289 ], [ 127, %273 ], [ 127, %265 ], [ 118, %318 ], [ 118, %296 ], [ 118, %300 ], [ 118, %208 ], [ %.1151, %ir_match_fuse_load_commutative_fp.exit ], [ %.1152, %ir_match_fuse_load.exit1211 ], [ 130, %476 ], [ %.1159, %545 ], [ %.1160, %564 ], [ %.1161, %568 ], [ %.1162, %572 ], [ %.1163, %576 ], [ 134217885, %588 ], [ %.1166, %592 ], [ 1073741888, %2 ], [ 71, %648 ], [ 71, %644 ], [ 164, %742 ], [ 164, %736 ], [ 164, %723 ], [ %.0996, %699 ], [ %.0996, %679 ], [ %.0996, %673 ], [ %.0996, %743 ], [ %.0996, %749 ], [ %.0996, %753 ], [ %.0996, %760 ], [ %.0996, %765 ], [ %.0996, %831 ], [ %.0996, %826 ], [ %.0996, %819 ], [ %.0996, %813 ], [ %.0996, %897 ], [ %.0996, %892 ], [ %.0996, %885 ], [ %.0996, %879 ], [ %.0996, %963 ], [ %.0996, %958 ], [ %.0996, %951 ], [ %.0996, %945 ], [ %.0996, %thread-pre-split ], [ %.0996, %1029 ], [ %.0996, %1024 ], [ %.0996, %1017 ], [ %.0996, %1011 ], [ %.0996, %978 ], [ %.0996, %984 ], [ %.0996, %991 ], [ %.0996, %996 ], [ %.0996, %912 ], [ %.0996, %918 ], [ %.0996, %925 ], [ %.0996, %930 ], [ %.0996, %846 ], [ %.0996, %852 ], [ %.0996, %859 ], [ %.0996, %864 ], [ %.0996, %780 ], [ %.0996, %786 ], [ %.0996, %793 ], [ %.0996, %798 ], [ %.0996, %667 ], [ %.0996, %661 ], [ 169, %653 ], [ %.1168, %1044 ], [ 173, %1050 ], [ %.1169, %1061 ], [ 175, %1161 ], [ %.1170, %1164 ], [ 150, %1290 ], [ 150, %1284 ], [ 82, %1795 ], [ 1073741824, %1844 ], [ %.0996, %switch.early.test ], [ %spec.select, %584 ], [ %spec.select1210, %580 ], [ 108, %69 ], [ 108, %82 ], [ 108, %85 ], [ 108, %88 ], [ 108, %107 ], [ 108, %109 ], [ 108, %114 ], [ 134217868, %338 ], [ 134217868, %343 ], [ 134217868, %346 ], [ 134217868, %350 ], [ 140, %353 ], [ 140, %357 ], [ 140, %363 ], [ 140, %369 ], [ 140, %375 ], [ 140, %379 ], [ 140, %383 ], [ 178, %1753 ], [ 178, %1759 ], [ 178, %1764 ], [ 178, %1770 ], [ 178, %1776 ], [ 178, %1780 ], [ 178, %1784 ], [ 82, %1804 ], [ %1656, %1655 ], [ 35, %1640 ], [ %switch.load, %switch.lookup ], [ 82, %1838 ], [ 1073741824, %1862 ], [ 73, %1857 ]
+ir_match_fuse_load_cmp_fp.exit:                   ; preds = %1863, %1858, %1839, %switch.lookup, %1641, %1656, %1805, %1785, %1781, %1777, %1771, %1765, %1760, %1754, %383, %379, %375, %369, %363, %357, %353, %350, %346, %343, %338, %114, %109, %107, %88, %85, %82, %69, %580, %584, %679, %1845, %1796, %1285, %1291, %1165, %1162, %1062, %1051, %1045, %653, %661, %667, %799, %794, %787, %781, %865, %860, %853, %847, %931, %926, %919, %913, %997, %992, %985, %979, %.thread1220, %1018, %1025, %1030, %1012, %946, %952, %959, %964, %880, %886, %893, %898, %814, %820, %827, %832, %765, %760, %753, %749, %743, %673, %780, %699, %723, %736, %742, %644, %648, %2, %592, %588, %576, %572, %568, %564, %545, %476, %ir_match_fuse_load.exit1211, %ir_match_fuse_load_commutative_fp.exit, %208, %300, %296, %318, %265, %273, %289, %234, %242, %258, %200, %199, %156, %161, %179, %49, %55, %1867, %1844, %1789, %1751, %1747, %ir_match_fuse_load.exit1215, %ir_match_fuse_load.exit1214, %ir_match_fuse_load.exit1213, %1614, %1608, %1600, %1594, %1574, %1530, %1472, %1403, %1388, %1349, %1266, %1260, %1253, %1247, %1236, %1216, %1159, %1158, %1148, %1116, %1035, %1002, %969, %936, %903, %870, %837, %804, %770, %637, %ir_match_fuse_load.exit1212, %._crit_edge1244, %._crit_edge1247, %520, %519, %488, %483, %324, %319, %291, %260, %190, %185, %180, %63, %37
+  %.0993 = phi i32 [ %1868, %1867 ], [ 1073741824, %1844 ], [ %1795, %1789 ], [ %1750, %1747 ], [ %1753, %1751 ], [ %1732, %ir_match_fuse_load.exit1215 ], [ %1694, %ir_match_fuse_load.exit1214 ], [ 151, %1594 ], [ 154, %1472 ], [ 154, %1530 ], [ 154, %1574 ], [ 152, %1600 ], [ 153, %1608 ], [ 155, %1614 ], [ %1640, %ir_match_fuse_load.exit1213 ], [ 147, %1247 ], [ 149, %1216 ], [ 150, %1236 ], [ 148, %1253 ], [ 149, %1260 ], [ 156, %1266 ], [ 174, %1403 ], [ 150, %1349 ], [ 150, %1388 ], [ %1161, %1159 ], [ 167, %1116 ], [ 167, %1148 ], [ 77, %1158 ], [ 164, %770 ], [ 159, %804 ], [ 160, %837 ], [ 161, %870 ], [ 162, %903 ], [ 163, %936 ], [ 165, %969 ], [ 166, %1002 ], [ 158, %1035 ], [ %643, %637 ], [ %636, %ir_match_fuse_load.exit1212 ], [ 111, %._crit_edge1244 ], [ 110, %._crit_edge1247 ], [ 139, %519 ], [ 109, %520 ], [ 109, %488 ], [ 139, %483 ], [ 119, %180 ], [ 120, %185 ], [ 121, %190 ], [ 124, %260 ], [ 125, %291 ], [ 122, %319 ], [ 126, %324 ], [ 107, %63 ], [ 114, %37 ], [ 113, %55 ], [ 113, %49 ], [ 115, %179 ], [ 115, %161 ], [ 115, %156 ], [ %., %199 ], [ %.1150, %200 ], [ 123, %258 ], [ 123, %242 ], [ 123, %234 ], [ 127, %289 ], [ 127, %273 ], [ 127, %265 ], [ 118, %318 ], [ 118, %296 ], [ 118, %300 ], [ 118, %208 ], [ %.1151, %ir_match_fuse_load_commutative_fp.exit ], [ %.1152, %ir_match_fuse_load.exit1211 ], [ 130, %476 ], [ %.1159, %545 ], [ %.1160, %564 ], [ %.1161, %568 ], [ %.1162, %572 ], [ %.1163, %576 ], [ 134217885, %588 ], [ %.1166, %592 ], [ 1073741888, %2 ], [ 71, %648 ], [ 71, %644 ], [ 164, %742 ], [ 164, %736 ], [ 164, %723 ], [ %.0996, %699 ], [ %.0996, %780 ], [ %.0996, %679 ], [ %.0996, %673 ], [ %.0996, %743 ], [ %.0996, %749 ], [ %.0996, %753 ], [ %.0996, %760 ], [ %.0996, %765 ], [ %.0996, %832 ], [ %.0996, %827 ], [ %.0996, %820 ], [ %.0996, %814 ], [ %.0996, %898 ], [ %.0996, %893 ], [ %.0996, %886 ], [ %.0996, %880 ], [ %.0996, %964 ], [ %.0996, %959 ], [ %.0996, %952 ], [ %.0996, %946 ], [ %.0996, %1012 ], [ %.0996, %1030 ], [ %.0996, %1025 ], [ %.0996, %1018 ], [ %.0996, %.thread1220 ], [ %.0996, %979 ], [ %.0996, %985 ], [ %.0996, %992 ], [ %.0996, %997 ], [ %.0996, %913 ], [ %.0996, %919 ], [ %.0996, %926 ], [ %.0996, %931 ], [ %.0996, %847 ], [ %.0996, %853 ], [ %.0996, %860 ], [ %.0996, %865 ], [ %.0996, %781 ], [ %.0996, %787 ], [ %.0996, %794 ], [ %.0996, %799 ], [ %.0996, %667 ], [ %.0996, %661 ], [ 169, %653 ], [ %.1168, %1045 ], [ 173, %1051 ], [ %.1169, %1062 ], [ 175, %1162 ], [ %.1170, %1165 ], [ 150, %1291 ], [ 150, %1285 ], [ 82, %1796 ], [ 1073741824, %1845 ], [ %spec.select, %584 ], [ %spec.select1210, %580 ], [ 108, %69 ], [ 108, %82 ], [ 108, %85 ], [ 108, %88 ], [ 108, %107 ], [ 108, %109 ], [ 108, %114 ], [ 134217868, %338 ], [ 134217868, %343 ], [ 134217868, %346 ], [ 134217868, %350 ], [ 140, %353 ], [ 140, %357 ], [ 140, %363 ], [ 140, %369 ], [ 140, %375 ], [ 140, %379 ], [ 140, %383 ], [ 178, %1754 ], [ 178, %1760 ], [ 178, %1765 ], [ 178, %1771 ], [ 178, %1777 ], [ 178, %1781 ], [ 178, %1785 ], [ 82, %1805 ], [ %1657, %1656 ], [ 35, %1641 ], [ %switch.load, %switch.lookup ], [ 82, %1839 ], [ 1073741824, %1863 ], [ 73, %1858 ]
   ret i32 %.0993
 }
 

@@ -8367,639 +8367,534 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51: ; preds = %_ZNK4llv
   %47 = and i64 %.sroa.04.0.i, 4
   %48 = icmp ne i64 %47, 0
   %49 = and i1 %spec.select.i.i, %48
-  br i1 %49, label %50, label %326
+  br i1 %49, label %50, label %277
 
 50:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51
   %51 = and i64 %.sroa.04.0.i, 2
   %.not.i.not.i = icmp eq i64 %51, 0
-  %52 = and i64 %.sroa.04.0.i, 6
-  %53 = icmp eq i64 %52, 2
-  %54 = and i64 %.sroa.04.0.i, 1
-  %55 = icmp ne i64 %54, 0
-  %or.cond14.i = or i1 %55, %53
-  br i1 %or.cond14.i, label %56, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
-
-56:                                               ; preds = %50
-  %.not.i1.i = icmp eq i64 %54, 0
-  br i1 %.not.i1.i, label %59, label %57
-
-57:                                               ; preds = %56
-  %58 = lshr i64 %.sroa.04.0.i, 3
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-
-59:                                               ; preds = %56
-  %60 = lshr i64 %.sroa.04.0.i, 19
-  %61 = and i64 %60, 65535
-  %spec.select.i.i52 = select i1 %.not.i.not.i, i64 %60, i64 %61
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %52 = and i64 %.sroa.04.0.i, 1
+  %.not13 = icmp eq i64 %52, 0
+  %53 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not13, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i:    ; preds = %50
-  %62 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %62, 65535
-  %63 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %64 = and i64 %63, %.sroa.04.0.i
-  %.not1.i4.i = icmp ne i64 %64, 0
-  %65 = lshr i64 %.sroa.04.0.i, 19
-  %66 = and i64 %65, 65535
-  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %65, i64 %66
-  %67 = mul nuw nsw i64 %spec.select.i10.i, %.sroa.0.0.insert.ext.i.i.i
-  %68 = zext i1 %.not1.i4.i to i8
+  %.sroa.0.0.insert.ext.i.i.i = and i64 %53, 65535
+  %54 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %55 = and i64 %54, %.sroa.04.0.i
+  %.not1.i4.i = icmp ne i64 %55, 0
+  %56 = lshr i64 %.sroa.04.0.i, 19
+  %57 = and i64 %56, 65535
+  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %56, i64 %57
+  %58 = mul nuw nsw i64 %spec.select.i10.i, %.sroa.0.0.insert.ext.i.i.i
+  %59 = zext i1 %.not1.i4.i to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %57, %59, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
-  %.sroa.012.0.in.i = phi i64 [ %67, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %58, %57 ], [ %spec.select.i.i52, %59 ]
-  %.sroa.3.0.i = phi i8 [ %68, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %57 ], [ 0, %59 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %50, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
+  %.sroa.012.0.in.i = phi i64 [ %58, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %53, %50 ]
+  %.sroa.3.0.i = phi i8 [ %59, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %50 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %9, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.226.0..sroa_idx, align 8
-  %69 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
-  %70 = urem i64 %23, %69
-  %.not = icmp eq i64 %70, 0
-  br i1 %.not, label %71, label %326
+  %60 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
+  %61 = urem i64 %23, %60
+  %.not = icmp eq i64 %61, 0
+  br i1 %.not, label %62, label %277
 
-71:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %72 = icmp eq i64 %23, 0
-  br i1 %72, label %73, label %188
+62:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %63 = icmp eq i64 %23, 0
+  br i1 %63, label %64, label %163
 
-73:                                               ; preds = %71
+64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  br i1 %24, label %74, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
+  br i1 %24, label %65, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %76 = and i32 %19, 2147483647
-  %77 = zext nneg i32 %76 to i64
-  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %75) #19
-  %79 = icmp ugt i64 %78, %77
-  br i1 %79, label %80, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %67 = and i32 %19, 2147483647
+  %68 = zext nneg i32 %67 to i64
+  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %66) #19
+  %70 = icmp ugt i64 %69, %68
+  br i1 %70, label %71, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %75, align 8
-  %82 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %81, i64 %77
-  %83 = load i64, ptr %82, align 8
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %66, align 8
+  %73 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %72, i64 %68
+  %74 = load i64, ptr %73, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %80, %74, %73
-  %.sroa.04.0.i.i = phi i64 [ %83, %80 ], [ 0, %74 ], [ 0, %73 ]
-  br i1 %35, label %84, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %71, %65, %64
+  %.sroa.04.0.i.i = phi i64 [ %74, %71 ], [ 0, %65 ], [ 0, %64 ]
+  br i1 %35, label %75, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
 
-84:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %86 = and i32 %21, 2147483647
-  %87 = zext nneg i32 %86 to i64
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %85) #19
-  %89 = icmp ugt i64 %88, %87
-  br i1 %89, label %90, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
+75:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %77 = and i32 %21, 2147483647
+  %78 = zext nneg i32 %77 to i64
+  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %76) #19
+  %80 = icmp ugt i64 %79, %78
+  br i1 %80, label %81, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %85, align 8
-  %92 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %91, i64 %87
-  %93 = load i64, ptr %92, align 8
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %76, align 8
+  %83 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %82, i64 %78
+  %84 = load i64, ptr %83, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i: ; preds = %90, %84, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
-  %.sroa.04.0.i31.i = phi i64 [ %93, %90 ], [ 0, %84 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i ]
-  %94 = and i64 %.sroa.04.0.i.i, -7
-  %spec.select.i.i.i53 = icmp ne i64 %94, 0
-  %95 = and i64 %.sroa.04.0.i.i, 4
-  %96 = icmp ne i64 %95, 0
-  %97 = and i1 %spec.select.i.i.i53, %96
-  br i1 %97, label %98, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i: ; preds = %81, %75, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
+  %.sroa.04.0.i31.i = phi i64 [ %84, %81 ], [ 0, %75 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i ]
+  %85 = and i64 %.sroa.04.0.i.i, -7
+  %spec.select.i.i.i53 = icmp ne i64 %85, 0
+  %86 = and i64 %.sroa.04.0.i.i, 4
+  %87 = icmp ne i64 %86, 0
+  %88 = and i1 %spec.select.i.i.i53, %87
+  br i1 %88, label %89, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
 
-98:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
-  %99 = and i64 %.sroa.04.0.i31.i, -7
-  %spec.select.i.i33.i = icmp ne i64 %99, 0
-  %100 = and i64 %.sroa.04.0.i31.i, 4
-  %101 = icmp ne i64 %100, 0
-  %102 = and i1 %spec.select.i.i33.i, %101
-  br i1 %102, label %103, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
+89:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i
+  %90 = and i64 %.sroa.04.0.i31.i, -7
+  %spec.select.i.i33.i = icmp ne i64 %90, 0
+  %91 = and i64 %.sroa.04.0.i31.i, 4
+  %92 = icmp ne i64 %91, 0
+  %93 = and i1 %spec.select.i.i33.i, %92
+  br i1 %93, label %94, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
 
-103:                                              ; preds = %98
-  %104 = and i64 %.sroa.04.0.i.i, 2
-  %.not.i.not.i.i = icmp eq i64 %104, 0
-  %105 = and i64 %.sroa.04.0.i.i, 6
-  %106 = icmp eq i64 %105, 2
-  %107 = and i64 %.sroa.04.0.i.i, 1
-  %108 = icmp ne i64 %107, 0
-  %or.cond14.i.i = or i1 %108, %106
-  br i1 %or.cond14.i.i, label %109, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i
+94:                                               ; preds = %89
+  %95 = and i64 %.sroa.04.0.i.i, 2
+  %.not.i.not.i.i = icmp eq i64 %95, 0
+  %96 = and i64 %.sroa.04.0.i.i, 1
+  %.not14.i = icmp eq i64 %96, 0
+  %97 = lshr i64 %.sroa.04.0.i.i, 3
+  br i1 %.not14.i, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
 
-109:                                              ; preds = %103
-  %.not.i1.i.i = icmp eq i64 %107, 0
-  br i1 %.not.i1.i.i, label %112, label %110
-
-110:                                              ; preds = %109
-  %111 = lshr i64 %.sroa.04.0.i.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i:  ; preds = %94
+  %.sroa.0.0.insert.ext.i.i.i.i = and i64 %97, 65535
+  %98 = select i1 %.not.i.not.i.i, i64 2251799813685248, i64 576460752303423488
+  %99 = and i64 %98, %.sroa.04.0.i.i
+  %.not1.i4.i.i = icmp ne i64 %99, 0
+  %100 = lshr i64 %.sroa.04.0.i.i, 19
+  %101 = and i64 %100, 65535
+  %spec.select.i10.i.i = select i1 %.not.i.not.i.i, i64 %100, i64 %101
+  %102 = mul nuw nsw i64 %spec.select.i10.i.i, %.sroa.0.0.insert.ext.i.i.i.i
+  %103 = zext i1 %.not1.i4.i.i to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
 
-112:                                              ; preds = %109
-  %113 = lshr i64 %.sroa.04.0.i.i, 19
-  %114 = and i64 %113, 65535
-  %spec.select.i.i34.i = select i1 %.not.i.not.i.i, i64 %113, i64 %114
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i:  ; preds = %103
-  %115 = lshr i64 %.sroa.04.0.i.i, 3
-  %.sroa.0.0.insert.ext.i.i.i.i = and i64 %115, 65535
-  %116 = select i1 %.not.i.not.i.i, i64 2251799813685248, i64 576460752303423488
-  %117 = and i64 %116, %.sroa.04.0.i.i
-  %.not1.i4.i.i = icmp ne i64 %117, 0
-  %118 = lshr i64 %.sroa.04.0.i.i, 19
-  %119 = and i64 %118, 65535
-  %spec.select.i10.i.i = select i1 %.not.i.not.i.i, i64 %118, i64 %119
-  %120 = mul nuw nsw i64 %spec.select.i10.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %121 = zext i1 %.not1.i4.i.i to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i, %112, %110
-  %.sroa.012.0.in.i.i = phi i64 [ %120, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i ], [ %111, %110 ], [ %spec.select.i.i34.i, %112 ]
-  %.sroa.3.0.i.i = phi i8 [ %121, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i ], [ 0, %110 ], [ 0, %112 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i, %94
+  %.sroa.012.0.in.i.i = phi i64 [ %102, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i ], [ %97, %94 ]
+  %.sroa.3.0.i.i = phi i8 [ %103, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i ], [ 0, %94 ]
   %.sroa.012.0.i.i = and i64 %.sroa.012.0.in.i.i, 4294967295
   store i64 %.sroa.012.0.i.i, ptr %5, align 8
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i.i, ptr %.sroa.28.0..sroa_idx.i, align 8
-  %122 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #19
-  %123 = icmp eq i64 %122, 128
-  br i1 %123, label %140, label %124
+  %104 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #19
+  %105 = icmp eq i64 %104, 128
+  br i1 %105, label %115, label %106
 
-124:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-  br i1 %or.cond14.i.i, label %125, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i
+106:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
+  br i1 %.not14.i, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i
 
-125:                                              ; preds = %124
-  %.not.i1.i50.i = icmp eq i64 %107, 0
-  br i1 %.not.i1.i50.i, label %128, label %126
-
-126:                                              ; preds = %125
-  %127 = lshr i64 %.sroa.04.0.i.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i: ; preds = %106
+  %.sroa.0.0.insert.ext.i.i.i40.i = and i64 %97, 65535
+  %107 = select i1 %.not.i.not.i.i, i64 2251799813685248, i64 576460752303423488
+  %108 = and i64 %107, %.sroa.04.0.i.i
+  %.not1.i4.i41.i = icmp ne i64 %108, 0
+  %109 = lshr i64 %.sroa.04.0.i.i, 19
+  %110 = and i64 %109, 65535
+  %spec.select.i10.i43.i = select i1 %.not.i.not.i.i, i64 %109, i64 %110
+  %111 = mul nuw nsw i64 %spec.select.i10.i43.i, %.sroa.0.0.insert.ext.i.i.i40.i
+  %112 = zext i1 %.not1.i4.i41.i to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i
 
-128:                                              ; preds = %125
-  %129 = lshr i64 %.sroa.04.0.i.i, 19
-  %130 = and i64 %129, 65535
-  %spec.select.i.i52.i = select i1 %.not.i.not.i.i, i64 %129, i64 %130
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i: ; preds = %124
-  %131 = lshr i64 %.sroa.04.0.i.i, 3
-  %.sroa.0.0.insert.ext.i.i.i40.i = and i64 %131, 65535
-  %132 = select i1 %.not.i.not.i.i, i64 2251799813685248, i64 576460752303423488
-  %133 = and i64 %132, %.sroa.04.0.i.i
-  %.not1.i4.i41.i = icmp ne i64 %133, 0
-  %134 = lshr i64 %.sroa.04.0.i.i, 19
-  %135 = and i64 %134, 65535
-  %spec.select.i10.i43.i = select i1 %.not.i.not.i.i, i64 %134, i64 %135
-  %136 = mul nuw nsw i64 %spec.select.i10.i43.i, %.sroa.0.0.insert.ext.i.i.i40.i
-  %137 = zext i1 %.not1.i4.i41.i to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i:          ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i, %128, %126
-  %.sroa.012.0.in.i45.i = phi i64 [ %136, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i ], [ %127, %126 ], [ %spec.select.i.i52.i, %128 ]
-  %.sroa.3.0.i46.i = phi i8 [ %137, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i ], [ 0, %126 ], [ 0, %128 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i:          ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i, %106
+  %.sroa.012.0.in.i45.i = phi i64 [ %111, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i ], [ %97, %106 ]
+  %.sroa.3.0.i46.i = phi i8 [ %112, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i39.i ], [ 0, %106 ]
   %.sroa.012.0.i47.i = and i64 %.sroa.012.0.in.i45.i, 4294967295
   store i64 %.sroa.012.0.i47.i, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.sroa.3.0.i46.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %138 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #19
-  %139 = icmp eq i64 %138, 256
-  br i1 %139, label %140, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
+  %113 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #19
+  %114 = icmp eq i64 %113, 256
+  br i1 %114, label %115, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread
 
-140:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
+115:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
   %.029.i = phi i32 [ 9, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ 10, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %144 = load ptr, ptr %143, align 8
-  %145 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %142, i32 %19, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %144) #19
-  %146 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %145)
-  %147 = load ptr, ptr %141, align 8
-  %148 = load ptr, ptr %143, align 8
-  %149 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %147, i32 %21, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %148) #19
-  %150 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i31.i, ptr noundef nonnull align 8 dereferenceable(24) %149)
-  %151 = load ptr, ptr %143, align 8
-  %152 = call noundef ptr @_ZNK4llvm15X86RegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(328) %151, ptr noundef nonnull %150, i32 noundef %.029.i) #19
-  %153 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %21, ptr noundef nonnull align 8 dereferenceable(56) %152, ptr noundef nonnull align 8 dereferenceable(512) %2) #19
-  %.not.i = icmp eq ptr %153, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, label %154
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %119 = load ptr, ptr %118, align 8
+  %120 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %117, i32 %19, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %119) #19
+  %121 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %120)
+  %122 = load ptr, ptr %116, align 8
+  %123 = load ptr, ptr %118, align 8
+  %124 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %122, i32 %21, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %123) #19
+  %125 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i31.i, ptr noundef nonnull align 8 dereferenceable(24) %124)
+  %126 = load ptr, ptr %118, align 8
+  %127 = call noundef ptr @_ZNK4llvm15X86RegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(328) %126, ptr noundef nonnull %125, i32 noundef %.029.i) #19
+  %128 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %21, ptr noundef nonnull align 8 dereferenceable(56) %127, ptr noundef nonnull align 8 dereferenceable(512) %2) #19
+  %.not.i = icmp eq ptr %128, null
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, label %129
 
-154:                                              ; preds = %140
-  %155 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %19, ptr noundef nonnull align 8 dereferenceable(56) %146, ptr noundef nonnull align 8 dereferenceable(512) %2) #19
-  %.not30.i = icmp eq ptr %155, null
-  br i1 %.not30.i, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, label %156
+129:                                              ; preds = %115
+  %130 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %19, ptr noundef nonnull align 8 dereferenceable(56) %121, ptr noundef nonnull align 8 dereferenceable(512) %2) #19
+  %.not30.i = icmp eq ptr %130, null
+  br i1 %.not30.i, label %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, label %131
 
-156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %8, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %160, null
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %135 = load ptr, ptr %134, align 8
+  store ptr %135, ptr %8, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %135, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %156
-  %161 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %160, i64 1) #19
+_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %131
+  %136 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %135, i64 1) #19
   %.pr.i = load ptr, ptr %8, align 8
   store ptr %.pr.i, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i, label %162
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i, label %137
 
-162:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
-  %163 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
+137:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
+  %138 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i
 
-_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i: ; preds = %162, %156
-  %.sink.i = phi ptr [ %8, %162 ], [ %7, %156 ]
+_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i: ; preds = %137, %131
+  %.sink.i = phi ptr [ %8, %137 ], [ %7, %131 ]
   store ptr null, ptr %.sink.i, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit.i
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 -608
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %171 = load i32, ptr %170, align 4
-  %172 = and i32 %171, 4
-  %.not.i.i = icmp eq i32 %172, 0
-  br i1 %.not.i.i, label %175, label %173
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 -608
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %146 = load i32, ptr %145, align 4
+  %147 = and i32 %146, 4
+  %.not.i.i = icmp eq i32 %147, 0
+  br i1 %.not.i.i, label %150, label %148
 
-173:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i
-  %174 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %158, ptr nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 %19)
+148:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i
+  %149 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %133, ptr nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 %19)
   br label %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
 
-175:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i
-  %176 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %158, ptr nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %169, i32 %19)
+150:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i
+  %151 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %133, ptr nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 %19)
   br label %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
 
-_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i: ; preds = %175, %173
-  %.pn.i.i = phi { ptr, ptr } [ %174, %173 ], [ %176, %175 ]
-  %177 = extractvalue { ptr, ptr } %.pn.i.i, 0
-  %178 = extractvalue { ptr, ptr } %.pn.i.i, 1
+_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i: ; preds = %150, %148
+  %.pn.i.i = phi { ptr, ptr } [ %149, %148 ], [ %151, %150 ]
+  %152 = extractvalue { ptr, ptr } %.pn.i.i, 0
+  %153 = extractvalue { ptr, ptr } %.pn.i.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %179 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %179, align 8, !alias.scope !212
-  %180 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %21, ptr %180, align 4, !alias.scope !212
-  %181 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %182 = shl nuw nsw i32 %.029.i, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, i8 0, i64 16, i1 false), !alias.scope !212
-  store i32 %182, ptr %4, align 8, !alias.scope !212
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %178, ptr noundef nonnull align 8 dereferenceable(1041) %177, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %154, align 8, !alias.scope !212
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %21, ptr %155, align 4, !alias.scope !212
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %157 = shl nuw nsw i32 %.029.i, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false), !alias.scope !212
+  store i32 %157, ptr %4, align 8, !alias.scope !212
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %153, ptr noundef nonnull align 8 dereferenceable(1041) %152, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %183 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i54.i = icmp eq ptr %183, null
-  br i1 %.not.i.i.i.i.i54.i, label %_ZN4llvm10MIMetadataD2Ev.exit.i, label %184
+  %158 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i.i54.i = icmp eq ptr %158, null
+  br i1 %.not.i.i.i.i.i54.i, label %_ZN4llvm10MIMetadataD2Ev.exit.i, label %159
 
-184:                                              ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(8) %183) #19
+159:                                              ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(8) %158) #19
   br label %_ZN4llvm10MIMetadataD2Ev.exit.i
 
-_ZN4llvm10MIMetadataD2Ev.exit.i:                  ; preds = %184, %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
-  %185 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i55.i = icmp eq ptr %185, null
-  br i1 %.not.i.i.i.i55.i, label %187, label %186
+_ZN4llvm10MIMetadataD2Ev.exit.i:                  ; preds = %159, %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE.exit.i
+  %160 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i55.i = icmp eq ptr %160, null
+  br i1 %.not.i.i.i.i55.i, label %162, label %161
 
-186:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %185) #19
-  br label %187
+161:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %160) #19
+  br label %162
 
-_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread: ; preds = %98, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i, %154, %140
+_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread: ; preds = %89, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit32.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53.i, %129, %115
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %326
+  br label %277
 
-187:                                              ; preds = %186, %_ZN4llvm10MIMetadataD2Ev.exit.i
+162:                                              ; preds = %161, %_ZN4llvm10MIMetadataD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #19
-  br label %326
+  br label %277
 
-188:                                              ; preds = %71
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 304
-  %192 = load i32, ptr %191, align 8
-  %193 = icmp sgt i32 %192, 6
-  %194 = icmp sgt i32 %192, 8
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 436
-  %196 = load i8, ptr %195, align 4
-  %197 = trunc i8 %196 to i1
-  %198 = and i64 %.sroa.04.0.i50, -7
-  %spec.select.i.i.i54 = icmp ne i64 %198, 0
-  %199 = and i64 %.sroa.04.0.i50, 2
-  %.not.i.not.i55 = icmp eq i64 %199, 0
-  %200 = and i64 %.sroa.04.0.i50, 6
-  %201 = icmp eq i64 %200, 2
-  %or.cond.i56 = and i1 %spec.select.i.i.i54, %201
-  %202 = and i64 %.sroa.04.0.i50, 1
-  %203 = icmp ne i64 %202, 0
-  %or.cond14.i57 = or i1 %203, %or.cond.i56
-  br i1 %or.cond14.i57, label %204, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58
+163:                                              ; preds = %62
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 304
+  %167 = load i32, ptr %166, align 8
+  %168 = icmp sgt i32 %167, 6
+  %169 = icmp sgt i32 %167, 8
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 436
+  %171 = load i8, ptr %170, align 4
+  %172 = trunc i8 %171 to i1
+  %173 = and i64 %.sroa.04.0.i50, -7
+  %spec.select.i.i.i54 = icmp ne i64 %173, 0
+  %174 = and i64 %.sroa.04.0.i50, 2
+  %.not.i.not.i55 = icmp eq i64 %174, 0
+  %175 = and i64 %.sroa.04.0.i50, 6
+  %176 = icmp eq i64 %175, 2
+  %or.cond.i56 = and i1 %spec.select.i.i.i54, %176
+  %177 = and i64 %.sroa.04.0.i50, 1
+  %178 = icmp ne i64 %177, 0
+  %or.cond14.i57 = or i1 %178, %or.cond.i56
+  br i1 %or.cond14.i57, label %179, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58
 
-204:                                              ; preds = %188
-  %.not.i1.i69 = icmp eq i64 %202, 0
-  br i1 %.not.i1.i69, label %207, label %205
+179:                                              ; preds = %163
+  %.not.i1.i69 = icmp eq i64 %177, 0
+  br i1 %.not.i1.i69, label %182, label %180
 
-205:                                              ; preds = %204
-  %206 = lshr i64 %.sroa.04.0.i50, 3
+180:                                              ; preds = %179
+  %181 = lshr i64 %.sroa.04.0.i50, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
 
-207:                                              ; preds = %204
-  %208 = and i64 %.sroa.04.0.i50, 4
-  %.not1.i2.i70 = icmp eq i64 %208, 0
-  br i1 %.not1.i2.i70, label %212, label %209
+182:                                              ; preds = %179
+  %183 = and i64 %.sroa.04.0.i50, 4
+  %.not1.i2.i70 = icmp eq i64 %183, 0
+  br i1 %.not1.i2.i70, label %187, label %184
 
-209:                                              ; preds = %207
-  %210 = lshr i64 %.sroa.04.0.i50, 19
-  %211 = and i64 %210, 65535
-  %spec.select.i.i71 = select i1 %.not.i.not.i55, i64 %210, i64 %211
+184:                                              ; preds = %182
+  %185 = lshr i64 %.sroa.04.0.i50, 19
+  %186 = and i64 %185, 65535
+  %spec.select.i.i71 = select i1 %.not.i.not.i55, i64 %185, i64 %186
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
 
-212:                                              ; preds = %207
-  %213 = lshr i64 %.sroa.04.0.i50, 3
-  %214 = and i64 %213, 65535
+187:                                              ; preds = %182
+  %188 = lshr i64 %.sroa.04.0.i50, 3
+  %189 = and i64 %188, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58:  ; preds = %188
-  %215 = lshr i64 %.sroa.04.0.i50, 3
-  %.sroa.0.0.insert.ext.i.i.i59 = and i64 %215, 65535
-  %216 = select i1 %.not.i.not.i55, i64 2251799813685248, i64 576460752303423488
-  %217 = and i64 %216, %.sroa.04.0.i50
-  %.not1.i4.i60 = icmp ne i64 %217, 0
-  %218 = and i64 %.sroa.04.0.i50, 4
-  %.not1.i8.i61 = icmp eq i64 %218, 0
-  %219 = lshr i64 %.sroa.04.0.i50, 19
-  %220 = and i64 %219, 65535
-  %spec.select.i10.i62 = select i1 %.not.i.not.i55, i64 %219, i64 %220
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58:  ; preds = %163
+  %190 = lshr i64 %.sroa.04.0.i50, 3
+  %.sroa.0.0.insert.ext.i.i.i59 = and i64 %190, 65535
+  %191 = select i1 %.not.i.not.i55, i64 2251799813685248, i64 576460752303423488
+  %192 = and i64 %191, %.sroa.04.0.i50
+  %.not1.i4.i60 = icmp ne i64 %192, 0
+  %193 = and i64 %.sroa.04.0.i50, 4
+  %.not1.i8.i61 = icmp eq i64 %193, 0
+  %194 = lshr i64 %.sroa.04.0.i50, 19
+  %195 = and i64 %194, 65535
+  %spec.select.i10.i62 = select i1 %.not.i.not.i55, i64 %194, i64 %195
   %.0.in.i6.i63 = select i1 %.not1.i8.i61, i64 %.sroa.0.0.insert.ext.i.i.i59, i64 %spec.select.i10.i62
-  %221 = mul nuw nsw i64 %.0.in.i6.i63, %.sroa.0.0.insert.ext.i.i.i59
-  %222 = zext i1 %.not1.i4.i60 to i8
+  %196 = mul nuw nsw i64 %.0.in.i6.i63, %.sroa.0.0.insert.ext.i.i.i59
+  %197 = zext i1 %.not1.i4.i60 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit72:            ; preds = %205, %209, %212, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58
-  %.sroa.012.0.in.i64 = phi i64 [ %221, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58 ], [ %206, %205 ], [ %214, %212 ], [ %spec.select.i.i71, %209 ]
-  %.sroa.3.0.i65 = phi i8 [ %222, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58 ], [ 0, %205 ], [ 0, %212 ], [ 0, %209 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit72:            ; preds = %180, %184, %187, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58
+  %.sroa.012.0.in.i64 = phi i64 [ %196, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58 ], [ %181, %180 ], [ %189, %187 ], [ %spec.select.i.i71, %184 ]
+  %.sroa.3.0.i65 = phi i8 [ %197, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i58 ], [ 0, %180 ], [ 0, %187 ], [ 0, %184 ]
   %.sroa.012.0.i66 = and i64 %.sroa.012.0.in.i64, 4294967295
   store i64 %.sroa.012.0.i66, ptr %10, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %.sroa.3.0.i65, ptr %.sroa.220.0..sroa_idx, align 8
-  %223 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #19
-  %224 = icmp eq i64 %223, 256
-  br i1 %224, label %225, label %.critedge
+  %198 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #19
+  %199 = icmp eq i64 %198, 256
+  br i1 %199, label %200, label %.critedge
 
-225:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
-  br i1 %or.cond14.i, label %226, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77
+200:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit72
+  %201 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not13, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
 
-226:                                              ; preds = %225
-  %.not.i1.i88 = icmp eq i64 %54, 0
-  br i1 %.not.i1.i88, label %229, label %227
-
-227:                                              ; preds = %226
-  %228 = lshr i64 %.sroa.04.0.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77:  ; preds = %200
+  %.sroa.0.0.insert.ext.i.i.i78 = and i64 %201, 65535
+  %202 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %203 = and i64 %202, %.sroa.04.0.i
+  %.not1.i4.i79 = icmp ne i64 %203, 0
+  %204 = lshr i64 %.sroa.04.0.i, 19
+  %205 = and i64 %204, 65535
+  %spec.select.i10.i81 = select i1 %.not.i.not.i, i64 %204, i64 %205
+  %206 = mul nuw nsw i64 %spec.select.i10.i81, %.sroa.0.0.insert.ext.i.i.i78
+  %207 = zext i1 %.not1.i4.i79 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
 
-229:                                              ; preds = %226
-  %230 = lshr i64 %.sroa.04.0.i, 19
-  %231 = and i64 %230, 65535
-  %spec.select.i.i90 = select i1 %.not.i.not.i, i64 %230, i64 %231
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77:  ; preds = %225
-  %232 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i78 = and i64 %232, 65535
-  %233 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %234 = and i64 %233, %.sroa.04.0.i
-  %.not1.i4.i79 = icmp ne i64 %234, 0
-  %235 = lshr i64 %.sroa.04.0.i, 19
-  %236 = and i64 %235, 65535
-  %spec.select.i10.i81 = select i1 %.not.i.not.i, i64 %235, i64 %236
-  %237 = mul nuw nsw i64 %spec.select.i10.i81, %.sroa.0.0.insert.ext.i.i.i78
-  %238 = zext i1 %.not1.i4.i79 to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit91:            ; preds = %227, %229, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77
-  %.sroa.012.0.in.i83 = phi i64 [ %237, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77 ], [ %228, %227 ], [ %spec.select.i.i90, %229 ]
-  %.sroa.3.0.i84 = phi i8 [ %238, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77 ], [ 0, %227 ], [ 0, %229 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit91:            ; preds = %200, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77
+  %.sroa.012.0.in.i83 = phi i64 [ %206, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77 ], [ %201, %200 ]
+  %.sroa.3.0.i84 = phi i8 [ %207, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i77 ], [ 0, %200 ]
   %.sroa.012.0.i85 = and i64 %.sroa.012.0.in.i83, 4294967295
   store i64 %.sroa.012.0.i85, ptr %11, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %.sroa.3.0.i84, ptr %.sroa.216.0..sroa_idx, align 8
-  %239 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19
-  %240 = icmp eq i64 %239, 128
-  br i1 %240, label %241, label %.critedge
+  %208 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19
+  %209 = icmp eq i64 %208, 128
+  br i1 %209, label %210, label %.critedge
 
-241:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
-  %brmerge = select i1 %197, i1 true, i1 %193
-  %.mux = select i1 %197, i64 -283040, i64 -282944
-  br i1 %brmerge, label %296, label %326
+210:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
+  %brmerge = select i1 %172, i1 true, i1 %168
+  %.mux = select i1 %172, i64 -283040, i64 -282944
+  br i1 %brmerge, label %253, label %277
 
 .critedge:                                        ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit72, %_ZNK4llvm3LLT13getSizeInBitsEv.exit91
-  br i1 %or.cond14.i57, label %242, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96
+  br i1 %or.cond14.i57, label %211, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96
 
-242:                                              ; preds = %.critedge
-  %.not.i1.i107 = icmp eq i64 %202, 0
-  br i1 %.not.i1.i107, label %245, label %243
+211:                                              ; preds = %.critedge
+  %.not.i1.i107 = icmp eq i64 %177, 0
+  br i1 %.not.i1.i107, label %214, label %212
 
-243:                                              ; preds = %242
-  %244 = lshr i64 %.sroa.04.0.i50, 3
+212:                                              ; preds = %211
+  %213 = lshr i64 %.sroa.04.0.i50, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
 
-245:                                              ; preds = %242
-  %246 = and i64 %.sroa.04.0.i50, 4
-  %.not1.i2.i108 = icmp eq i64 %246, 0
-  br i1 %.not1.i2.i108, label %250, label %247
+214:                                              ; preds = %211
+  %215 = and i64 %.sroa.04.0.i50, 4
+  %.not1.i2.i108 = icmp eq i64 %215, 0
+  br i1 %.not1.i2.i108, label %219, label %216
 
-247:                                              ; preds = %245
-  %248 = lshr i64 %.sroa.04.0.i50, 19
-  %249 = and i64 %248, 65535
-  %spec.select.i.i109 = select i1 %.not.i.not.i55, i64 %248, i64 %249
+216:                                              ; preds = %214
+  %217 = lshr i64 %.sroa.04.0.i50, 19
+  %218 = and i64 %217, 65535
+  %spec.select.i.i109 = select i1 %.not.i.not.i55, i64 %217, i64 %218
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
 
-250:                                              ; preds = %245
-  %251 = lshr i64 %.sroa.04.0.i50, 3
-  %252 = and i64 %251, 65535
+219:                                              ; preds = %214
+  %220 = lshr i64 %.sroa.04.0.i50, 3
+  %221 = and i64 %220, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96:  ; preds = %.critedge
-  %253 = lshr i64 %.sroa.04.0.i50, 3
-  %.sroa.0.0.insert.ext.i.i.i97 = and i64 %253, 65535
-  %254 = select i1 %.not.i.not.i55, i64 2251799813685248, i64 576460752303423488
-  %255 = and i64 %254, %.sroa.04.0.i50
-  %.not1.i4.i98 = icmp ne i64 %255, 0
-  %256 = and i64 %.sroa.04.0.i50, 4
-  %.not1.i8.i99 = icmp eq i64 %256, 0
-  %257 = lshr i64 %.sroa.04.0.i50, 19
-  %258 = and i64 %257, 65535
-  %spec.select.i10.i100 = select i1 %.not.i.not.i55, i64 %257, i64 %258
+  %222 = lshr i64 %.sroa.04.0.i50, 3
+  %.sroa.0.0.insert.ext.i.i.i97 = and i64 %222, 65535
+  %223 = select i1 %.not.i.not.i55, i64 2251799813685248, i64 576460752303423488
+  %224 = and i64 %223, %.sroa.04.0.i50
+  %.not1.i4.i98 = icmp ne i64 %224, 0
+  %225 = and i64 %.sroa.04.0.i50, 4
+  %.not1.i8.i99 = icmp eq i64 %225, 0
+  %226 = lshr i64 %.sroa.04.0.i50, 19
+  %227 = and i64 %226, 65535
+  %spec.select.i10.i100 = select i1 %.not.i.not.i55, i64 %226, i64 %227
   %.0.in.i6.i101 = select i1 %.not1.i8.i99, i64 %.sroa.0.0.insert.ext.i.i.i97, i64 %spec.select.i10.i100
-  %259 = mul nuw nsw i64 %.0.in.i6.i101, %.sroa.0.0.insert.ext.i.i.i97
-  %260 = zext i1 %.not1.i4.i98 to i8
+  %228 = mul nuw nsw i64 %.0.in.i6.i101, %.sroa.0.0.insert.ext.i.i.i97
+  %229 = zext i1 %.not1.i4.i98 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit110:           ; preds = %243, %247, %250, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96
-  %.sroa.012.0.in.i102 = phi i64 [ %259, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96 ], [ %244, %243 ], [ %252, %250 ], [ %spec.select.i.i109, %247 ]
-  %.sroa.3.0.i103 = phi i8 [ %260, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96 ], [ 0, %243 ], [ 0, %250 ], [ 0, %247 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit110:           ; preds = %212, %216, %219, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96
+  %.sroa.012.0.in.i102 = phi i64 [ %228, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96 ], [ %213, %212 ], [ %221, %219 ], [ %spec.select.i.i109, %216 ]
+  %.sroa.3.0.i103 = phi i8 [ %229, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i96 ], [ 0, %212 ], [ 0, %219 ], [ 0, %216 ]
   %.sroa.012.0.i104 = and i64 %.sroa.012.0.in.i102, 4294967295
   store i64 %.sroa.012.0.i104, ptr %12, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 %.sroa.3.0.i103, ptr %.sroa.212.0..sroa_idx, align 8
-  %261 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %12) #19
-  %262 = icmp eq i64 %261, 512
-  %263 = and i1 %194, %262
-  br i1 %263, label %264, label %326
+  %230 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %12) #19
+  %231 = icmp eq i64 %230, 512
+  %232 = and i1 %169, %231
+  br i1 %232, label %233, label %277
 
-264:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
-  br i1 %or.cond14.i, label %265, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115
+233:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit110
+  %234 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not13, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
 
-265:                                              ; preds = %264
-  %.not.i1.i126 = icmp eq i64 %54, 0
-  br i1 %.not.i1.i126, label %268, label %266
-
-266:                                              ; preds = %265
-  %267 = lshr i64 %.sroa.04.0.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115: ; preds = %233
+  %.sroa.0.0.insert.ext.i.i.i116 = and i64 %234, 65535
+  %235 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %236 = and i64 %235, %.sroa.04.0.i
+  %.not1.i4.i117 = icmp ne i64 %236, 0
+  %237 = lshr i64 %.sroa.04.0.i, 19
+  %238 = and i64 %237, 65535
+  %spec.select.i10.i119 = select i1 %.not.i.not.i, i64 %237, i64 %238
+  %239 = mul nuw nsw i64 %spec.select.i10.i119, %.sroa.0.0.insert.ext.i.i.i116
+  %240 = zext i1 %.not1.i4.i117 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
 
-268:                                              ; preds = %265
-  %269 = lshr i64 %.sroa.04.0.i, 19
-  %270 = and i64 %269, 65535
-  %spec.select.i.i128 = select i1 %.not.i.not.i, i64 %269, i64 %270
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115: ; preds = %264
-  %271 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i116 = and i64 %271, 65535
-  %272 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %273 = and i64 %272, %.sroa.04.0.i
-  %.not1.i4.i117 = icmp ne i64 %273, 0
-  %274 = lshr i64 %.sroa.04.0.i, 19
-  %275 = and i64 %274, 65535
-  %spec.select.i10.i119 = select i1 %.not.i.not.i, i64 %274, i64 %275
-  %276 = mul nuw nsw i64 %spec.select.i10.i119, %.sroa.0.0.insert.ext.i.i.i116
-  %277 = zext i1 %.not1.i4.i117 to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit129:           ; preds = %266, %268, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115
-  %.sroa.012.0.in.i121 = phi i64 [ %276, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115 ], [ %267, %266 ], [ %spec.select.i.i128, %268 ]
-  %.sroa.3.0.i122 = phi i8 [ %277, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115 ], [ 0, %266 ], [ 0, %268 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit129:           ; preds = %233, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115
+  %.sroa.012.0.in.i121 = phi i64 [ %239, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115 ], [ %234, %233 ]
+  %.sroa.3.0.i122 = phi i8 [ %240, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i115 ], [ 0, %233 ]
   %.sroa.012.0.i123 = and i64 %.sroa.012.0.in.i121, 4294967295
   store i64 %.sroa.012.0.i123, ptr %13, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %.sroa.3.0.i122, ptr %.sroa.28.0..sroa_idx, align 8
-  %278 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #19
-  %279 = icmp eq i64 %278, 128
-  br i1 %279, label %296, label %280
+  %241 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #19
+  %242 = icmp eq i64 %241, 128
+  br i1 %242, label %253, label %243
 
-280:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
-  br i1 %or.cond14.i, label %281, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134
+243:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
+  %244 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not13, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit148
 
-281:                                              ; preds = %280
-  %.not.i1.i145 = icmp eq i64 %54, 0
-  br i1 %.not.i1.i145, label %284, label %282
-
-282:                                              ; preds = %281
-  %283 = lshr i64 %.sroa.04.0.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134: ; preds = %243
+  %.sroa.0.0.insert.ext.i.i.i135 = and i64 %244, 65535
+  %245 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %246 = and i64 %245, %.sroa.04.0.i
+  %.not1.i4.i136 = icmp ne i64 %246, 0
+  %247 = lshr i64 %.sroa.04.0.i, 19
+  %248 = and i64 %247, 65535
+  %spec.select.i10.i138 = select i1 %.not.i.not.i, i64 %247, i64 %248
+  %249 = mul nuw nsw i64 %spec.select.i10.i138, %.sroa.0.0.insert.ext.i.i.i135
+  %250 = zext i1 %.not1.i4.i136 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit148
 
-284:                                              ; preds = %281
-  %285 = lshr i64 %.sroa.04.0.i, 19
-  %286 = and i64 %285, 65535
-  %spec.select.i.i147 = select i1 %.not.i.not.i, i64 %285, i64 %286
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit148
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134: ; preds = %280
-  %287 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i135 = and i64 %287, 65535
-  %288 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %289 = and i64 %288, %.sroa.04.0.i
-  %.not1.i4.i136 = icmp ne i64 %289, 0
-  %290 = lshr i64 %.sroa.04.0.i, 19
-  %291 = and i64 %290, 65535
-  %spec.select.i10.i138 = select i1 %.not.i.not.i, i64 %290, i64 %291
-  %292 = mul nuw nsw i64 %spec.select.i10.i138, %.sroa.0.0.insert.ext.i.i.i135
-  %293 = zext i1 %.not1.i4.i136 to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit148
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit148:           ; preds = %282, %284, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134
-  %.sroa.012.0.in.i140 = phi i64 [ %292, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134 ], [ %283, %282 ], [ %spec.select.i.i147, %284 ]
-  %.sroa.3.0.i141 = phi i8 [ %293, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134 ], [ 0, %282 ], [ 0, %284 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit148:           ; preds = %243, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134
+  %.sroa.012.0.in.i140 = phi i64 [ %249, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134 ], [ %244, %243 ]
+  %.sroa.3.0.i141 = phi i8 [ %250, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i134 ], [ 0, %243 ]
   %.sroa.012.0.i142 = and i64 %.sroa.012.0.in.i140, 4294967295
   store i64 %.sroa.012.0.i142, ptr %14, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 %.sroa.3.0.i141, ptr %.sroa.24.0..sroa_idx, align 8
-  %294 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %14) #19
-  %295 = icmp eq i64 %294, 256
-  br i1 %295, label %296, label %326
+  %251 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %14) #19
+  %252 = icmp eq i64 %251, 256
+  br i1 %252, label %253, label %277
 
-296:                                              ; preds = %241, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148, %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
-  %.sink14 = phi i64 [ %.mux, %241 ], [ -283200, %_ZNK4llvm3LLT13getSizeInBitsEv.exit129 ], [ -283840, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148 ]
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 %.sink14
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %301) #19
-  br i1 %or.cond14.i, label %302, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153
+253:                                              ; preds = %210, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148, %_ZNK4llvm3LLT13getSizeInBitsEv.exit129
+  %.sink15 = phi i64 [ %.mux, %210 ], [ -283200, %_ZNK4llvm3LLT13getSizeInBitsEv.exit129 ], [ -283840, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148 ]
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 %.sink15
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %258) #19
+  %259 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not13, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit167
 
-302:                                              ; preds = %296
-  %.not.i1.i164 = icmp eq i64 %54, 0
-  br i1 %.not.i1.i164, label %305, label %303
-
-303:                                              ; preds = %302
-  %304 = lshr i64 %.sroa.04.0.i, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153: ; preds = %253
+  %.sroa.0.0.insert.ext.i.i.i154 = and i64 %259, 65535
+  %260 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %261 = and i64 %260, %.sroa.04.0.i
+  %.not1.i4.i155 = icmp ne i64 %261, 0
+  %262 = lshr i64 %.sroa.04.0.i, 19
+  %263 = and i64 %262, 65535
+  %spec.select.i10.i157 = select i1 %.not.i.not.i, i64 %262, i64 %263
+  %264 = mul nuw nsw i64 %spec.select.i10.i157, %.sroa.0.0.insert.ext.i.i.i154
+  %265 = zext i1 %.not1.i4.i155 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit167
 
-305:                                              ; preds = %302
-  %306 = lshr i64 %.sroa.04.0.i, 19
-  %307 = and i64 %306, 65535
-  %spec.select.i.i166 = select i1 %.not.i.not.i, i64 %306, i64 %307
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit167
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153: ; preds = %296
-  %308 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i154 = and i64 %308, 65535
-  %309 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %310 = and i64 %309, %.sroa.04.0.i
-  %.not1.i4.i155 = icmp ne i64 %310, 0
-  %311 = lshr i64 %.sroa.04.0.i, 19
-  %312 = and i64 %311, 65535
-  %spec.select.i10.i157 = select i1 %.not.i.not.i, i64 %311, i64 %312
-  %313 = mul nuw nsw i64 %spec.select.i10.i157, %.sroa.0.0.insert.ext.i.i.i154
-  %314 = zext i1 %.not1.i4.i155 to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit167
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit167:           ; preds = %303, %305, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153
-  %.sroa.012.0.in.i159 = phi i64 [ %313, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153 ], [ %304, %303 ], [ %spec.select.i.i166, %305 ]
-  %.sroa.3.0.i160 = phi i8 [ %314, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153 ], [ 0, %303 ], [ 0, %305 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit167:           ; preds = %253, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153
+  %.sroa.012.0.in.i159 = phi i64 [ %264, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153 ], [ %259, %253 ]
+  %.sroa.3.0.i160 = phi i8 [ %265, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i153 ], [ 0, %253 ]
   %.sroa.012.0.i161 = and i64 %.sroa.012.0.in.i159, 4294967295
   store i64 %.sroa.012.0.i161, ptr %15, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %.sroa.3.0.i160, ptr %.sroa.2.0..sroa_idx, align 8
-  %315 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %15) #19
-  %316 = udiv i64 %23, %315
-  %317 = load ptr, ptr %16, align 8
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 80
-  store i64 %316, ptr %318, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %324 = load ptr, ptr %323, align 8
-  %325 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(80) %320, ptr noundef nonnull align 8 dereferenceable(308) %322, ptr noundef nonnull align 8 dereferenceable(160) %324) #19
-  br label %326
+  %266 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %15) #19
+  %267 = udiv i64 %23, %266
+  %268 = load ptr, ptr %16, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 80
+  store i64 %267, ptr %269, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %275 = load ptr, ptr %274, align 8
+  %276 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(80) %271, ptr noundef nonnull align 8 dereferenceable(308) %273, ptr noundef nonnull align 8 dereferenceable(160) %275) #19
+  br label %277
 
-326:                                              ; preds = %241, %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit110, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51, %_ZNK4llvm3LLT13getSizeInBitsEv.exit167, %187
-  %.0 = phi i1 [ true, %187 ], [ %325, %_ZNK4llvm3LLT13getSizeInBitsEv.exit167 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit110 ], [ false, %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread ], [ false, %241 ]
+277:                                              ; preds = %210, %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit110, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51, %_ZNK4llvm3LLT13getSizeInBitsEv.exit167, %162
+  %.0 = phi i1 [ true, %162 ], [ %276, %_ZNK4llvm3LLT13getSizeInBitsEv.exit167 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit148 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit110 ], [ false, %_ZNK12_GLOBAL__N_122X86InstructionSelector17emitExtractSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE.exit.thread ], [ false, %210 ]
   ret i1 %.0
 }
 
@@ -9065,7 +8960,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54: ; preds = %_ZNK4llv
   %44 = and i64 %.sroa.04.0.i, 4
   %45 = icmp ne i64 %44, 0
   %46 = and i1 %spec.select.i.i, %45
-  br i1 %46, label %47, label %234
+  br i1 %46, label %47, label %219
 
 47:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54
   %48 = and i64 %.sroa.04.0.i53, -7
@@ -9130,7 +9025,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %55, %59, %62, %_ZNK
   %73 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #19
   %74 = urem i64 %20, %73
   %.not = icmp eq i64 %74, 0
-  br i1 %.not, label %75, label %234
+  br i1 %.not, label %75, label %219
 
 75:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
   %76 = icmp eq i64 %20, 0
@@ -9145,11 +9040,11 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %55, %59, %62, %_ZNK
 
 82:                                               ; preds = %77
   %83 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122X86InstructionSelector16emitInsertSubregEjjRN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1400) %0, i32 noundef %14, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(512) %2)
-  br i1 %83, label %84, label %234
+  br i1 %83, label %84, label %219
 
 84:                                               ; preds = %82
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #19
-  br label %234
+  br label %219
 
 85:                                               ; preds = %77, %75
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9163,333 +9058,302 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %55, %59, %62, %_ZNK
   %94 = trunc i8 %93 to i1
   %95 = and i64 %.sroa.04.0.i, 2
   %.not.i.not.i57 = icmp eq i64 %95, 0
-  %96 = and i64 %.sroa.04.0.i, 6
-  %97 = icmp eq i64 %96, 2
-  %98 = and i64 %.sroa.04.0.i, 1
-  %99 = icmp ne i64 %98, 0
-  %or.cond14.i59 = or i1 %99, %97
-  br i1 %or.cond14.i59, label %100, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60
-
-100:                                              ; preds = %85
-  %.not.i1.i71 = icmp eq i64 %98, 0
-  br i1 %.not.i1.i71, label %103, label %101
-
-101:                                              ; preds = %100
-  %102 = lshr i64 %.sroa.04.0.i, 3
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
-
-103:                                              ; preds = %100
-  %104 = lshr i64 %.sroa.04.0.i, 19
-  %105 = and i64 %104, 65535
-  %spec.select.i.i73 = select i1 %.not.i.not.i57, i64 %104, i64 %105
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
+  %96 = and i64 %.sroa.04.0.i, 1
+  %.not12 = icmp eq i64 %96, 0
+  %97 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not12, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60:  ; preds = %85
-  %106 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i61 = and i64 %106, 65535
-  %107 = select i1 %.not.i.not.i57, i64 2251799813685248, i64 576460752303423488
-  %108 = and i64 %107, %.sroa.04.0.i
-  %.not1.i4.i62 = icmp ne i64 %108, 0
-  %109 = lshr i64 %.sroa.04.0.i, 19
-  %110 = and i64 %109, 65535
-  %spec.select.i10.i64 = select i1 %.not.i.not.i57, i64 %109, i64 %110
-  %111 = mul nuw nsw i64 %spec.select.i10.i64, %.sroa.0.0.insert.ext.i.i.i61
-  %112 = zext i1 %.not1.i4.i62 to i8
+  %.sroa.0.0.insert.ext.i.i.i61 = and i64 %97, 65535
+  %98 = select i1 %.not.i.not.i57, i64 2251799813685248, i64 576460752303423488
+  %99 = and i64 %98, %.sroa.04.0.i
+  %.not1.i4.i62 = icmp ne i64 %99, 0
+  %100 = lshr i64 %.sroa.04.0.i, 19
+  %101 = and i64 %100, 65535
+  %spec.select.i10.i64 = select i1 %.not.i.not.i57, i64 %100, i64 %101
+  %102 = mul nuw nsw i64 %spec.select.i10.i64, %.sroa.0.0.insert.ext.i.i.i61
+  %103 = zext i1 %.not1.i4.i62 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit74:            ; preds = %101, %103, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60
-  %.sroa.012.0.in.i66 = phi i64 [ %111, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60 ], [ %102, %101 ], [ %spec.select.i.i73, %103 ]
-  %.sroa.3.0.i67 = phi i8 [ %112, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60 ], [ 0, %101 ], [ 0, %103 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit74:            ; preds = %85, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60
+  %.sroa.012.0.in.i66 = phi i64 [ %102, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60 ], [ %97, %85 ]
+  %.sroa.3.0.i67 = phi i8 [ %103, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i60 ], [ 0, %85 ]
   %.sroa.012.0.i68 = and i64 %.sroa.012.0.in.i66, 4294967295
   store i64 %.sroa.012.0.i68, ptr %5, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i67, ptr %.sroa.220.0..sroa_idx, align 8
-  %113 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #19
-  %114 = icmp eq i64 %113, 256
-  br i1 %114, label %115, label %.critedge
+  %104 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #19
+  %105 = icmp eq i64 %104, 256
+  br i1 %105, label %106, label %.critedge
 
-115:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
-  br i1 %or.cond14.i, label %116, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79
+106:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit74
+  br i1 %or.cond14.i, label %107, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79
 
-116:                                              ; preds = %115
+107:                                              ; preds = %106
   %.not.i1.i90 = icmp eq i64 %52, 0
-  br i1 %.not.i1.i90, label %119, label %117
+  br i1 %.not.i1.i90, label %110, label %108
 
-117:                                              ; preds = %116
-  %118 = lshr i64 %.sroa.04.0.i53, 3
+108:                                              ; preds = %107
+  %109 = lshr i64 %.sroa.04.0.i53, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
 
-119:                                              ; preds = %116
-  %120 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i2.i91 = icmp eq i64 %120, 0
-  br i1 %.not1.i2.i91, label %124, label %121
+110:                                              ; preds = %107
+  %111 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i2.i91 = icmp eq i64 %111, 0
+  br i1 %.not1.i2.i91, label %115, label %112
 
-121:                                              ; preds = %119
+112:                                              ; preds = %110
+  %113 = lshr i64 %.sroa.04.0.i53, 19
+  %114 = and i64 %113, 65535
+  %spec.select.i.i92 = select i1 %.not.i.not.i, i64 %113, i64 %114
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
+
+115:                                              ; preds = %110
+  %116 = lshr i64 %.sroa.04.0.i53, 3
+  %117 = and i64 %116, 65535
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
+
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79:  ; preds = %106
+  %118 = lshr i64 %.sroa.04.0.i53, 3
+  %.sroa.0.0.insert.ext.i.i.i80 = and i64 %118, 65535
+  %119 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %120 = and i64 %119, %.sroa.04.0.i53
+  %.not1.i4.i81 = icmp ne i64 %120, 0
+  %121 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i8.i82 = icmp eq i64 %121, 0
   %122 = lshr i64 %.sroa.04.0.i53, 19
   %123 = and i64 %122, 65535
-  %spec.select.i.i92 = select i1 %.not.i.not.i, i64 %122, i64 %123
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
-
-124:                                              ; preds = %119
-  %125 = lshr i64 %.sroa.04.0.i53, 3
-  %126 = and i64 %125, 65535
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79:  ; preds = %115
-  %127 = lshr i64 %.sroa.04.0.i53, 3
-  %.sroa.0.0.insert.ext.i.i.i80 = and i64 %127, 65535
-  %128 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %129 = and i64 %128, %.sroa.04.0.i53
-  %.not1.i4.i81 = icmp ne i64 %129, 0
-  %130 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i8.i82 = icmp eq i64 %130, 0
-  %131 = lshr i64 %.sroa.04.0.i53, 19
-  %132 = and i64 %131, 65535
-  %spec.select.i10.i83 = select i1 %.not.i.not.i, i64 %131, i64 %132
+  %spec.select.i10.i83 = select i1 %.not.i.not.i, i64 %122, i64 %123
   %.0.in.i6.i84 = select i1 %.not1.i8.i82, i64 %.sroa.0.0.insert.ext.i.i.i80, i64 %spec.select.i10.i83
-  %133 = mul nuw nsw i64 %.0.in.i6.i84, %.sroa.0.0.insert.ext.i.i.i80
-  %134 = zext i1 %.not1.i4.i81 to i8
+  %124 = mul nuw nsw i64 %.0.in.i6.i84, %.sroa.0.0.insert.ext.i.i.i80
+  %125 = zext i1 %.not1.i4.i81 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %117, %121, %124, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79
-  %.sroa.012.0.in.i85 = phi i64 [ %133, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79 ], [ %118, %117 ], [ %126, %124 ], [ %spec.select.i.i92, %121 ]
-  %.sroa.3.0.i86 = phi i8 [ %134, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79 ], [ 0, %117 ], [ 0, %124 ], [ 0, %121 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %108, %112, %115, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79
+  %.sroa.012.0.in.i85 = phi i64 [ %124, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79 ], [ %109, %108 ], [ %117, %115 ], [ %spec.select.i.i92, %112 ]
+  %.sroa.3.0.i86 = phi i8 [ %125, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i79 ], [ 0, %108 ], [ 0, %115 ], [ 0, %112 ]
   %.sroa.012.0.i87 = and i64 %.sroa.012.0.in.i85, 4294967295
   store i64 %.sroa.012.0.i87, ptr %6, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.sroa.3.0.i86, ptr %.sroa.216.0..sroa_idx, align 8
-  %135 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #19
-  %136 = icmp eq i64 %135, 128
-  br i1 %136, label %137, label %.critedge
+  %126 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #19
+  %127 = icmp eq i64 %126, 128
+  br i1 %127, label %128, label %.critedge
 
-137:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
+128:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
   %brmerge = select i1 %94, i1 true, i1 %90
   %.mux = select i1 %94, i64 -404288, i64 -404160
-  br i1 %brmerge, label %198, label %234
+  br i1 %brmerge, label %183, label %219
 
 .critedge:                                        ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit74, %_ZNK4llvm3LLT13getSizeInBitsEv.exit93
-  br i1 %or.cond14.i59, label %138, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98
-
-138:                                              ; preds = %.critedge
-  %.not.i1.i109 = icmp eq i64 %98, 0
-  br i1 %.not.i1.i109, label %141, label %139
-
-139:                                              ; preds = %138
-  %140 = lshr i64 %.sroa.04.0.i, 3
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
-
-141:                                              ; preds = %138
-  %142 = lshr i64 %.sroa.04.0.i, 19
-  %143 = and i64 %142, 65535
-  %spec.select.i.i111 = select i1 %.not.i.not.i57, i64 %142, i64 %143
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
+  %129 = lshr i64 %.sroa.04.0.i, 3
+  br i1 %.not12, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98:  ; preds = %.critedge
-  %144 = lshr i64 %.sroa.04.0.i, 3
-  %.sroa.0.0.insert.ext.i.i.i99 = and i64 %144, 65535
-  %145 = select i1 %.not.i.not.i57, i64 2251799813685248, i64 576460752303423488
-  %146 = and i64 %145, %.sroa.04.0.i
-  %.not1.i4.i100 = icmp ne i64 %146, 0
-  %147 = lshr i64 %.sroa.04.0.i, 19
-  %148 = and i64 %147, 65535
-  %spec.select.i10.i102 = select i1 %.not.i.not.i57, i64 %147, i64 %148
-  %149 = mul nuw nsw i64 %spec.select.i10.i102, %.sroa.0.0.insert.ext.i.i.i99
-  %150 = zext i1 %.not1.i4.i100 to i8
+  %.sroa.0.0.insert.ext.i.i.i99 = and i64 %129, 65535
+  %130 = select i1 %.not.i.not.i57, i64 2251799813685248, i64 576460752303423488
+  %131 = and i64 %130, %.sroa.04.0.i
+  %.not1.i4.i100 = icmp ne i64 %131, 0
+  %132 = lshr i64 %.sroa.04.0.i, 19
+  %133 = and i64 %132, 65535
+  %spec.select.i10.i102 = select i1 %.not.i.not.i57, i64 %132, i64 %133
+  %134 = mul nuw nsw i64 %spec.select.i10.i102, %.sroa.0.0.insert.ext.i.i.i99
+  %135 = zext i1 %.not1.i4.i100 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit112:           ; preds = %139, %141, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98
-  %.sroa.012.0.in.i104 = phi i64 [ %149, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98 ], [ %140, %139 ], [ %spec.select.i.i111, %141 ]
-  %.sroa.3.0.i105 = phi i8 [ %150, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98 ], [ 0, %139 ], [ 0, %141 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit112:           ; preds = %.critedge, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98
+  %.sroa.012.0.in.i104 = phi i64 [ %134, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98 ], [ %129, %.critedge ]
+  %.sroa.3.0.i105 = phi i8 [ %135, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i98 ], [ 0, %.critedge ]
   %.sroa.012.0.i106 = and i64 %.sroa.012.0.in.i104, 4294967295
   store i64 %.sroa.012.0.i106, ptr %7, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.sroa.3.0.i105, ptr %.sroa.212.0..sroa_idx, align 8
-  %151 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #19
-  %152 = icmp eq i64 %151, 512
-  %153 = and i1 %91, %152
-  br i1 %153, label %154, label %234
+  %136 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #19
+  %137 = icmp eq i64 %136, 512
+  %138 = and i1 %91, %137
+  br i1 %138, label %139, label %219
 
-154:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
-  br i1 %or.cond14.i, label %155, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117
+139:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit112
+  br i1 %or.cond14.i, label %140, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117
 
-155:                                              ; preds = %154
+140:                                              ; preds = %139
   %.not.i1.i128 = icmp eq i64 %52, 0
-  br i1 %.not.i1.i128, label %158, label %156
+  br i1 %.not.i1.i128, label %143, label %141
 
-156:                                              ; preds = %155
-  %157 = lshr i64 %.sroa.04.0.i53, 3
+141:                                              ; preds = %140
+  %142 = lshr i64 %.sroa.04.0.i53, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
 
-158:                                              ; preds = %155
-  %159 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i2.i129 = icmp eq i64 %159, 0
-  br i1 %.not1.i2.i129, label %163, label %160
+143:                                              ; preds = %140
+  %144 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i2.i129 = icmp eq i64 %144, 0
+  br i1 %.not1.i2.i129, label %148, label %145
 
-160:                                              ; preds = %158
-  %161 = lshr i64 %.sroa.04.0.i53, 19
-  %162 = and i64 %161, 65535
-  %spec.select.i.i130 = select i1 %.not.i.not.i, i64 %161, i64 %162
+145:                                              ; preds = %143
+  %146 = lshr i64 %.sroa.04.0.i53, 19
+  %147 = and i64 %146, 65535
+  %spec.select.i.i130 = select i1 %.not.i.not.i, i64 %146, i64 %147
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
 
-163:                                              ; preds = %158
-  %164 = lshr i64 %.sroa.04.0.i53, 3
-  %165 = and i64 %164, 65535
+148:                                              ; preds = %143
+  %149 = lshr i64 %.sroa.04.0.i53, 3
+  %150 = and i64 %149, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117: ; preds = %154
-  %166 = lshr i64 %.sroa.04.0.i53, 3
-  %.sroa.0.0.insert.ext.i.i.i118 = and i64 %166, 65535
-  %167 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %168 = and i64 %167, %.sroa.04.0.i53
-  %.not1.i4.i119 = icmp ne i64 %168, 0
-  %169 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i8.i120 = icmp eq i64 %169, 0
-  %170 = lshr i64 %.sroa.04.0.i53, 19
-  %171 = and i64 %170, 65535
-  %spec.select.i10.i121 = select i1 %.not.i.not.i, i64 %170, i64 %171
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117: ; preds = %139
+  %151 = lshr i64 %.sroa.04.0.i53, 3
+  %.sroa.0.0.insert.ext.i.i.i118 = and i64 %151, 65535
+  %152 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %153 = and i64 %152, %.sroa.04.0.i53
+  %.not1.i4.i119 = icmp ne i64 %153, 0
+  %154 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i8.i120 = icmp eq i64 %154, 0
+  %155 = lshr i64 %.sroa.04.0.i53, 19
+  %156 = and i64 %155, 65535
+  %spec.select.i10.i121 = select i1 %.not.i.not.i, i64 %155, i64 %156
   %.0.in.i6.i122 = select i1 %.not1.i8.i120, i64 %.sroa.0.0.insert.ext.i.i.i118, i64 %spec.select.i10.i121
-  %172 = mul nuw nsw i64 %.0.in.i6.i122, %.sroa.0.0.insert.ext.i.i.i118
-  %173 = zext i1 %.not1.i4.i119 to i8
+  %157 = mul nuw nsw i64 %.0.in.i6.i122, %.sroa.0.0.insert.ext.i.i.i118
+  %158 = zext i1 %.not1.i4.i119 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit131:           ; preds = %156, %160, %163, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117
-  %.sroa.012.0.in.i123 = phi i64 [ %172, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117 ], [ %157, %156 ], [ %165, %163 ], [ %spec.select.i.i130, %160 ]
-  %.sroa.3.0.i124 = phi i8 [ %173, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117 ], [ 0, %156 ], [ 0, %163 ], [ 0, %160 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit131:           ; preds = %141, %145, %148, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117
+  %.sroa.012.0.in.i123 = phi i64 [ %157, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117 ], [ %142, %141 ], [ %150, %148 ], [ %spec.select.i.i130, %145 ]
+  %.sroa.3.0.i124 = phi i8 [ %158, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i117 ], [ 0, %141 ], [ 0, %148 ], [ 0, %145 ]
   %.sroa.012.0.i125 = and i64 %.sroa.012.0.in.i123, 4294967295
   store i64 %.sroa.012.0.i125, ptr %8, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.3.0.i124, ptr %.sroa.28.0..sroa_idx, align 8
-  %174 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #19
-  %175 = icmp eq i64 %174, 128
-  br i1 %175, label %198, label %176
+  %159 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #19
+  %160 = icmp eq i64 %159, 128
+  br i1 %160, label %183, label %161
 
-176:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
-  br i1 %or.cond14.i, label %177, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136
+161:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
+  br i1 %or.cond14.i, label %162, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136
 
-177:                                              ; preds = %176
+162:                                              ; preds = %161
   %.not.i1.i147 = icmp eq i64 %52, 0
-  br i1 %.not.i1.i147, label %180, label %178
+  br i1 %.not.i1.i147, label %165, label %163
 
-178:                                              ; preds = %177
-  %179 = lshr i64 %.sroa.04.0.i53, 3
+163:                                              ; preds = %162
+  %164 = lshr i64 %.sroa.04.0.i53, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit150
 
-180:                                              ; preds = %177
-  %181 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i2.i148 = icmp eq i64 %181, 0
-  br i1 %.not1.i2.i148, label %185, label %182
+165:                                              ; preds = %162
+  %166 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i2.i148 = icmp eq i64 %166, 0
+  br i1 %.not1.i2.i148, label %170, label %167
 
-182:                                              ; preds = %180
-  %183 = lshr i64 %.sroa.04.0.i53, 19
-  %184 = and i64 %183, 65535
-  %spec.select.i.i149 = select i1 %.not.i.not.i, i64 %183, i64 %184
+167:                                              ; preds = %165
+  %168 = lshr i64 %.sroa.04.0.i53, 19
+  %169 = and i64 %168, 65535
+  %spec.select.i.i149 = select i1 %.not.i.not.i, i64 %168, i64 %169
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit150
 
-185:                                              ; preds = %180
-  %186 = lshr i64 %.sroa.04.0.i53, 3
-  %187 = and i64 %186, 65535
+170:                                              ; preds = %165
+  %171 = lshr i64 %.sroa.04.0.i53, 3
+  %172 = and i64 %171, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit150
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136: ; preds = %176
-  %188 = lshr i64 %.sroa.04.0.i53, 3
-  %.sroa.0.0.insert.ext.i.i.i137 = and i64 %188, 65535
-  %189 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %190 = and i64 %189, %.sroa.04.0.i53
-  %.not1.i4.i138 = icmp ne i64 %190, 0
-  %191 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i8.i139 = icmp eq i64 %191, 0
-  %192 = lshr i64 %.sroa.04.0.i53, 19
-  %193 = and i64 %192, 65535
-  %spec.select.i10.i140 = select i1 %.not.i.not.i, i64 %192, i64 %193
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136: ; preds = %161
+  %173 = lshr i64 %.sroa.04.0.i53, 3
+  %.sroa.0.0.insert.ext.i.i.i137 = and i64 %173, 65535
+  %174 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %175 = and i64 %174, %.sroa.04.0.i53
+  %.not1.i4.i138 = icmp ne i64 %175, 0
+  %176 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i8.i139 = icmp eq i64 %176, 0
+  %177 = lshr i64 %.sroa.04.0.i53, 19
+  %178 = and i64 %177, 65535
+  %spec.select.i10.i140 = select i1 %.not.i.not.i, i64 %177, i64 %178
   %.0.in.i6.i141 = select i1 %.not1.i8.i139, i64 %.sroa.0.0.insert.ext.i.i.i137, i64 %spec.select.i10.i140
-  %194 = mul nuw nsw i64 %.0.in.i6.i141, %.sroa.0.0.insert.ext.i.i.i137
-  %195 = zext i1 %.not1.i4.i138 to i8
+  %179 = mul nuw nsw i64 %.0.in.i6.i141, %.sroa.0.0.insert.ext.i.i.i137
+  %180 = zext i1 %.not1.i4.i138 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit150
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit150:           ; preds = %178, %182, %185, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136
-  %.sroa.012.0.in.i142 = phi i64 [ %194, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136 ], [ %179, %178 ], [ %187, %185 ], [ %spec.select.i.i149, %182 ]
-  %.sroa.3.0.i143 = phi i8 [ %195, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136 ], [ 0, %178 ], [ 0, %185 ], [ 0, %182 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit150:           ; preds = %163, %167, %170, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136
+  %.sroa.012.0.in.i142 = phi i64 [ %179, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136 ], [ %164, %163 ], [ %172, %170 ], [ %spec.select.i.i149, %167 ]
+  %.sroa.3.0.i143 = phi i8 [ %180, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i136 ], [ 0, %163 ], [ 0, %170 ], [ 0, %167 ]
   %.sroa.012.0.i144 = and i64 %.sroa.012.0.in.i142, 4294967295
   store i64 %.sroa.012.0.i144, ptr %9, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.3.0.i143, ptr %.sroa.24.0..sroa_idx, align 8
-  %196 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
-  %197 = icmp eq i64 %196, 256
-  br i1 %197, label %198, label %234
+  %181 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
+  %182 = icmp eq i64 %181, 256
+  br i1 %182, label %183, label %219
 
-198:                                              ; preds = %137, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150, %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
-  %.sink13 = phi i64 [ %.mux, %137 ], [ -404480, %_ZNK4llvm3LLT13getSizeInBitsEv.exit131 ], [ -405248, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150 ]
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 %.sink13
-  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %203) #19
-  br i1 %or.cond14.i, label %204, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155
+183:                                              ; preds = %128, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150, %_ZNK4llvm3LLT13getSizeInBitsEv.exit131
+  %.sink14 = phi i64 [ %.mux, %128 ], [ -404480, %_ZNK4llvm3LLT13getSizeInBitsEv.exit131 ], [ -405248, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150 ]
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 %.sink14
+  call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %188) #19
+  br i1 %or.cond14.i, label %189, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155
 
-204:                                              ; preds = %198
+189:                                              ; preds = %183
   %.not.i1.i166 = icmp eq i64 %52, 0
-  br i1 %.not.i1.i166, label %207, label %205
+  br i1 %.not.i1.i166, label %192, label %190
 
-205:                                              ; preds = %204
-  %206 = lshr i64 %.sroa.04.0.i53, 3
+190:                                              ; preds = %189
+  %191 = lshr i64 %.sroa.04.0.i53, 3
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit169
 
-207:                                              ; preds = %204
-  %208 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i2.i167 = icmp eq i64 %208, 0
-  br i1 %.not1.i2.i167, label %212, label %209
+192:                                              ; preds = %189
+  %193 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i2.i167 = icmp eq i64 %193, 0
+  br i1 %.not1.i2.i167, label %197, label %194
 
-209:                                              ; preds = %207
-  %210 = lshr i64 %.sroa.04.0.i53, 19
-  %211 = and i64 %210, 65535
-  %spec.select.i.i168 = select i1 %.not.i.not.i, i64 %210, i64 %211
+194:                                              ; preds = %192
+  %195 = lshr i64 %.sroa.04.0.i53, 19
+  %196 = and i64 %195, 65535
+  %spec.select.i.i168 = select i1 %.not.i.not.i, i64 %195, i64 %196
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit169
 
-212:                                              ; preds = %207
-  %213 = lshr i64 %.sroa.04.0.i53, 3
-  %214 = and i64 %213, 65535
+197:                                              ; preds = %192
+  %198 = lshr i64 %.sroa.04.0.i53, 3
+  %199 = and i64 %198, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit169
 
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155: ; preds = %198
-  %215 = lshr i64 %.sroa.04.0.i53, 3
-  %.sroa.0.0.insert.ext.i.i.i156 = and i64 %215, 65535
-  %216 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %217 = and i64 %216, %.sroa.04.0.i53
-  %.not1.i4.i157 = icmp ne i64 %217, 0
-  %218 = and i64 %.sroa.04.0.i53, 4
-  %.not1.i8.i158 = icmp eq i64 %218, 0
-  %219 = lshr i64 %.sroa.04.0.i53, 19
-  %220 = and i64 %219, 65535
-  %spec.select.i10.i159 = select i1 %.not.i.not.i, i64 %219, i64 %220
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155: ; preds = %183
+  %200 = lshr i64 %.sroa.04.0.i53, 3
+  %.sroa.0.0.insert.ext.i.i.i156 = and i64 %200, 65535
+  %201 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %202 = and i64 %201, %.sroa.04.0.i53
+  %.not1.i4.i157 = icmp ne i64 %202, 0
+  %203 = and i64 %.sroa.04.0.i53, 4
+  %.not1.i8.i158 = icmp eq i64 %203, 0
+  %204 = lshr i64 %.sroa.04.0.i53, 19
+  %205 = and i64 %204, 65535
+  %spec.select.i10.i159 = select i1 %.not.i.not.i, i64 %204, i64 %205
   %.0.in.i6.i160 = select i1 %.not1.i8.i158, i64 %.sroa.0.0.insert.ext.i.i.i156, i64 %spec.select.i10.i159
-  %221 = mul nuw nsw i64 %.0.in.i6.i160, %.sroa.0.0.insert.ext.i.i.i156
-  %222 = zext i1 %.not1.i4.i157 to i8
+  %206 = mul nuw nsw i64 %.0.in.i6.i160, %.sroa.0.0.insert.ext.i.i.i156
+  %207 = zext i1 %.not1.i4.i157 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit169
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit169:           ; preds = %205, %209, %212, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155
-  %.sroa.012.0.in.i161 = phi i64 [ %221, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155 ], [ %206, %205 ], [ %214, %212 ], [ %spec.select.i.i168, %209 ]
-  %.sroa.3.0.i162 = phi i8 [ %222, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155 ], [ 0, %205 ], [ 0, %212 ], [ 0, %209 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit169:           ; preds = %190, %194, %197, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155
+  %.sroa.012.0.in.i161 = phi i64 [ %206, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155 ], [ %191, %190 ], [ %199, %197 ], [ %spec.select.i.i168, %194 ]
+  %.sroa.3.0.i162 = phi i8 [ %207, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i155 ], [ 0, %190 ], [ 0, %197 ], [ 0, %194 ]
   %.sroa.012.0.i163 = and i64 %.sroa.012.0.in.i161, 4294967295
   store i64 %.sroa.012.0.i163, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %.sroa.3.0.i162, ptr %.sroa.2.0..sroa_idx, align 8
-  %223 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #19
-  %224 = udiv i64 %20, %223
-  %225 = load ptr, ptr %11, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 112
-  store i64 %224, ptr %226, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %232 = load ptr, ptr %231, align 8
-  %233 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(80) %228, ptr noundef nonnull align 8 dereferenceable(308) %230, ptr noundef nonnull align 8 dereferenceable(160) %232) #19
-  br label %234
+  %208 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #19
+  %209 = udiv i64 %20, %208
+  %210 = load ptr, ptr %11, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 112
+  store i64 %209, ptr %211, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %217 = load ptr, ptr %216, align 8
+  %218 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(80) %213, ptr noundef nonnull align 8 dereferenceable(308) %215, ptr noundef nonnull align 8 dereferenceable(160) %217) #19
+  br label %219
 
-234:                                              ; preds = %137, %_ZNK4llvm3LLT13getSizeInBitsEv.exit112, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150, %82, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54, %_ZNK4llvm3LLT13getSizeInBitsEv.exit169, %84
-  %.0 = phi i1 [ true, %84 ], [ %233, %_ZNK4llvm3LLT13getSizeInBitsEv.exit169 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ false, %82 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit112 ], [ false, %137 ]
+219:                                              ; preds = %128, %_ZNK4llvm3LLT13getSizeInBitsEv.exit112, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150, %82, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54, %_ZNK4llvm3LLT13getSizeInBitsEv.exit169, %84
+  %.0 = phi i1 [ true, %84 ], [ %218, %_ZNK4llvm3LLT13getSizeInBitsEv.exit169 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ false, %82 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit150 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit112 ], [ false, %128 ]
   ret i1 %.0
 }
 
@@ -21207,203 +21071,172 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit30: ; preds = %_ZNK4llv
 43:                                               ; preds = %38
   %44 = and i64 %.sroa.04.0.i29, 2
   %.not.i.not.i = icmp eq i64 %44, 0
-  %45 = and i64 %.sroa.04.0.i29, 6
-  %46 = icmp eq i64 %45, 2
-  %47 = and i64 %.sroa.04.0.i29, 1
-  %48 = icmp ne i64 %47, 0
-  %or.cond14.i = or i1 %48, %46
-  br i1 %or.cond14.i, label %49, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
-
-49:                                               ; preds = %43
-  %.not.i1.i = icmp eq i64 %47, 0
-  br i1 %.not.i1.i, label %52, label %50
-
-50:                                               ; preds = %49
-  %51 = lshr i64 %.sroa.04.0.i29, 3
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-
-52:                                               ; preds = %49
-  %53 = lshr i64 %.sroa.04.0.i29, 19
-  %54 = and i64 %53, 65535
-  %spec.select.i.i32 = select i1 %.not.i.not.i, i64 %53, i64 %54
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %45 = and i64 %.sroa.04.0.i29, 1
+  %.not16 = icmp eq i64 %45, 0
+  %46 = lshr i64 %.sroa.04.0.i29, 3
+  br i1 %.not16, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i:    ; preds = %43
-  %55 = lshr i64 %.sroa.04.0.i29, 3
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %55, 65535
-  %56 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %57 = and i64 %56, %.sroa.04.0.i29
-  %.not1.i4.i = icmp ne i64 %57, 0
-  %58 = lshr i64 %.sroa.04.0.i29, 19
-  %59 = and i64 %58, 65535
-  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %58, i64 %59
-  %60 = mul nuw nsw i64 %spec.select.i10.i, %.sroa.0.0.insert.ext.i.i.i
-  %61 = zext i1 %.not1.i4.i to i8
+  %.sroa.0.0.insert.ext.i.i.i = and i64 %46, 65535
+  %47 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %48 = and i64 %47, %.sroa.04.0.i29
+  %.not1.i4.i = icmp ne i64 %48, 0
+  %49 = lshr i64 %.sroa.04.0.i29, 19
+  %50 = and i64 %49, 65535
+  %spec.select.i10.i = select i1 %.not.i.not.i, i64 %49, i64 %50
+  %51 = mul nuw nsw i64 %spec.select.i10.i, %.sroa.0.0.insert.ext.i.i.i
+  %52 = zext i1 %.not1.i4.i to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %50, %52, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
-  %.sroa.012.0.in.i = phi i64 [ %60, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %51, %50 ], [ %spec.select.i.i32, %52 ]
-  %.sroa.3.0.i = phi i8 [ %61, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %50 ], [ 0, %52 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %43, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i
+  %.sroa.012.0.in.i = phi i64 [ %51, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ %46, %43 ]
+  %.sroa.3.0.i = phi i8 [ %52, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %43 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %8, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.27.0..sroa_idx, align 8
-  %62 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #19
-  %63 = icmp eq i64 %62, 128
-  br i1 %63, label %80, label %64
+  %53 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #19
+  %54 = icmp eq i64 %53, 128
+  br i1 %54, label %65, label %55
 
-64:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  br i1 %or.cond14.i, label %65, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37
+55:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %56 = lshr i64 %.sroa.04.0.i29, 3
+  br i1 %.not16, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit51
 
-65:                                               ; preds = %64
-  %.not.i1.i48 = icmp eq i64 %47, 0
-  br i1 %.not.i1.i48, label %68, label %66
-
-66:                                               ; preds = %65
-  %67 = lshr i64 %.sroa.04.0.i29, 3
+_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37:  ; preds = %55
+  %.sroa.0.0.insert.ext.i.i.i38 = and i64 %56, 65535
+  %57 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
+  %58 = and i64 %57, %.sroa.04.0.i29
+  %.not1.i4.i39 = icmp ne i64 %58, 0
+  %59 = lshr i64 %.sroa.04.0.i29, 19
+  %60 = and i64 %59, 65535
+  %spec.select.i10.i41 = select i1 %.not.i.not.i, i64 %59, i64 %60
+  %61 = mul nuw nsw i64 %spec.select.i10.i41, %.sroa.0.0.insert.ext.i.i.i38
+  %62 = zext i1 %.not1.i4.i39 to i8
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit51
 
-68:                                               ; preds = %65
-  %69 = lshr i64 %.sroa.04.0.i29, 19
-  %70 = and i64 %69, 65535
-  %spec.select.i.i50 = select i1 %.not.i.not.i, i64 %69, i64 %70
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit51
-
-_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37:  ; preds = %64
-  %71 = lshr i64 %.sroa.04.0.i29, 3
-  %.sroa.0.0.insert.ext.i.i.i38 = and i64 %71, 65535
-  %72 = select i1 %.not.i.not.i, i64 2251799813685248, i64 576460752303423488
-  %73 = and i64 %72, %.sroa.04.0.i29
-  %.not1.i4.i39 = icmp ne i64 %73, 0
-  %74 = lshr i64 %.sroa.04.0.i29, 19
-  %75 = and i64 %74, 65535
-  %spec.select.i10.i41 = select i1 %.not.i.not.i, i64 %74, i64 %75
-  %76 = mul nuw nsw i64 %spec.select.i10.i41, %.sroa.0.0.insert.ext.i.i.i38
-  %77 = zext i1 %.not1.i4.i39 to i8
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit51
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit51:            ; preds = %66, %68, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37
-  %.sroa.012.0.in.i43 = phi i64 [ %76, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37 ], [ %67, %66 ], [ %spec.select.i.i50, %68 ]
-  %.sroa.3.0.i44 = phi i8 [ %77, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37 ], [ 0, %66 ], [ 0, %68 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit51:            ; preds = %55, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37
+  %.sroa.012.0.in.i43 = phi i64 [ %61, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37 ], [ %56, %55 ]
+  %.sroa.3.0.i44 = phi i8 [ %62, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i37 ], [ 0, %55 ]
   %.sroa.012.0.i45 = and i64 %.sroa.012.0.in.i43, 4294967295
   store i64 %.sroa.012.0.i45, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.3.0.i44, ptr %.sroa.2.0..sroa_idx, align 8
-  %78 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
-  %79 = icmp eq i64 %78, 256
-  br i1 %79, label %80, label %_ZN4llvm8DebugLocD2Ev.exit
+  %63 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
+  %64 = icmp eq i64 %63, 256
+  br i1 %64, label %65, label %_ZN4llvm8DebugLocD2Ev.exit
 
-80:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit51, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+65:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit51, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
   %.027 = phi i32 [ 285214976, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 285215232, %_ZNK4llvm3LLT13getSizeInBitsEv.exit51 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %84 = load ptr, ptr %83, align 8
-  %85 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %82, i32 %2, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef nonnull align 8 dereferenceable(308) %84) #19
-  %86 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i29, ptr noundef nonnull align 8 dereferenceable(24) %85)
-  %87 = load ptr, ptr %81, align 8
-  %88 = load ptr, ptr %83, align 8
-  %89 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %87, i32 %1, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef nonnull align 8 dereferenceable(308) %88) #19
-  %90 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i, ptr noundef nonnull align 8 dereferenceable(24) %89)
-  %91 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 8 dereferenceable(512) %4) #19
-  %.not = icmp eq ptr %91, null
-  br i1 %.not, label %_ZN4llvm8DebugLocD2Ev.exit, label %92
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %67, i32 %2, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef nonnull align 8 dereferenceable(308) %69) #19
+  %71 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i29, ptr noundef nonnull align 8 dereferenceable(24) %70)
+  %72 = load ptr, ptr %66, align 8
+  %73 = load ptr, ptr %68, align 8
+  %74 = call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %72, i32 %1, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef nonnull align 8 dereferenceable(308) %73) #19
+  %75 = call fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_122X86InstructionSelector11getRegClassEN4llvm3LLTERKNS1_12RegisterBankE(ptr noundef nonnull readonly align 8 dereferenceable(1400) %0, i64 %.sroa.04.0.i, ptr noundef nonnull align 8 dereferenceable(24) %74)
+  %76 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(512) %4) #19
+  %.not = icmp eq ptr %76, null
+  br i1 %.not, label %_ZN4llvm8DebugLocD2Ev.exit, label %77
 
-92:                                               ; preds = %80
-  %93 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %1, ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(512) %4) #19
-  %.not28 = icmp eq ptr %93, null
-  br i1 %.not28, label %_ZN4llvm8DebugLocD2Ev.exit, label %94
+77:                                               ; preds = %65
+  %78 = call noundef ptr @_ZN4llvm16RegisterBankInfo24constrainGenericRegisterENS_8RegisterERKNS_19TargetRegisterClassERNS_19MachineRegisterInfoE(i32 %1, ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(512) %4) #19
+  %.not28 = icmp eq ptr %78, null
+  br i1 %.not28, label %_ZN4llvm8DebugLocD2Ev.exit, label %79
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %98, null
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split, label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
-_ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %94
-  %99 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %98, i64 1) #19
+_ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %79
+  %84 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %83, i64 1) #19
   %.pr = load ptr, ptr %11, align 8
   store ptr %.pr, ptr %10, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, label %100
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, label %85
 
-100:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
-  %101 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %.pr, ptr noundef nonnull align 8 dereferenceable(24) %10) #19
+85:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
+  %86 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %.pr, ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split
 
-_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split: ; preds = %94, %100
-  %.sink = phi ptr [ %11, %100 ], [ %10, %94 ]
+_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split: ; preds = %79, %85
+  %.sink = phi ptr [ %11, %85 ], [ %10, %79 ]
   store ptr null, ptr %.sink, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit
-  %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 -608
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 4
-  %.not.i = icmp eq i32 %110, 0
-  br i1 %.not.i, label %113, label %111
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 -608
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %94 = load i32, ptr %93, align 4
+  %95 = and i32 %94, 4
+  %.not.i = icmp eq i32 %95, 0
+  br i1 %.not.i, label %98, label %96
 
-111:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
-  %112 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %96, ptr nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %107)
+96:                                               ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
+  %97 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %81, ptr nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %92)
   br label %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit
 
-113:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
-  %114 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %96, ptr nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %107)
+98:                                               ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
+  %99 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %81, ptr nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %92)
   br label %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit
 
-_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit: ; preds = %111, %113
-  %.pn.i = phi { ptr, ptr } [ %112, %111 ], [ %114, %113 ]
-  %115 = extractvalue { ptr, ptr } %.pn.i, 0
-  %116 = extractvalue { ptr, ptr } %.pn.i, 1
+_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit: ; preds = %96, %98
+  %.pn.i = phi { ptr, ptr } [ %97, %96 ], [ %99, %98 ]
+  %100 = extractvalue { ptr, ptr } %.pn.i, 0
+  %101 = extractvalue { ptr, ptr } %.pn.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %117, align 8, !alias.scope !319
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %1, ptr %118, align 4, !alias.scope !319
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false), !alias.scope !319
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr null, ptr %102, align 8, !alias.scope !319
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %1, ptr %103, align 4, !alias.scope !319
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false), !alias.scope !319
   store i32 %.027, ptr %7, align 8, !alias.scope !319
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %116, ptr noundef nonnull align 8 dereferenceable(1041) %115, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %101, ptr noundef nonnull align 8 dereferenceable(1041) %100, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %120, align 8, !alias.scope !322
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %121, align 4, !alias.scope !322
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false), !alias.scope !322
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %105, align 8, !alias.scope !322
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %2, ptr %106, align 4, !alias.scope !322
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false), !alias.scope !322
   store i32 0, ptr %6, align 8, !alias.scope !322
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %116, ptr noundef nonnull align 8 dereferenceable(1041) %115, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %101, ptr noundef nonnull align 8 dereferenceable(1041) %100, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %123 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i.i52 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i.i.i52, label %_ZN4llvm10MIMetadataD2Ev.exit, label %124
+  %108 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i52 = icmp eq ptr %108, null
+  br i1 %.not.i.i.i.i.i52, label %_ZN4llvm10MIMetadataD2Ev.exit, label %109
 
-124:                                              ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(8) %123) #19
+109:                                              ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(8) %108) #19
   br label %_ZN4llvm10MIMetadataD2Ev.exit
 
-_ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit, %124
-  %125 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i53 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i53, label %_ZN4llvm8DebugLocD2Ev.exit, label %126
+_ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm7BuildMIERNS_17MachineBasicBlockERNS_12MachineInstrERKNS_10MIMetadataERKNS_11MCInstrDescE.exit, %109
+  %110 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i53 = icmp eq ptr %110, null
+  br i1 %.not.i.i.i.i53, label %_ZN4llvm8DebugLocD2Ev.exit, label %111
 
-126:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %125) #19
+111:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %110) #19
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %126, %_ZN4llvm10MIMetadataD2Ev.exit, %80, %92, %_ZNK4llvm3LLT13getSizeInBitsEv.exit51, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit30, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit30 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit51 ], [ false, %92 ], [ false, %80 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit ], [ true, %126 ]
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %111, %_ZN4llvm10MIMetadataD2Ev.exit, %65, %77, %_ZNK4llvm3LLT13getSizeInBitsEv.exit51, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit30, %38
+  %.0 = phi i1 [ false, %38 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit30 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit51 ], [ false, %77 ], [ false, %65 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit ], [ true, %111 ]
   ret i1 %.0
 }
 
