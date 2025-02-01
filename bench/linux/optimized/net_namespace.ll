@@ -1278,74 +1278,74 @@ get_net_ns_by_fd.exit:                            ; preds = %42, %70, %74
   br label %147
 
 106:                                              ; preds = %93
-  %107 = icmp sgt i32 %29, -1
-  %108 = select i1 %107, i32 %29, i32 0
-  %109 = call i32 @llvm.smax.i32(i32 %29, i32 -1)
-  %110 = add i32 %109, 1
-  %111 = call i32 @idr_alloc(ptr noundef nonnull %95, ptr noundef %82, i32 noundef %108, i32 noundef %110, i32 noundef 2080) #17
+  %107 = call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %108 = call i32 @llvm.smax.i32(i32 %29, i32 -1)
+  %109 = add i32 %108, 1
+  %110 = call i32 @idr_alloc(ptr noundef nonnull %95, ptr noundef %82, i32 noundef %107, i32 noundef %109, i32 noundef 2080) #17
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %94) #17
-  %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %113, label %137
+  %111 = icmp sgt i32 %110, -1
+  br i1 %111, label %112, label %136
 
-113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %115 = load i32, ptr %114, align 4
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %114 = load i32, ptr %113, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %115, ptr %4, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %118 = icmp eq ptr %1, null
-  br i1 %118, label %122, label %119
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %114, ptr %4, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %117 = icmp eq ptr %1, null
+  br i1 %117, label %121, label %118
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %121 = load i32, ptr %120, align 4
-  br label %122
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %120 = load i32, ptr %119, align 4
+  br label %121
 
-122:                                              ; preds = %119, %113
-  %123 = phi i32 [ %121, %119 ], [ 0, %113 ]
-  store i32 %123, ptr %117, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 88, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %111, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %127, align 4
-  %128 = call ptr @__alloc_skb(i32 noundef 36, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #17
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %135, label %130
+121:                                              ; preds = %118, %112
+  %122 = phi i32 [ %120, %118 ], [ 0, %112 ]
+  store i32 %122, ptr %116, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %123, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 88, ptr %124, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %110, ptr %125, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 0, ptr %126, align 4
+  %127 = call ptr @__alloc_skb(i32 noundef 36, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #17
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %134, label %129
 
-130:                                              ; preds = %122
-  store i32 0, ptr %116, align 4, !annotation !14
-  %131 = call fastcc i32 @rtnl_net_fill(ptr noundef nonnull %128, ptr noundef nonnull %4), !range !15
-  %132 = icmp slt i32 %131, 0
-  br i1 %132, label %134, label %133
+129:                                              ; preds = %121
+  store i32 0, ptr %115, align 4, !annotation !14
+  %130 = call fastcc i32 @rtnl_net_fill(ptr noundef nonnull %127, ptr noundef nonnull %4), !range !15
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %133, label %132
 
-133:                                              ; preds = %130
-  call void @rtnl_notify(ptr noundef nonnull %128, ptr noundef %9, i32 noundef %115, i32 noundef 28, ptr noundef %1, i32 noundef 3264) #17
+132:                                              ; preds = %129
+  call void @rtnl_notify(ptr noundef nonnull %127, ptr noundef %9, i32 noundef %114, i32 noundef 28, ptr noundef %1, i32 noundef 3264) #17
   br label %rtnl_net_notifyid.exit
 
-134:                                              ; preds = %130
-  call void @kfree_skb_reason(ptr noundef nonnull %128, i32 noundef 2) #17
-  br label %135
+133:                                              ; preds = %129
+  call void @kfree_skb_reason(ptr noundef nonnull %127, i32 noundef 2) #17
+  br label %134
 
-135:                                              ; preds = %134, %122
-  %136 = phi i32 [ %131, %134 ], [ -12, %122 ]
-  call void @rtnl_set_sk_err(ptr noundef %9, i32 noundef 28, i32 noundef %136) #17
+134:                                              ; preds = %133, %121
+  %135 = phi i32 [ %130, %133 ], [ -12, %121 ]
+  call void @rtnl_set_sk_err(ptr noundef %9, i32 noundef 28, i32 noundef %135) #17
   br label %rtnl_net_notifyid.exit
 
-rtnl_net_notifyid.exit:                           ; preds = %133, %135
+rtnl_net_notifyid.exit:                           ; preds = %132, %134
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #17
   br label %147
 
-137:                                              ; preds = %106
-  %138 = icmp eq i32 %111, -28
-  %139 = and i1 %107, %138
+136:                                              ; preds = %106
+  %137 = icmp sgt i32 %29, -1
+  %138 = icmp eq i32 %110, -28
+  %139 = and i1 %137, %138
   br i1 %139, label %140, label %147
 
-140:                                              ; preds = %137
+140:                                              ; preds = %136
   %141 = icmp eq ptr %2, null
   br i1 %141, label %146, label %142
 
@@ -1363,8 +1363,8 @@ rtnl_net_notifyid.exit:                           ; preds = %133, %135
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_net_newid.__msg.18) #17
   br label %147
 
-147:                                              ; preds = %146, %142, %137, %rtnl_net_notifyid.exit, %105, %102
-  %148 = phi i32 [ 0, %rtnl_net_notifyid.exit ], [ %111, %137 ], [ -17, %105 ], [ -17, %102 ], [ -17, %146 ], [ -17, %142 ]
+147:                                              ; preds = %146, %142, %136, %rtnl_net_notifyid.exit, %105, %102
+  %148 = phi i32 [ 0, %rtnl_net_notifyid.exit ], [ %110, %136 ], [ -17, %105 ], [ -17, %102 ], [ -17, %146 ], [ -17, %142 ]
   %149 = getelementptr inbounds nuw i8, ptr %82, i64 140
   %150 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 -1, ptr nonnull elementtype(i32) %149) #17, !srcloc !12
   %151 = icmp eq i32 %150, 1

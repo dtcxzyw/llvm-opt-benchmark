@@ -7700,7 +7700,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit.i.i1806: ; preds = %3631, %3624, %
 
 3651:                                             ; preds = %.noexc714
   %3652 = icmp slt i32 %3650, 0
-  %spec.select.i = select i1 %3652, i32 -1, i32 %3650
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %3650, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
   %3653 = load i32, ptr %464, align 4
   %3654 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -9356,15 +9356,15 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i792: ;
 
 .loopexit3551:                                    ; preds = %4478, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i796, %.loopexit.i783
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
-  %4486 = sext i32 %spec.select.i to i64
+  %4486 = zext nneg i32 %spec.select.i to i64
   %4487 = load ptr, ptr %581, align 8
-  %4488 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %4487, i64 %4486, i32 0, i32 1
+  %4488 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %4487, i64 %4486, i32 0, i32 1
   %4489 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %3450, ptr noundef nonnull align 4 dereferenceable(4) %4488)
           to label %4490 unwind label %.loopexit3571
 
 4490:                                             ; preds = %.loopexit3551
   %4491 = load ptr, ptr %581, align 8
-  %4492 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %4491, i64 %4486, i32 0, i32 1, i32 1
+  %4492 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %4491, i64 %4486, i32 0, i32 1, i32 1
   %4493 = load i32, ptr %4492, align 4
   %4494 = getelementptr inbounds nuw i8, ptr %4489, i64 16
   %4495 = load ptr, ptr %4494, align 8
@@ -10455,7 +10455,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit.i.i1915: ; preds = %5020, %5013, %
 
 5039:                                             ; preds = %.noexc867
   %5040 = icmp slt i32 %5038, 0
-  %spec.select.i863 = select i1 %5040, i32 -1, i32 %5038
+  %spec.select.i863 = call i32 @llvm.smax.i32(i32 %5038, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
   %5041 = load i32, ptr %471, align 4
   %5042 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
@@ -10888,15 +10888,15 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i885: ;
   br i1 %5266, label %.lr.ph.i.split.i883, label %.critedge2, !llvm.loop !74
 
 .loopexit3543:                                    ; preds = %5260, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i889
-  %5267 = sext i32 %spec.select.i863 to i64
+  %5267 = zext nneg i32 %spec.select.i863 to i64
   %5268 = load ptr, ptr %591, align 8
-  %5269 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %5268, i64 %5267, i32 0, i32 1
+  %5269 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %5268, i64 %5267, i32 0, i32 1
   %5270 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %3450, ptr noundef nonnull align 4 dereferenceable(4) %5269)
           to label %5271 unwind label %.loopexit3571
 
 5271:                                             ; preds = %.loopexit3543
   %5272 = load ptr, ptr %591, align 8
-  %5273 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %5272, i64 %5267, i32 0, i32 1, i32 1
+  %5273 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<std::pair<Yosys::RTLIL::IdString, std::pair<Yosys::RTLIL::IdString, int>>, std::pair<Yosys::RTLIL::IdString, int>>::entry_t", ptr %5272, i64 %5267, i32 0, i32 1, i32 1
   %5274 = load i32, ptr %5273, align 4
   %5275 = getelementptr inbounds nuw i8, ptr %5270, i64 16
   %5276 = load ptr, ptr %5275, align 8
@@ -27330,6 +27330,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

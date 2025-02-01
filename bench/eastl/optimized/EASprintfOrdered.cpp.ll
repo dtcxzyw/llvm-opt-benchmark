@@ -181,8 +181,7 @@ sw.bb.i:                                          ; preds = %if.then63.i, %if.th
   %add.ptr73.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
   %mpEnd76.i = getelementptr inbounds nuw i8, ptr %arrayidx65.i, i64 8
   store ptr %add.ptr73.i, ptr %mpEnd76.i, align 8, !noalias !8
-  %cmp80.not.i = icmp eq i32 %nFormatLength.0.i, 15
-  %cond.i = select i1 %cmp80.not.i, i32 15, i32 %inc67.i
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %inc67.i, i32 15)
   %idxprom81.i = sext i32 %cond.i to i64
   %arrayidx82.i = getelementptr inbounds [16 x i8], ptr %mFormat66.i, i64 0, i64 %idxprom81.i
   store i8 0, ptr %arrayidx82.i, align 1, !noalias !8
@@ -1388,8 +1387,7 @@ sw.bb.i:                                          ; preds = %if.then63.i, %if.th
   %add.ptr73.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 2
   %mpEnd76.i = getelementptr inbounds nuw i8, ptr %arrayidx65.i, i64 8
   store ptr %add.ptr73.i, ptr %mpEnd76.i, align 8, !noalias !37
-  %cmp80.not.i = icmp eq i32 %nFormatLength.0.i, 15
-  %cond.i = select i1 %cmp80.not.i, i32 15, i32 %inc67.i
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %inc67.i, i32 15)
   %idxprom81.i = sext i32 %cond.i to i64
   %arrayidx82.i = getelementptr inbounds [16 x i16], ptr %mFormat66.i, i64 0, i64 %idxprom81.i
   store i16 0, ptr %arrayidx82.i, align 2, !noalias !37
@@ -2586,8 +2584,7 @@ sw.bb.i:                                          ; preds = %if.then58.i, %if.th
   %add.ptr67.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 4
   %mpEnd70.i = getelementptr inbounds nuw i8, ptr %arrayidx60.i, i64 8
   store ptr %add.ptr67.i, ptr %mpEnd70.i, align 8, !noalias !65
-  %cmp74.not.i = icmp eq i32 %nFormatLength.0.i, 15
-  %cond.i = select i1 %cmp74.not.i, i32 15, i32 %inc62.i
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %inc62.i, i32 15)
   %idxprom75.i = sext i32 %cond.i to i64
   %arrayidx76.i = getelementptr inbounds [16 x i32], ptr %mFormat61.i, i64 0, i64 %idxprom75.i
   store i32 0, ptr %arrayidx76.i, align 4, !noalias !65
@@ -3671,30 +3668,30 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18Writ
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #6
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

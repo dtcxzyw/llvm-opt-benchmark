@@ -821,13 +821,13 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 fdt_check_node_offset_.exit.thread.i:             ; preds = %if.end.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset.addr.i.i)
-  br label %fdt_next_node.exit
+  br label %if.then11.i
 
 fdt_check_node_offset_.exit.i:                    ; preds = %if.end.i.i
   %1 = load i32, ptr %offset.addr.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset.addr.i.i)
   %cmp1.i = icmp slt i32 %1, 0
-  br i1 %cmp1.i, label %fdt_next_node.exit, label %do.body.i.preheader
+  br i1 %cmp1.i, label %if.then11.i, label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %fdt_check_node_offset_.exit.i, %entry
   %.ph = phi i32 [ 0, %entry ], [ %1, %fdt_check_node_offset_.exit.i ]
@@ -837,7 +837,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %2 = phi i32 [ %.pre.i, %do.body.backedge.i ], [ %.ph, %do.body.i.preheader ]
   %call4.i = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %2, ptr noundef nonnull %nextoffset.i)
   switch i32 %call4.i, label %do.body.backedge.i [
-    i32 9, label %sw.bb13.i
+    i32 9, label %if.then11.i
     i32 2, label %if.then11.i
     i32 1, label %fdt_next_node.exit
   ]
@@ -846,23 +846,18 @@ do.body.backedge.i:                               ; preds = %do.body.i
   %.pre.i = load i32, ptr %nextoffset.i, align 4
   br label %do.body.i, !llvm.loop !7
 
-if.then11.i:                                      ; preds = %do.body.i
-  %3 = load i32, ptr %nextoffset.i, align 4
-  br label %fdt_next_node.exit
-
-sw.bb13.i:                                        ; preds = %do.body.i
-  %4 = load i32, ptr %nextoffset.i, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 -1)
-  br label %fdt_next_node.exit
-
-fdt_next_node.exit:                               ; preds = %do.body.i, %sw.bb13.i, %fdt_check_node_offset_.exit.thread.i, %fdt_check_node_offset_.exit.i, %if.then11.i
-  %cmp1 = phi i1 [ true, %fdt_check_node_offset_.exit.i ], [ true, %if.then11.i ], [ true, %fdt_check_node_offset_.exit.thread.i ], [ true, %sw.bb13.i ], [ false, %do.body.i ]
-  %retval.0.i = phi i32 [ %1, %fdt_check_node_offset_.exit.i ], [ %3, %if.then11.i ], [ -4, %fdt_check_node_offset_.exit.thread.i ], [ %spec.select, %sw.bb13.i ], [ %2, %do.body.i ]
+fdt_next_node.exit:                               ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nextoffset.i)
-  %cmp = icmp slt i32 %retval.0.i, 0
-  %or.cond = or i1 %cmp, %cmp1
-  %.call = select i1 %or.cond, i32 -1, i32 %retval.0.i
-  ret i32 %.call
+  %3 = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
+  br label %4
+
+if.then11.i:                                      ; preds = %do.body.i, %do.body.i, %fdt_check_node_offset_.exit.i, %fdt_check_node_offset_.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nextoffset.i)
+  br label %4
+
+4:                                                ; preds = %fdt_next_node.exit, %if.then11.i
+  %5 = phi i32 [ -1, %if.then11.i ], [ %3, %fdt_next_node.exit ]
+  ret i32 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1238,7 +1233,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

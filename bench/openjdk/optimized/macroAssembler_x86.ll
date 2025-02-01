@@ -14876,10 +14876,9 @@ declare void @_ZN9Assembler6vpsrawE11XMMRegisterS0_ii(ptr noundef nonnull align 
 define hidden void @_ZN14MacroAssembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %7 = and i64 %6, 8589934592
-  %8 = icmp ne i64 %7, 0
-  %9 = icmp sgt i32 %4, 1
-  %or.cond.not = or i1 %9, %8
-  %spec.store.select = select i1 %or.cond.not, i32 %4, i32 2
+  %.not = icmp eq i64 %7, 0
+  %8 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
+  %spec.store.select = select i1 %.not, i32 %8, i32 %4
   tail call void @_ZN9Assembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %spec.store.select) #18
   ret void
 }
@@ -14890,10 +14889,9 @@ declare void @_ZN9Assembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull ali
 define hidden void @_ZN14MacroAssembler7evpsraqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %7 = and i64 %6, 8589934592
-  %8 = icmp ne i64 %7, 0
-  %9 = icmp sgt i32 %4, 1
-  %or.cond.not = or i1 %9, %8
-  %spec.store.select = select i1 %or.cond.not, i32 %4, i32 2
+  %.not = icmp eq i64 %7, 0
+  %8 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
+  %spec.store.select = select i1 %.not, i32 %8, i32 %4
   tail call void @_ZN9Assembler7evpsraqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %spec.store.select) #18
   ret void
 }
@@ -36237,6 +36235,9 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14

@@ -4209,8 +4209,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp sgt i32 %dstSize, -1
-  %cond = select i1 %cmp3, i32 %dstSize, i32 2147483647
+  %cond = tail call i32 @llvm.umin.i32(i32 %dstSize, i32 2147483647)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length8.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6618,10 +6617,10 @@ declare i32 @llvm.smin.i32(i32, i32) #21
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21

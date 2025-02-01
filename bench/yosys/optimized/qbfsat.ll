@@ -5261,8 +5261,8 @@ _ZNK5Yosys7hashlib4dictINS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %871 unwind label %.loopexit313.i
 
 871:                                              ; preds = %_ZNK5Yosys7hashlib4dictINS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS8_EEEEPNS_5RTLIL4CellENS9_ISB_EEE7do_hashERKSB_.exit.i.i
-  %872 = icmp slt i32 %870, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %872 = icmp slt i32 %870, 0
   br i1 %872, label %873, label %879
 
 873:                                              ; preds = %871
@@ -12826,7 +12826,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 463:                                              ; preds = %.noexc68
   %464 = icmp slt i32 %462, 0
-  %spec.select.i64 = select i1 %464, i32 -1, i32 %462
+  %spec.select.i64 = call i32 @llvm.smax.i32(i32 %462, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %465 = load ptr, ptr %136, align 8
   %466 = load ptr, ptr %139, align 8
@@ -14088,7 +14088,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 351:                                              ; preds = %.noexc
   %352 = icmp slt i32 %350, 0
-  %spec.select.i = select i1 %352, i32 -1, i32 %350
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %350, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %353 = load ptr, ptr %32, align 8
   %354 = load ptr, ptr %35, align 8
@@ -96909,6 +96909,7 @@ _ZNK5Yosys7hashlib4dictINS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 93:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS0_4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8hash_opsIS8_EEEES8_NS9_ISB_EEE7do_hashERKSB_.exit.i
   %94 = icmp slt i32 %92, 0
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %92, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   br i1 %94, label %.critedge, label %95
 
@@ -96958,7 +96959,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJPKcS4_EEEbDpT_.exit.thread: ; preds = %_ZNK5Yosys5
   br i1 %116, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %114
-  %117 = zext nneg i32 %92 to i64
+  %117 = zext nneg i32 %spec.select.i to i64
   %118 = zext nneg i32 %115 to i64
   br label %119
 
@@ -104358,6 +104359,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

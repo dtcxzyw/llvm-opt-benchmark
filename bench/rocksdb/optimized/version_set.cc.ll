@@ -6613,9 +6613,8 @@ ehcleanup:                                        ; preds = %lpad72, %lpad61
   br label %ehcleanup92
 
 cleanup:                                          ; preds = %invoke.cont50
-  %cmp88 = icmp slt i32 %num_entries_left.6, 1
-  %spec.select = select i1 %cmp88, i32 0, i32 %num_entries_left.6
-  %spec.select17 = select i1 %cmp88, i32 5, i32 0
+  %spec.select = call i32 @llvm.smax.i32(i32 %num_entries_left.6, i32 0)
+  %spec.select17 = select i1 %cmp52, i32 0, i32 5
   br label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %cleanup, %if.end42
@@ -84853,10 +84852,10 @@ declare i64 @llvm.umin.i64(i64, i64) #30
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #30
+declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
+declare i32 @llvm.smin.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #30

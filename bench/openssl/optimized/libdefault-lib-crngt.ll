@@ -183,7 +183,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %t.071 = phi i64 [ %spec.select, %for.body.lr.ph ], [ %sub, %if.end78 ]
   %entp.070 = phi ptr [ %call25, %for.body.lr.ph ], [ %add.ptr, %if.end78 ]
   %cmp41 = icmp ugt i64 %t.071, 15
-  %cond = select i1 %cmp41, i64 16, i64 %t.071
+  %cond = call i64 @llvm.umin.i64(i64 %t.071, i64 16)
   %cond49 = select i1 %cmp41, ptr %entp.070, ptr %buf
   %9 = load ptr, ptr %provctx, align 8
   %10 = load ptr, ptr %md51, align 8
@@ -248,7 +248,7 @@ prov_crngt_compare_previous.exit.thread:          ; preds = %if.end70
 
 if.end78:                                         ; preds = %if.end70
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call1, ptr nonnull align 16 %md, i64 %.pre82, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %entp.070, i64 %cond
+  %add.ptr = getelementptr inbounds nuw i8, ptr %entp.070, i64 %cond
   %sub = sub i64 %t.071, %cond
   %cmp39.not = icmp eq i64 %sub, 0
   br i1 %cmp39.not, label %for.end, label %for.body, !llvm.loop !4
@@ -322,24 +322,27 @@ declare void @ossl_prov_cleanup_entropy(ptr noundef, ptr noundef, i64 noundef) l
 
 declare void @ossl_set_error_state(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #3
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
+declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

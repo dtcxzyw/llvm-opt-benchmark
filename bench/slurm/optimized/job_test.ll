@@ -2405,10 +2405,9 @@ _build_gres_mc_data.exit:                         ; preds = %471, %475, %478
   %489 = zext i32 %488 to i64
   %490 = call i64 @bit_fls_from_bit(ptr noundef nonnull %486, i64 noundef %489) #9
   %491 = trunc i64 %490 to i32
-  %492 = icmp slt i32 %491, 1
   %.not649 = icmp ugt i32 %2, %491
-  %or.cond774 = or i1 %492, %.not649
-  %spec.select786 = select i1 %or.cond774, i32 0, i32 %491
+  %492 = call i32 @llvm.smax.i32(i32 %491, i32 0)
+  %spec.select786 = select i1 %.not649, i32 0, i32 %492
   br label %493
 
 493:                                              ; preds = %487, %485
@@ -6947,6 +6946,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #7

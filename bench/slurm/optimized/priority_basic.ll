@@ -68,11 +68,10 @@ define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr noundef readonly 
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %15 = load i32, ptr %14, align 8
   %16 = xor i32 %15, -2147483648
-  %17 = icmp slt i32 %16, 1
-  %18 = add i32 %15, -2147483647
-  %19 = icmp ugt i32 %spec.select, %18
-  %or.cond = or i1 %17, %19
-  %20 = select i1 %or.cond, i32 %16, i32 0
+  %17 = add i32 %15, -2147483647
+  %18 = icmp ugt i32 %spec.select, %17
+  %19 = tail call i32 @llvm.smin.i32(i32 %16, i32 0)
+  %20 = select i1 %18, i32 %16, i32 %19
   %spec.select22 = sub i32 %spec.select, %20
   br label %21
 
@@ -374,6 +373,9 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 declare double @exp2(double) local_unnamed_addr
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6

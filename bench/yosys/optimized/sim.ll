@@ -12789,8 +12789,8 @@ _ZNK5Yosys7hashlib4dictINS_6IdPathENS1_IibNS0_8hash_opsIiEEEENS3_IS2_EEE7do_hash
           to label %4162 unwind label %.loopexit.split-lp.loopexit.i.i
 
 4162:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_6IdPathENS1_IibNS0_8hash_opsIiEEEENS3_IS2_EEE7do_hashERKS2_.exit.i.i.i
-  %4163 = icmp slt i32 %4161, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !105
+  %4163 = icmp slt i32 %4161, 0
   br i1 %4163, label %.loopexit186.i.i, label %4164
 
 4164:                                             ; preds = %4162
@@ -88693,7 +88693,7 @@ _ZNK5Yosys7hashlib4dictISt4pairINS_5RTLIL8IdStringEiENS3_5ConstENS0_8hash_opsIS5
   store i32 %.0.i, ptr %3, align 4
   %43 = call noundef i32 @_ZNK5Yosys7hashlib4dictISt4pairINS_5RTLIL8IdStringEiENS3_5ConstENS0_8hash_opsIS5_EEE9do_lookupERKS5_Ri(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %44 = icmp slt i32 %43, 0
-  %spec.select = select i1 %44, i32 -1, i32 %43
+  %spec.select = call i32 @llvm.smax.i32(i32 %43, i32 -1)
   %spec.select4 = select i1 %44, ptr null, ptr %0
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %spec.select4, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %spec.select, 1
@@ -99944,8 +99944,8 @@ _ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8h
   %.0.i.i = phi i32 [ 0, %42 ], [ %55, %46 ]
   store i32 %.0.i.i, ptr %5, align 4
   %56 = call fastcc noundef i32 @_ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8hash_opsIS2_EEE9do_lookupERKS2_Ri(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.079.0118, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %57 = icmp slt i32 %56, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  %57 = icmp slt i32 %56, 0
   br i1 %57, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit73, label %58
 
 58:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8hash_opsIS2_EEE4findERKS2_.exit
@@ -100517,8 +100517,8 @@ _ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8h
   %.0.i.i = phi i32 [ 0, %24 ], [ %37, %28 ]
   store i32 %.0.i.i, ptr %3, align 4
   %38 = call fastcc noundef i32 @_ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8hash_opsIS2_EEE9do_lookupERKS2_Ri(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.011, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %39 = icmp slt i32 %38, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  %39 = icmp slt i32 %38, 0
   br i1 %39, label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit, label %40
 
 40:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8hash_opsIS2_EEE4findERKS2_.exit
@@ -105475,7 +105475,7 @@ _ZN5Yosys7hashlib4dictINS_6IdPathENS0_4poolINS_5RTLIL8IdStringENS0_8hash_opsIS5_
   store i32 %.0.i.i36, ptr %5, align 4
   %106 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_6IdPathENS0_4poolINS_5RTLIL8IdStringENS0_8hash_opsIS5_EEEENS6_IS2_EEE9do_lookupERKS2_Ri(ptr noundef nonnull align 8 dereferenceable(49) %91, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %107 = icmp slt i32 %106, 0
-  %spec.select.i = select i1 %107, i32 -1, i32 %106
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %106, i32 -1)
   %spec.select4.i = select i1 %107, ptr null, ptr %91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %107, label %_ZN5Yosys6IdPathD2Ev.exit, label %108
@@ -105585,9 +105585,9 @@ _ZN5Yosys6IdPathC2ERKS0_.exit:                    ; preds = %_ZN5Yosys6IdPathC2E
 
 149:                                              ; preds = %146, %148
   %150 = getelementptr inbounds nuw i8, ptr %spec.select4.i, i64 24
-  %151 = sext i32 %spec.select.i to i64
+  %151 = zext nneg i32 %spec.select.i to i64
   %152 = load ptr, ptr %150, align 8
-  %153 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::IdPath, Yosys::hashlib::pool<Yosys::RTLIL::IdString>>::entry_t", ptr %152, i64 %151, i32 0, i32 1
+  %153 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::IdPath, Yosys::hashlib::pool<Yosys::RTLIL::IdString>>::entry_t", ptr %152, i64 %151, i32 0, i32 1
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %156 = load ptr, ptr %155, align 8
@@ -119705,11 +119705,11 @@ declare i64 @llvm.umin.i64(i64, i64) #30
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #30
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

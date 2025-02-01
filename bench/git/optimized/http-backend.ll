@@ -1385,27 +1385,29 @@ if.then48:                                        ; preds = %if.end45
   br i1 %tobool.not.i19, label %entry.split.us.i, label %if.end.i
 
 entry.split.us.i:                                 ; preds = %if.then48
-  %req_remaining_len.0..us46.i = call i64 @llvm.umin.i64(i64 %1, i64 8192)
-  %call10.us47.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef %req_remaining_len.0..us46.i) #18
+  %6 = call i64 @llvm.umin.i64(i64 %1, i64 8192)
+  %req_remaining_len.0..us44.i = select i1 %cmp, i64 %6, i64 8192
+  %call10.us45.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef %req_remaining_len.0..us44.i) #18
   store ptr %in_buf.i, ptr %next_in.i, align 8
-  %cmp20.us50.i = icmp slt i64 %call10.us47.i, 1
-  br i1 %cmp20.us50.i, label %if.then22.i, label %if.end23.us.lr.ph.i
+  %cmp20.us48.i = icmp slt i64 %call10.us45.i, 1
+  br i1 %cmp20.us48.i, label %if.then22.i, label %if.end23.us.lr.ph.i
 
 if.end23.us.lr.ph.i:                              ; preds = %entry.split.us.i
-  br i1 %cmp, label %if.end23.us.preheader.i, label %if.end23.us.us.i
+  br i1 %cmp, label %if.end23.us.us.preheader.i, label %if.end23.us.i
 
-if.end23.us.preheader.i:                          ; preds = %if.end23.us.lr.ph.i
-  %spec.select.us49.i = sub nsw i64 %1, %call10.us47.i
-  br label %if.end23.us.i
+if.end23.us.us.preheader.i:                       ; preds = %if.end23.us.lr.ph.i
+  %spec.select.us47.i = sub nsw i64 %1, %call10.us45.i
+  br label %if.end23.us.us.i
 
-if.end23.us.us.i:                                 ; preds = %if.end23.us.lr.ph.i, %while.body.loopexit.us.us.i
-  %call10.us52.us.i = phi i64 [ %call10.us.us.i, %while.body.loopexit.us.us.i ], [ %call10.us47.i, %if.end23.us.lr.ph.i ]
-  %cnt.0.us51.us.i = phi i64 [ %7, %while.body.loopexit.us.us.i ], [ 0, %if.end23.us.lr.ph.i ]
-  store i64 %call10.us52.us.i, ptr %avail_in.i, align 8
+if.end23.us.us.i:                                 ; preds = %while.body.loopexit.us.us.i, %if.end23.us.us.preheader.i
+  %spec.select.us51.us.i = phi i64 [ %spec.select.us.us.i, %while.body.loopexit.us.us.i ], [ %spec.select.us47.i, %if.end23.us.us.preheader.i ]
+  %call10.us50.us.i = phi i64 [ %call10.us.us.i, %while.body.loopexit.us.us.i ], [ %call10.us45.i, %if.end23.us.us.preheader.i ]
+  %cnt.0.us49.us.i = phi i64 [ %8, %while.body.loopexit.us.us.i ], [ 0, %if.end23.us.us.preheader.i ]
+  store i64 %call10.us50.us.i, ptr %avail_in.i, align 8
   br label %while.body28.us.us.i
 
 while.body28.us.us.i:                             ; preds = %while.cond24thread-pre-split.us.us.i, %if.end23.us.us.i
-  %cnt.121.us.us.i = phi i64 [ %cnt.0.us51.us.i, %if.end23.us.us.i ], [ %7, %while.cond24thread-pre-split.us.us.i ]
+  %cnt.121.us.us.i = phi i64 [ %cnt.0.us49.us.i, %if.end23.us.us.i ], [ %8, %while.cond24thread-pre-split.us.us.i ]
   store ptr %out_buf.i, ptr %next_out.i, align 8
   store i64 8192, ptr %avail_out.i, align 8
   %call30.us.us.i = call i32 @git_inflate(ptr noundef nonnull %stream.i, i32 noundef 0) #18
@@ -1413,8 +1415,8 @@ while.body28.us.us.i:                             ; preds = %while.cond24thread-
   br i1 %or.cond2.us.us.i, label %if.then36.i, label %if.end37.us.us.i
 
 if.end37.us.us.i:                                 ; preds = %while.body28.us.us.i
-  %6 = load i64, ptr %total_out.i, align 8
-  %sub41.us.us.i = sub i64 %6, %cnt.121.us.us.i
+  %7 = load i64, ptr %total_out.i, align 8
+  %sub41.us.us.i = sub i64 %7, %cnt.121.us.us.i
   %call.i.us.us.i = call i64 @write_in_full(i32 noundef %5, ptr noundef nonnull %out_buf.i, i64 noundef %sub41.us.us.i) #18
   %cmp.i.us.us.i = icmp slt i64 %call.i.us.us.i, 0
   br i1 %cmp.i.us.us.i, label %if.then.i.i, label %write_to_child.exit.us.us.i
@@ -1424,26 +1426,27 @@ write_to_child.exit.us.us.i:                      ; preds = %if.end37.us.us.i
   br i1 %cmp43.us.us.i, label %inflate_request.exit, label %while.cond24thread-pre-split.us.us.i, !llvm.loop !13
 
 while.cond24thread-pre-split.us.us.i:             ; preds = %write_to_child.exit.us.us.i
-  %7 = load i64, ptr %total_out.i, align 8
+  %8 = load i64, ptr %total_out.i, align 8
   %.pr.us.us.i = load i64, ptr %avail_in.i, align 8
   %cmp26.not.us.us.i = icmp eq i64 %.pr.us.us.i, 0
   br i1 %cmp26.not.us.us.i, label %while.body.loopexit.us.us.i, label %while.body28.us.us.i
 
 while.body.loopexit.us.us.i:                      ; preds = %while.cond24thread-pre-split.us.us.i
-  %call10.us.us.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef 8192) #18
+  %9 = call i64 @llvm.umin.i64(i64 %spec.select.us51.us.i, i64 8192)
+  %call10.us.us.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef %9) #18
   store ptr %in_buf.i, ptr %next_in.i, align 8
+  %spec.select.us.us.i = sub i64 %spec.select.us51.us.i, %call10.us.us.i
   %cmp20.us.us.i = icmp slt i64 %call10.us.us.i, 1
   br i1 %cmp20.us.us.i, label %if.then22.i, label %if.end23.us.us.i
 
-if.end23.us.i:                                    ; preds = %while.body.loopexit.us.i, %if.end23.us.preheader.i
-  %spec.select.us53.i = phi i64 [ %spec.select.us.i, %while.body.loopexit.us.i ], [ %spec.select.us49.i, %if.end23.us.preheader.i ]
-  %call10.us52.i = phi i64 [ %call10.us.i, %while.body.loopexit.us.i ], [ %call10.us47.i, %if.end23.us.preheader.i ]
-  %cnt.0.us51.i = phi i64 [ %9, %while.body.loopexit.us.i ], [ 0, %if.end23.us.preheader.i ]
-  store i64 %call10.us52.i, ptr %avail_in.i, align 8
+if.end23.us.i:                                    ; preds = %if.end23.us.lr.ph.i, %while.body.loopexit.us.i
+  %call10.us50.i = phi i64 [ %call10.us.i, %while.body.loopexit.us.i ], [ %call10.us45.i, %if.end23.us.lr.ph.i ]
+  %cnt.0.us49.i = phi i64 [ %11, %while.body.loopexit.us.i ], [ 0, %if.end23.us.lr.ph.i ]
+  store i64 %call10.us50.i, ptr %avail_in.i, align 8
   br label %while.body28.us.i
 
 while.body28.us.i:                                ; preds = %while.cond24thread-pre-split.us.i, %if.end23.us.i
-  %cnt.121.us.i = phi i64 [ %cnt.0.us51.i, %if.end23.us.i ], [ %9, %while.cond24thread-pre-split.us.i ]
+  %cnt.121.us.i = phi i64 [ %cnt.0.us49.i, %if.end23.us.i ], [ %11, %while.cond24thread-pre-split.us.i ]
   store ptr %out_buf.i, ptr %next_out.i, align 8
   store i64 8192, ptr %avail_out.i, align 8
   %call30.us.i = call i32 @git_inflate(ptr noundef nonnull %stream.i, i32 noundef 0) #18
@@ -1451,8 +1454,8 @@ while.body28.us.i:                                ; preds = %while.cond24thread-
   br i1 %or.cond2.us.i, label %if.then36.i, label %if.end37.us.i
 
 if.end37.us.i:                                    ; preds = %while.body28.us.i
-  %8 = load i64, ptr %total_out.i, align 8
-  %sub41.us.i = sub i64 %8, %cnt.121.us.i
+  %10 = load i64, ptr %total_out.i, align 8
+  %sub41.us.i = sub i64 %10, %cnt.121.us.i
   %call.i.us.i = call i64 @write_in_full(i32 noundef %5, ptr noundef nonnull %out_buf.i, i64 noundef %sub41.us.i) #18
   %cmp.i.us.i = icmp slt i64 %call.i.us.i, 0
   br i1 %cmp.i.us.i, label %if.then.i.i, label %write_to_child.exit.us.i
@@ -1462,16 +1465,14 @@ write_to_child.exit.us.i:                         ; preds = %if.end37.us.i
   br i1 %cmp43.us.i, label %inflate_request.exit, label %while.cond24thread-pre-split.us.i, !llvm.loop !13
 
 while.cond24thread-pre-split.us.i:                ; preds = %write_to_child.exit.us.i
-  %9 = load i64, ptr %total_out.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
   %.pr.us.i = load i64, ptr %avail_in.i, align 8
   %cmp26.not.us.i = icmp eq i64 %.pr.us.i, 0
   br i1 %cmp26.not.us.i, label %while.body.loopexit.us.i, label %while.body28.us.i
 
 while.body.loopexit.us.i:                         ; preds = %while.cond24thread-pre-split.us.i
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %spec.select.us53.i, i64 8192)
-  %call10.us.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef %spec.select.i) #18
+  %call10.us.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef 8192) #18
   store ptr %in_buf.i, ptr %next_in.i, align 8
-  %spec.select.us.i = sub i64 %spec.select.us53.i, %call10.us.i
   %cmp20.us.i = icmp slt i64 %call10.us.i, 1
   br i1 %cmp20.us.i, label %if.then22.i, label %if.end23.us.i
 
@@ -1484,14 +1485,14 @@ if.end.thread.i:                                  ; preds = %while.body.loopexit
   br label %if.then22.i
 
 if.end.i:                                         ; preds = %if.then48, %while.body.loopexit.i
-  %cnt.0.i66 = phi i64 [ %10, %while.body.loopexit.i ], [ 0, %if.then48 ]
+  %cnt.0.i66 = phi i64 [ %12, %while.body.loopexit.i ], [ 0, %if.then48 ]
   %call.i21 = call fastcc i64 @read_request(ptr noundef %full_request.i, i64 noundef %1)
   %.pre.i22 = load ptr, ptr %full_request.i, align 8
   store ptr %.pre.i22, ptr %next_in.i, align 8
   %cmp20.i = icmp slt i64 %call.i21, 1
   br i1 %cmp20.i, label %if.then22.i, label %if.end23.i
 
-if.then22.i:                                      ; preds = %if.end.i, %while.body.loopexit.us.us.i, %while.body.loopexit.us.i, %if.end.thread.i, %entry.split.us.i
+if.then22.i:                                      ; preds = %if.end.i, %while.body.loopexit.us.i, %while.body.loopexit.us.us.i, %if.end.thread.i, %entry.split.us.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.76) #19
   unreachable
 
@@ -1500,32 +1501,32 @@ if.end23.i:                                       ; preds = %if.end.i
   br label %while.body28.i
 
 while.cond24thread-pre-split.i:                   ; preds = %write_to_child.exit.i
-  %10 = load i64, ptr %total_out.i, align 8
+  %12 = load i64, ptr %total_out.i, align 8
   %.pr.i = load i64, ptr %avail_in.i, align 8
   %cmp26.not.i = icmp eq i64 %.pr.i, 0
   br i1 %cmp26.not.i, label %while.body.loopexit.i, label %while.body28.i, !llvm.loop !14
 
 while.body28.i:                                   ; preds = %while.cond24thread-pre-split.i, %if.end23.i
-  %cnt.121.i = phi i64 [ %cnt.0.i66, %if.end23.i ], [ %10, %while.cond24thread-pre-split.i ]
+  %cnt.121.i = phi i64 [ %cnt.0.i66, %if.end23.i ], [ %12, %while.cond24thread-pre-split.i ]
   store ptr %out_buf.i, ptr %next_out.i, align 8
   store i64 8192, ptr %avail_out.i, align 8
   %call30.i = call i32 @git_inflate(ptr noundef nonnull %stream.i, i32 noundef 0) #18
   %or.cond2.i = icmp ugt i32 %call30.i, 1
   br i1 %or.cond2.i, label %if.then36.i, label %if.end37.i
 
-if.then36.i:                                      ; preds = %while.body28.i, %while.body28.us.us.i, %while.body28.us.i
-  %.us-phi.i = phi i32 [ %call30.us.i, %while.body28.us.i ], [ %call30.us.us.i, %while.body28.us.us.i ], [ %call30.i, %while.body28.i ]
+if.then36.i:                                      ; preds = %while.body28.i, %while.body28.us.i, %while.body28.us.us.i
+  %.us-phi.i = phi i32 [ %call30.us.us.i, %while.body28.us.us.i ], [ %call30.us.i, %while.body28.us.i ], [ %call30.i, %while.body28.i ]
   call void (ptr, ...) @die(ptr noundef nonnull @.str.77, i32 noundef %.us-phi.i) #19
   unreachable
 
 if.end37.i:                                       ; preds = %while.body28.i
-  %11 = load i64, ptr %total_out.i, align 8
-  %sub41.i = sub i64 %11, %cnt.121.i
+  %13 = load i64, ptr %total_out.i, align 8
+  %sub41.i = sub i64 %13, %cnt.121.i
   %call.i.i = call i64 @write_in_full(i32 noundef %5, ptr noundef nonnull %out_buf.i, i64 noundef %sub41.i) #18
   %cmp.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %write_to_child.exit.i
 
-if.then.i.i:                                      ; preds = %if.end37.i, %if.end37.us.us.i, %if.end37.us.i
+if.then.i.i:                                      ; preds = %if.end37.i, %if.end37.us.i, %if.end37.us.us.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %4) #19
   unreachable
 
@@ -1533,11 +1534,11 @@ write_to_child.exit.i:                            ; preds = %if.end37.i
   %cmp43.i = icmp eq i32 %call30.i, 1
   br i1 %cmp43.i, label %inflate_request.exit, label %while.cond24thread-pre-split.i, !llvm.loop !13
 
-inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.us.i, %write_to_child.exit.us.i
-  %12 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i22, %write_to_child.exit.i ]
+inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.i, %write_to_child.exit.us.us.i
+  %14 = phi ptr [ null, %write_to_child.exit.us.us.i ], [ null, %write_to_child.exit.us.i ], [ %.pre.i22, %write_to_child.exit.i ]
   call void @git_inflate_end(ptr noundef nonnull %stream.i) #18
   %call47.i = call i32 @close(i32 noundef %5) #18
-  call void @free(ptr noundef %12) #18
+  call void @free(ptr noundef %14) #18
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %stream.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %full_request.i)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %in_buf.i)
@@ -1548,9 +1549,9 @@ if.else:                                          ; preds = %if.end45
   br i1 %tobool29, label %if.then51, label %if.else54
 
 if.then51:                                        ; preds = %if.else
-  %13 = load ptr, ptr %argv, align 8
+  %15 = load ptr, ptr %argv, align 8
   %in53 = getelementptr inbounds nuw i8, ptr %cld, i64 80
-  %14 = load i32, ptr %in53, align 8
+  %16 = load i32, ptr %in53, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   %call.i23 = call fastcc i64 @read_request(ptr noundef %buf.i, i64 noundef %1)
   %cmp.i24 = icmp slt i64 %call.i23, 0
@@ -1561,18 +1562,18 @@ if.then.i30:                                      ; preds = %if.then51
   unreachable
 
 if.end.i25:                                       ; preds = %if.then51
-  %15 = load ptr, ptr %buf.i, align 8
-  %call.i.i26 = call i64 @write_in_full(i32 noundef %14, ptr noundef %15, i64 noundef %call.i23) #18
+  %17 = load ptr, ptr %buf.i, align 8
+  %call.i.i26 = call i64 @write_in_full(i32 noundef %16, ptr noundef %17, i64 noundef %call.i23) #18
   %cmp.i.i27 = icmp slt i64 %call.i.i26, 0
   br i1 %cmp.i.i27, label %if.then.i.i29, label %copy_request.exit
 
 if.then.i.i29:                                    ; preds = %if.end.i25
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %13) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %15) #19
   unreachable
 
 copy_request.exit:                                ; preds = %if.end.i25
-  %call1.i = call i32 @close(i32 noundef %14) #18
-  call void @free(ptr noundef %15) #18
+  %call1.i = call i32 @close(i32 noundef %16) #18
+  call void @free(ptr noundef %17) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   br label %if.end63
 
@@ -1580,9 +1581,9 @@ if.else54:                                        ; preds = %if.else
   br i1 %cmp, label %if.then56, label %if.else59
 
 if.then56:                                        ; preds = %if.else54
-  %16 = load ptr, ptr %argv, align 8
+  %18 = load ptr, ptr %argv, align 8
   %in58 = getelementptr inbounds nuw i8, ptr %cld, i64 80
-  %17 = load i32, ptr %in58, align 8
+  %19 = load i32, ptr %in58, align 8
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i31)
   %cmp.not7.i = icmp eq i64 %1, 0
   br i1 %cmp.not7.i, label %pipe_fixed_length.exit, label %while.body.i32
@@ -1604,16 +1605,16 @@ if.then.i38:                                      ; preds = %while.body.i32
   unreachable
 
 if.end.i34:                                       ; preds = %while.body.i32
-  %call.i.i35 = call i64 @write_in_full(i32 noundef %17, ptr noundef nonnull %buf.i31, i64 noundef %call.i33) #18
+  %call.i.i35 = call i64 @write_in_full(i32 noundef %19, ptr noundef nonnull %buf.i31, i64 noundef %call.i33) #18
   %cmp.i.i36 = icmp slt i64 %call.i.i35, 0
   br i1 %cmp.i.i36, label %if.then.i.i37, label %while.cond.i
 
 if.then.i.i37:                                    ; preds = %if.end.i34
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %16) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %18) #19
   unreachable
 
 pipe_fixed_length.exit:                           ; preds = %while.cond.i, %if.then56
-  %call4.i = call i32 @close(i32 noundef %17) #18
+  %call4.i = call i32 @close(i32 noundef %19) #18
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i31)
   br label %if.end63
 

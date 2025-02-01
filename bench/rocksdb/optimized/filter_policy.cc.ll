@@ -6655,7 +6655,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 5, 2305843009213760) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder14CalculateSpaceEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
+define internal noundef range(i64 5, 4294967240) i64 @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder14CalculateSpaceEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
 entry:
   %millibits_per_key_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i32, ptr %millibits_per_key_, align 8
@@ -6663,11 +6663,10 @@ entry:
   %mul = mul i64 %num_entries, %conv
   %add = add i64 %mul, 7999
   %div = udiv i64 %add, 8000
-  %cmp = icmp ugt i64 %add, 34359737855999
-  %1 = add nuw nsw i64 %div, 63
-  %2 = and i64 %1, 9007199254740928
-  %3 = or disjoint i64 %2, 5
-  %add3 = select i1 %cmp, i64 4294967237, i64 %3
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div, i64 4294967232)
+  %add2 = add nuw nsw i64 %spec.store.select, 63
+  %and = and i64 %add2, 8589934528
+  %add3 = or disjoint i64 %and, 5
   ret i64 %add3
 }
 
@@ -10808,32 +10807,30 @@ if.then:                                          ; preds = %entry
   %mul.i = mul i64 %num_entries, %conv.i
   %add.i = add i64 %mul.i, 7999
   %div.i = udiv i64 %add.i, 8000
-  %cmp.i = icmp ugt i64 %add.i, 34359737855999
-  %1 = add nuw nsw i64 %div.i, 63
-  %2 = and i64 %1, 9007199254740928
-  %3 = or disjoint i64 %2, 5
-  %add3.i = select i1 %cmp.i, i64 4294967237, i64 %3
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %div.i, i64 4294967232)
+  %add2.i = add nuw nsw i64 %spec.store.select.i, 63
+  %and.i = and i64 %add2.i, 8589934528
   br label %if.end18.sink.split
 
 if.end:                                           ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %4 = load ptr, ptr %_M_finish.i, align 8
-  %5 = load ptr, ptr %_M_start.i, align 8
-  %cmp.i.i = icmp eq ptr %4, %5
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %2 = load ptr, ptr %_M_start.i, align 8
+  %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %6 = load i64, ptr %5, align 8
-  %shr.i = lshr i64 %6, 32
+  %3 = load i64, ptr %2, align 8
+  %shr.i = lshr i64 %3, 32
   %conv.i12 = trunc nuw i64 %shr.i to i32
-  %7 = uitofp i32 %conv.i12 to double
-  %8 = fadd double %7, 5.000000e-01
-  %9 = fmul double %8, 0x3DF0000000000000
+  %4 = uitofp i32 %conv.i12 to double
+  %5 = fadd double %4, 5.000000e-01
+  %6 = fmul double %5, 0x3DF0000000000000
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %entropy.0 = phi double [ 0x3DE0000000000000, %if.end ], [ %9, %if.then3 ]
+  %entropy.0 = phi double [ 0x3DE0000000000000, %if.end ], [ %6, %if.then3 ]
   %conv = trunc nuw nsw i64 %num_entries to i32
   %call.i = tail call noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1MaybeSupportedILNS0_25ConstructionFailureChanceE1ELm128ELb0ELb0ELb1EE11GetNumSlotsEj(i32 noundef range(i32 0, 950000001) %conv)
   %sub.i.i = add i32 %call.i, 127
@@ -10842,34 +10839,34 @@ if.end8:                                          ; preds = %if.then3, %if.end
   %spec.select.i.i = select i1 %cmp.i.i13, i32 256, i32 %div3.i.i
   store i32 %spec.select.i.i, ptr %num_slots, align 4
   %desired_one_in_fp_rate_ = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %10 = load double, ptr %desired_one_in_fp_rate_, align 8
-  %div.i14 = fdiv double 1.000000e+00, %10
-  %cmp.i.i15 = fcmp ogt double %10, 1.000000e+00
+  %7 = load double, ptr %desired_one_in_fp_rate_, align 8
+  %div.i14 = fdiv double 1.000000e+00, %7
+  %cmp.i.i15 = fcmp ogt double %7, 1.000000e+00
   %cmp1.i.i = fcmp olt double %div.i14, 1.000000e+00
   %or.cond.i.i = and i1 %cmp.i.i15, %cmp1.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
 
 if.then.i.i:                                      ; preds = %if.end8
-  %cmp2.i.i = fcmp ugt double %10, 0x41EFFFFFFFE00000
+  %cmp2.i.i = fcmp ugt double %7, 0x41EFFFFFFFE00000
   br i1 %cmp2.i.i, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %conv.i.i = fptoui double %10 to i32
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i.i, i1 true)
-  %sub.i.neg.i.i = add nsw i32 %11, -31
+  %conv.i.i = fptoui double %7 to i32
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i.i, i1 true)
+  %sub.i.neg.i.i = add nsw i32 %8, -31
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %sub.i.neg.i.i)
-  %sub5.i.i = or disjoint i32 %11, -32
+  %sub5.i.i = or disjoint i32 %8, -32
   %ldexp14.i.i = tail call double @ldexp(double 1.000000e+00, i32 %sub5.i.i)
   %sub7.i.i = fsub double %div.i14, %ldexp14.i.i
   %sub8.i.i = fsub double %ldexp.i.i, %ldexp14.i.i
   %div.i.i = fdiv double %sub7.i.i, %sub8.i.i
   %add13.i.i = add i32 %spec.select.i.i, -127
   %conv14.i.i = uitofp i32 %add13.i.i to double
-  %12 = tail call double @llvm.fmuladd.f64(double %div.i.i, double %conv14.i.i, double %entropy.0)
-  %div15.i.i = fmul double %12, 7.812500e-03
+  %9 = tail call double @llvm.fmuladd.f64(double %div.i.i, double %conv14.i.i, double %entropy.0)
+  %div15.i.i = fmul double %9, 7.812500e-03
   %conv16.i.i = fptoui double %div15.i.i to i32
   %div1711.i.i = lshr exact i32 %spec.select.i.i, 7
-  %mul15.i.i = sub nuw nsw i32 32, %11
+  %mul15.i.i = sub nuw nsw i32 32, %8
   %sub18.i.i = mul nuw nsw i32 %mul15.i.i, %div1711.i.i
   %add19.i.i = sub i32 %sub18.i.i, %conv16.i.i
   %conv20.i.i = zext i32 %add19.i.i to i64
@@ -10885,23 +10882,21 @@ _ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapte
   %retval.0.i.i = phi i64 [ %mul21.i.i, %if.then3.i.i ], [ %mul23.i.i, %if.else.i.i ], [ 16, %if.end8 ]
   %add = add nuw nsw i64 %retval.0.i.i, 5
   store i64 %add, ptr %target_len_with_metadata, align 8
-  %13 = load i32, ptr %num_slots, align 4
-  %cmp11 = icmp ult i32 %13, 1024
+  %10 = load i32, ptr %num_slots, align 4
+  %cmp11 = icmp ult i32 %10, 1024
   br i1 %cmp11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
   %millibits_per_key_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 592
-  %14 = load i32, ptr %millibits_per_key_.i16, align 8
-  %conv.i17 = sext i32 %14 to i64
+  %11 = load i32, ptr %millibits_per_key_.i16, align 8
+  %conv.i17 = sext i32 %11 to i64
   %mul.i18 = mul nsw i64 %num_entries, %conv.i17
   %add.i19 = add nsw i64 %mul.i18, 7999
   %div.i20 = udiv i64 %add.i19, 8000
-  %cmp.i21 = icmp ugt i64 %add.i19, 34359737855999
-  %15 = add nuw nsw i64 %div.i20, 63
-  %16 = and i64 %15, 9007199254740928
-  %17 = or disjoint i64 %16, 5
-  %add3.i22 = select i1 %cmp.i21, i64 4294967237, i64 %17
-  %cmp15 = icmp samesign ult i64 %add3.i22, %add
+  %spec.store.select.i21 = tail call i64 @llvm.umin.i64(i64 %div.i20, i64 4294967232)
+  %add2.i22 = add nuw nsw i64 %spec.store.select.i21, 63
+  %and.i23 = and i64 %add2.i22, 8589934528
+  %cmp15 = icmp samesign ult i64 %and.i23, %retval.0.i.i
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.then12
@@ -10909,8 +10904,9 @@ if.then16:                                        ; preds = %if.then12
   br label %if.end18.sink.split
 
 if.end18.sink.split:                              ; preds = %if.then, %if.then16
-  %add3.i22.sink = phi i64 [ %add3.i22, %if.then16 ], [ %add3.i, %if.then ]
-  store i64 %add3.i22.sink, ptr %target_len_with_metadata, align 8
+  %add3.i24.sink.in = phi i64 [ %and.i23, %if.then16 ], [ %and.i, %if.then ]
+  %add3.i24.sink = or disjoint i64 %add3.i24.sink.in, 5
+  store i64 %add3.i24.sink, ptr %target_len_with_metadata, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18.sink.split, %if.then12, %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit

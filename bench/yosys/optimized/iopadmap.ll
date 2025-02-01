@@ -16607,6 +16607,7 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Y
 
 7154:                                             ; preds = %.noexc1674
   %7155 = icmp slt i32 %7153, 0
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %7153, i32 -1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
   br i1 %7155, label %7156, label %7167
 
@@ -16662,7 +16663,7 @@ _ZNSt16allocator_traitsISaISt4pairIN5Yosys5RTLIL7SigSpecES3_EEE9constructIS4_JRK
   br i1 %7169, label %.lr.ph4277, label %._crit_edge4278
 
 .lr.ph4277:                                       ; preds = %7167
-  %7170 = zext nneg i32 %7153 to i64
+  %7170 = zext nneg i32 %spec.select.i to i64
   %7171 = getelementptr inbounds nuw i8, ptr %.sroa.03111.04280, i64 16
   %7172 = getelementptr inbounds nuw i8, ptr %.sroa.03111.04280, i64 24
   %7173 = getelementptr inbounds nuw i8, ptr %.sroa.03111.04280, i64 40
@@ -34962,6 +34963,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

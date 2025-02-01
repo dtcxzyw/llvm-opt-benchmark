@@ -47,7 +47,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   store i32 0, ptr %3, align 4
   %24 = call fastcc i32 @set_start_bits(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %.lobit, i32 noundef %.lobit86, ptr noundef %3)
   switch i32 %24, label %._crit_edge [
-    i32 3, label %183
+    i32 3, label %182
     i32 1, label %25
   ]
 
@@ -389,13 +389,13 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %168 = phi i32 [ %.pre, %._crit_edge ], [ %166, %.loopexit ], [ %19, %1 ]
   %169 = and i32 %168, 8396800
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %183
+  br i1 %170, label %171, label %182
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %173 = load i16, ptr %172, align 2
   %174 = icmp ult i16 %173, 129
-  br i1 %174, label %175, label %183
+  br i1 %174, label %175, label %182
 
 175:                                              ; preds = %171
   store i32 0, ptr %4, align 16
@@ -404,20 +404,19 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %177, label %switch.lookup, label %178
 
 178:                                              ; preds = %175
-  %179 = call i32 @llvm.smin.i32(i32 %176, i32 65535)
-  %180 = trunc i32 %179 to i16
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 126
-  store i16 %180, ptr %181, align 2
-  br label %183
+  %179 = trunc i32 %176 to i16
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 126
+  store i16 %179, ptr %180, align 2
+  br label %182
 
 switch.lookup:                                    ; preds = %175
   %switch.tableidx = add nsw i32 %176, 3
-  %182 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %182
+  %181 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %181
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %183
+  br label %182
 
-183:                                              ; preds = %167, %171, %178, %switch.lookup, %22
+182:                                              ; preds = %167, %171, %178, %switch.lookup, %22
   %.0 = phi i32 [ 1, %22 ], [ %switch.load, %switch.lookup ], [ 0, %178 ], [ 0, %171 ], [ 0, %167 ]
   ret i32 %.0
 }
@@ -1901,7 +1900,7 @@ set_nottype_bits.exit:                            ; preds = %.loopexit429, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 65536) i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.recurse_check, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
@@ -1954,7 +1953,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %.0352 = phi ptr [ %26, %.preheader457 ], [ %.0352.be, %.backedge ]
   %.1347 = phi ptr [ %spec.select439, %.preheader457 ], [ %.1347.be, %.backedge ]
   %32 = icmp sgt i32 %.0381, 65534
-  %spec.select = select i1 %32, i32 65535, i32 %.0381
+  %spec.select = call i32 @llvm.smin.i32(i32 %.0381, i32 65535)
   %spec.select428 = select i1 %32, ptr %.0352, ptr %.1347
   %33 = load i8, ptr %spec.select428, align 1
   switch i8 %33, label %.loopexit450 [
@@ -2355,7 +2354,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = or disjoint i32 %193, %196
-  %198 = add i32 %197, %spec.select
+  %198 = add nsw i32 %197, %spec.select
   %199 = getelementptr inbounds nuw i8, ptr %spec.select428, i64 4
   br i1 %.not415, label %.backedge, label %200
 
@@ -2383,7 +2382,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
   %219 = or disjoint i32 %215, %218
-  %220 = add i32 %219, %spec.select
+  %220 = add nsw i32 %219, %spec.select
   %221 = getelementptr inbounds nuw i8, ptr %spec.select428, i64 3
   %222 = load i8, ptr %221, align 1
   %223 = add i8 %222, -15
@@ -2500,7 +2499,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = or disjoint i32 %279, %282
-  %284 = add i32 %283, %spec.select
+  %284 = add nsw i32 %283, %spec.select
   %285 = getelementptr inbounds nuw i8, ptr %.12, i64 5
   br label %.backedge
 

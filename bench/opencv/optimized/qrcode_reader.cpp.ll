@@ -5520,109 +5520,108 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = icmp slt i32 %12, 0
-  %15 = select i1 %14, i64 -1, i64 %13
-  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #19
-  %17 = mul nsw i32 %7, %7
-  %18 = add nsw i32 %7, 1
-  %19 = xor i32 %7, -1
-  %20 = add i32 %10, %19
-  %21 = icmp slt i32 %18, %20
-  br i1 %21, label %.lr.ph84, label %._crit_edge85
+  %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -1)
+  %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #19
+  %16 = mul nsw i32 %7, %7
+  %17 = add nsw i32 %7, 1
+  %18 = xor i32 %7, -1
+  %19 = add i32 %10, %18
+  %20 = icmp slt i32 %17, %19
+  br i1 %20, label %.lr.ph84, label %._crit_edge85
 
 .lr.ph84:                                         ; preds = %4
-  %22 = add i32 %8, %19
-  %23 = icmp slt i32 %18, %22
-  %24 = shl nuw i32 %17, 1
-  br i1 %23, label %.lr.ph.us.preheader, label %.lr.ph84.split
+  %21 = add i32 %8, %18
+  %22 = icmp slt i32 %17, %21
+  %23 = shl nuw i32 %16, 1
+  br i1 %22, label %.lr.ph.us.preheader, label %.lr.ph84.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph84
   %narrow = add nsw i32 %7, 1
-  %25 = sext i32 %narrow to i64
-  %wide.trip.count = sext i32 %22 to i64
+  %24 = sext i32 %narrow to i64
+  %wide.trip.count = sext i32 %21 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.06282.us = phi i32 [ %56, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %.06381.us = phi i32 [ %57, %._crit_edge.us ], [ %18, %.lr.ph.us.preheader ]
-  %26 = add i32 %.06381.us, %19
-  %27 = add nsw i32 %.06381.us, %7
+  %.06282.us = phi i32 [ %55, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %.06381.us = phi i32 [ %56, %._crit_edge.us ], [ %17, %.lr.ph.us.preheader ]
+  %25 = add i32 %.06381.us, %18
+  %26 = add nsw i32 %.06381.us, %7
+  %27 = mul nsw i32 %25, %8
   %28 = mul nsw i32 %26, %8
-  %29 = mul nsw i32 %27, %8
-  %30 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %.06381.us)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %30, i64 %13, i1 false)
-  %invariant.op.us = add i32 %7, %29
-  %invariant.op73.us = add i32 %29, %19
-  %invariant.op75.us = add i32 %7, %28
-  %invariant.op77.us = add i32 %28, %19
-  br label %31
+  %29 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %.06381.us)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %29, i64 %13, i1 false)
+  %invariant.op.us = add i32 %7, %28
+  %invariant.op73.us = add i32 %28, %18
+  %invariant.op75.us = add i32 %7, %27
+  %invariant.op77.us = add i32 %27, %18
+  br label %30
 
-31:                                               ; preds = %.lr.ph.us, %.thread.us
-  %indvars.iv = phi i64 [ %25, %.lr.ph.us ], [ %indvars.iv.next, %.thread.us ]
-  %.180.us = phi i32 [ %.06282.us, %.lr.ph.us ], [ %56, %.thread.us ]
-  %32 = trunc nsw i64 %indvars.iv to i32
-  %.reass.us = add i32 %invariant.op.us, %32
-  %33 = sext i32 %.reass.us to i64
-  %34 = getelementptr inbounds i32, ptr %0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %.reass74.us = add i32 %invariant.op73.us, %32
-  %36 = sext i32 %.reass74.us to i64
-  %37 = getelementptr inbounds i32, ptr %0, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %.reass76.us = add i32 %invariant.op75.us, %32
-  %39 = sext i32 %.reass76.us to i64
-  %40 = getelementptr inbounds i32, ptr %0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %.reass78.us = add i32 %invariant.op77.us, %32
-  %42 = sext i32 %.reass78.us to i64
-  %43 = getelementptr inbounds i32, ptr %0, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = add i32 %35, %41
-  %46 = add i32 %38, %44
-  %47 = sub i32 %45, %46
-  %48 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv
-  %49 = load i8, ptr %48, align 1
-  %50 = mul i32 %47, 3
-  %.not.us = icmp ugt i32 %50, %17
-  %.not67.us = icmp uge i32 %50, %24
-  %51 = trunc i8 %49 to i1
-  %spec.select.us = select i1 %.not67.us, i1 true, i1 %51
+30:                                               ; preds = %.lr.ph.us, %.thread.us
+  %indvars.iv = phi i64 [ %24, %.lr.ph.us ], [ %indvars.iv.next, %.thread.us ]
+  %.180.us = phi i32 [ %.06282.us, %.lr.ph.us ], [ %55, %.thread.us ]
+  %31 = trunc nsw i64 %indvars.iv to i32
+  %.reass.us = add i32 %invariant.op.us, %31
+  %32 = sext i32 %.reass.us to i64
+  %33 = getelementptr inbounds i32, ptr %0, i64 %32
+  %34 = load i32, ptr %33, align 4
+  %.reass74.us = add i32 %invariant.op73.us, %31
+  %35 = sext i32 %.reass74.us to i64
+  %36 = getelementptr inbounds i32, ptr %0, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %.reass76.us = add i32 %invariant.op75.us, %31
+  %38 = sext i32 %.reass76.us to i64
+  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %.reass78.us = add i32 %invariant.op77.us, %31
+  %41 = sext i32 %.reass78.us to i64
+  %42 = getelementptr inbounds i32, ptr %0, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %34, %40
+  %45 = add i32 %37, %43
+  %46 = sub i32 %44, %45
+  %47 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv
+  %48 = load i8, ptr %47, align 1
+  %49 = mul i32 %46, 3
+  %.not.us = icmp ugt i32 %49, %16
+  %.not67.us = icmp uge i32 %49, %23
+  %50 = trunc i8 %48 to i1
+  %spec.select.us = select i1 %.not67.us, i1 true, i1 %50
   %or.cond = select i1 %.not.us, i1 %spec.select.us, i1 false
-  br i1 %or.cond, label %52, label %.thread.us
+  br i1 %or.cond, label %51, label %.thread.us
 
-52:                                               ; preds = %31
-  %53 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv
-  store i8 1, ptr %53, align 1
+51:                                               ; preds = %30
+  %52 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
+  store i8 1, ptr %52, align 1
   br label %.thread.us
 
-.thread.us:                                       ; preds = %52, %31
-  %.070.us = phi i32 [ 1, %52 ], [ 0, %31 ]
-  %54 = and i8 %49, 1
-  %.masked.us = zext nneg i8 %54 to i32
-  %55 = xor i32 %.070.us, %.masked.us
-  %56 = add i32 %55, %.180.us
+.thread.us:                                       ; preds = %51, %30
+  %.070.us = phi i32 [ 1, %51 ], [ 0, %30 ]
+  %53 = and i8 %48, 1
+  %.masked.us = zext nneg i8 %53 to i32
+  %54 = xor i32 %.070.us, %.masked.us
+  %55 = add i32 %54, %.180.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %._crit_edge.us, label %31, !llvm.loop !23
+  br i1 %exitcond90.not, label %._crit_edge.us, label %30, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %.thread.us
-  tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %.06381.us, ptr noundef nonnull %16)
-  %57 = add nsw i32 %.06381.us, 1
-  %exitcond91.not = icmp eq i32 %57, %20
+  tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %.06381.us, ptr noundef nonnull %15)
+  %56 = add nsw i32 %.06381.us, 1
+  %exitcond91.not = icmp eq i32 %56, %19
   br i1 %exitcond91.not, label %._crit_edge85, label %.lr.ph.us, !llvm.loop !24
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %.lr.ph84.split
-  %.06381 = phi i32 [ %59, %.lr.ph84.split ], [ %18, %.lr.ph84 ]
-  %58 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %.06381)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %58, i64 %13, i1 false)
-  tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %.06381, ptr noundef nonnull %16)
-  %59 = add i32 %.06381, 1
-  %exitcond.not = icmp eq i32 %59, %20
+  %.06381 = phi i32 [ %58, %.lr.ph84.split ], [ %17, %.lr.ph84 ]
+  %57 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %.06381)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %57, i64 %13, i1 false)
+  tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %.06381, ptr noundef nonnull %15)
+  %58 = add i32 %.06381, 1
+  %exitcond.not = icmp eq i32 %58, %19
   br i1 %exitcond.not, label %._crit_edge85, label %.lr.ph84.split, !llvm.loop !24
 
 ._crit_edge85:                                    ; preds = %.lr.ph84.split, %._crit_edge.us, %4
-  %.062.lcssa = phi i32 [ 0, %4 ], [ %56, %._crit_edge.us ], [ 0, %.lr.ph84.split ]
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #18
+  %.062.lcssa = phi i32 [ 0, %4 ], [ %55, %._crit_edge.us ], [ 0, %.lr.ph84.split ]
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #18
   ret i32 %.062.lcssa
 }
 
@@ -6627,6 +6626,9 @@ define internal void @_GLOBAL__sub_I_qrcode_reader.cpp() #14 section ".text.star
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5zxing12ErrorHandlerD2Ev, ptr nonnull @_ZN5zxingL15gf_err_handler_E, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
