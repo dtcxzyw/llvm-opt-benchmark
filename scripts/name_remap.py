@@ -45,7 +45,17 @@ def get_replace_candidates(line: str, src: str, tgt: str):
     res += get_replace_candidates_impl(line, src + '\n', tgt + '\n')
     return res
 
-def remap(line, ref, mapping):
+def extract_attr(line: str):
+    line = line.strip()
+    pos = line.rfind('#')
+    if pos == -1:
+        return None
+    number = line[pos + 1:]
+    if number.isnumeric():
+        return line[pos:]
+    return None
+
+def remap(line: str, ref: str, mapping):
     best_dist = dist(line, ref)
     while True:
         changed = False
@@ -77,6 +87,17 @@ def remap(line, ref, mapping):
             changed = True
         if not changed:
             break
+
+    # handle attributes
+    attr1 = extract_attr(line)
+    attr2 = extract_attr(ref)
+    if attr1 is not None and attr2 is not None:
+        cur = line.replace(attr1, attr2)
+        cur_dist = dist(cur, ref)
+        if cur_dist > best_dist:
+            best_dist = cur_dist
+            line = cur
+    
     return line
 
 
