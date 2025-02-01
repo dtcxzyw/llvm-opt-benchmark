@@ -398,7 +398,7 @@ def update_pr():
     lines.append(run_cmd("head -100 test.log"))
 
     if not NO_DIFF:
-        out = run_cmd("git diff {} --numstat --oneline bench/*".format(base))
+        out = run_cmd("git diff {} --numstat --oneline bench/*".format(base), to=1800.0)
         if out is not None:
             out = out.split("\n")
             out = out[0:min(len(out), 200)]
