@@ -3277,6 +3277,7 @@ lor.lhs.false79:                                  ; preds = %while.end
   br i1 %tobool80, label %if.then81, label %end
 
 if.then81:                                        ; preds = %lor.lhs.false79, %while.end
+  %legacyOctal.0335 = phi i8 [ 1, %lor.lhs.false79 ], [ %legacyOctal.0.ph, %while.end ]
   %cmp84 = icmp eq i8 %.lcssa379, 46
   br i1 %cmp84, label %if.then85, label %if.end88
 
@@ -3295,7 +3296,7 @@ if.then93:                                        ; preds = %if.end88
 
 fraction:                                         ; preds = %if.then85, %if.then34
   %radix.1 = phi i32 [ 10, %if.then34 ], [ %radix.0.ph, %if.then85 ]
-  %legacyOctal.1 = phi i8 [ 0, %if.then34 ], [ %legacyOctal.0.ph, %if.then85 ]
+  %legacyOctal.1 = phi i8 [ 0, %if.then34 ], [ %legacyOctal.0335, %if.then85 ]
   %storemerge = phi ptr [ %add.ptr36, %if.then34 ], [ %incdec.ptr87, %if.then85 ]
   %seenSeparator.0 = phi i8 [ 0, %if.then34 ], [ %seenSeparator.2.lcssa, %if.then85 ]
   %start.1 = phi ptr [ %0, %if.then34 ], [ %start.0.ph, %if.then85 ]
@@ -3339,7 +3340,7 @@ if.then125:                                       ; preds = %while.end120
 exponent:                                         ; preds = %if.then125, %if.then93, %if.then43
   %incdec.ptr127.sink = phi ptr [ %incdec.ptr127, %if.then125 ], [ %incdec.ptr95, %if.then93 ], [ %add.ptr45, %if.then43 ]
   %radix.2 = phi i32 [ %radix.1, %if.then125 ], [ %radix.0.ph, %if.then93 ], [ 10, %if.then43 ]
-  %legacyOctal.2 = phi i8 [ %legacyOctal.1, %if.then125 ], [ %legacyOctal.0.ph, %if.then93 ], [ 0, %if.then43 ]
+  %legacyOctal.2 = phi i8 [ %legacyOctal.1, %if.then125 ], [ %legacyOctal.0335, %if.then93 ], [ 0, %if.then43 ]
   %seenSeparator.1 = phi i8 [ %seenSeparator.4.lcssa, %if.then125 ], [ %seenSeparator.2.lcssa, %if.then93 ], [ 0, %if.then43 ]
   %start.2 = phi ptr [ %start.1, %if.then125 ], [ %start.0.ph, %if.then93 ], [ %0, %if.then43 ]
   store ptr %incdec.ptr127.sink, ptr %curCharPtr_, align 8
@@ -3382,7 +3383,7 @@ do.body:                                          ; preds = %if.end139, %do.body
 
 end:                                              ; preds = %lor.lhs.false.us, %do.body, %while.end120, %lor.lhs.false79, %if.end88
   %radix.3 = phi i32 [ %radix.1, %while.end120 ], [ %radix.0.ph, %if.end88 ], [ %radix.0.ph, %lor.lhs.false79 ], [ %radix.2, %do.body ], [ 16, %lor.lhs.false.us ]
-  %legacyOctal.3 = phi i8 [ %legacyOctal.1, %while.end120 ], [ %legacyOctal.0.ph, %if.end88 ], [ %legacyOctal.0.ph, %lor.lhs.false79 ], [ %legacyOctal.2, %do.body ], [ 0, %lor.lhs.false.us ]
+  %legacyOctal.3 = phi i8 [ %legacyOctal.1, %while.end120 ], [ %legacyOctal.0335, %if.end88 ], [ 0, %lor.lhs.false79 ], [ %legacyOctal.2, %do.body ], [ 0, %lor.lhs.false.us ]
   %seenSeparator.3 = phi i8 [ %seenSeparator.4.lcssa, %while.end120 ], [ %seenSeparator.2.lcssa, %if.end88 ], [ %seenSeparator.2.lcssa, %lor.lhs.false79 ], [ %24, %do.body ], [ %seenSeparator.2.us, %lor.lhs.false.us ]
   %start.3 = phi ptr [ %start.1, %while.end120 ], [ %start.0.ph, %if.end88 ], [ %start.0.ph, %lor.lhs.false79 ], [ %start.2, %do.body ], [ %add.ptr, %lor.lhs.false.us ]
   %real.0 = phi i1 [ true, %while.end120 ], [ false, %if.end88 ], [ false, %lor.lhs.false79 ], [ true, %do.body ], [ false, %lor.lhs.false.us ]

@@ -2711,6 +2711,7 @@ _ZL21dd_print_load_verboseP12gmx_domdec_t.exit:   ; preds = %739, %735, %699, %_
   br i1 %4, label %849, label %910
 
 844:                                              ; preds = %211, %778, %763, %761, %836, %785
+  %.2371 = phi i8 [ %.0369, %778 ], [ %.0369, %763 ], [ %.0369, %761 ], [ %.0369, %836 ], [ %.0369, %785 ], [ 0, %211 ]
   %845 = getelementptr inbounds nuw i8, ptr %143, i64 2212
   %846 = load i32, ptr %845, align 4
   %847 = add nsw i32 %846, 1
@@ -2721,7 +2722,7 @@ _ZL21dd_print_load_verboseP12gmx_domdec_t.exit:   ; preds = %739, %735, %699, %_
   br i1 %4, label %849, label %910
 
 849:                                              ; preds = %839, %831, %.thread676, %844, %848
-  %.1370668 = phi i8 [ %.0369, %844 ], [ %.0369, %848 ], [ %.0369, %.thread676 ], [ %.0369, %831 ], [ 1, %839 ]
+  %.1370668 = phi i8 [ %.2371, %844 ], [ %.0369, %848 ], [ %.0369, %.thread676 ], [ %.0369, %831 ], [ 1, %839 ]
   %850 = getelementptr inbounds nuw i8, ptr %141, i64 312
   %851 = load ptr, ptr %850, align 8
   call void @_ZN11gmx_ga2la_t5clearEb(ptr noundef nonnull align 8 dereferenceable(41) %851, i1 noundef zeroext true)
@@ -2830,7 +2831,7 @@ _ZL13ddGetAtomInfoN3gmx8ArrayRefIKNS_27AtomInfoWithinMoleculeBlockEEEi.exit.i: ;
   br i1 %exitcond.not.i, label %_ZL15dd_set_atominfoN3gmx8ArrayRefIKiEEiiP10t_forcerec.exit, label %.lr.ph.i444, !llvm.loop !14
 
 910:                                              ; preds = %839, %831, %844, %848
-  %.1370667 = phi i8 [ %.0369, %844 ], [ %.0369, %848 ], [ %.0369, %831 ], [ 1, %839 ]
+  %.1370667 = phi i8 [ %.2371, %844 ], [ %.0369, %848 ], [ %.0369, %831 ], [ 1, %839 ]
   %911 = getelementptr inbounds nuw i8, ptr %11, i64 776
   %912 = load i32, ptr %911, align 8
   %913 = sext i32 %912 to i64

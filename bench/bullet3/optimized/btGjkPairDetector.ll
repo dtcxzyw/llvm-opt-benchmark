@@ -233,8 +233,8 @@ entry:
 land.rhs:                                         ; preds = %entry
   %m_shapeType.i.i91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %m_shapeType.i.i91, align 8
-  %.fr954 = freeze i32 %11
-  %12 = add i32 %.fr954, -17
+  %.fr953 = freeze i32 %11
+  %12 = add i32 %.fr953, -17
   %13 = icmp ult i32 %12, 2
   br label %land.end
 
@@ -1223,13 +1223,15 @@ land.rhs194:                                      ; preds = %if.end187
 
 land.lhs.true200:                                 ; preds = %if.end187, %land.rhs194
   %377 = phi i1 [ false, %if.end187 ], [ %cmp196, %land.rhs194 ]
+  %tobool201.not = xor i1 %isValid.0, true
   %or.cond = or i1 %status.1, %377
-  %or.cond.not = xor i1 %or.cond, true
-  %or.cond57.not = select i1 %isValid.0, i1 %or.cond.not, i1 false
-  %brmerge = select i1 %or.cond57.not, i1 true, i1 %tobool190.not
-  br i1 %brmerge, label %if.end289, label %if.then208
+  %or.cond57 = select i1 %tobool201.not, i1 true, i1 %or.cond
+  br i1 %or.cond57, label %if.then205, label %land.lhs.true291
 
-if.then208:                                       ; preds = %land.lhs.true200
+if.then205:                                       ; preds = %land.lhs.true200
+  br i1 %tobool190.not, label %if.end289, label %if.then208
+
+if.then208:                                       ; preds = %if.then205
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_cachedSeparatingAxis, i8 0, i64 16, i1 false)
   %378 = load ptr, ptr %m_simplexSolver, align 8
   %379 = load ptr, ptr %m_minkowskiA, align 8
@@ -1287,7 +1289,7 @@ if.end232:                                        ; preds = %if.then228, %if.the
   %tmpNormalInB.sroa.9.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i349, %if.then222 ], [ %tmpNormalInB.sroa.9.0.copyload, %if.then228 ]
   %lenSqr225.0 = phi float [ %394, %if.then222 ], [ %398, %if.then228 ]
   %cmp233 = fcmp ogt float %lenSqr225.0, 0x3D10000000000000
-  br i1 %cmp233, label %if.then234, label %if.end289.sink.split
+  br i1 %cmp233, label %if.then234, label %if.else250
 
 if.then234:                                       ; preds = %if.end232
   %call.i358 = call noundef float @sqrtf(float noundef %lenSqr225.0) #13
@@ -1308,7 +1310,7 @@ if.then234:                                       ; preds = %if.end232
   store i32 3, ptr %m_lastUsedMethod, align 8
   %cmp245 = fcmp ule float %distance.0, %fneg
   %or.cond58.not = select i1 %isValid.0, i1 %cmp245, i1 false
-  br i1 %or.cond58.not, label %if.end289.sink.split, label %if.then246
+  br i1 %or.cond58.not, label %if.else247, label %if.then246
 
 if.then246:                                       ; preds = %if.then234
   %div.i = fdiv float 1.000000e+00, %call.i358
@@ -1326,6 +1328,14 @@ if.then246:                                       ; preds = %if.then234
   store <2 x float> %tmpNormalInB.sroa.0.4.vec.insert, ptr %normalInB, align 8
   store <2 x float> %tmpNormalInB.sroa.9.8.vec.insert, ptr %arrayidx5.i, align 8
   br label %land.lhs.true291
+
+if.else247:                                       ; preds = %if.then234
+  store i32 8, ptr %m_lastUsedMethod, align 8
+  br label %land.lhs.true291
+
+if.else250:                                       ; preds = %if.end232
+  store i32 9, ptr %m_lastUsedMethod, align 8
+  br label %if.end289
 
 if.else253:                                       ; preds = %if.then220
   %cmp256 = fcmp ogt float %386, 0.000000e+00
@@ -1352,7 +1362,7 @@ if.then257:                                       ; preds = %if.else253
   %sub263 = fsub float %sqrt.i394, %add
   %cmp266 = fcmp uge float %sub263, %distance.0
   %or.cond59.not = select i1 %isValid.0, i1 %cmp266, i1 false
-  br i1 %or.cond59.not, label %if.end289.sink.split, label %if.then267
+  br i1 %or.cond59.not, label %if.else281, label %if.then267
 
 if.then267:                                       ; preds = %if.then257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pointOnA, ptr noundef nonnull align 4 dereferenceable(16) %tmpPointOnA, i64 16, i1 false)
@@ -1403,16 +1413,15 @@ if.then267:                                       ; preds = %if.then257
   store i32 6, ptr %m_lastUsedMethod, align 8
   br label %land.lhs.true291
 
-if.end289.sink.split:                             ; preds = %if.then257, %if.end232, %if.then234
-  %.sink953 = phi i32 [ 8, %if.then234 ], [ 9, %if.end232 ], [ 5, %if.then257 ]
-  store i32 %.sink953, ptr %m_lastUsedMethod, align 8
-  br label %if.end289
+if.else281:                                       ; preds = %if.then257
+  store i32 5, ptr %m_lastUsedMethod, align 8
+  br label %land.lhs.true291
 
-if.end289:                                        ; preds = %if.end289.sink.split, %land.lhs.true200, %if.then208, %if.else253
+if.end289:                                        ; preds = %if.then205, %if.then208, %if.else250, %if.else253
   br i1 %isValid.0, label %land.lhs.true291, label %if.end418
 
-land.lhs.true291:                                 ; preds = %if.then267, %if.then246, %if.end289
-  %distance.1892 = phi float [ %distance.0, %if.end289 ], [ %sub263, %if.then267 ], [ %fneg, %if.then246 ]
+land.lhs.true291:                                 ; preds = %land.lhs.true200, %if.else281, %if.then267, %if.else247, %if.then246, %if.end289
+  %distance.1892 = phi float [ %distance.0, %if.end289 ], [ %distance.0, %land.lhs.true200 ], [ %distance.0, %if.else281 ], [ %sub263, %if.then267 ], [ %distance.0, %if.else247 ], [ %fneg, %if.then246 ]
   %cmp292 = fcmp olt float %distance.1892, 0.000000e+00
   br i1 %cmp292, label %if.then297, label %lor.lhs.false293
 

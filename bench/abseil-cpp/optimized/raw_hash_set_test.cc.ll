@@ -115627,8 +115627,8 @@ if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %call25.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i ]
   %19 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 0
-  %cmp.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i.i, label %invoke.cont15, label %cond.false.i
+  %cmp.i.i.not = icmp eq ptr %19, null
+  br i1 %cmp.i.i.not, label %invoke.cont15, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i
   %20 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 1
@@ -115642,7 +115642,6 @@ _ZN4absl18container_internal11node_handleINS0_12_GLOBAL__N_111ValuePolicyIlLb0EE
   br label %ehcleanup216
 
 invoke.cont15:                                    ; preds = %cond.false.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i
-  %node.sroa.0.2 = phi i8 [ 1, %cond.false.i ], [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i ]
   %node.sroa.22.0 = phi i64 [ %ref.tmp.val.val.i.i, %cond.false.i ], [ 0, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i ]
   store i64 8589934595, ptr %ref.tmp9, align 8, !alias.scope !4531
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJiiEEEEEclIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %t)
@@ -115746,8 +115745,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   %t.val33 = load ptr, ptr %t, align 8, !nonnull !1153, !noundef !1153
   %t.val34 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i.i, align 8
-  %tobool.i.i.i.i.i.i = trunc nuw i8 %node.sroa.0.2 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.end.i.i, label %invoke.cont42
+  br i1 %cmp.i.i.not, label %invoke.cont42, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.prefetch.p0(ptr nonnull readonly %t.val33, i32 0, i32 1, i32 1), !noalias !4534
@@ -115824,7 +115822,8 @@ invoke.cont42.loopexit:                           ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %invoke.cont42.loopexit, %invoke.cont.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit
-  %node.sroa.0.3 = phi i8 [ 0, %invoke.cont.i.i.i ], [ %node.sroa.0.2, %_ZN7testing15AssertionResultD2Ev.exit ], [ 1, %invoke.cont42.loopexit ]
+  %tobool.i102.not.not = phi i1 [ true, %invoke.cont.i.i.i ], [ true, %_ZN7testing15AssertionResultD2Ev.exit ], [ false, %invoke.cont42.loopexit ]
+  %node.sroa.0.3 = phi i8 [ 1, %invoke.cont.i.i.i ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ], [ 0, %invoke.cont42.loopexit ]
   %res.sroa.4.01825.i = phi ptr [ %add.ptr3.i.i.i.i.i19.i.i, %invoke.cont.i.i.i ], [ undef, %_ZN7testing15AssertionResultD2Ev.exit ], [ %add.ptr21.i.i.i.i.i.i.i.le, %invoke.cont42.loopexit ]
   store i32 3, ptr %ref.tmp36, align 4
   %agg.tmp3754.sroa.4.0.ref.tmp36.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp36, i64 4
@@ -116039,11 +116038,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %if.end81, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i99
   store ptr null, ptr %message_.i97, align 8
-  %frombool = xor i8 %node.sroa.0.3, 1
-  store i8 %frombool, ptr %gtest_ar_, align 8
+  store i8 %node.sroa.0.3, ptr %gtest_ar_, align 8
   %message_.i101 = getelementptr inbounds nuw i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i101, align 8
-  %tobool.i102.not.not = icmp eq i8 %node.sroa.0.3, 0
   br i1 %tobool.i102.not.not, label %_ZN7testing15AssertionResultD2Ev.exit116, label %if.else88
 
 ehcleanup82:                                      ; preds = %_ZN7testing7MessageD2Ev.exit96, %lpad70

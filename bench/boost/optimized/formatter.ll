@@ -2014,7 +2014,6 @@ _ZN6icu_7013UnicodeStringpLERKS0_.exit:           ; preds = %61
   br label %139
 
 74:                                               ; preds = %_ZN6icu_7013UnicodeStringpLERKS0_.exit, %_ZNK6icu_7013UnicodeStringixEi.exit58
-  %.138 = phi i8 [ 0, %_ZN6icu_7013UnicodeStringpLERKS0_.exit ], [ %.03775, %_ZNK6icu_7013UnicodeStringixEi.exit58 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #21
   %75 = trunc i16 %.033 to i8
   invoke void @_ZN5boost6locale8impl_icu22strftime_symbol_to_icuEcRKNS1_16formatters_cacheE(ptr dead_on_unwind nonnull writable sret(%"class.icu_70::UnicodeString") align 8 %6, i8 noundef signext %75, ptr noundef nonnull align 8 dereferenceable(2032) %2)
@@ -2129,7 +2128,6 @@ _ZN6icu_7013UnicodeStringpLERKS0_.exit61:         ; preds = %105
   br label %139
 
 118:                                              ; preds = %_ZN6icu_7013UnicodeStringpLERKS0_.exit61, %_ZNK6icu_7013UnicodeStringixEi.exit.thread
-  %.340 = phi i8 [ %.03775, %_ZNK6icu_7013UnicodeStringixEi.exit.thread ], [ 1, %_ZN6icu_7013UnicodeStringpLERKS0_.exit61 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   store i16 %.0.i.i64, ptr %4, align 2, !tbaa !46
   %119 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
@@ -2140,7 +2138,7 @@ _ZN6icu_7013UnicodeStringpLEDs.exit:              ; preds = %118
   br label %120
 
 120:                                              ; preds = %_ZN6icu_7013UnicodeStringpLEDs.exit, %_ZN6icu_7013UnicodeStringpLERKS0_.exit60, %_ZN6icu_7013UnicodeStringpLERKS0_.exit59
-  %.239 = phi i8 [ %.138, %_ZN6icu_7013UnicodeStringpLERKS0_.exit59 ], [ %.03775, %_ZN6icu_7013UnicodeStringpLERKS0_.exit60 ], [ %.340, %_ZN6icu_7013UnicodeStringpLEDs.exit ]
+  %.239 = phi i8 [ 0, %_ZN6icu_7013UnicodeStringpLERKS0_.exit59 ], [ %.03775, %_ZN6icu_7013UnicodeStringpLERKS0_.exit60 ], [ 1, %_ZN6icu_7013UnicodeStringpLEDs.exit ]
   %.236 = phi i32 [ %.135, %_ZN6icu_7013UnicodeStringpLERKS0_.exit59 ], [ %.03476, %_ZN6icu_7013UnicodeStringpLERKS0_.exit60 ], [ %.03476, %_ZN6icu_7013UnicodeStringpLEDs.exit ]
   %121 = add i32 %.236, 1
   %122 = icmp ult i32 %121, %17

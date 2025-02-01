@@ -3505,8 +3505,8 @@ default.unreachable8:                             ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !alias.scope !1047, !noalias !1048
   br label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17hf135496243160190E.exit"
 
-common.resume:                                    ; preds = %38, %41, %26
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %26 ], [ %39, %41 ], [ %39, %38 ]
+common.resume:                                    ; preds = %39, %26
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %26 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %19, %16
@@ -3562,31 +3562,27 @@ thread-pre-split:                                 ; preds = %15, %29
 
 37:                                               ; preds = %35
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.ffc34ad9ea0ca27223c3df7e39c916b2.14.llvm.10393017446704266758, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ffc34ad9ea0ca27223c3df7e39c916b2.16.llvm.10393017446704266758) #64
-          to label %40 unwind label %38, !noalias !1062
+          to label %38 unwind label %39, !noalias !1062
 
 38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  %.not1.i.i = icmp eq i64 %36, 0
-  br i1 %.not1.i.i, label %41, label %common.resume
-
-40:                                               ; preds = %37
   unreachable
 
-41:                                               ; preds = %38
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
+          cleanup
   invoke void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mpmc..error..SendTimeoutError$LT$std..io..buffered..bufreader..BufReader$LT$tiny_http..util..refined_tcp_stream..RefinedTcpStream$GT$$GT$$GT$17ha0e6dfdb76291da3E.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #65
-          to label %common.resume unwind label %42, !noalias !1060
+          to label %common.resume unwind label %41, !noalias !1060
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #66, !noalias !1060
   unreachable
 
 "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758.exit.i": ; preds = %35
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1056
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false), !alias.scope !1056
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %43, i64 56, i1 false), !alias.scope !1056
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h846a612a03e31bdaE.llvm.10393017446704266758.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h846a612a03e31bdaE.llvm.10393017446704266758.exit": ; preds = %33, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758.exit.i"
@@ -3598,37 +3594,33 @@ thread-pre-split:                                 ; preds = %15, %29
 define hidden void @"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758"(ptr noalias noundef writeonly sret({ { { { ptr, i64 }, i64, i64, i64 }, { { i32, i32 }, i8, i8, [2 x i8] }, [1 x i32] } }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !677, !noundef !14
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %12, label %4
+  br i1 %trunc, label %11, label %4
 
 4:                                                ; preds = %2
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.ffc34ad9ea0ca27223c3df7e39c916b2.14.llvm.10393017446704266758, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ffc34ad9ea0ca27223c3df7e39c916b2.16.llvm.10393017446704266758) #64
-          to label %7 unwind label %5
+          to label %5 unwind label %7
 
 5:                                                ; preds = %4
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %.not1 = icmp eq i64 %3, 0
-  br i1 %.not1, label %9, label %8
-
-7:                                                ; preds = %4
   unreachable
 
-8:                                                ; preds = %9, %5
-  resume { ptr, i32 } %6
+6:                                                ; preds = %7
+  resume { ptr, i32 } %8
 
-9:                                                ; preds = %5
+7:                                                ; preds = %4
+  %8 = landingpad { ptr, i32 }
+          cleanup
   invoke void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mpmc..error..SendTimeoutError$LT$std..io..buffered..bufreader..BufReader$LT$tiny_http..util..refined_tcp_stream..RefinedTcpStream$GT$$GT$$GT$17ha0e6dfdb76291da3E.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #65
-          to label %8 unwind label %10
+          to label %6 unwind label %9
 
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #66
   unreachable
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
   ret void
 }
 
@@ -14022,7 +14014,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h846a612a03e3
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %7, align 8
-  br label %19
+  br label %18
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
@@ -14034,37 +14026,33 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h846a612a03e3
 
 10:                                               ; preds = %8
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.ffc34ad9ea0ca27223c3df7e39c916b2.14.llvm.10393017446704266758, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ffc34ad9ea0ca27223c3df7e39c916b2.16.llvm.10393017446704266758) #64
-          to label %13 unwind label %11, !noalias !3607
+          to label %11 unwind label %13, !noalias !3607
 
 11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %.not1.i = icmp eq i64 %9, 0
-  br i1 %.not1.i, label %15, label %14
-
-13:                                               ; preds = %10
   unreachable
 
-14:                                               ; preds = %15, %11
-  resume { ptr, i32 } %12
+12:                                               ; preds = %13
+  resume { ptr, i32 } %14
 
-15:                                               ; preds = %11
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          cleanup
   invoke void @"_ZN4core3ptr169drop_in_place$LT$std..sync..mpmc..error..SendTimeoutError$LT$std..io..buffered..bufreader..BufReader$LT$tiny_http..util..refined_tcp_stream..RefinedTcpStream$GT$$GT$$GT$17ha0e6dfdb76291da3E.llvm.10393017446704266758"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #65
-          to label %14 unwind label %16, !noalias !3605
+          to label %12 unwind label %15, !noalias !3605
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #66, !noalias !3605
   unreachable
 
 "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758.exit": ; preds = %8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %18, i64 56, i1 false)
-  br label %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
+  br label %18
 
-19:                                               ; preds = %6, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758.exit"
+18:                                               ; preds = %6, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h1cd5b1e24380e621E.llvm.10393017446704266758.exit"
   ret void
 }
 
@@ -25863,17 +25851,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !49, !noundef !14
   %4 = load i8, ptr %1, align 1, !range !49, !noundef !14
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 

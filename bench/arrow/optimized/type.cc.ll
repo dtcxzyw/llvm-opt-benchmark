@@ -68283,7 +68283,6 @@ if.then18:                                        ; preds = %if.then13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then10, %if.then18, %if.then13, %if.else
-  %__check_bucket.2 = phi i8 [ %__check_bucket.047, %if.else ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then10 ]
   %arrayidx21 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
   %6 = load ptr, ptr %arrayidx21, align 8
   %tobool22.not = icmp eq ptr %6, null
@@ -68311,7 +68310,7 @@ if.else36:                                        ; preds = %if.end20
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then23, %if.then33, %if.else36, %if.then
-  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ %__check_bucket.2, %if.else36 ], [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.then23 ]
+  %__check_bucket.1 = phi i8 [ 1, %if.then ], [ 0, %if.else36 ], [ 0, %if.then33 ], [ 0, %if.then23 ]
   %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.050, %if.then ], [ %__bbegin_bkt.050, %if.else36 ], [ %rem.i.i, %if.then33 ], [ %rem.i.i, %if.then23 ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !1795

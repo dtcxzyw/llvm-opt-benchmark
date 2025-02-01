@@ -5373,9 +5373,11 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
 590:                                              ; preds = %581
   %591 = load i32, ptr %543, align 4
   %592 = and i32 %591, 1
-  %.not142.i = icmp ne i32 %592, 0
-  %brmerge.not.i = select i1 %.not142.i, i1 %.0.i, i1 false
-  br i1 %brmerge.not.i, label %593, label %630
+  %.not142.i = icmp eq i32 %592, 0
+  %.0.not.i = xor i1 %.0.i, true
+  %brmerge.i = select i1 %.not142.i, i1 true, i1 %.0.not.i
+  %.0.mux.i = select i1 %.not142.i, i1 %.0.i, i1 false
+  br i1 %brmerge.i, label %630, label %593
 
 593:                                              ; preds = %590
   %594 = load i64, ptr %7, align 8
@@ -5438,7 +5440,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
 
 630:                                              ; preds = %620, %616, %598, %590
   %.4.i = phi ptr [ %610, %620 ], [ %610, %616 ], [ %.3.i, %590 ], [ %.3.i, %598 ]
-  %.1.i244 = phi i1 [ true, %620 ], [ true, %616 ], [ %.0.i, %590 ], [ false, %598 ]
+  %.1.i244 = phi i1 [ true, %620 ], [ true, %616 ], [ %.0.mux.i, %590 ], [ false, %598 ]
   %631 = load ptr, ptr %570, align 8
   %632 = icmp eq ptr %631, null
   br i1 %632, label %647, label %633

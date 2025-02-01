@@ -14962,7 +14962,6 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -15043,7 +15042,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.3, %if.end43 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ 1, %if.end43 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176
@@ -18474,9 +18473,8 @@ lpad39:                                           ; preds = %if.then37
   br label %ehcleanup70
 
 if.end42:                                         ; preds = %if.then37.if.end42_crit_edge, %if.end35
-  %204 = phi ptr [ %200, %if.end35 ], [ %.pre37, %if.then37.if.end42_crit_edge ]
-  %205 = phi ptr [ %199, %if.end35 ], [ %.pre36, %if.then37.if.end42_crit_edge ]
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.028, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
+  %204 = phi ptr [ %.pre37, %if.then37.if.end42_crit_edge ], [ %200, %if.end35 ]
+  %205 = phi ptr [ %.pre36, %if.then37.if.end42_crit_edge ], [ %199, %if.end35 ]
   %206 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i142 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %206, i64 %i.029
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -18557,7 +18555,7 @@ if.end8.sink.split.i.i.i.i.i.i166:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153, %if.end42, %invoke.cont30
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont30 ], [ 0, %if.end42 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i166 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.028, %invoke.cont30 ], [ %at_least_one_modified.3, %if.end42 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i166 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.028, %invoke.cont30 ], [ 1, %if.end42 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i166 ]
   %218 = load ptr, ptr %_M_refcount.i.i.i.i.i138, align 8
   %cmp.not.i.i.i.i177 = icmp eq ptr %218, null
   br i1 %cmp.not.i.i.i.i177, label %cleanup45, label %if.then.i.i.i.i178
@@ -19685,9 +19683,8 @@ lpad39:                                           ; preds = %if.then37
   br label %ehcleanup70
 
 if.end42:                                         ; preds = %if.then37.if.end42_crit_edge, %if.end35
-  %57 = phi ptr [ %53, %if.end35 ], [ %.pre21, %if.then37.if.end42_crit_edge ]
-  %58 = phi ptr [ %52, %if.end35 ], [ %.pre, %if.then37.if.end42_crit_edge ]
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.018, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
+  %57 = phi ptr [ %.pre21, %if.then37.if.end42_crit_edge ], [ %53, %if.end35 ]
+  %58 = phi ptr [ %.pre, %if.then37.if.end42_crit_edge ], [ %52, %if.end35 ]
   %59 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i103 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %59, i64 %i.019
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -19768,7 +19765,7 @@ if.end8.sink.split.i.i.i.i.i.i127:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114, %if.end42, %invoke.cont30
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont30 ], [ 0, %if.end42 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i127 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont30 ], [ %at_least_one_modified.3, %if.end42 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i127 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont30 ], [ 1, %if.end42 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i127 ]
   %71 = load ptr, ptr %_M_refcount.i.i.i.i.i99, align 8
   %cmp.not.i.i.i.i138 = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i138, label %cleanup45, label %if.then.i.i.i.i139
@@ -22549,7 +22546,6 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -22630,7 +22626,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.3, %if.end43 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ 1, %if.end43 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176
@@ -24191,9 +24187,8 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup71
 
 if.end43:                                         ; preds = %if.then38.if.end43_crit_edge, %if.end36
-  %84 = phi ptr [ %80, %if.end36 ], [ %.pre21, %if.then38.if.end43_crit_edge ]
-  %85 = phi ptr [ %79, %if.end36 ], [ %.pre, %if.then38.if.end43_crit_edge ]
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.018, %if.end36 ], [ 1, %if.then38.if.end43_crit_edge ]
+  %84 = phi ptr [ %.pre21, %if.then38.if.end43_crit_edge ], [ %80, %if.end36 ]
+  %85 = phi ptr [ %.pre, %if.then38.if.end43_crit_edge ], [ %79, %if.end36 ]
   %86 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i151 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %86, i64 %i.019
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -24274,7 +24269,7 @@ if.end8.sink.split.i.i.i.i.i.i175:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162, %if.end43, %invoke.cont31
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i175 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont31 ], [ %at_least_one_modified.3, %if.end43 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i175 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont31 ], [ 1, %if.end43 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i175 ]
   %98 = load ptr, ptr %_M_refcount.i.i.i.i.i147, align 8
   %cmp.not.i.i.i.i186 = icmp eq ptr %98, null
   br i1 %cmp.not.i.i.i.i186, label %cleanup46, label %if.then.i.i.i.i187
@@ -43521,7 +43516,6 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.3 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 8
   %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
@@ -43602,7 +43596,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.3, %if.end43 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.3, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ 1, %if.end43 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176

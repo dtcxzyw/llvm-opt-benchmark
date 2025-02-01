@@ -421,16 +421,16 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %.critedge37
+  br i1 %78, label %79, label %.critedge33
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %1, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 1, ptr noundef nonnull %0) #7
-  br i1 %83, label %.critedge37, label %86
+  br i1 %83, label %.critedge33, label %86
 
-.critedge37:                                      ; preds = %75, %79
+.critedge33:                                      ; preds = %75, %79
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %85 = load ptr, ptr %84, align 8
   %.not23 = icmp eq ptr %85, null
@@ -445,15 +445,15 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   store ptr %90, ptr %18, align 8
   br label %.thread28
 
-.sink.split:                                      ; preds = %.critedge37, %.critedge
-  %.sink35 = phi ptr [ %67, %.critedge ], [ %85, %.critedge37 ]
-  %91 = load ptr, ptr %.sink35, align 8
+.sink.split:                                      ; preds = %.critedge33, %.critedge
+  %.sink37 = phi ptr [ %67, %.critedge ], [ %85, %.critedge33 ]
+  %91 = load ptr, ptr %.sink37, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(32) %.sink35, ptr noundef nonnull %1) #7
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(32) %.sink37, ptr noundef nonnull %1) #7
   br label %94
 
-94:                                               ; preds = %.sink.split, %.critedge37, %.critedge
+94:                                               ; preds = %.sink.split, %.critedge, %.critedge33
   %95 = load i32, ptr %11, align 4
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %11, align 4
@@ -605,7 +605,7 @@ define void @_ZN7glslang16TIntermAggregate8traverseEPNS_16TIntermTraverserE(ptr 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 0, ptr noundef nonnull %0) #7
-  br i1 %10, label %.thread, label %.thread41
+  br i1 %10, label %.thread, label %.thread29
 
 .thread:                                          ; preds = %2, %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -692,23 +692,23 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %52 = load ptr, ptr %51, align 8, !noalias !6
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %54 = load ptr, ptr %53, align 8, !noalias !9
-  %.not3035 = icmp eq ptr %52, %54
-  br i1 %.not3035, label %.loopexit, label %.lr.ph38
+  %.not3237 = icmp eq ptr %52, %54
+  br i1 %.not3237, label %.loopexit.thread, label %.lr.ph40
 
-.lr.ph38:                                         ; preds = %50
+.lr.ph40:                                         ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 9
   br label %56
 
-56:                                               ; preds = %.lr.ph38, %76
-  %.237 = phi i8 [ 1, %.lr.ph38 ], [ %.3, %76 ]
-  %.sroa.024.036 = phi ptr [ %52, %.lr.ph38 ], [ %57, %76 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.024.036, i64 -8
+56:                                               ; preds = %.lr.ph40, %76
+  %.239 = phi i8 [ 1, %.lr.ph40 ], [ %.3, %76 ]
+  %.sroa.024.038 = phi ptr [ %52, %.lr.ph40 ], [ %57, %76 ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.024.038, i64 -8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull %1) #7
-  %62 = trunc nuw i8 %.237 to i1
+  %62 = trunc nuw i8 %.239 to i1
   br i1 %62, label %63, label %76
 
 63:                                               ; preds = %56
@@ -732,32 +732,32 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %76
 
 76:                                               ; preds = %56, %63, %70, %66
-  %.3 = phi i8 [ %75, %70 ], [ %.237, %66 ], [ %.237, %63 ], [ %.237, %56 ]
+  %.3 = phi i8 [ %75, %70 ], [ 1, %66 ], [ 1, %63 ], [ 0, %56 ]
   %77 = load ptr, ptr %53, align 8, !noalias !9
-  %.not30 = icmp eq ptr %57, %77
-  br i1 %.not30, label %.loopexit, label %56, !llvm.loop !12
+  %.not32 = icmp eq ptr %57, %77
+  br i1 %.not32, label %.loopexit, label %56, !llvm.loop !12
 
 78:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %82 = load ptr, ptr %81, align 8
-  %.not2932 = icmp eq ptr %80, %82
-  br i1 %.not2932, label %.loopexit, label %.lr.ph
+  %.not3134 = icmp eq ptr %80, %82
+  br i1 %.not3134, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 9
   br label %84
 
 84:                                               ; preds = %.lr.ph, %104
-  %.534 = phi i8 [ 1, %.lr.ph ], [ %.6, %104 ]
-  %.sroa.018.033 = phi ptr [ %80, %.lr.ph ], [ %105, %104 ]
-  %85 = load ptr, ptr %.sroa.018.033, align 8
+  %.536 = phi i8 [ 1, %.lr.ph ], [ %.6, %104 ]
+  %.sroa.018.035 = phi ptr [ %80, %.lr.ph ], [ %105, %104 ]
+  %85 = load ptr, ptr %.sroa.018.035, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull %1) #7
-  %89 = trunc nuw i8 %.534 to i1
+  %89 = trunc nuw i8 %.536 to i1
   br i1 %89, label %90, label %104
 
 90:                                               ; preds = %84
@@ -766,7 +766,7 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br i1 %92, label %93, label %104
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr %.sroa.018.033, align 8
+  %94 = load ptr, ptr %.sroa.018.035, align 8
   %95 = load ptr, ptr %81, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 -8
   %97 = load ptr, ptr %96, align 8
@@ -782,37 +782,46 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %104
 
 104:                                              ; preds = %84, %90, %98, %93
-  %.6 = phi i8 [ %103, %98 ], [ %.534, %93 ], [ %.534, %90 ], [ %.534, %84 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.018.033, i64 8
+  %.6 = phi i8 [ %103, %98 ], [ 1, %93 ], [ 1, %90 ], [ 0, %84 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 8
   %106 = load ptr, ptr %81, align 8
-  %.not29 = icmp eq ptr %105, %106
-  br i1 %.not29, label %.loopexit, label %84, !llvm.loop !13
+  %.not31 = icmp eq ptr %105, %106
+  br i1 %.not31, label %.loopexit, label %84, !llvm.loop !13
 
-.loopexit:                                        ; preds = %104, %76, %50, %78
-  %.4 = phi i8 [ 1, %50 ], [ 1, %78 ], [ %.3, %76 ], [ %.6, %104 ]
+.loopexit.thread:                                 ; preds = %50, %78
   %107 = load i32, ptr %11, align 4
   %108 = add nsw i32 %107, -1
   store i32 %108, ptr %11, align 4
   %109 = load ptr, ptr %18, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
   store ptr %110, ptr %18, align 8
-  %111 = trunc nuw i8 %.4 to i1
-  br i1 %111, label %112, label %.thread41
+  br label %116
 
-112:                                              ; preds = %.loopexit
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %114 = load i8, ptr %113, align 2
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %.thread41
+.loopexit:                                        ; preds = %104, %76
+  %.4 = phi i8 [ %.3, %76 ], [ %.6, %104 ]
+  %111 = load i32, ptr %11, align 4
+  %112 = add nsw i32 %111, -1
+  store i32 %112, ptr %11, align 4
+  %113 = load ptr, ptr %18, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 -8
+  store ptr %114, ptr %18, align 8
+  %115 = trunc nuw i8 %.4 to i1
+  br i1 %115, label %116, label %.thread29
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr %1, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %119 = load ptr, ptr %118, align 8
-  %120 = tail call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 2, ptr noundef nonnull %0) #7
-  br label %.thread41
+116:                                              ; preds = %.loopexit.thread, %.loopexit
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %118 = load i8, ptr %117, align 2
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %.thread29
 
-.thread41:                                        ; preds = %6, %116, %112, %.loopexit
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %1, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
+  %123 = load ptr, ptr %122, align 8
+  %124 = tail call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 2, ptr noundef nonnull %0) #7
+  br label %.thread29
+
+.thread29:                                        ; preds = %6, %120, %116, %.loopexit
   ret void
 }
 

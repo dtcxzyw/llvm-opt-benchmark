@@ -1021,7 +1021,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %14 = load ptr, ptr %6, align 8, !alias.scope !194, !noalias !205, !nonnull !4, !align !80, !noundef !4
   %bcmp.i.i.i.i.i9.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %.promoted.i.i.i, i64 %13), !alias.scope !215, !noalias !222
   %.not.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i9.i.i.i, 0
-  br i1 %.not.i.i.i, label %.sink.split.i.i, label %.critedge._crit_edge.sink.split.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN132_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17ha4474a8e6bdc8085E.llvm.11973937877542342116.exit", label %.critedge._crit_edge.sink.split.i.i.i
 
 15:                                               ; preds = %.critedge._crit_edge.sink.split.i.i.i, %2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1036,13 +1036,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i": ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h922932abf775a9e7E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 1 %18), !noalias !190
-  br i1 %19, label %.sink.split.i.i, label %"_ZN132_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17ha4474a8e6bdc8085E.llvm.11973937877542342116.exit"
-
-.sink.split.i.i:                                  ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i", %.lr.ph.split.i.i.i
   br label %"_ZN132_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17ha4474a8e6bdc8085E.llvm.11973937877542342116.exit"
 
-"_ZN132_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17ha4474a8e6bdc8085E.llvm.11973937877542342116.exit": ; preds = %15, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i", %.sink.split.i.i
-  %.0.i3.i = phi i1 [ false, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i" ], [ true, %.sink.split.i.i ], [ false, %15 ]
+"_ZN132_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17ha4474a8e6bdc8085E.llvm.11973937877542342116.exit": ; preds = %.lr.ph.split.i.i.i, %15, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i"
+  %.0.i3.i = phi i1 [ %19, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit.i" ], [ false, %15 ], [ true, %.lr.ph.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !190
   ret i1 %.0.i3.i
 }
@@ -3006,17 +3003,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !34, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !34, !noundef !4
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 
@@ -4819,7 +4816,7 @@ define hidden noundef zeroext i1 @"_ZN132_$LT$uucore..parser..shortcut_value_par
   %13 = load ptr, ptr %5, align 8, !alias.scope !692, !noalias !702, !nonnull !4, !align !80, !noundef !4
   %bcmp.i.i.i.i.i9.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %13, ptr nonnull readonly align 1 %.promoted.i.i, i64 %12), !alias.scope !712, !noalias !719
   %.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i9.i.i, 0
-  br i1 %.not.i.i, label %.sink.split.i, label %.critedge._crit_edge.sink.split.i.i
+  br i1 %.not.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd1891d36501ef5ccE.llvm.11973937877542342116.exit", label %.critedge._crit_edge.sink.split.i.i
 
 14:                                               ; preds = %.critedge._crit_edge.sink.split.i.i, %2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4834,13 +4831,10 @@ define hidden noundef zeroext i1 @"_ZN132_$LT$uucore..parser..shortcut_value_par
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit": ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %18 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h922932abf775a9e7E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %17)
-  br i1 %18, label %.sink.split.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd1891d36501ef5ccE.llvm.11973937877542342116.exit"
-
-.sink.split.i:                                    ; preds = %.lr.ph.split.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit"
   br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd1891d36501ef5ccE.llvm.11973937877542342116.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd1891d36501ef5ccE.llvm.11973937877542342116.exit": ; preds = %14, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit", %.sink.split.i
-  %.0.i3 = phi i1 [ false, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit" ], [ true, %.sink.split.i ], [ false, %14 ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd1891d36501ef5ccE.llvm.11973937877542342116.exit": ; preds = %.lr.ph.split.i.i, %14, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit"
+  %.0.i3 = phi i1 [ %18, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb6c661b397ef64b4E.llvm.11973937877542342116.exit" ], [ false, %14 ], [ true, %.lr.ph.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret i1 %.0.i3
 }

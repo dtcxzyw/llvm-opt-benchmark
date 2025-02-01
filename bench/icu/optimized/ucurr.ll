@@ -4231,8 +4231,7 @@ for.cond:                                         ; preds = %if.end65
   br i1 %cmp28, label %for.body, label %if.end70.loopexit, !llvm.loop !33
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %currIndex.058 = phi i32 [ %currIndex.2, %for.cond ], [ 0, %for.cond.preheader ]
-  %matchFound.157 = phi i8 [ %matchFound.3, %for.cond ], [ 0, %for.cond.preheader ]
+  %currIndex.057 = phi i32 [ %currIndex.2, %for.cond ], [ 0, %for.cond.preheader ]
   %i.056 = phi i32 [ %inc69, %for.cond ], [ 0, %for.cond.preheader ]
   %call29 = call ptr @ures_getByIndex_75(ptr noundef %call17, i32 noundef %i.056, ptr noundef null, ptr noundef nonnull %localStatus)
   %call30 = call ptr @ures_getStringByKey_75(ptr noundef %call29, ptr noundef nonnull @.str.4, ptr noundef nonnull %resLen, ptr noundef nonnull %localStatus)
@@ -4271,14 +4270,13 @@ land.lhs.true51:                                  ; preds = %if.then39
   br i1 %cmp52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %land.lhs.true51
-  %inc = add nsw i32 %currIndex.058, 1
+  %inc = add nsw i32 %currIndex.057, 1
   %cmp54 = icmp eq i32 %inc, %index
-  %spec.select = select i1 %cmp54, i8 1, i8 %matchFound.157
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then53, %land.lhs.true51, %if.then39
-  %matchFound.2 = phi i8 [ %matchFound.157, %land.lhs.true51 ], [ %matchFound.157, %if.then39 ], [ %spec.select, %if.then53 ]
-  %currIndex.1 = phi i32 [ %currIndex.058, %land.lhs.true51 ], [ %currIndex.058, %if.then39 ], [ %inc, %if.then53 ]
+  %matchFound.2 = phi i1 [ false, %land.lhs.true51 ], [ false, %if.then39 ], [ %cmp54, %if.then53 ]
+  %currIndex.1 = phi i32 [ %currIndex.057, %land.lhs.true51 ], [ %currIndex.057, %if.then39 ], [ %inc, %if.then53 ]
   call void @ures_close_75(ptr noundef %call40)
   br label %if.end65
 
@@ -4287,48 +4285,45 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp58, label %if.end65, label %if.then59
 
 if.then59:                                        ; preds = %if.else
-  %inc60 = add nsw i32 %currIndex.058, 1
+  %inc60 = add nsw i32 %currIndex.057, 1
   %cmp61 = icmp eq i32 %inc60, %index
-  %spec.select47 = select i1 %cmp61, i8 1, i8 %matchFound.157
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then59, %if.else, %if.end57
-  %matchFound.3 = phi i8 [ %matchFound.2, %if.end57 ], [ %matchFound.157, %if.else ], [ %spec.select47, %if.then59 ]
-  %currIndex.2 = phi i32 [ %currIndex.1, %if.end57 ], [ %currIndex.058, %if.else ], [ %inc60, %if.then59 ]
+  %matchFound.3 = phi i1 [ %matchFound.2, %if.end57 ], [ false, %if.else ], [ %cmp61, %if.then59 ]
+  %currIndex.2 = phi i32 [ %currIndex.1, %if.end57 ], [ %currIndex.057, %if.else ], [ %inc60, %if.then59 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call31)
-  %tobool66 = trunc nuw i8 %matchFound.3 to i1
-  br i1 %tobool66, label %if.end70.loopexit, label %for.cond
+  br i1 %matchFound.3, label %if.end70.loopexit, label %for.cond
 
 if.end70.loopexit:                                ; preds = %for.cond, %if.end65
-  %7 = trunc nuw i8 %matchFound.3 to i1
-  %8 = xor i1 %7, true
+  %matchFound.0.not.ph = xor i1 %matchFound.3, true
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end70.loopexit, %for.cond.preheader, %if.end13
-  %matchFound.0 = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %8, %if.end70.loopexit ]
+  %matchFound.0.not = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %matchFound.0.not.ph, %if.end70.loopexit ]
   %s.0 = phi ptr [ null, %if.end13 ], [ null, %for.cond.preheader ], [ %call30, %if.end70.loopexit ]
   call void @ures_close_75(ptr noundef %call17)
-  %9 = load i32, ptr %ec, align 4
-  %cmp71 = icmp eq i32 %9, 0
-  %10 = load i32, ptr %localStatus, align 4
-  %cmp73 = icmp ne i32 %10, 0
+  %7 = load i32, ptr %ec, align 4
+  %cmp71 = icmp eq i32 %7, 0
+  %8 = load i32, ptr %localStatus, align 4
+  %cmp73 = icmp ne i32 %8, 0
   %or.cond2 = select i1 %cmp71, i1 true, i1 %cmp73
   br i1 %or.cond2, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %if.end70
-  store i32 %10, ptr %ec, align 4
+  store i32 %8, ptr %ec, align 4
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end70, %if.then74
-  %11 = phi i32 [ %9, %if.end70 ], [ %10, %if.then74 ]
-  %cmp.i52 = icmp sgt i32 %11, 0
+  %9 = phi i32 [ %7, %if.end70 ], [ %8, %if.then74 ]
+  %cmp.i52 = icmp sgt i32 %9, 0
   br i1 %cmp.i52, label %if.end86, label %if.then78
 
 if.then78:                                        ; preds = %if.end75
-  %12 = load i32, ptr %resLen, align 4
-  %cmp79 = icmp sle i32 %buffCapacity, %12
-  %brmerge = select i1 %cmp79, i1 true, i1 %matchFound.0
+  %10 = load i32, ptr %resLen, align 4
+  %cmp79 = icmp sle i32 %buffCapacity, %10
+  %brmerge = or i1 %matchFound.0.not, %cmp79
   br i1 %brmerge, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.then78
@@ -4336,8 +4331,8 @@ if.then82:                                        ; preds = %if.then78
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then82, %if.end75
-  %13 = load i32, ptr %resLen, align 4
-  %call87 = call i32 @u_terminateUChars_75(ptr noundef %buff, i32 noundef %buffCapacity, i32 noundef %13, ptr noundef nonnull %ec)
+  %11 = load i32, ptr %resLen, align 4
+  %call87 = call i32 @u_terminateUChars_75(ptr noundef %buff, i32 noundef %buffCapacity, i32 noundef %11, ptr noundef nonnull %ec)
   br label %return
 
 if.else88:                                        ; preds = %if.then

@@ -2370,6 +2370,8 @@ if.then54:                                        ; preds = %invoke.cont2
   %and = and i32 %27, 3
   %tobool57.not = icmp eq i32 %and, 0
   %brmerge = select i1 %tobool57.not, i1 true, i1 %marked_line_boundaries.0241
+  %not.tobool57.not = xor i1 %tobool57.not, true
+  %marked_line_boundaries.0.mux = select i1 %not.tobool57.not, i1 true, i1 %marked_line_boundaries.0241
   br i1 %brmerge, label %if.end63, label %if.then60
 
 if.then60:                                        ; preds = %if.then54
@@ -2455,10 +2457,12 @@ invoke.cont61.if.end63_crit_edge:                 ; preds = %invoke.cont61
 
 if.end63:                                         ; preds = %invoke.cont61.if.end63_crit_edge, %if.then54
   %34 = phi i32 [ %27, %if.then54 ], [ %.pre, %invoke.cont61.if.end63_crit_edge ]
-  %marked_line_boundaries.2 = phi i1 [ %marked_line_boundaries.0241, %if.then54 ], [ true, %invoke.cont61.if.end63_crit_edge ]
+  %marked_line_boundaries.2 = phi i1 [ %marked_line_boundaries.0.mux, %if.then54 ], [ true, %invoke.cont61.if.end63_crit_edge ]
   %and66 = and i32 %34, 48
   %tobool67.not = icmp eq i32 %and66, 0
   %brmerge220 = select i1 %tobool67.not, i1 true, i1 %marked_word_boundaries.0240
+  %not.tobool67.not = xor i1 %tobool67.not, true
+  %marked_word_boundaries.0.mux = select i1 %not.tobool67.not, i1 true, i1 %marked_word_boundaries.0240
   br i1 %brmerge220, label %for.inc111, label %if.then70
 
 if.then70:                                        ; preds = %if.end63
@@ -2722,7 +2726,7 @@ for.inc106:                                       ; preds = %invoke.cont.i.i38.i
   br i1 %cmp75.not, label %for.inc111, label %for.body76
 
 for.inc111:                                       ; preds = %for.inc106, %if.end63, %invoke.cont34, %invoke.cont2, %if.end49
-  %marked_word_boundaries.1 = phi i1 [ %marked_word_boundaries.0240, %if.end49 ], [ %marked_word_boundaries.0240, %if.end63 ], [ %marked_word_boundaries.0240, %invoke.cont2 ], [ %marked_word_boundaries.0240, %invoke.cont34 ], [ true, %for.inc106 ]
+  %marked_word_boundaries.1 = phi i1 [ %marked_word_boundaries.0240, %if.end49 ], [ %marked_word_boundaries.0.mux, %if.end63 ], [ %marked_word_boundaries.0240, %invoke.cont2 ], [ %marked_word_boundaries.0240, %invoke.cont34 ], [ true, %for.inc106 ]
   %marked_line_boundaries.1 = phi i1 [ %marked_line_boundaries.0241, %if.end49 ], [ %marked_line_boundaries.2, %if.end63 ], [ %marked_line_boundaries.0241, %invoke.cont2 ], [ %marked_line_boundaries.0241, %invoke.cont34 ], [ %marked_line_boundaries.2, %for.inc106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %size_.i, align 8

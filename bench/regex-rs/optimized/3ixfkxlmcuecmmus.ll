@@ -920,17 +920,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !173, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !173, !noundef !4
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 
@@ -3565,7 +3565,7 @@ common.resume:                                    ; preds = %.body, %215, %.body
   br label %.thread702
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit27.i": ; preds = %.thread92.i, %713, %708, %706, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116", %670, %651
-  %.2.i114 = phi i8 [ %.4.i, %706 ], [ 1, %670 ], [ 1, %651 ], [ 1, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116" ], [ %.4.i, %713 ], [ %.4.i, %708 ], [ %.58496.i, %.thread92.i ]
+  %.2.i114 = phi i8 [ 0, %706 ], [ 1, %670 ], [ 1, %651 ], [ 1, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116" ], [ %.4.i, %713 ], [ %.4.i, %708 ], [ 1, %.thread92.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %676, %706 ], [ %671, %670 ], [ %652, %651 ], [ %684, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116" ], [ %676, %713 ], [ %676, %708 ], [ %.pn8695.i, %.thread92.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !756)
   call void @llvm.experimental.noalias.scope.decl(metadata !759)
@@ -3813,7 +3813,6 @@ _ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i:
           to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit27.i" unwind label %697, !noalias !749
 
 .thread92.i:                                      ; preds = %706, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116"
-  %.58496.i = phi i8 [ %.4.i, %706 ], [ 1, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116" ]
   %.pn8695.i = phi { ptr, i32 } [ %676, %706 ], [ %684, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit.i116" ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17hb4b43ecdc339d16bE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 dereferenceable(128) %13)
           to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit27.i" unwind label %697, !noalias !739
