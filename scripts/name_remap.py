@@ -26,22 +26,24 @@ def extract_name(line):
 
 
 def dist(src, tgt):
-    return difflib.SequenceMatcher(lambda x: x.isspace(), src, tgt).ratio()
+    return difflib.SequenceMatcher(None, src, tgt).ratio()
 
-def replace(line: str, src: str, tgt: str):
-    res = line.replace(src + ' ', tgt + ' ', 1)
-    if line != res:
-        return res
-    res = line.replace(src + ',', tgt + ',', 1)
-    if line != res:
-        return res
-    res = line.replace(src + ':', tgt + ':', 1)
-    if line != res:
-        return res
-    res = line.replace(src + ')', tgt + ')', 1)
-    if line != res:
-        return res
-    return line.replace(src + '\n', tgt + '\n', 1)
+def get_replace_candidates_impl(line: str, src: str, tgt: str):
+    res = []
+    pos = line.find(src)
+    while pos != -1:
+        res.append(line[:pos] + tgt + line[pos + len(src):])
+        pos = line.find(src, pos + 1)
+    return res
+
+def get_replace_candidates(line: str, src: str, tgt: str):
+    res = []
+    res += get_replace_candidates_impl(line, src + ' ', tgt + ' ')
+    res += get_replace_candidates_impl(line, src + ',', tgt + ',')
+    res += get_replace_candidates_impl(line, src + ':', tgt + ':')
+    res += get_replace_candidates_impl(line, src + ')', tgt + ')')
+    res += get_replace_candidates_impl(line, src + '\n', tgt + '\n')
+    return res
 
 def remap(line, ref, mapping):
     best_dist = dist(line, ref)
@@ -52,11 +54,11 @@ def remap(line, ref, mapping):
                 local_best_dist = best_dist
                 local_best = line
                 for rep in v:
-                    cur = replace(line, k, rep)
-                    cur_dist = dist(cur, ref)
-                    if cur_dist > local_best_dist:
-                        local_best_dist = cur_dist
-                        local_best = cur
+                    for cur in get_replace_candidates(line, k, rep):
+                        cur_dist = dist(cur, ref)
+                        if cur_dist > local_best_dist:
+                            local_best_dist = cur_dist
+                            local_best = cur
                 if local_best != line:
                     changed = True
                 line = local_best
