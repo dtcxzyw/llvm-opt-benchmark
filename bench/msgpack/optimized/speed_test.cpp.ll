@@ -2769,27 +2769,27 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 322:                                              ; preds = %318
   %323 = trunc nuw i8 %320 to i1
-  br i1 %323, label %.thread, label %2151
+  br i1 %323, label %324, label %2151
 
-.thread:                                          ; preds = %322
-  %324 = load ptr, ptr %19, align 8, !tbaa !125
+324:                                              ; preds = %322
+  %325 = load ptr, ptr %19, align 8, !tbaa !125
   br label %330
 
-325:                                              ; preds = %._crit_edge, %29
+325:; preds = %._crit_edge, %29
   %326 = phi ptr [ %.pre, %._crit_edge ], [ %30, %29 ]
   %327 = phi i8 [ %320, %._crit_edge ], [ %31, %29 ]
   %328 = phi i32 [ %319, %._crit_edge ], [ %33, %29 ]
-  %329 = trunc nuw i8 %327 to i1
+  %330 = trunc nuw i8 %327 to i1
   br i1 %329, label %330, label %334
 
-330:                                              ; preds = %.thread, %325, %270
-  %331 = phi ptr [ %30, %270 ], [ %326, %325 ], [ %324, %.thread ]
+330:; preds = %324, %325, %270
+  %331 = phi ptr [ %30, %270 ], [ %326, %325 ], [ %324, %324 ]
   %332 = phi i32 [ 32, %270 ], [ %328, %325 ], [ 0, %.thread ]
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 1
   store ptr %333, ptr %19, align 8, !tbaa !125
   br label %334
 
-334:                                              ; preds = %330, %325
+334: ; preds = %330, %325
   %335 = phi ptr [ %333, %330 ], [ %326, %325 ]
   %336 = phi i32 [ %332, %330 ], [ %328, %325 ]
   %337 = ptrtoint ptr %335 to i64

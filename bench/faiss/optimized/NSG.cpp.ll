@@ -6561,7 +6561,7 @@ _ZN5faiss3nsg25storage_distance_computerEPKNS_5IndexE.exit: ; preds = %28, %32
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not.i.i = icmp eq ptr %60, %62
-  br i1 %.not.i.i, label %.critedge.preheader, label %63
+  br i1 %.not.i.i, label %.preheader, label %63
 
 63:                                               ; preds = %59
   %64 = ptrtoint ptr %62 to i64
@@ -6581,10 +6581,10 @@ _ZN5faiss3nsg25storage_distance_computerEPKNS_5IndexE.exit: ; preds = %28, %32
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %.noexc56
   %.pre = load ptr, ptr %61, align 8
   %.pre98 = load ptr, ptr %7, align 8
-  %.not88 = icmp eq ptr %.pre, %.pre98
-  br i1 %.not88, label %.critedge.preheader, label %.lr.ph87
+  %.not87 = icmp eq ptr %.pre, %.pre98
+  br i1 %.not87, label %.preheader, label %.lr.ph86
 
-.lr.ph87:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
+.lr.ph86:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
   %71 = ptrtoint ptr %.pre to i64
   %72 = ptrtoint ptr %.pre98 to i64
   %73 = sub i64 %71, %72
@@ -6598,15 +6598,15 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEv
 78:                                               ; preds = %81
   %indvars.iv.next95 = add nuw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, %umax
-  br i1 %exitcond97.not, label %.critedge.preheader, label %81, !llvm.loop !86
+  br i1 %exitcond97.not, label %.preheader, label %81, !llvm.loop !86
 
-.critedge.preheader:                              ; preds = %78, %59, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
+.preheader:                                       ; preds = %78, %59, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %.critedge
+  br label %.backedge
 
-81:                                               ; preds = %.lr.ph87, %78
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next95, %78 ]
+81:                                               ; preds = %.lr.ph86, %78
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %78 ]
   %82 = getelementptr inbounds nuw %"struct.faiss::Node", ptr %.pre98, i64 %indvars.iv94
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
@@ -6627,7 +6627,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEEEv
           cleanup
   br label %127
 
-_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %.critedge
+_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %.backedge
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -6642,12 +6642,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique
   call void @_ZdaPv(ptr noundef nonnull %43) #22
   br label %127
 
-.critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
+.backedge:                                        ; preds = %.critedge.backedge, %.preheader
   %92 = load i32, ptr %0, align 8
   %93 = invoke noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %79, i32 noundef %92)
           to label %94 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit
 
-94:                                               ; preds = %.critedge
+94:                                               ; preds = %.backedge
   %95 = sext i32 %93 to i64
   %96 = load ptr, ptr %2, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
@@ -6666,7 +6666,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique
   %or.cond54.not = and i1 %.not53, %106
   br i1 %or.cond54.not, label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %101, %94
+_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit.loopexit: ; preds = %101, %94
   br label %.critedge, !llvm.loop !87
 
 _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %81, %101

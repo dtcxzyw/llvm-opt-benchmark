@@ -10903,7 +10903,7 @@ invoke.cont71.i:                                  ; preds = %invoke.cont63.i119,
   %cmp.i136.i = icmp ult i64 %205, 4
   %ai.sroa.0.0.i = load ptr, ptr %ai.sroa.0.0353.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne ptr %ai.sroa.0.0.i, %m_header.i.i.i.i.i.i
-  %206 = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i136.i, i1 false
+  %tobool69.i = select i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp.i136.i, i1 false
   br i1 %206, label %invoke.cont71.i, label %invoke.cont84.i121
 
 lpad47.loopexit.i:                                ; preds = %for.body.i.i
@@ -10935,7 +10935,7 @@ invoke.cont84.i121:                               ; preds = %invoke.cont71.i, %i
   %m_header.i.i.i.i.i137.i = getelementptr inbounds nuw i8, ptr %agg.tmp80.sroa.0.0.copyload.i, i64 136
   %ai.sroa.0.1354.i = load ptr, ptr %m_header.i.i.i.i.i137.i, align 8
   %cmp.i.i.i.i.i.i.i141355.i = icmp ne ptr %ai.sroa.0.1354.i, %m_header.i.i.i.i.i137.i
-  %209 = select i1 %cmp.i.i.i.i.i.i.i141355.i, i1 %lhs_all_vac.0.lcssa.i, i1 false
+  %tobool92356.i = select i1 %cmp.i.i.i.i.i.i.i141355.i, i1 %lhs_all_vac.0.lcssa.i, i1 false
   br i1 %209, label %invoke.cont96.i, label %for.end105.i
 
 invoke.cont96.i:                                  ; preds = %invoke.cont84.i121, %invoke.cont96.i
@@ -10947,7 +10947,7 @@ invoke.cont96.i:                                  ; preds = %invoke.cont84.i121,
   %cmp.i147.i = icmp ult i64 %211, 4
   %ai.sroa.0.1.i = load ptr, ptr %ai.sroa.0.1358.i, align 8
   %cmp.i.i.i.i.i.i.i141.i = icmp ne ptr %ai.sroa.0.1.i, %m_header.i.i.i.i.i137.i
-  %212 = select i1 %cmp.i.i.i.i.i.i.i141.i, i1 %cmp.i147.i, i1 false
+  %tobool92.i = select i1 %cmp.i.i.i.i.i.i.i141.i, i1 %cmp.i147.i, i1 false
   br i1 %212, label %invoke.cont96.i, label %for.end105.i
 
 for.end105.i:                                     ; preds = %invoke.cont96.i, %invoke.cont84.i121

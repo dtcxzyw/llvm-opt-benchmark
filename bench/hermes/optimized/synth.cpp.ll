@@ -3840,7 +3840,7 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %_ZN2clL11MaxHeapSizeE.val20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL11MaxHeapSizeE, i64 152), align 8
   %cmp.i41 = icmp sgt i32 %_ZN2clL11MaxHeapSizeE.val, 0
   %_ZN2clL15OccupancyTargetE.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 8), align 8
-  %_ZN2clL15OccupancyTargetE.val21245246 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 152), align 8
+  %_ZN2clL15OccupancyTargetE.val21241242 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 152), align 8
   %cmp.i46 = icmp sgt i32 %_ZN2clL15OccupancyTargetE.val, 0
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL19ShouldReleaseUnusedE, i64 8), align 8
   %cmp.i48 = icmp sgt i32 %20, 0
@@ -3870,7 +3870,7 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %bytecodeWarmupPercent = getelementptr inbounds nuw i8, ptr %options, i64 308
   store i64 %retval.sroa.0.0.insert.insert.i65, ptr %bytecodeWarmupPercent, align 4
   %_ZN2clL14GCSanitizeRateE.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 8), align 8
-  %_ZN2clL14GCSanitizeRateE.val22247248 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 152), align 8
+  %_ZN2clL14GCSanitizeRateE.val22243244 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 152), align 8
   %cmp.i66 = icmp sgt i32 %_ZN2clL14GCSanitizeRateE.val, 0
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL20GCSanitizeRandomSeedE, i64 152), align 8
   %tobool.not.not = icmp eq i64 %26, 0
@@ -3910,7 +3910,7 @@ if.end121:                                        ; preds = %invoke.cont117, %if
 
 invoke.cont126:                                   ; preds = %if.end121
   %OccupancyTarget_.i = getelementptr inbounds nuw i8, ptr %options, i64 16
-  store double %_ZN2clL15OccupancyTargetE.val21245246, ptr %OccupancyTarget_.i, align 8
+  store double %_ZN2clL15OccupancyTargetE.val21241242, ptr %OccupancyTarget_.i, align 8
   %OccupancyTargetExplicit_.i = getelementptr inbounds nuw i8, ptr %options, i64 203
   store i8 1, ptr %OccupancyTargetExplicit_.i, align 1
   br label %if.end130
@@ -3954,7 +3954,7 @@ lor.lhs.false:                                    ; preds = %if.end159
   br i1 %tobool.not.not, label %if.end187, label %invoke.cont183
 
 if.end172:                                        ; preds = %if.end159
-  %spec.select244 = select i1 %tobool.not.not, i64 -1, i64 %26
+  %_ZN2clL14GCSanitizeRateE.val22243244.mux = select i1 %tobool.not.not, i64 -1, i64 %26
   br label %invoke.cont183
 
 invoke.cont183:                                   ; preds = %lor.lhs.false, %if.end172

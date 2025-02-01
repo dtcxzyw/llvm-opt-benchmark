@@ -32578,8 +32578,8 @@ land.lhs.true382:                                 ; preds = %if.end375
   %and384 = and i32 %214, 2
   %tobool385.not = icmp eq i32 %and384, 0
   %cmp388 = fcmp oeq float %210, 0.000000e+00
-  %or.cond1509 = select i1 %tobool385.not, i1 %cmp388, i1 false
-  br i1 %or.cond1509, label %if.then389, label %if.end400
+  %or.cond1505 = select i1 %tobool385.not, i1 %cmp388, i1 false
+  br i1 %or.cond1505, label %if.then389, label %if.end400
 
 if.then389:                                       ; preds = %land.lhs.true382
   %and391 = and i32 %flags.addr.1, 1024
@@ -33268,10 +33268,10 @@ if.end632:                                        ; preds = %_ZN5ImGui20MarkIniS
   %brmerge263 = select i1 %window_pos_set_by_api.0.shrunk, i1 true, i1 %tobool267.not
   %brmerge263.not = xor i1 %brmerge263, true
   %cmp648 = fcmp ogt float %add.i568, %319
-  %or.cond1510 = select i1 %brmerge263.not, i1 %cmp648, i1 false
+  %or.cond1506 = select i1 %brmerge263.not, i1 %cmp648, i1 false
   %cmp651 = fcmp ogt float %add10.i, %320
-  %or.cond1511 = select i1 %or.cond1510, i1 %cmp651, i1 false
-  br i1 %or.cond1511, label %if.then652, label %if.end654
+  %or.cond1507 = select i1 %or.cond1506, i1 %cmp651, i1 false
+  br i1 %or.cond1507, label %if.then652, label %if.end654
 
 if.then652:                                       ; preds = %if.end632
   %330 = load ptr, ptr @GImGui, align 8
@@ -34695,7 +34695,7 @@ lor.end792:                                       ; preds = %cond.end781
   store i8 %518, ptr %ScrollbarX, align 4
   %tobool795 = trunc i32 %and789 to i1
   %tobool795.not = xor i1 %tobool795, true
-  %brmerge1512 = or i1 %tobool795.not, %tobool778
+  %brmerge1508 = or i1 %tobool795.not, %tobool778
   %frombool772.mux = select i1 %tobool795, i8 1, i8 %frombool772
   br i1 %brmerge1512, label %if.end809, label %if.then799
 

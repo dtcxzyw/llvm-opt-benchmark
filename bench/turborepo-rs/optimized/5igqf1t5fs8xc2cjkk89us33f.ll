@@ -5513,18 +5513,18 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i: ;
   br label %22
 
 22:                                               ; preds = %22, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i
-  %.sroa.0.08.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i ], [ %spec.select7.i, %22 ]
-  %23 = icmp uge i16 %.sroa.0.08.i, %.sroa.0.0.sroa.speculated.i.i
-  %not..i = xor i1 %23, true
-  %24 = zext i1 %not..i to i16
+  %.sroa.0.09.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i ], [ %spec.select7.i, %22 ]
+  %23 = icmp uge i16 %.sroa.0.09.i, %.sroa.0.0.sroa.speculated.i.i
+  %24 = xor i1 %23, true
+  %spec.select7.i = zext i1 %24 to i16
   %spec.select7.i = add nuw i16 %.sroa.0.08.i, %24
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3), !noalias !1111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, ptr noundef nonnull readonly align 1 dereferenceable(9) %1, i64 9, i1 false), !noalias !1103
-  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i16 noundef %.sroa.0.08.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1111
+  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, i16 noundef %.sroa.0.09.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1111
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3), !noalias !1111
   %.not.i.i = icmp ugt i16 %spec.select7.i, %.sroa.0.0.sroa.speculated.i.i
-  %or.cond.i = select i1 %23, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid18erase_row_backward.exit, label %22
+  %or.cond.not.i = select i1 %23, i1 true, i1 %.not.i.i
+  br i1 %or.cond.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid18erase_row_backward.exit, label %22
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid18erase_row_backward.exit: ; preds = %22
   ret void
@@ -5675,18 +5675,18 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit: ; p
   br label %18
 
 18:                                               ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, %18
-  %.sroa.0.08 = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit ], [ %spec.select7, %18 ]
-  %19 = icmp uge i16 %.sroa.0.08, %.sroa.0.0.sroa.speculated.i
-  %not. = xor i1 %19, true
-  %20 = zext i1 %not. to i16
+  %.sroa.0.09 = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit ], [ %spec.select7, %18 ]
+  %19 = icmp uge i16 %.sroa.0.09, %.sroa.0.0.sroa.speculated.i
+  %20 = xor i1 %19, true
+  %spec.select7 = zext i1 %20 to i16
   %spec.select7 = add nuw i16 %.sroa.0.08, %20
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) %1, i64 9, i1 false)
-  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, i16 noundef %.sroa.0.08, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3)
+  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, i16 noundef %.sroa.0.09, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
   %.not.i = icmp ugt i16 %spec.select7, %.sroa.0.0.sroa.speculated.i
-  %or.cond = select i1 %19, i1 true, i1 %.not.i
-  br i1 %or.cond, label %21, label %18
+  %or.cond.not = select i1 %19, i1 true, i1 %.not.i
+  br i1 %or.cond.not, label %21, label %18
 
 21:                                               ; preds = %18
   ret void

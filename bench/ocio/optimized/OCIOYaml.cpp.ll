@@ -37128,7 +37128,7 @@ ehcleanup82:                                      ; preds = %lpad79, %lpad77
   br label %common.resume
 
 if.end84:                                         ; preds = %land.lhs.true, %land.lhs.true72
-  %cond = zext nneg i8 %isDisplay.0 to i32
+  %108 = zext nneg i8 %isDisplay.0 to i32
   ret i32 %cond
 }
 

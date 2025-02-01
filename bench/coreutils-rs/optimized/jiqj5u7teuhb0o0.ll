@@ -3003,17 +3003,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !34, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !34, !noundef !4
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
+  br i1 %5, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
+  %7 = xor i1 %trunc, true
   %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  br label %8
 
-7:                                                ; preds = %.sink.split, %2
+8:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 

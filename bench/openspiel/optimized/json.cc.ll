@@ -3681,7 +3681,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit22:       ; preds = %_ZN4absl7debian211s
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %48
+  br label %49
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 1
@@ -3761,7 +3761,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   store i8 1, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  br label %47
+  br label %48
 
 32:                                               ; preds = %.lr.ph
   br i1 %14, label %33, label %.invoke
@@ -3790,27 +3790,27 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %40 = getelementptr inbounds nuw i8, ptr %.02135, i64 1
   %41 = load ptr, ptr %1, align 8
   %42 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = icmp ult ptr %40, %43
-  br i1 %44, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !38
+  %.1 = getelementptr inbounds i8, ptr %41, i64 %42
+  %41 = icmp ult ptr %40, %43
+  br i1 %41, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !38
 
-_ZN4absl7debian211string_viewC2EPKc.exit23:       ; preds = %39, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
-  %.lcssa30 = phi ptr [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %41, %39 ]
+_ZN4absl7debian211string_viewC2EPKc.exit23:; preds = %39, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
+  %45 = phi ptr [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %41, %39 ]
   %.lcssa = phi i64 [ %8, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %42, %39 ]
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.41, i64 17, ptr %.lcssa30, i64 %.lcssa)
-          to label %45 unwind label %.loopexit.split-lp
+          to label %46 unwind label %.loopexit.split-lp
 
-45:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit23
+46:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit23
   store i8 0, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
-  br label %47
-
-47:                                               ; preds = %28, %45
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   br label %48
 
-48:                                               ; preds = %47, %_ZN4absl7debian211string_viewC2EPKc.exit22
+48:                                               ; preds = %28, %46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  br label %49
+
+49:                                               ; preds = %48, %_ZN4absl7debian211string_viewC2EPKc.exit22
   ret void
 }
 

@@ -319,17 +319,17 @@ entry:
   %0 = load i64, ptr %this, align 8
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
-  %sub.ptr.lhs.cast.i26 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i27 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i28 = sub i64 %sub.ptr.lhs.cast.i26, %sub.ptr.rhs.cast.i27
-  %cmp29 = icmp ult i64 %0, %sub.ptr.sub.i28
-  br i1 %cmp29, label %land.rhs, label %lor.lhs.false
+  %sub.ptr.lhs.cast.i21 = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i22 = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i23 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i22
+  %cmp24 = icmp ult i64 %0, %sub.ptr.sub.i23
+  br i1 %cmp24, label %land.rhs, label %lor.lhs.false
 
 land.rhs:                                         ; preds = %entry, %if.end61
-  %3 = phi ptr [ %10, %if.end61 ], [ %2, %entry ]
+  %3 = phi ptr [ %9, %if.end61 ], [ %2, %entry ]
   %4 = phi i64 [ %inc, %if.end61 ], [ %0, %entry ]
-  %escaped.030 = phi i8 [ %escaped.1, %if.end61 ], [ 0, %entry ]
-  %tobool = trunc nuw i8 %escaped.030 to i1
+  %escaped.025 = phi i8 [ %escaped.1, %if.end61 ], [ 0, %entry ]
+  %tobool = trunc nuw i8 %escaped.025 to i1
   %arrayidx.i3 = getelementptr inbounds i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx.i3, align 1
   br i1 %tobool, label %if.then, label %lor.rhs
@@ -342,8 +342,8 @@ lor.rhs:                                          ; preds = %land.rhs
 
 if.then:                                          ; preds = %land.rhs
   switch i8 %5, label %invoke.cont22 [
-    i8 34, label %if.else52.invoke
-    i8 92, label %if.else52.invoke
+    i8 34, label %if.end
+    i8 92, label %if.end
   ]
 
 invoke.cont22:                                    ; preds = %if.then
@@ -356,45 +356,45 @@ lpad:                                             ; preds = %if.else52.invoke
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #16
   resume { ptr, i32 } %6
 
-if.else52.invoke:                                 ; preds = %lor.rhs, %if.then, %if.then
-  %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %token, i64 noundef 1, i8 noundef signext %5)
+if.end:                                           ; preds = %lor.rhs, %if.then, %if.then
+  %call30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %token, i64 noundef 1, i8 noundef signext %5)
           to label %if.end61 unwind label %lpad
 
-if.end61:                                         ; preds = %if.else52.invoke, %lor.rhs
-  %escaped.1 = phi i8 [ 1, %lor.rhs ], [ 0, %if.else52.invoke ]
+if.else52:                                        ; preds = %if.end, %lor.rhs
+  %call58 = phi i8 [ 1, %lor.rhs ], [ 0, %if.else52.invoke ]
   %8 = load i64, ptr %this, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %this, align 8
-  %9 = load ptr, ptr %e_.i, align 8
-  %10 = load ptr, ptr %path_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
+  %8 = load ptr, ptr %e_.i, align 8
+  %9 = load ptr, ptr %path_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp ult i64 %inc, %sub.ptr.sub.i
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end61
-  %11 = trunc nuw i8 %escaped.1 to i1
-  br i1 %11, label %invoke.cont71, label %lor.lhs.false
+  %escaped.0.lcssa.ph = trunc nuw i8 %escaped.1 to i1
+  br i1 %escaped.0.lcssa.ph, label %invoke.cont71, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %lor.rhs, %entry, %while.end
   %call64 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #16
   br i1 %call64, label %invoke.cont71, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false
-  %12 = load i64, ptr %this, align 8
-  %13 = load ptr, ptr %e_.i, align 8
-  %14 = load ptr, ptr %path_, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
+  %11 = load i64, ptr %this, align 8
+  %12 = load ptr, ptr %e_.i, align 8
+  %13 = load ptr, ptr %path_, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %12, %sub.ptr.sub.i.i
+  %cmp.i = icmp ult i64 %11, %sub.ptr.sub.i.i
   br i1 %cmp.i, label %land.lhs.true.i, label %invoke.cont71
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false65
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 %12
-  %15 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp6.i = icmp eq i8 %15, 34
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %11
+  %14 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp6.i = icmp eq i8 %14, 34
   br i1 %cmp6.i, label %if.end75, label %invoke.cont71
 
 invoke.cont71:                                    ; preds = %lor.lhs.false65, %land.lhs.true.i, %while.end, %lor.lhs.false
@@ -402,7 +402,7 @@ invoke.cont71:                                    ; preds = %lor.lhs.false65, %l
   br label %cleanup
 
 if.end75:                                         ; preds = %land.lhs.true.i
-  %inc.i = add nuw i64 %12, 1
+  %inc.i = add nuw i64 %11, 1
   store i64 %inc.i, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %token) #16
   br label %cleanup

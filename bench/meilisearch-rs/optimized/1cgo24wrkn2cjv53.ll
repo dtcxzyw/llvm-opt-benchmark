@@ -3857,8 +3857,8 @@ default.unreachable1:                             ; preds = %3
   store i64 %.sroa.04.0.copyload.i, ptr %.sroa.49.0..sroa_idx.i, align 8, !alias.scope !1504, !noalias !1507
   br label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17h9096223591888a3fE.exit"
 
-common.resume:                                    ; preds = %45, %33
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %33 ], [ %46, %45 ]
+common.resume:                                    ; preds = %47, %33
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %33 ], [ %46, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %19, %11
@@ -3888,7 +3888,7 @@ common.resume:                                    ; preds = %45, %33
 
 40:                                               ; preds = %37
   store i64 -9223372036854775792, ptr %0, align 8
-  br label %50
+  br label %51
 
 41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
@@ -3905,25 +3905,25 @@ common.resume:                                    ; preds = %45, %33
 44:                                               ; preds = %43
   unreachable
 
-45:                                               ; preds = %43
+47:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr174drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17ha5789ad2d05ff018E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(256) %5) #46
-          to label %common.resume unwind label %47, !noalias !1521
+          to label %common.resume unwind label %48, !noalias !1521
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %47
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47, !noalias !1521
   unreachable
 
 "_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h44f434d0344a9d69E.llvm.5336188084572713014.exit": ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %49, i64 248, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %50, i64 248, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  br label %50
+  br label %51
 
-50:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h44f434d0344a9d69E.llvm.5336188084572713014.exit", %40
+51:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h44f434d0344a9d69E.llvm.5336188084572713014.exit", %40
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   ret void
 }
@@ -3932,7 +3932,7 @@ common.resume:                                    ; preds = %45, %33
 define hidden void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h44f434d0344a9d69E.llvm.5336188084572713014"(ptr dead_on_unwind noalias noundef writable writeonly sret([248 x i8]) align 8 captures(none) dereferenceable(248) %0, ptr noalias noundef align 8 captures(none) dereferenceable(256) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !206, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %11, label %4
+  br i1 %trunc, label %12, label %4
 
 4:                                                ; preds = %2
   invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.695ce54c0493ea6bfa978dacabdf8173.5.llvm.5336188084572713014, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.7.llvm.5336188084572713014) #45
@@ -3941,24 +3941,24 @@ define hidden void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b
 5:                                                ; preds = %4
   unreachable
 
-6:                                                ; preds = %7
+8:                                                ; preds = %9
   resume { ptr, i32 } %8
 
-7:                                                ; preds = %4
+9:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr174drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$core..result..Result$LT$milli..update..index_documents..typed_chunk..TypedChunk$C$milli..error..Error$GT$$GT$$GT$17ha5789ad2d05ff018E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(256) %1) #46
-          to label %6 unwind label %9
+          to label %8 unwind label %10
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %9
+  %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47
   unreachable
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %12, i64 248, i1 false)
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %13, i64 248, i1 false)
   ret void
 }
 

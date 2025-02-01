@@ -1142,18 +1142,18 @@ if.end147:                                        ; preds = %_ZN12_GLOBAL__N_116
   br i1 %cmp150.not200, label %do.cond, label %while.body.lr.ph
 
 if.end147.thread:                                 ; preds = %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit
-  %inc148198339 = add nsw i32 %c.2, 1
-  %and149199340 = and i32 %inc148198339, %sub102
-  %cmp150.not200341 = icmp eq i32 %and149199340, 0
-  br i1 %cmp150.not200341, label %do.cond, label %while.body.preheader
+  %inc148198340 = add nsw i32 %c.2, 1
+  %and149199341 = and i32 %inc148198340, %sub102
+  %cmp150.not200342 = icmp eq i32 %and149199341, 0
+  br i1 %cmp150.not200342, label %do.cond, label %while.body.preheader
 
 while.body.lr.ph:                                 ; preds = %if.end147
   br i1 %cmp13.not, label %while.body.lr.ph.split.us, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end147.thread, %while.body.lr.ph
-  %value18.5342350 = phi i32 [ %value18.5, %while.body.lr.ph ], [ %value18.3, %if.end147.thread ]
-  %trieValue.5343349 = phi i32 [ %trieValue.5, %while.body.lr.ph ], [ %retval.0.i130, %if.end147.thread ]
-  %inc148198344348 = phi i32 [ %inc148198, %while.body.lr.ph ], [ %inc148198339, %if.end147.thread ]
+  %haveValue.5343354 = phi i32 [ %value18.5, %while.body.lr.ph ], [ %value18.3, %if.end147.thread ]
+  %value18.5344353 = phi i32 [ %trieValue.5, %while.body.lr.ph ], [ %retval.0.i130, %if.end147.thread ]
+  %trieValue.5345352 = phi i32 [ %inc148198, %while.body.lr.ph ], [ %inc148198340, %if.end147.thread ]
   %29 = zext nneg i32 %add123 to i64
   br label %while.body
 
@@ -1309,7 +1309,7 @@ do.cond:                                          ; preds = %if.end166, %if.end1
   %haveValue.6 = phi i8 [ %haveValue.3, %if.then99 ], [ 1, %if.end117 ], [ 1, %if.end147 ], [ 1, %if.end147.thread ], [ 1, %if.end166.us.us255 ], [ 1, %if.end166.us.us ], [ 1, %if.end166.us.us221 ], [ 1, %if.end166.us.us240 ], [ 1, %if.end166 ]
   %value18.6 = phi i32 [ %value18.3, %if.then99 ], [ %nullValue.0, %if.end117 ], [ %value18.5, %if.end147 ], [ %value18.3, %if.end147.thread ], [ %value18.5, %if.end166.us.us255 ], [ %value18.5, %if.end166.us.us ], [ %value18.5, %if.end166.us.us221 ], [ %value18.5, %if.end166.us.us240 ], [ %value18.5342350, %if.end166 ]
   %trieValue.8 = phi i32 [ %trieValue.3, %if.then99 ], [ %trieValue.4, %if.end117 ], [ %trieValue.5, %if.end147 ], [ %retval.0.i130, %if.end147.thread ], [ -1, %if.end166.us.us255 ], [ %trieValue.5, %if.end166.us.us ], [ %trieValue.5, %if.end166.us.us221 ], [ %trieValue.5, %if.end166.us.us240 ], [ %trieValue.7, %if.end166 ]
-  %c.4 = phi i32 [ %add100, %if.then99 ], [ %and119, %if.end117 ], [ %inc148198, %if.end147 ], [ %inc148198339, %if.end147.thread ], [ %inc148.us.us256, %if.end166.us.us255 ], [ %inc148.us.us, %if.end166.us.us ], [ %inc148.us.us222, %if.end166.us.us221 ], [ %inc148.us.us241, %if.end166.us.us240 ], [ %inc148, %if.end166 ]
+  %c.4 = phi i32 [ %add100, %if.then99 ], [ %and119, %if.end117 ], [ %inc148198, %if.end147 ], [ %inc148198340, %if.end147.thread ], [ %inc148.us.us256, %if.end166.us.us255 ], [ %inc148.us.us, %if.end166.us.us ], [ %inc148.us.us222, %if.end166.us.us221 ], [ %inc148.us.us241, %if.end166.us.us240 ], [ %inc148, %if.end166 ]
   %prevBlock.3 = phi i32 [ %prevBlock.2, %if.then99 ], [ %block.0, %if.end117 ], [ %block.0, %if.end147 ], [ %block.0, %if.end147.thread ], [ %block.0, %if.end166.us.us255 ], [ %block.0, %if.end166.us.us ], [ %block.0, %if.end166.us.us221 ], [ %block.0, %if.end166.us.us240 ], [ %block.0, %if.end166 ]
   %indvars.iv.next335 = add nsw i64 %indvars.iv334, 1
   %cmp170 = icmp slt i64 %indvars.iv.next335, %i3BlockLength.0

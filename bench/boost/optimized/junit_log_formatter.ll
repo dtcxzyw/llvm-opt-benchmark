@@ -11144,16 +11144,16 @@ define linkonce_odr hidden void @_ZN5boost9unit_test5utils13print_escapedERSoNS0
   %22 = icmp eq ptr %19, %21
   br i1 %22, label %.critedge, label %.critedge34
 
-.critedge34:                                      ; preds = %18, %72
-  %.sroa.028.037 = phi ptr [ %73, %72 ], [ %19, %18 ]
-  %23 = load i8, ptr %.sroa.028.037, align 1, !tbaa !9
+22:                                               ; preds = %18, %72
+  %.sroa.028.036 = phi ptr [ %73, %72 ], [ %19, %18 ]
+  %23 = load i8, ptr %.sroa.028.036, align 1, !tbaa !9
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test5utils13print_escapedERSoNS0_13basic_cstringIKcEEE9char_type, i64 16), align 8, !tbaa !13
   %.not10.i.i.i = icmp eq ptr %24, null
   br i1 %.not10.i.i.i, label %select.unfold, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.critedge34, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %24, %.critedge34 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test5utils13print_escapedERSoNS0_13basic_cstringIKcEEE9char_type, i64 8), %.critedge34 ]
+.lr.ph.i.i.i:                                     ; preds = %22, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %24, %22 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test5utils13print_escapedERSoNS0_13basic_cstringIKcEEE9char_type, i64 8), %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %26 = load i8, ptr %25, align 1, !tbaa !9
   %27 = icmp slt i8 %26, %23
@@ -11241,14 +11241,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit15: ; preds = %60, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %72
 
-select.unfold:                                    ; preds = %29, %_ZNKSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %.critedge34
+select.unfold:                                    ; preds = %29, %_ZNKSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 %23, ptr %3, align 1, !tbaa !9
   %64 = load ptr, ptr %0, align 8, !tbaa !45
   %65 = getelementptr i8, ptr %64, i64 -24
   %66 = load i64, ptr %65, align 8
-  %gep36 = getelementptr i8, ptr %invariant.gep, i64 %66
-  %67 = load i64, ptr %gep36, align 8, !tbaa !236
+  %gep35 = getelementptr i8, ptr %invariant.gep, i64 %66
+  %67 = load i64, ptr %gep35, align 8, !tbaa !236
   %.not.i16 = icmp eq i64 %67, 0
   br i1 %.not.i16, label %70, label %68
 
@@ -11265,9 +11265,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit18: ; preds = %68, %70
   br label %72
 
 72:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit18, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit15
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.028.037, i64 1
-  %74 = icmp eq ptr %73, %21
-  br i1 %74, label %.critedge, label %.critedge34, !llvm.loop !299
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.028.036, i64 1
+  %.not38 = icmp eq ptr %73, %21
+  br i1 %.not38, label %.critedge, label %22, !llvm.loop !299
 
 .critedge:                                        ; preds = %72, %18
   ret void

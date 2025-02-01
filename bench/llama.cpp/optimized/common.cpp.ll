@@ -36937,7 +36937,7 @@ if.then4:                                         ; preds = %for.body
   %2 = load i16, ptr %arrayidx.i, align 2
   %and1.i = and i16 %2, 2048
   %tobool.i.not = icmp eq i16 %and1.i, 0
-  br i1 %tobool.i.not, label %if.end27.invoke, label %if.then6
+  br i1 %tobool.i.not, label %if.end27, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
   %call9 = invoke noundef i32 @_ZNKSt7__cxx1112regex_traitsIcE5valueEci(ptr noundef nonnull align 8 dereferenceable(8) %__traits, i8 noundef signext %0, i32 noundef 10)
@@ -37049,7 +37049,7 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %ehcleanup
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end27.invoke, %if.then6
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end27, %if.then6
   %lpad.loopexit287 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -37060,7 +37060,7 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
   br label %ehcleanup
 
 if.end18:                                         ; preds = %for.body
-  switch i8 %0, label %if.end27.invoke [
+  switch i8 %0, label %if.end27 [
     i8 92, label %for.inc
     i8 38, label %if.then25
   ]
@@ -37105,12 +37105,12 @@ for.body.i.i.i.i.i.i55:                           ; preds = %if.then.i45, %.noex
   %cmp.i.i.i.i.i.i60 = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i56, 1
   br i1 %cmp.i.i.i.i.i.i60, label %for.body.i.i.i.i.i.i55, label %for.inc, !llvm.loop !266
 
-if.end27.invoke:                                  ; preds = %if.end18, %if.then4
+if.end27:                                         ; preds = %if.end18, %if.then4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %__out.coerce, i8 noundef signext %0)
           to label %for.inc unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.inc:                                          ; preds = %.noexc65, %.noexc, %if.end27.invoke, %if.then25, %if.then.i45, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i, %if.then.i, %if.end18
-  %__escaping.1 = phi i8 [ 1, %if.end18 ], [ 0, %if.then.i ], [ 0, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i ], [ 0, %if.then.i45 ], [ 0, %if.then25 ], [ 0, %if.end27.invoke ], [ 0, %.noexc ], [ %__escaping.0306, %.noexc65 ]
+for.inc:                                          ; preds = %.noexc65, %.noexc, %if.end27, %if.then25, %if.then.i45, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i, %if.then.i, %if.end18
+  %__escaping.1 = phi i8 [ 1, %if.end18 ], [ 0, %if.then.i ], [ 0, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i ], [ 0, %if.then.i45 ], [ 0, %if.then25 ], [ 0, %if.end27 ], [ 0, %.noexc ], [ %__escaping.0306, %.noexc65 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__fmt_first.addr.0307, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %__fmt_last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !268

@@ -4628,8 +4628,8 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   br label %if.end91
 
 if.else76:                                        ; preds = %if.end71, %if.then73
-  %allocArrayInst.1104112159 = phi ptr [ %allocArrayInst.0127, %if.then73 ], [ %allocArrayInst.1104, %if.end71 ]
-  %value.088100116158 = phi ptr [ %call37, %if.then73 ], [ %value.089, %if.end71 ]
+  %22 = phi ptr [ %allocArrayInst.0127, %if.then73 ], [ %allocArrayInst.1104, %if.end71 ]
+  %add.ptr79 = phi ptr [ %call37, %if.then73 ], [ %value.089, %if.end71 ]
   %22 = icmp eq ptr %allocArrayInst.1104112159, null
   %add.ptr79 = getelementptr inbounds nuw i8, ptr %allocArrayInst.1104112159, i64 16
   %spec.select1 = select i1 %22, ptr null, ptr %add.ptr79
@@ -4689,7 +4689,7 @@ for.end115:                                       ; preds = %for.inc113
   br i1 %tobool116.not, label %if.then117, label %if.end123
 
 if.then117:                                       ; preds = %if.end14, %for.end115
-  %count.0.lcssa164 = phi double [ %26, %for.end115 ], [ 0.000000e+00, %if.end14 ]
+  %count.0.lcssa158 = phi double [ %26, %for.end115 ], [ 0.000000e+00, %if.end14 ]
   %Builder118 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr.i.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 16
   store ptr %add.ptr.i.i.i.i.i51, ptr %agg.tmp119, align 8
@@ -4755,7 +4755,7 @@ if.then.i.i69:                                    ; preds = %_ZNK4llvh12simple_i
   br label %if.end123
 
 if.end123:                                        ; preds = %if.then.i.i69, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit, %for.end115
-  %count.0.lcssa163 = phi double [ %26, %for.end115 ], [ %count.0.lcssa164, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %count.0.lcssa164, %if.then.i.i69 ]
+  %count.0.lcssa157 = phi double [ %26, %for.end115 ], [ %count.0.lcssa158, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %count.0.lcssa158, %if.then.i.i69 ]
   %allocArrayInst.2 = phi ptr [ %allocArrayInst.1103, %for.end115 ], [ %call122, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %call122, %if.then.i.i69 ]
   %34 = load ptr, ptr %list, align 8
   %cmp.i.i = icmp eq ptr %list, %34
@@ -4779,7 +4779,7 @@ if.then130:                                       ; preds = %if.then128
   br label %if.end141
 
 if.else137:                                       ; preds = %if.then128
-  %call140 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %Builder131, double noundef %count.0.lcssa163) #16
+  %call140 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %Builder131, double noundef %count.0.lcssa157) #16
   br label %if.end141
 
 if.end141:                                        ; preds = %if.else137, %if.then130

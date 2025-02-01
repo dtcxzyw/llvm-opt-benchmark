@@ -1949,10 +1949,10 @@ if.then31:                                        ; preds = %if.end28
 
 if.then36:                                        ; preds = %if.end18, %if.end28, %if.then31
   %page_offset.183 = phi i32 [ 0, %if.end28 ], [ 0, %if.then31 ], [ %page_offset.0.ph, %if.end18 ]
-  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.end28 ], [ %cmp69.not.i, %if.then31 ], [ %drop_unread.0, %if.end18 ]
-  %page_id.179 = phi i32 [ %page_id.2, %if.end28 ], [ %page_id.2, %if.then31 ], [ %page_id.0.ph, %if.end18 ]
-  %page_size.176 = phi i64 [ %22, %if.end28 ], [ %22, %if.then31 ], [ %page_size.0, %if.end18 ]
-  %page_version.175 = phi i64 [ %page_version.2, %if.end28 ], [ %page_version.2, %if.then31 ], [ %page_version.0.ph, %if.end18 ]
+  %compacting.182 = phi i1 [ %cmp69.not.i, %if.end28 ], [ %cmp69.not.i, %if.then31 ], [ %drop_unread.0, %if.end18 ]
+  %drop_unread.181 = phi i32 [ %page_id.2, %if.end28 ], [ %page_id.2, %if.then31 ], [ %page_id.0.ph, %if.end18 ]
+  %page_id.179 = phi i64 [ %22, %if.end28 ], [ %22, %if.then31 ], [ %page_size.0, %if.end18 ]
+  %page_size.176 = phi i64 [ %page_version.2, %if.end28 ], [ %page_version.2, %if.then31 ], [ %page_version.0.ph, %if.end18 ]
   %call38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock) #22
   %conv39 = zext i32 %page_offset.183 to i64
   %cmp40 = icmp ugt i64 %page_size.176, %conv39

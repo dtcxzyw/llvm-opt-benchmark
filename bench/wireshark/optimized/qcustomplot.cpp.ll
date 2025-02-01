@@ -148185,7 +148185,7 @@ define { double, double } @_ZNK12QCPErrorBars11getKeyRangeERbN3QCP10SignDomainE(
 _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %3, %8
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %114
+  br label %117
 
 14:                                               ; preds = %8
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -148374,7 +148374,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit61: ; preds = %26
   store i8 %.356, ptr %1, align 1
   br label %114
 
-114:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
+117:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
   %.fca.0.load = load double, ptr %4, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -148405,7 +148405,7 @@ define { double, double } @_ZNK12QCPErrorBars13getValueRangeERbN3QCP10SignDomain
 _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %4, %10
   store i8 0, ptr %1, align 1
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %179
+  br label %182
 
 _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %10
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -148672,9 +148672,9 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit83: ; preds = %97
 .thread:                                          ; preds = %65, %171, %175, %176, %172
   %.369 = phi i8 [ 1, %176 ], [ 0, %175 ], [ 1, %172 ], [ 1, %171 ], [ 0, %65 ]
   store i8 %.369, ptr %1, align 1
-  br label %179
+  br label %182
 
-179:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
+182:                                              ; preds = %.thread, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
   %.fca.0.load = load double, ptr %5, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
