@@ -4246,7 +4246,8 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 
 .lr.ph.us.us59:                                   ; preds = %.thread33.us.us58, %.lr.ph56.split.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.thread33.us.us58 ], [ 0, %.lr.ph56.split.us ]
-  %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv81
+  %.idx88 = shl i64 %indvars.iv81, 3
+  %8 = getelementptr i8, ptr %7, i64 %.idx88
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4259,11 +4260,12 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 
 13:                                               ; preds = %.lr.ph.us.us59, %12
   %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.us59 ], [ %indvars.iv.next77, %12 ]
-  %14 = icmp eq i64 %indvars.iv76, %indvars.iv81
+  %.idx87 = shl i64 %indvars.iv76, 3
+  %14 = icmp eq i64 %.idx87, %.idx88
   br i1 %14, label %.thread33.us.us58, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv76
+  %16 = getelementptr i8, ptr %7, i64 %.idx87
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -4283,7 +4285,8 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
   %22 = phi i32 [ %45, %.thread33 ], [ %5, %.lr.ph40.split.split ]
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.thread33 ], [ 0, %.lr.ph40.split.split ]
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv71
+  %.idx86 = shl i64 %indvars.iv71, 3
+  %24 = getelementptr i8, ptr %23, i64 %.idx86
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -4301,11 +4304,12 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %31 = icmp eq i64 %indvars.iv, %indvars.iv71
+  %.idx = shl i64 %indvars.iv, 3
+  %31 = icmp eq i64 %.idx, %.idx86
   br i1 %31, label %.thread33, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv
+  %33 = getelementptr i8, ptr %23, i64 %.idx
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8

@@ -25637,11 +25637,11 @@ get_bits.exit98:                                  ; preds = %85, %92
 
 108:                                              ; preds = %get_bits.exit98
   %109 = zext i64 %6 to i128
-  %.frozen155 = freeze i128 %100
-  %110 = udiv i128 %.frozen155, %109
+  %.frozen156 = freeze i128 %100
+  %110 = udiv i128 %.frozen156, %109
   %111 = mul i128 %110, %109
-  %.decomposed156 = sub i128 %.frozen155, %111
-  %112 = trunc nuw i128 %.decomposed156 to i64
+  %.decomposed157 = sub i128 %.frozen156, %111
+  %112 = trunc nuw i128 %.decomposed157 to i64
   store i64 %112, ptr %1, align 8
   %113 = trunc i128 %110 to i64
   %114 = getelementptr i8, ptr %1, i64 8
@@ -25673,10 +25673,12 @@ get_bits.exit98:                                  ; preds = %85, %92
   %129 = sub i64 %3, %128
   %130 = shl i32 %4, 1
   %131 = sext i32 %130 to i64
-  %132 = getelementptr %struct.bf_t, ptr %0, i64 %131
+  %.idx140 = mul nsw i64 %131, 40
+  %132 = getelementptr i8, ptr %0, i64 %.idx140
   %133 = or disjoint i32 %130, 1
   %134 = sext i32 %133 to i64
-  %135 = getelementptr %struct.bf_t, ptr %0, i64 %134
+  %.idx = mul nsw i64 %134, 40
+  %135 = getelementptr i8, ptr %0, i64 %.idx
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %137 = load i64, ptr %136, align 8
   %138 = icmp eq i64 %137, 0
@@ -25805,9 +25807,9 @@ bf_sub.exit:                                      ; preds = %bf_rint.exit, %185
   %189 = or i32 %177, %182
   %190 = and i32 %189, 32
   %.not = icmp eq i32 %190, 0
-  br i1 %.not, label %.preheader141, label %.loopexit140
+  br i1 %.not, label %.preheader142, label %.loopexit141
 
-.preheader141:                                    ; preds = %bf_sub.exit
+.preheader142:                                    ; preds = %bf_sub.exit
   %191 = load i32, ptr %120, align 8
   %192 = icmp ne i32 %191, 0
   %193 = load i64, ptr %122, align 8
@@ -25815,14 +25817,14 @@ bf_sub.exit:                                      ; preds = %bf_rint.exit, %185
   %195 = select i1 %192, i1 %194, i1 false
   br i1 %195, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader141
+.lr.ph:                                           ; preds = %.preheader142
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %198 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %204
 
-.preheader:                                       ; preds = %212, %.preheader141
-  %.0.lcssa = phi i32 [ 0, %.preheader141 ], [ %213, %212 ]
+.preheader:                                       ; preds = %212, %.preheader142
+  %.0.lcssa = phi i32 [ 0, %.preheader142 ], [ %213, %212 ]
   %199 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %200 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -25831,7 +25833,7 @@ bf_sub.exit:                                      ; preds = %bf_rint.exit, %185
   br label %219
 
 204:                                              ; preds = %.lr.ph, %212
-  %.0145 = phi i32 [ 0, %.lr.ph ], [ %213, %212 ]
+  %.0146 = phi i32 [ 0, %.lr.ph ], [ %213, %212 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %205 = load ptr, ptr %14, align 8
   store ptr %205, ptr %10, align 8
@@ -25855,10 +25857,10 @@ bf_add.exit:                                      ; preds = %204, %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %.not90 = icmp eq i32 %206, 0
-  br i1 %.not90, label %212, label %.loopexit140
+  br i1 %.not90, label %212, label %.loopexit141
 
 212:                                              ; preds = %bf_add.exit
-  %213 = add i32 %.0145, -1
+  %213 = add i32 %.0146, -1
   %214 = load i32, ptr %120, align 8
   %215 = icmp ne i32 %214, 0
   %216 = load i64, ptr %122, align 8
@@ -25947,7 +25949,7 @@ bf_sub.exit121:                                   ; preds = %.loopexit, %247
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull readonly align 8 dereferenceable(40) %9, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %.not89 = icmp eq i32 %245, 0
-  br i1 %.not89, label %251, label %.loopexit140
+  br i1 %.not89, label %251, label %.loopexit141
 
 251:                                              ; preds = %bf_sub.exit121
   %252 = add i32 %.1, 1
@@ -25961,25 +25963,25 @@ bf_cmpu.exit:                                     ; preds = %242, %222
   %254 = sext i32 %.1 to i64
   %255 = call i32 @bf_add_si(ptr noundef nonnull %13, ptr noundef nonnull %13, i64 noundef %254, i64 noundef 4611686018427387903, i32 noundef 1)
   %.not86 = icmp eq i32 %255, 0
-  br i1 %.not86, label %256, label %.loopexit140
+  br i1 %.not86, label %256, label %.loopexit141
 
 256:                                              ; preds = %253, %bf_cmpu.exit
   %257 = getelementptr i64, ptr %1, i64 %128
   %258 = call fastcc i32 @bf_integer_to_radix_rec(ptr noundef %0, ptr noundef %257, ptr noundef %13, i64 noundef %129, i32 noundef %124, i64 noundef %5, i64 noundef %6, i32 noundef %7)
   %.not87 = icmp eq i32 %258, 0
-  br i1 %.not87, label %259, label %.loopexit140
+  br i1 %.not87, label %259, label %.loopexit141
 
 259:                                              ; preds = %256
   %260 = call fastcc i32 @bf_integer_to_radix_rec(ptr noundef %0, ptr noundef %1, ptr noundef %14, i64 noundef %128, i32 noundef %124, i64 noundef %5, i64 noundef %6, i32 noundef %7)
   %.not88 = icmp eq i32 %260, 0
-  br i1 %.not88, label %274, label %.loopexit140
+  br i1 %.not88, label %274, label %.loopexit141
 
-.loopexit140:                                     ; preds = %bf_add.exit, %bf_sub.exit121, %259, %256, %253, %bf_sub.exit
+.loopexit141:                                     ; preds = %bf_add.exit, %bf_sub.exit121, %259, %256, %253, %bf_sub.exit
   %261 = load ptr, ptr %13, align 8
   %.not.i122 = icmp eq ptr %261, null
   br i1 %.not.i122, label %bf_delete.exit, label %262
 
-262:                                              ; preds = %.loopexit140
+262:                                              ; preds = %.loopexit141
   %263 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %264 = load ptr, ptr %263, align 8
   %.not6.i = icmp eq ptr %264, null
@@ -25992,7 +25994,7 @@ bf_cmpu.exit:                                     ; preds = %242, %222
   %267 = call ptr %.val7.i(ptr noundef %.val.i, ptr noundef nonnull %264, i64 noundef 0) #17
   br label %bf_delete.exit
 
-bf_delete.exit:                                   ; preds = %.loopexit140, %262, %265
+bf_delete.exit:                                   ; preds = %.loopexit141, %262, %265
   %268 = load ptr, ptr %14, align 8
   %.not.i123 = icmp eq ptr %268, null
   br i1 %.not.i123, label %bf_delete.exit127, label %269

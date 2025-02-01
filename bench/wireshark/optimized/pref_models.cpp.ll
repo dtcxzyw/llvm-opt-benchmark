@@ -6963,7 +6963,7 @@ define linkonce_odr void @_ZN5QListI8QVariantE5clearEv(ptr noundef nonnull align
 _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit: ; preds = %5
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = icmp sgt i32 %7, 1
-  br i1 %8, label %9, label %.lr.ph.i.i.i.preheader.i
+  br i1 %8, label %9, label %23
 
 9:                                                ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7009,20 +7009,22 @@ _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 32, i64 noundef 8) #21
   br label %_ZN17QArrayDataPointerI8QVariantED2Ev.exit
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr %class.QVariant, ptr %24, i64 %4
-  br label %.lr.ph.i.i.i.i
+23:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.idx2.i = shl i64 %4, 5
+  %26 = getelementptr i8, ptr %25, i64 %.idx2.i
+  %.not4.i.i.i.i = icmp eq i64 %.idx2.i, 0
+  br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %24, %.lr.ph.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %23, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %25, %23 ]
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #21
-  %26 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %25
+  %27 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %27, %26
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !161
 
-_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i
+_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i, %23
   store i64 0, ptr %3, align 8
   br label %_ZN17QArrayDataPointerI8QVariantED2Ev.exit
 

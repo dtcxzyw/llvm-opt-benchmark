@@ -6709,7 +6709,7 @@ define linkonce_odr void @_ZN5QListI11ExtcapValueE5clearEv(ptr noundef nonnull a
 _ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit: ; preds = %5
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = icmp sgt i32 %7, 1
-  br i1 %8, label %9, label %.lr.ph.i.i.i.preheader.i
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6757,22 +6757,24 @@ _ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i: ; preds = %
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 88, i64 noundef 8) #21
   br label %_ZN17QArrayDataPointerI11ExtcapValueED2Ev.exit
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr %class.ExtcapValue, ptr %26, i64 %4
-  br label %.lr.ph.i.i.i.i
+25:                                               ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.idx2.i = mul i64 %4, 88
+  %28 = getelementptr i8, ptr %27, i64 %.idx2.i
+  %.not4.i.i.i.i = icmp eq i64 %.idx2.i, 0
+  br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8truncateEm.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.05.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %26, %.lr.ph.i.i.i.preheader.i ]
-  %28 = load ptr, ptr %.05.i.i.i.i, align 8
-  %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i.i) #21
-  %30 = getelementptr i8, ptr %.05.i.i.i.i, i64 88
-  %.not.i.i.i.i = icmp eq ptr %30, %27
+.lr.ph.i.i.i.i:                                   ; preds = %25, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %25 ]
+  %29 = load ptr, ptr %.05.i.i.i.i, align 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i.i) #21
+  %31 = getelementptr i8, ptr %.05.i.i.i.i, i64 88
+  %.not.i.i.i.i = icmp eq ptr %31, %28
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
-_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i
+_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i, %25
   store i64 0, ptr %3, align 8
   br label %_ZN17QArrayDataPointerI11ExtcapValueED2Ev.exit
 

@@ -13209,162 +13209,166 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN5QListIP15QTreeWidgetItemE8it
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
+  %.idx = shl i64 %3, 3
+  %.idx58 = shl i64 %3, 4
   %.idx.mask = and i64 %3, 2305843009213693951
-  %.not58 = icmp eq i64 %.idx.mask, 0
-  br label %11
+  %11 = icmp ne i64 %.idx.mask, 0
+  %12 = icmp ne i64 %.idx, %.idx58
+  %or.cond26.i = and i1 %11, %12
+  br label %13
 
-11:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
+13:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
   %.068 = phi ptr [ %2, %.lr.ph ], [ %.0.lcssa.i.i.i.i.i13.i, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.sroa.052.067 = phi ptr [ %0, %.lr.ph ], [ %13, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %12 = getelementptr ptr, ptr %.sroa.052.067, i64 %3
-  %13 = getelementptr ptr, ptr %.sroa.052.067, i64 %6
-  br i1 %.not58, label %.critedge.i, label %.lr.ph.i
+  %.sroa.052.067 = phi ptr [ %0, %.lr.ph ], [ %15, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %14 = getelementptr i8, ptr %.sroa.052.067, i64 %.idx
+  %15 = getelementptr i8, ptr %.sroa.052.067, i64 %.idx58
+  br i1 %or.cond26.i, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %.029.i = phi ptr [ %17, %.lr.ph.i ], [ %.068, %11 ]
-  %.sroa.022.028.i = phi ptr [ %.sroa.022.1.i, %.lr.ph.i ], [ %.sroa.052.067, %11 ]
-  %.sroa.019.027.i = phi ptr [ %.sroa.019.1.i, %.lr.ph.i ], [ %12, %11 ]
-  %14 = load ptr, ptr %.sroa.019.027.i, align 8
-  %15 = load ptr, ptr %.sroa.022.028.i, align 8
-  %16 = tail call noundef zeroext i1 %4(ptr noundef %14, ptr noundef %15)
-  %.sink.in.i = select i1 %16, ptr %.sroa.019.027.i, ptr %.sroa.022.028.i
-  %.sroa.019.1.idx.i = select i1 %16, i64 8, i64 0
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+  %.029.i = phi ptr [ %19, %.lr.ph.i ], [ %.068, %13 ]
+  %.sroa.022.028.i = phi ptr [ %.sroa.022.1.i, %.lr.ph.i ], [ %.sroa.052.067, %13 ]
+  %.sroa.019.027.i = phi ptr [ %.sroa.019.1.i, %.lr.ph.i ], [ %14, %13 ]
+  %16 = load ptr, ptr %.sroa.019.027.i, align 8
+  %17 = load ptr, ptr %.sroa.022.028.i, align 8
+  %18 = tail call noundef zeroext i1 %4(ptr noundef %16, ptr noundef %17)
+  %.sink.in.i = select i1 %18, ptr %.sroa.019.027.i, ptr %.sroa.022.028.i
+  %.sroa.019.1.idx.i = select i1 %18, i64 8, i64 0
   %.sroa.019.1.i = getelementptr i8, ptr %.sroa.019.027.i, i64 %.sroa.019.1.idx.i
-  %.sroa.022.1.idx.i = select i1 %16, i64 0, i64 8
+  %.sroa.022.1.idx.i = select i1 %18, i64 0, i64 8
   %.sroa.022.1.i = getelementptr i8, ptr %.sroa.022.028.i, i64 %.sroa.022.1.idx.i
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   store ptr %.sink.i, ptr %.029.i, align 8
-  %17 = getelementptr i8, ptr %.029.i, i64 8
-  %18 = icmp ne ptr %.sroa.022.1.i, %12
-  %19 = icmp ne ptr %.sroa.019.1.i, %13
-  %or.cond.i = and i1 %18, %19
+  %19 = getelementptr i8, ptr %.029.i, i64 8
+  %20 = icmp ne ptr %.sroa.022.1.i, %14
+  %21 = icmp ne ptr %.sroa.019.1.i, %15
+  %or.cond.i = and i1 %20, %21
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !98
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %11
-  %.sroa.019.0.lcssa.i = phi ptr [ %12, %11 ], [ %.sroa.019.1.i, %.lr.ph.i ]
-  %.sroa.022.0.lcssa.i = phi ptr [ %.sroa.052.067, %11 ], [ %.sroa.022.1.i, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %.068, %11 ], [ %17, %.lr.ph.i ]
-  %20 = ptrtoint ptr %12 to i64
-  %21 = ptrtoint ptr %.sroa.022.0.lcssa.i to i64
-  %22 = sub i64 %20, %21
-  %23 = ashr exact i64 %22, 3
-  %24 = icmp sgt i64 %23, 0
-  br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i
+.critedge.i:                                      ; preds = %.lr.ph.i, %13
+  %.sroa.019.0.lcssa.i = phi ptr [ %14, %13 ], [ %.sroa.019.1.i, %.lr.ph.i ]
+  %.sroa.022.0.lcssa.i = phi ptr [ %.sroa.052.067, %13 ], [ %.sroa.022.1.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %.068, %13 ], [ %19, %.lr.ph.i ]
+  %22 = ptrtoint ptr %14 to i64
+  %23 = ptrtoint ptr %.sroa.022.0.lcssa.i to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 3
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %.critedge.i ]
-  %.048.i.i.i.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i.i.i.i ], [ %23, %.critedge.i ]
-  %.sroa.05.07.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.022.0.lcssa.i, %.critedge.i ]
-  %25 = load ptr, ptr %.sroa.05.07.i.i.i.i.i.i, align 8
-  store ptr %25, ptr %.09.i.i.i.i.i.i, align 8
-  %26 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i, i64 8
-  %27 = getelementptr i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %28 = add nsw i64 %.048.i.i.i.i.i.i, -1
-  %29 = icmp samesign ugt i64 %.048.i.i.i.i.i.i, 1
-  br i1 %29, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i, !llvm.loop !92
+  %.09.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %.critedge.i ]
+  %.048.i.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i.i ], [ %25, %.critedge.i ]
+  %.sroa.05.07.i.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.022.0.lcssa.i, %.critedge.i ]
+  %27 = load ptr, ptr %.sroa.05.07.i.i.i.i.i.i, align 8
+  store ptr %27, ptr %.09.i.i.i.i.i.i, align 8
+  %28 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i, i64 8
+  %29 = getelementptr i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %30 = add nsw i64 %.048.i.i.i.i.i.i, -1
+  %31 = icmp samesign ugt i64 %.048.i.i.i.i.i.i, 1
+  br i1 %31, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %27, %.lr.ph.i.i.i.i.i.i ]
-  %30 = ptrtoint ptr %13 to i64
-  %31 = ptrtoint ptr %.sroa.019.0.lcssa.i to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 3
-  %34 = icmp sgt i64 %33, 0
-  br i1 %34, label %.lr.ph.i.i.i.i.i14.i, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %29, %.lr.ph.i.i.i.i.i.i ]
+  %32 = ptrtoint ptr %15 to i64
+  %33 = ptrtoint ptr %.sroa.019.0.lcssa.i to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 3
+  %36 = icmp sgt i64 %35, 0
+  br i1 %36, label %.lr.ph.i.i.i.i.i14.i, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
 
 .lr.ph.i.i.i.i.i14.i:                             ; preds = %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i, %.lr.ph.i.i.i.i.i14.i
-  %.09.i.i.i.i.i15.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i14.i ], [ %.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
-  %.048.i.i.i.i.i16.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i14.i ], [ %33, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
-  %.sroa.05.07.i.i.i.i.i17.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i14.i ], [ %.sroa.019.0.lcssa.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
-  %35 = load ptr, ptr %.sroa.05.07.i.i.i.i.i17.i, align 8
-  store ptr %35, ptr %.09.i.i.i.i.i15.i, align 8
-  %36 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i, i64 8
-  %37 = getelementptr i8, ptr %.09.i.i.i.i.i15.i, i64 8
-  %38 = add nsw i64 %.048.i.i.i.i.i16.i, -1
-  %39 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i, 1
-  br i1 %39, label %.lr.ph.i.i.i.i.i14.i, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !92
+  %.09.i.i.i.i.i15.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i14.i ], [ %.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
+  %.048.i.i.i.i.i16.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i14.i ], [ %35, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
+  %.sroa.05.07.i.i.i.i.i17.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i14.i ], [ %.sroa.019.0.lcssa.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ]
+  %37 = load ptr, ptr %.sroa.05.07.i.i.i.i.i17.i, align 8
+  store ptr %37, ptr %.09.i.i.i.i.i15.i, align 8
+  %38 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i, i64 8
+  %39 = getelementptr i8, ptr %.09.i.i.i.i.i15.i, i64 8
+  %40 = add nsw i64 %.048.i.i.i.i.i16.i, -1
+  %41 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i, 1
+  br i1 %41, label %.lr.ph.i.i.i.i.i14.i, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !92
 
 _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i14.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i
-  %.0.lcssa.i.i.i.i.i13.i = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ], [ %37, %.lr.ph.i.i.i.i.i14.i ]
-  %40 = sub i64 %7, %30
-  %41 = ashr exact i64 %40, 3
-  %.not = icmp slt i64 %41, %6
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !99
+  %.0.lcssa.i.i.i.i.i13.i = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i ], [ %39, %.lr.ph.i.i.i.i.i14.i ]
+  %42 = sub i64 %7, %32
+  %43 = ashr exact i64 %42, 3
+  %.not = icmp slt i64 %43, %6
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, %5
-  %.sroa.052.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %.sroa.052.0.lcssa = phi ptr [ %0, %5 ], [ %15, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.0.lcssa = phi ptr [ %2, %5 ], [ %.0.lcssa.i.i.i.i.i13.i, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.lcssa64 = phi i64 [ %10, %5 ], [ %41, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %.lcssa64 = phi i64 [ %10, %5 ], [ %43, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa64)
-  %42 = getelementptr ptr, ptr %.sroa.052.0.lcssa, i64 %.sroa.speculated
-  %.idx.mask59 = and i64 %.sroa.speculated, 2305843009213693951
-  %43 = icmp ne i64 %.idx.mask59, 0
-  %44 = icmp ne ptr %42, %1
-  %or.cond26.i17 = and i1 %43, %44
+  %44 = getelementptr ptr, ptr %.sroa.052.0.lcssa, i64 %.sroa.speculated
+  %.idx59.mask = and i64 %.sroa.speculated, 2305843009213693951
+  %45 = icmp ne i64 %.idx59.mask, 0
+  %46 = icmp ne ptr %44, %1
+  %or.cond26.i17 = and i1 %45, %46
   br i1 %or.cond26.i17, label %.lr.ph.i33, label %.critedge.i18
 
 .lr.ph.i33:                                       ; preds = %._crit_edge, %.lr.ph.i33
-  %.029.i34 = phi ptr [ %48, %.lr.ph.i33 ], [ %.0.lcssa, %._crit_edge ]
+  %.029.i34 = phi ptr [ %50, %.lr.ph.i33 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.022.028.i35 = phi ptr [ %.sroa.022.1.i41, %.lr.ph.i33 ], [ %.sroa.052.0.lcssa, %._crit_edge ]
-  %.sroa.019.027.i36 = phi ptr [ %.sroa.019.1.i39, %.lr.ph.i33 ], [ %42, %._crit_edge ]
-  %45 = load ptr, ptr %.sroa.019.027.i36, align 8
-  %46 = load ptr, ptr %.sroa.022.028.i35, align 8
-  %47 = tail call noundef zeroext i1 %4(ptr noundef %45, ptr noundef %46)
-  %.sink.in.i37 = select i1 %47, ptr %.sroa.019.027.i36, ptr %.sroa.022.028.i35
-  %.sroa.019.1.idx.i38 = select i1 %47, i64 8, i64 0
+  %.sroa.019.027.i36 = phi ptr [ %.sroa.019.1.i39, %.lr.ph.i33 ], [ %44, %._crit_edge ]
+  %47 = load ptr, ptr %.sroa.019.027.i36, align 8
+  %48 = load ptr, ptr %.sroa.022.028.i35, align 8
+  %49 = tail call noundef zeroext i1 %4(ptr noundef %47, ptr noundef %48)
+  %.sink.in.i37 = select i1 %49, ptr %.sroa.019.027.i36, ptr %.sroa.022.028.i35
+  %.sroa.019.1.idx.i38 = select i1 %49, i64 8, i64 0
   %.sroa.019.1.i39 = getelementptr i8, ptr %.sroa.019.027.i36, i64 %.sroa.019.1.idx.i38
-  %.sroa.022.1.idx.i40 = select i1 %47, i64 0, i64 8
+  %.sroa.022.1.idx.i40 = select i1 %49, i64 0, i64 8
   %.sroa.022.1.i41 = getelementptr i8, ptr %.sroa.022.028.i35, i64 %.sroa.022.1.idx.i40
   %.sink.i42 = load ptr, ptr %.sink.in.i37, align 8
   store ptr %.sink.i42, ptr %.029.i34, align 8
-  %48 = getelementptr i8, ptr %.029.i34, i64 8
-  %49 = icmp ne ptr %.sroa.022.1.i41, %42
-  %50 = icmp ne ptr %.sroa.019.1.i39, %1
-  %or.cond.i43 = and i1 %49, %50
+  %50 = getelementptr i8, ptr %.029.i34, i64 8
+  %51 = icmp ne ptr %.sroa.022.1.i41, %44
+  %52 = icmp ne ptr %.sroa.019.1.i39, %1
+  %or.cond.i43 = and i1 %51, %52
   br i1 %or.cond.i43, label %.lr.ph.i33, label %.critedge.i18, !llvm.loop !98
 
 .critedge.i18:                                    ; preds = %.lr.ph.i33, %._crit_edge
-  %.sroa.019.0.lcssa.i19 = phi ptr [ %42, %._crit_edge ], [ %.sroa.019.1.i39, %.lr.ph.i33 ]
+  %.sroa.019.0.lcssa.i19 = phi ptr [ %44, %._crit_edge ], [ %.sroa.019.1.i39, %.lr.ph.i33 ]
   %.sroa.022.0.lcssa.i20 = phi ptr [ %.sroa.052.0.lcssa, %._crit_edge ], [ %.sroa.022.1.i41, %.lr.ph.i33 ]
-  %.0.lcssa.i21 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %48, %.lr.ph.i33 ]
-  %51 = ptrtoint ptr %42 to i64
-  %52 = ptrtoint ptr %.sroa.022.0.lcssa.i20 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %.lr.ph.i.i.i.i.i.i29, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22
+  %.0.lcssa.i21 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %50, %.lr.ph.i33 ]
+  %53 = ptrtoint ptr %44 to i64
+  %54 = ptrtoint ptr %.sroa.022.0.lcssa.i20 to i64
+  %55 = sub i64 %53, %54
+  %56 = ashr exact i64 %55, 3
+  %57 = icmp sgt i64 %56, 0
+  br i1 %57, label %.lr.ph.i.i.i.i.i.i29, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22
 
 .lr.ph.i.i.i.i.i.i29:                             ; preds = %.critedge.i18, %.lr.ph.i.i.i.i.i.i29
-  %.09.i.i.i.i.i.i30 = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i29 ], [ %.0.lcssa.i21, %.critedge.i18 ]
-  %.048.i.i.i.i.i.i31 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i29 ], [ %54, %.critedge.i18 ]
-  %.sroa.05.07.i.i.i.i.i.i32 = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i29 ], [ %.sroa.022.0.lcssa.i20, %.critedge.i18 ]
-  %56 = load ptr, ptr %.sroa.05.07.i.i.i.i.i.i32, align 8
-  store ptr %56, ptr %.09.i.i.i.i.i.i30, align 8
-  %57 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i32, i64 8
-  %58 = getelementptr i8, ptr %.09.i.i.i.i.i.i30, i64 8
-  %59 = add nsw i64 %.048.i.i.i.i.i.i31, -1
-  %60 = icmp samesign ugt i64 %.048.i.i.i.i.i.i31, 1
-  br i1 %60, label %.lr.ph.i.i.i.i.i.i29, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22, !llvm.loop !92
+  %.09.i.i.i.i.i.i30 = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i29 ], [ %.0.lcssa.i21, %.critedge.i18 ]
+  %.048.i.i.i.i.i.i31 = phi i64 [ %61, %.lr.ph.i.i.i.i.i.i29 ], [ %56, %.critedge.i18 ]
+  %.sroa.05.07.i.i.i.i.i.i32 = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i29 ], [ %.sroa.022.0.lcssa.i20, %.critedge.i18 ]
+  %58 = load ptr, ptr %.sroa.05.07.i.i.i.i.i.i32, align 8
+  store ptr %58, ptr %.09.i.i.i.i.i.i30, align 8
+  %59 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i32, i64 8
+  %60 = getelementptr i8, ptr %.09.i.i.i.i.i.i30, i64 8
+  %61 = add nsw i64 %.048.i.i.i.i.i.i31, -1
+  %62 = icmp samesign ugt i64 %.048.i.i.i.i.i.i31, 1
+  br i1 %62, label %.lr.ph.i.i.i.i.i.i29, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22: ; preds = %.lr.ph.i.i.i.i.i.i29, %.critedge.i18
-  %.0.lcssa.i.i.i.i.i.i23 = phi ptr [ %.0.lcssa.i21, %.critedge.i18 ], [ %58, %.lr.ph.i.i.i.i.i.i29 ]
-  %61 = ptrtoint ptr %.sroa.019.0.lcssa.i19 to i64
-  %62 = sub i64 %7, %61
-  %63 = ashr exact i64 %62, 3
-  %64 = icmp sgt i64 %63, 0
-  br i1 %64, label %.lr.ph.i.i.i.i.i14.i25, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44
+  %.0.lcssa.i.i.i.i.i.i23 = phi ptr [ %.0.lcssa.i21, %.critedge.i18 ], [ %60, %.lr.ph.i.i.i.i.i.i29 ]
+  %63 = ptrtoint ptr %.sroa.019.0.lcssa.i19 to i64
+  %64 = sub i64 %7, %63
+  %65 = ashr exact i64 %64, 3
+  %66 = icmp sgt i64 %65, 0
+  br i1 %66, label %.lr.ph.i.i.i.i.i14.i25, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44
 
 .lr.ph.i.i.i.i.i14.i25:                           ; preds = %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22, %.lr.ph.i.i.i.i.i14.i25
-  %.09.i.i.i.i.i15.i26 = phi ptr [ %67, %.lr.ph.i.i.i.i.i14.i25 ], [ %.0.lcssa.i.i.i.i.i.i23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
-  %.048.i.i.i.i.i16.i27 = phi i64 [ %68, %.lr.ph.i.i.i.i.i14.i25 ], [ %63, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
-  %.sroa.05.07.i.i.i.i.i17.i28 = phi ptr [ %66, %.lr.ph.i.i.i.i.i14.i25 ], [ %.sroa.019.0.lcssa.i19, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
-  %65 = load ptr, ptr %.sroa.05.07.i.i.i.i.i17.i28, align 8
-  store ptr %65, ptr %.09.i.i.i.i.i15.i26, align 8
-  %66 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i28, i64 8
-  %67 = getelementptr i8, ptr %.09.i.i.i.i.i15.i26, i64 8
-  %68 = add nsw i64 %.048.i.i.i.i.i16.i27, -1
-  %69 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i27, 1
-  br i1 %69, label %.lr.ph.i.i.i.i.i14.i25, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44, !llvm.loop !92
+  %.09.i.i.i.i.i15.i26 = phi ptr [ %69, %.lr.ph.i.i.i.i.i14.i25 ], [ %.0.lcssa.i.i.i.i.i.i23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
+  %.048.i.i.i.i.i16.i27 = phi i64 [ %70, %.lr.ph.i.i.i.i.i14.i25 ], [ %65, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
+  %.sroa.05.07.i.i.i.i.i17.i28 = phi ptr [ %68, %.lr.ph.i.i.i.i.i14.i25 ], [ %.sroa.019.0.lcssa.i19, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
+  %67 = load ptr, ptr %.sroa.05.07.i.i.i.i.i17.i28, align 8
+  store ptr %67, ptr %.09.i.i.i.i.i15.i26, align 8
+  %68 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i28, i64 8
+  %69 = getelementptr i8, ptr %.09.i.i.i.i.i15.i26, i64 8
+  %70 = add nsw i64 %.048.i.i.i.i.i16.i27, -1
+  %71 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i27, 1
+  br i1 %71, label %.lr.ph.i.i.i.i.i14.i25, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44, !llvm.loop !92
 
 _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44: ; preds = %.lr.ph.i.i.i.i.i14.i25, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22
   ret void
@@ -13381,162 +13385,166 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPP15QTreeWidgetItemN5QListIS1_
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
+  %.idx = shl i64 %3, 3
+  %.idx54 = shl i64 %3, 4
   %.idx.mask = and i64 %3, 2305843009213693951
-  %.not54 = icmp eq i64 %.idx.mask, 0
-  br label %11
+  %11 = icmp ne i64 %.idx.mask, 0
+  %12 = icmp ne i64 %.idx, %.idx54
+  %13 = and i1 %11, %12
+  br label %14
 
-11:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
+14:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
   %.sroa.021.064 = phi ptr [ %2, %.lr.ph ], [ %.sroa.0.0.lcssa.i.i.i.i.i18.i, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.063 = phi ptr [ %0, %.lr.ph ], [ %13, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %12 = getelementptr ptr, ptr %.063, i64 %3
-  %13 = getelementptr ptr, ptr %.063, i64 %6
-  br i1 %.not54, label %._crit_edge.i, label %.lr.ph.i
+  %.063 = phi ptr [ %0, %.lr.ph ], [ %16, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %15 = getelementptr i8, ptr %.063, i64 %.idx
+  %16 = getelementptr i8, ptr %.063, i64 %.idx54
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %.030.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %.063, %11 ]
-  %.01629.i = phi ptr [ %.117.i, %.lr.ph.i ], [ %12, %11 ]
-  %.sroa.024.028.i = phi ptr [ %17, %.lr.ph.i ], [ %.sroa.021.064, %11 ]
-  %14 = load ptr, ptr %.01629.i, align 8
-  %15 = load ptr, ptr %.030.i, align 8
-  %16 = tail call noundef zeroext i1 %4(ptr noundef %14, ptr noundef %15)
-  %.sink.in.i = select i1 %16, ptr %.01629.i, ptr %.030.i
-  %.117.idx.i = select i1 %16, i64 8, i64 0
+.lr.ph.i:                                         ; preds = %14, %.lr.ph.i
+  %.030.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %.063, %14 ]
+  %.01629.i = phi ptr [ %.117.i, %.lr.ph.i ], [ %15, %14 ]
+  %.sroa.024.028.i = phi ptr [ %20, %.lr.ph.i ], [ %.sroa.021.064, %14 ]
+  %17 = load ptr, ptr %.01629.i, align 8
+  %18 = load ptr, ptr %.030.i, align 8
+  %19 = tail call noundef zeroext i1 %4(ptr noundef %17, ptr noundef %18)
+  %.sink.in.i = select i1 %19, ptr %.01629.i, ptr %.030.i
+  %.117.idx.i = select i1 %19, i64 8, i64 0
   %.117.i = getelementptr i8, ptr %.01629.i, i64 %.117.idx.i
-  %.1.idx.i = select i1 %16, i64 0, i64 8
+  %.1.idx.i = select i1 %19, i64 0, i64 8
   %.1.i = getelementptr i8, ptr %.030.i, i64 %.1.idx.i
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   store ptr %.sink.i, ptr %.sroa.024.028.i, align 8
-  %17 = getelementptr i8, ptr %.sroa.024.028.i, i64 8
-  %18 = icmp ne ptr %.1.i, %12
-  %19 = icmp ne ptr %.117.i, %13
-  %20 = and i1 %18, %19
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !100
+  %20 = getelementptr i8, ptr %.sroa.024.028.i, i64 8
+  %21 = icmp ne ptr %.1.i, %15
+  %22 = icmp ne ptr %.117.i, %16
+  %23 = and i1 %21, %22
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !100
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
-  %.sroa.024.0.lcssa.i = phi ptr [ %.sroa.021.064, %11 ], [ %17, %.lr.ph.i ]
-  %.016.lcssa.i = phi ptr [ %12, %11 ], [ %.117.i, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %.063, %11 ], [ %.1.i, %.lr.ph.i ]
-  %21 = ptrtoint ptr %12 to i64
-  %22 = ptrtoint ptr %.0.lcssa.i to i64
-  %23 = sub i64 %21, %22
-  %24 = ashr exact i64 %23, 3
-  %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
+  %.sroa.024.0.lcssa.i = phi ptr [ %.sroa.021.064, %14 ], [ %20, %.lr.ph.i ]
+  %.016.lcssa.i = phi ptr [ %15, %14 ], [ %.117.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %.063, %14 ], [ %.1.i, %.lr.ph.i ]
+  %24 = ptrtoint ptr %15 to i64
+  %25 = ptrtoint ptr %.0.lcssa.i to i64
+  %26 = sub i64 %24, %25
+  %27 = ashr exact i64 %26, 3
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i.i.i.i ], [ %24, %._crit_edge.i ]
-  %.058.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %.sroa.0.07.i.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.024.0.lcssa.i, %._crit_edge.i ]
-  %26 = load ptr, ptr %.058.i.i.i.i.i.i, align 8
-  store ptr %26, ptr %.sroa.0.07.i.i.i.i.i.i, align 8
-  %27 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 8
-  %28 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 8
-  %29 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %30 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
-  br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i, !llvm.loop !94
+  %.09.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i ], [ %27, %._crit_edge.i ]
+  %.058.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.0.07.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.024.0.lcssa.i, %._crit_edge.i ]
+  %29 = load ptr, ptr %.058.i.i.i.i.i.i, align 8
+  store ptr %29, ptr %.sroa.0.07.i.i.i.i.i.i, align 8
+  %30 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 8
+  %31 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 8
+  %32 = add nsw i64 %.09.i.i.i.i.i.i, -1
+  %33 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
+  br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i, !llvm.loop !94
 
 _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
-  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i, %._crit_edge.i ], [ %28, %.lr.ph.i.i.i.i.i.i ]
-  %31 = ptrtoint ptr %13 to i64
-  %32 = ptrtoint ptr %.016.lcssa.i to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 3
-  %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
+  %.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i, %._crit_edge.i ], [ %31, %.lr.ph.i.i.i.i.i.i ]
+  %34 = ptrtoint ptr %16 to i64
+  %35 = ptrtoint ptr %.016.lcssa.i to i64
+  %36 = sub i64 %34, %35
+  %37 = ashr exact i64 %36, 3
+  %38 = icmp sgt i64 %37, 0
+  br i1 %38, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit
 
 .lr.ph.i.i.i.i.i19.i:                             ; preds = %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i, %.lr.ph.i.i.i.i.i19.i
-  %.09.i.i.i.i.i20.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i19.i ], [ %34, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
-  %.058.i.i.i.i.i21.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i19.i ], [ %.016.lcssa.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
-  %.sroa.0.07.i.i.i.i.i22.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i19.i ], [ %.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
-  %36 = load ptr, ptr %.058.i.i.i.i.i21.i, align 8
-  store ptr %36, ptr %.sroa.0.07.i.i.i.i.i22.i, align 8
-  %37 = getelementptr i8, ptr %.058.i.i.i.i.i21.i, i64 8
-  %38 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i, i64 8
-  %39 = add nsw i64 %.09.i.i.i.i.i20.i, -1
-  %40 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i, 1
-  br i1 %40, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !94
+  %.09.i.i.i.i.i20.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i19.i ], [ %37, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
+  %.058.i.i.i.i.i21.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i19.i ], [ %.016.lcssa.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
+  %.sroa.0.07.i.i.i.i.i22.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i19.i ], [ %.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ]
+  %39 = load ptr, ptr %.058.i.i.i.i.i21.i, align 8
+  store ptr %39, ptr %.sroa.0.07.i.i.i.i.i22.i, align 8
+  %40 = getelementptr i8, ptr %.058.i.i.i.i.i21.i, i64 8
+  %41 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i, i64 8
+  %42 = add nsw i64 %.09.i.i.i.i.i20.i, -1
+  %43 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i, 1
+  br i1 %43, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !94
 
 _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i19.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i
-  %.sroa.0.0.lcssa.i.i.i.i.i18.i = phi ptr [ %.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ], [ %38, %.lr.ph.i.i.i.i.i19.i ]
-  %41 = sub i64 %7, %31
-  %42 = ashr exact i64 %41, 3
-  %.not = icmp slt i64 %42, %6
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !101
+  %.sroa.0.0.lcssa.i.i.i.i.i18.i = phi ptr [ %.sroa.0.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i ], [ %41, %.lr.ph.i.i.i.i.i19.i ]
+  %44 = sub i64 %7, %34
+  %45 = ashr exact i64 %44, 3
+  %.not = icmp slt i64 %45, %6
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, %5
-  %.0.lcssa = phi ptr [ %0, %5 ], [ %13, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %.0.lcssa = phi ptr [ %0, %5 ], [ %16, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.021.0.lcssa = phi ptr [ %2, %5 ], [ %.sroa.0.0.lcssa.i.i.i.i.i18.i, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.lcssa60 = phi i64 [ %10, %5 ], [ %42, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
+  %.lcssa60 = phi i64 [ %10, %5 ], [ %45, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa60)
-  %43 = getelementptr ptr, ptr %.0.lcssa, i64 %.sroa.speculated
-  %.idx.mask55 = and i64 %.sroa.speculated, 2305843009213693951
-  %44 = icmp ne i64 %.idx.mask55, 0
-  %45 = icmp ne ptr %43, %1
-  %46 = and i1 %44, %45
-  br i1 %46, label %.lr.ph.i39, label %._crit_edge.i24
+  %46 = getelementptr ptr, ptr %.0.lcssa, i64 %.sroa.speculated
+  %.idx55.mask = and i64 %.sroa.speculated, 2305843009213693951
+  %47 = icmp ne i64 %.idx55.mask, 0
+  %48 = icmp ne ptr %46, %1
+  %49 = and i1 %47, %48
+  br i1 %49, label %.lr.ph.i39, label %._crit_edge.i24
 
 .lr.ph.i39:                                       ; preds = %._crit_edge, %.lr.ph.i39
   %.030.i40 = phi ptr [ %.1.i47, %.lr.ph.i39 ], [ %.0.lcssa, %._crit_edge ]
-  %.01629.i41 = phi ptr [ %.117.i45, %.lr.ph.i39 ], [ %43, %._crit_edge ]
-  %.sroa.024.028.i42 = phi ptr [ %50, %.lr.ph.i39 ], [ %.sroa.021.0.lcssa, %._crit_edge ]
-  %47 = load ptr, ptr %.01629.i41, align 8
-  %48 = load ptr, ptr %.030.i40, align 8
-  %49 = tail call noundef zeroext i1 %4(ptr noundef %47, ptr noundef %48)
-  %.sink.in.i43 = select i1 %49, ptr %.01629.i41, ptr %.030.i40
-  %.117.idx.i44 = select i1 %49, i64 8, i64 0
+  %.01629.i41 = phi ptr [ %.117.i45, %.lr.ph.i39 ], [ %46, %._crit_edge ]
+  %.sroa.024.028.i42 = phi ptr [ %53, %.lr.ph.i39 ], [ %.sroa.021.0.lcssa, %._crit_edge ]
+  %50 = load ptr, ptr %.01629.i41, align 8
+  %51 = load ptr, ptr %.030.i40, align 8
+  %52 = tail call noundef zeroext i1 %4(ptr noundef %50, ptr noundef %51)
+  %.sink.in.i43 = select i1 %52, ptr %.01629.i41, ptr %.030.i40
+  %.117.idx.i44 = select i1 %52, i64 8, i64 0
   %.117.i45 = getelementptr i8, ptr %.01629.i41, i64 %.117.idx.i44
-  %.1.idx.i46 = select i1 %49, i64 0, i64 8
+  %.1.idx.i46 = select i1 %52, i64 0, i64 8
   %.1.i47 = getelementptr i8, ptr %.030.i40, i64 %.1.idx.i46
   %.sink.i48 = load ptr, ptr %.sink.in.i43, align 8
   store ptr %.sink.i48, ptr %.sroa.024.028.i42, align 8
-  %50 = getelementptr i8, ptr %.sroa.024.028.i42, i64 8
-  %51 = icmp ne ptr %.1.i47, %43
-  %52 = icmp ne ptr %.117.i45, %1
-  %53 = and i1 %51, %52
-  br i1 %53, label %.lr.ph.i39, label %._crit_edge.i24, !llvm.loop !100
+  %53 = getelementptr i8, ptr %.sroa.024.028.i42, i64 8
+  %54 = icmp ne ptr %.1.i47, %46
+  %55 = icmp ne ptr %.117.i45, %1
+  %56 = and i1 %54, %55
+  br i1 %56, label %.lr.ph.i39, label %._crit_edge.i24, !llvm.loop !100
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i39, %._crit_edge
-  %.sroa.024.0.lcssa.i25 = phi ptr [ %.sroa.021.0.lcssa, %._crit_edge ], [ %50, %.lr.ph.i39 ]
-  %.016.lcssa.i26 = phi ptr [ %43, %._crit_edge ], [ %.117.i45, %.lr.ph.i39 ]
+  %.sroa.024.0.lcssa.i25 = phi ptr [ %.sroa.021.0.lcssa, %._crit_edge ], [ %53, %.lr.ph.i39 ]
+  %.016.lcssa.i26 = phi ptr [ %46, %._crit_edge ], [ %.117.i45, %.lr.ph.i39 ]
   %.0.lcssa.i27 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i47, %.lr.ph.i39 ]
-  %54 = ptrtoint ptr %43 to i64
-  %55 = ptrtoint ptr %.0.lcssa.i27 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28
+  %57 = ptrtoint ptr %46 to i64
+  %58 = ptrtoint ptr %.0.lcssa.i27 to i64
+  %59 = sub i64 %57, %58
+  %60 = ashr exact i64 %59, 3
+  %61 = icmp sgt i64 %60, 0
+  br i1 %61, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28
 
 .lr.ph.i.i.i.i.i.i35:                             ; preds = %._crit_edge.i24, %.lr.ph.i.i.i.i.i.i35
-  %.09.i.i.i.i.i.i36 = phi i64 [ %62, %.lr.ph.i.i.i.i.i.i35 ], [ %57, %._crit_edge.i24 ]
-  %.058.i.i.i.i.i.i37 = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i35 ], [ %.0.lcssa.i27, %._crit_edge.i24 ]
-  %.sroa.0.07.i.i.i.i.i.i38 = phi ptr [ %61, %.lr.ph.i.i.i.i.i.i35 ], [ %.sroa.024.0.lcssa.i25, %._crit_edge.i24 ]
-  %59 = load ptr, ptr %.058.i.i.i.i.i.i37, align 8
-  store ptr %59, ptr %.sroa.0.07.i.i.i.i.i.i38, align 8
-  %60 = getelementptr i8, ptr %.058.i.i.i.i.i.i37, i64 8
-  %61 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i38, i64 8
-  %62 = add nsw i64 %.09.i.i.i.i.i.i36, -1
-  %63 = icmp samesign ugt i64 %.09.i.i.i.i.i.i36, 1
-  br i1 %63, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28, !llvm.loop !94
+  %.09.i.i.i.i.i.i36 = phi i64 [ %65, %.lr.ph.i.i.i.i.i.i35 ], [ %60, %._crit_edge.i24 ]
+  %.058.i.i.i.i.i.i37 = phi ptr [ %63, %.lr.ph.i.i.i.i.i.i35 ], [ %.0.lcssa.i27, %._crit_edge.i24 ]
+  %.sroa.0.07.i.i.i.i.i.i38 = phi ptr [ %64, %.lr.ph.i.i.i.i.i.i35 ], [ %.sroa.024.0.lcssa.i25, %._crit_edge.i24 ]
+  %62 = load ptr, ptr %.058.i.i.i.i.i.i37, align 8
+  store ptr %62, ptr %.sroa.0.07.i.i.i.i.i.i38, align 8
+  %63 = getelementptr i8, ptr %.058.i.i.i.i.i.i37, i64 8
+  %64 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i38, i64 8
+  %65 = add nsw i64 %.09.i.i.i.i.i.i36, -1
+  %66 = icmp samesign ugt i64 %.09.i.i.i.i.i.i36, 1
+  br i1 %66, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28, !llvm.loop !94
 
 _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28: ; preds = %.lr.ph.i.i.i.i.i.i35, %._crit_edge.i24
-  %.sroa.0.0.lcssa.i.i.i.i.i.i29 = phi ptr [ %.sroa.024.0.lcssa.i25, %._crit_edge.i24 ], [ %61, %.lr.ph.i.i.i.i.i.i35 ]
-  %64 = ptrtoint ptr %.016.lcssa.i26 to i64
-  %65 = sub i64 %7, %64
-  %66 = ashr exact i64 %65, 3
-  %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %.lr.ph.i.i.i.i.i19.i31, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49
+  %.sroa.0.0.lcssa.i.i.i.i.i.i29 = phi ptr [ %.sroa.024.0.lcssa.i25, %._crit_edge.i24 ], [ %64, %.lr.ph.i.i.i.i.i.i35 ]
+  %67 = ptrtoint ptr %.016.lcssa.i26 to i64
+  %68 = sub i64 %7, %67
+  %69 = ashr exact i64 %68, 3
+  %70 = icmp sgt i64 %69, 0
+  br i1 %70, label %.lr.ph.i.i.i.i.i19.i31, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49
 
 .lr.ph.i.i.i.i.i19.i31:                           ; preds = %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28, %.lr.ph.i.i.i.i.i19.i31
-  %.09.i.i.i.i.i20.i32 = phi i64 [ %71, %.lr.ph.i.i.i.i.i19.i31 ], [ %66, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
-  %.058.i.i.i.i.i21.i33 = phi ptr [ %69, %.lr.ph.i.i.i.i.i19.i31 ], [ %.016.lcssa.i26, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
-  %.sroa.0.07.i.i.i.i.i22.i34 = phi ptr [ %70, %.lr.ph.i.i.i.i.i19.i31 ], [ %.sroa.0.0.lcssa.i.i.i.i.i.i29, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
-  %68 = load ptr, ptr %.058.i.i.i.i.i21.i33, align 8
-  store ptr %68, ptr %.sroa.0.07.i.i.i.i.i22.i34, align 8
-  %69 = getelementptr i8, ptr %.058.i.i.i.i.i21.i33, i64 8
-  %70 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i34, i64 8
-  %71 = add nsw i64 %.09.i.i.i.i.i20.i32, -1
-  %72 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i32, 1
-  br i1 %72, label %.lr.ph.i.i.i.i.i19.i31, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49, !llvm.loop !94
+  %.09.i.i.i.i.i20.i32 = phi i64 [ %74, %.lr.ph.i.i.i.i.i19.i31 ], [ %69, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
+  %.058.i.i.i.i.i21.i33 = phi ptr [ %72, %.lr.ph.i.i.i.i.i19.i31 ], [ %.016.lcssa.i26, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
+  %.sroa.0.07.i.i.i.i.i22.i34 = phi ptr [ %73, %.lr.ph.i.i.i.i.i19.i31 ], [ %.sroa.0.0.lcssa.i.i.i.i.i.i29, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28 ]
+  %71 = load ptr, ptr %.058.i.i.i.i.i21.i33, align 8
+  store ptr %71, ptr %.sroa.0.07.i.i.i.i.i22.i34, align 8
+  %72 = getelementptr i8, ptr %.058.i.i.i.i.i21.i33, i64 8
+  %73 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i34, i64 8
+  %74 = add nsw i64 %.09.i.i.i.i.i20.i32, -1
+  %75 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i32, 1
+  br i1 %75, label %.lr.ph.i.i.i.i.i19.i31, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49, !llvm.loop !94
 
 _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49: ; preds = %.lr.ph.i.i.i.i.i19.i31, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28
   ret void
