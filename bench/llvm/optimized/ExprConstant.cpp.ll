@@ -102143,7 +102143,7 @@ define internal fastcc noundef i32 @_ZL22FindDesignatorMismatchN5clang8QualTypeE
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %.pre = load ptr, ptr %5, align 8
-  %.pre65 = load ptr, ptr %7, align 8
+  %.pre66 = load ptr, ptr %7, align 8
   br label %49
 
 11:                                               ; preds = %.lr.ph
@@ -102163,8 +102163,8 @@ define internal fastcc noundef i32 @_ZL22FindDesignatorMismatchN5clang8QualTypeE
 
 22:                                               ; preds = %11
   %23 = icmp eq i8 %20, 14
-  %.pre64 = load ptr, ptr %5, align 8
-  %.pre66 = load ptr, ptr %7, align 8
+  %.pre65 = load ptr, ptr %5, align 8
+  %.pre67 = load ptr, ptr %7, align 8
   br i1 %23, label %.thread, label %49
 
 24:                                               ; preds = %11
@@ -102178,9 +102178,9 @@ define internal fastcc noundef i32 @_ZL22FindDesignatorMismatchN5clang8QualTypeE
   br i1 %.not27, label %42, label %35
 
 .thread:                                          ; preds = %22
-  %31 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %.pre64, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %.pre65, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %.pre66, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %.pre67, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8
   %.not2750 = icmp eq i64 %32, %34
   br i1 %.not2750, label %.thread51, label %35
@@ -102223,8 +102223,8 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %42, %46
   br label %68
 
 49:                                               ; preds = %.lr.ph._crit_edge, %22
-  %50 = phi ptr [ %.pre65, %.lr.ph._crit_edge ], [ %.pre66, %22 ]
-  %51 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %.pre64, %22 ]
+  %50 = phi ptr [ %.pre66, %.lr.ph._crit_edge ], [ %.pre67, %22 ]
+  %51 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %.pre65, %22 ]
   %52 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %51, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %50, i64 %indvars.iv

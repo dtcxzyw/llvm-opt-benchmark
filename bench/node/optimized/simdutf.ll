@@ -24797,10 +24797,10 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inp
   %c.sroa.0.1.i.i.i = or <4 x i64> %c.sroa.22.01221.pn.i.i.i, %c.sroa.0.01219.i.i.i
   %add.i58.i.i.i = add nuw i64 %reader.sroa.11.01218.i.i.i, 64
   %cmp.i16.i.i.i = icmp ult i64 %add.i58.i.i.i, %spec.select.i.i.i
-  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %if.end.i.i.i.i, !llvm.loop !239
+  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !239
 
-if.end.i.i.i.i:                                   ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i, %if.else
-  %c.sroa.22.0.lcssa.i.i.i24 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
+while.end.i.i.i:                                  ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i, %if.else
+  %cmp.i63.i.i.i = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %c.sroa.17.0.lcssa.i.i.i22 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.17.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %c.sroa.0.0.lcssa.i.i.i20 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.0.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %reader.sroa.11.0.lcssa.i.i.i19 = phi i64 [ 0, %if.else ], [ %add.i58.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]

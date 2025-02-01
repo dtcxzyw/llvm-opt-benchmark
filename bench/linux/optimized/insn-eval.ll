@@ -625,20 +625,20 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   %14 = icmp ne ptr %0, null
   %15 = icmp ne ptr %1, null
   %16 = and i1 %14, %15
-  br i1 %16, label %17, label %232
+  br i1 %16, label %17, label %166
 
 17:                                               ; preds = %2
   %18 = tail call i32 @insn_get_opcode(ptr noundef nonnull %0) #7
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %232
+  br i1 %19, label %20, label %166
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %22 = load i8, ptr %21, align 1
-  switch i8 %22, label %232 [
+  switch i8 %22, label %166 [
     i8 2, label %23
     i8 4, label %101
-    i8 8, label %170
+    i8 8, label %137
   ]
 
 23:                                               ; preds = %20
@@ -763,7 +763,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  br label %232
+  br label %166
 
 101:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
@@ -797,19 +797,19 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   %116 = icmp eq i8 %115, 0
   %117 = select i1 %116, i32 8, i32 16
   %118 = and i32 %110, 7
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %120 = load i32, ptr %119, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %118 = load i32, ptr %117, align 8
   %121 = shl i32 %120, 3
   %122 = and i32 %121, 8
   %123 = or disjoint i32 %122, %118
-  %124 = icmp samesign ult i32 %123, %117
+  %120 = icmp samesign ult i32 %123, %117
   br i1 %124, label %128, label %125
 
-125:                                              ; preds = %113
+125:; preds = %113
   %126 = load i1, ptr @get_regno.__already_done, align 1
   br i1 %126, label %get_eff_addr_reg.exit.thread, label %127, !prof !17
 
-127:                                              ; preds = %125
+127:; preds = %125
   store i1 true, ptr @get_regno.__already_done, align 1
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #7, !srcloc !18
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1) #7
@@ -819,11 +819,11 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #7, !srcloc !22
   br label %get_eff_addr_reg.exit.thread
 
-128:                                              ; preds = %113
+128:; preds = %113
   %129 = zext nneg i32 %123 to i64
   %130 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %129
-  %131 = load i32, ptr %130, align 4
-  store i32 %131, ptr %8, align 4
+  %132 = load i32, ptr %130, align 4
+  store i32 %132, ptr %8, align 4
   %132 = load i8, ptr %21, align 1
   %133 = zext nneg i32 %131 to i64
   %134 = ptrtoint ptr %1 to i64
@@ -896,51 +896,51 @@ get_eff_addr_reg.exit.thread:                     ; preds = %158, %125, %127, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  br label %232
+  br label %166
 
-170:                                              ; preds = %20
+137:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store i64 0, ptr %3, align 8, !annotation !23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 0, ptr %4, align 4, !annotation !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !23
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %172 = load i32, ptr %171, align 8
-  %173 = and i32 %172, 192
-  %174 = icmp eq i32 %173, 192
-  br i1 %174, label %175, label %212
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %139 = load i32, ptr %138, align 8
+  %140 = and i32 %139, 192
+  %141 = icmp eq i32 %140, 192
+  br i1 %141, label %142, label %212
 
-175:                                              ; preds = %170
-  %176 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %get_eff_addr_reg.exit5.thread
+142:                                              ; preds = %137
+  %143 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %get_eff_addr_reg.exit5.thread
 
-178:                                              ; preds = %175
-  %179 = load i32, ptr %171, align 8
-  %180 = and i32 %179, 192
-  %181 = icmp eq i32 %180, 192
-  br i1 %181, label %182, label %get_eff_addr_reg.exit5.thread
+145:                                              ; preds = %175
+  %146 = load i32, ptr %171, align 8
+  %147 = and i32 %146, 192
+  %148 = icmp eq i32 %147, 192
+  br i1 %148, label %182, label %get_eff_addr_reg.exit5.thread
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 83
-  %184 = load i8, ptr %183, align 1
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 83
+  %151 = load i8, ptr %150, align 1
   %185 = icmp eq i8 %184, 0
   %186 = select i1 %185, i32 8, i32 16
-  %187 = and i32 %179, 7
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %189 = load i32, ptr %188, align 8
+  %187 = and i32 %146, 7
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %154 = load i32, ptr %153, align 8
   %190 = shl i32 %189, 3
   %191 = and i32 %190, 8
   %192 = or disjoint i32 %191, %187
-  %193 = icmp samesign ult i32 %192, %186
-  br i1 %193, label %197, label %194
+  %156 = icmp samesign ult i32 %192, %186
+  br i1 %156, label %197, label %194
 
-194:                                              ; preds = %182
+194:; preds = %182
   %195 = load i1, ptr @get_regno.__already_done, align 1
   br i1 %195, label %get_eff_addr_reg.exit5.thread, label %196, !prof !17
 
-196:                                              ; preds = %194
+196:; preds = %194
   store i1 true, ptr @get_regno.__already_done, align 1
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #7, !srcloc !18
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1) #7
@@ -1013,11 +1013,11 @@ get_eff_addr_reg.exit5.thread:                    ; preds = %194, %196, %178, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  br label %232
+  br label %166
 
-232:                                              ; preds = %get_eff_addr_reg.exit5.thread, %get_eff_addr_reg.exit.thread, %.thread, %20, %17, %2
-  %233 = phi ptr [ %231, %get_eff_addr_reg.exit5.thread ], [ %169, %get_eff_addr_reg.exit.thread ], [ %100, %.thread ], [ inttoptr (i64 -1 to ptr), %2 ], [ inttoptr (i64 -1 to ptr), %17 ], [ inttoptr (i64 -1 to ptr), %20 ]
-  ret ptr %233
+166:                                              ; preds = %get_eff_addr_reg.exit5.thread, %get_eff_addr_reg.exit.thread, %.thread, %20, %17, %2
+  %167 = phi ptr [ %231, %get_eff_addr_reg.exit5.thread ], [ %169, %get_eff_addr_reg.exit.thread ], [ %100, %.thread ], [ inttoptr (i64 -1 to ptr), %2 ], [ inttoptr (i64 -1 to ptr), %17 ], [ inttoptr (i64 -1 to ptr), %20 ]
+  ret ptr %167
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1262,14 +1262,14 @@ declare dso_local i32 @insn_get_displacement(ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 align 16 {
   %5 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %44
+  br i1 %6, label %7, label %47
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 192
   %11 = icmp eq i32 %10, 192
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %47
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 83
@@ -1277,15 +1277,15 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
   %15 = icmp eq i8 %14, 0
   %16 = select i1 %15, i32 8, i32 16
   %17 = and i32 %9, 7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = shl i32 %19, 3
-  %21 = and i32 %20, 8
-  %22 = or disjoint i32 %21, %17
-  %23 = icmp samesign ult i32 %22, %16
-  br i1 %23, label %27, label %24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8
+  %18 = shl i32 %17, 3
+  %19 = and i32 %18, 8
+  %20 = or disjoint i32 %19, %17
+  %21 = icmp samesign ult i32 %20, %16
+  br i1 %19, label %27, label %24
 
-24:                                               ; preds = %12
+24:; preds = %12
   %25 = load i1, ptr @get_regno.__already_done, align 1
   br i1 %25, label %.thread4, label %26, !prof !17
 
@@ -1305,37 +1305,37 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
 
 27:                                               ; preds = %12
   %28 = zext nneg i32 %22 to i64
-  %29 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %28
+  %32 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %32 = load i8, ptr %31, align 1
-  %33 = zext nneg i32 %30 to i64
-  %34 = ptrtoint ptr %1 to i64
-  %35 = add i64 %33, %34
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i64, ptr %36, align 8
+  %34 = load i8, ptr %31, align 1
+  %35 = zext nneg i32 %30 to i64
+  %36 = ptrtoint ptr %1 to i64
+  %37 = add i64 %33, %34
+  %38 = inttoptr i64 %35 to ptr
+  %39 = load i64, ptr %36, align 8
   switch i8 %32, label %42 [
-    i8 2, label %38
+    i8 2, label %41
     i8 4, label %40
   ]
 
-38:                                               ; preds = %27
-  %39 = and i64 %37, 65535
-  br label %42
+41:                                               ; preds = %27
+  %42 = and i64 %37, 65535
+  br label %45
 
-40:                                               ; preds = %27
-  %41 = and i64 %37, 4294967295
-  br label %42
+43:                                               ; preds = %27
+  %44 = and i64 %37, 4294967295
+  br label %45
 
-42:                                               ; preds = %27, %40, %38
-  %43 = phi i64 [ %39, %38 ], [ %41, %40 ], [ %37, %27 ]
-  store i64 %43, ptr %3, align 8
-  br label %44
+45:                                               ; preds = %27, %43, %41
+  %46 = phi i64 [ %42, %41 ], [ %44, %43 ], [ %37, %27 ]
+  store i64 %46, ptr %3, align 8
+  br label %47
 
-44:                                               ; preds = %.thread4, %42, %7, %4
-  %45 = phi i32 [ %5, %4 ], [ -22, %7 ], [ 0, %42 ], [ -22, %.thread4 ]
-  ret i32 %45
+47:                                               ; preds = %.thread4, %45, %7, %4
+  %48 = phi i32 [ %5, %4 ], [ -22, %7 ], [ 0, %45 ], [ -22, %.thread4 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

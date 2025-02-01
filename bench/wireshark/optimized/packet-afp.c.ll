@@ -6684,25 +6684,25 @@ spotlight_date.exit:                              ; preds = %.lr.ph.i265, %.preh
   %220 = add i32 %21, %.0227274
   br label %228
 
-221:                                              ; preds = %23
+221:; preds = %23
   %222 = and i64 %24, 65535
   %223 = load i32, ptr @hf_afp_query_type, align 4
   %224 = call ptr @val64_to_str_const(i64 noundef %222, ptr noundef nonnull @qtype_string_values, ptr noundef nonnull @.str.1101) #7
   %225 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %.0227274, i32 noundef %21, ptr noundef %224) #7
-  %226 = add nsw i32 %.0229273, -1
-  %227 = add i32 %21, %.0227274
+  %224 = add nsw i32 %.0229273, -1
+  %225 = add i32 %21, %.0227274
   br label %228
 
-228:                                              ; preds = %221, %spotlight_date.exit, %spotlight_CNID_array.exit, %179, %spotlight_float.exit, %spotlight_uuid.exit, %spotlight_int64.exit, %104, %.loopexit, %79
-  %.1230 = phi i32 [ %226, %221 ], [ %219, %spotlight_date.exit ], [ %205, %spotlight_CNID_array.exit ], [ %180, %179 ], [ %144, %spotlight_float.exit ], [ %133, %spotlight_uuid.exit ], [ %120, %spotlight_int64.exit ], [ %109, %104 ], [ %.2, %.loopexit ], [ %82, %79 ]
+228:; preds = %221, %spotlight_date.exit, %spotlight_CNID_array.exit, %179, %spotlight_float.exit, %spotlight_uuid.exit, %spotlight_int64.exit, %104, %.loopexit, %79
+  %229 = phi i32 [ %226, %221 ], [ %219, %spotlight_date.exit ], [ %205, %spotlight_CNID_array.exit ], [ %180, %179 ], [ %144, %spotlight_float.exit ], [ %133, %spotlight_uuid.exit ], [ %120, %spotlight_int64.exit ], [ %109, %104 ], [ %.2, %.loopexit ], [ %82, %79 ]
   %.1228 = phi i32 [ %227, %221 ], [ %220, %spotlight_date.exit ], [ %206, %spotlight_CNID_array.exit ], [ %181, %179 ], [ %145, %spotlight_float.exit ], [ %134, %spotlight_uuid.exit ], [ %121, %spotlight_int64.exit ], [ %110, %104 ], [ %103, %.loopexit ], [ %81, %79 ]
   %229 = icmp slt i32 %.1228, %11
   %230 = icmp sgt i32 %.1230, 0
-  %231 = select i1 %229, i1 %230, i1 false
+  %.1230 = select i1 %229, i1 %230, i1 false
   br i1 %231, label %17, label %.loopexit268, !llvm.loop !21
 
-.loopexit268:                                     ; preds = %17, %228, %8, %spotlight_date.exit.thread
-  %.0227270 = phi i32 [ %.0227274, %spotlight_date.exit.thread ], [ %3, %8 ], [ %.0227274, %17 ], [ %.1228, %228 ]
+.loopexit268:; preds = %17, %228, %8, %spotlight_date.exit.thread
+  %233 = phi i32 [ %.0227274, %spotlight_date.exit.thread ], [ %3, %8 ], [ %.0227274, %17 ], [ %.1228, %228 ]
   ret i32 %.0227270
 }
 

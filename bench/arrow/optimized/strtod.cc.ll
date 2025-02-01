@@ -65,9 +65,9 @@ if.else.i:                                        ; preds = %if.end.i
 if.else10:                                        ; preds = %if.else
   %and = and i64 %1, 1
   %cmp13 = icmp eq i64 %and, 0
-  br i1 %cmp13, label %return, label %if.end.i11
+  br i1 %cmp13, label %return, label %if.else15
 
-if.end.i11:                                       ; preds = %if.else10
+if.else15:                                        ; preds = %if.else10
   %cmp3.i12 = icmp slt i64 %1, 0
   br i1 %cmp3.i12, label %land.lhs.true.i16, label %if.else.i13
 

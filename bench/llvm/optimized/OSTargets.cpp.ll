@@ -460,11 +460,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %193 = or disjoint i8 %192, 48
   store i8 %193, ptr %.sink249.sroa.phi, align 1
   store i8 0, ptr %.sink247.sroa.phi, align 1
-  switch i32 %116, label %218 [
+  switch i32 %116, label %219 [
     i32 26, label %194
     i32 5, label %200
-    i32 27, label %206
-    i32 29, label %212
+    i32 27, label %207
+    i32 29, label %213
   ]
 
 194:                                              ; preds = %184
@@ -487,7 +487,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %194, %199
   %storemerge.i = phi i8 [ 3, %199 ], [ 1, %194 ]
   store i8 %storemerge.i, ptr %197, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(34) %29)
-  br label %225
+  br label %226
 
 200:                                              ; preds = %184
   %201 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -495,142 +495,142 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %194, %199
   store i8 1, ptr %202, align 1
   store ptr @.str.20, ptr %30, align 8
   store i8 3, ptr %201, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %204 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  store i8 1, ptr %204, align 1
+  %204 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  store i8 1, ptr %205, align 1
   %.not.i122 = icmp eq i8 %185, 0
-  br i1 %.not.i122, label %_ZN4llvm5TwineC2EPKc.exit124, label %205
+  br i1 %.not.i122, label %_ZN4llvm5TwineC2EPKc.exit124, label %206
 
-205:                                              ; preds = %200
+206:                                              ; preds = %200
   store ptr %27, ptr %31, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit124
 
-_ZN4llvm5TwineC2EPKc.exit124:                     ; preds = %200, %205
-  %storemerge.i123 = phi i8 [ 3, %205 ], [ 1, %200 ]
-  store i8 %storemerge.i123, ptr %203, align 8
+_ZN4llvm5TwineC2EPKc.exit124:                     ; preds = %200, %206
+  %storemerge.i123 = phi i8 [ 3, %206 ], [ 1, %200 ]
+  store i8 %storemerge.i123, ptr %204, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef nonnull align 8 dereferenceable(34) %31)
-  br label %225
+  br label %226
 
-206:                                              ; preds = %184
-  %207 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %208 = getelementptr inbounds nuw i8, ptr %32, i64 33
-  store i8 1, ptr %208, align 1
+207:                                              ; preds = %184
+  %208 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %32, i64 33
+  store i8 1, ptr %209, align 1
   store ptr @.str.21, ptr %32, align 8
-  store i8 3, ptr %207, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %210 = getelementptr inbounds nuw i8, ptr %33, i64 33
-  store i8 1, ptr %210, align 1
+  store i8 3, ptr %208, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %33, i64 33
+  store i8 1, ptr %211, align 1
   %.not.i126 = icmp eq i8 %185, 0
-  br i1 %.not.i126, label %_ZN4llvm5TwineC2EPKc.exit128, label %211
+  br i1 %.not.i126, label %_ZN4llvm5TwineC2EPKc.exit128, label %212
 
-211:                                              ; preds = %206
+212:                                              ; preds = %207
   store ptr %27, ptr %33, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit128
 
-_ZN4llvm5TwineC2EPKc.exit128:                     ; preds = %206, %211
-  %storemerge.i127 = phi i8 [ 3, %211 ], [ 1, %206 ]
-  store i8 %storemerge.i127, ptr %209, align 8
+_ZN4llvm5TwineC2EPKc.exit128:                     ; preds = %207, %212
+  %storemerge.i127 = phi i8 [ 3, %212 ], [ 1, %207 ]
+  store i8 %storemerge.i127, ptr %210, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef nonnull align 8 dereferenceable(34) %33)
-  br label %225
+  br label %226
 
-212:                                              ; preds = %184
-  %213 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %214 = getelementptr inbounds nuw i8, ptr %34, i64 33
-  store i8 1, ptr %214, align 1
+213:                                              ; preds = %184
+  %214 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %34, i64 33
+  store i8 1, ptr %215, align 1
   store ptr @.str.22, ptr %34, align 8
-  store i8 3, ptr %213, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %216 = getelementptr inbounds nuw i8, ptr %35, i64 33
-  store i8 1, ptr %216, align 1
+  store i8 3, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %35, i64 33
+  store i8 1, ptr %217, align 1
   %.not.i130 = icmp eq i8 %185, 0
-  br i1 %.not.i130, label %_ZN4llvm5TwineC2EPKc.exit132, label %217
+  br i1 %.not.i130, label %_ZN4llvm5TwineC2EPKc.exit132, label %218
 
-217:                                              ; preds = %212
+218:                                              ; preds = %213
   store ptr %27, ptr %35, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit132
 
-_ZN4llvm5TwineC2EPKc.exit132:                     ; preds = %212, %217
-  %storemerge.i131 = phi i8 [ 3, %217 ], [ 1, %212 ]
-  store i8 %storemerge.i131, ptr %215, align 8
+_ZN4llvm5TwineC2EPKc.exit132:                     ; preds = %213, %218
+  %storemerge.i131 = phi i8 [ 3, %218 ], [ 1, %213 ]
+  store i8 %storemerge.i131, ptr %216, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef nonnull align 8 dereferenceable(34) %35)
-  br label %225
+  br label %226
 
-218:                                              ; preds = %184
-  br i1 %spec.select.i55, label %.thread246, label %225
+219:                                              ; preds = %184
+  br i1 %spec.select.i55, label %.thread246, label %226
 
-.thread246:                                       ; preds = %.thread, %218
-  %219 = phi i8 [ %185, %218 ], [ 1, %.thread ]
-  %220 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %221 = getelementptr inbounds nuw i8, ptr %36, i64 33
-  store i8 1, ptr %221, align 1
+.thread246:                                       ; preds = %.thread, %219
+  %220 = phi i8 [ %185, %219 ], [ 1, %.thread ]
+  %221 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %36, i64 33
+  store i8 1, ptr %222, align 1
   store ptr @.str.23, ptr %36, align 8
-  store i8 3, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %223 = getelementptr inbounds nuw i8, ptr %37, i64 33
-  store i8 1, ptr %223, align 1
-  %.not.i135 = icmp eq i8 %219, 0
-  br i1 %.not.i135, label %_ZN4llvm5TwineC2EPKc.exit137, label %224
+  store i8 3, ptr %221, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %37, i64 33
+  store i8 1, ptr %224, align 1
+  %.not.i135 = icmp eq i8 %220, 0
+  br i1 %.not.i135, label %_ZN4llvm5TwineC2EPKc.exit137, label %225
 
-224:                                              ; preds = %.thread246
+225:                                              ; preds = %.thread246
   store ptr %27, ptr %37, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit137
 
-_ZN4llvm5TwineC2EPKc.exit137:                     ; preds = %.thread246, %224
-  %storemerge.i136 = phi i8 [ 3, %224 ], [ 1, %.thread246 ]
-  store i8 %storemerge.i136, ptr %222, align 8
+_ZN4llvm5TwineC2EPKc.exit137:                     ; preds = %.thread246, %225
+  %storemerge.i136 = phi i8 [ 3, %225 ], [ 1, %.thread246 ]
+  store i8 %storemerge.i136, ptr %223, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %36, ptr noundef nonnull align 8 dereferenceable(34) %37)
-  br label %225
+  br label %226
 
-225:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit124, %_ZN4llvm5TwineC2EPKc.exit132, %_ZN4llvm5TwineC2EPKc.exit137, %218, %_ZN4llvm5TwineC2EPKc.exit128, %_ZN4llvm5TwineC2EPKc.exit
-  %226 = load i32, ptr %98, align 4
-  %227 = and i32 %226, -9
-  %spec.select.i.i = icmp eq i32 %227, 1
-  br i1 %spec.select.i.i, label %229, label %228
+226:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit124, %_ZN4llvm5TwineC2EPKc.exit132, %_ZN4llvm5TwineC2EPKc.exit137, %219, %_ZN4llvm5TwineC2EPKc.exit128, %_ZN4llvm5TwineC2EPKc.exit
+  %227 = load i32, ptr %98, align 4
+  %228 = and i32 %227, -9
+  %spec.select.i.i = icmp eq i32 %228, 1
+  br i1 %spec.select.i.i, label %230, label %229
 
-228:                                              ; preds = %225
-  switch i32 %226, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread [
-    i32 26, label %229
-    i32 5, label %229
-    i32 27, label %229
-    i32 29, label %229
-    i32 30, label %229
+229:                                              ; preds = %226
+  switch i32 %227, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread [
+    i32 26, label %230
+    i32 5, label %230
+    i32 27, label %230
+    i32 29, label %230
+    i32 30, label %230
   ]
 
-229:                                              ; preds = %228, %228, %228, %228, %228, %225
-  %230 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %231 = getelementptr inbounds nuw i8, ptr %38, i64 33
-  store i8 1, ptr %231, align 1
+230:                                              ; preds = %229, %229, %229, %229, %229, %226
+  %231 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %38, i64 33
+  store i8 1, ptr %232, align 1
   store ptr @.str.24, ptr %38, align 8
-  store i8 3, ptr %230, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %233 = getelementptr inbounds nuw i8, ptr %39, i64 33
-  store i8 1, ptr %233, align 1
-  %234 = load i8, ptr %27, align 1
-  %.not.i139 = icmp eq i8 %234, 0
-  br i1 %.not.i139, label %_ZN4llvm5TwineC2EPKc.exit141, label %235
+  store i8 3, ptr %231, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %39, i64 33
+  store i8 1, ptr %234, align 1
+  %235 = load i8, ptr %27, align 1
+  %.not.i139 = icmp eq i8 %235, 0
+  br i1 %.not.i139, label %_ZN4llvm5TwineC2EPKc.exit141, label %236
 
-235:                                              ; preds = %229
+236:                                              ; preds = %230
   store ptr %27, ptr %39, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit141
 
-_ZN4llvm5TwineC2EPKc.exit141:                     ; preds = %229, %235
-  %storemerge.i140 = phi i8 [ 3, %235 ], [ 1, %229 ]
-  store i8 %storemerge.i140, ptr %232, align 8
+_ZN4llvm5TwineC2EPKc.exit141:                     ; preds = %230, %236
+  %storemerge.i140 = phi i8 [ 3, %236 ], [ 1, %230 ]
+  store i8 %storemerge.i140, ptr %233, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef nonnull align 8 dereferenceable(34) %39)
-  %236 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %237 = getelementptr inbounds nuw i8, ptr %40, i64 33
-  store i8 1, ptr %237, align 1
+  %237 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %40, i64 33
+  store i8 1, ptr %238, align 1
   store ptr @.str.25, ptr %40, align 8
-  store i8 3, ptr %236, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %239 = getelementptr inbounds nuw i8, ptr %41, i64 33
-  store i8 1, ptr %239, align 1
+  store i8 3, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %41, i64 33
+  store i8 1, ptr %240, align 1
   store ptr @.str.3, ptr %41, align 8
-  store i8 3, ptr %238, align 8
+  store i8 3, ptr %239, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %40, ptr noundef nonnull align 8 dereferenceable(34) %41)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit54.thread:       ; preds = %_ZN4llvm5TwineC2EPKc.exit141, %228, %_ZN4llvmeqENS_9StringRefES0_.exit54
+_ZN4llvmeqENS_9StringRefES0_.exit54.thread:       ; preds = %_ZN4llvm5TwineC2EPKc.exit141, %229, %_ZN4llvmeqENS_9StringRefES0_.exit54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   ret void
 }

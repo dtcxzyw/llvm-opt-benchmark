@@ -815,16 +815,16 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %ret.1127 = phi i32 [ 0, %if.end ], [ %ret.2, %for.inc ]
-  %ln.1126 = phi i32 [ %1, %if.end ], [ %ln.4, %for.inc ]
-  %n.1125 = phi i32 [ %0, %if.end ], [ %n.3, %for.inc ]
-  %i.0124 = phi i32 [ 0, %if.end ], [ %inc126, %for.inc ]
-  %out.addr.0122 = phi ptr [ %out, %if.end ], [ %out.addr.1, %for.inc ]
+  %ret.1128 = phi i32 [ 0, %if.end ], [ %ret.2, %for.inc ]
+  %ln.1127 = phi i32 [ %1, %if.end ], [ %ln.4, %for.inc ]
+  %n.1126 = phi i32 [ %0, %if.end ], [ %n.3, %for.inc ]
+  %i.0125 = phi i32 [ 0, %if.end ], [ %inc126, %for.inc ]
+  %out.addr.0123 = phi ptr [ %out, %if.end ], [ %out.addr.1, %for.inc ]
   %exp_nl.1121 = phi i32 [ %2, %if.end ], [ %exp_nl.2, %for.inc ]
   %in.addr.0120 = phi ptr [ %in, %if.end ], [ %incdec.ptr, %for.inc ]
   %eof.0119 = phi i32 [ 0, %if.end ], [ %eof.2, %for.inc ]
   %seof.0118 = phi i32 [ -1, %if.end ], [ %seof.1, %for.inc ]
-  %cmp7 = icmp ugt i32 %ln.1126, 79
+  %cmp7 = icmp ugt i32 %ln.1127, 79
   br i1 %cmp7, label %end, label %if.end10
 
 if.end10:                                         ; preds = %for.body
@@ -840,20 +840,20 @@ conv_ascii2bin.exit69:                            ; preds = %if.end10
   %conv14 = zext i8 %5 to i32
   %6 = and i32 %conv14, 236
   %cmp15 = icmp eq i32 %6, 224
-  br i1 %cmp15, label %if.end25, label %if.then17
+  br i1 %cmp15, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end10, %conv_ascii2bin.exit69
-  %conv1479 = phi i32 [ %conv14, %conv_ascii2bin.exit69 ], [ 255, %if.end10 ]
-  %retval.0.i6877 = phi i8 [ %5, %conv_ascii2bin.exit69 ], [ -1, %if.end10 ]
-  %inc = add i32 %n.1125, 1
-  %idxprom = zext i32 %n.1125 to i64
+  %conv1480 = phi i32 [ %conv14, %conv_ascii2bin.exit69 ], [ 255, %if.end10 ]
+  %retval.0.i6878 = phi i8 [ %5, %conv_ascii2bin.exit69 ], [ -1, %if.end10 ]
+  %inc = add i32 %n.1126, 1
+  %idxprom = zext i32 %n.1126 to i64
   %arrayidx19 = getelementptr inbounds nuw i8, ptr %enc_data, i64 %idxprom
   store i8 %4, ptr %arrayidx19, align 1
-  %inc20 = add nuw nsw i32 %ln.1126, 1
+  %inc20 = add nuw nsw i32 %ln.1127, 1
   br label %if.end25
 
-if.end25:                                         ; preds = %conv_ascii2bin.exit69, %if.then17
-  %conv1480 = phi i32 [ %conv1479, %if.then17 ], [ %conv14, %conv_ascii2bin.exit69 ]
+if.else:                                          ; preds = %conv_ascii2bin.exit69, %if.then17
+  %cmp21 = phi i32 [ %conv1479, %if.then17 ], [ %conv14, %conv_ascii2bin.exit69 ]
   %retval.0.i6878 = phi i8 [ %retval.0.i6877, %if.then17 ], [ %5, %conv_ascii2bin.exit69 ]
   %n.2 = phi i32 [ %inc, %if.then17 ], [ %n.1125, %conv_ascii2bin.exit69 ]
   %ln.2 = phi i32 [ %inc20, %if.then17 ], [ %ln.1126, %conv_ascii2bin.exit69 ]
@@ -885,7 +885,7 @@ if.then47:                                        ; preds = %if.end38
 
 if.end51:                                         ; preds = %if.end38, %if.then41, %if.then47
   %ln.5 = phi i32 [ 0, %if.then47 ], [ 0, %if.then41 ], [ %ln.2, %if.end38 ]
-  %add = add i32 %i.0124, 1
+  %add = add i32 %i.0125, 1
   %conv52 = zext i32 %add to i64
   %cmp53 = icmp eq i64 %in_len, %conv52
   br i1 %cmp53, label %land.lhs.true55, label %if.end78
@@ -1006,7 +1006,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i71
 
 if.end.i71:                                       ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0122, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.lcssa.i)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0123, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.lcssa.i)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1019,7 +1019,7 @@ while.cond23.preheader.i:                         ; preds = %if.end.i71
 while.body26.i:                                   ; preds = %while.cond23.preheader.i, %while.body26.i
   %inc2932.i = phi i64 [ %inc.i, %while.body26.i ], [ %dst_len.promoted.i, %while.cond23.preheader.i ]
   %inc.i = add i64 %inc2932.i, 1
-  %arrayidx27.i = getelementptr inbounds i8, ptr %out.addr.0122, i64 %inc2932.i
+  %arrayidx27.i = getelementptr inbounds i8, ptr %out.addr.0123, i64 %inc2932.i
   store i8 0, ptr %arrayidx27.i, align 1
   %rem.i = urem i64 %inc.i, 3
   %cmp24.not.i = icmp eq i64 %rem.i, 0
@@ -1041,7 +1041,7 @@ if.end104:                                        ; preds = %EVP_DecodeBlock.exi
   br i1 %cmp105, label %end, label %if.end108
 
 if.end108:                                        ; preds = %if.end104
-  %sub109 = sub i32 %ret.1127, %eof.38697
+  %sub109 = sub i32 %ret.1128, %eof.38697
   %add110 = add i32 %sub109, %conv29.i
   br label %if.end112
 
@@ -1049,7 +1049,7 @@ if.end112:                                        ; preds = %if.then88, %if.end1
   %spec.select6299 = phi i32 [ %spec.select6298, %if.end108 ], [ 0, %if.then88 ]
   %eof.5 = phi i32 [ %eof.38697, %if.end108 ], [ 1, %if.then88 ]
   %v.1 = phi i32 [ %conv29.i, %if.end108 ], [ 0, %if.then88 ]
-  %ret.3 = phi i32 [ %add110, %if.end108 ], [ %ret.1127, %if.then88 ]
+  %ret.3 = phi i32 [ %add110, %if.end108 ], [ %ret.1128, %if.then88 ]
   %19 = load i32, ptr %length, align 4
   %cmp113 = icmp slt i32 %v.1, %19
   %tobool116 = icmp ne i32 %eof.5, 0
@@ -1063,17 +1063,17 @@ if.else118:                                       ; preds = %if.end112
 
 if.end124:                                        ; preds = %if.else118
   %idx.ext = zext nneg i32 %v.1 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out.addr.0122, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out.addr.0123, i64 %idx.ext
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then47, %lor.lhs.false85, %if.end124, %land.lhs.true81, %if.then41
   %eof.2 = phi i32 [ %eof.1, %if.then41 ], [ %eof.5, %if.end124 ], [ %eof.387, %land.lhs.true81 ], [ %eof.3, %lor.lhs.false85 ], [ %eof.1, %if.then47 ]
   %exp_nl.2 = phi i32 [ %exp_nl.1121, %if.then41 ], [ %spec.select6299, %if.end124 ], [ 0, %land.lhs.true81 ], [ 0, %lor.lhs.false85 ], [ 0, %if.then47 ]
-  %out.addr.1 = phi ptr [ %out.addr.0122, %if.then41 ], [ %add.ptr, %if.end124 ], [ %out.addr.0122, %land.lhs.true81 ], [ %out.addr.0122, %lor.lhs.false85 ], [ %out.addr.0122, %if.then47 ]
+  %out.addr.1 = phi ptr [ %out.addr.0123, %if.then41 ], [ %add.ptr, %if.end124 ], [ %out.addr.0123, %land.lhs.true81 ], [ %out.addr.0123, %lor.lhs.false85 ], [ %out.addr.0123, %if.then47 ]
   %n.3 = phi i32 [ %n.2, %if.then41 ], [ 0, %if.end124 ], [ %n.2, %land.lhs.true81 ], [ %n.2, %lor.lhs.false85 ], [ %n.2, %if.then47 ]
   %ln.4 = phi i32 [ 0, %if.then41 ], [ %ln.5, %if.end124 ], [ %ln.5, %land.lhs.true81 ], [ %ln.5, %lor.lhs.false85 ], [ 0, %if.then47 ]
-  %ret.2 = phi i32 [ %ret.1127, %if.then41 ], [ %ret.3, %if.end124 ], [ %ret.1127, %land.lhs.true81 ], [ %ret.1127, %lor.lhs.false85 ], [ %ret.1127, %if.then47 ]
-  %inc126 = add i32 %i.0124, 1
+  %ret.2 = phi i32 [ %ret.1128, %if.then41 ], [ %ret.3, %if.end124 ], [ %ret.1128, %land.lhs.true81 ], [ %ret.1128, %lor.lhs.false85 ], [ %ret.1128, %if.then47 ]
+  %inc126 = add i32 %i.0125, 1
   %conv4 = zext i32 %inc126 to i64
   %cmp5 = icmp ugt i64 %in_len, %conv4
   br i1 %cmp5, label %for.body, label %end, !llvm.loop !14
@@ -1081,9 +1081,9 @@ for.inc:                                          ; preds = %if.then47, %lor.lhs
 end:                                              ; preds = %for.inc, %if.else118, %if.end112, %if.end104, %EVP_DecodeBlock.exit, %if.then28, %for.body, %land.lhs.true, %EVP_DecodeBlock.exit.thread, %entry
   %rv.0 = phi i32 [ 0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ 1, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ -1, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %if.then28 ], [ -1, %for.body ]
   %exp_nl.0 = phi i32 [ %2, %entry ], [ %spec.select6298, %EVP_DecodeBlock.exit.thread ], [ %2, %land.lhs.true ], [ %exp_nl.2, %for.inc ], [ %spec.select6299, %if.else118 ], [ %spec.select6299, %if.end112 ], [ %spec.select6298, %if.end104 ], [ %spec.select6298, %EVP_DecodeBlock.exit ], [ %exp_nl.1121, %if.then28 ], [ %exp_nl.1121, %for.body ]
-  %n.0 = phi i32 [ %0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %n.3, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ 0, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ %n.2, %if.then28 ], [ %n.1125, %for.body ]
-  %ln.0 = phi i32 [ %1, %entry ], [ %ln.5, %EVP_DecodeBlock.exit.thread ], [ %1, %land.lhs.true ], [ %ln.4, %for.inc ], [ %ln.5, %if.else118 ], [ %ln.5, %if.end112 ], [ %ln.5, %if.end104 ], [ %ln.5, %EVP_DecodeBlock.exit ], [ %ln.2, %if.then28 ], [ %ln.1126, %for.body ]
-  %ret.0 = phi i32 [ 0, %entry ], [ %ret.1127, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %ret.2, %for.inc ], [ %ret.3, %if.else118 ], [ %ret.3, %if.end112 ], [ %ret.1127, %if.end104 ], [ %ret.1127, %EVP_DecodeBlock.exit ], [ %ret.1127, %if.then28 ], [ %ret.1127, %for.body ]
+  %n.0 = phi i32 [ %0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %n.3, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ 0, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ %n.2, %if.then28 ], [ %n.1126, %for.body ]
+  %ln.0 = phi i32 [ %1, %entry ], [ %ln.5, %EVP_DecodeBlock.exit.thread ], [ %1, %land.lhs.true ], [ %ln.4, %for.inc ], [ %ln.5, %if.else118 ], [ %ln.5, %if.end112 ], [ %ln.5, %if.end104 ], [ %ln.5, %EVP_DecodeBlock.exit ], [ %ln.2, %if.then28 ], [ %ln.1127, %for.body ]
+  %ret.0 = phi i32 [ 0, %entry ], [ %ret.1128, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %ret.2, %for.inc ], [ %ret.3, %if.else118 ], [ %ret.3, %if.end112 ], [ %ret.1128, %if.end104 ], [ %ret.1128, %EVP_DecodeBlock.exit ], [ %ret.1128, %if.then28 ], [ %ret.1128, %for.body ]
   store i32 %ret.0, ptr %out_len, align 4
   store i32 %n.0, ptr %ctx, align 4
   store i32 %ln.0, ptr %line_num, align 4
