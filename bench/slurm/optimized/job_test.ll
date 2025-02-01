@@ -2406,7 +2406,7 @@ _build_gres_mc_data.exit:                         ; preds = %471, %475, %478
   %490 = call i64 @bit_fls_from_bit(ptr noundef nonnull %486, i64 noundef %489) #9
   %491 = trunc i64 %490 to i32
   %.not649 = icmp ugt i32 %2, %491
-  %492 = call i32 @llvm.smax.i32(i32 %491, i32 0)
+  %or.cond774 = call i32 @llvm.smax.i32(i32 %491, i32 0)
   %spec.select786 = select i1 %.not649, i32 0, i32 %492
   br label %493
 

@@ -168,11 +168,11 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
 
 .thread:                                          ; preds = %.thread7, %6
   store i32 0, ptr @memory_corruption_check, align 4
-  br label %56
+  br label %57
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %4, 0
-  br i1 %12, label %56, label %.thread10
+  br i1 %12, label %57, label %.thread10
 
 .thread10:                                        ; preds = %.thread7, %11
   %13 = phi i32 [ %7, %11 ], [ %9, %.thread7 ]
@@ -232,21 +232,21 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
 
 50:                                               ; preds = %34, %.preheader
   call void @__next_mem_range(ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 16), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 56), ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #7
-  %51 = load i64, ptr %3, align 8
-  %52 = icmp eq i64 %51, -1
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !6
+  %52 = load i64, ptr %3, align 8
+  %53 = icmp eq i64 %52, -1
+  br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %50, %.thread10
   %.pr4 = load i32, ptr @num_scan_areas, align 4
-  %53 = icmp eq i32 %.pr4, 0
-  br i1 %53, label %56, label %.thread5
+  %54 = icmp eq i32 %.pr4, 0
+  br i1 %54, label %57, label %.thread5
 
 .thread5:                                         ; preds = %34, %.loopexit
-  %54 = phi i32 [ %.pr4, %.loopexit ], [ %48, %34 ]
-  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %54) #8
-  br label %56
+  %55 = phi i32 [ %.pr4, %.loopexit ], [ %48, %34 ]
+  %56 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %55) #8
+  br label %57
 
-56:                                               ; preds = %.thread, %.thread5, %.loopexit, %11
+57:                                               ; preds = %.thread, %.thread5, %.loopexit, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7

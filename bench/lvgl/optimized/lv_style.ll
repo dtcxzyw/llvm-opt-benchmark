@@ -203,7 +203,7 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   %4 = getelementptr i8, ptr %0, i64 12
   %.val = load i8, ptr %4, align 4, !tbaa !3
   %5 = icmp eq i8 %.val, -1
-  br i1 %5, label %50, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %3
   %.not = icmp eq i8 %1, 0
@@ -238,14 +238,14 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %8, i64 %indvars.iv.next
   store ptr %2, ptr %19, align 8, !tbaa !23
-  br label %50
+  br label %49
 
 .loopexit:                                        ; preds = %12, %7
   %20 = mul nuw nsw i64 %.pre51, 9
   %21 = add nuw nsw i64 %20, 9
   %22 = tail call ptr @lv_realloc(ptr noundef %8, i64 noundef %21) #8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %50, label %24
+  br i1 %23, label %49, label %24
 
 24:                                               ; preds = %.loopexit
   store ptr %22, ptr %0, align 8, !tbaa !9
@@ -286,16 +286,16 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   %43 = getelementptr i8, ptr %42, i64 -8
   store ptr %2, ptr %43, align 8, !tbaa !23
   %44 = lshr i8 %1, 2
-  %45 = tail call i8 @llvm.umin.i8(i8 %44, i8 31)
-  %spec.store.select.i = zext nneg i8 %45 to i32
-  %46 = shl nuw i32 1, %spec.store.select.i
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !29
-  %49 = or i32 %48, %46
-  store i32 %49, ptr %47, align 8, !tbaa !29
-  br label %50
+  %narrow.i = tail call i8 @llvm.umin.i8(i8 %44, i8 31)
+  %spec.store.select.i = zext nneg i8 %narrow.i to i32
+  %45 = shl nuw i32 1, %spec.store.select.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !29
+  %48 = or i32 %47, %45
+  store i32 %48, ptr %46, align 8, !tbaa !29
+  br label %49
 
-50:                                               ; preds = %18, %.loopexit, %._crit_edge, %3
+49:                                               ; preds = %18, %.loopexit, %._crit_edge, %3
   ret void
 }
 

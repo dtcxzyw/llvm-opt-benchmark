@@ -2992,8 +2992,8 @@ invoke.cont51.invoke:                             ; preds = %if.then47, %if.then
           to label %cleanup unwind label %lpad20
 
 if.end54:                                         ; preds = %if.end
-  %cond61147 = call i64 @llvm.smax.i64(i64 %30, i64 0)
-  %cond61 = uitofp nneg i64 %cond61147 to double
+  %cmp56 = call i64 @llvm.smax.i64(i64 %30, i64 0)
+  %32 = uitofp nneg i64 %cmp56 to double
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i78 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i78, align 8
@@ -3018,92 +3018,92 @@ do.body:                                          ; preds = %invoke.cont157, %if
           to label %.noexc85 unwind label %lpad63.loopexit
 
 .noexc85:                                         ; preds = %do.body
-  %32 = load i16, ptr %fUnion2.i78, align 8
-  %cmp.i.i.i81 = icmp slt i16 %32, 0
-  %33 = ashr i16 %32, 5
-  %shr.i.i.i82 = sext i16 %33 to i32
-  %34 = load i32, ptr %fLength.i.i83, align 4
-  %cond.i.i84 = select i1 %cmp.i.i.i81, i32 %34, i32 %shr.i.i.i82
+  %33 = load i16, ptr %fUnion2.i78, align 8
+  %cmp.i.i.i81 = icmp slt i16 %33, 0
+  %34 = ashr i16 %33, 5
+  %shr.i.i.i82 = sext i16 %34 to i32
+  %35 = load i32, ptr %fLength.i.i83, align 4
+  %cond.i.i84 = select i1 %cmp.i.i.i81, i32 %35, i32 %shr.i.i.i82
   %call2.i87 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %temp, i32 noundef 0, i32 noundef %cond.i.i84, ptr noundef nonnull align 8 dereferenceable(64) %fRuleText19, i32 noundef %cond, i32 noundef %sub66)
           to label %invoke.cont67 unwind label %lpad63.loopexit
 
 invoke.cont67:                                    ; preds = %.noexc85
-  %35 = load ptr, ptr %sub1, align 8
-  %call71 = invoke noundef double @_ZNK6icu_756NFRule16matchToDelimiterERKNS_13UnicodeStringEidS3_RNS_13ParsePositionEPKNS_14NFSubstitutionEjd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText, i32 noundef %start.0, double noundef %cond61, ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(16) %pp, ptr noundef %35, i32 noundef %nonNumericalExecutedRuleMask, double noundef %upperBound)
+  %36 = load ptr, ptr %sub1, align 8
+  %call71 = invoke noundef double @_ZNK6icu_756NFRule16matchToDelimiterERKNS_13UnicodeStringEidS3_RNS_13ParsePositionEPKNS_14NFSubstitutionEjd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText, i32 noundef %start.0, double noundef %cond61, ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(16) %pp, ptr noundef %36, i32 noundef %nonNumericalExecutedRuleMask, double noundef %upperBound)
           to label %invoke.cont70 unwind label %lpad63.loopexit
 
 invoke.cont70:                                    ; preds = %invoke.cont67
-  %36 = load i32, ptr %index.i, align 8
-  %cmp74.not = icmp ne i32 %36, 0
-  %37 = load ptr, ptr %sub1, align 8
-  %cmp76 = icmp eq ptr %37, null
+  %37 = load i32, ptr %index.i, align 8
+  %cmp74.not = icmp ne i32 %37, 0
+  %38 = load ptr, ptr %sub1, align 8
+  %cmp76 = icmp eq ptr %38, null
   %or.cond43 = select i1 %cmp74.not, i1 true, i1 %cmp76
   br i1 %or.cond43, label %invoke.cont84, label %if.else137
 
 invoke.cont84:                                    ; preds = %invoke.cont70
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %workText2, align 8
   store i16 2, ptr %fUnion2.i91, align 8
-  %38 = load i16, ptr %fUnion.i.i66, align 8
-  %39 = load i32, ptr %fLength.i69, align 4
+  %39 = load i16, ptr %fUnion.i.i66, align 8
+  %40 = load i32, ptr %fLength.i69, align 4
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %workText2)
           to label %.noexc104 unwind label %lpad81
 
 .noexc104:                                        ; preds = %invoke.cont84
-  %cmp.i.i94 = icmp slt i16 %38, 0
-  %40 = ashr i16 %38, 5
-  %shr.i.i95 = sext i16 %40 to i32
-  %cond.i97 = select i1 %cmp.i.i94, i32 %39, i32 %shr.i.i95
-  %sub88 = sub nsw i32 %cond.i97, %36
-  %41 = load i16, ptr %fUnion2.i91, align 8
-  %cmp.i.i.i100 = icmp slt i16 %41, 0
-  %42 = ashr i16 %41, 5
-  %shr.i.i.i101 = sext i16 %42 to i32
-  %43 = load i32, ptr %fLength.i.i102, align 4
-  %cond.i.i103 = select i1 %cmp.i.i.i100, i32 %43, i32 %shr.i.i.i101
-  %call2.i106 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %workText2, i32 noundef 0, i32 noundef %cond.i.i103, ptr noundef nonnull align 8 dereferenceable(64) %workText, i32 noundef %36, i32 noundef %sub88)
+  %cmp.i.i94 = icmp slt i16 %39, 0
+  %41 = ashr i16 %39, 5
+  %shr.i.i95 = sext i16 %41 to i32
+  %cond.i97 = select i1 %cmp.i.i94, i32 %40, i32 %shr.i.i95
+  %sub88 = sub nsw i32 %cond.i97, %37
+  %42 = load i16, ptr %fUnion2.i91, align 8
+  %cmp.i.i.i100 = icmp slt i16 %42, 0
+  %43 = ashr i16 %42, 5
+  %shr.i.i.i101 = sext i16 %43 to i32
+  %44 = load i32, ptr %fLength.i.i102, align 4
+  %cond.i.i103 = select i1 %cmp.i.i.i100, i32 %44, i32 %shr.i.i.i101
+  %call2.i106 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %workText2, i32 noundef 0, i32 noundef %cond.i.i103, ptr noundef nonnull align 8 dereferenceable(64) %workText, i32 noundef %37, i32 noundef %sub88)
           to label %invoke.cont95 unwind label %lpad81
 
 invoke.cont95:                                    ; preds = %.noexc104
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pp2, align 8
   store i32 0, ptr %index.i108, align 8
   store i32 -1, ptr %errorIndex.i109, align 4
-  %44 = load i16, ptr %fUnion.i.i110, align 8
-  %45 = load i32, ptr %fLength.i113, align 4
+  %45 = load i16, ptr %fUnion.i.i110, align 8
+  %46 = load i32, ptr %fLength.i113, align 4
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %temp)
           to label %.noexc120 unwind label %lpad94
 
 .noexc120:                                        ; preds = %invoke.cont95
-  %cmp.i.i111 = icmp slt i16 %44, 0
-  %46 = ashr i16 %44, 5
-  %shr.i.i112 = sext i16 %46 to i32
-  %cond.i114 = select i1 %cmp.i.i111, i32 %45, i32 %shr.i.i112
+  %cmp.i.i111 = icmp slt i16 %45, 0
+  %47 = ashr i16 %45, 5
+  %shr.i.i112 = sext i16 %47 to i32
+  %cond.i114 = select i1 %cmp.i.i111, i32 %46, i32 %shr.i.i112
   %sub97 = sub nsw i32 %cond.i114, %cond17
-  %47 = load i16, ptr %fUnion2.i78, align 8
-  %cmp.i.i.i116 = icmp slt i16 %47, 0
-  %48 = ashr i16 %47, 5
-  %shr.i.i.i117 = sext i16 %48 to i32
-  %49 = load i32, ptr %fLength.i.i83, align 4
-  %cond.i.i119 = select i1 %cmp.i.i.i116, i32 %49, i32 %shr.i.i.i117
+  %48 = load i16, ptr %fUnion2.i78, align 8
+  %cmp.i.i.i116 = icmp slt i16 %48, 0
+  %49 = ashr i16 %48, 5
+  %shr.i.i.i117 = sext i16 %49 to i32
+  %50 = load i32, ptr %fLength.i.i83, align 4
+  %cond.i.i119 = select i1 %cmp.i.i.i116, i32 %50, i32 %shr.i.i.i117
   %call2.i122 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %temp, i32 noundef 0, i32 noundef %cond.i.i119, ptr noundef nonnull align 8 dereferenceable(64) %fRuleText19, i32 noundef %cond17, i32 noundef %sub97)
           to label %invoke.cont98 unwind label %lpad94
 
 invoke.cont98:                                    ; preds = %.noexc120
-  %50 = load ptr, ptr %sub2, align 8
-  %call102 = invoke noundef double @_ZNK6icu_756NFRule16matchToDelimiterERKNS_13UnicodeStringEidS3_RNS_13ParsePositionEPKNS_14NFSubstitutionEjd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText2, i32 noundef 0, double noundef %call71, ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(16) %pp2, ptr noundef %50, i32 noundef %nonNumericalExecutedRuleMask, double noundef %upperBound)
+  %51 = load ptr, ptr %sub2, align 8
+  %call102 = invoke noundef double @_ZNK6icu_756NFRule16matchToDelimiterERKNS_13UnicodeStringEidS3_RNS_13ParsePositionEPKNS_14NFSubstitutionEjd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText2, i32 noundef 0, double noundef %call71, ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(16) %pp2, ptr noundef %51, i32 noundef %nonNumericalExecutedRuleMask, double noundef %upperBound)
           to label %invoke.cont101 unwind label %lpad94
 
 invoke.cont101:                                   ; preds = %invoke.cont98
-  %51 = load i32, ptr %index.i108, align 8
-  %cmp105.not = icmp ne i32 %51, 0
-  %52 = load ptr, ptr %sub2, align 8
-  %cmp108 = icmp eq ptr %52, null
+  %52 = load i32, ptr %index.i108, align 8
+  %cmp105.not = icmp ne i32 %52, 0
+  %53 = load ptr, ptr %sub2, align 8
+  %cmp108 = icmp eq ptr %53, null
   %or.cond44 = select i1 %cmp105.not, i1 true, i1 %cmp108
   br i1 %or.cond44, label %if.then109, label %if.else
 
 if.then109:                                       ; preds = %invoke.cont101
-  %53 = load i32, ptr %index.i, align 8
-  %add = add i32 %sub, %51
-  %add114 = add i32 %add, %53
+  %54 = load i32, ptr %index.i, align 8
+  %add = add i32 %sub, %52
+  %add114 = add i32 %add, %54
   %cmp115 = icmp sgt i32 %add114, %highWaterMark.0
   br i1 %cmp115, label %if.then116, label %if.end136
 
@@ -3121,23 +3121,23 @@ lpad63.loopexit.split-lp:                         ; preds = %if.end167
   br label %ehcleanup176
 
 lpad81:                                           ; preds = %.noexc104, %invoke.cont84
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad94:                                           ; preds = %.noexc120, %invoke.cont95, %invoke.cont98
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp2) #8
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont101
-  %56 = load i32, ptr %errorIndex.i109, align 4
-  %add126 = add nsw i32 %56, %cond
-  %57 = load i32, ptr %index.i, align 8
-  %add129 = add nsw i32 %add126, %57
-  %58 = load i32, ptr %errorIndex.i134, align 4
-  %cmp132 = icmp sgt i32 %add129, %58
+  %57 = load i32, ptr %errorIndex.i109, align 4
+  %add126 = add nsw i32 %57, %cond
+  %58 = load i32, ptr %index.i, align 8
+  %add129 = add nsw i32 %add126, %58
+  %59 = load i32, ptr %errorIndex.i134, align 4
+  %cmp132 = icmp sgt i32 %add129, %59
   br i1 %cmp132, label %if.then133, label %if.end136
 
 if.then133:                                       ; preds = %if.else
@@ -3152,15 +3152,15 @@ if.end136:                                        ; preds = %if.else, %if.then13
   br label %do.cond
 
 ehcleanup:                                        ; preds = %lpad94, %lpad81
-  %.pn = phi { ptr, i32 } [ %55, %lpad94 ], [ %54, %lpad81 ]
+  %.pn = phi { ptr, i32 } [ %56, %lpad94 ], [ %55, %lpad81 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %workText2) #8
   br label %ehcleanup176
 
 if.else137:                                       ; preds = %invoke.cont70
-  %59 = load i32, ptr %errorIndex.i, align 4
-  %add141 = add nsw i32 %59, %cond
-  %60 = load i32, ptr %errorIndex.i134, align 4
-  %cmp144 = icmp sgt i32 %add141, %60
+  %60 = load i32, ptr %errorIndex.i, align 4
+  %add141 = add nsw i32 %60, %cond
+  %61 = load i32, ptr %errorIndex.i134, align 4
+  %cmp144 = icmp sgt i32 %add141, %61
   br i1 %cmp144, label %if.then145, label %do.cond
 
 if.then145:                                       ; preds = %if.else137
@@ -3170,23 +3170,23 @@ if.then145:                                       ; preds = %if.else137
 do.cond:                                          ; preds = %if.end136, %if.then145, %if.else137
   %highWaterMark.2 = phi i32 [ %highWaterMark.1, %if.end136 ], [ %highWaterMark.0, %if.then145 ], [ %highWaterMark.0, %if.else137 ]
   %result.2 = phi double [ %result.1, %if.end136 ], [ %result.0, %if.then145 ], [ %result.0, %if.else137 ]
-  %start.1 = phi i32 [ %36, %if.end136 ], [ %start.0, %if.then145 ], [ %start.0, %if.else137 ]
+  %start.1 = phi i32 [ %37, %if.end136 ], [ %start.0, %if.then145 ], [ %start.0, %if.else137 ]
   br i1 %cmp149.not, label %do.end, label %land.lhs.true150
 
 land.lhs.true150:                                 ; preds = %do.cond
-  %61 = load i32, ptr %index.i, align 8
-  %cmp153 = icmp sgt i32 %61, 0
+  %62 = load i32, ptr %index.i, align 8
+  %cmp153 = icmp sgt i32 %62, 0
   br i1 %cmp153, label %invoke.cont157, label %do.end
 
 invoke.cont157:                                   ; preds = %land.lhs.true150
-  %62 = load i16, ptr %fUnion.i.i66, align 8
-  %cmp.i.i139 = icmp slt i16 %62, 0
-  %63 = ashr i16 %62, 5
-  %shr.i.i140 = sext i16 %63 to i32
-  %64 = load i32, ptr %fLength.i69, align 4
-  %cond.i142 = select i1 %cmp.i.i139, i32 %64, i32 %shr.i.i140
-  %cmp159 = icmp sge i32 %61, %cond.i142
-  %cmp162.not = icmp eq i32 %61, %start.1
+  %63 = load i16, ptr %fUnion.i.i66, align 8
+  %cmp.i.i139 = icmp slt i16 %63, 0
+  %64 = ashr i16 %63, 5
+  %shr.i.i140 = sext i16 %64 to i32
+  %65 = load i32, ptr %fLength.i69, align 4
+  %cond.i142 = select i1 %cmp.i.i139, i32 %65, i32 %shr.i.i140
+  %cmp159 = icmp sge i32 %62, %cond.i142
+  %cmp162.not = icmp eq i32 %62, %start.1
   %or.cond146 = select i1 %cmp159, i1 true, i1 %cmp162.not
   br i1 %or.cond146, label %do.end, label %do.body, !llvm.loop !12
 
@@ -3203,8 +3203,8 @@ if.then165:                                       ; preds = %do.end
 if.end167:                                        ; preds = %if.then165, %do.end
   %tobool = icmp ne i8 %isFractionRule, 0
   %or.cond1 = and i1 %tobool, %cmp164
-  %65 = load ptr, ptr %sub1, align 8
-  %cmp172 = icmp eq ptr %65, null
+  %66 = load ptr, ptr %sub1, align 8
+  %cmp172 = icmp eq ptr %66, null
   %or.cond45 = select i1 %or.cond1, i1 %cmp172, i1 false
   %div = fdiv double 1.000000e+00, %result.2
   %result.3 = select i1 %or.cond45, double %div, double %result.2

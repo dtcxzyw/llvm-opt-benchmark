@@ -97,26 +97,26 @@ define hidden void @_ZN2cv11RBaseStream8allocateEv(ptr noundef nonnull align 8 c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %16, label %5
+  br i1 %4, label %15, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 -1)
-  %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8
-  %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %13, ptr %15, align 8
+  %narrow = tail call i32 @llvm.smax.i32(i32 %7, i32 -1)
+  %8 = sext i32 %narrow to i64
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #19
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %9, ptr %10, align 8
+  %11 = sext i32 %7 to i64
+  %12 = getelementptr inbounds i8, ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %12, ptr %14, align 8
   store i8 1, ptr %2, align 8
-  br label %16
+  br label %15
 
-16:                                               ; preds = %5, %1
+15:                                               ; preds = %5, %1
   ret void
 }
 
@@ -1519,20 +1519,20 @@ define hidden void @_ZN2cv11WBaseStream8allocateEv(ptr noundef nonnull align 8 c
   br i1 %.not, label %6, label %._crit_edge
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @llvm.smax.i32(i32 %5, i32 -1)
-  %8 = sext i32 %7 to i64
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #19
-  store ptr %9, ptr %2, align 8
+  %narrow = tail call i32 @llvm.smax.i32(i32 %5, i32 -1)
+  %7 = sext i32 %narrow to i64
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
+  store ptr %8, ptr %2, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %6
-  %10 = phi ptr [ %9, %6 ], [ %3, %1 ]
-  %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %10, ptr %14, align 8
+  %9 = phi ptr [ %8, %6 ], [ %3, %1 ]
+  %10 = sext i32 %5 to i64
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %9, ptr %13, align 8
   ret void
 }
 

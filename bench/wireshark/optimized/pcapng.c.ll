@@ -1944,7 +1944,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nound
   %39 = load ptr, ptr %20, align 8
   %40 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %39, i32 noundef 9, ptr noundef nonnull %9) #16
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %77
+  br i1 %41, label %42, label %78
 
 42:                                               ; preds = %38
   %43 = load i8, ptr %9, align 1
@@ -1967,40 +1967,40 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nound
   %51 = zext nneg i8 %44 to i64
   %52 = shl nuw i64 1, %51
   %53 = icmp samesign ugt i8 %44, 29
-  br i1 %53, label %77, label %54
+  br i1 %53, label %78, label %54
 
 54:                                               ; preds = %50
   %55 = icmp samesign ugt i8 %44, 26
-  br i1 %55, label %77, label %56
+  br i1 %55, label %78, label %56
 
 56:                                               ; preds = %54
   %57 = icmp samesign ugt i8 %44, 23
-  br i1 %57, label %77, label %58
+  br i1 %57, label %78, label %58
 
 58:                                               ; preds = %56
   %59 = icmp samesign ugt i8 %44, 19
-  br i1 %59, label %77, label %60
+  br i1 %59, label %78, label %60
 
 60:                                               ; preds = %58
   %61 = icmp samesign ugt i8 %44, 16
-  br i1 %61, label %77, label %62
+  br i1 %61, label %78, label %62
 
 62:                                               ; preds = %60
   %63 = icmp samesign ugt i8 %44, 13
-  br i1 %63, label %77, label %64
+  br i1 %63, label %78, label %64
 
 64:                                               ; preds = %62
   %65 = icmp samesign ugt i8 %44, 9
-  br i1 %65, label %77, label %66
+  br i1 %65, label %78, label %66
 
 66:                                               ; preds = %64
   %67 = icmp samesign ugt i8 %44, 6
-  br i1 %67, label %77, label %68
+  br i1 %67, label %78, label %68
 
 68:                                               ; preds = %66
   %69 = icmp samesign ugt i8 %44, 3
   %. = zext i1 %69 to i32
-  br label %77
+  br label %78
 
 70:                                               ; preds = %42
   %71 = zext nneg i8 %44 to i32
@@ -2008,8 +2008,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nound
   br i1 %72, label %73, label %.preheader
 
 .preheader:                                       ; preds = %70
-  %.not93 = icmp eq i8 %44, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+  %.not92 = icmp eq i8 %44, 0
+  br i1 %.not92, label %._crit_edge, label %.lr.ph
 
 73:                                               ; preds = %70
   store i32 -4, ptr %5, align 4
@@ -2018,59 +2018,59 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nound
   br label %93
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.092 = phi i32 [ %76, %.lr.ph ], [ 0, %.preheader ]
-  %.06791 = phi i64 [ %75, %.lr.ph ], [ 1, %.preheader ]
-  %75 = mul i64 %.06791, 10
-  %76 = add nuw nsw i32 %.092, 1
+  %.091 = phi i32 [ %76, %.lr.ph ], [ 0, %.preheader ]
+  %.06790 = phi i64 [ %75, %.lr.ph ], [ 1, %.preheader ]
+  %75 = mul i64 %.06790, 10
+  %76 = add nuw nsw i32 %.091, 1
   %exitcond.not = icmp eq i32 %76, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.067.lcssa = phi i64 [ 1, %.preheader ], [ %75, %.lr.ph ]
-  %.8990 = call i8 @llvm.umin.i8(i8 %44, i8 9)
-  %.89 = zext nneg i8 %.8990 to i32
-  br label %77
+  %77 = call i8 @llvm.umin.i8(i8 %44, i8 9)
+  %.89 = zext nneg i8 %77 to i32
+  br label %78
 
-77:                                               ; preds = %50, %54, %56, %58, %60, %62, %64, %66, %68, %._crit_edge, %38
+78:                                               ; preds = %50, %54, %56, %58, %60, %62, %64, %66, %68, %._crit_edge, %38
   %.071 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
   %.070 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
-  %78 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.070, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %.071, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, -2
-  %83 = load i32, ptr %21, align 8
-  br i1 %82, label %.sink.split, label %84
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %.070, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 %.071, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, -2
+  %84 = load i32, ptr %21, align 8
+  br i1 %83, label %.sink.split, label %85
 
-84:                                               ; preds = %77
-  %.not87 = icmp eq i32 %81, %83
+85:                                               ; preds = %78
+  %.not87 = icmp eq i32 %82, %84
   br i1 %.not87, label %85, label %.sink.split
 
-.sink.split:                                      ; preds = %84, %77
-  %.sink94 = phi i32 [ %83, %77 ], [ -1, %84 ]
-  store i32 %.sink94, ptr %80, align 8
+.sink.split:                                      ; preds = %85, %78
+  %.sink93 = phi i32 [ %84, %78 ], [ -1, %85 ]
+  store i32 %.sink93, ptr %81, align 8
   br label %85
 
-85:                                               ; preds = %.sink.split, %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 148
+91:                                               ; preds = %.sink.split, %84
+  %.not88 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, -2
   %89 = load i32, ptr %79, align 8
   br i1 %88, label %.sink.split95, label %90
 
-90:                                               ; preds = %85
-  %.not88 = icmp eq i32 %87, %89
-  br i1 %.not88, label %91, label %.sink.split95
+.sink.split94:                                    ; preds = %91
+  %.sink95 = icmp eq i32 %87, %89
+  br i1 %.sink95, label %91, label %92
 
-.sink.split95:                                    ; preds = %90, %85
-  %.sink96 = phi i32 [ %89, %85 ], [ -1, %90 ]
-  store i32 %.sink96, ptr %86, align 4
-  br label %91
+92:                                               ; preds = %.sink.split94, %91
+  %93 = phi i32 [ %89, %85 ], [ -1, %.sink.split94 ]
+  store i32 %93, ptr %86, align 4
+  br label %94
 
-91:                                               ; preds = %.sink.split95, %90
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
+94:                                               ; preds = %92, %90
+  %.068 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %92, align 4
   br label %93
 

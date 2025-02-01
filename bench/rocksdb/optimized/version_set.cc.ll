@@ -6613,8 +6613,8 @@ ehcleanup:                                        ; preds = %lpad72, %lpad61
   br label %ehcleanup92
 
 cleanup:                                          ; preds = %invoke.cont50
-  %spec.select = call i32 @llvm.smax.i32(i32 %num_entries_left.6, i32 0)
-  %spec.select17 = select i1 %cmp52, i32 0, i32 5
+  %cmp88 = call i32 @llvm.smax.i32(i32 %num_entries_left.6, i32 0)
+  %spec.select = select i1 %cmp52, i32 0, i32 5
   br label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %cleanup, %if.end42

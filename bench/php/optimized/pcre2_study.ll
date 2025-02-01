@@ -47,7 +47,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   store i32 0, ptr %3, align 4
   %24 = call fastcc i32 @set_start_bits(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %.lobit, i32 noundef %.lobit86, ptr noundef %3)
   switch i32 %24, label %._crit_edge [
-    i32 3, label %182
+    i32 3, label %183
     i32 1, label %25
   ]
 
@@ -389,13 +389,13 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %168 = phi i32 [ %.pre, %._crit_edge ], [ %166, %.loopexit ], [ %19, %1 ]
   %169 = and i32 %168, 8396800
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %182
+  br i1 %170, label %171, label %183
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %173 = load i16, ptr %172, align 2
   %174 = icmp ult i16 %173, 129
-  br i1 %174, label %175, label %182
+  br i1 %174, label %175, label %183
 
 175:                                              ; preds = %171
   store i32 0, ptr %4, align 16
@@ -411,12 +411,12 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %175
   %switch.tableidx = add nsw i32 %176, 3
-  %181 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %181
+  %182 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %182
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %182
+  br label %183
 
-182:                                              ; preds = %167, %171, %178, %switch.lookup, %22
+183:                                              ; preds = %167, %171, %178, %switch.lookup, %22
   %.0 = phi i32 [ 1, %22 ], [ %switch.load, %switch.lookup ], [ 0, %178 ], [ 0, %171 ], [ 0, %167 ]
   ret i32 %.0
 }

@@ -4596,29 +4596,29 @@ define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr noundef readonly captu
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   %29 = tail call i32 @llvm.umax.i32(i32 %.0330, i32 16384)
-  %spec.store.select = select i1 %28, i32 %29, i32 %.0330
-  %30 = load ptr, ptr %0, align 8
-  %31 = tail call i32 @file_eof(ptr noundef %30) #10
-  %32 = icmp ne i32 %31, 0
-  %33 = add nsw i32 %.0331, -1
-  %34 = icmp ult i32 %33, 16383
+  %30 = select i1 %28, i32 %29, i32 %.0330
+  %31 = load ptr, ptr %0, align 8
+  %32 = tail call i32 @file_eof(ptr noundef %31) #10
+  %33 = icmp ne i32 %32, 0
+  %or.cond5 = add nsw i32 %.0331, -1
+  %34 = icmp ult i32 %or.cond5, 16383
   %or.cond5 = and i1 %34, %32
   br i1 %or.cond5, label %35, label %40
 
-35:                                               ; preds = %24
-  %36 = zext nneg i32 %.0331 to i64
-  %37 = getelementptr i8, ptr %9, i64 %36
+35:; preds = %24
+  %37 = zext nneg i32 %.0331 to i64
+  %38 = getelementptr i8, ptr %9, i64 %36
   %38 = sub nuw nsw i32 16384, %.0331
   %39 = zext nneg i32 %38 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %39, i1 false)
   br label %40
 
-40:                                               ; preds = %35, %24
+40:; preds = %35, %24
   %41 = icmp ult i32 %spec.store.select, 16384
   br i1 %41, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %40, %364
-  %.1459 = phi i32 [ %.10, %364 ], [ %spec.store.select, %40 ]
+  %.1459 = phi i32 [ %.10, %364 ], [ %30, %40 ]
   %42 = zext nneg i32 %.1459 to i64
   %43 = getelementptr i8, ptr %9, i64 %42
   %44 = load i8, ptr %43, align 1

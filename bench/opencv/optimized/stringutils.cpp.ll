@@ -51,12 +51,12 @@ define hidden void @_ZN5zxing6common11StringUtils13convertStringB5cxx11EPKciS3_S
 
 17:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  br label %56
+  br label %57
 
-18:                                               ; preds = %53, %45, %42, %39, %33, %30, %26, %14
+18:                                               ; preds = %54, %46, %43, %40, %33, %30, %26, %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %58
 
 20:                                               ; preds = %5
   %21 = icmp eq i32 %2, 0
@@ -69,13 +69,13 @@ define hidden void @_ZN5zxing6common11StringUtils13convertStringB5cxx11EPKciS3_S
 
 23:                                               ; preds = %22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
-  br label %56
+  br label %57
 
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
-  br label %57
+  br label %58
 
 26:                                               ; preds = %20
   %27 = invoke ptr @iconv_open(ptr noundef nonnull %4, ptr noundef nonnull %3)
@@ -91,7 +91,7 @@ define hidden void @_ZN5zxing6common11StringUtils13convertStringB5cxx11EPKciS3_S
 
 32:                                               ; preds = %30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  br label %56
+  br label %57
 
 33:                                               ; preds = %28
   %34 = shl nsw i32 %2, 2
@@ -99,49 +99,49 @@ define hidden void @_ZN5zxing6common11StringUtils13convertStringB5cxx11EPKciS3_S
   %36 = sext i32 %35 to i64
   %37 = call i64 @llvm.smax.i64(i64 %36, i64 -1)
   %38 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %37) #12
-          to label %39 unwind label %18
+          to label %40 unwind label %18
 
-39:                                               ; preds = %33
+40:                                               ; preds = %33
   store ptr %1, ptr %8, align 8
-  %40 = sext i32 %2 to i64
-  store i64 %40, ptr %9, align 8
+  %41 = sext i32 %2 to i64
+  store i64 %41, ptr %9, align 8
   store ptr %38, ptr %10, align 8
   store i64 %36, ptr %11, align 8
-  %41 = invoke i64 @iconv(ptr noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-          to label %42 unwind label %18
+  %42 = invoke i64 @iconv(ptr noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+          to label %43 unwind label %18
 
-42:                                               ; preds = %39
-  %43 = icmp eq i64 %41, -1
-  %44 = invoke i32 @iconv_close(ptr noundef %27)
-          to label %45 unwind label %18
+43:                                               ; preds = %40
+  %44 = icmp eq i64 %42, -1
+  %45 = invoke i32 @iconv_close(ptr noundef %27)
+          to label %46 unwind label %18
 
-45:                                               ; preds = %42
-  %46 = load i64, ptr %11, align 8
-  %47 = trunc i64 %46 to i32
-  %48 = sub i32 %35, %47
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %38, i64 %49
-  store i8 0, ptr %50, align 1
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %38)
-          to label %52 unwind label %18
+46:                                               ; preds = %43
+  %47 = load i64, ptr %11, align 8
+  %48 = trunc i64 %47 to i32
+  %49 = sub i32 %35, %48
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i8, ptr %38, i64 %50
+  store i8 0, ptr %51, align 1
+  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %38)
+          to label %53 unwind label %18
 
-52:                                               ; preds = %45
+53:                                               ; preds = %46
   call void @_ZdaPv(ptr noundef nonnull %38) #13
-  br i1 %43, label %53, label %55
+  br i1 %44, label %54, label %56
 
-53:                                               ; preds = %52
-  %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.10)
-          to label %55 unwind label %18
+54:                                               ; preds = %53
+  %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.10)
+          to label %56 unwind label %18
 
-55:                                               ; preds = %53, %52
+56:                                               ; preds = %54, %53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %32, %23, %17
+57:                                               ; preds = %56, %32, %23, %17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   ret void
 
-57:                                               ; preds = %24, %18
+58:                                               ; preds = %24, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %25, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   resume { ptr, i32 } %.pn

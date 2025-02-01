@@ -795,10 +795,10 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %71, %65
 
 _ZNK4Node12find_int_conEi.exit22:                 ; preds = %99
   %105 = icmp sgt i32 %.fr, -1
-  %spec.select = select i1 %105, ptr null, ptr %.034
+  %105 = select i1 %105, ptr null, ptr %.034
   br label %_ZNK4Node12find_int_conEi.exit22.thread
 
-_ZNK4Node12find_int_conEi.exit22.thread:          ; preds = %_ZNK4Node12find_int_conEi.exit22, %99, %97
+_ZNK4Node12find_int_conEi.exit22.thread:; preds = %_ZNK4Node12find_int_conEi.exit22, %99, %97
   %106 = phi i32 [ -1, %97 ], [ -1, %99 ], [ %.fr, %_ZNK4Node12find_int_conEi.exit22 ]
   %107 = phi ptr [ %.034, %97 ], [ %.034, %99 ], [ %spec.select, %_ZNK4Node12find_int_conEi.exit22 ]
   %.15 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)

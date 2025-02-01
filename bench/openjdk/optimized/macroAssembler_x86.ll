@@ -14876,9 +14876,9 @@ declare void @_ZN9Assembler6vpsrawE11XMMRegisterS0_ii(ptr noundef nonnull align 
 define hidden void @_ZN14MacroAssembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %7 = and i64 %6, 8589934592
-  %.not = icmp eq i64 %7, 0
-  %8 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
-  %spec.store.select = select i1 %.not, i32 %8, i32 %4
+  %8 = icmp eq i64 %7, 0
+  %9 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
+  %or.cond.not = select i1 %9, i32 %8, i32 %4
   tail call void @_ZN9Assembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %spec.store.select) #18
   ret void
 }
@@ -14889,9 +14889,9 @@ declare void @_ZN9Assembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull ali
 define hidden void @_ZN14MacroAssembler7evpsraqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %7 = and i64 %6, 8589934592
-  %.not = icmp eq i64 %7, 0
-  %8 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
-  %spec.store.select = select i1 %.not, i32 %8, i32 %4
+  %8 = icmp eq i64 %7, 0
+  %9 = tail call i32 @llvm.smax.i32(i32 %4, i32 2)
+  %or.cond.not = select i1 %9, i32 %8, i32 %4
   tail call void @_ZN9Assembler7evpsraqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %spec.store.select) #18
   ret void
 }

@@ -4209,7 +4209,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cond = tail call i32 @llvm.umin.i32(i32 %dstSize, i32 2147483647)
+  %cmp3 = tail call i32 @llvm.umin.i32(i32 %dstSize, i32 2147483647)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length8.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
   %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

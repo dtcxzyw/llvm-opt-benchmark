@@ -821,13 +821,13 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 fdt_check_node_offset_.exit.thread.i:             ; preds = %if.end.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset.addr.i.i)
-  br label %if.then11.i
+  br label %fdt_next_node.exit
 
 fdt_check_node_offset_.exit.i:                    ; preds = %if.end.i.i
   %1 = load i32, ptr %offset.addr.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset.addr.i.i)
   %cmp1.i = icmp slt i32 %1, 0
-  br i1 %cmp1.i, label %if.then11.i, label %do.body.i.preheader
+  br i1 %cmp1.i, label %fdt_next_node.exit, label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %fdt_check_node_offset_.exit.i, %entry
   %.ph = phi i32 [ 0, %entry ], [ %1, %fdt_check_node_offset_.exit.i ]
@@ -846,17 +846,17 @@ do.body.backedge.i:                               ; preds = %do.body.i
   %.pre.i = load i32, ptr %nextoffset.i, align 4
   br label %do.body.i, !llvm.loop !7
 
-fdt_next_node.exit:                               ; preds = %do.body.i
+if.then11.i:                                      ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nextoffset.i)
   %3 = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
   br label %4
 
-if.then11.i:                                      ; preds = %do.body.i, %do.body.i, %fdt_check_node_offset_.exit.i, %fdt_check_node_offset_.exit.thread.i
+fdt_next_node.exit:                               ; preds = %do.body.i, %do.body.i, %fdt_check_node_offset_.exit.i, %fdt_check_node_offset_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nextoffset.i)
   br label %4
 
-4:                                                ; preds = %fdt_next_node.exit, %if.then11.i
-  %5 = phi i32 [ -1, %if.then11.i ], [ %3, %fdt_next_node.exit ]
+4:; preds = %fdt_next_node.exit, %if.then11.i
+  %5 = phi i32 [ -1, %if.then11.i ], [ %3, %if.then11.i ]
   ret i32 %5
 }
 

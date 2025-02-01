@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_pals_nodes(i32 noundef range
   %16 = icmp slt i32 %15, 1
   %17 = load i32, ptr %3, align 4
   %18 = call i32 @llvm.smax.i32(i32 %17, i32 -1)
-  %..i = select i1 %16, i32 -1, i32 %18
+  %or.cond.i = select i1 %16, i32 -1, i32 %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %..i, ptr %4, align 4
   call void @free(ptr noundef nonnull %13) #11

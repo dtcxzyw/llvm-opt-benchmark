@@ -40202,9 +40202,9 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0
 
 1061:                                             ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  %1062 = load i32, ptr %.1.i, align 8
-  %1063 = icmp eq i32 %1062, 0
-  %1064 = zext i1 %1063 to i8
+  %1063 = load i32, ptr %.1.i, align 8
+  %1064 = icmp eq i32 %1063, 0
+  %1065 = zext i1 %1064 to i8
   %1065 = icmp slt i32 %1060, 0
   br i1 %1065, label %1066, label %1089
 
@@ -40227,7 +40227,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0
           to label %1077 unwind label %1087
 
 1077:                                             ; preds = %1075
-  store i8 %1064, ptr %113, align 8
+  store i8 %1065, ptr %113, align 8
   %1078 = load ptr, ptr %112, align 8
   %1079 = load ptr, ptr %114, align 8
   %.not.i212 = icmp eq ptr %1078, %1079
@@ -40272,7 +40272,7 @@ _ZNSt6vectorIN5Yosys10MemLibrary8RamClockESaIS2_EE9push_backERKS2_.exit: ; preds
   %1096 = getelementptr inbounds %"struct.Yosys::MemLibrary::RamClock", ptr %1095, i64 %1094, i32 1
   %1097 = load i8, ptr %1096, align 8
   %1098 = trunc i8 %1097 to i1
-  %1099 = xor i1 %1063, %1098
+  %1099 = xor i1 %1064, %1098
   br i1 %1099, label %1100, label %1107
 
 1100:                                             ; preds = %1089

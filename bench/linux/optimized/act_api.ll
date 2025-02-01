@@ -3263,7 +3263,7 @@ define internal fastcc i32 @tcf_action_offload_add_ex(ptr noundef %0, ptr nounde
   store ptr %0, ptr %5, align 16
   %10 = and i32 %7, 2
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %80
+  br i1 %11, label %12, label %79
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 16
@@ -3290,7 +3290,7 @@ define internal fastcc i32 @tcf_action_offload_add_ex(ptr noundef %0, ptr nounde
   %26 = phi i32 [ %24, %19 ], [ 1, %15 ], [ 1, %12 ]
   %27 = tail call ptr @offload_action_alloc(i32 noundef %26) #14
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %80, label %29
+  br i1 %28, label %79, label %29
 
 29:                                               ; preds = %25
   store ptr %1, ptr %27, align 8
@@ -3337,59 +3337,59 @@ define internal fastcc i32 @tcf_action_offload_add_ex(ptr noundef %0, ptr nounde
 
 54:                                               ; preds = %47
   %55 = icmp eq ptr %2, null
-  br i1 %55, label %56, label %.thread6
+  br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
   %57 = call i32 @flow_indr_dev_setup_offload(ptr noundef null, ptr noundef null, i32 noundef 20, ptr noundef nonnull %27, ptr noundef null, ptr noundef null) #14
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %61, label %70
+  br i1 %58, label %61, label %.thread7
 
-.thread6:                                         ; preds = %54
-  %59 = call i32 %2(ptr noundef null, ptr noundef null, ptr noundef %3, i32 noundef 20, ptr noundef null, ptr noundef nonnull %27, ptr noundef null) #14
-  %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %63, label %70
+59:                                               ; preds = %54
+  %60 = call i32 %2(ptr noundef null, ptr noundef null, ptr noundef %3, i32 noundef 20, ptr noundef null, ptr noundef nonnull %27, ptr noundef null) #14
+  %61 = icmp sgt i32 %60, -1
+  br i1 %61, label %63, label %.thread7
 
-61:                                               ; preds = %56
+.thread8:                                         ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %67
 
-63:                                               ; preds = %.thread6
+63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %65, 1
   br label %67
 
-67:                                               ; preds = %61, %63
-  %68 = phi ptr [ %64, %63 ], [ %62, %61 ]
-  %69 = phi i32 [ %66, %63 ], [ %57, %61 ]
+67:                                               ; preds = %.thread8, %63
+  %68 = phi ptr [ %64, %63 ], [ %62, %.thread8 ]
+  %69 = phi i32 [ %66, %63 ], [ %57, %.thread8 ]
   store i32 %69, ptr %68, align 8
-  br label %70
+  br label %.thread7
 
-70:                                               ; preds = %.thread6, %67, %56
-  %71 = phi i32 [ %59, %.thread6 ], [ 0, %67 ], [ %57, %56 ]
-  br i1 %9, label %77, label %72
+.thread7:                                         ; preds = %59, %67, %56
+  %70 = phi i32 [ %61, %60 ], [ 0, %67 ], [ %57, %56 ]
+  br i1 %9, label %76, label %71
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 0
-  %76 = select i1 %75, i32 -22, i32 %71
-  br label %77
+71:                                               ; preds = %.thread7
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp eq i32 %73, 0
+  %75 = select i1 %74, i32 -22, i32 %70
+  br label %76
 
-77:                                               ; preds = %72, %70
-  %78 = phi i32 [ %71, %70 ], [ %76, %72 ]
+76:                                               ; preds = %71, %.thread7
+  %77 = phi i32 [ %70, %.thread7 ], [ %75, %71 ]
   call void @tc_cleanup_offload_action(ptr noundef nonnull %48) #14
   br label %.thread
 
-.thread:                                          ; preds = %29, %77, %53, %51, %40
-  %79 = phi i32 [ %45, %40 ], [ %78, %77 ], [ %49, %53 ], [ %49, %51 ], [ -95, %29 ]
+.thread:                                          ; preds = %29, %76, %53, %51, %40
+  %78 = phi i32 [ %45, %40 ], [ %77, %76 ], [ %49, %53 ], [ %49, %51 ], [ -95, %29 ]
   call void @kfree(ptr noundef nonnull %27) #14
-  br label %80
+  br label %79
 
-80:                                               ; preds = %.thread, %25, %4
-  %81 = phi i32 [ %79, %.thread ], [ 0, %4 ], [ -12, %25 ]
+79:                                               ; preds = %.thread, %25, %4
+  %80 = phi i32 [ %78, %.thread ], [ 0, %4 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #14
-  ret i32 %81
+  ret i32 %80
 }
 
 ; Function Attrs: null_pointer_is_valid

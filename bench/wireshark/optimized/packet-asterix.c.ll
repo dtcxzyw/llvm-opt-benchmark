@@ -36116,40 +36116,40 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_asterix() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.10822, ptr noundef nonnull @.str.10823, ptr noundef nonnull @.str.10824) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.10822, ptr noundef nonnull @.str.10823, ptr noundef nonnull @.str.10824) #3
   store i32 %1, ptr @proto_asterix, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_asterix.hf, i32 noundef 9054) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_asterix.ett, i32 noundef 5) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_asterix.hf, i32 noundef 9054) #3
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_asterix.ett, i32 noundef 5) #3
   %2 = load i32, ptr @proto_asterix, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.10824, ptr noundef nonnull @dissect_asterix, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.10824, ptr noundef nonnull @dissect_asterix, i32 noundef %2) #3
   store ptr %3, ptr @asterix_handle, align 8
   %4 = load i32, ptr @proto_asterix, align 4
-  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10825, ptr noundef nonnull @.str.10826, ptr noundef nonnull @.str.10827, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 4), ptr noundef nonnull @I001_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10828, ptr noundef nonnull @.str.10829, ptr noundef nonnull @.str.10830, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 8), ptr noundef nonnull @I002_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10831, ptr noundef nonnull @.str.10832, ptr noundef nonnull @.str.10833, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 16), ptr noundef nonnull @I004_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10834, ptr noundef nonnull @.str.10835, ptr noundef nonnull @.str.10836, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 32), ptr noundef nonnull @I008_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10837, ptr noundef nonnull @.str.10838, ptr noundef nonnull @.str.10839, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 36), ptr noundef nonnull @I009_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10840, ptr noundef nonnull @.str.10841, ptr noundef nonnull @.str.10842, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 40), ptr noundef nonnull @I010_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10843, ptr noundef nonnull @.str.10844, ptr noundef nonnull @.str.10845, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 44), ptr noundef nonnull @I011_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10846, ptr noundef nonnull @.str.10847, ptr noundef nonnull @.str.10848, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 60), ptr noundef nonnull @I015_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10849, ptr noundef nonnull @.str.10850, ptr noundef nonnull @.str.10851, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 64), ptr noundef nonnull @I016_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10852, ptr noundef nonnull @.str.10853, ptr noundef nonnull @.str.10854, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 68), ptr noundef nonnull @I017_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10855, ptr noundef nonnull @.str.10856, ptr noundef nonnull @.str.10857, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 72), ptr noundef nonnull @I018_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10858, ptr noundef nonnull @.str.10859, ptr noundef nonnull @.str.10860, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 76), ptr noundef nonnull @I019_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10861, ptr noundef nonnull @.str.10862, ptr noundef nonnull @.str.10863, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 80), ptr noundef nonnull @I020_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10864, ptr noundef nonnull @.str.10865, ptr noundef nonnull @.str.10866, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 84), ptr noundef nonnull @I021_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10867, ptr noundef nonnull @.str.10868, ptr noundef nonnull @.str.10869, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 92), ptr noundef nonnull @I023_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10870, ptr noundef nonnull @.str.10871, ptr noundef nonnull @.str.10872, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 100), ptr noundef nonnull @I025_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10873, ptr noundef nonnull @.str.10874, ptr noundef nonnull @.str.10875, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 128), ptr noundef nonnull @I032_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10876, ptr noundef nonnull @.str.10877, ptr noundef nonnull @.str.10878, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 136), ptr noundef nonnull @I034_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10879, ptr noundef nonnull @.str.10880, ptr noundef nonnull @.str.10881, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 192), ptr noundef nonnull @I048_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10882, ptr noundef nonnull @.str.10883, ptr noundef nonnull @.str.10884, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 248), ptr noundef nonnull @I062_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10885, ptr noundef nonnull @.str.10886, ptr noundef nonnull @.str.10887, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 252), ptr noundef nonnull @I063_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10888, ptr noundef nonnull @.str.10889, ptr noundef nonnull @.str.10890, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 260), ptr noundef nonnull @I065_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10891, ptr noundef nonnull @.str.10892, ptr noundef nonnull @.str.10893, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 820), ptr noundef nonnull @I205_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10894, ptr noundef nonnull @.str.10895, ptr noundef nonnull @.str.10896, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 960), ptr noundef nonnull @I240_versions, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10897, ptr noundef nonnull @.str.10898, ptr noundef nonnull @.str.10899, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 988), ptr noundef nonnull @I247_versions, i32 noundef 0) #4
+  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10825, ptr noundef nonnull @.str.10826, ptr noundef nonnull @.str.10827, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 4), ptr noundef nonnull @I001_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10828, ptr noundef nonnull @.str.10829, ptr noundef nonnull @.str.10830, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 8), ptr noundef nonnull @I002_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10831, ptr noundef nonnull @.str.10832, ptr noundef nonnull @.str.10833, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 16), ptr noundef nonnull @I004_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10834, ptr noundef nonnull @.str.10835, ptr noundef nonnull @.str.10836, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 32), ptr noundef nonnull @I008_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10837, ptr noundef nonnull @.str.10838, ptr noundef nonnull @.str.10839, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 36), ptr noundef nonnull @I009_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10840, ptr noundef nonnull @.str.10841, ptr noundef nonnull @.str.10842, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 40), ptr noundef nonnull @I010_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10843, ptr noundef nonnull @.str.10844, ptr noundef nonnull @.str.10845, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 44), ptr noundef nonnull @I011_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10846, ptr noundef nonnull @.str.10847, ptr noundef nonnull @.str.10848, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 60), ptr noundef nonnull @I015_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10849, ptr noundef nonnull @.str.10850, ptr noundef nonnull @.str.10851, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 64), ptr noundef nonnull @I016_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10852, ptr noundef nonnull @.str.10853, ptr noundef nonnull @.str.10854, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 68), ptr noundef nonnull @I017_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10855, ptr noundef nonnull @.str.10856, ptr noundef nonnull @.str.10857, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 72), ptr noundef nonnull @I018_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10858, ptr noundef nonnull @.str.10859, ptr noundef nonnull @.str.10860, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 76), ptr noundef nonnull @I019_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10861, ptr noundef nonnull @.str.10862, ptr noundef nonnull @.str.10863, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 80), ptr noundef nonnull @I020_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10864, ptr noundef nonnull @.str.10865, ptr noundef nonnull @.str.10866, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 84), ptr noundef nonnull @I021_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10867, ptr noundef nonnull @.str.10868, ptr noundef nonnull @.str.10869, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 92), ptr noundef nonnull @I023_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10870, ptr noundef nonnull @.str.10871, ptr noundef nonnull @.str.10872, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 100), ptr noundef nonnull @I025_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10873, ptr noundef nonnull @.str.10874, ptr noundef nonnull @.str.10875, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 128), ptr noundef nonnull @I032_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10876, ptr noundef nonnull @.str.10877, ptr noundef nonnull @.str.10878, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 136), ptr noundef nonnull @I034_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10879, ptr noundef nonnull @.str.10880, ptr noundef nonnull @.str.10881, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 192), ptr noundef nonnull @I048_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10882, ptr noundef nonnull @.str.10883, ptr noundef nonnull @.str.10884, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 248), ptr noundef nonnull @I062_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10885, ptr noundef nonnull @.str.10886, ptr noundef nonnull @.str.10887, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 252), ptr noundef nonnull @I063_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10888, ptr noundef nonnull @.str.10889, ptr noundef nonnull @.str.10890, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 260), ptr noundef nonnull @I065_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10891, ptr noundef nonnull @.str.10892, ptr noundef nonnull @.str.10893, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 820), ptr noundef nonnull @I205_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10894, ptr noundef nonnull @.str.10895, ptr noundef nonnull @.str.10896, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 960), ptr noundef nonnull @I240_versions, i32 noundef 0) #3
+  tail call void @prefs_register_enum_preference(ptr noundef %5, ptr noundef nonnull @.str.10897, ptr noundef nonnull @.str.10898, ptr noundef nonnull @.str.10899, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 988), ptr noundef nonnull @I247_versions, i32 noundef 0) #3
   ret void
 }
 
@@ -36165,41 +36165,41 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.10823) #4
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.10823) #3
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #4
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %dissect_asterix_packet.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %dissect_asterix_packet.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %dissect_asterix_data_block.exit.i
   %.031.i = phi i32 [ %164, %dissect_asterix_data_block.exit.i ], [ 0, %8 ]
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.031.i) #4
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.031.i) #3
   %11 = add nuw i32 %.031.i, 1
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #4
+  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #3
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
   %15 = add i32 %.031.i, 2
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #4
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #3
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
   %19 = add nuw nsw i32 %18, 65533
   %20 = load i32, ptr @proto_asterix, align 4
   %21 = and i32 %19, 65535
   %22 = add nuw nsw i32 %21, 3
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef %.031.i, i32 noundef %22, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef %.031.i, i32 noundef %22, i32 noundef 0) #3
   %24 = zext i8 %10 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.12112, i32 noundef %24) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.12112, i32 noundef %24) #3
   %25 = load i32, ptr @ett_asterix, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %25) #4
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %25) #3
   %27 = load i32, ptr @hf_asterix_category, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.031.i, i32 noundef 1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.031.i, i32 noundef 1, i32 noundef 0) #3
   %29 = load i32, ptr @hf_asterix_length, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0) #3
   %31 = add i32 %.031.i, 3
   %.not.i.i = icmp eq i32 %18, 3
   br i1 %.not.i.i, label %dissect_asterix_data_block.exit.i, label %.lr.ph.i.i
@@ -36233,14 +36233,14 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not30.i.i.i, label %asterix_get_active_uap.exit.i.i, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %48 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %49 = sub i32 %48, %37
   br label %50
 
 50:                                               ; preds = %50, %47
   %.0.i.i.i.i = phi i32 [ 0, %47 ], [ %57, %50 ]
   %51 = add i32 %.0.i.i.i.i, %37
-  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %51) #4
+  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %51) #3
   %53 = and i8 %52, 1
   %54 = icmp ne i8 %53, 0
   %55 = icmp ult i32 %.0.i.i.i.i, %49
@@ -36276,7 +36276,7 @@ asterix_fspec_len.exit.preheader.i.i.i:           ; preds = %50
 .lr.ph.i.i.i.i:                                   ; preds = %65, %.lr.ph.i.i.preheader.i.i
   %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %65 ], [ 0, %.lr.ph.i.i.preheader.i.i ]
   %66 = add i32 %indvars.iv.i.i.i, %37
-  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #4
+  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #3
   %68 = and i8 %67, 1
   %.not.i.i.i.i = icmp eq i8 %68, 0
   br i1 %.not.i.i.i.i, label %asterix_field_exists.exit.thread.i.i.i, label %65
@@ -36284,7 +36284,7 @@ asterix_fspec_len.exit.preheader.i.i.i:           ; preds = %50
 asterix_field_exists.exit.i.i.i:                  ; preds = %65, %.lr.ph.i.i.i
   %.lcssa.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %64, %65 ]
   %69 = add i32 %.lcssa.i.i.i.i, %37
-  %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #4
+  %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #3
   %71 = and i32 %61, 7
   %72 = lshr exact i32 128, %71
   %73 = zext i8 %70 to i32
@@ -36298,7 +36298,7 @@ asterix_field_exists.exit.i.i.i:                  ; preds = %65, %.lr.ph.i.i.i
   br i1 %76, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %77) #4
+  %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %77) #3
   %80 = lshr i8 %79, 7
   %81 = zext nneg i8 %80 to i64
   br label %asterix_get_active_uap.exit.i.i
@@ -36335,14 +36335,14 @@ asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exist
   br i1 %.not24.i.i.i, label %dissect_asterix_data_block.exit.i, label %98
 
 98:                                               ; preds = %91
-  %99 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %99 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %100 = sub i32 %99, %37
   br label %101
 
 101:                                              ; preds = %101, %98
   %.0.i.i45.i.i = phi i32 [ 0, %98 ], [ %108, %101 ]
   %102 = add i32 %.0.i.i45.i.i, %37
-  %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %102) #4
+  %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %102) #3
   %104 = and i8 %103, 1
   %105 = icmp ne i8 %104, 0
   %106 = icmp ult i32 %.0.i.i45.i.i, %100
@@ -36378,7 +36378,7 @@ asterix_fspec_len.exit.preheader.i46.i.i:         ; preds = %101
 .lr.ph.i.i49.i.i:                                 ; preds = %116, %.lr.ph.i.i49.preheader.i.i
   %indvars.iv.i50.i.i = phi i32 [ %indvars.iv.next.i52.i.i, %116 ], [ 0, %.lr.ph.i.i49.preheader.i.i ]
   %117 = add i32 %indvars.iv.i50.i.i, %37
-  %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #4
+  %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #3
   %119 = and i8 %118, 1
   %.not.i.i51.i.i = icmp eq i8 %119, 0
   br i1 %.not.i.i51.i.i, label %asterix_field_exists.exit.thread.i56.i.i, label %116
@@ -36386,7 +36386,7 @@ asterix_fspec_len.exit.preheader.i46.i.i:         ; preds = %101
 asterix_field_exists.exit.i53.i.i:                ; preds = %116, %.lr.ph.i47.i.i
   %.lcssa.i.i54.i.i = phi i32 [ 0, %.lr.ph.i47.i.i ], [ %115, %116 ]
   %120 = add i32 %.lcssa.i.i54.i.i, %37
-  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %120) #4
+  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %120) #3
   %122 = and i32 %112, 7
   %123 = lshr exact i32 128, %122
   %124 = zext i8 %121 to i32
@@ -36417,18 +36417,18 @@ asterix_message_length.exit.i.i:                  ; preds = %asterix_field_exist
 
 136:                                              ; preds = %asterix_message_length.exit.i.i
   %137 = load i32, ptr @hf_asterix_message, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %137, ptr noundef %0, i32 noundef %37, i32 noundef %.0.i58.i.i, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.12113, i32 noundef %.065.i.i, i32 noundef %.0.i58.i.i) #4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %137, ptr noundef %0, i32 noundef %37, i32 noundef %.0.i58.i.i, i32 noundef 0) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.12113, i32 noundef %.065.i.i, i32 noundef %.0.i58.i.i) #3
   %139 = load i32, ptr @ett_asterix_message, align 4
-  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %139) #4
-  %141 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %139) #3
+  %141 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %142 = sub i32 %141, %37
   br label %143
 
 143:                                              ; preds = %143, %136
   %.0.i59.i.i = phi i32 [ 0, %136 ], [ %150, %143 ]
   %144 = add i32 %.0.i59.i.i, %37
-  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #4
+  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #3
   %146 = and i8 %145, 1
   %147 = icmp ne i8 %146, 0
   %148 = icmp ult i32 %.0.i59.i.i, %142
@@ -36438,7 +36438,7 @@ asterix_message_length.exit.i.i:                  ; preds = %asterix_field_exist
 
 asterix_message_length.exit.thread.i.i:           ; preds = %143
   %151 = load i32, ptr @hf_asterix_fspec, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %151, ptr noundef %0, i32 noundef %37, i32 noundef %150, i32 noundef 0) #4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %151, ptr noundef %0, i32 noundef %37, i32 noundef %150, i32 noundef 0) #3
   %153 = load i32, ptr %35, align 4
   %154 = sext i32 %153 to i64
   %155 = getelementptr ptr, ptr %90, i64 %154
@@ -36454,12 +36454,12 @@ asterix_message_length.exit.thread.i.i:           ; preds = %143
 
 dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %91, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
   %164 = add i32 %22, %.031.i
-  %165 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %165 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %166 = icmp ult i32 %164, %165
   br i1 %166, label %.lr.ph.i, label %dissect_asterix_packet.exit, !llvm.loop !10
 
 dissect_asterix_packet.exit:                      ; preds = %dissect_asterix_data_block.exit.i, %8, %4
-  %167 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %167 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %167
 }
 
@@ -36470,7 +36470,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_asterix() local_unnamed_addr #0 {
   %1 = load ptr, ptr @asterix_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.10900, i32 noundef 8600, ptr noundef %1) #4
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.10900, i32 noundef 8600, ptr noundef %1) #3
   ret void
 }
 
@@ -36522,14 +36522,14 @@ define internal fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %
 .lr.ph.i.i:                                       ; preds = %.lr.ph135, %14
   %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %14 ], [ 0, %.lr.ph135 ]
   %15 = add i32 %indvars.iv.i, %2
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #4
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #3
   %17 = and i8 %16, 1
   %.not.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i, label %asterix_field_offset.exit.thread, label %14
 
 asterix_field_exists.exit.i:                      ; preds = %14, %.lr.ph135
   %18 = add i32 %13, %2
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #4
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #3
   %20 = and i32 %11, 7
   %21 = lshr exact i32 128, %20
   %22 = zext i8 %19 to i32
@@ -36538,14 +36538,14 @@ asterix_field_exists.exit.i:                      ; preds = %14, %.lr.ph135
   br i1 %.not32.i, label %asterix_field_offset.exit.thread, label %24
 
 24:                                               ; preds = %asterix_field_exists.exit.i
-  %25 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %25 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %26 = sub i32 %25, %2
   br label %27
 
 27:                                               ; preds = %27, %24
   %.0.i.i = phi i32 [ 0, %24 ], [ %34, %27 ]
   %28 = add i32 %.0.i.i, %2
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #4
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #3
   %30 = and i8 %29, 1
   %31 = icmp ne i8 %30, 0
   %32 = icmp ult i32 %.0.i.i, %26
@@ -36577,7 +36577,7 @@ asterix_fspec_len.exit.preheader.i:               ; preds = %27
 .lr.ph.i21.i:                                     ; preds = %.lr.ph.i, %41
   %indvars.iv42.i = phi i32 [ %indvars.iv.next43.i, %41 ], [ 0, %.lr.ph.i ]
   %42 = add i32 %indvars.iv42.i, %2
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #4
+  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #3
   %44 = and i8 %43, 1
   %.not.i23.i = icmp eq i8 %44, 0
   br i1 %.not.i23.i, label %asterix_field_exists.exit27.thread.i, label %41
@@ -36585,7 +36585,7 @@ asterix_fspec_len.exit.preheader.i:               ; preds = %27
 asterix_field_exists.exit27.i:                    ; preds = %41, %.lr.ph.i
   %.lcssa.i25.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %41 ]
   %45 = add i32 %.lcssa.i25.i, %2
-  %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #4
+  %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #3
   %47 = and i32 %37, 7
   %48 = lshr exact i32 128, %47
   %49 = zext i8 %46 to i32
@@ -36622,23 +36622,23 @@ asterix_field_offset.exit:                        ; preds = %asterix_field_exist
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %65, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef %58, i32 noundef %60, i32 noundef 0) #4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef %58, i32 noundef %60, i32 noundef 0) #3
   %68 = load i32, ptr @ett_asterix_subtree, align 4
-  %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #4
+  %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #3
   switch i8 %63, label %127 [
     i8 6, label %70
     i8 2, label %86
   ]
 
 70:                                               ; preds = %57
-  %71 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %71 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %72 = sub i32 %71, %58
   br label %73
 
 73:                                               ; preds = %73, %70
   %.0.i119 = phi i32 [ 0, %70 ], [ %80, %73 ]
   %74 = add i32 %.0.i119, %58
-  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %74) #4
+  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %74) #3
   %76 = and i8 %75, 1
   %77 = icmp ne i8 %76, 0
   %78 = icmp ult i32 %.0.i119, %72
@@ -36648,7 +36648,7 @@ asterix_field_offset.exit:                        ; preds = %asterix_field_exist
 
 asterix_fspec_len.exit:                           ; preds = %73
   %81 = load i32, ptr @hf_asterix_fspec, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %81, ptr noundef %0, i32 noundef %58, i32 noundef %80, i32 noundef 0) #4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %81, ptr noundef %0, i32 noundef %58, i32 noundef %80, i32 noundef 0) #3
   %83 = load ptr, ptr %8, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %58, ptr noundef %69, ptr noundef nonnull %84)
@@ -36663,7 +36663,7 @@ asterix_fspec_len.exit:                           ; preds = %73
 
 ._crit_edge.thread:                               ; preds = %86
   %90 = load i32, ptr @hf_counter, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %90, ptr noundef %0, i32 noundef %58, i32 noundef 0, i32 noundef 0) #4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %90, ptr noundef %0, i32 noundef %58, i32 noundef 0, i32 noundef 0) #3
   br label %asterix_field_offset.exit.thread
 
 .lr.ph:                                           ; preds = %86, %.lr.ph
@@ -36671,7 +36671,7 @@ asterix_fspec_len.exit:                           ; preds = %73
   %.0112125 = phi i32 [ %97, %.lr.ph ], [ 0, %86 ]
   %92 = shl i64 %.0126, 8
   %93 = add i32 %.0112125, %58
-  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %93) #4
+  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %93) #3
   %95 = zext i8 %94 to i64
   %96 = or disjoint i64 %92, %95
   %97 = add nuw i32 %.0112125, 1
@@ -36683,7 +36683,7 @@ asterix_fspec_len.exit:                           ; preds = %73
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %102 = load i32, ptr @hf_counter, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %102, ptr noundef %0, i32 noundef %58, i32 noundef %100, i32 noundef 0) #4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %102, ptr noundef %0, i32 noundef %58, i32 noundef %100, i32 noundef 0) #3
   %.not138 = icmp eq i64 %96, 0
   br i1 %.not138, label %asterix_field_offset.exit.thread, label %.lr.ph131.preheader
 
@@ -36705,9 +36705,9 @@ asterix_fspec_len.exit:                           ; preds = %73
   %110 = load i32, ptr %109, align 8
   %111 = add i32 %.0110129, %58
   %112 = add i32 %111, %110
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %108, ptr noundef %0, i32 noundef %112, i32 noundef %104, i32 noundef 0) #4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %108, ptr noundef %0, i32 noundef %112, i32 noundef %104, i32 noundef 0) #3
   %114 = load i32, ptr @ett_asterix_subtree, align 4
-  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #4
+  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #3
   %116 = load ptr, ptr %8, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8
@@ -36774,7 +36774,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %.04472 = phi i32 [ %16, %.lr.ph74 ], [ 0, %.preheader ]
   %12 = shl i32 %.04472, 8
   %13 = add i32 %indvars.iv87, %1
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #4
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #3
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
   %indvars.iv.next88 = add nuw nsw i32 %indvars.iv87, 1
@@ -36801,7 +36801,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %30 = add i32 %29, %27
   %31 = add i32 %1, -1
   %32 = add i32 %31, %30
-  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #4
+  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #3
   %34 = and i8 %33, 1
   %.not5268 = icmp eq i8 %34, 0
   br i1 %.not5268, label %.loopexit, label %.lr.ph70
@@ -36811,7 +36811,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %35 = load i32, ptr %26, align 4
   %36 = add i32 %35, %.14669
   %37 = add i32 %31, %36
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #4
+  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #3
   %39 = and i8 %38, 1
   %.not52 = icmp eq i8 %39, 0
   br i1 %.not52, label %.loopexit, label %.lr.ph70, !llvm.loop !16
@@ -36822,7 +36822,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %.24764 = phi i32 [ %45, %.lr.ph66 ], [ 0, %.preheader56 ]
   %41 = shl i32 %.24764, 8
   %42 = add i32 %40, %1
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #4
+  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #3
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
   %46 = add i8 %.165, 1
@@ -36834,7 +36834,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
 .preheader59:                                     ; preds = %3, %.preheader59
   %.3 = phi i32 [ %53, %.preheader59 ], [ 0, %3 ]
   %50 = add i32 %.3, %1
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #4
+  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #3
   %52 = and i8 %51, 1
   %.not = icmp eq i8 %52, 0
   %53 = add i32 %.3, 1
@@ -36867,7 +36867,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
 .lr.ph.i:                                         ; preds = %.lr.ph, %63
   %indvars.iv = phi i32 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
   %65 = add i32 %indvars.iv, %1
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #4
+  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #3
   %67 = and i8 %66, 1
   %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %asterix_field_exists.exit.thread, label %63
@@ -36875,7 +36875,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
 asterix_field_exists.exit:                        ; preds = %63, %.lr.ph
   %.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %68 = add i32 %.lcssa.i, %1
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %68) #4
+  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %68) #3
   %70 = and i32 %60, 7
   %71 = lshr exact i32 128, %70
   %72 = zext i8 %69 to i32
@@ -36931,7 +36931,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   %16 = add i32 %.096118, %8
   %17 = load i16, ptr %14, align 8
   %18 = zext i16 %17 to i32
-  %19 = tail call i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %16, i32 noundef %18, i32 noundef 0) #4
+  %19 = tail call i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %16, i32 noundef %18, i32 noundef 0) #3
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr ptr, ptr %20, i64 %12
   %22 = load ptr, ptr %21, align 8
@@ -36973,7 +36973,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
 37:                                               ; preds = %36, %25, %25, %25, %25, %25
   %.2 = phi i8 [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %.093119, %25 ], [ %spec.select, %36 ]
   %38 = load i32, ptr %24, align 4
-  %39 = tail call ptr @proto_registrar_get_nth(i32 noundef %38) #4
+  %39 = tail call ptr @proto_registrar_get_nth(i32 noundef %38) #3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i64, ptr %40, align 8
   %.not109 = icmp eq i64 %41, 0
@@ -36982,7 +36982,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load i32, ptr %43, align 8
-  %45 = tail call i32 @ftype_wire_size(i32 noundef %44) #4
+  %45 = tail call i32 @ftype_wire_size(i32 noundef %44) #3
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %56
 
@@ -36995,7 +36995,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   %53 = sub nsw i32 %45, %52
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
   %spec.select110 = sub i32 %27, %54
-  %55 = icmp slt i32 %53, 0
+  %spec.select110 = icmp slt i32 %53, 0
   %spec.select111 = select i1 %55, i32 %33, i32 %45
   br label %56
 
@@ -37008,7 +37008,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %.095, i32 noundef %.094, i32 noundef 0) #4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %.095, i32 noundef %.094, i32 noundef 0) #3
   br label %165
 
 64:                                               ; preds = %25
@@ -37038,11 +37038,11 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   br i1 %.not107, label %82, label %80
 
 80:                                               ; preds = %twos_complement.exit
-  %81 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79, ptr noundef nonnull %76, double noundef %79) #4
+  %81 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79, ptr noundef nonnull %76, double noundef %79) #3
   br label %165
 
 82:                                               ; preds = %twos_complement.exit
-  %83 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79) #4
+  %83 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %79) #3
   br label %165
 
 84:                                               ; preds = %25
@@ -37086,38 +37086,38 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %122 = getelementptr [64 x i8], ptr @AISCode, i64 0, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = sext i8 %123 to i32
-  %125 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %85, ptr noundef nonnull @.str.12114, i32 noundef %90, i32 noundef %95, i32 noundef %100, i32 noundef %105, i32 noundef %110, i32 noundef %115, i32 noundef %120, i32 noundef %124) #4
+  %125 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %85, ptr noundef nonnull @.str.12114, i32 noundef %90, i32 noundef %95, i32 noundef %100, i32 noundef %105, i32 noundef %110, i32 noundef %115, i32 noundef %120, i32 noundef %124) #3
   %126 = load ptr, ptr %6, align 8
   %127 = getelementptr ptr, ptr %126, i64 %12
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = load i32, ptr %130, align 4
-  %132 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %131, ptr noundef %0, i32 noundef %27, i32 noundef %33, ptr noundef %125) #4
+  %132 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %131, ptr noundef %0, i32 noundef %27, i32 noundef %33, ptr noundef %125) #3
   br label %165
 
 133:                                              ; preds = %25
   %134 = load ptr, ptr %9, align 8
-  %135 = tail call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 1) #4
-  %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %135 = tail call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 1) #3
+  %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #3
   %137 = lshr i8 %136, 7
   store i8 %137, ptr %135, align 1
   %138 = load ptr, ptr %9, align 8
   %139 = load i32, ptr @proto_asterix, align 4
-  tail call void @p_add_proto_data(ptr noundef %138, ptr noundef %1, i32 noundef %139, i32 noundef 21150, ptr noundef nonnull %135) #4
+  tail call void @p_add_proto_data(ptr noundef %138, ptr noundef %1, i32 noundef %139, i32 noundef 21150, ptr noundef nonnull %135) #3
   %140 = load ptr, ptr %6, align 8
   %141 = getelementptr ptr, ptr %140, i64 %12
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %144, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %0, i32 noundef %27, i32 noundef %33, i32 noundef 0) #4
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %0, i32 noundef %27, i32 noundef %33, i32 noundef 0) #3
   br label %165
 
 147:                                              ; preds = %25
   %148 = load ptr, ptr %9, align 8
   %149 = load i32, ptr @proto_asterix, align 4
-  %150 = tail call ptr @p_get_proto_data(ptr noundef %148, ptr noundef %1, i32 noundef %149, i32 noundef 21150) #4
+  %150 = tail call ptr @p_get_proto_data(ptr noundef %148, ptr noundef %1, i32 noundef %149, i32 noundef 21150) #3
   %.not106 = icmp eq ptr %150, null
   br i1 %.not106, label %155, label %151
 
@@ -37139,7 +37139,7 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %161 = load i32, ptr %160, align 4
   %162 = sitofp i64 %19 to double
   %163 = fmul double %.0, %162
-  %164 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %161, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %163) #4
+  %164 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %161, ptr noundef %0, i32 noundef %27, i32 noundef %33, double noundef %163) #3
   br label %165
 
 165:                                              ; preds = %25, %56, %84, %133, %155, %82, %80, %15

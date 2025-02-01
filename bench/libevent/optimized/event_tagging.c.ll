@@ -1470,7 +1470,7 @@ decode_int_internal.exit:                         ; preds = %if.end12, %if.end.i
   %retval.0.i12 = phi i32 [ %add11.i, %while.end.i ], [ -1, %if.end12 ], [ -1, %if.end.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ]
   %call15 = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %conv) #7
   %cmp20 = icmp ugt i32 %retval.0.i12, %3
-  %9 = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
+  %or.cond = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
   %spec.select = select i1 %cmp20, i32 -1, i32 %9
   br label %return
 
@@ -1590,7 +1590,7 @@ decode_int64_internal.exit:                       ; preds = %if.end12, %if.end.i
   %retval.0.i12 = phi i32 [ %add11.i, %while.end.i ], [ -1, %if.end12 ], [ -1, %if.end.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ]
   %call15 = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %conv) #7
   %cmp20 = icmp ugt i32 %retval.0.i12, %3
-  %9 = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
+  %or.cond = tail call i32 @llvm.smax.i32(i32 %retval.0.i12, i32 -1)
   %spec.select = select i1 %cmp20, i32 -1, i32 %9
   br label %return
 

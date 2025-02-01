@@ -159,8 +159,8 @@ declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_
 define dso_local noundef zeroext i1 @_ZN2EA6Thread17SetThreadPriorityEi(i32 noundef %nPriority) local_unnamed_addr #6 {
 entry:
   %param = alloca %struct.sched_param, align 4
-  %.nPriority = tail call i32 @llvm.smax.i32(i32 %nPriority, i32 0)
-  %cmp.inv = icmp sgt i32 %nPriority, 0
+  %cmp = tail call i32 @llvm.smax.i32(i32 %nPriority, i32 0)
+  %.nPriority = icmp sgt i32 %nPriority, 0
   %. = select i1 %cmp.inv, i32 2, i32 0
   store i32 %.nPriority, ptr %param, align 4
   %call = tail call i64 @pthread_self() #18

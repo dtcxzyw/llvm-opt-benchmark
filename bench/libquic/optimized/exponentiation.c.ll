@@ -1282,13 +1282,13 @@ for.body181.preheader:                            ; preds = %if.then174
   br label %for.body181
 
 for.body181:                                      ; preds = %for.body181.preheader, %for.body181
-  %indvars.iv391 = phi i64 [ %28, %for.body181.preheader ], [ %indvars.iv.next392, %for.body181 ]
+  %indvars.iv390 = phi i64 [ %28, %for.body181.preheader ], [ %indvars.iv.next391, %for.body181 ]
   %29 = load ptr, ptr %am, align 8
-  %arrayidx184 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv391
+  %arrayidx184 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv390
   store i64 0, ptr %arrayidx184, align 8
-  %indvars.iv.next392 = add nsw i64 %indvars.iv391, 1
-  %exitcond395.not = icmp eq i64 %indvars.iv.next392, %conv105
-  br i1 %exitcond395.not, label %for.end187, label %for.body181, !llvm.loop !18
+  %indvars.iv.next391 = add nsw i64 %indvars.iv390, 1
+  %exitcond394.not = icmp eq i64 %indvars.iv.next391, %conv105
+  br i1 %exitcond394.not, label %for.end187, label %for.body181, !llvm.loop !18
 
 for.end187:                                       ; preds = %for.body181, %if.then174
   %30 = load i32, ptr %top115, align 8
@@ -1300,13 +1300,13 @@ for.body192.preheader:                            ; preds = %for.end187
   br label %for.body192
 
 for.body192:                                      ; preds = %for.body192.preheader, %for.body192
-  %indvars.iv396 = phi i64 [ %31, %for.body192.preheader ], [ %indvars.iv.next397, %for.body192 ]
+  %indvars.iv395 = phi i64 [ %31, %for.body192.preheader ], [ %indvars.iv.next396, %for.body192 ]
   %32 = load ptr, ptr %tmp, align 8
-  %arrayidx195 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv396
+  %arrayidx195 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv395
   store i64 0, ptr %arrayidx195, align 8
-  %indvars.iv.next397 = add nsw i64 %indvars.iv396, 1
-  %exitcond400.not = icmp eq i64 %indvars.iv.next397, %conv105
-  br i1 %exitcond400.not, label %for.end198, label %for.body192, !llvm.loop !19
+  %indvars.iv.next396 = add nsw i64 %indvars.iv395, 1
+  %exitcond399.not = icmp eq i64 %indvars.iv.next396, %conv105
+  br i1 %exitcond399.not, label %for.end198, label %for.body192, !llvm.loop !19
 
 for.end198:                                       ; preds = %for.body192, %for.end187
   %33 = load ptr, ptr %am, align 8
@@ -1316,19 +1316,19 @@ for.end198:                                       ; preds = %for.body192, %for.e
 
 for.body205.lr.ph:                                ; preds = %for.end198
   %N = getelementptr inbounds nuw i8, ptr %mont.addr.0, i64 24
-  %wide.trip.count404 = zext nneg i32 %0 to i64
+  %wide.trip.count403 = zext nneg i32 %0 to i64
   br label %for.body205
 
 for.body205:                                      ; preds = %for.body205.lr.ph, %for.body205
-  %indvars.iv401 = phi i64 [ 0, %for.body205.lr.ph ], [ %indvars.iv.next402, %for.body205 ]
+  %indvars.iv400 = phi i64 [ 0, %for.body205.lr.ph ], [ %indvars.iv.next401, %for.body205 ]
   %34 = load ptr, ptr %N, align 8
-  %arrayidx208 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv401
+  %arrayidx208 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv400
   %35 = load i64, ptr %arrayidx208, align 8
-  %arrayidx210 = getelementptr inbounds nuw i64, ptr %add.ptr201, i64 %indvars.iv401
+  %arrayidx210 = getelementptr inbounds nuw i64, ptr %add.ptr201, i64 %indvars.iv400
   store i64 %35, ptr %arrayidx210, align 8
-  %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
-  %exitcond405.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count404
-  br i1 %exitcond405.not, label %for.end213, label %for.body205, !llvm.loop !20
+  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
+  %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
+  br i1 %exitcond404.not, label %for.end213, label %for.body205, !llvm.loop !20
 
 for.end213:                                       ; preds = %for.body205, %for.end198
   %36 = load ptr, ptr %tmp, align 8
@@ -1356,15 +1356,15 @@ for.body228:                                      ; preds = %for.end213, %for.bo
   br i1 %cmp226, label %for.body228, label %for.body242, !llvm.loop !21
 
 for.body242:                                      ; preds = %for.body228, %for.inc264
-  %indvars.iv406 = phi i64 [ %indvars.iv.next407, %for.inc264 ], [ 3, %for.body228 ]
+  %indvars.iv405 = phi i64 [ %indvars.iv.next406, %for.inc264 ], [ 3, %for.body228 ]
   %44 = load ptr, ptr %tmp, align 8
   %45 = load ptr, ptr %am, align 8
-  %46 = trunc i64 %indvars.iv406 to i32
+  %46 = trunc i64 %indvars.iv405 to i32
   %47 = add nsw i32 %46, -1
   call void @bn_mul_mont_gather5(ptr noundef %44, ptr noundef %45, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr201, ptr noundef nonnull %n0176, i32 noundef %0, i32 noundef %47) #7
   %48 = load ptr, ptr %tmp, align 8
-  call void @bn_scatter5(ptr noundef %48, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv406) #7
-  %49 = trunc nuw nsw i64 %indvars.iv406 to i32
+  call void @bn_scatter5(ptr noundef %48, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv405) #7
+  %49 = trunc nuw nsw i64 %indvars.iv405 to i32
   br label %for.body253
 
 for.body253:                                      ; preds = %for.body242, %for.body253
@@ -1379,39 +1379,39 @@ for.body253:                                      ; preds = %for.body242, %for.b
   br i1 %cmp251, label %for.body253, label %for.inc264, !llvm.loop !22
 
 for.inc264:                                       ; preds = %for.body253
-  %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 2
-  %cmp240 = icmp samesign ult i64 %indvars.iv406, 6
+  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 2
+  %cmp240 = icmp samesign ult i64 %indvars.iv405, 6
   br i1 %cmp240, label %for.body242, label %for.body270, !llvm.loop !23
 
 for.body270:                                      ; preds = %for.inc264, %for.body270
-  %indvars.iv410 = phi i64 [ %indvars.iv.next411, %for.body270 ], [ 9, %for.inc264 ]
+  %indvars.iv409 = phi i64 [ %indvars.iv.next410, %for.body270 ], [ 9, %for.inc264 ]
   %52 = load ptr, ptr %tmp, align 8
   %53 = load ptr, ptr %am, align 8
-  %54 = trunc i64 %indvars.iv410 to i32
+  %54 = trunc i64 %indvars.iv409 to i32
   %55 = add nsw i32 %54, -1
   call void @bn_mul_mont_gather5(ptr noundef %52, ptr noundef %53, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr201, ptr noundef nonnull %n0176, i32 noundef %0, i32 noundef %55) #7
   %56 = load ptr, ptr %tmp, align 8
-  call void @bn_scatter5(ptr noundef %56, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv410) #7
+  call void @bn_scatter5(ptr noundef %56, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv409) #7
   %57 = load ptr, ptr %tmp, align 8
   %call280 = call i32 @bn_mul_mont(ptr noundef %57, ptr noundef %57, ptr noundef %57, ptr noundef %add.ptr201, ptr noundef nonnull %n0176, i32 noundef %0) #7
   %58 = load ptr, ptr %tmp, align 8
-  %59 = shl nuw nsw i64 %indvars.iv410, 1
+  %59 = shl nuw nsw i64 %indvars.iv409, 1
   call void @bn_scatter5(ptr noundef %58, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %59) #7
-  %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 2
-  %cmp268 = icmp samesign ult i64 %indvars.iv410, 14
+  %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 2
+  %cmp268 = icmp samesign ult i64 %indvars.iv409, 14
   br i1 %cmp268, label %for.body270, label %for.body291, !llvm.loop !24
 
 for.body291:                                      ; preds = %for.body270, %for.body291
-  %indvars.iv415 = phi i64 [ %indvars.iv.next416, %for.body291 ], [ 17, %for.body270 ]
+  %indvars.iv414 = phi i64 [ %indvars.iv.next415, %for.body291 ], [ 17, %for.body270 ]
   %60 = load ptr, ptr %tmp, align 8
   %61 = load ptr, ptr %am, align 8
-  %62 = trunc i64 %indvars.iv415 to i32
+  %62 = trunc i64 %indvars.iv414 to i32
   %63 = add nsw i32 %62, -1
   call void @bn_mul_mont_gather5(ptr noundef %60, ptr noundef %61, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr201, ptr noundef nonnull %n0176, i32 noundef %0, i32 noundef %63) #7
   %64 = load ptr, ptr %tmp, align 8
-  call void @bn_scatter5(ptr noundef %64, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv415) #7
-  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 2
-  %cmp289 = icmp samesign ult i64 %indvars.iv415, 30
+  call void @bn_scatter5(ptr noundef %64, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv414) #7
+  %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 2
+  %cmp289 = icmp samesign ult i64 %indvars.iv414, 30
   br i1 %cmp289, label %for.body291, label %for.end300, !llvm.loop !25
 
 for.end300:                                       ; preds = %for.body291
@@ -1458,8 +1458,8 @@ for.body323:                                      ; preds = %while.cond.preheade
   %add326 = add nsw i32 %call325, %shl324
   %inc328 = add nuw nsw i32 %i.9375, 1
   %dec329 = add nsw i32 %bits.2374, -1
-  %exitcond419.not = icmp eq i32 %inc328, 5
-  br i1 %exitcond419.not, label %for.end330, label %for.body323.backedge
+  %exitcond418.not = icmp eq i32 %inc328, 5
+  br i1 %exitcond418.not, label %for.end330, label %for.body323.backedge
 
 for.body323.backedge:                             ; preds = %for.body323, %for.end330
   %i.9375.be = phi i32 [ %inc328, %for.body323 ], [ 0, %for.end330 ]
@@ -1712,8 +1712,8 @@ if.end464:                                        ; preds = %for.body460
   %add467 = add nsw i32 %call466, %shl465
   %inc469 = add nuw nsw i32 %i.12352, 1
   %dec470 = add nsw i32 %bits.7351, -1
-  %exitcond390.not = icmp eq i32 %inc469, %umax389
-  br i1 %exitcond390.not, label %for.end471, label %for.body460, !llvm.loop !32
+  %exitcond389.not = icmp eq i32 %inc469, %umax389
+  br i1 %exitcond389.not, label %for.end471, label %for.body460, !llvm.loop !32
 
 for.end471:                                       ; preds = %if.end464
   %call472 = call fastcc i32 @copy_from_prebuf(ptr noundef %am, i32 noundef %0, ptr noundef %add.ptr, i32 noundef %add467, i32 noundef %spec.select)

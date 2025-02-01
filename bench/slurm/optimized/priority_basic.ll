@@ -71,7 +71,7 @@ define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr noundef readonly 
   %17 = add i32 %15, -2147483647
   %18 = icmp ugt i32 %spec.select, %17
   %19 = tail call i32 @llvm.smin.i32(i32 %16, i32 0)
-  %20 = select i1 %18, i32 %16, i32 %19
+  %or.cond = select i1 %18, i32 %16, i32 %19
   %spec.select22 = sub i32 %spec.select, %20
   br label %21
 

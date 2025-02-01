@@ -2960,14 +2960,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %or.cond, label %for.cond, label %if.end42
 
 if.then39:                                        ; preds = %for.cond, %for.cond.preheader
-  %call40 = tail call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef %data.092, i64 noundef %.94) #10
+  %data.092104 = tail call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef %data.092, i64 noundef %.94) #10
   br i1 %cmp2193, label %if.end80, label %if.then78
 
-if.end42:                                         ; preds = %for.body, %if.end20.thread, %if.end20
+if.end42:; preds = %for.body, %if.end20.thread, %if.end20
   %.86 = phi i64 [ %.82, %if.end20.thread ], [ %., %if.end20 ], [ %.94, %for.body ]
   %cmp2185 = phi i1 [ %cmp2181, %if.end20.thread ], [ %cmp21, %if.end20 ], [ %cmp2193, %for.body ]
   %data.083 = phi ptr [ %add.ptr14, %if.end20.thread ], [ %6, %if.end20 ], [ %data.092, %for.body ]
-  %cmp4476 = icmp sgt i64 %3, 0
+  %.86 = icmp sgt i64 %3, 0
   br i1 %cmp4476, label %for.body46.lr.ph, label %done
 
 for.body46.lr.ph:                                 ; preds = %if.end42
