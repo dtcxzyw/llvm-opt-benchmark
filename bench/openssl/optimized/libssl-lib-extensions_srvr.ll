@@ -1037,28 +1037,23 @@ if.end8:                                          ; preds = %lor.lhs.false4
   %srtp_profile = getelementptr inbounds nuw i8, ptr %s, i64 2808
   store ptr null, ptr %srtp_profile, align 8
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef %call9) #10
-  br label %while.cond
+  %tobool13.not68 = icmp eq i32 %or.i.i, 0
+  br i1 %tobool13.not68, label %while.end, label %PACKET_get_net_2.exit34
 
-while.cond:                                       ; preds = %for.end, %if.end8
-  %subpkt.sroa.5.0 = phi i64 [ %conv, %if.end8 ], [ %sub.i.i32, %for.end ]
-  %subpkt.sroa.0.0 = phi ptr [ %add.ptr.i2.i, %if.end8 ], [ %add.ptr.i2.i31, %for.end ]
-  %srtp_pref.0 = phi i32 [ %call11, %if.end8 ], [ %srtp_pref.1, %for.end ]
-  switch i64 %subpkt.sroa.5.0, label %PACKET_get_net_2.exit34 [
-    i64 0, label %while.end
-    i64 1, label %return.sink.split
-  ]
-
-PACKET_get_net_2.exit34:                          ; preds = %while.cond
-  %4 = load i8, ptr %subpkt.sroa.0.0, align 1
+PACKET_get_net_2.exit34:                          ; preds = %if.end8, %for.end
+  %srtp_pref.071 = phi i32 [ %srtp_pref.1, %for.end ], [ %call11, %if.end8 ]
+  %subpkt.sroa.0.070 = phi ptr [ %add.ptr.i2.i31, %for.end ], [ %add.ptr.i2.i, %if.end8 ]
+  %subpkt.sroa.5.069 = phi i64 [ %sub.i.i32, %for.end ], [ %conv, %if.end8 ]
+  %4 = load i8, ptr %subpkt.sroa.0.070, align 1
   %conv.i.i26 = zext i8 %4 to i64
   %shl.i.i27 = shl nuw nsw i64 %conv.i.i26, 8
-  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %subpkt.sroa.0.0, i64 1
+  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %subpkt.sroa.0.070, i64 1
   %5 = load i8, ptr %add.ptr.i.i28, align 1
   %conv2.i.i29 = zext i8 %5 to i64
   %or.i.i30 = or disjoint i64 %shl.i.i27, %conv2.i.i29
-  %add.ptr.i2.i31 = getelementptr inbounds nuw i8, ptr %subpkt.sroa.0.0, i64 2
-  %sub.i.i32 = add i64 %subpkt.sroa.5.0, -2
-  %cmp1866 = icmp sgt i32 %srtp_pref.0, 0
+  %add.ptr.i2.i31 = getelementptr inbounds nuw i8, ptr %subpkt.sroa.0.070, i64 2
+  %sub.i.i32 = add i64 %subpkt.sroa.5.069, -2
+  %cmp1866 = icmp sgt i32 %srtp_pref.071, 0
   br i1 %cmp1866, label %for.body, label %for.end
 
 for.body:                                         ; preds = %PACKET_get_net_2.exit34, %for.inc
@@ -1075,14 +1070,15 @@ if.then26:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.067, 1
-  %exitcond.not = icmp eq i32 %inc, %srtp_pref.0
+  %exitcond.not = icmp eq i32 %inc, %srtp_pref.071
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %PACKET_get_net_2.exit34, %if.then26
-  %srtp_pref.1 = phi i32 [ %i.067, %if.then26 ], [ %srtp_pref.0, %PACKET_get_net_2.exit34 ], [ %srtp_pref.0, %for.inc ]
-  br label %while.cond, !llvm.loop !8
+  %srtp_pref.1 = phi i32 [ %i.067, %if.then26 ], [ %srtp_pref.071, %PACKET_get_net_2.exit34 ], [ %srtp_pref.071, %for.inc ]
+  %tobool13.not = icmp eq i64 %sub.i.i32, 0
+  br i1 %tobool13.not, label %while.end, label %PACKET_get_net_2.exit34, !llvm.loop !8
 
-while.end:                                        ; preds = %while.cond
+while.end:                                        ; preds = %for.end, %if.end8
   %pkt.val.i.i35 = load i64, ptr %0, align 8
   %tobool.not.i.i = icmp eq i64 %pkt.val.i.i35, 0
   br i1 %tobool.not.i.i, label %return.sink.split, label %if.end32
@@ -1106,11 +1102,11 @@ lor.lhs.false36:                                  ; preds = %if.end32
   %tobool38.not = icmp eq i64 %sub.i.i39, %conv33
   br i1 %tobool38.not, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %while.cond, %lor.lhs.false36, %if.end32, %while.end, %lor.lhs.false, %if.end, %lor.lhs.false4
-  %.sink72 = phi i32 [ 491, %lor.lhs.false4 ], [ 491, %if.end ], [ 491, %lor.lhs.false ], [ 528, %while.end ], [ 534, %if.end32 ], [ 534, %lor.lhs.false36 ], [ 503, %while.cond ]
-  %.sink = phi i32 [ 353, %lor.lhs.false4 ], [ 353, %if.end ], [ 353, %lor.lhs.false ], [ 353, %while.end ], [ 352, %if.end32 ], [ 352, %lor.lhs.false36 ], [ 353, %while.cond ]
+return.sink.split:                                ; preds = %lor.lhs.false36, %if.end32, %while.end, %lor.lhs.false, %if.end, %lor.lhs.false4
+  %.sink76 = phi i32 [ 491, %lor.lhs.false4 ], [ 491, %if.end ], [ 491, %lor.lhs.false ], [ 528, %while.end ], [ 534, %if.end32 ], [ 534, %lor.lhs.false36 ]
+  %.sink = phi i32 [ 353, %lor.lhs.false4 ], [ 353, %if.end ], [ 353, %lor.lhs.false ], [ 353, %while.end ], [ 352, %if.end32 ], [ 352, %lor.lhs.false36 ]
   tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink72, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #10
   br label %return
 

@@ -3589,10 +3589,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
 
 _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end5.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !83
-  %cmp.not.i.i.i.i.i.i = icmp eq i64 %5, 1
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4pbrtL11returnArrayINS_6Point2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %5, 2
   %call5.i.i.i.i2.i.i15.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #26, !noalias !83
   store ptr %call5.i.i.i.i2.i.i15.i.i, ptr %agg.result, align 8, !alias.scope !83
@@ -3607,8 +3603,8 @@ for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt
   %.pre = load ptr, ptr %ptr.i.i11.i, align 8, !noalias !83
   br label %invoke.cont13.i.i
 
-invoke.cont13.i.i:                                ; preds = %for.body.lr.ph.i.i, %invoke.cont13.i.i
-  %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
+invoke.cont13.i.i:                                ; preds = %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %invoke.cont13.i.i
+  %i.017.i.i = phi i64 [ 0, %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
   %arrayidx.i.i.i.idx = shl i64 %i.017.i.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !83
@@ -3622,7 +3618,7 @@ invoke.cont13.i.i:                                ; preds = %for.body.lr.ph.i.i,
   %exitcond.not = icmp eq i64 %inc.i.i, %div.i.i1
   br i1 %exitcond.not, label %_ZN4pbrtL11returnArrayINS_6Point2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %invoke.cont13.i.i, !llvm.loop !84
 
-_ZN4pbrtL11returnArrayINS_6Point2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i: ; preds = %invoke.cont13.i.i, %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
+_ZN4pbrtL11returnArrayINS_6Point2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i: ; preds = %invoke.cont13.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nPerItem.addr.i.i), !noalias !77
   br label %_ZNK4pbrt19ParameterDictionary11lookupArrayINS_6Point2IfEEPFRKN4pstd6vectorIfNS4_3pmr21polymorphic_allocatorIfEEEERKNS_15ParsedParameterEEPFS3_PKfPKNS_7FileLocEEEESt6vectorIT_SaISP_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ParameterTypeEPKciT0_T1_.exit
 
@@ -3725,10 +3721,6 @@ if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
 
 _ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end5.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !91
-  %cmp.not.i.i.i.i.i.i = icmp eq i64 %5, 1
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4pbrtL11returnArrayINS_7Vector2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %5, 2
   %call5.i.i.i.i2.i.i15.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #26, !noalias !91
   store ptr %call5.i.i.i.i2.i.i15.i.i, ptr %agg.result, align 8, !alias.scope !91
@@ -3743,8 +3735,8 @@ for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt
   %.pre = load ptr, ptr %ptr.i.i11.i, align 8, !noalias !91
   br label %invoke.cont13.i.i
 
-invoke.cont13.i.i:                                ; preds = %for.body.lr.ph.i.i, %invoke.cont13.i.i
-  %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
+invoke.cont13.i.i:                                ; preds = %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %invoke.cont13.i.i
+  %i.017.i.i = phi i64 [ 0, %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
   %arrayidx.i.i.i.idx = shl i64 %i.017.i.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !91
@@ -3758,7 +3750,7 @@ invoke.cont13.i.i:                                ; preds = %for.body.lr.ph.i.i,
   %exitcond.not = icmp eq i64 %inc.i.i, %div.i.i1
   br i1 %exitcond.not, label %_ZN4pbrtL11returnArrayINS_7Vector2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %invoke.cont13.i.i, !llvm.loop !92
 
-_ZN4pbrtL11returnArrayINS_7Vector2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i: ; preds = %invoke.cont13.i.i, %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
+_ZN4pbrtL11returnArrayINS_7Vector2IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i: ; preds = %invoke.cont13.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nPerItem.addr.i.i), !noalias !85
   br label %_ZNK4pbrt19ParameterDictionary11lookupArrayINS_7Vector2IfEEPFRKN4pstd6vectorIfNS4_3pmr21polymorphic_allocatorIfEEEERKNS_15ParsedParameterEEPFS3_PKfPKNS_7FileLocEEEESt6vectorIT_SaISP_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ParameterTypeEPKciT0_T1_.exit
 

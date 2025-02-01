@@ -157,9 +157,7 @@ _ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i: ; preds = %49
   %59 = add nsw i32 %58, -1
   %60 = srem i32 %59, 929
   %61 = icmp eq i32 %60, -1
-  %.not = icmp eq i32 %.1.lcssa.i.i, -1
-  %or.cond = select i1 %61, i1 true, i1 %.not
-  br i1 %or.cond, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread, label %107
+  br i1 %61, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread, label %107
 
 _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread: ; preds = %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i, %49, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
