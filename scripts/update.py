@@ -367,7 +367,7 @@ def update_pr():
     global RUNNER_ID
     global LLVM_REV
 
-    base = run_cmd("git rev-parse HEAD")
+    base = run_cmd("git rev-parse HEAD").strip()
     if not NO_DIFF:
         diff_stat = run_cmd("git diff --shortstat", 1800.0)
         if not os_do("./scripts/filter_pr_changes.py"):
