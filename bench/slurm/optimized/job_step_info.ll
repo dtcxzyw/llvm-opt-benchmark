@@ -595,10 +595,10 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   %100 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %57) #11
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph109.i, label %._crit_edge110.i
+  br i1 %101, label %.lr.ph109.preheader.i, label %._crit_edge110.i
 
-.lr.ph109.i:                                      ; preds = %.outer._crit_edge.i, %.thread.i20
-  %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.thread.i20 ], [ 0, %.outer._crit_edge.i ]
+.lr.ph109.preheader.i:                            ; preds = %.outer._crit_edge.i, %.thread.i20
+  %wide.trip.count.i = phi i64 [ %indvars.iv.next134.i, %.thread.i20 ], [ 0, %.outer._crit_edge.i ]
   %102 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv133.i
   %103 = load i64, ptr %102, align 8
   %.not82.i = icmp eq i64 %103, 0

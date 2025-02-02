@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %69, label %6
+  br i1 %.not, label %70, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -18,7 +18,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   %or.cond3 = and i1 %11, %or.cond
   %12 = icmp ne ptr %4, null
   %or.cond5 = and i1 %12, %or.cond3
-  br i1 %or.cond5, label %13, label %69
+  br i1 %or.cond5, label %13, label %70
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -78,68 +78,68 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.preheader70, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader70 ]
-  %42 = phi ptr [ %50, %.lr.ph ], [ %36, %.preheader70 ]
-  %43 = phi i64 [ %49, %.lr.ph ], [ %35, %.preheader70 ]
-  %.05872 = phi i32 [ %48, %.lr.ph ], [ %33, %.preheader70 ]
+  %43 = phi ptr [ %51, %.lr.ph ], [ %36, %.preheader70 ]
+  %44 = phi i64 [ %50, %.lr.ph ], [ %35, %.preheader70 ]
+  %.05872 = phi i32 [ %49, %.lr.ph ], [ %33, %.preheader70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %.05872, ptr %44, align 4
-  %45 = load i32, ptr %42, align 4
-  %46 = sub i32 -2, %45
-  store i32 %46, ptr %42, align 4
-  %47 = getelementptr inbounds i32, ptr %2, i64 %43
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %4, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %.lr.ph, label %.preheader69, !llvm.loop !4
+  %45 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %.05872, ptr %45, align 4
+  %46 = load i32, ptr %43, align 4
+  %47 = sub i32 -2, %46
+  store i32 %47, ptr %43, align 4
+  %48 = getelementptr inbounds i32, ptr %2, i64 %44
+  %49 = load i32, ptr %48, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %4, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %.lr.ph, label %.preheader69, !llvm.loop !4
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv87 = phi i64 [ %indvars.iv.next, %.lr.ph75.preheader ], [ %indvars.iv.next88, %.lr.ph75 ]
   %indvars.iv85 = phi i64 [ %41, %.lr.ph75.preheader ], [ %indvars.iv.next86, %.lr.ph75 ]
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, -1
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next88
-  %54 = load i32, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next88
+  %55 = load i32, ptr %54, align 4
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
-  %55 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
-  store i32 %54, ptr %55, align 4
-  %56 = icmp samesign ugt i64 %indvars.iv87, 1
-  br i1 %56, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !6
+  %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
+  store i32 %55, ptr %56, align 4
+  %57 = icmp samesign ugt i64 %indvars.iv87, 1
+  br i1 %57, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !6
 
 .loopexit.loopexit:                               ; preds = %.lr.ph75
-  %57 = trunc nsw i64 %indvars.iv.next86 to i32
+  %58 = trunc nsw i64 %indvars.iv.next86 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader70, %.loopexit.loopexit, %.preheader69, %.lr.ph79
-  %.1 = phi i32 [ %.05978, %.lr.ph79 ], [ %.05978, %.preheader69 ], [ %57, %.loopexit.loopexit ], [ %.05978, %.preheader70 ]
+  %.1 = phi i32 [ %.05978, %.lr.ph79 ], [ %.05978, %.preheader69 ], [ %58, %.loopexit.loopexit ], [ %.05978, %.preheader70 ]
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
-  %58 = load i32, ptr %26, align 4
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next93, %59
-  br i1 %60, label %.lr.ph79, label %.preheader, !llvm.loop !7
+  %59 = load i32, ptr %26, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next93, %60
+  br i1 %61, label %.lr.ph79, label %.preheader, !llvm.loop !7
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv95 = phi i64 [ %31, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
-  %61 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv95
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %4, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = sub i32 -2, %65
-  store i32 %66, ptr %64, align 4
+  %62 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv95
+  %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %4, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = sub i32 -2, %66
+  store i32 %67, ptr %65, align 4
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %13, %.preheader
   %.059.lcssa99 = phi i32 [ %.1, %.preheader ], [ %15, %13 ], [ %.1, %.lr.ph82 ]
-  %67 = load i32, ptr %21, align 4
-  %68 = sub i32 -2, %67
-  store i32 %68, ptr %21, align 4
-  br label %69
+  %68 = load i32, ptr %21, align 4
+  %69 = sub i32 -2, %68
+  store i32 %69, ptr %21, align 4
+  br label %70
 
-69:                                               ; preds = %5, %6, %._crit_edge
+70:                                               ; preds = %5, %6, %._crit_edge
   %.0 = phi i32 [ %.059.lcssa99, %._crit_edge ], [ -1, %6 ], [ -1, %5 ]
   ret i32 %.0
 }

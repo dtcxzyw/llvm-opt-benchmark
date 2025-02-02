@@ -492,10 +492,10 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %.123.i = phi ptr [ %.02234.i, %7 ], [ %13, %20 ], [ %13, %16 ]
   %23 = trunc nuw i64 %indvars.iv.i.lcssa.sink to i32
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %._crit_edge.thread
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %splitPathList.exit, %148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %splitPathList.exit ]
+.lr.ph.preheader:                                 ; preds = %splitPathList.exit, %148
+  %wide.trip.count = phi i64 [ %indvars.iv.next, %148 ], [ 0, %splitPathList.exit ]
   %.022 = phi ptr [ %.1, %148 ], [ null, %splitPathList.exit ]
   %.06021 = phi i32 [ %.161, %148 ], [ 0, %splitPathList.exit ]
   %25 = getelementptr inbounds nuw ptr, ptr %.123.i, i64 %indvars.iv

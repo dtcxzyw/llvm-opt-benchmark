@@ -2903,10 +2903,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %used.012.i = phi i32 [ %19, %for.body.lr.ph.i ], [ %sub4.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds nuw [129 x i64], ptr %dp.i, i64 0, i64 %indvars.iv.next.i
-  %20 = load i64, ptr %arrayidx.i, align 8
-  %cmp3.i = icmp eq i64 %20, 0
-  %21 = and i32 %mask.013.i, 1
-  %and.i = select i1 %cmp3.i, i32 %21, i32 0
+  %21 = load i64, ptr %arrayidx.i, align 8
+  %cmp3.i = icmp eq i64 %21, 0
+  %22 = and i32 %mask.013.i, 1
+  %and.i = select i1 %cmp3.i, i32 %22, i32 0
   %sub4.i = sub i32 %used.012.i, %and.i
   %and11.i = select i1 %cmp3.i, i32 %mask.013.i, i32 0
   %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -3014,18 +3014,18 @@ for.end46.i:                                      ; preds = %for.body27.i
   %14 = trunc nuw i64 %indvars.iv.next41.i to i32
   store i32 %14, ptr %r, align 8
   %cmp10.i.i = icmp sgt i32 %14, 0
-  br i1 %cmp10.i.i, label %for.body.i.i, label %_sp_submod_ct.exit
+  br i1 %cmp10.i.i, label %for.body.lr.ph.i.i, label %_sp_submod_ct.exit
 
-for.body.i.i:                                     ; preds = %for.end46.i, %for.body.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ %indvars.iv.next41.i, %for.end46.i ]
+for.body.lr.ph.i.i:                               ; preds = %for.end46.i, %for.body.i.i
+  %15 = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ %indvars.iv.next41.i, %for.end46.i ]
   %mask.013.i.i = phi i32 [ %and11.i.i, %for.body.i.i ], [ -1, %for.end46.i ]
   %used.012.i.i = phi i32 [ %sub4.i.i, %for.body.i.i ], [ %14, %for.end46.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %arrayidx.i.i = getelementptr inbounds nuw [129 x i64], ptr %dp28.i, i64 0, i64 %indvars.iv.next.i.i
-  %15 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp3.i.i = icmp eq i64 %15, 0
-  %16 = and i32 %mask.013.i.i, 1
-  %and.i.i = select i1 %cmp3.i.i, i32 %16, i32 0
+  %16 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp3.i.i = icmp eq i64 %16, 0
+  %17 = and i32 %mask.013.i.i, 1
+  %and.i.i = select i1 %cmp3.i.i, i32 %17, i32 0
   %sub4.i.i = sub i32 %used.012.i.i, %and.i.i
   %and11.i.i = select i1 %cmp3.i.i, i32 %mask.013.i.i, i32 0
   %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
@@ -10975,18 +10975,18 @@ for.end46.i235:                                   ; preds = %for.body27.i
   %94 = trunc nuw i64 %indvars.iv.next41.i to i32
   store i32 %94, ptr %a, align 8
   %cmp10.i.i = icmp sgt i32 %94, 0
-  br i1 %cmp10.i.i, label %for.body.i.i, label %if.end192.sink.split
+  br i1 %cmp10.i.i, label %for.body.lr.ph.i.i, label %if.end192.sink.split
 
-for.body.i.i:                                     ; preds = %for.end46.i235, %for.body.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ %indvars.iv.next41.i, %for.end46.i235 ]
-  %mask.013.i.i = phi i32 [ %and11.i.i, %for.body.i.i ], [ -1, %for.end46.i235 ]
-  %used.012.i.i = phi i32 [ %sub4.i.i, %for.body.i.i ], [ %94, %for.end46.i235 ]
+for.body.i.i:                                     ; preds = %for.end46.i235, %for.body.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.lr.ph.i.i ], [ %indvars.iv.next41.i, %for.end46.i235 ]
+  %mask.013.i.i = phi i32 [ %and11.i.i, %for.body.lr.ph.i.i ], [ -1, %for.end46.i235 ]
+  %used.012.i.i = phi i32 [ %sub4.i.i, %for.body.lr.ph.i.i ], [ %94, %for.end46.i235 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %arrayidx.i.i = getelementptr inbounds nuw [129 x i64], ptr %dp28.i, i64 0, i64 %indvars.iv.next.i.i
-  %95 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp3.i.i = icmp eq i64 %95, 0
-  %96 = and i32 %mask.013.i.i, 1
-  %and.i.i = select i1 %cmp3.i.i, i32 %96, i32 0
+  %96 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp3.i.i = icmp eq i64 %96, 0
+  %97 = and i32 %mask.013.i.i, 1
+  %and.i.i = select i1 %cmp3.i.i, i32 %97, i32 0
   %sub4.i.i = sub i32 %used.012.i.i, %and.i.i
   %and11.i.i = select i1 %cmp3.i.i, i32 %mask.013.i.i, i32 0
   %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1

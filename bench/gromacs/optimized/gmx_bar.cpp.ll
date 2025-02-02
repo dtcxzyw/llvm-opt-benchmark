@@ -11601,28 +11601,28 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %92 = fmul double %52, %91
   %93 = load double, ptr %2, align 8
   %94 = fcmp olt double %92, %93
-  %.sroa.speculated72 = select i1 %94, double %92, double %93
+  %95 = select i1 %94, double %92, double %93
   store double %.sroa.speculated72, ptr %2, align 8
-  %95 = load ptr, ptr %21, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = getelementptr inbounds nuw [2 x i64], ptr %96, i64 0, i64 %spec.select
-  %98 = load i64, ptr %97, align 8
-  %99 = add i64 %98, %indvars.iv
-  %100 = sitofp i64 %99 to double
-  %101 = fmul double %1, %100
-  %102 = fmul double %52, %101
-  %103 = load double, ptr %3, align 8
-  %104 = fcmp olt double %103, %102
-  %.sroa.speculated = select i1 %104, double %102, double %103
+  %96 = load ptr, ptr %21, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %98 = getelementptr inbounds nuw [2 x i64], ptr %97, i64 0, i64 %spec.select
+  %99 = load i64, ptr %98, align 8
+  %100 = add i64 %99, %indvars.iv
+  %101 = sitofp i64 %100 to double
+  %102 = fmul double %1, %101
+  %103 = fmul double %52, %102
+  %104 = load double, ptr %3, align 8
+  %105 = fcmp olt double %104, %103
+  %.sroa.speculated = select i1 %105, double %103, double %104
   store double %.sroa.speculated, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %30, %23, %11, %85
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %105 = load i32, ptr %5, align 8
-  %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next104, %106
-  br i1 %107, label %11, label %._crit_edge, !llvm.loop !108
+  %106 = load i32, ptr %5, align 8
+  %107 = sext i32 %106 to i64
+  %108 = icmp slt i64 %indvars.iv.next104, %107
+  br i1 %108, label %11, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void

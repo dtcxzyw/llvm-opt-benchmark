@@ -2981,10 +2981,10 @@ define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull 
   %72 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   call void @list_iterator_destroy(ptr noundef %20) #19
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph162, label %._crit_edge163
+  br i1 %73, label %.lr.ph162.preheader, label %._crit_edge163
 
-.lr.ph162:                                        ; preds = %.outer._crit_edge, %.thread
-  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.thread ], [ 0, %.outer._crit_edge ]
+.lr.ph162.preheader:                              ; preds = %.outer._crit_edge, %.thread
+  %wide.trip.count = phi i64 [ %indvars.iv.next203, %.thread ], [ 0, %.outer._crit_edge ]
   %74 = load ptr, ptr %10, align 8
   %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv202
   %76 = load i64, ptr %75, align 8
