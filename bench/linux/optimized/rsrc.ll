@@ -549,11 +549,11 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
 
 .loopexit.loopexit:                               ; preds = %90, %73, %50, %42, %46
   %.ph.ph = phi i32 [ -9, %90 ], [ %76, %73 ], [ -22, %50 ], [ -14, %42 ], [ -14, %46 ]
-  %.pre53 = trunc i64 %41 to i32
+  %.pre73 = trunc i64 %41 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %95
-  %.pre-phi = phi i32 [ %.pre53, %.loopexit.loopexit ], [ %60, %95 ]
+  %.pre-phi = phi i32 [ %.pre73, %.loopexit.loopexit ], [ %60, %95 ]
   %.ph = phi i32 [ %.ph.ph, %.loopexit.loopexit ], [ -9, %95 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
   br label %.loopexit35
@@ -656,32 +656,32 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
 
 173:                                              ; preds = %169, %.thread16
   %174 = load i64, ptr %146, align 8
-  %175 = add i64 %174, 4095
-  %176 = load ptr, ptr %6, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %178, label %180
+  %175 = load ptr, ptr %6, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %179
 
-178:                                              ; preds = %173
-  %179 = icmp eq i64 %174, 0
-  br i1 %179, label %187, label %.thread17
+177:                                              ; preds = %173
+  %178 = icmp eq i64 %174, 0
+  br i1 %178, label %187, label %.thread17
 
-180:                                              ; preds = %173
-  %181 = add i64 %174, -1073741825
-  %182 = icmp ult i64 %181, -1073741824
-  br i1 %182, label %.thread17, label %183
+179:                                              ; preds = %173
+  %180 = add i64 %174, -1073741825
+  %181 = icmp ult i64 %180, -1073741824
+  br i1 %181, label %.thread17, label %182
 
-183:                                              ; preds = %180
-  %184 = ptrtoint ptr %176 to i64
-  %185 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %184, i64 %175)
+182:                                              ; preds = %179
+  %183 = ptrtoint ptr %175 to i64
+  %184 = add nuw nsw i64 %174, 4095
+  %185 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %183, i64 %184)
   %186 = extractvalue { i64, i1 } %185, 1
   br i1 %186, label %.thread17, label %.thread24
 
-187:                                              ; preds = %178
+187:                                              ; preds = %177
   %188 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %188, 0
   br i1 %.not, label %.thread24, label %.thread17
 
-.thread24:                                        ; preds = %183, %187
+.thread24:                                        ; preds = %182, %187
   %189 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7)
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %.thread17
@@ -743,8 +743,8 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
   %230 = icmp eq i64 %229, %149
   br i1 %230, label %.loopexit36, label %150, !llvm.loop !33
 
-.thread17:                                        ; preds = %183, %180, %178, %164, %169, %187, %.thread24, %210, %168
-  %.ph26 = phi i32 [ -14, %168 ], [ %208, %210 ], [ -75, %183 ], [ -14, %178 ], [ -14, %180 ], [ -14, %164 ], [ -14, %169 ], [ -22, %187 ], [ %189, %.thread24 ]
+.thread17:                                        ; preds = %.thread24, %187, %169, %164, %177, %179, %182, %210, %168
+  %.ph26 = phi i32 [ -14, %168 ], [ %208, %210 ], [ %189, %.thread24 ], [ -22, %187 ], [ -14, %169 ], [ -14, %164 ], [ -14, %177 ], [ -14, %179 ], [ -75, %182 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   %231 = trunc i64 %151 to i32
@@ -1046,19 +1046,19 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %95
+  br i1 %10, label %11, label %97
 
 11:                                               ; preds = %4
   %12 = add i32 %2, -16385
   %13 = icmp ult i32 %12, -16384
-  br i1 %13, label %95, label %14
+  br i1 %13, label %97, label %14
 
 14:                                               ; preds = %11
   store ptr null, ptr %6, align 8, !annotation !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !20
   %15 = call fastcc i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef 1, ptr noundef %3, i32 noundef %2, ptr noundef nonnull %6) #14
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %95
+  br i1 %16, label %17, label %97
 
 17:                                               ; preds = %14
   %18 = shl nuw nsw i32 %2, 3
@@ -1076,9 +1076,9 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %28 = zext nneg i32 %2 to i64
   %29 = getelementptr i8, ptr %0, i64 4
-  br i1 %23, label %.thread10.critedge.us, label %.split
+  br i1 %23, label %.critedge.us, label %.split
 
-.thread10.critedge.us:                            ; preds = %22, %45
+.critedge.us:                                     ; preds = %22, %45
   %30 = phi i64 [ %46, %45 ], [ 0, %22 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %31 = and i64 %30, 511
@@ -1092,7 +1092,7 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %.thread
 
-40:                                               ; preds = %.thread10.critedge.us
+40:                                               ; preds = %.critedge.us
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr ptr, ptr %41, i64 %30
   %43 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %42, ptr noundef nonnull %5)
@@ -1105,15 +1105,15 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %48 = add i32 %47, 1
   store i32 %48, ptr %27, align 4
   %49 = icmp eq i64 %46, %28
-  br i1 %49, label %.thread, label %.thread10.critedge.us, !llvm.loop !35
+  br i1 %49, label %.thread, label %.critedge.us, !llvm.loop !35
 
 50:                                               ; preds = %17
   %51 = load ptr, ptr %6, align 8
   tail call fastcc void @io_rsrc_data_free(ptr noundef %51)
-  br label %95
+  br label %97
 
-.split:                                           ; preds = %22, %83
-  %52 = phi i64 [ %84, %83 ], [ 0, %22 ]
+.split:                                           ; preds = %22, %84
+  %52 = phi i64 [ %85, %84 ], [ 0, %22 ]
   %53 = trunc i64 %52 to i32
   %.val = load i16, ptr %29, align 4
   %54 = call fastcc i32 @io_copy_iov(i16 %.val, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %53)
@@ -1122,81 +1122,81 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
 
 56:                                               ; preds = %.split
   %57 = load i64, ptr %24, align 8
-  %58 = add i64 %57, 4095
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %63
+  %58 = load ptr, ptr %7, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %62
 
-61:                                               ; preds = %56
-  %62 = icmp eq i64 %57, 0
-  br i1 %62, label %.thread10, label %.thread
+60:                                               ; preds = %56
+  %61 = icmp eq i64 %57, 0
+  br i1 %61, label %70, label %.thread
 
-63:                                               ; preds = %56
-  %64 = add i64 %57, -1073741825
-  %65 = icmp ult i64 %64, -1073741824
-  br i1 %65, label %.thread, label %66
+62:                                               ; preds = %56
+  %63 = add i64 %57, -1073741825
+  %64 = icmp ult i64 %63, -1073741824
+  br i1 %64, label %.thread, label %65
 
-66:                                               ; preds = %63
-  %67 = ptrtoint ptr %59 to i64
-  %68 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %67, i64 %58)
+65:                                               ; preds = %62
+  %66 = ptrtoint ptr %58 to i64
+  %67 = add nuw nsw i64 %57, 4095
+  %68 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %66, i64 %67)
   %69 = extractvalue { i64, i1 } %68, 1
   br i1 %69, label %.thread, label %thread-pre-split
 
-.thread10:                                        ; preds = %61
-  %70 = and i64 %52, 511
-  %71 = lshr i64 %52, 9
-  %72 = load ptr, ptr %26, align 8
-  %73 = and i64 %71, 8388607
-  %74 = getelementptr ptr, ptr %72, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i64, ptr %75, i64 %70
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %thread-pre-split, label %.thread
+70:                                               ; preds = %60
+  %71 = and i64 %52, 511
+  %72 = lshr i64 %52, 9
+  %73 = load ptr, ptr %26, align 8
+  %74 = and i64 %72, 8388607
+  %75 = getelementptr ptr, ptr %73, i64 %74
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr i64, ptr %76, i64 %71
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %thread-pre-split, label %.thread
 
-thread-pre-split:                                 ; preds = %66, %.thread10
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr ptr, ptr %79, i64 %52
-  %81 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %80, ptr noundef nonnull %5)
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %.thread
+thread-pre-split:                                 ; preds = %65, %70
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr ptr, ptr %80, i64 %52
+  %82 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %81, ptr noundef nonnull %5)
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %.thread
 
-83:                                               ; preds = %thread-pre-split
-  %84 = add nuw nsw i64 %52, 1
-  %85 = load i32, ptr %27, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %27, align 4
-  %87 = icmp eq i64 %84, %28
-  br i1 %87, label %.thread, label %.split, !llvm.loop !35
+84:                                               ; preds = %thread-pre-split
+  %85 = add nuw nsw i64 %52, 1
+  %86 = load i32, ptr %27, align 4
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %27, align 4
+  %88 = icmp eq i64 %85, %28
+  br i1 %88, label %.thread, label %.split, !llvm.loop !35
 
-.thread:                                          ; preds = %.split, %.thread10, %thread-pre-split, %83, %61, %63, %66, %.thread10.critedge.us, %40, %45
-  %.us-phi = phi i32 [ 0, %45 ], [ %43, %40 ], [ -22, %.thread10.critedge.us ], [ 0, %83 ], [ %54, %.split ], [ %81, %thread-pre-split ], [ -22, %.thread10 ], [ -14, %63 ], [ -14, %61 ], [ -75, %66 ]
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %92, label %91, !prof !13
+.thread:                                          ; preds = %.split, %70, %thread-pre-split, %84, %60, %62, %65, %.critedge.us, %40, %45
+  %89 = phi i32 [ 0, %45 ], [ %43, %40 ], [ -22, %.critedge.us ], [ -14, %62 ], [ -14, %60 ], [ 0, %84 ], [ %82, %thread-pre-split ], [ -22, %70 ], [ %54, %.split ], [ -75, %65 ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %94, label %93, !prof !13
 
-91:                                               ; preds = %.thread
+93:                                               ; preds = %.thread
   call void asm sideeffect "987: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 987) #12, !srcloc !36
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1051, i32 2307, i64 12) #12, !srcloc !37
   call void asm sideeffect "988: nop\0A\09.pushsection .discard.instr_end\0A\09.long 988b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 988) #12, !srcloc !38
-  br label %92
+  br label %94
 
-92:                                               ; preds = %91, %.thread
-  store ptr %25, ptr %88, align 8
-  %93 = icmp eq i32 %.us-phi, 0
-  br i1 %93, label %95, label %94
+94:                                               ; preds = %93, %.thread
+  store ptr %25, ptr %90, align 8
+  %95 = icmp eq i32 %89, 0
+  br i1 %95, label %97, label %96
 
-94:                                               ; preds = %92
+96:                                               ; preds = %94
   call void @__io_sqe_buffers_unregister(ptr noundef %0)
-  br label %95
+  br label %97
 
-95:                                               ; preds = %94, %92, %50, %14, %11, %4
-  %96 = phi i32 [ -12, %50 ], [ -16, %4 ], [ -22, %11 ], [ %15, %14 ], [ %.us-phi, %94 ], [ 0, %92 ]
+97:                                               ; preds = %96, %94, %50, %14, %11, %4
+  %98 = phi i32 [ -12, %50 ], [ -16, %4 ], [ -22, %11 ], [ %15, %14 ], [ %89, %96 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  ret i32 %96
+  ret i32 %98
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

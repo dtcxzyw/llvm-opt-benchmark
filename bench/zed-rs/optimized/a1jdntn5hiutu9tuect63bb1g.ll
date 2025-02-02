@@ -1400,7 +1400,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6c0943567e2e9cdbE.exit.i56.i.i.i: ; pre
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h4b1ce5d8d95d4603E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %50 unwind label %44
 
-43:                                               ; preds = %.loopexit7, %12
+43:                                               ; preds = %.loopexit8, %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
@@ -1451,7 +1451,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6c0943567e2e9cdbE.exit.i56.i.i.i: ; pre
 .noexc5:                                          ; preds = %55
   %57 = load ptr, ptr %4, align 8, !noalias !522, !noundef !11
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit7, label %.lr.ph.i.i
+  br i1 %58, label %.loopexit8, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc5
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 168
@@ -1521,7 +1521,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6c0943567e2e9cdbE.exit.i56.i.i.i.i.i: ;
 .noexc6:                                          ; preds = %89
   %93 = load ptr, ptr %4, align 8, !noalias !522, !noundef !11
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.loopexit7, label %68
+  br i1 %94, label %.loopexit8, label %68
 
 95:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hd19ec75ba6826803E.exit62.i.i.i.i.i"
   %96 = landingpad { ptr, i32 }
@@ -1572,7 +1572,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6c0943567e2e9cdbE.exit.i56.i.i.i.i.i: ;
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$project..ProjectPath$GT$$GT$17h156d696d4d6da561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #35
           to label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17h0be199d9ba38ee1bE.exit" unwind label %107
 
-.loopexit7:                                       ; preds = %.noexc6, %.noexc5
+.loopexit8:                                       ; preds = %.noexc6, %.noexc5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !521
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)

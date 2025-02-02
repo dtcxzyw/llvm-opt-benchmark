@@ -102,21 +102,19 @@ define hidden noundef zeroext i1 @_ZN16OverflowMulLNode11is_overflowEll(i64 noun
   %3 = icmp ult i64 %0, 2
   %4 = icmp ult i64 %1, 2
   %or.cond5 = or i1 %3, %4
-  br i1 %or.cond5, label %9, label %5
+  br i1 %or.cond5, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = icmp eq i64 %0, -9223372036854775808
   %7 = icmp eq i64 %1, -9223372036854775808
   %or.cond7 = or i1 %6, %7
-  br i1 %or.cond7, label %9, label %8
-
-8:                                                ; preds = %5
   %mul = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %1, i64 %0)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
-  br label %9
+  %spec.select = or i1 %or.cond7, %mul.ov
+  br label %8
 
-9:                                                ; preds = %8, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ %mul.ov, %8 ]
+8:                                                ; preds = %5, %2
+  %.0 = phi i1 [ false, %2 ], [ %spec.select, %5 ]
   ret i1 %.0
 }
 

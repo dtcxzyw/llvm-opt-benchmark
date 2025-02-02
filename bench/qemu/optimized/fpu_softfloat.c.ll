@@ -33911,16 +33911,10 @@ if.else119:                                       ; preds = %if.else114
   %35 = or i1 %cmp122, %tobool120
   %.phi.trans.insert = getelementptr i8, ptr %p, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %35, label %if.end131, label %if.then126
-
-if.then126:                                       ; preds = %if.else119
   %36 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre, i64 %inc.0)
   %37 = extractvalue { i64, i1 } %36, 1
   %lnot128 = xor i1 %37, true
-  br label %if.end131
-
-if.end131:                                        ; preds = %if.else119, %if.then126
-  %is_tiny.0.in = phi i1 [ %lnot128, %if.then126 ], [ true, %if.else119 ]
+  %spec.select131 = select i1 %35, i1 true, i1 %lnot128
   %m68k_denormal = getelementptr inbounds nuw i8, ptr %fmt, i64 25
   %38 = load i8, ptr %m68k_denormal, align 1
   %39 = and i8 %38, 1
@@ -33931,7 +33925,7 @@ if.end131:                                        ; preds = %if.else119, %if.the
   %cmp.not.i = icmp eq i32 %add35, %lnot.ext134
   br i1 %cmp.not.i, label %frac64_shrjam.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end131
+if.then.i:                                        ; preds = %if.else119
   %cmp2.i = icmp slt i32 %sub135, 64
   br i1 %cmp2.i, label %if.then10.i, label %if.else.i
 
@@ -33954,8 +33948,8 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   store i64 %a0.0.i, ptr %41, align 8
   br label %frac64_shrjam.exit
 
-frac64_shrjam.exit:                               ; preds = %if.end131, %if.end.i
-  %43 = phi i64 [ %.pre, %if.end131 ], [ %a0.0.i, %if.end.i ]
+frac64_shrjam.exit:                               ; preds = %if.else119, %if.end.i
+  %43 = phi i64 [ %.pre, %if.else119 ], [ %a0.0.i, %if.end.i ]
   %and136 = and i64 %43, %2
   %tobool137.not = icmp eq i64 %and136, 0
   br i1 %tobool137.not, label %if.end162, label %if.then138
@@ -34002,7 +33996,7 @@ land.end:                                         ; preds = %if.end162
   store i64 %shr.i119, ptr %41, align 8
   %or174 = or disjoint i16 %flags.4, 8
   %spec.select = select i1 %tobool137.not, i16 %flags.4, i16 %or174
-  %flags.5 = select i1 %is_tiny.0.in, i16 %spec.select, i16 %flags.4
+  %flags.5 = select i1 %spec.select131, i16 %spec.select, i16 %flags.4
   %49 = xor i8 %48, 1
   %spec.select130 = zext nneg i8 %49 to i32
   br label %if.end186
@@ -34013,7 +34007,7 @@ land.lhs.true178:                                 ; preds = %if.end162
   store i64 %shr.i119122, ptr %41, align 8
   %or174123 = or disjoint i16 %flags.4, 8
   %spec.select124 = select i1 %tobool137.not, i16 %flags.4, i16 %or174123
-  %flags.5125 = select i1 %is_tiny.0.in, i16 %spec.select124, i16 %flags.4
+  %flags.5125 = select i1 %spec.select131, i16 %spec.select124, i16 %flags.4
   %50 = icmp eq i64 %shr.i119122, 0
   br i1 %50, label %if.then181, label %if.end186
 
