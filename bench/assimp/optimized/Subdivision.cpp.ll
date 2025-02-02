@@ -4863,7 +4863,7 @@ invoke.cont760:                                   ; preds = %if.end.i.i.i.i.i.i.
   %tmp.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i1230, %call5.i.i.i.i2.i.i.noexc1229 ], [ %call5.i.i.i.i2.i.i1230, %if.end.i.i.i.i.i.i.i1224 ], [ null, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %sub763 = add i32 %num, -1
   invoke void @_ZN22CatmullClarkSubdivider15InternSubdivideEPKPK6aiMeshmPPS0_j(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %out, i64 noundef %nmesh, ptr noundef nonnull %tmp.sroa.0.0, i32 noundef %sub763)
-          to label %for.cond767.preheader unwind label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit
+          to label %for.cond767.preheader unwind label %lpad764
 
 for.cond767.preheader:                            ; preds = %invoke.cont760
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit1257, label %for.body769
@@ -4944,7 +4944,7 @@ lpad759:                                          ; preds = %if.then.i.i.i.i.i12
           cleanup
   br label %ehcleanup778
 
-_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %invoke.cont760
+lpad764:                                          ; preds = %invoke.cont760
   %725 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.0) #19
@@ -4983,8 +4983,8 @@ if.then.i.i.i1263:                                ; preds = %_ZNSt6vectorISt4pai
 return:                                           ; preds = %if.then.i.i.i1263, %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit, %entry
   ret void
 
-ehcleanup778:                                     ; preds = %if.end.i.i.i.i1251, %_ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i1246, %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit, %lpad759
-  %.pn235 = phi { ptr, i32 } [ %725, %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit ], [ %724, %lpad759 ], [ %.pn233, %_ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i1246 ], [ %.pn233, %if.end.i.i.i.i1251 ]
+ehcleanup778:                                     ; preds = %if.end.i.i.i.i1251, %_ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i1246, %lpad764, %lpad759
+  %.pn235 = phi { ptr, i32 } [ %725, %lpad764 ], [ %724, %lpad759 ], [ %.pn233, %_ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i1246 ], [ %.pn233, %if.end.i.i.i.i1251 ]
   %tobool.not.i.i.i1265 = icmp eq ptr %centroids.sroa.0.0, null
   br i1 %tobool.not.i.i.i1265, label %ehcleanup779, label %if.then.i.i.i1266
 

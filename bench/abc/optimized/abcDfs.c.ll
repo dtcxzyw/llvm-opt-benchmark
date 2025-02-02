@@ -10238,19 +10238,19 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %80 = sext i32 %.val to i64
   %81 = icmp slt i64 %indvars.iv.next53, %80
-  br i1 %81, label %.lr.ph50, label %.critedge2, !llvm.loop !95
+  br i1 %81, label %.lr.ph50, label %.critedge2.loopexit, !llvm.loop !95
 
-.critedge2:                                       ; preds = %._crit_edge
+.critedge2.loopexit:                              ; preds = %._crit_edge
   %.pre57 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.pre57, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %Vec_PtrStart.exit, %.critedge2
+83:                                               ; preds = %Vec_PtrStart.exit, %.critedge2
   %82 = phi ptr [ %.pre57, %.critedge2 ], [ %8, %Vec_PtrStart.exit ]
   tail call void @free(ptr noundef nonnull %82) #21
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.critedge2.thread
+Vec_PtrFree.exit:                                 ; preds = %.critedge2, %83
   tail call void @free(ptr noundef nonnull %5) #21
   ret ptr %38
 }

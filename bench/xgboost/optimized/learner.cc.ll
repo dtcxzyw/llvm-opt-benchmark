@@ -32752,7 +32752,7 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE7destroyIS1_EEvRS2_PT_.exit.sink.spl
 
 _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %133, %136, %140, %147, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE7destroyIS1_EEvRS2_PT_.exit.sink.split.i.i
   %154 = invoke noundef ptr @_ZN7xgboost4CastIKNS_10JsonObjectENS_5ValueEEEPT_PT0_(ptr noundef nonnull %127)
-          to label %155 unwind label %.loopexit.split-lp232.thread
+          to label %155 unwind label %.loopexit.split-lp232.loopexit.split-lp.loopexit
 
 155:                                              ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 40
@@ -32992,7 +32992,7 @@ _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
           cleanup
   br label %.loopexit.split-lp232
 
-.loopexit.split-lp232.thread:                     ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
+.loopexit.split-lp232.loopexit.split-lp.loopexit: ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
   %lpad.loopexit242 = landingpad { ptr, i32 }
           cleanup
   br label %406
@@ -33339,8 +33339,8 @@ _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit102: ; preds = %
   br i1 %.not217, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit, label %.lr.ph281
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit.sink.split: ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94, %.noexc95
-  %.sink361 = phi ptr [ %285, %.noexc95 ], [ %241, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94 ]
-  store ptr %.sink361, ptr %43, align 8
+  %.sink359 = phi ptr [ %285, %.noexc95 ], [ %241, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94 ]
+  store ptr %.sink359, ptr %43, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit102, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit.sink.split, %289, %.loopexit236, %.loopexit230

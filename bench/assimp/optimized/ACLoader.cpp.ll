@@ -5049,7 +5049,7 @@ invoke.cont694:                                   ; preds = %call5.i.i.i.i2.i.i.
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %238 = load ptr, ptr %vfn, align 8
   invoke void %238(ptr noundef nonnull align 8 dereferenceable(8) %call684, ptr noundef nonnull %add.ptr.i545, i64 noundef %sub.ptr.div.i550, ptr noundef nonnull %cpy.sroa.0.0, i32 noundef %237, i1 noundef zeroext true)
-          to label %invoke.cont701 unwind label %ehcleanup.thread
+          to label %invoke.cont701 unwind label %lpad700
 
 invoke.cont701:                                   ; preds = %invoke.cont694
   %tobool.not.i.i.i.i.i = icmp eq ptr %retval.0.i.i.i.i.i.i.i, %cpy.sroa.0.0
@@ -5079,7 +5079,7 @@ lpad693:                                          ; preds = %if.end.i.i.i.i.i.i.
           cleanup
   br label %ehcleanup
 
-ehcleanup.thread:                                 ; preds = %invoke.cont694
+lpad700:                                          ; preds = %invoke.cont694
   %243 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %cpy.sroa.0.0) #24
@@ -5090,8 +5090,8 @@ ehcleanup:                                        ; preds = %lpad693, %lpad685
   %cmp.not.i563 = icmp eq ptr %call684, null
   br i1 %cmp.not.i563, label %ehcleanup726, label %_ZNKSt14default_deleteIN6Assimp10SubdividerEEclEPS1_.exit.i564
 
-_ZNKSt14default_deleteIN6Assimp10SubdividerEEclEPS1_.exit.i564: ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn669 = phi { ptr, i32 } [ %243, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
+_ZNKSt14default_deleteIN6Assimp10SubdividerEEclEPS1_.exit.i564: ; preds = %lpad700, %ehcleanup
+  %.pn669 = phi { ptr, i32 } [ %243, %lpad700 ], [ %.pn, %ehcleanup ]
   %vtable.i.i565 = load ptr, ptr %call684, align 8
   %vfn.i.i566 = getelementptr inbounds nuw i8, ptr %vtable.i.i565, i64 8
   %244 = load ptr, ptr %vfn.i.i566, align 8

@@ -49,18 +49,18 @@ define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i32 %10, 0
   %13 = select i1 %12, i32 %2, i32 %10
-  %14 = zext nneg i32 %13 to i64
-  %15 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %14, ptr noundef nonnull %6)
-  %16 = tail call i32 @fclose(ptr noundef nonnull %6)
-  %17 = zext nneg i32 %10 to i64
-  %18 = icmp eq i64 %15, %17
+  %13 = zext nneg i32 %13 to i64
+  %14 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %13, ptr noundef nonnull %6)
+  %15 = tail call i32 @fclose(ptr noundef nonnull %6)
+  %15 = zext nneg i32 %10 to i64
+  %17 = icmp eq i64 %15, %16
   br i1 %18, label %20, label %19
 
-19:                                               ; preds = %9
+19:; preds = %9
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_15FileIOExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj) #10
   unreachable
 
-20:                                               ; preds = %9
+21:                                               ; preds = %9
   ret void
 }
 

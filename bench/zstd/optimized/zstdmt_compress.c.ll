@@ -2814,20 +2814,20 @@ entry:
   %cMem.val = load ptr, ptr %cMem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %cMem, i64 16
   %tobool.not.i = icmp eq ptr %cMem.val, null
-  br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %ZSTD_customCalloc.exit.thread
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-ZSTD_customCalloc.exit.thread:                    ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %cMem.val14 = load ptr, ptr %4, align 8
   %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul, i1 false)
   br label %if.end
 
-ZSTD_customCalloc.exit:                           ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call2.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #15
   %cmp = icmp eq ptr %call2.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %ZSTD_customCalloc.exit.thread, %ZSTD_customCalloc.exit
+if.end:                                           ; preds = %if.then.i, %ZSTD_customCalloc.exit
   %retval.0.i23 = phi ptr [ %call.i, %ZSTD_customCalloc.exit.thread ], [ %call2.i, %ZSTD_customCalloc.exit ]
   store i32 %shl, ptr %nbJobsPtr, align 4
   %wide.trip.count = zext i32 %shl to i64

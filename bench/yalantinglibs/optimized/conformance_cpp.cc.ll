@@ -1462,7 +1462,7 @@ lpad13.i.i:                                       ; preds = %call12.i.noexc.i
           cleanup
   br label %ehcleanup209.i.i
 
-lpad15.i.i:                                       ; preds = %sw.epilog204.invoke.i.i, %invoke.cont196.i.i, %sw.bb160.i.i, %cond.false.i.i, %invoke.cont97.i.i, %call3.i.i.i.noexc.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i, %if.then.i5.i.i.i.i, %if.then.i.i.i199.i.i, %if.then.i.i101.i.i, %invoke.cont93.invoke.i.i, %sw.default.i.i, %invoke.cont68.i.i, %if.then67.i.i, %invoke.cont62.i.i, %if.then23.i.i, %invoke.cont19.i.i
+lpad15.i.i:                                       ; preds = %sw.epilog204.invoke.i.i, %invoke.cont196.i.i, %sw.bb160.i.i, %cond.false.i.i, %invoke.cont97.i.i, %call3.i.i.i.noexc.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i, %if.then.i5.i.i.i.i, %if.then.i.i.i199.i.i, %if.then.i.i101.i.i, %invoke.cont93.invoke.i.i, %sw.default.i.i, %invoke.cont68.i.i, %if.then67.invoke.i.i, %invoke.cont62.i.i, %if.then23.i.i, %invoke.cont19.i.i
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup207.i.i
@@ -1653,9 +1653,9 @@ invoke.cont62.i.i:                                ; preds = %invoke.cont14.i.i
           to label %invoke.cont65.i.i unwind label %lpad15.i.i, !noalias !14
 
 invoke.cont65.i.i:                                ; preds = %invoke.cont62.i.i
-  br i1 %call66.i.i, label %invoke.cont88.i.i, label %if.then67.i.i
+  br i1 %call66.i.i, label %invoke.cont88.i.i, label %if.then67.invoke.i.i
 
-if.then67.i.i:                                    ; preds = %invoke.cont65.i.i
+if.then67.invoke.i.i:                             ; preds = %invoke.cont65.i.i
   invoke void @_ZN11conformance19ConformanceResponse15set_parse_errorEPKc(ptr noundef nonnull align 8 dereferenceable(32) %response.i.i, ptr noundef nonnull @.str.19)
           to label %invoke.cont68.i.i unwind label %lpad15.i.i, !noalias !14
 

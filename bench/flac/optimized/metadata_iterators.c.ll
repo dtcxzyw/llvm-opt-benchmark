@@ -6183,16 +6183,16 @@ if.end.i26:                                       ; preds = %if.else
   %call.i.i.i27 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i.i) #31
   store ptr %call.i.i.i27, ptr %tempfilename.i, align 8
   %cmp4.i.i = icmp eq ptr %call.i.i.i27, null
-  br i1 %cmp4.i.i, label %err.thread13.i, label %if.end.i.i
+  br i1 %cmp4.i.i, label %err.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i26
   tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef nonnull %113, ptr noundef nonnull @.str.32)
   %call25.i.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call.i.i.i27, ptr noundef nonnull @.str.35)
   store ptr %call25.i.i, ptr %tempfile.i, align 8
   %cmp26.i.i = icmp eq ptr %call25.i.i, null
-  br i1 %cmp26.i.i, label %err.thread13.i, label %if.end7.i
+  br i1 %cmp26.i.i, label %err.thread.i, label %if.end7.i
 
-err.thread13.i:                                   ; preds = %if.end.i.i, %if.end.i26
+err.thread.i:                                     ; preds = %if.end.i.i, %if.end.i26
   %storemerge.i = phi i32 [ 2, %if.end.i.i ], [ 11, %if.end.i26 ]
   %status6.i = getelementptr inbounds nuw i8, ptr %chain, i64 36
   store i32 %storemerge.i, ptr %status6.i, align 4
@@ -6251,7 +6251,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 write_metadata_block_header_cb_.exit.thread.i.i32: ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i.i22)
-  br label %err.thread.i
+  br label %err.i
 
 if.end.i.i.i34:                                   ; preds = %for.body.i
   %is_last.i.i.i35 = getelementptr inbounds nuw i8, ptr %116, i64 4
@@ -6280,7 +6280,7 @@ write_metadata_block_header_cb_.exit.i.i49:       ; preds = %for.body.i.i.i.i40
   %call.i.i41.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i.i22, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call25.i.i) #28
   %cmp5.not.i.not.i.i50 = icmp eq i64 %call.i.i41.i, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i.i22)
-  br i1 %cmp5.not.i.not.i.i50, label %if.end20.i, label %err.thread.i
+  br i1 %cmp5.not.i.not.i.i50, label %if.end20.i, label %err.i
 
 if.end20.i:                                       ; preds = %write_metadata_block_header_cb_.exit.i.i49
   %120 = load ptr, ptr %node.0.i, align 8
@@ -6291,14 +6291,14 @@ if.end20.i:                                       ; preds = %write_metadata_bloc
 if.then24.i:                                      ; preds = %if.end20.i
   %121 = load i32, ptr %status.i23, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %121, i32 12)
-  br label %err.thread.i
+  br label %err.i
 
 for.end.i:                                        ; preds = %for.cond.i
   %last_offset.i = getelementptr inbounds nuw i8, ptr %chain, i64 48
   %122 = load i64, ptr %last_offset.i, align 8
   %call28.i = tail call i32 @fseeko64(ptr noundef nonnull %call.i24, i64 noundef %122, i32 noundef 0)
   %cmp29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %cmp29.not.i, label %if.end32.i, label %err.thread.i
+  br i1 %cmp29.not.i, label %if.end32.i, label %err.i
 
 if.end32.i:                                       ; preds = %for.end.i
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buffer.i70.i)
@@ -6332,8 +6332,8 @@ if.then35.i:                                      ; preds = %land.lhs.true5.i.i,
   %call36.i = tail call fastcc i32 @get_equivalent_status_(i32 noundef %.sink.i75.i)
   br label %err.i
 
-err.thread.i:                                     ; preds = %write_metadata_block_header_cb_.exit.i.i49, %if.then24.i, %for.end.i, %write_metadata_block_header_cb_.exit.thread.i.i32
-  %.sink.i = phi i32 [ 8, %write_metadata_block_header_cb_.exit.thread.i.i32 ], [ 7, %for.end.i ], [ %., %if.then24.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i49 ]
+err.i:                                            ; preds = %write_metadata_block_header_cb_.exit.i.i49, %if.then24.i, %for.end.i, %write_metadata_block_header_cb_.exit.thread.i.i32
+  %call36.sink.i = phi i32 [ 8, %write_metadata_block_header_cb_.exit.thread.i.i32 ], [ 7, %for.end.i ], [ %., %if.then24.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i49 ]
   %status31.i = getelementptr inbounds nuw i8, ptr %chain, i64 36
   store i32 %.sink.i, ptr %status31.i, align 4
   %call4511.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
@@ -6346,9 +6346,9 @@ err.i:                                            ; preds = %if.then35.i, %get_e
   %call45.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
   br label %if.end.i79.sink.split.i
 
-if.end.i79.sink.split.i:                          ; preds = %err.i, %err.thread.i, %err.thread13.i
-  %call.sink.i = phi ptr [ %call.i24, %err.thread13.i ], [ %call25.i.i, %err.thread.i ], [ %call25.i.i, %err.i ]
-  %call4514.i = tail call i32 @fclose(ptr noundef nonnull %call.sink.i)
+if.end.i79.sink.split.i:                          ; preds = %err.i, %err.i, %err.thread.i
+  %call.sink.i = phi ptr [ %call.i24, %err.i ], [ %call25.i.i, %err.thread.i ], [ %call25.i.i, %err.i ]
+  %call4511.i = tail call i32 @fclose(ptr noundef nonnull %call.sink.i)
   br i1 %cmp4.i.i, label %chain_rewrite_file_.exit.thread, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i79.sink.split.i

@@ -2169,9 +2169,9 @@ if.then109:                                       ; preds = %if.else106
 if.else118:                                       ; preds = %if.else106
   %call119 = call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull %retval.0.i84, ptr noundef nonnull @.str) #7
   %tobool120.not = icmp eq i32 %call119, 0
-  br i1 %tobool120.not, label %cleanup.thread, label %if.then133
+  br i1 %tobool120.not, label %if.then121, label %if.then133
 
-cleanup.thread:                                   ; preds = %if.else118
+if.then121:                                       ; preds = %if.else118
   %79 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call122 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %79, ptr noundef nonnull @.str.14, ptr noundef nonnull %retval.0.i84, ptr noundef nonnull %item.2) #7
   br label %if.then.i
@@ -2206,8 +2206,8 @@ cleanup:                                          ; preds = %if.end.i.i93, %retu
   %cmp.not.i = icmp eq ptr %item.0, null
   br i1 %cmp.not.i, label %if.then.i101, label %if.then.i
 
-if.then.i:                                        ; preds = %cleanup.thread, %cleanup
-  %result.0264 = phi ptr [ null, %cleanup.thread ], [ %result.0, %cleanup ]
+if.then.i:                                        ; preds = %if.then121, %cleanup
+  %81 = phi ptr [ null, %if.then121 ], [ %result.0, %cleanup ]
   %item.0263 = phi ptr [ %item.2, %cleanup.thread ], [ %item.0, %cleanup ]
   %81 = load i64, ptr %item.0263, align 8
   %82 = and i64 %81, 2147483648

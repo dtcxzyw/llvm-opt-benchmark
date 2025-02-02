@@ -83659,13 +83659,13 @@ _ZN3nix13ValidPathInfoC2ERKS0_.exit.i.i.i:        ; preds = %_ZN3nix14checkInter
   store i64 %171, ptr %5, align 8
   store i64 %174, ptr %6, align 8
   invoke void @_ZNK3nix8Activity6resultIJmmmmEEEvNS_10ResultTypeEDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %156, i32 noundef 105, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %176 unwind label %84
+          to label %"_ZZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagEENK3$_2clEv.exit29.i.i.i" unwind label %84
 
 .thread.i.i.i:                                    ; preds = %144
   %175 = atomicrmw sub ptr %49, i64 1 seq_cst, align 8
   br label %_ZNKSt14default_deleteIN3nix6SourceEEclEPS1_.exit.i.i.i.i
 
-176:                                              ; preds = %150
+"_ZZN3nix5Store18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagEENK3$_2clEv.exit29.i.i.i": ; preds = %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

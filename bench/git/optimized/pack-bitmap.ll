@@ -2421,9 +2421,9 @@ if.end38.thread:                                  ; preds = %while.body12, %lor.
   br i1 %tobool11.not47, label %if.then41, label %while.body12.outer, !llvm.loop !22
 
 while.end39:                                      ; preds = %if.end38
-  br i1 %3, label %if.end43, label %if.then41.thread
+  br i1 %3, label %if.end43, label %if.then41
 
-if.then41.thread:                                 ; preds = %while.end39
+if.then41:                                        ; preds = %while.end39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %incdata.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %show_data.i)
   br label %if.end.i18
@@ -2437,8 +2437,8 @@ if.then.i:                                        ; preds = %if.then41
   %call.i19 = call ptr @bitmap_new() #18
   br label %if.end.i18
 
-if.end.i18:                                       ; preds = %if.then41.thread, %if.then.i, %if.then41
-  %base.addr.0.i = phi ptr [ %base.0.ph.lcssa.fr, %if.then41 ], [ %call.i19, %if.then.i ], [ %base.0.ph.lcssa.fr, %if.then41.thread ]
+if.end.i18:                                       ; preds = %if.then41, %if.then.i, %if.then41
+  %base.addr.0.i = phi ptr [ %base.0.ph.lcssa.fr, %if.then41 ], [ %call.i19, %if.then.i ], [ %base.0.ph.lcssa.fr, %if.then41 ]
   store ptr %bitmap_git, ptr %incdata.i, align 8
   %base2.i = getelementptr inbounds nuw i8, ptr %incdata.i, i64 8
   store ptr %base.addr.0.i, ptr %base2.i, align 8

@@ -4699,7 +4699,7 @@ for.cond229.for.inc242_crit_edge.us:              ; preds = %for.body232.us
   %cmp226.us = icmp samesign ult i64 %inc243.us, %conv225.us
   br i1 %cmp226.us, label %for.cond229.preheader.us, label %for.end244, !llvm.loop !47
 
-if.then.i.i.i380:                                 ; preds = %for.end244
+lpad220:                                          ; preds = %for.end244
   %137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %indices.sroa.0.3876) #27
@@ -4713,7 +4713,7 @@ for.end244:                                       ; preds = %for.cond229.for.inc
   %sub.ptr.sub.i = sub i64 %indices.sroa.15.2874, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %call251 = invoke { ptr, i32 } @_Z10ExportDataRN5glTF25AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEmPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(3272) %138, ptr noundef nonnull align 8 dereferenceable(32) %meshId, ptr noundef nonnull align 8 dereferenceable(12) %b, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %indices.sroa.0.3876, i32 noundef 0, i32 noundef 0, i32 noundef 5125, i32 noundef 34963)
-          to label %_ZNSt6vectorIjSaIjEED2Ev.exit386 unwind label %if.then.i.i.i380
+          to label %_ZNSt6vectorIjSaIjEED2Ev.exit386 unwind label %lpad220
 
 _ZNSt6vectorIjSaIjEED2Ev.exit386:                 ; preds = %for.end244
   %139 = extractvalue { ptr, i32 } %call251, 0

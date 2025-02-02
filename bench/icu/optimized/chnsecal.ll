@@ -1951,14 +1951,14 @@ _ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %invoke.cont21
 lpad.thread:                                      ; preds = %invoke.cont21, %invoke.cont18, %invoke.cont11, %invoke.cont8, %invoke.cont5
   %lpad.thr_comm25 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17
+  br label %delete.notnull.i14
 
 lpad:                                             ; preds = %if.end
   %lpad.thr_comm.split-lp26 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17
+  br label %delete.notnull.i14
 
-_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17: ; preds = %lpad.thread, %lpad
+delete.notnull.i14:                               ; preds = %lpad.thread, %lpad
   %lpad.phi29 = phi { ptr, i32 } [ %lpad.thr_comm25, %lpad.thread ], [ %lpad.thr_comm.split-lp26, %lpad ]
   %vtable.i15 = load ptr, ptr %call3, align 8
   %vfn.i16 = getelementptr inbounds nuw i8, ptr %vtable.i15, i64 8

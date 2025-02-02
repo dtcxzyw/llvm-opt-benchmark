@@ -75,11 +75,11 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %cmp5064 = phi i1 [ false, %invoke.cont ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ true, %for.body ]
   %tmp.sroa.0.062 = phi ptr [ %call5.i.i.i.i2.i.i25, %invoke.cont ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i25, %for.body ]
   invoke void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %ops)
-          to label %invoke.cont14 unwind label %lpad13
+          to label %invoke.cont14 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %for.end
   invoke void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec8optimizeENS_17OptimizationFlagsE(ptr noundef nonnull align 8 dereferenceable(144) %ops, i64 noundef 0)
-          to label %invoke.cont15 unwind label %lpad13
+          to label %invoke.cont15 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ops, i64 8
@@ -108,19 +108,19 @@ for.body20:                                       ; preds = %for.body20.preheade
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %tmp.sroa.0.062, ptr noundef nonnull %tmp.sroa.0.062, i64 noundef %numPixels)
-          to label %for.inc27 unwind label %lpad13.thread
+          to label %for.inc27 unwind label %lpad13.loopexit
 
 for.inc27:                                        ; preds = %for.body20
   %inc28 = add nuw i64 %i.054, 1
   %exitcond58.not = icmp eq i64 %inc28, %umax
   br i1 %exitcond58.not, label %for.cond31.preheader, label %for.body20, !llvm.loop !6
 
-lpad13.thread:                                    ; preds = %for.body20
+lpad13.loopexit:                                  ; preds = %for.body20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i
 
-lpad13:                                           ; preds = %invoke.cont14, %for.end
+lpad13.loopexit.split-lp:                         ; preds = %invoke.cont14, %for.end
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i = icmp eq ptr %tmp.sroa.0.062, null

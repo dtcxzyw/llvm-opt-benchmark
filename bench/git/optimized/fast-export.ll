@@ -2208,12 +2208,12 @@ if.then39.i:                                      ; preds = %anonymize_refname.e
   store i64 %message_size.0.i, ptr %orig_len.i.i, align 8
   %call3.i.i = call ptr @hashmap_get(ptr noundef nonnull @anonymized_seeds, ptr noundef nonnull %key.i.i, ptr noundef nonnull %key.i.i) #18
   %tobool.not.i.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end43.thread67.i
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %anonymize_str.exit.i
 
 if.end.i.i:                                       ; preds = %if.then39.i
   %call6.i.i = call ptr @hashmap_get(ptr noundef nonnull @handle_tag.tags, ptr noundef nonnull %key.i.i, ptr noundef nonnull %key.i.i) #18
   %tobool8.not.i.i = icmp eq ptr %call6.i.i, null
-  br i1 %tobool8.not.i.i, label %if.then9.i.i, label %if.end43.thread67.i
+  br i1 %tobool8.not.i.i, label %if.then9.i.i, label %anonymize_str.exit.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
   %15 = load i32, ptr %hash1.i.i.i, align 8
@@ -2226,9 +2226,9 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
   %call.i54.i = call ptr @strbuf_detach(ptr noundef nonnull %out.i.i, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i.i)
   %call13.i.i = call fastcc ptr @add_anonymized_entry(ptr noundef nonnull @handle_tag.tags, i32 noundef %15, ptr noundef nonnull %message.0.i, i64 noundef %message_size.0.i, ptr noundef %call.i54.i)
-  br label %if.end43.thread67.i
+  br label %anonymize_str.exit.i
 
-if.end43.thread67.i:                              ; preds = %if.then9.i.i, %if.end.i.i, %if.then39.i
+anonymize_str.exit.i:                             ; preds = %if.then9.i.i, %if.end.i.i, %if.then39.i
   %ret.1.i.i = phi ptr [ %call6.i.i, %if.end.i.i ], [ %call13.i.i, %if.then9.i.i ], [ %call3.i.i, %if.then39.i ]
   %anon.i.i = getelementptr inbounds nuw i8, ptr %ret.1.i.i, i64 16
   %17 = load ptr, ptr %anon.i.i, align 8
@@ -2240,7 +2240,7 @@ if.end43.i:                                       ; preds = %if.end34.i, %if.els
   br i1 %tobool20.not.i, label %if.end67.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %if.end43.i, %if.end43.thread67.i
-  %message.174.i = phi ptr [ %17, %if.end43.thread67.i ], [ %message.0.i, %if.end43.i ]
+  %call46.i = phi ptr [ %17, %anonymize_str.exit.i ], [ %message.0.i, %if.end43.i ]
   %message_size.173.i = phi i64 [ %call41.i, %if.end43.thread67.i ], [ %message_size.0.i, %if.end43.i ]
   %name.addr.072.i = phi ptr [ %14, %if.end43.thread67.i ], [ %4, %if.end43.i ]
   %call46.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %message.174.i, ptr noundef nonnull dereferenceable(1) @.str.126) #19

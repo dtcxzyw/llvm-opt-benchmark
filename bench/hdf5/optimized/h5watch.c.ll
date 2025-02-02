@@ -610,7 +610,7 @@ check_dataset.exit:                               ; preds = %164, %166
 172:                                              ; preds = %170
   %173 = call fastcc i32 @process_cmpd_fields(i64 noundef %96, ptr noundef %116)
   %174 = icmp slt i32 %173, 0
-  br i1 %174, label %.thread84.thread121.sink.split, label %175
+  br i1 %174, label %.thread84.sink.split, label %175
 
 175:                                              ; preds = %168, %170, %172
   %176 = call i32 @h5tools_getstatus() #20
@@ -620,14 +620,14 @@ check_dataset.exit:                               ; preds = %164, %166
 177:                                              ; preds = %175
   %178 = call fastcc i32 @monitor_dataset(i64 noundef %96, ptr noundef %116)
   %179 = icmp slt i32 %178, 0
-  br i1 %179, label %.thread84.thread121.sink.split, label %.thread84.thread121
+  br i1 %179, label %.thread84.sink.split, label %.thread84.thread121
 
 .thread84.thread:                                 ; preds = %114, %118, %91, %85
   %.03990.ph = phi i64 [ -1, %85 ], [ -1, %91 ], [ %96, %118 ], [ %96, %114 ]
   call void @free(ptr noundef nonnull %78) #20
   br label %181
 
-.thread84.thread121.sink.split:                   ; preds = %177, %172
+.thread84.sink.split:                             ; preds = %177, %172
   call void @h5tools_setstatus(i32 noundef 1) #20
   br label %.thread84.thread121
 

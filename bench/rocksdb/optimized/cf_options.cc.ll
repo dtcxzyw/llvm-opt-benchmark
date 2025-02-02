@@ -30953,7 +30953,7 @@ lpad9.i.i.i:                                      ; preds = %if.else.i.i.i
 if.end12.i.i.i:                                   ; preds = %_ZNSt10unique_ptrIN7rocksdb12TableFactoryESt14default_deleteIS1_EE5resetEPS1_.exit15.i.i.i, %if.then7.i.i.i
   %new_factory.sroa.0.1.i.i.i = phi ptr [ %call11.i.i.i, %_ZNSt10unique_ptrIN7rocksdb12TableFactoryESt14default_deleteIS1_EE5resetEPS1_.exit15.i.i.i ], [ %call8.i.i.i, %if.then7.i.i.i ]
   invoke void @_ZN7rocksdb12Configurable19ConfigureFromStringERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %new_factory.sroa.0.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
-          to label %invoke.cont16.i.i.i unwind label %_ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i18.i.i.i
+          to label %invoke.cont16.i.i.i unwind label %ehcleanup.i.i.i
 
 invoke.cont16.i.i.i:                              ; preds = %if.end12.i.i.i
   %3 = load i8, ptr %agg.result, align 8, !alias.scope !317
@@ -30987,7 +30987,7 @@ _ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i.i.i.i: ; preds = 
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %new_factory.sroa.0.1.i.i.i) #28
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_3$_6EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_PvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-_ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i18.i.i.i: ; preds = %if.end12.i.i.i
+ehcleanup.i.i.i:                                  ; preds = %if.end12.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i19.i.i.i = load ptr, ptr %new_factory.sroa.0.1.i.i.i, align 8
@@ -31670,7 +31670,7 @@ if.else.i.i.i:                                    ; preds = %if.then5.i.i.i, %if
 if.end11.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then7.i.i.i
   %new_factory.sroa.0.1.i.i.i = phi ptr [ %call8.i.i.i, %if.then7.i.i.i ], [ %call10.i.i.i, %if.else.i.i.i ]
   invoke void @_ZN7rocksdb12Configurable19ConfigureFromStringERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %new_factory.sroa.0.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
-          to label %invoke.cont15.i.i.i unwind label %_ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i18.i.i.i
+          to label %invoke.cont15.i.i.i unwind label %ehcleanup.i.i.i
 
 invoke.cont15.i.i.i:                              ; preds = %if.end11.i.i.i
   %1 = load i8, ptr %agg.result, align 8, !alias.scope !329
@@ -31704,7 +31704,7 @@ _ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i.i.i.i: ; preds = 
   call void %4(ptr noundef nonnull align 8 dereferenceable(32) %new_factory.sroa.0.1.i.i.i) #28
   br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_3$_7EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_PvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-_ZNKSt14default_deleteIN7rocksdb12TableFactoryEEclEPS1_.exit.i18.i.i.i: ; preds = %if.end11.i.i.i
+ehcleanup.i.i.i:                                  ; preds = %if.end11.i.i.i
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i19.i.i.i = load ptr, ptr %new_factory.sroa.0.1.i.i.i, align 8

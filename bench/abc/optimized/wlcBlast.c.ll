@@ -2035,9 +2035,9 @@ define void @Wlc_BlastAdderFast(ptr noundef %0, ptr noundef captures(none) %1, p
 ._crit_edge:                                      ; preds = %31, %.thread.us.preheader, %.preheader
   tail call void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr noundef %14, ptr noundef %15, i32 noundef %.09.i, i32 noundef %5)
   %.not52 = icmp slt i32 %3, 0
-  br i1 %.not52, label %._crit_edge56, label %._crit_edge56.thread
+  br i1 %.not52, label %._crit_edge56, label %.lr.ph55.preheader
 
-._crit_edge56.thread:                             ; preds = %._crit_edge
+.lr.ph55.preheader:                               ; preds = %._crit_edge
   %34 = add nuw i32 %3, 1
   %35 = zext i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
@@ -2048,7 +2048,7 @@ define void @Wlc_BlastAdderFast(ptr noundef %0, ptr noundef captures(none) %1, p
   %.not44 = icmp eq ptr %14, null
   br i1 %.not44, label %38, label %37
 
-37:                                               ; preds = %._crit_edge56.thread, %._crit_edge56
+37:                                               ; preds = %.lr.ph55.preheader, %._crit_edge56
   tail call void @free(ptr noundef nonnull %14) #21
   br label %38
 
@@ -3876,13 +3876,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit
   %.pre = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %Vec_IntFree.exit.thread, label %98
+  br i1 %.not.i, label %Vec_IntFree.exit, label %98
 
 98:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %.pre) #21
-  br label %Vec_IntFree.exit.thread
+  br label %Vec_IntFree.exit
 
-Vec_IntFree.exit.thread:                          ; preds = %._crit_edge, %98
+Vec_IntFree.exit:                                 ; preds = %._crit_edge, %98
   call void @free(ptr noundef nonnull %calloc) #21
   br label %99
 
@@ -3891,7 +3891,7 @@ Vec_IntFree.exit:                                 ; preds = %6
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %100, label %99
 
-99:                                               ; preds = %Vec_IntFree.exit.thread, %Vec_IntFree.exit
+99:                                               ; preds = %Vec_IntFree.exit, %Vec_IntFree.exit
   call void @free(ptr noundef nonnull %17) #21
   br label %100
 

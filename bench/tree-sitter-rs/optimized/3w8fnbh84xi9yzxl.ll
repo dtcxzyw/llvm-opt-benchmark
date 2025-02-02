@@ -650,7 +650,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 112
   %92 = load ptr, ptr %91, align 8, !invariant.load !4, !noalias !126, !nonnull !4
   invoke void %92(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noundef align 1 %90, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.0.i9.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
-          to label %93 unwind label %171, !noalias !109
+          to label %93 unwind label %172, !noalias !109
 
 93:                                               ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h580eb7cf7cc60d09E.exit.i.i.i.i.i"
   %.sroa.0.sroa.4.0.copyload.i.i.i.i.i = load i64, ptr %28, align 8, !noalias !127
@@ -896,10 +896,10 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
   unreachable
 
 .noexc7.i.i.i.i.i:                                ; preds = %97
-  %169 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i.i.i.i.i, null
-  call void @llvm.assume(i1 %169)
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.5.0.copyload.i.i.i.i.i, i64 40
-  store atomic i64 %.sroa.0.sroa.4.0.copyload.i.i.i.i.i, ptr %170 release, align 8, !noalias !126
+  %170 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i.i.i.i.i, null
+  call void @llvm.assume(i1 %170)
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.5.0.copyload.i.i.i.i.i, i64 40
+  store atomic i64 %.sroa.0.sroa.4.0.copyload.i.i.i.i.i, ptr %171 release, align 8, !noalias !126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !146
   br label %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i.i
 
@@ -908,18 +908,18 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
   call void @__rust_dealloc(ptr noundef nonnull %95, i64 noundef 1400, i64 noundef 8) #15, !noalias !126
   br label %.body.thread.i.i.i.i.i
 
-.body.thread.i.i.i.i.i:                           ; preds = %171, %.body.thread.sink.split.i.i.i.i.i, %.thread.i.i.i.i.i.i, %104
-  %eh.lpad-body13.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i, %171 ], [ %.pn22.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i, %104 ], [ %eh.lpad-body13.ph.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i ]
+.body.thread.i.i.i.i.i:                           ; preds = %172, %.body.thread.sink.split.i.i.i.i.i, %.thread.i.i.i.i.i.i, %104
+  %eh.lpad-body13.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i, %172 ], [ %.pn22.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i, %104 ], [ %eh.lpad-body13.ph.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body13.i.i.i.i.i
 
-171:                                              ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h580eb7cf7cc60d09E.exit.i.i.i.i.i"
+172:                                              ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h580eb7cf7cc60d09E.exit.i.i.i.i.i"
   %lpad.thr_comm.split-lp.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr366drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..panic..unwind_safe..UnwindSafe$GT$$GT$$GT$17hfe2f7aa6ab472446E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #17
-          to label %.body.thread.i.i.i.i.i unwind label %172, !noalias !126
+          to label %.body.thread.i.i.i.i.i unwind label %173, !noalias !126
 
-172:                                              ; preds = %171
-  %173 = landingpad { ptr, i32 }
+173:                                              ; preds = %172
+  %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #18, !noalias !126
   unreachable
@@ -943,16 +943,16 @@ _ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i.i: ; pred
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i": ; preds = %"_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i", %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i, %36
-  %174 = phi i64 [ %.pre.i, %"_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i" ], [ %34, %36 ], [ %34, %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i ]
-  %175 = icmp eq i64 %174, 0
-  br i1 %175, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0aea70cdf90f581eE.exit, label %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.i"
+  %175 = phi i64 [ %.pre.i, %"_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i" ], [ %34, %36 ], [ %34, %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i ]
+  %176 = icmp eq i64 %175, 0
+  br i1 %176, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0aea70cdf90f581eE.exit, label %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.i"
 
 "_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.thread.split.loop.exit.i": ; preds = %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i.i
-  %176 = getelementptr inbounds i8, ptr %32, i64 -352
+  %177 = getelementptr inbounds i8, ptr %32, i64 -352
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0aea70cdf90f581eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h0aea70cdf90f581eE.exit: ; preds = %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.i", %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i", %2, %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.thread.split.loop.exit.i"
-  %.0.i = phi ptr [ %176, %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.thread.split.loop.exit.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i" ], [ null, %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.i" ]
+  %.0.i = phi ptr [ %177, %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.thread.split.loop.exit.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i" ], [ null, %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   ret ptr %.0.i
 }

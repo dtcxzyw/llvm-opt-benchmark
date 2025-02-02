@@ -244,9 +244,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val154.i = load ptr, ptr %33, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
+  %.val153.i = load ptr, ptr %33, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val153.i = load ptr, ptr %34, align 8, !alias.scope !9, !noalias !6
+  %.val154.i = load ptr, ptr %34, align 8, !alias.scope !9, !noalias !6
   %35 = getelementptr inbounds nuw i8, ptr %.val154.i, i64 24
   %36 = load ptr, ptr %35, align 8, !invariant.load !4, !noalias !18, !nonnull !4
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 1 %.val153.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.67, i64 noundef 3), !noalias !18
@@ -604,9 +604,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val154.i = load ptr, ptr %25, align 8, !alias.scope !42, !nonnull !4, !noundef !4
+  %.val153.i = load ptr, ptr %25, align 8, !alias.scope !42, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val153.i = load ptr, ptr %26, align 8, !alias.scope !42
+  %.val154.i = load ptr, ptr %26, align 8, !alias.scope !42
   %27 = getelementptr inbounds nuw i8, ptr %.val154.i, i64 24
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !45, !nonnull !4
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 1 %.val153.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.67, i64 noundef 3), !noalias !45
@@ -956,9 +956,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit:
   %1 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %2 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
+  %4 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
-  ret i1 %2
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2345,10 +2345,10 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %27 = load double, ptr %11, align 8, !alias.scope !676, !noundef !4
-  %28 = load double, ptr %.val, align 8, !alias.scope !679, !noundef !4
-  %29 = fdiv double %28, %27
-  store double %29, ptr %.val, align 8
+  %29 = load double, ptr %11, align 8, !alias.scope !676, !noundef !4
+  %30 = load double, ptr %.val, align 8, !alias.scope !679, !noundef !4
+  %31 = fdiv double %30, %29
+  store double %31, ptr %.val, align 8
   %.not1.i.i.i.not.not = icmp eq i64 %9, 0
   br i1 %.not1.i.i.i.not.not, label %.split.us, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit"
 
@@ -2357,12 +2357,12 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit": ; preds = %.lr.ph.split
-  %30 = add i64 %13, -1
-  %31 = add i64 %7, -1
+  %32 = add i64 %13, -1
+  %33 = add i64 %7, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !682
-  store i64 %30, ptr %5, align 8, !noalias !682
+  store i64 %32, ptr %5, align 8, !noalias !682
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !682
-  store i64 %31, ptr %4, align 8, !noalias !682
+  store i64 %33, ptr %4, align 8, !noalias !682
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !682
   store ptr @anon.c16ec26a086e09edb08393af91730684.14, ptr %3, align 8, !noalias !682
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8

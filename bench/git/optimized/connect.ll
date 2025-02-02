@@ -2492,8 +2492,8 @@ if.else7.i:                                       ; preds = %if.end.i
   %tobool.not.i27.i = icmp ne ptr %call.i25.i, null
   %tobool2.not.i28.i = icmp eq ptr %call1.i26.i, null
   %cmp.i.i = icmp uge ptr %call1.i26.i, %call.i25.i
-  %or.cond.i.not39.i = or i1 %tobool2.not.i28.i, %cmp.i.i
-  %narrow.i.not.i = select i1 %tobool.not.i27.i, i1 %or.cond.i.not39.i, i1 false
+  %or.cond.i.not36.i = or i1 %tobool2.not.i28.i, %cmp.i.i
+  %narrow.i.not.i = select i1 %tobool.not.i27.i, i1 %or.cond.i.not36.i, i1 false
   br i1 %narrow.i.not.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.else7.i
@@ -2516,21 +2516,21 @@ if.then2.i.i:                                     ; preds = %if.end12.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.0.i.i, i64 1
   %call3.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, i32 noundef 93) #25
   %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
-  %spec.select38.i = select i1 %tobool4.not.i.i, ptr %host.0.i, ptr %call3.i.i
+  %spec.select35.i = select i1 %tobool4.not.i.i, ptr %host.0.i, ptr %call3.i.i
   br label %host_end.exit.i
 
 host_end.exit.i:                                  ; preds = %if.then2.i.i, %if.end12.i
-  %end.0.i.i = phi ptr [ %host.0.i, %if.end12.i ], [ %spec.select38.i, %if.then2.i.i ]
+  %end.0.i.i = phi ptr [ %host.0.i, %if.end12.i ], [ %spec.select35.i, %if.then2.i.i ]
   %cond.i = icmp eq i32 %protocol.0.i, 1
-  br i1 %cond.i, label %lor.lhs.false.i, label %if.end40.i
+  br i1 %cond.i, label %lor.lhs.false.i, label %if.else36.i
 
-if.end40.i:                                       ; preds = %host_end.exit.i
+if.else36.i:                                      ; preds = %host_end.exit.i
   %call37.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %end.0.i.i, i32 noundef %separator.0.i) #25
   %tobool41.not.i = icmp eq ptr %call37.i, null
   br i1 %tobool41.not.i, label %if.then43.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end40.i, %host_end.exit.i
-  %path.037.i = phi ptr [ %call37.i, %if.end40.i ], [ %end.0.i.i, %host_end.exit.i ]
+  %1 = phi ptr [ %call37.i, %if.end40.i ], [ %end.0.i.i, %host_end.exit.i ]
   %1 = load i8, ptr %path.037.i, align 1
   %tobool42.not.i = icmp eq i8 %1, 0
   br i1 %tobool42.not.i, label %if.then43.i, label %if.end45.i

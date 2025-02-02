@@ -227,8 +227,8 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 7
-  %cmp.i.i.i.not534 = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.not534, label %for.end, label %for.body.lr.ph
+  %cmp.i.i.i.not536 = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i.not536, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_eproperty.i = getelementptr inbounds nuw i8, ptr %e, i64 16
@@ -265,14 +265,14 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.0535 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i.i.i, %for.inc ]
+  %__begin1.sroa.0.0537 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i.i.i, %for.inc ]
   store ptr null, ptr %m_eproperty.i, align 8
-  %call9 = call noundef zeroext i1 @_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(i64 noundef %__begin1.sroa.0.0535, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr noundef nonnull %e)
+  %call9 = call noundef zeroext i1 @_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(i64 noundef %__begin1.sroa.0.0537, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr noundef nonnull %e)
   br i1 %call9, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
   %6 = load ptr, ptr %m_vertices.i.i.i, align 8
-  %m_property.i.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %6, i64 %__begin1.sroa.0.0535, i32 0, i32 2
+  %m_property.i.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %6, i64 %__begin1.sroa.0.0537, i32 0, i32 2
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %m_eproperty.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %bg.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %verts.i)
@@ -569,22 +569,22 @@ invoke.cont12.i:                                  ; preds = %if.then.i7.i.i330, 
   br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i
 
 lpad.loopexit358.i.loopexit:                      ; preds = %if.then.i204, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit.i250
-  %lpad.loopexit433 = landingpad { ptr, i32 }
+  %lpad.loopexit435 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad.loopexit358.i.loopexit.split-lp:             ; preds = %if.then.i.i285
-  %lpad.loopexit.split-lp434 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp436 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad.loopexit.split-lp359.i.loopexit:             ; preds = %if.then.i312, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit.i358
-  %lpad.loopexit436 = landingpad { ptr, i32 }
+  %lpad.loopexit438 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad.loopexit.split-lp359.i.loopexit.split-lp:    ; preds = %if.then.i.i393
-  %lpad.loopexit.split-lp437 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp439 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
@@ -1006,17 +1006,17 @@ lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %lpad52.body.i
 
 lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit: ; preds = %catch.i.i
-  %lpad.loopexit439 = landingpad { ptr, i32 }
+  %lpad.loopexit441 = landingpad { ptr, i32 }
           cleanup
   br label %lpad52.body.i
 
 lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %if.then.i.i318.i
-  %lpad.loopexit.split-lp440 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp442 = landingpad { ptr, i32 }
           cleanup
   br label %lpad52.body.i
 
 lpad52.body.i:                                    ; preds = %lpad.i250.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit.split-lp, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i164, %lpad52.loopexit.split-lp.loopexit.i, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad52.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad52.loopexit.i ], [ %lpad.loopexit351.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit348.i, %lpad52.loopexit.split-lp.loopexit.i ], [ %165, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i ], [ %lpad.loopexit356.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %78, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i164 ], [ %lpad.loopexit, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit.split-lp ], [ %lpad.loopexit439, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp440, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ], [ %184, %lpad.i250.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad52.loopexit.i ], [ %lpad.loopexit351.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit348.i, %lpad52.loopexit.split-lp.loopexit.i ], [ %165, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i ], [ %lpad.loopexit356.i, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %78, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i164 ], [ %lpad.loopexit, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit.split-lp ], [ %lpad.loopexit441, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp442, %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ], [ %184, %lpad.i250.i ]
   %88 = load ptr, ptr %_M_parent.i.i.i.i.i52.i, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %done.i, ptr noundef %88)
           to label %ehcleanup.i unwind label %terminate.lpad.i.i.i
@@ -1230,34 +1230,34 @@ invoke.cont7.i.i.i:                               ; preds = %if.then50.i, %if.th
   br i1 %tobool.not.i.i.i, label %if.then.i7.i.i.i, label %if.then.i.i76.i
 
 if.then.i.i76.i:                                  ; preds = %if.end12.i78.i, %if.end12.i35.i, %if.end12.i.i, %if.then.i89.i, %if.then.i46.i, %if.then.i.i135, %if.then64.i, %if.then32.i, %land.lhs.true.i129, %invoke.cont7.i.i.i
-  %retval.sroa.12.0.i413 = phi ptr [ %retval.sroa.12.0.i, %invoke.cont7.i.i.i ], [ %__x.021.i70.i, %if.then.i89.i ], [ %__x.021.i27.i, %if.then.i46.i ], [ %__x.021.i.i, %if.then.i.i135 ], [ %spec.select112.i, %if.then64.i ], [ %spec.select110.i, %if.then32.i ], [ %94, %land.lhs.true.i129 ], [ %__x.021.i.i, %if.end12.i.i ], [ %__x.021.i27.i, %if.end12.i35.i ], [ %__x.021.i70.i, %if.end12.i78.i ]
-  %retval.sroa.0.0.i412 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont7.i.i.i ], [ null, %if.then.i89.i ], [ null, %if.then.i46.i ], [ null, %if.then.i.i135 ], [ %spec.select111.i, %if.then64.i ], [ %spec.select.i, %if.then32.i ], [ null, %land.lhs.true.i129 ], [ null, %if.end12.i.i ], [ null, %if.end12.i35.i ], [ null, %if.end12.i78.i ]
-  %cmp.not.i.i.i5.i.i = icmp ne ptr %retval.sroa.0.0.i412, null
-  %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i413, %2
+  %retval.sroa.12.0.i415 = phi ptr [ %retval.sroa.12.0.i, %invoke.cont7.i.i.i ], [ %__x.021.i70.i, %if.then.i89.i ], [ %__x.021.i27.i, %if.then.i46.i ], [ %__x.021.i.i, %if.then.i.i135 ], [ %spec.select112.i, %if.then64.i ], [ %spec.select110.i, %if.then32.i ], [ %94, %land.lhs.true.i129 ], [ %__x.021.i.i, %if.end12.i.i ], [ %__x.021.i27.i, %if.end12.i35.i ], [ %__x.021.i70.i, %if.end12.i78.i ]
+  %retval.sroa.0.0.i414 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont7.i.i.i ], [ null, %if.then.i89.i ], [ null, %if.then.i46.i ], [ null, %if.then.i.i135 ], [ %spec.select111.i, %if.then64.i ], [ %spec.select.i, %if.then32.i ], [ null, %land.lhs.true.i129 ], [ null, %if.end12.i.i ], [ null, %if.end12.i35.i ], [ null, %if.end12.i78.i ]
+  %cmp.not.i.i.i5.i.i = icmp ne ptr %retval.sroa.0.0.i414, null
+  %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.12.0.i415, %2
   %or.cond.i.i.i.i.i = or i1 %cmp2.i.i.i.i.i, %cmp.not.i.i.i5.i.i
   br i1 %or.cond.i.i.i.i.i, label %cleanup.thread.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %if.then.i.i76.i
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.0.i413, i64 32
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.12.0.i415, i64 32
   %111 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i6.i.i = icmp ult ptr %85, %111
   br label %cleanup.thread.i.i.i
 
 cleanup.thread.i.i.i:                             ; preds = %lor.rhs.i.i.i.i.i, %if.then.i.i76.i
-  %112 = phi i1 [ true, %if.then.i.i76.i ], [ %cmp.i.i.i.i6.i.i, %lor.rhs.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %112, ptr noundef nonnull %call5.i.i.i.i.i.i.i77.i, ptr noundef nonnull %retval.sroa.12.0.i413, ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  %retval.sroa.12.0.i415581 = phi i1 [ true, %if.then.i.i76.i ], [ %cmp.i.i.i.i6.i.i, %lor.rhs.i.i.i.i.i ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %retval.sroa.12.0.i415581, ptr noundef nonnull %call5.i.i.i.i.i.i.i77.i, ptr noundef nonnull %retval.sroa.12.0.i413, ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %113 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add i64 %113, 1
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i.i, align 8
   br label %invoke.cont70.i
 
 if.then.i7.i.i.i:                                 ; preds = %if.end12.i78.i, %if.end12.i35.i, %if.end12.i.i, %if.else44.i, %invoke.cont7.i.i.i
-  %retval.sroa.0.0.i422 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont7.i.i.i ], [ %__j.sroa.0.0.i80.i, %if.end12.i78.i ], [ %__j.sroa.0.0.i37.i, %if.end12.i35.i ], [ %__j.sroa.0.0.i.i, %if.end12.i.i ], [ %__y.addr.1.i.i.i.i70.i, %if.else44.i ]
+  %retval.sroa.0.0.i424 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont7.i.i.i ], [ %__j.sroa.0.0.i80.i, %if.end12.i78.i ], [ %__j.sroa.0.0.i37.i, %if.end12.i35.i ], [ %__j.sroa.0.0.i.i, %if.end12.i.i ], [ %__y.addr.1.i.i.i.i70.i, %if.else44.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i77.i) #25
   br label %invoke.cont70.i
 
 invoke.cont70.i:                                  ; preds = %if.then.i7.i.i.i, %cleanup.thread.i.i.i, %lor.rhs.i.i
-  %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i70.i, %lor.rhs.i.i ], [ %call5.i.i.i.i.i.i.i77.i, %cleanup.thread.i.i.i ], [ %retval.sroa.0.0.i422, %if.then.i7.i.i.i ]
+  %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i70.i, %lor.rhs.i.i ], [ %call5.i.i.i.i.i.i.i77.i, %cleanup.thread.i.i.i ], [ %retval.sroa.0.0.i424, %if.then.i7.i.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.i, i64 40
   %114 = load i64, ptr %second.i.i, align 8
   %115 = load ptr, ptr %_M_parent.i.i.i.i.i52.i, align 8
@@ -2142,7 +2142,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorIN5boos
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit, label %while.body.i.i.i.i.i.i, !llvm.loop !96
 
 ehcleanup.i:                                      ; preds = %lpad.loopexit.split-lp359.i.loopexit, %lpad.loopexit.split-lp359.i.loopexit.split-lp, %lpad.loopexit358.i.loopexit, %lpad.loopexit358.i.loopexit.split-lp, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i317, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i209, %lpad52.body.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad52.body.i ], [ %65, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i209 ], [ %38, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i317 ], [ %lpad.loopexit433, %lpad.loopexit358.i.loopexit ], [ %lpad.loopexit.split-lp434, %lpad.loopexit358.i.loopexit.split-lp ], [ %lpad.loopexit436, %lpad.loopexit.split-lp359.i.loopexit ], [ %lpad.loopexit.split-lp437, %lpad.loopexit.split-lp359.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad52.body.i ], [ %65, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i209 ], [ %38, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i317 ], [ %lpad.loopexit435, %lpad.loopexit358.i.loopexit ], [ %lpad.loopexit.split-lp436, %lpad.loopexit358.i.loopexit.split-lp ], [ %lpad.loopexit438, %lpad.loopexit.split-lp359.i.loopexit ], [ %lpad.loopexit.split-lp439, %lpad.loopexit.split-lp359.i.loopexit.split-lp ]
   %205 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %verts.i, ptr noundef %205)
           to label %_ZNSt3mapIPKN3ue211GoughSSAVarEmSt4lessIS3_ESaISt4pairIKS3_mEEED2Ev.exit277.i unwind label %terminate.lpad.i.i276.i
@@ -2236,7 +2236,7 @@ _ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge
 if.end14:                                         ; preds = %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.if.end14_crit_edge, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread
   %agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ %agg.tmp.sroa.2.0.copyload, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread ], [ %agg.tmp.sroa.2.0.copyload.i.i.pre, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.if.end14_crit_edge ]
   %216 = phi ptr [ %6, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread ], [ %.pre, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.if.end14_crit_edge ]
-  %margin.1425 = phi i32 [ 0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread ], [ %margin.0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.if.end14_crit_edge ]
+  %margin.1427 = phi i32 [ 0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread ], [ %margin.0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.if.end14_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %succs.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %succs59.i)
   %217 = load i64, ptr %e, align 8
@@ -2448,7 +2448,7 @@ invoke.cont.i32:                                  ; preds = %_ZNKSt4lessIN3ue213
   store ptr %4, ptr %_M_left.i.i.i.i.i.i35, align 8
   store ptr %4, ptr %_M_right.i.i.i.i.i87.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i36, align 8
-  %add.ptr.i.i.i.i89.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %216, i64 %__begin1.sroa.0.0535
+  %add.ptr.i.i.i.i89.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %216, i64 %__begin1.sroa.0.0537
   %240 = load ptr, ptr %add.ptr.i.i.i.i89.i, align 8, !noalias !99
   %_M_finish.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i89.i, i64 8
   %241 = load ptr, ptr %_M_finish.i.i.i.i37, align 8, !noalias !99
@@ -2492,7 +2492,7 @@ lpad.loopexit.split-lp.i70:                       ; preds = %if.then.i209.invoke
 
 if.end.i39:                                       ; preds = %invoke.cont14.i
   %245 = load ptr, ptr %m_vertices.i.i.i, align 8
-  %m_property.i.i.i99.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %245, i64 %__begin1.sroa.0.0535, i32 0, i32 2
+  %m_property.i.i.i99.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %245, i64 %__begin1.sroa.0.0537, i32 0, i32 2
   %246 = load i32, ptr %m_property.i.i.i99.i, align 8
   %m_property.i.i8.i102.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %245, i64 %242, i32 0, i32 2
   %247 = load i32, ptr %m_property.i.i8.i102.i, align 8
@@ -2790,7 +2790,7 @@ for.inc.i:                                        ; preds = %call5.i.i.i.i.i.i.i
 
 invoke.cont37.i:                                  ; preds = %for.inc.i
   %.pre.i62 = load ptr, ptr %m_vertices.i.i.i, align 8, !noalias !112
-  %add.ptr.i.i.i.i.i.phi.trans.insert.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre.i62, i64 %__begin1.sroa.0.0535
+  %add.ptr.i.i.i.i.i.phi.trans.insert.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre.i62, i64 %__begin1.sroa.0.0537
   %.pre599.i = load ptr, ptr %add.ptr.i.i.i.i.i.phi.trans.insert.i, align 8, !noalias !112
   %_M_finish.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.phi.trans.insert.i, i64 8
   %.pre600.i = load ptr, ptr %_M_finish.i.i.i.i.phi.trans.insert.i, align 8, !noalias !112
@@ -2809,7 +2809,7 @@ invoke.cont46.lr.ph.i:                            ; preds = %invoke.cont37.i
 invoke.cont46.i:                                  ; preds = %for.inc52.i, %invoke.cont46.lr.ph.i
   %__begin238.sroa.0.0561.i = phi ptr [ %.pre599.i, %invoke.cont46.lr.ph.i ], [ %incdec.ptr.i.i.i.i.i.i.i249.i, %for.inc52.i ]
   %282 = load i64, ptr %__begin238.sroa.0.0561.i, align 8, !noalias !119
-  %cmp.not.i = icmp eq i64 %282, %__begin1.sroa.0.0535
+  %cmp.not.i = icmp eq i64 %282, %__begin1.sroa.0.0537
   br i1 %cmp.not.i, label %for.inc52.i, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %invoke.cont46.i
@@ -3197,7 +3197,7 @@ invoke.cont63.i:                                  ; preds = %_ZNKSt4lessIN3ue213
   store ptr %5, ptr %_M_left.i.i.i.i.i252.i, align 8
   store ptr %5, ptr %_M_right.i.i.i.i.i253.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i254.i, align 8
-  %add.ptr.i.i.i.i256.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %216, i64 %__begin1.sroa.0.0535
+  %add.ptr.i.i.i.i256.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %216, i64 %__begin1.sroa.0.0537
   %326 = load ptr, ptr %add.ptr.i.i.i.i256.i, align 8, !noalias !138
   %_M_finish.i.i.i257.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i256.i, i64 8
   %327 = load ptr, ptr %_M_finish.i.i.i257.i, align 8, !noalias !138
@@ -3233,7 +3233,7 @@ lpad62.i:                                         ; preds = %_ZNSt8_Rb_treeImmSt
   br label %eh.resume.i
 
 if.end84.i:                                       ; preds = %invoke.cont81.i
-  %m_property.i.i.i290.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %329, i64 %__begin1.sroa.0.0535, i32 0, i32 2
+  %m_property.i.i.i290.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %329, i64 %__begin1.sroa.0.0537, i32 0, i32 2
   %334 = load i32, ptr %m_property.i.i.i290.i, align 8
   %m_property.i.i8.i293.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %329, i64 %330, i32 0, i32 2
   %335 = load i32, ptr %m_property.i.i8.i293.i, align 8
@@ -3398,7 +3398,7 @@ call5.i.i.i.i.i.i.i.i.noexc398.i:                 ; preds = %_ZNSt8_Rb_treeImmSt
 
 invoke.cont101.i:                                 ; preds = %call5.i.i.i.i.i.i.i.i.noexc398.i, %if.end12.i.i.i372.i
   %352 = phi ptr [ %328, %if.end12.i.i.i372.i ], [ %.pre601.i, %call5.i.i.i.i.i.i.i.i.noexc398.i ]
-  %add.ptr.i.i.i.i.i402.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %352, i64 %__begin1.sroa.0.0535
+  %add.ptr.i.i.i.i.i402.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %352, i64 %__begin1.sroa.0.0537
   %353 = load ptr, ptr %add.ptr.i.i.i.i.i402.i, align 8, !noalias !150
   %_M_finish.i.i.i.i403.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i402.i, i64 8
   %354 = load ptr, ptr %_M_finish.i.i.i.i403.i, align 8, !noalias !150
@@ -3418,7 +3418,7 @@ invoke.cont109.lr.ph.i:                           ; preds = %invoke.cont101.i
 invoke.cont109.i:                                 ; preds = %for.inc117.i, %invoke.cont109.lr.ph.i
   %__begin3.sroa.0.0563.i = phi ptr [ %353, %invoke.cont109.lr.ph.i ], [ %incdec.ptr.i.i.i.i.i.i.i489.i, %for.inc117.i ]
   %357 = load i64, ptr %__begin3.sroa.0.0563.i, align 8, !noalias !157
-  %cmp111.not.i = icmp eq i64 %357, %__begin1.sroa.0.0535
+  %cmp111.not.i = icmp eq i64 %357, %__begin1.sroa.0.0537
   br i1 %cmp111.not.i, label %for.inc117.i, label %land.lhs.true112.i
 
 land.lhs.true112.i:                               ; preds = %invoke.cont109.i
@@ -3628,14 +3628,14 @@ _ZN3ue2L20allow_two_byte_accelERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidi
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %succs.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %succs59.i)
   %381 = load ptr, ptr %m_vertices.i.i.i, align 8
-  %m_property.i.i93 = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %381, i64 %__begin1.sroa.0.0535, i32 0, i32 2
-  store i32 %margin.1425, ptr %ref.tmp17, align 4
+  %m_property.i.i93 = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %381, i64 %__begin1.sroa.0.0537, i32 0, i32 2
+  store i32 %margin.1427, ptr %ref.tmp17, align 4
   store i8 %retval.1.i45, ptr %two_byte.i, align 4
   %call18 = call { ptr, i8 } @_ZNSt3mapItN3ue222gough_accel_state_infoESt4lessItESaISt4pairIKtS1_EEE7emplaceIJRKjS1_EEES4_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %out, ptr noundef nonnull align 4 dereferenceable(4) %m_property.i.i93, ptr noundef nonnull align 4 dereferenceable(5) %ref.tmp17)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit, %for.body, %_ZN3ue2L20allow_two_byte_accelERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKSt3mapINS_13gough_edge_idESt6vectorI9gough_insSaISE_EESt4lessISC_ESaISt4pairIKSC_SG_EEEmRKNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit
-  %inc.i.i.i = add i64 %__begin1.sroa.0.0535, 1
+  %inc.i.i.i = add i64 %__begin1.sroa.0.0537, 1
   %cmp.i.i.i.not = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 

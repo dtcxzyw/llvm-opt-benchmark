@@ -26,14 +26,14 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #6
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %data, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 -1, ptr %pos, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void
 }
 
@@ -43,8 +43,8 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7521FieldPositionIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7521FieldPositionIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #6
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
+  tail call void @_ZN6icu_7521FieldPositionIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #7
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
 
@@ -80,7 +80,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %status, align 4
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #6
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #7
   invoke void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %new.cont unwind label %lpad
 
@@ -104,7 +104,7 @@ delete.notnull:                                   ; preds = %if.then9
   %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then9
@@ -115,7 +115,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 lpad:                                             ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #7
   br label %ehcleanup
 
 lpad7:                                            ; preds = %new.cont
@@ -128,7 +128,7 @@ if.end13:                                         ; preds = %invoke.cont8, %dele
 
 ehcleanup:                                        ; preds = %lpad, %lpad7
   %.pn = phi { ptr, i32 } [ %7, %lpad7 ], [ %6, %lpad ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -247,7 +247,7 @@ if.end20.thread:                                  ; preds = %if.then3
   %vtable = load ptr, ptr %adopt, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %adopt) #6
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %adopt) #7
   %10 = load i32, ptr %status, align 4
   %cmp.i3033 = icmp sgt i32 %10, 0
   br i1 %cmp.i3033, label %return, label %if.end29
@@ -260,7 +260,7 @@ delete.notnull25:                                 ; preds = %if.then23.thread, %
   %vtable26 = load ptr, ptr %adopt, align 8
   %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 8
   %11 = load ptr, ptr %vfn27, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %adopt) #6
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %adopt) #7
   br label %return
 
 if.end29:                                         ; preds = %for.cond.preheader, %if.end20.thread, %if.end20
@@ -274,7 +274,7 @@ delete.notnull31:                                 ; preds = %if.end29
   %vtable32 = load ptr, ptr %12, align 8
   %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 8
   %13 = load ptr, ptr %vfn33, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(32) %12) #6
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
   br label %delete.end34
 
 delete.end34:                                     ; preds = %delete.notnull31, %if.end29

@@ -77,7 +77,7 @@ if.then26:                                        ; preds = %lor.lhs.false6, %lo
   br i1 %or.cond, label %if.end33, label %if.end198.thread
 
 if.end198.thread:                                 ; preds = %if.then26
-  %call199109 = call i32 @iconv_close(ptr noundef %call) #7
+  %call199103 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end33:                                         ; preds = %if.then26
@@ -107,34 +107,34 @@ if.end49:                                         ; preds = %if.end45
   store i64 %fromlen, ptr %ibl, align 8
   store ptr %call46, ptr %ob, align 8
   store i64 1, ptr %obl, align 8
-  %call50128 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call50122 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %8 = load i64, ptr %ibl, align 8
-  %tobool51.not129 = icmp eq i64 %8, 0
-  br i1 %tobool51.not129, label %for.end, label %if.end53
+  %tobool51.not123 = icmp eq i64 %8, 0
+  br i1 %tobool51.not123, label %for.end, label %if.end53
 
 if.end53:                                         ; preds = %if.end49, %if.end69
   %9 = phi i64 [ %15, %if.end69 ], [ %8, %if.end49 ]
-  %ret.0132 = phi i32 [ %ret.1, %if.end69 ], [ 0, %if.end49 ]
-  %utflen.0131 = phi i64 [ %utflen.1, %if.end69 ], [ 1, %if.end49 ]
-  %utfbuf.1130 = phi ptr [ %utfbuf.2, %if.end69 ], [ %call46, %if.end49 ]
+  %ret.0126 = phi i32 [ %ret.1, %if.end69 ], [ 0, %if.end49 ]
+  %utflen.0125 = phi i64 [ %utflen.1, %if.end69 ], [ 1, %if.end49 ]
+  %utfbuf.1124 = phi ptr [ %utfbuf.2, %if.end69 ], [ %call46, %if.end49 ]
   %10 = load i64, ptr %obl, align 8
   %cmp54 = icmp ult i64 %10, 6
   br i1 %cmp54, label %if.then56, label %if.else
 
 if.then56:                                        ; preds = %if.end53
-  %mul = shl i64 %utflen.0131, 1
-  %cmp57 = icmp slt i64 %utflen.0131, 0
+  %mul = shl i64 %utflen.0125, 1
+  %cmp57 = icmp slt i64 %utflen.0125, 0
   br i1 %cmp57, label %fail, label %if.end60
 
 if.end60:                                         ; preds = %if.then56
   %11 = load ptr, ptr %ob, align 8
-  %call62 = call ptr @realloc(ptr noundef %utfbuf.1130, i64 noundef %mul) #9
+  %call62 = call ptr @realloc(ptr noundef %utfbuf.1124, i64 noundef %mul) #9
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %fail, label %if.end65
 
 if.end65:                                         ; preds = %if.end60
   %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.1130 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.1124 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %call62, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %ob, align 8
@@ -159,9 +159,9 @@ if.else:                                          ; preds = %if.end53
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end65
-  %utfbuf.2 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.1130, %if.else ]
-  %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0131, %if.else ]
-  %ret.1 = phi i32 [ %ret.0132, %if.end65 ], [ 2, %if.else ]
+  %utfbuf.2 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.1124, %if.else ]
+  %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0125, %if.else ]
+  %ret.1 = phi i32 [ %ret.0126, %if.end65 ], [ 2, %if.else ]
   %call50 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %15 = load i64, ptr %ibl, align 8
   %tobool51.not = icmp eq i64 %15, 0
@@ -238,15 +238,15 @@ while.body.lr.ph:                                 ; preds = %if.end102
   %sub.ptr.rhs.cast119 = ptrtoint ptr %tbuf to i64
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call108173 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call108167 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %20 = load i64, ptr %ibl, align 8
-  %tobool109.not174 = icmp eq i64 %20, 0
-  br i1 %tobool109.not174, label %while.end, label %land.lhs.true
+  %tobool109.not168 = icmp eq i64 %20, 0
+  br i1 %tobool109.not168, label %while.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body.lr.ph, %while.body.backedge
-  %call108176 = phi i64 [ %call108, %while.body.backedge ], [ %call108173, %while.body.lr.ph ]
-  %outlen.0136175 = phi i64 [ %add137, %while.body.backedge ], [ 0, %while.body.lr.ph ]
-  %cmp110 = icmp eq i64 %call108176, -1
+  %call108170 = phi i64 [ %call108, %while.body.backedge ], [ %call108167, %while.body.lr.ph ]
+  %outlen.0130169 = phi i64 [ %add137, %while.body.backedge ], [ 0, %while.body.lr.ph ]
+  %cmp110 = icmp eq i64 %call108170, -1
   br i1 %cmp110, label %land.lhs.true112, label %if.then116
 
 land.lhs.true112:                                 ; preds = %land.lhs.true
@@ -261,7 +261,7 @@ if.then116:                                       ; preds = %land.lhs.true112, %
   %22 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast118 = ptrtoint ptr %22 to i64
   %sub.ptr.sub120 = sub i64 %sub.ptr.lhs.cast118, %sub.ptr.rhs.cast119
-  %add = add i64 %sub.ptr.sub120, %outlen.0136175
+  %add = add i64 %sub.ptr.sub120, %outlen.0130169
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
   %call122 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %tb, ptr noundef nonnull %tbl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
@@ -270,11 +270,11 @@ if.then116:                                       ; preds = %land.lhs.true112, %
   br label %for.cond125
 
 for.cond125:                                      ; preds = %land.rhs, %if.then116
-  %storemerge84.in134 = phi i64 [ %ibl.promoted, %if.then116 ], [ %storemerge84, %land.rhs ]
+  %storemerge84.in128 = phi i64 [ %ibl.promoted, %if.then116 ], [ %storemerge84, %land.rhs ]
   %.pn86 = phi ptr [ %23, %if.then116 ], [ %storemerge85, %land.rhs ]
   %storemerge85 = getelementptr inbounds nuw i8, ptr %.pn86, i64 1
   store ptr %storemerge85, ptr %ib, align 8
-  %storemerge84 = add i64 %storemerge84.in134, -1
+  %storemerge84 = add i64 %storemerge84.in128, -1
   store i64 %storemerge84, ptr %ibl, align 8
   %tobool126.not = icmp eq i64 %storemerge84, 0
   br i1 %tobool126.not, label %while.end, label %land.rhs
@@ -285,10 +285,10 @@ land.rhs:                                         ; preds = %for.cond125
   br i1 %tobool128.not, label %while.body.backedge, label %for.cond125, !llvm.loop !5
 
 while.body.backedge:                              ; preds = %land.rhs, %land.lhs.true112
-  %outlen.0136.sink = phi i64 [ %outlen.0136175, %land.lhs.true112 ], [ %add, %land.rhs ]
+  %outlen.0130.sink = phi i64 [ %outlen.0130169, %land.lhs.true112 ], [ %add, %land.rhs ]
   %25 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast134 = ptrtoint ptr %25 to i64
-  %sub.ptr.sub136 = sub i64 %outlen.0136.sink, %sub.ptr.rhs.cast119
+  %sub.ptr.sub136 = sub i64 %outlen.0130.sink, %sub.ptr.rhs.cast119
   %add137 = add i64 %sub.ptr.sub136, %sub.ptr.lhs.cast134
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
@@ -300,16 +300,16 @@ while.body.backedge:                              ; preds = %land.rhs, %land.lhs
 while.end:                                        ; preds = %while.body.backedge, %for.cond125, %while.body.lr.ph
   %add.lcssa.sink = phi i64 [ 0, %while.body.lr.ph ], [ %add, %for.cond125 ], [ %add137, %while.body.backedge ]
   %27 = load ptr, ptr %ob, align 8
-  %sub.ptr.lhs.cast134155159 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub136156160 = sub i64 %add.lcssa.sink, %sub.ptr.rhs.cast119
-  %add137157161 = add i64 %sub.ptr.sub136156160, %sub.ptr.lhs.cast134155159
+  %sub.ptr.lhs.cast134149153 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub136150154 = sub i64 %add.lcssa.sink, %sub.ptr.rhs.cast119
+  %add137151155 = add i64 %sub.ptr.sub136150154, %sub.ptr.lhs.cast134149153
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
   %call139 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %28 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast141 = ptrtoint ptr %28 to i64
   %sub.ptr.sub143 = sub i64 %sub.ptr.lhs.cast141, %sub.ptr.rhs.cast119
-  %add144 = add i64 %sub.ptr.sub143, %add137157161
+  %add144 = add i64 %sub.ptr.sub143, %add137151155
   %cmp.i87 = icmp eq i64 %add144, -1
   br i1 %cmp.i87, label %fail, label %safe_malloc_add_2op_.exit
 
@@ -324,19 +324,19 @@ while.body151.preheader:                          ; preds = %safe_malloc_add_2op
   store i64 %sub.ptr.sub98, ptr %ibl, align 8
   store ptr %call.i.i, ptr %ob, align 8
   store i64 %add144, ptr %obl, align 8
-  %call152177 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
-  %tobool153178 = icmp eq i64 %call152177, 0
-  %tobool155179 = icmp ne i32 %ret.0.lcssa, 0
-  %or.cond1180 = select i1 %tobool153178, i1 true, i1 %tobool155179
-  %spec.store.select181 = select i1 %or.cond1180, i32 %ret.0.lcssa, i32 1
+  %call152171 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %tobool153172 = icmp eq i64 %call152171, 0
+  %tobool155173 = icmp ne i32 %ret.0.lcssa, 0
+  %or.cond1174 = select i1 %tobool153172, i1 true, i1 %tobool155173
+  %spec.store.select175 = select i1 %or.cond1174, i32 %ret.0.lcssa, i32 1
   %29 = load i64, ptr %ibl, align 8
-  %tobool158.not182 = icmp eq i64 %29, 0
-  br i1 %tobool158.not182, label %while.end185, label %land.lhs.true159
+  %tobool158.not176 = icmp eq i64 %29, 0
+  br i1 %tobool158.not176, label %while.end185, label %land.lhs.true159
 
 land.lhs.true159:                                 ; preds = %while.body151.preheader, %while.body151.backedge
-  %spec.store.select184 = phi i32 [ %spec.store.select, %while.body151.backedge ], [ %spec.store.select181, %while.body151.preheader ]
-  %call152183 = phi i64 [ %call152, %while.body151.backedge ], [ %call152177, %while.body151.preheader ]
-  %cmp160 = icmp eq i64 %call152183, -1
+  %spec.store.select178 = phi i32 [ %spec.store.select, %while.body151.backedge ], [ %spec.store.select175, %while.body151.preheader ]
+  %call152177 = phi i64 [ %call152, %while.body151.backedge ], [ %call152171, %while.body151.preheader ]
+  %cmp160 = icmp eq i64 %call152177, -1
   br i1 %cmp160, label %land.lhs.true162, label %if.then166
 
 land.lhs.true162:                                 ; preds = %land.lhs.true159
@@ -350,15 +350,15 @@ if.then166:                                       ; preds = %land.lhs.true162, %
   store i64 1, ptr %tbl168, align 8
   %call169 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %tb167, ptr noundef nonnull %tbl168, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %31 = load ptr, ptr %ib, align 8
-  %ibl.promoted138 = load i64, ptr %ibl, align 8
+  %ibl.promoted132 = load i64, ptr %ibl, align 8
   br label %for.cond172
 
 for.cond172:                                      ; preds = %land.rhs174, %if.then166
-  %storemerge.in139 = phi i64 [ %ibl.promoted138, %if.then166 ], [ %storemerge, %land.rhs174 ]
+  %storemerge.in133 = phi i64 [ %ibl.promoted132, %if.then166 ], [ %storemerge, %land.rhs174 ]
   %.pn = phi ptr [ %31, %if.then166 ], [ %storemerge83, %land.rhs174 ]
   %storemerge83 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge83, ptr %ib, align 8
-  %storemerge = add i64 %storemerge.in139, -1
+  %storemerge = add i64 %storemerge.in133, -1
   store i64 %storemerge, ptr %ibl, align 8
   %tobool173.not = icmp eq i64 %storemerge, 0
   br i1 %tobool173.not, label %while.end185, label %land.rhs174
@@ -371,15 +371,15 @@ land.rhs174:                                      ; preds = %for.cond172
 while.body151.backedge:                           ; preds = %land.rhs174, %land.lhs.true162
   %call152 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %tobool153 = icmp eq i64 %call152, 0
-  %tobool155 = icmp ne i32 %spec.store.select184, 0
+  %tobool155 = icmp ne i32 %spec.store.select178, 0
   %or.cond1 = select i1 %tobool153, i1 true, i1 %tobool155
-  %spec.store.select = select i1 %or.cond1, i32 %spec.store.select184, i32 1
+  %spec.store.select = select i1 %or.cond1, i32 %spec.store.select178, i32 1
   %33 = load i64, ptr %ibl, align 8
   %tobool158.not = icmp eq i64 %33, 0
   br i1 %tobool158.not, label %while.end185, label %land.lhs.true159, !llvm.loop !9
 
 while.end185:                                     ; preds = %while.body151.backedge, %for.cond172, %while.body151.preheader
-  %spec.store.select170 = phi i32 [ %spec.store.select181, %while.body151.preheader ], [ %spec.store.select184, %for.cond172 ], [ %spec.store.select, %while.body151.backedge ]
+  %spec.store.select164 = phi i32 [ %spec.store.select175, %while.body151.preheader ], [ %spec.store.select178, %for.cond172 ], [ %spec.store.select, %while.body151.backedge ]
   %call186 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %34 = load ptr, ptr %ob, align 8
   store i8 0, ptr %34, align 1
@@ -406,7 +406,7 @@ if.end194:                                        ; preds = %if.end191
   br label %return
 
 fail:                                             ; preds = %if.end60, %if.then56, %while.end, %if.end82, %safe_malloc_add_2op_.exit, %if.end102, %if.end95
-  %utfbuf.0 = phi ptr [ %utfbuf.1.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end102 ], [ %utfbuf.1.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.1130, %if.then56 ], [ %utfbuf.1130, %if.end60 ]
+  %utfbuf.0 = phi ptr [ %utfbuf.1.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end102 ], [ %utfbuf.1.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.1124, %if.then56 ], [ %utfbuf.1124, %if.end60 ]
   %cmp195.not = icmp eq ptr %utfbuf.0, null
   br i1 %cmp195.not, label %if.end198, label %if.then197
 
@@ -425,7 +425,7 @@ if.then202:                                       ; preds = %if.end198
   br label %return
 
 return:                                           ; preds = %if.end198.thread, %if.end198, %if.then202, %entry, %if.end194, %if.then193, %if.end89, %if.then80, %if.then42
-  %retval.0 = phi i32 [ -1, %if.then42 ], [ %ret.0.lcssa, %if.end89 ], [ %ret.0.lcssa, %if.then80 ], [ %spec.store.select170, %if.end194 ], [ %spec.store.select170, %if.then193 ], [ -1, %entry ], [ -2, %if.then202 ], [ -2, %if.end198 ], [ -2, %if.end198.thread ]
+  %retval.0 = phi i32 [ -1, %if.then42 ], [ %ret.0.lcssa, %if.end89 ], [ %ret.0.lcssa, %if.then80 ], [ %spec.store.select164, %if.end194 ], [ %spec.store.select164, %if.then193 ], [ -1, %entry ], [ -2, %if.then202 ], [ -2, %if.end198 ], [ -2, %if.end198.thread ]
   ret i32 %retval.0
 }
 

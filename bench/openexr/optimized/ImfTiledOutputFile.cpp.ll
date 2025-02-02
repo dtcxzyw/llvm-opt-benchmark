@@ -5262,7 +5262,7 @@ invoke.cont304:                                   ; preds = %if.end.i.i.i.i.i.i.
 
 if.then307:                                       ; preds = %invoke.cont304
   invoke void @_ZNK7Imf_3_214TiledInputFile9tileOrderEPiS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull %dx_table.sroa.0.0268273285, ptr noundef nonnull %dy_table.sroa.0.0276282, ptr noundef nonnull %lx_table.sroa.0.0288, ptr noundef nonnull %ly_table.sroa.0.0)
-          to label %invoke.cont313 unwind label %lpad312.thread
+          to label %invoke.cont313 unwind label %lpad312.loopexit
 
 invoke.cont313:                                   ; preds = %if.then307
   %82 = load i32, ptr %dx_table.sroa.0.0268273285, align 4
@@ -5303,7 +5303,7 @@ ehcleanup391.thread:                              ; preds = %if.then.i.i.i.i.i17
           cleanup
   br label %if.then.i.i.i225
 
-lpad312.thread:                                   ; preds = %if.then307
+lpad312.loopexit:                                 ; preds = %if.then307
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i

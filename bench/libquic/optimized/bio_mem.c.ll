@@ -13,13 +13,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden ptr @BIO_new_mem_buf(ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %len, 0
-  br i1 %cmp, label %cond.end.thread, label %cond.end
+  br i1 %cmp, label %cond.true, label %cond.false
 
-cond.end.thread:                                  ; preds = %entry
+cond.true:                                        ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #8
   br label %if.end
 
-cond.end:                                         ; preds = %entry
+cond.false:                                       ; preds = %entry
   %conv = zext nneg i32 %len to i64
   %tobool = icmp eq ptr %buf, null
   %cmp1 = icmp ne i32 %len, 0
@@ -30,7 +30,7 @@ if.then:                                          ; preds = %cond.end
   tail call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 111, ptr noundef nonnull @.str, i32 noundef 73) #9
   br label %return
 
-if.end:                                           ; preds = %cond.end.thread, %cond.end
+if.end:                                           ; preds = %cond.true, %cond.end
   %cond16 = phi i64 [ %call, %cond.end.thread ], [ %conv, %cond.end ]
   %call4 = tail call ptr @BIO_new(ptr noundef nonnull @mem_method) #9
   %cmp5 = icmp eq ptr %call4, null

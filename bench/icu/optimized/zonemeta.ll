@@ -1387,7 +1387,7 @@ invoke.cont57:                                    ; preds = %if.end54
   %cmp.i33 = icmp slt i32 %12, 1
   br i1 %cmp.i33, label %if.end63, label %cleanup
 
-ehcleanup112.thread157:                           ; preds = %if.end90
+ehcleanup.thread:                                 ; preds = %if.end90
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #14
@@ -1438,7 +1438,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
 if.end90:                                         ; preds = %new.cont83, %if.end63
   %mzMappings.sroa.0.7 = phi ptr [ %mzMappings.sroa.0.3.ph, %if.end63 ], [ %call76, %new.cont83 ]
   invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.7, ptr noundef nonnull %call56, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %ehcleanup112.thread157
+          to label %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %ehcleanup.thread
 
 cleanup:                                          ; preds = %invoke.cont57
   %isnull.i44 = icmp eq ptr %call56, null
@@ -1504,8 +1504,8 @@ ehcleanup112:                                     ; preds = %lpad1.loopexit, %lp
   %isnull.i58 = icmp eq ptr %mzMappings.sroa.0.2, null
   br i1 %isnull.i58, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63, label %delete.notnull.i59
 
-delete.notnull.i59:                               ; preds = %ehcleanup112.thread157, %ehcleanup112
-  %.pn16162 = phi { ptr, i32 } [ %13, %ehcleanup112.thread157 ], [ %.pn16, %ehcleanup112 ]
+delete.notnull.i59:                               ; preds = %ehcleanup.thread, %ehcleanup112
+  %vtable.i60 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %.pn16, %ehcleanup112 ]
   %mzMappings.sroa.0.2161 = phi ptr [ %mzMappings.sroa.0.7, %ehcleanup112.thread157 ], [ %mzMappings.sroa.0.2, %ehcleanup112 ]
   %vtable.i60 = load ptr, ptr %mzMappings.sroa.0.2161, align 8
   %vfn.i61 = getelementptr inbounds nuw i8, ptr %vtable.i60, i64 8

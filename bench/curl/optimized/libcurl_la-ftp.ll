@@ -7070,18 +7070,18 @@ if.end75:                                         ; preds = %land.lhs.true57, %i
   br i1 %tobool51.not, label %land.lhs.true79, label %while.body, !llvm.loop !24
 
 sw.epilog:                                        ; preds = %for.end
-  %tobool78.not = icmp eq ptr %18, null
+  %fileName.0 = icmp eq ptr %18, null
   br i1 %tobool78.not, label %if.end86.thread, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %if.end75, %while.cond.preheader, %sw.bb11, %land.lhs.true, %if.end31, %sw.epilog
-  %fileName.064 = phi ptr [ %18, %sw.epilog ], [ %8, %sw.bb11 ], [ %5, %land.lhs.true ], [ %add.ptr, %if.end31 ], [ %18, %while.cond.preheader ], [ %add.ptr76, %if.end75 ]
-  %28 = load i8, ptr %fileName.064, align 1
+  %fileName.068 = phi ptr [ %18, %sw.epilog ], [ %8, %sw.bb11 ], [ %5, %land.lhs.true ], [ %add.ptr, %if.end31 ], [ %18, %while.cond.preheader ], [ %add.ptr76, %if.end75 ]
+  %28 = load i8, ptr %fileName.068, align 1
   %tobool81.not = icmp eq i8 %28, 0
   br i1 %tobool81.not, label %if.end86.thread, label %if.end86
 
 if.end86:                                         ; preds = %land.lhs.true79
   %29 = load ptr, ptr @Curl_cstrdup, align 8
-  %call83 = call ptr %29(ptr noundef nonnull %fileName.064) #10
+  %call83 = call ptr %29(ptr noundef nonnull %fileName.068) #10
   %file = getelementptr inbounds nuw i8, ptr %1, i64 1016
   store ptr %call83, ptr %file, align 8
   %upload = getelementptr inbounds nuw i8, ptr %data, i64 5044
@@ -7095,11 +7095,11 @@ if.end86:                                         ; preds = %land.lhs.true79
 if.end86.thread:                                  ; preds = %sw.epilog, %land.lhs.true79, %sw.bb, %land.lhs.true
   %file85 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   store ptr null, ptr %file85, align 8
-  %upload78 = getelementptr inbounds nuw i8, ptr %data, i64 5044
-  %bf.load8779 = load i32, ptr %upload78, align 4
-  %31 = and i32 %bf.load8779, 1048576
-  %tobool89.not80 = icmp eq i32 %31, 0
-  br i1 %tobool89.not80, label %if.end97, label %land.lhs.true93
+  %upload80 = getelementptr inbounds nuw i8, ptr %data, i64 5044
+  %bf.load8781 = load i32, ptr %upload80, align 4
+  %31 = and i32 %bf.load8781, 1048576
+  %tobool89.not82 = icmp eq i32 %31, 0
+  br i1 %tobool89.not82, label %if.end97, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %if.end86, %if.end86.thread
   %transfer = getelementptr inbounds nuw i8, ptr %0, i64 16

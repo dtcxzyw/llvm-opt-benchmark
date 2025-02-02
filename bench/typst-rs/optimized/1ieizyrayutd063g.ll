@@ -644,7 +644,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   br i1 %36, label %.loopexit, label %37
 
 .loopexit:                                        ; preds = %34, %.thread79, %33, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit
-  %.0 = phi ptr [ %62, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit ], [ %.val6.i.i, %33 ], [ inttoptr (i64 158913789955 to ptr), %.thread79 ], [ null, %34 ]
+  %.0 = phi ptr [ %63, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit ], [ %.val6.i.i, %33 ], [ inttoptr (i64 158913789955 to ptr), %.thread79 ], [ null, %34 ]
   ret ptr %.0
 
 37:                                               ; preds = %34
@@ -683,37 +683,37 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   store ptr %52, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !120
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 26, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !120
-  %53 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !127
-  %54 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #15, !noalias !127
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit
+  %54 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !127
+  %55 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #15, !noalias !127
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit
 
-56:                                               ; preds = %49
+57:                                               ; preds = %49
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 24) #16
-          to label %.noexc.i.i.i unwind label %57, !noalias !120
+          to label %.noexc.i.i.i unwind label %58, !noalias !120
 
-.noexc.i.i.i:                                     ; preds = %56
+.noexc.i.i.i:                                     ; preds = %57
   unreachable
 
-57:                                               ; preds = %56
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17h8911977ba9debac0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #17
-          to label %61 unwind label %59, !noalias !120
+          to label %62 unwind label %60, !noalias !120
 
-59:                                               ; preds = %57
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18, !noalias !120
   unreachable
 
-61:                                               ; preds = %57
-  resume { ptr, i32 } %58
+62:                                               ; preds = %58
+  resume { ptr, i32 } %59
 
 _ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit: ; preds = %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !120
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !120
-  %62 = call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h5db3f91af4b4c4a5E(i8 noundef 20, ptr noundef nonnull align 1 %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d51a752cba16742a43ff4c0cbaf1b4ab.1), !noalias !130
+  %63 = call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h5db3f91af4b4c4a5E(i8 noundef 20, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d51a752cba16742a43ff4c0cbaf1b4ab.1), !noalias !130
   br label %.loopexit
 }
 

@@ -1175,14 +1175,14 @@ define hidden void @_ZN10actix_http10extensions10Extensions6insert17h25d9d585ec2
 
 16:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd66e1bdb8e67cb87E.llvm.6550989041561640416.exit"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %19
+  br label %20
 
 17:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd66e1bdb8e67cb87E.llvm.6550989041561640416.exit"
   %18 = extractvalue { ptr, ptr } %13, 1
   tail call void @_ZN10actix_http10extensions14downcast_owned17h99a2122764affebfE.llvm.6550989041561640416(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %17, %16
+20:                                               ; preds = %17, %16
   ret void
 }
 
@@ -1329,14 +1329,14 @@ define hidden void @_ZN10actix_http10extensions10Extensions6insert17hf86dc6df930
 
 16:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h984d57311f4af5b3E.llvm.6550989041561640416.exit"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %19
+  br label %20
 
 17:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h984d57311f4af5b3E.llvm.6550989041561640416.exit"
   %18 = extractvalue { ptr, ptr } %13, 1
   tail call void @_ZN10actix_http10extensions14downcast_owned17h3ab47093676360b6E.llvm.6550989041561640416(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %17, %16
+20:                                               ; preds = %17, %16
   ret void
 }
 

@@ -64539,8 +64539,8 @@ _ZN4tlog6StreamlsIA45_cEERS0_RKT_.exit:           ; preds = %5
   call void @_ZN4tlog6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #30
   br label %13
 
-common.resume:                                    ; preds = %24, %29, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %29 ], [ %25, %24 ]
+common.resume:                                    ; preds = %24, %30, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %30 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %5
@@ -64573,15 +64573,15 @@ common.resume:                                    ; preds = %24, %29, %11
 24:                                               ; preds = %13
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %27 = atomicrmw add ptr %26, i64 -1 acq_rel, align 8
+  %.not.i.i3.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %27 = atomicrmw add ptr %.not.i.i3.i.i, i64 -1 acq_rel, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %common.resume
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %15, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %15, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
   br label %common.resume
 

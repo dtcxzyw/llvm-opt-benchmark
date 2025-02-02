@@ -1087,7 +1087,7 @@ _ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clear
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nfa.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %call.i91 = invoke noundef i32 @_ZN3ue219remove_leading_dotsERNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560) %39)
-          to label %call.i.noexc unwind label %ehcleanup105.thread
+          to label %call.i.noexc unwind label %lpad67
 
 call.i.noexc:                                     ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
   %46 = getelementptr inbounds nuw i8, ptr %accel_states.i, i64 8
@@ -1715,7 +1715,7 @@ terminate.lpad.i.i29.i:                           ; preds = %_ZN3ue212bytecode_p
 ehcleanup.i:                                      ; preds = %lpad1.body.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad1.body.i ], [ %48, %lpad.i ]
   call void @_ZNSt3setItSt4lessItESaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i) #26, !noalias !41
-  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
+  br label %ehcleanup105
 
 invoke.cont68:                                    ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %accel_states.i)
@@ -1729,16 +1729,16 @@ cleanup.thread:                                   ; preds = %invoke.cont68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit100
 
-ehcleanup105.thread:                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
+lpad67:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
   %127 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
+  br label %ehcleanup105
 
 lpad69:                                           ; preds = %if.end78
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nfa) #26
-  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
+  br label %ehcleanup105
 
 if.end78:                                         ; preds = %invoke.cont68
   %length = getelementptr inbounds nuw i8, ptr %123, i64 4
@@ -1781,8 +1781,8 @@ _ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit100: ; preds = 
   call void %138(ptr noundef nonnull align 8 dereferenceable(560) %39) #26
   br label %return
 
-_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102: ; preds = %lpad69, %ehcleanup.i, %ehcleanup105.thread
-  %.pn124 = phi { ptr, i32 } [ %127, %ehcleanup105.thread ], [ %128, %lpad69 ], [ %.pn.i, %ehcleanup.i ]
+ehcleanup105:                                     ; preds = %lpad69, %ehcleanup.i, %lpad67
+  %.pn = phi { ptr, i32 } [ %127, %lpad67 ], [ %128, %lpad69 ], [ %.pn.i, %ehcleanup.i ]
   %vtable.i.i103 = load ptr, ptr %39, align 8
   %vfn.i.i104 = getelementptr inbounds nuw i8, ptr %vtable.i.i103, i64 8
   %139 = load ptr, ptr %vfn.i.i104, align 8
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
   ret void
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66, %lpad41, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17, %lpad, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
-  %.pn.pn = phi { ptr, i32 } [ %.pn124, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102 ], [ %15, %lpad ], [ %15, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17 ], [ %27, %lpad41 ], [ %27, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102 ], [ %15, %lpad ], [ %15, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17 ], [ %27, %lpad41 ], [ %27, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66 ]
   resume { ptr, i32 } %.pn.pn
 }
 

@@ -1859,7 +1859,7 @@ _ZN12clap_builder7builder12value_parser11ValueParser15possible_values17h7089284e
   %25 = icmp eq ptr %.fca.0.extract, null
   br i1 %25, label %.thread, label %27
 
-26:                                               ; preds = %32, %6
+26:                                               ; preds = %33, %6
   ret void
 
 27:                                               ; preds = %_ZN12clap_builder7builder12value_parser11ValueParser15possible_values17h7089284e75a2055eE.exit
@@ -1870,24 +1870,24 @@ _ZN12clap_builder7builder12value_parser11ValueParser15possible_values17h7089284e
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %28 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  br i1 %28, label %.thread, label %31
+  %29 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %29, label %.thread, label %32
 
 .thread:                                          ; preds = %_ZN12clap_builder7builder12value_parser11ValueParser15possible_values17h7089284e75a2055eE.exit, %27
   store i64 0, ptr %0, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %30, align 8
-  br label %32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %31, align 8
+  br label %33
 
-31:                                               ; preds = %27
+32:                                               ; preds = %27
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %31, %.thread
+33:                                               ; preds = %32, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   br label %26
 }

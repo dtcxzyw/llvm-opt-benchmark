@@ -36014,31 +36014,31 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZNK7oopDesc5klassE
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(464) %.0.i, ptr noundef %22, ptr noundef %2, ptr noundef nonnull %4) #15
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %38
+  br i1 %34, label %35, label %39
 
-.thread:                                          ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  %35 = load ptr, ptr @tty, align 8
-  %36 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i) #15
-  %37 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #15
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @.str.47, ptr noundef %36, ptr noundef %37) #15
+35:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
+  %36 = load ptr, ptr @tty, align 8
+  %37 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i) #15
+  %38 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #15
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.47, ptr noundef %37, ptr noundef %38) #15
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.48, ptr noundef null) #15
   %.sroa.1.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.1.0.copyload.i10 = load i32, ptr %.sroa.1.0..sroa_idx.i9, align 8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #15
   br label %39
 
-38:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
+39:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #15
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %39
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %40
 
-39:                                               ; preds = %.thread, %38
+40:                                               ; preds = %35, %39
   %.sroa.1.0.copyload.i11 = phi i32 [ %.sroa.1.0.copyload.i10, %.thread ], [ %.sroa.1.0.copyload.i, %38 ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #15
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %38, %39
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %39, %40
   %.sroa.1.0.copyload.i12 = phi i32 [ %.sroa.1.0.copyload.i, %38 ], [ %.sroa.1.0.copyload.i11, %39 ]
   ret i32 %.sroa.1.0.copyload.i12
 }

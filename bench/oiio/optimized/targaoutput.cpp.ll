@@ -2672,7 +2672,7 @@ for.body192:                                      ; preds = %for.body192.prehead
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end202, label %for.body192, !llvm.loop !13
 
-if.then.i.i.i151:                                 ; preds = %for.end202
+lpad:                                             ; preds = %for.end202
   %lpad.thr_comm.split-lp170 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %buf183.sroa.0.1) #22
@@ -2680,7 +2680,7 @@ if.then.i.i.i151:                                 ; preds = %for.end202
 
 for.end202:                                       ; preds = %for.body192, %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149
   %call.i153154 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %buf183.sroa.0.1, i64 noundef %conv172, i64 noundef %conv164)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit157 unwind label %if.then.i.i.i151
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit157 unwind label %lpad
 
 _ZNSt6vectorIhSaIhEED2Ev.exit157:                 ; preds = %for.end202
   call void @_ZdlPv(ptr noundef nonnull %buf183.sroa.0.1) #22

@@ -17170,7 +17170,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end77, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %result.061105133 = phi ptr [ %result.061105, %if.end77 ], [ %result.061105132, %if.then.i ], [ %result.061105132, %if.end.i.i ], [ %result.061105132, %if.then1.i.i ]
+  %cmp.not.i32 = phi ptr [ %result.061105, %if.end77 ], [ %result.061105132, %if.then.i ], [ %result.061105132, %if.end.i.i ], [ %result.061105132, %if.then1.i.i ]
   %expt.055107130 = phi ptr [ %expt.055107, %if.end77 ], [ %expt.055107129, %if.then.i ], [ %expt.055107129, %if.end.i.i ], [ %expt.055107129, %if.then1.i.i ]
   %coeff.053108128 = phi ptr [ %coeff.053108, %if.end77 ], [ %coeff.053108127, %if.then.i ], [ %coeff.053108127, %if.end.i.i ], [ %coeff.053108127, %if.then1.i.i ]
   %cmp.not.i32 = icmp eq ptr %coeff.053108128, null

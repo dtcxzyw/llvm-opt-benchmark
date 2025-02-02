@@ -1780,7 +1780,7 @@ if.end373:                                        ; preds = %if.end368
   br i1 %tobool378.not, label %if.then414, label %for.cond381.preheader
 
 for.cond381.preheader:                            ; preds = %if.end373
-  br i1 %cmp16.not, label %if.end415.thread290, label %for.body384.preheader
+  br i1 %cmp16.not, label %for.end410, label %for.body384.preheader
 
 for.body384.preheader:                            ; preds = %for.cond381.preheader
   %smax285 = call i32 @llvm.smax.i32(i32 %num_primes, i32 3)
@@ -1790,7 +1790,7 @@ for.body384.preheader:                            ; preds = %for.cond381.prehead
 for.cond381:                                      ; preds = %lor.lhs.false400
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count286
-  br i1 %exitcond287.not, label %if.end415.thread290, label %for.body384, !llvm.loop !15
+  br i1 %exitcond287.not, label %for.end410, label %for.body384, !llvm.loop !15
 
 for.body384:                                      ; preds = %for.body384.preheader, %for.cond381
   %indvars.iv281 = phi i64 [ 2, %for.body384.preheader ], [ %indvars.iv.next282, %for.cond381 ]
@@ -1821,7 +1821,7 @@ lor.lhs.false400:                                 ; preds = %lor.lhs.false394
   %tobool405.not = icmp eq ptr %call404, null
   br i1 %tobool405.not, label %if.then414, label %for.cond381
 
-if.end415.thread290:                              ; preds = %for.cond381, %for.cond381.preheader
+for.end410:                                       ; preds = %for.cond381, %for.cond381.preheader
   %additional_primes411 = getelementptr inbounds nuw i8, ptr %rsa, i64 72
   store ptr %additional_primes.1289, ptr %additional_primes411, align 8
   br label %if.then418
@@ -1835,7 +1835,7 @@ if.end415:                                        ; preds = %if.then157, %if.the
   %additional_primes.0200 = phi ptr [ %additional_primes.0.ph, %if.then414 ], [ %additional_primes.1289, %if.then157 ]
   br i1 %cmp1, label %if.end419, label %if.then418
 
-if.then418:                                       ; preds = %if.end415.thread290, %if.end415
+if.then418:                                       ; preds = %for.end410, %if.end415
   %ok.1294 = phi i32 [ 1, %if.end415.thread290 ], [ 0, %if.end415 ]
   %additional_primes.0200293 = phi ptr [ null, %if.end415.thread290 ], [ %additional_primes.0200, %if.end415 ]
   call void @BN_CTX_end(ptr noundef nonnull %call) #7

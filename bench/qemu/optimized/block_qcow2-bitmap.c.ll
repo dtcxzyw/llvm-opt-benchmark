@@ -1577,13 +1577,13 @@ do.end41:                                         ; preds = %if.end17, %if.end37
 if.then44:                                        ; preds = %do.end41
   %sub = sub i32 0, %call42
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1494, ptr noundef nonnull @__func__.qcow2_co_remove_persistent_dirty_bitmap, i32 noundef %sub, ptr noundef nonnull @.str.9) #13
-  br label %bitmap_free.exit.thread
+  br label %out.thread
 
 if.end45:                                         ; preds = %do.end41
   tail call fastcc void @free_bitmap_clusters(ptr noundef nonnull %bs, ptr noundef %bm.06.i)
-  br label %bitmap_free.exit.thread
+  br label %out.thread
 
-bitmap_free.exit.thread:                          ; preds = %if.end45, %if.then44
+out.thread:                                       ; preds = %if.end45, %if.then44
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
   %8 = load ptr, ptr %name1.i.le, align 8
   tail call void @g_free(ptr noundef %8) #13
@@ -1594,7 +1594,7 @@ bitmap_free.exit:                                 ; preds = %for.inc.i
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
   br label %while.cond.preheader.i
 
-while.cond.preheader.i:                           ; preds = %bitmap_free.exit, %bitmap_free.exit.thread46, %bitmap_free.exit.thread
+while.cond.preheader.i:                           ; preds = %bitmap_free.exit, %bitmap_free.exit.thread46, %out.thread
   %ret.04042 = phi i32 [ %call42, %bitmap_free.exit.thread ], [ 0, %bitmap_free.exit ], [ 0, %bitmap_free.exit.thread46 ]
   %9 = load ptr, ptr %call, align 8
   %cmp1.not8.i = icmp eq ptr %9, null

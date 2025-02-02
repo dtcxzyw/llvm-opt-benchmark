@@ -2435,9 +2435,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN5folly17ThreadCachedArena7zombifyEONS_8SysArenaE(ptr noundef nonnull align 8 dereferenceable(128) %this.0.val, ptr noundef nonnull align 8 dereferenceable(96) %t)
-          to label %if.end unwind label %_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit
+          to label %if.end unwind label %lpad
 
-_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then
+lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNKSt14default_deleteIN5folly8SysArenaEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %tp, ptr noundef nonnull %t)

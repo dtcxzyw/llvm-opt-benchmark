@@ -845,7 +845,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.thread:                        ; preds = %.lr.ph126
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph126
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
   br label %109
@@ -972,7 +972,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %175 = getelementptr inbounds nuw i8, ptr %164, i64 36
   %176 = load i32, ptr %175, align 4
   invoke void @_ZN2cv8ximgproc10intrinsics6div_1xEPfS2_i(ptr noundef %174, ptr noundef nonnull %.sroa.0.0, i32 noundef %176)
-          to label %177 unwind label %.loopexit.split-lp.thread
+          to label %177 unwind label %.loopexit.split-lp.loopexit
 
 177:                                              ; preds = %.lr.ph126
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1

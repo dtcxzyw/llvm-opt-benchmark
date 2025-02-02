@@ -1429,12 +1429,12 @@ if.then.i17:                                      ; preds = %ehcleanup
 
 cleanup65:                                        ; preds = %if.then.i14, %cleanup64, %invoke.cont
   %retval.0.ph = phi i1 [ %retval.128, %if.then.i14 ], [ %retval.1, %cleanup64 ], [ false, %invoke.cont ]
-  %.pr30 = load ptr, ptr %rsa, align 8
-  %cmp.not.i19 = icmp eq ptr %.pr30, null
+  %.pr24 = load ptr, ptr %rsa, align 8
+  %cmp.not.i19 = icmp eq ptr %.pr24, null
   br i1 %cmp.not.i19, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit, label %if.then.i20
 
 if.then.i20:                                      ; preds = %cleanup65
-  invoke void @RSA_free(ptr noundef nonnull %.pr30)
+  invoke void @RSA_free(ptr noundef nonnull %.pr24)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i20
@@ -1445,8 +1445,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i20
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; preds = %entry, %cleanup65, %if.then.i20
-  %retval.033 = phi i1 [ %retval.0.ph, %cleanup65 ], [ %retval.0.ph, %if.then.i20 ], [ false, %entry ]
-  ret i1 %retval.033
+  %retval.027 = phi i1 [ %retval.0.ph, %cleanup65 ], [ %retval.0.ph, %if.then.i20 ], [ false, %entry ]
+  ret i1 %retval.027
 
 ehcleanup66:                                      ; preds = %if.then.i17, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i17 ]

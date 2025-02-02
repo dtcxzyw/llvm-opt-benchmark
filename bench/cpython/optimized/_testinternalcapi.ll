@@ -4301,7 +4301,7 @@ if.then18:                                        ; preds = %while.end
   br label %if.then.i
 
 if.then.i:                                        ; preds = %while.end, %if.end, %if.then18, %if.then13, %if.then7
-  %ret.0.ph = phi i32 [ 0, %while.end ], [ -1, %if.then18 ], [ -1, %if.then13 ], [ -1, %if.then7 ], [ -1, %if.end ]
+  %ret.042 = phi i32 [ 0, %while.end ], [ -1, %if.then18 ], [ -1, %if.then13 ], [ -1, %if.then7 ], [ -1, %if.end ]
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i2.not.i = icmp eq i64 %4, 0
@@ -4337,8 +4337,8 @@ if.then1.i.i36:                                   ; preds = %if.end.i.i33
   br label %Py_XDECREF.exit37
 
 Py_XDECREF.exit37:                                ; preds = %entry, %Py_XDECREF.exit, %if.then.i31, %if.end.i.i33, %if.then1.i.i36
-  %ret.04347 = phi i32 [ %ret.0.ph, %Py_XDECREF.exit ], [ %ret.0.ph, %if.then.i31 ], [ %ret.0.ph, %if.end.i.i33 ], [ %ret.0.ph, %if.then1.i.i36 ], [ -1, %entry ]
-  ret i32 %ret.04347
+  %ret.04350 = phi i32 [ %ret.042, %Py_XDECREF.exit ], [ %ret.042, %if.then.i31 ], [ %ret.042, %if.end.i.i33 ], [ %ret.042, %if.then1.i.i36 ], [ -1, %entry ]
+  ret i32 %ret.04350
 }
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1

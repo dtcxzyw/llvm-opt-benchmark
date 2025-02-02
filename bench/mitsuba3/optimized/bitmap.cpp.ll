@@ -5374,11 +5374,11 @@ _ZN7mitsuba3refINS_6StructEEaSERKS2_.exit:        ; preds = %_ZNSt3__16vectorINS
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   invoke void @_ZN7mitsuba6Bitmap23set_premultiplied_alphaEb(ptr noundef nonnull align 8 dereferenceable(64) %45, i1 noundef zeroext %55)
-          to label %56 unwind label %.thread
+          to label %56 unwind label %59
 
 56:                                               ; preds = %52
   invoke void @_ZNK7mitsuba6Bitmap8resampleEPS0_PKNS_20ReconstructionFilterIfNS_5ColorIfLm3EEEEERKNSt3__14pairINS_23FilterBoundaryConditionESA_EERKNS9_IffEES1_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %45, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef null)
-          to label %61 unwind label %.thread
+          to label %62 unwind label %59
 
 57:                                               ; preds = %6
   %58 = landingpad { ptr, i32 }
@@ -5387,8 +5387,8 @@ _ZN7mitsuba3refINS_6StructEEaSERKS2_.exit:        ; preds = %_ZNSt3__16vectorINS
   call void @_ZdlPv(ptr noundef nonnull %8) #37
   br label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
 
-.thread:                                          ; preds = %56, %52
-  %lpad.thr_comm = landingpad { ptr, i32 }
+59:                                               ; preds = %56, %52
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %60
 
@@ -5396,18 +5396,18 @@ _ZN7mitsuba3refINS_6StructEEaSERKS2_.exit:        ; preds = %_ZNSt3__16vectorINS
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i13 = icmp eq ptr %45, null
-  br i1 %.not.i13, label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit, label %60
+  br i1 %.not.i13, label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit, label %61
 
-60:                                               ; preds = %.thread, %59
+61:                                               ; preds = %59, %59
   %lpad.phi16 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %59 ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %45, i1 noundef zeroext true) #38
   br label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
 
-61:                                               ; preds = %56
+62:                                               ; preds = %56
   ret void
 
-_ZN7mitsuba3refINS_6BitmapEED2Ev.exit:            ; preds = %60, %59, %57
-  %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.phi16, %60 ]
+_ZN7mitsuba3refINS_6BitmapEED2Ev.exit:            ; preds = %61, %59, %57
+  %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.phi16, %61 ]
   resume { ptr, i32 } %.pn11
 }
 

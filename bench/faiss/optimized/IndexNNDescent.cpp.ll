@@ -171,7 +171,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 18:                                               ; preds = %14
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #18
-          to label %88 unwind label %19
+          to label %89 unwind label %19
 
 19:                                               ; preds = %18, %12, %8
   %20 = landingpad { ptr, i32 }
@@ -216,7 +216,7 @@ define void @_ZN5faiss14IndexNNDescent3addElPKf(ptr noundef nonnull align 8 dere
 
 38:                                               ; preds = %34
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #18
-          to label %88 unwind label %39
+          to label %89 unwind label %39
 
 39:                                               ; preds = %38, %32, %28
   %40 = landingpad { ptr, i32 }
@@ -303,7 +303,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
   invoke void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef nonnull align 8 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, i32 noundef %77, i1 noundef zeroext %80)
-          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17
+          to label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit unwind label %84
 
 _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
   %81 = load ptr, ptr %.0.i, align 8
@@ -312,16 +312,16 @@ _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ;
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #10
   ret void
 
-_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit17: ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %85 = load ptr, ptr %.0.i, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %.not.i15 = load ptr, ptr %.0.i, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.not.i15, i64 40
   %87 = load ptr, ptr %86, align 8
   tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #10
   br label %common.resume
 
-88:                                               ; preds = %38, %18
+89:                                               ; preds = %38, %18
   unreachable
 }
 

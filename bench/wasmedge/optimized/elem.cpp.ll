@@ -1116,8 +1116,8 @@ define void @_ZN8WasmEdge8Executor8Executor9initTableERNS_7Runtime12StackManager
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit
-  %.035 = phi i32 [ %47, %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit ], [ 0, %4 ]
-  %.02334 = phi ptr [ %48, %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit ], [ %9, %4 ]
+  %.035 = phi i32 [ %48, %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit ], [ 0, %4 ]
+  %.02334 = phi ptr [ %49, %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit ], [ %9, %4 ]
   %12 = call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %.035)
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
@@ -1125,7 +1125,7 @@ define void @_ZN8WasmEdge8Executor8Executor9initTableERNS_7Runtime12StackManager
   %15 = load i8, ptr %14, align 8
   switch i8 %15, label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit [
     i8 1, label %16
-    i8 2, label %41
+    i8 2, label %42
   ]
 
 16:                                               ; preds = %.lr.ph
@@ -1134,66 +1134,66 @@ define void @_ZN8WasmEdge8Executor8Executor9initTableERNS_7Runtime12StackManager
   %19 = call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %18)
   %20 = load i32, ptr %12, align 8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %22 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 4
-  %29 = trunc i64 %28 to i32
+  %21 = load ptr, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %24 to i64
+  %25 = ptrtoint ptr %22 to i64
+  %26 = sub i64 %25, %26
+  %27 = ashr exact i64 %27, 4
+  %28 = trunc i64 %28 to i32
   call void @_ZN8WasmEdge7Runtime8Instance13TableInstance7setRefsEN5cxx204spanIKNS_10RefVariantELm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %6, ptr noundef nonnull align 16 dereferenceable(64) %19, ptr %22, i64 %28, i32 noundef %20, i32 noundef 0, i32 noundef %29) #21
   %30 = load i8, ptr %6, align 4
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %37, label %32
+  br i1 %31, label %38, label %32
 
-32:                                               ; preds = %16
+32:; preds = %16
   store i8 43, ptr %7, align 1
-  %33 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  %34 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %33, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %34, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %35 = load i32, ptr %34, align 4, !noalias !16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %36 = load i32, ptr %35, align 4, !noalias !16
   store i8 0, ptr %0, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %35, ptr %36, align 4
-  br label %49
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %36, ptr %37, align 4
+  br label %50
 
-37:                                               ; preds = %16
-  %38 = load ptr, ptr %21, align 8
-  %39 = load ptr, ptr %23, align 8
-  %.not.i.i.i = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i, label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit, label %40
+38:                                               ; preds = %16
+  %39 = load ptr, ptr %21, align 8
+  %40 = load ptr, ptr %23, align 8
+  %.not.i.i.i = icmp eq ptr %40, %39
+  br i1 %.not.i.i.i, label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit, label %41
 
-40:                                               ; preds = %37
-  store ptr %38, ptr %23, align 8
+41:                                               ; preds = %38
+  store ptr %39, ptr %23, align 8
   br label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %.not.i.i.i28 = icmp eq ptr %45, %43
-  br i1 %.not.i.i.i28, label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit, label %46
+42:                                               ; preds = %.lr.ph
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %.not.i.i.i28 = icmp eq ptr %46, %44
+  br i1 %.not.i.i.i28, label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit, label %47
 
-46:                                               ; preds = %41
-  store ptr %43, ptr %44, align 8
+47:                                               ; preds = %42
+  store ptr %44, ptr %45, align 8
   br label %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit
 
-_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit: ; preds = %.lr.ph, %46, %41, %40, %37
-  %47 = add i32 %.035, 1
-  %48 = getelementptr inbounds nuw i8, ptr %.02334, i64 64
-  %.not = icmp eq ptr %48, %11
+_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit: ; preds = %.lr.ph, %47, %42, %41, %38
+  %48 = add i32 %.035, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.02334, i64 64
+  %.not = icmp eq ptr %49, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN8WasmEdge7Runtime8Instance15ElementInstance5clearEv.exit, %4
   store i64 1, ptr %0, align 4
-  br label %49
+  br label %50
 
-49:                                               ; preds = %._crit_edge, %32
+50:                                               ; preds = %._crit_edge, %32
   ret void
 }
 
