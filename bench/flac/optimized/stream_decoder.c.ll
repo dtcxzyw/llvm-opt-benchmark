@@ -684,10 +684,12 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @stdin, align 8
+  %cmp8.i = icmp eq ptr %file, %2
+  %spec.select.i = select i1 %cmp8.i, ptr %2, ptr %file
   %private_.i = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %3 = load ptr, ptr %private_.i, align 8
   %file11.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %file, ptr %file11.i, align 8
+  store ptr %spec.select.i, ptr %file11.i, align 8
   %4 = load ptr, ptr %private_.i, align 8
   %file13.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   %5 = load ptr, ptr %file13.i, align 8
@@ -729,10 +731,12 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @stdin, align 8
+  %cmp8.i = icmp eq ptr %file, %2
+  %spec.select.i = select i1 %cmp8.i, ptr %2, ptr %file
   %private_.i = getelementptr inbounds nuw i8, ptr %decoder, i64 8
   %3 = load ptr, ptr %private_.i, align 8
   %file11.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %file, ptr %file11.i, align 8
+  store ptr %spec.select.i, ptr %file11.i, align 8
   %4 = load ptr, ptr %private_.i, align 8
   %file13.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   %5 = load ptr, ptr %file13.i, align 8

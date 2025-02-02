@@ -8577,8 +8577,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoE
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 134217727
-  %.not85 = icmp eq i32 %80, 0
-  br i1 %.not85, label %.loopexit, label %.lr.ph
+  %.not7285 = icmp eq i32 %80, 0
+  br i1 %.not7285, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70
   %81 = getelementptr inbounds i8, ptr %75, i64 -8
@@ -8670,8 +8670,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_14SSAUpdaterImplINS_10S
 
 132:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_EixEOS3_.exit58
   %133 = load i8, ptr %87, align 8
-  %.not73 = icmp eq i8 %133, 84
-  br i1 %.not73, label %134, label %.loopexit74
+  %.not = icmp eq i8 %133, 84
+  br i1 %.not, label %134, label %.loopexit74
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %87, i64 40
@@ -8734,8 +8734,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit62: ; pre
 
 164:                                              ; preds = %141, %130, %_ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %83
-  br i1 %.not, label %.loopexit, label %84, !llvm.loop !86
+  %.not72 = icmp eq i64 %indvars.iv.next, %83
+  br i1 %.not72, label %.loopexit, label %84, !llvm.loop !86
 
 .loopexit74:                                      ; preds = %.loopexit, %141, %132, %134, %130, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
   %165 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %130 ], [ false, %134 ], [ false, %132 ], [ false, %141 ], [ true, %.loopexit ]

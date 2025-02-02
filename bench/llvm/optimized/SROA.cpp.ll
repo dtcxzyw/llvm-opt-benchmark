@@ -27976,7 +27976,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11IntegerTypeENS_4TypeEEEDaPT0_.exit.i: ; preds = 
   %.not48.i = icmp eq ptr %.087.i, %.033.i
   %or.cond.i = or i1 %.not47.i, %.not48.i
   %spec.select.i = select i1 %or.cond.i, i1 %.03086.i, i1 false
-  %spec.select49.i = select i1 %.not47.i, ptr %.033.i, ptr %.087.i
+  %spec.select49.i = select i1 %or.cond.i, ptr %.033.i, ptr %.087.i
   br label %.thread75.i
 
 .thread75.i:                                      ; preds = %.thread68.i, %81, %_ZN4llvm16dyn_cast_or_nullINS_11IntegerTypeENS_4TypeEEEDaPT0_.exit.i, %73, %69, %67, %_ZN4llvm3isaINS_13IntrinsicInstENS_4UserEEEbRKT0_.exit.thread.i, %_ZN4llvm3isaINS_13IntrinsicInstENS_4UserEEEbRKT0_.exit.i

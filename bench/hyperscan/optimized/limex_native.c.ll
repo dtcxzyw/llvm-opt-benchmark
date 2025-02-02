@@ -1108,7 +1108,7 @@ if.then56.i670.i:                                 ; preds = %if.end53.i667.i
   %cmp60.i678.i = icmp eq ptr %new_cache.i363.sroa.3559.5.i, %add.ptr43.i656.i
   %or.cond659.i = or i1 %tobool58.i672.not.i, %cmp60.i678.i
   %spec.select681.i = zext i1 %or.cond659.i to i32
-  %spec.select682.i = select i1 %tobool58.i672.not.i, ptr %add.ptr43.i656.i, ptr %new_cache.i363.sroa.3559.5.i
+  %spec.select682.i = select i1 %or.cond659.i, ptr %add.ptr43.i656.i, ptr %new_cache.i363.sroa.3559.5.i
   br label %if.end77.i624.i
 
 land.lhs.true71.i650.i:                           ; preds = %if.then35.i640.i
@@ -1526,7 +1526,7 @@ if.then56.i.i:                                    ; preds = %if.end53.i.i
   %cmp60.i.i = icmp eq ptr %new_cache.i461.sroa.3568.5.i, %add.ptr43.i.i
   %or.cond667.i = or i1 %tobool58.i.not.i, %cmp60.i.i
   %spec.select683.i = zext i1 %or.cond667.i to i32
-  %spec.select684.i = select i1 %tobool58.i.not.i, ptr %add.ptr43.i.i, ptr %new_cache.i461.sroa.3568.5.i
+  %spec.select684.i = select i1 %or.cond667.i, ptr %add.ptr43.i.i, ptr %new_cache.i461.sroa.3568.5.i
   br label %if.end77.i.i
 
 land.lhs.true71.i.i:                              ; preds = %if.then35.i.i
@@ -1986,7 +1986,7 @@ if.then56.i809.i:                                 ; preds = %if.end53.i806.i
   %cmp60.i817.i = icmp eq ptr %new_cache.i.sroa.3550.5.i, %add.ptr43.i795.i
   %or.cond677.i = or i1 %tobool58.i811.not.i, %cmp60.i817.i
   %spec.select685.i = zext i1 %or.cond677.i to i32
-  %spec.select686.i = select i1 %tobool58.i811.not.i, ptr %add.ptr43.i795.i, ptr %new_cache.i.sroa.3550.5.i
+  %spec.select686.i = select i1 %or.cond677.i, ptr %add.ptr43.i795.i, ptr %new_cache.i.sroa.3550.5.i
   br label %if.end77.i763.i
 
 land.lhs.true71.i789.i:                           ; preds = %if.then35.i779.i
@@ -6502,7 +6502,7 @@ if.then56.i:                                      ; preds = %if.end53.i
   %cmp60.i = icmp eq ptr %new_cache.i.sroa.3180.3, %add.ptr43.i
   %or.cond = or i1 %tobool58.i.not, %cmp60.i
   %spec.select = zext i1 %or.cond to i32
-  %spec.select205 = select i1 %tobool58.i.not, ptr %add.ptr43.i, ptr %new_cache.i.sroa.3180.3
+  %spec.select205 = select i1 %or.cond, ptr %add.ptr43.i, ptr %new_cache.i.sroa.3180.3
   br label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then56.i, %if.end53.i, %do.body14.i

@@ -3709,10 +3709,12 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @stdout, align 8
+  %cmp6.i = icmp eq ptr %file, %2
+  %spec.select.i = select i1 %cmp6.i, ptr %2, ptr %file
   %private_.i = getelementptr inbounds nuw i8, ptr %encoder, i64 8
   %3 = load ptr, ptr %private_.i, align 8
   %file9.i = getelementptr inbounds nuw i8, ptr %3, i64 2624
-  store ptr %file, ptr %file9.i, align 8
+  store ptr %spec.select.i, ptr %file9.i, align 8
   %4 = load ptr, ptr %private_.i, align 8
   %progress_callback11.i = getelementptr inbounds nuw i8, ptr %4, i64 2600
   store ptr %progress_callback, ptr %progress_callback11.i, align 8
@@ -3774,10 +3776,12 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr @stdout, align 8
+  %cmp6.i = icmp eq ptr %file, %2
+  %spec.select.i = select i1 %cmp6.i, ptr %2, ptr %file
   %private_.i = getelementptr inbounds nuw i8, ptr %encoder, i64 8
   %3 = load ptr, ptr %private_.i, align 8
   %file9.i = getelementptr inbounds nuw i8, ptr %3, i64 2624
-  store ptr %file, ptr %file9.i, align 8
+  store ptr %spec.select.i, ptr %file9.i, align 8
   %4 = load ptr, ptr %private_.i, align 8
   %progress_callback11.i = getelementptr inbounds nuw i8, ptr %4, i64 2600
   store ptr %progress_callback, ptr %progress_callback11.i, align 8

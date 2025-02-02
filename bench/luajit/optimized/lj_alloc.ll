@@ -2132,17 +2132,16 @@ if.end5.i:                                        ; preds = %if.then.i.i, %if.th
   %add7.i157 = add i64 %nb.0, 131136
   %and.i158 = and i64 %add7.i157, -131072
   %cmp8.i = icmp ugt i64 %and.i158, %nb.0
-  br i1 %cmp8.i, label %if.end22.i, label %return
+  br i1 %cmp8.i, label %if.then16.i160, label %return
 
-if.end22.i:                                       ; preds = %if.end5.i
+if.then16.i160:                                   ; preds = %if.end5.i
   %prng.i = getelementptr inbounds nuw i8, ptr %msp, i64 864
   %83 = load ptr, ptr %prng.i, align 8
   %call17.i = tail call fastcc ptr @mmap_probe(ptr noundef %83, i64 noundef %and.i158)
   %cmp18.not.i = icmp eq ptr %call17.i, inttoptr (i64 -1 to ptr)
-  %spec.select.i160 = select i1 %cmp18.not.i, i64 0, i64 %and.i158
   br i1 %cmp18.not.i, label %return, label %if.then25.i
 
-if.then25.i:                                      ; preds = %if.end22.i
+if.then25.i:                                      ; preds = %if.then16.i160
   %seg.i = getelementptr inbounds nuw i8, ptr %msp, i64 840
   br label %land.rhs.i
 
@@ -2171,11 +2170,11 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i
 
 if.then42.i:                                      ; preds = %land.lhs.true.i
   %size.i.le = getelementptr inbounds nuw i8, ptr %sp.0105.i, i64 8
-  %add44.i = add i64 %85, %spec.select.i160
+  %add44.i = add i64 %85, %and.i158
   store i64 %add44.i, ptr %size.i.le, align 8
   %88 = load ptr, ptr %top.i, align 8
   %89 = load i64, ptr %topsize, align 8
-  %add46.i = add i64 %89, %spec.select.i160
+  %add46.i = add i64 %89, %and.i158
   %add.ptr.i56.i = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = ptrtoint ptr %add.ptr.i56.i to i64
   %sub.i57.i = sub i64 0, %90
@@ -2195,7 +2194,7 @@ if.then42.i:                                      ; preds = %land.lhs.true.i
   br label %if.end70.i
 
 if.else.i164:                                     ; preds = %while.body.i162, %land.lhs.true.i
-  %add.ptr53.i = getelementptr inbounds i8, ptr %call17.i, i64 %spec.select.i160
+  %add.ptr53.i = getelementptr inbounds i8, ptr %call17.i, i64 %and.i158
   br label %land.rhs51.i
 
 land.rhs51.i:                                     ; preds = %while.body57.i, %if.else.i164
@@ -2214,7 +2213,7 @@ if.then62.i168:                                   ; preds = %land.rhs51.i
   store ptr %call17.i, ptr %sp.1106.i, align 8
   %size65.i = getelementptr inbounds nuw i8, ptr %sp.1106.i, i64 8
   %93 = load i64, ptr %size65.i, align 8
-  %add66.i = add i64 %93, %spec.select.i160
+  %add66.i = add i64 %93, %and.i158
   store i64 %add66.i, ptr %size65.i, align 8
   %add.ptr.i60.i = getelementptr inbounds nuw i8, ptr %call17.i, i64 16
   %94 = ptrtoint ptr %add.ptr.i60.i to i64
@@ -2641,7 +2640,7 @@ segment_holding.exit.i.i:                         ; preds = %land.lhs.true.i.i.i
   %cond13.i.i = select i1 %cmp9.i.i, ptr %128, ptr %add.ptr7.i.i
   %add.ptr14.i.i = getelementptr inbounds nuw i8, ptr %cond13.i.i, i64 16
   %add.ptr15.i71.i = getelementptr inbounds nuw i8, ptr %cond13.i.i, i64 32
-  %sub16.i.i = add i64 %spec.select.i160, -64
+  %sub16.i.i = add i64 %and.i158, -64
   %add.ptr.i92.i.i = getelementptr inbounds nuw i8, ptr %call17.i, i64 16
   %133 = ptrtoint ptr %add.ptr.i92.i.i to i64
   %sub.i.i.i = sub i64 0, %133
@@ -2663,7 +2662,7 @@ segment_holding.exit.i.i:                         ; preds = %land.lhs.true.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %seg.i, i64 24, i1 false)
   store ptr %call17.i, ptr %seg.i, align 8
   %size21.i.i = getelementptr inbounds nuw i8, ptr %msp, i64 848
-  store i64 %spec.select.i160, ptr %size21.i.i, align 8
+  store i64 %and.i158, ptr %size21.i.i, align 8
   %next.i.i = getelementptr inbounds nuw i8, ptr %msp, i64 856
   store ptr %add.ptr14.i.i, ptr %next.i.i, align 8
   br label %for.cond.i73.i
@@ -2855,8 +2854,8 @@ if.then74.i:                                      ; preds = %if.end70.i
   %add.ptr83.i = getelementptr inbounds nuw i8, ptr %145, i64 16
   br label %return
 
-return:                                           ; preds = %if.then74.i, %if.end70.i, %prepend_alloc.exit.i, %if.end22.i, %if.end5.i, %direct_alloc.exit.i, %tmalloc_large.exit, %tmalloc_small.exit, %if.then68, %if.end110, %if.then182, %if.end177, %if.end
-  %retval.0 = phi ptr [ %fd9, %if.end ], [ %add.ptr178, %if.end177 ], [ %add.ptr195, %if.then182 ], [ %fd52, %if.end110 ], [ %fd52, %if.then68 ], [ %add.ptr135.i, %tmalloc_small.exit ], [ %add.ptr313.i, %tmalloc_large.exit ], [ %add.ptr83.i, %if.then74.i ], [ %add.ptr237.i.i, %prepend_alloc.exit.i ], [ %add.ptr22.i.i, %direct_alloc.exit.i ], [ null, %if.end70.i ], [ null, %if.end22.i ], [ null, %if.end5.i ]
+return:                                           ; preds = %if.then74.i, %if.end70.i, %prepend_alloc.exit.i, %if.then16.i160, %if.end5.i, %direct_alloc.exit.i, %tmalloc_large.exit, %tmalloc_small.exit, %if.then68, %if.end110, %if.then182, %if.end177, %if.end
+  %retval.0 = phi ptr [ %fd9, %if.end ], [ %add.ptr178, %if.end177 ], [ %add.ptr195, %if.then182 ], [ %fd52, %if.end110 ], [ %fd52, %if.then68 ], [ %add.ptr135.i, %tmalloc_small.exit ], [ %add.ptr313.i, %tmalloc_large.exit ], [ %add.ptr83.i, %if.then74.i ], [ %add.ptr237.i.i, %prepend_alloc.exit.i ], [ %add.ptr22.i.i, %direct_alloc.exit.i ], [ null, %if.end70.i ], [ null, %if.end5.i ], [ null, %if.then16.i160 ]
   ret ptr %retval.0
 }
 

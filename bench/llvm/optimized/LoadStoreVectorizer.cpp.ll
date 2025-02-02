@@ -1562,8 +1562,8 @@ _ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionE
   %429 = zext i32 %.027.us14.i.i.i.i.i.i.i to i64
   %430 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sroa.072.1.i, i64 %429
   %431 = load ptr, ptr %430, align 8, !noalias !27
-  %magicptr54.i.i.i.i.i.i.i = ptrtoint ptr %431 to i64
-  switch i64 %magicptr54.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i.i.i.i.i.i [
+  %magicptr55.i.i.i.i.i.i.i = ptrtoint ptr %431 to i64
+  switch i64 %magicptr55.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i.i.i.i.i.i [
     i64 -8192, label %_ZN4llvm6detail12DenseSetImplIPZN12_GLOBAL__N_110Vectorizer12gatherChainsENS_8ArrayRefIPNS_11InstructionEEEE13InstrListElemNS_8DenseMapIS9_NS0_13DenseSetEmptyEZNS3_12gatherChainsES7_E25InstrListElemDenseMapInfoNS0_12DenseSetPairIS9_EEEESC_E6insertERKS9_.exit.i.i.i
     i64 -4096, label %.split8.us.i.i.i.i.i.i.i.loopexit189
   ]
@@ -1791,8 +1791,8 @@ _ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionE
   %517 = zext i32 %.027.us14.i.i.i.i.i.i.i.i.i to i64
   %518 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %469, i64 %517
   %519 = load ptr, ptr %518, align 8, !noalias !27
-  %magicptr54.i.i.i.i.i.i.i.i.i = ptrtoint ptr %519 to i64
-  switch i64 %magicptr54.i.i.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i.i.i.i.i.i.i.i [
+  %magicptr55.i.i.i.i.i.i.i.i.i = ptrtoint ptr %519 to i64
+  switch i64 %magicptr55.i.i.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i.i.i.i.i.i.i.i [
     i64 -8192, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPZN12_GLOBAL__N_110Vectorizer12gatherChainsENS_8ArrayRefIPNS_11InstructionEEEE13InstrListElemNS_6detail13DenseSetEmptyEZNS3_12gatherChainsES7_E25InstrListElemDenseMapInfoNSA_12DenseSetPairIS9_EEEES9_SB_SC_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i.i.i.i.i.i.loopexit186
     i64 -4096, label %.split8.us.i.i.i.i.i.i.i.i.i.loopexit187
   ]
@@ -2019,8 +2019,8 @@ _ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionE
   %604 = zext i32 %.027.us14.i.i26.i.i.i.i.i.i.i to i64
   %605 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %556, i64 %604
   %606 = load ptr, ptr %605, align 8, !noalias !27
-  %magicptr54.i.i27.i.i.i.i.i.i.i = ptrtoint ptr %606 to i64
-  switch i64 %magicptr54.i.i27.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i36.i.i.i.i.i.i.i [
+  %magicptr55.i.i27.i.i.i.i.i.i.i = ptrtoint ptr %606 to i64
+  switch i64 %magicptr55.i.i27.i.i.i.i.i.i.i, label %_ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionEEEEN25InstrListElemDenseMapInfo7isEqualEPKZNS0_12gatherChainsES5_E13InstrListElemS9_.exit43.us17.i.i36.i.i.i.i.i.i.i [
     i64 -8192, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPZN12_GLOBAL__N_110Vectorizer12gatherChainsENS_8ArrayRefIPNS_11InstructionEEEE13InstrListElemNS_6detail13DenseSetEmptyEZNS3_12gatherChainsES7_E25InstrListElemDenseMapInfoNSA_12DenseSetPairIS9_EEEES9_SB_SC_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.i.i.i.i.i.i.loopexit
     i64 -4096, label %.split8.us.i.i29.i.i.i.i.i.i.i.loopexit183
   ]

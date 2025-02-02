@@ -2528,7 +2528,9 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit:    ; preds = %82, %_ZN10Type_Arra
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef ptr @_ZN8NodeHash16hash_find_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull %.029.lcssa)
   %.not35 = icmp eq ptr %138, null
-  %spec.select = select i1 %.not35, ptr %.029.lcssa, ptr %138
+  %.not36 = icmp eq ptr %138, %.029.lcssa
+  %or.cond = or i1 %.not35, %.not36
+  %spec.select = select i1 %or.cond, ptr %.029.lcssa, ptr %138
   br label %139
 
 139:                                              ; preds = %135, %130, %128
