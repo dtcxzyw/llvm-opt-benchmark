@@ -37717,7 +37717,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit114: ; preds = %.critedge2, %65
   %66 = icmp ne ptr %2, %.092
   %67 = and i1 %66, %63
-  %spec.select = select i1 %63, ptr %.092, ptr %2
+  %spec.select = select i1 %67, ptr %.092, ptr %2
   store ptr null, ptr %38, align 8
   %68 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE10match_implINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %3)
   %69 = load ptr, ptr %38, align 8
@@ -37732,7 +37732,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit117: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit114, %70
   %71 = icmp ne ptr %3, %.092
   %72 = and i1 %71, %68
-  %spec.select316 = select i1 %68, ptr %.092, ptr %3
+  %spec.select316 = select i1 %72, ptr %.092, ptr %3
   %spec.select317 = or i1 %67, %72
   %73 = xor i1 %spec.select317, true
   br label %.critedge2.thread

@@ -5557,9 +5557,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   %66 = add i64 %65, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %66) #12
   %67 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
-  br i1 %67, label %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread, label %.lr.ph88
+  br i1 %67, label %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread, label %.lr.ph89
 
-.lr.ph88:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
+.lr.ph89:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %70
 
@@ -5567,7 +5567,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   %69 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   br i1 %69, label %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread, label %70, !llvm.loop !77
 
-70:                                               ; preds = %.lr.ph88, %.loopexit
+70:                                               ; preds = %.lr.ph89, %.loopexit
   %71 = load ptr, ptr %4, align 8
   %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %73 = getelementptr inbounds ptr, ptr %71, i64 %72
@@ -5579,20 +5579,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %79 = load i24, ptr %78, align 8
   %80 = zext i24 %79 to i32
-  %.not86 = icmp eq i24 %79, 1
-  br i1 %.not86, label %.loopexit, label %.lr.ph
+  %.not7687 = icmp eq i24 %79, 1
+  br i1 %.not7687, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 32
   br label %82
 
 82:                                               ; preds = %.lr.ph, %167
-  %.sroa.3.087 = phi i32 [ 1, %.lr.ph ], [ %168, %167 ]
+  %.sroa.3.088 = phi i32 [ 1, %.lr.ph ], [ %168, %167 ]
   %83 = load ptr, ptr %81, align 8
-  %84 = zext i32 %.sroa.3.087 to i64
+  %84 = zext i32 %.sroa.3.088 to i64
   %85 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %83, i64 %84, i32 1
   %86 = load i32, ptr %85, align 4
-  %87 = add i32 %.sroa.3.087, 1
+  %87 = add i32 %.sroa.3.088, 1
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %83, i64 %88, i32 3
   %90 = load ptr, ptr %89, align 8
@@ -5744,9 +5744,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit61:
   br label %167
 
 167:                                              ; preds = %144, %128, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit61
-  %168 = add i32 %.sroa.3.087, 2
-  %.not = icmp eq i32 %168, %80
-  br i1 %.not, label %.loopexit, label %82, !llvm.loop !78
+  %168 = add i32 %.sroa.3.088, 2
+  %.not76 = icmp eq i32 %168, %80
+  br i1 %.not76, label %.loopexit, label %82, !llvm.loop !78
 
 _ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit.thread: ; preds = %.loopexit, %135, %130, %144, %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit, %128, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
   %169 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %128 ], [ false, %_ZN4llvm16SSAUpdaterTraitsINS_17MachineSSAUpdaterEE10ValueIsPHIENS_8RegisterEPS1_.exit ], [ false, %144 ], [ false, %130 ], [ false, %135 ], [ true, %.loopexit ]

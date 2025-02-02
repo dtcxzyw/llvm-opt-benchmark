@@ -5639,9 +5639,12 @@ invoke.cont5:                                     ; preds = %invoke.cont.i.i, %i
   %tobool = trunc i8 %14 to i1
   %d_false = getelementptr inbounds nuw i8, ptr %this, i64 264
   %15 = load ptr, ptr %d_false, align 8
-  %cmp.i = icmp eq ptr %1, %15
-  %or.cond.not = select i1 %tobool, i1 true, i1 %cmp.i
-  %conclusionPrint.sroa.0.0 = select i1 %or.cond.not, ptr %1, ptr %12
+  %cmp.i = icmp ne ptr %1, %15
+  %not.tobool = xor i1 %tobool, true
+  %or.cond = select i1 %not.tobool, i1 %cmp.i, i1 false
+  %cmp.not.i = icmp eq ptr %12, %1
+  %or.cond228 = select i1 %or.cond, i1 true, i1 %cmp.not.i
+  %conclusionPrint.sroa.0.0 = select i1 %or.cond228, ptr %12, ptr %1
   %call13 = call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
   %call15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, i8 0, i64 24, i1 false)

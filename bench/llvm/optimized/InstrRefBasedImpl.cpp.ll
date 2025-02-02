@@ -43481,11 +43481,11 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE15FindSingularValEPNS3_
   %.val.i62.i = load ptr, ptr %1465, align 8
   %1466 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1465) #21
   %1467 = getelementptr inbounds %"class.(anonymous namespace)::LDVSSAPhi", ptr %.val.i62.i, i64 %1466
-  %.not48.i.i = icmp eq i64 %1466, 0
-  br i1 %.not48.i.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
+  %.not47.i.i = icmp eq i64 %1466, 0
+  br i1 %.not47.i.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
 
-.lr.ph.i63.i:                                     ; preds = %.loopexit.i122, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i
-  %.049.i.i = phi ptr [ %1771, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i ], [ %.val.i62.i, %.loopexit.i122 ]
+.lr.ph.i63.i:                                     ; preds = %.loopexit.i122, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i
+  %.048.i.i = phi ptr [ %1771, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i ], [ %.val.i62.i, %.loopexit.i122 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull %1402, i64 noundef range(i64 8, 21) 20) #21
@@ -43503,12 +43503,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_19LDVSSAPhiELb1EE9push_backES3_
   %.val.i.i.i.i.i = load ptr, ptr %5, align 8
   %1472 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   %1473 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i, i64 %1472
-  %1474 = ptrtoint ptr %.049.i.i to i64
+  %1474 = ptrtoint ptr %.048.i.i to i64
   store i64 %1474, ptr %1473, align 1
   %1475 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   %1476 = add i64 %1475, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %1476) #21
-  %1477 = getelementptr i8, ptr %.049.i.i, i64 80
+  %1477 = getelementptr i8, ptr %.048.i.i, i64 80
   %.val42.i.i.i = load ptr, ptr %1477, align 8
   store ptr %.val42.i.i.i, ptr %6, align 8
   %.val.i.i54.i.i.i = load ptr, ptr %43, align 8
@@ -43571,7 +43571,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdat
   %1506 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   %1507 = load ptr, ptr %1506, align 8
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 56
-  store ptr %.049.i.i, ptr %1508, align 8
+  store ptr %.048.i.i, ptr %1508, align 8
   %1509 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %1510 = add i64 %1509, 1
   %1511 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
@@ -43592,13 +43592,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUp
   %1517 = add i64 %1516, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %1517) #21
   %1518 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  br i1 %1518, label %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.thread.i.i.i, label %.lr.ph107.i.i.i
+  br i1 %1518, label %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.thread.i.i.i, label %.lr.ph108.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %1686, %.lr.ph107.i.i.i
+.loopexit.i.i.i:                                  ; preds = %1686, %.lr.ph108.i.i.i
   %1519 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  br i1 %1519, label %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.thread.i.i.i, label %.lr.ph107.i.i.i, !llvm.loop !701
+  br i1 %1519, label %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.thread.i.i.i, label %.lr.ph108.i.i.i, !llvm.loop !701
 
-.lr.ph107.i.i.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE6BBInfoELb1EE9push_backES6_.exit.i.i.i, %.loopexit.i.i.i
+.lr.ph108.i.i.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE6BBInfoELb1EE9push_backES6_.exit.i.i.i, %.loopexit.i.i.i
   %.val.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %1520 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   %1521 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i.i, i64 %1520
@@ -43609,11 +43609,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUp
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %1525) #21
   %1526 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1523) #21
   %1527 = and i64 %1526, 4294967295
-  %.not105.i.i.i = icmp eq i64 %1527, 0
-  br i1 %.not105.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i123
+  %.not92106.i.i.i = icmp eq i64 %1527, 0
+  br i1 %.not92106.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i123
 
-.lr.ph.i.i.i123:                                  ; preds = %.lr.ph107.i.i.i, %1686
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1686 ], [ 0, %.lr.ph107.i.i.i ]
+.lr.ph.i.i.i123:                                  ; preds = %.lr.ph108.i.i.i, %1686
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1686 ], [ 0, %.lr.ph108.i.i.i ]
   %.val46.val.i.i.i = load ptr, ptr %1523, align 8
   %1528 = getelementptr inbounds nuw %"struct.std::pair.925", ptr %.val46.val.i.i.i, i64 %indvars.iv.i.i.i, i32 1
   %1529 = load i64, ptr %1528, align 8
@@ -43925,8 +43925,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_19LDVSSAPhiELb1EE9push_backES3_
 
 1686:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_19LDVSSAPhiELb1EE9push_backES3_.exit82.i.i.i, %1665, %1631
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %.not.i.i.i146 = icmp eq i64 %indvars.iv.next.i.i.i, %1527
-  br i1 %.not.i.i.i146, label %.loopexit.i.i.i, label %.lr.ph.i.i.i123, !llvm.loop !703
+  %.not92.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %1527
+  br i1 %.not92.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i123, !llvm.loop !703
 
 _ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.thread.i.i.i: ; preds = %.loopexit.i.i.i, %1665, %1659, %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.i.i.i, %1633, %1631, %.lr.ph.i.i.i.i75.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE6BBInfoELb1EE9push_backES6_.exit.i.i.i
   %1687 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE6BBInfoELb1EE9push_backES6_.exit.i.i.i ], [ false, %.lr.ph.i.i.i.i75.i.i.i ], [ false, %1631 ], [ false, %1633 ], [ false, %_ZN4llvm16SSAUpdaterTraitsIN12_GLOBAL__N_113LDVSSAUpdaterEE10ValueIsPHIEmPS2_.exit.i.i.i ], [ false, %1659 ], [ false, %1665 ], [ true, %.loopexit.i.i.i ]
@@ -43957,7 +43957,7 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS
   %1695 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %1696 = getelementptr inbounds ptr, ptr %.val.i.i83.i.i.i, i64 %1695
   %.not8.i.i.i.i.i124 = icmp eq i64 %1695, 0
-  br i1 %.not8.i.i.i.i.i124, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i, label %.lr.ph.i.i.i.i.i125
+  br i1 %.not8.i.i.i.i.i124, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i, label %.lr.ph.i.i.i.i.i125
 
 .lr.ph.i.i.i.i.i125:                              ; preds = %1694, %.lr.ph.i.i.i.i.i125
   %.09.i.i.i.i.i126 = phi ptr [ %1699, %.lr.ph.i.i.i.i.i125 ], [ %.val.i.i83.i.i.i, %1694 ]
@@ -43966,7 +43966,7 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS
   store ptr null, ptr %1698, align 8
   %1699 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i126, i64 8
   %.not.i.i.i.i.i127 = icmp eq ptr %1699, %1696
-  br i1 %.not.i.i.i.i.i127, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i, label %.lr.ph.i.i.i.i.i125
+  br i1 %.not.i.i.i.i.i127, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i, label %.lr.ph.i.i.i.i.i125
 
 .lr.ph.i11.i.i:                                   ; preds = %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread.i.i, %1768
   %.037.i.i.i = phi ptr [ %1769, %1768 ], [ %.val.i10.i.i, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread.i.i ]
@@ -44013,8 +44013,8 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS
   br i1 %1722, label %1723, label %1725
 
 1723:                                             ; preds = %.lr.ph.i.i.i.i.i15.i.i
-  %.not.i.i.i.i.i25.i.i = icmp eq ptr %.0286.i.i.i.i.i18.i.i, null
-  %1724 = select i1 %.not.i.i.i.i.i25.i.i, ptr %1721, ptr %.0286.i.i.i.i.i18.i.i
+  %.not.i.i.i.i.i24.i.i = icmp eq ptr %.0286.i.i.i.i.i18.i.i, null
+  %1724 = select i1 %.not.i.i.i.i.i24.i.i, ptr %1721, ptr %.0286.i.i.i.i.i18.i.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i
 
 1725:                                             ; preds = %.lr.ph.i.i.i.i.i15.i.i
@@ -44032,8 +44032,8 @@ _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS
   br i1 %1733, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i15.i.i, !llvm.loop !656
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i: ; preds = %1723, %1703
-  %.sink.i.i.i.i.i26.i.i = phi ptr [ %1724, %1723 ], [ null, %1703 ]
-  %1734 = call fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %1706, ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i26.i.i)
+  %.sink.i.i.i.i.i25.i.i = phi ptr [ %1724, %1723 ], [ null, %1703 ]
+  %1734 = call fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %1706, ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i.i25.i.i)
   store ptr %.val13.i.i.i, ptr %1734, align 8
   %1735 = getelementptr inbounds nuw i8, ptr %1734, i64 8
   store i64 0, ptr %1735, align 8
@@ -44046,7 +44046,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMap
   %.val.i.i15.i.i.i = load ptr, ptr %43, align 8
   %.val4.i.i16.i.i.i = load i32, ptr %44, align 8
   %1737 = icmp eq i32 %.val4.i.i16.i.i.i, 0
-  br i1 %1737, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i24.i.i, label %1738
+  br i1 %1737, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i23.i.i, label %1738
 
 1738:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i.i
   %1739 = ptrtoint ptr %.val13.i.i.i to i64
@@ -44074,7 +44074,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMap
 1752:                                             ; preds = %.lr.ph.i.i.i.i19.i.i.i
   %.not.i.i.i.i27.i.i.i = icmp eq ptr %.0286.i.i.i.i22.i.i.i, null
   %1753 = select i1 %.not.i.i.i.i27.i.i.i, ptr %1750, ptr %.0286.i.i.i.i22.i.i.i
-  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i24.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i23.i.i
 
 1754:                                             ; preds = %.lr.ph.i.i.i.i19.i.i.i
   %1755 = icmp eq ptr %1749, inttoptr (i64 -8192 to ptr)
@@ -44090,7 +44090,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMap
   %1762 = icmp eq ptr %.val13.i.i.i, %1761
   br i1 %1762, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit.i.i.i, label %.lr.ph.i.i.i.i19.i.i.i, !llvm.loop !671
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i24.i.i: ; preds = %1752, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i.i
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i23.i.i: ; preds = %1752, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i.i
   %.sink.i.i.i.i28.i.i.i = phi ptr [ %1753, %1752 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i.i ]
   %1763 = call fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E20InsertIntoBucketImplIS4_EEPSE_RKS4_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i28.i.i.i)
   store ptr %.val13.i.i.i, ptr %1763, align 8
@@ -44098,8 +44098,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdat
   store ptr null, ptr %1764, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit.i.i.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit.i.i.i: ; preds = %1754, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i24.i.i, %1738
-  %.0.i.i26.i.i.i = phi ptr [ %1763, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i24.i.i ], [ %1746, %1738 ], [ %1760, %1754 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit.i.i.i: ; preds = %1754, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i23.i.i, %1738
+  %.0.i.i26.i.i.i = phi ptr [ %1763, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i.i23.i.i ], [ %1746, %1738 ], [ %1760, %1754 ]
   %1765 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.i.i, i64 8
   %1766 = load ptr, ptr %1765, align 8
   %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 8
@@ -44108,23 +44108,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdat
 
 1768:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEPNS_14SSAUpdaterImplINS2_13LDVSSAUpdaterEE6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit.i.i.i, %.lr.ph.i11.i.i
   %1769 = getelementptr inbounds nuw i8, ptr %.037.i.i.i, i64 8
-  %.not.i23.i.i = icmp eq ptr %1769, %1693
-  br i1 %.not.i23.i.i, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE18RecordMatchingPHIsEPNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.i.i, label %.lr.ph.i11.i.i, !llvm.loop !704
+  %.not.i.i.i146 = icmp eq ptr %1769, %1693
+  br i1 %.not.i.i.i146, label %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE18RecordMatchingPHIsEPNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.i.i, label %.lr.ph.i11.i.i, !llvm.loop !704
 
 _ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE18RecordMatchingPHIsEPNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.i.i: ; preds = %1768, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit.i.i128
 
-_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i: ; preds = %.lr.ph.i.i.i.i.i125, %1694
+_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i: ; preds = %.lr.ph.i.i.i.i.i125, %1694
   %1770 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   store i32 0, ptr %1403, align 8
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %1771 = getelementptr inbounds nuw i8, ptr %.049.i.i, i64 96
+  %1771 = getelementptr inbounds nuw i8, ptr %.048.i.i, i64 96
   %.not.i65.i = icmp eq ptr %1771, %1467
   br i1 %.not.i65.i, label %.loopexit.i.i128, label %.lr.ph.i63.i
 
-.loopexit.i.i128:                                 ; preds = %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread27.i.i, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE18RecordMatchingPHIsEPNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.i.i, %.loopexit.i122
+.loopexit.i.i128:                                 ; preds = %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE17CheckIfPHIMatchesEPNS1_9LDVSSAPhiERNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.thread26.i.i, %_ZN4llvm14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE18RecordMatchingPHIsEPNS_15SmallVectorImplIPNS3_6BBInfoEEE.exit.i.i, %.loopexit.i122
   %1772 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #21
   %1773 = load ptr, ptr %7, align 8
   %1774 = icmp eq ptr %1773, %1401

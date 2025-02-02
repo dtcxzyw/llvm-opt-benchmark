@@ -1246,7 +1246,7 @@ if.then56.i775.i:                                 ; preds = %if.end53.i772.i
   %cmp60.i783.i = icmp eq ptr %new_cache.i378.sroa.3595.6.i, %add.ptr43.i761.i
   %or.cond692.i = or i1 %tobool58.i777.not.i, %cmp60.i783.i
   %spec.select714.i = zext i1 %or.cond692.i to i32
-  %spec.select715.i = select i1 %tobool58.i777.not.i, ptr %add.ptr43.i761.i, ptr %new_cache.i378.sroa.3595.6.i
+  %spec.select715.i = select i1 %or.cond692.i, ptr %add.ptr43.i761.i, ptr %new_cache.i378.sroa.3595.6.i
   br label %if.end77.i729.i
 
 land.lhs.true71.i755.i:                           ; preds = %if.then35.i745.i
@@ -1680,7 +1680,7 @@ if.then56.i668.i:                                 ; preds = %if.end53.i.i
   %cmp60.i.i = icmp eq ptr %new_cache.i515.sroa.3604.6.i, %add.ptr43.i.i
   %or.cond700.i = or i1 %tobool58.i669.not.i, %cmp60.i.i
   %spec.select716.i = zext i1 %or.cond700.i to i32
-  %spec.select717.i = select i1 %tobool58.i669.not.i, ptr %add.ptr43.i.i, ptr %new_cache.i515.sroa.3604.6.i
+  %spec.select717.i = select i1 %or.cond700.i, ptr %add.ptr43.i.i, ptr %new_cache.i515.sroa.3604.6.i
   br label %if.end77.i.i
 
 land.lhs.true71.i.i:                              ; preds = %if.then35.i.i
@@ -2156,7 +2156,7 @@ if.then56.i914.i:                                 ; preds = %if.end53.i911.i
   %cmp60.i922.i = icmp eq ptr %new_cache.i.sroa.3586.6.i, %add.ptr43.i900.i
   %or.cond710.i = or i1 %tobool58.i916.not.i, %cmp60.i922.i
   %spec.select718.i = zext i1 %or.cond710.i to i32
-  %spec.select719.i = select i1 %tobool58.i916.not.i, ptr %add.ptr43.i900.i, ptr %new_cache.i.sroa.3586.6.i
+  %spec.select719.i = select i1 %or.cond710.i, ptr %add.ptr43.i900.i, ptr %new_cache.i.sroa.3586.6.i
   br label %if.end77.i868.i
 
 land.lhs.true71.i894.i:                           ; preds = %if.then35.i884.i
@@ -6804,7 +6804,7 @@ if.then56.i158:                                   ; preds = %if.end53.i
   %cmp60.i = icmp eq ptr %new_cache.i.sroa.3192.4, %add.ptr43.i
   %or.cond = or i1 %tobool58.i159.not, %cmp60.i
   %spec.select = zext i1 %or.cond to i32
-  %spec.select216 = select i1 %tobool58.i159.not, ptr %add.ptr43.i, ptr %new_cache.i.sroa.3192.4
+  %spec.select216 = select i1 %or.cond, ptr %add.ptr43.i, ptr %new_cache.i.sroa.3192.4
   br label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then56.i158, %if.end53.i, %do.body28.i

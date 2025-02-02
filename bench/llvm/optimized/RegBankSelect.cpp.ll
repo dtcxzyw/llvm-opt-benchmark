@@ -4248,7 +4248,7 @@ define linkonce_odr hidden ptr @_ZN4llvm13RegBankSelect16InstrInsertPoint12getPo
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  br i1 %4, label %13, label %7
+  br i1 %4, label %14, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -4256,11 +4256,13 @@ define linkonce_odr hidden ptr @_ZN4llvm13RegBankSelect16InstrInsertPoint12getPo
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %13 = icmp eq ptr %11, %12
   %.not2 = icmp eq ptr %11, null
-  %spec.select = select i1 %.not2, ptr %12, ptr %11
-  br label %13
+  %.not = or i1 %13, %.not2
+  %spec.select = select i1 %.not, ptr %12, ptr %11
+  br label %14
 
-13:                                               ; preds = %1, %7
+14:                                               ; preds = %1, %7
   %.sroa.0.0 = phi ptr [ %spec.select, %7 ], [ %6, %1 ]
   ret ptr %.sroa.0.0
 }
