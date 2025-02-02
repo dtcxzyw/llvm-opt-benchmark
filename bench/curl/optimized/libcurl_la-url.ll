@@ -1989,7 +1989,7 @@ if.then103.i.i:                                   ; preds = %if.end97.i.i
   %76 = load ptr, ptr %up1.i.i.i, align 8
   %call107.i.i = call i32 @curl_strequal(ptr noundef nonnull @.str.14, ptr noundef %76) #11
   %tobool108.not.i.i = icmp eq i32 %call107.i.i, 0
-  br i1 %tobool108.not.i.i, label %parseurlandfillconn.exit.thread.i, label %if.end118.i.i
+  br i1 %tobool108.not.i.i, label %parseurlandfillconn.exit.thread.i, label %if.end118thread-pre-split.i.i
 
 if.else111.i.i:                                   ; preds = %if.end97.i.i
   %77 = load ptr, ptr %hostname.i.i.i, align 8
@@ -2001,7 +2001,7 @@ if.then116.i.i:                                   ; preds = %if.else111.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.15, i32 noundef 65535) #11
   br label %parseurlandfillconn.exit.thread.i
 
-if.end118.i.i:                                    ; preds = %if.then103.i.i
+if.end118thread-pre-split.i.i:                    ; preds = %if.then103.i.i
   %.pr.i.i = load ptr, ptr %hostname.i.i.i, align 8
   %tobool122.not.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool122.not.i.i, label %if.end133.i.i, label %land.lhs.true123.i.i

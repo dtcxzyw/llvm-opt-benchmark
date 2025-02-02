@@ -1361,13 +1361,13 @@ _ZL19jose_header_destroyP11jose_header.exit:      ; preds = %_ZN9grpc_core11CSli
   %http_request.i = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %15 = load ptr, ptr %http_request.i, align 8
   %cmp.not.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i, label %delete.end, label %if.then.i.i25
+  br i1 %cmp.not.i.i, label %_ZN15verifier_cb_ctxD2Ev.exit, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZL19jose_header_destroyP11jose_header.exit
   %vtable.i.i.i = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %vtable.i.i.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(5288) %15)
-          to label %delete.end unwind label %terminate.lpad.i.i
+          to label %_ZN15verifier_cb_ctxD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i25
   %17 = landingpad { ptr, i32 }
@@ -1376,7 +1376,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i25
   call void @__clang_call_terminate(ptr %18) #25
   unreachable
 
-delete.end:                                       ; preds = %if.then.i.i25, %_ZL19jose_header_destroyP11jose_header.exit
+_ZN15verifier_cb_ctxD2Ev.exit:                    ; preds = %if.then.i.i25, %_ZL19jose_header_destroyP11jose_header.exit
   call void @_ZdlPv(ptr noundef nonnull %ctx) #29
   ret void
 }

@@ -12001,9 +12001,9 @@ invoke.cont320:                                   ; preds = %if.end319
 
 invoke.cont326:                                   ; preds = %invoke.cont320
   %call329 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.31)
-          to label %if.then.i.i.i418 unwind label %lpad228
+          to label %invoke.cont328 unwind label %lpad228
 
-if.then.i.i.i418:                                 ; preds = %invoke.cont326
+invoke.cont328:                                   ; preds = %invoke.cont326
   %139 = load ptr, ptr %m_manager.i309, align 8
   %m_ref_count.i.i.i.i420 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i32, ptr %m_ref_count.i.i.i.i420, align 4

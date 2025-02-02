@@ -3550,7 +3550,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %14, %16
 22:                                               ; preds = %16, %14, %_ZlsRSoPK7AstNode.exit, %11, %8
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %53
 
 24:                                               ; preds = %2, %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3582,27 +3582,27 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %14, %16
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   call void @_ZN7V3Error7lineStrB5cxx11EPKci(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.1, i32 noundef 264)
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %41 unwind label %48
+          to label %41 unwind label %51
 
 41:                                               ; preds = %38
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.30)
-          to label %43 unwind label %48
+          to label %43 unwind label %51
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
+  %.not.i11 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %.not.i11, i64 112
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %_ZlsRSoPK7AstNode.exit14 unwind label %48
 
 _ZlsRSoPK7AstNode.exit14:                         ; preds = %43
-  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %.thread15.sink.split unwind label %48
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %.thread15.sink.split unwind label %51
 
-48:                                               ; preds = %43, %_ZlsRSoPK7AstNode.exit14, %41, %38
-  %49 = landingpad { ptr, i32 }
+51:                                               ; preds = %43, %_ZlsRSoPK7AstNode.exit14, %41, %38
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %53
 
 .thread15.sink.split:                             ; preds = %_ZlsRSoPK7AstNode.exit14, %27
   %.sink = phi ptr [ %4, %27 ], [ %5, %_ZlsRSoPK7AstNode.exit14 ]
@@ -3612,9 +3612,9 @@ _ZlsRSoPK7AstNode.exit14:                         ; preds = %43
 .thread15:                                        ; preds = %.thread15.sink.split, %24, %34, %31
   ret void
 
-50:                                               ; preds = %48, %22
-  %.sink19 = phi ptr [ %5, %48 ], [ %3, %22 ]
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ]
+53:                                               ; preds = %51, %22
+  %.sink19 = phi ptr [ %5, %51 ], [ %3, %22 ]
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %23, %22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink19) #21
   resume { ptr, i32 } %.pn
 }

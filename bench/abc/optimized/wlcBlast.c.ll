@@ -3876,13 +3876,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit
   %.pre = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %Vec_IntFree.exit.thread, label %98
+  br i1 %.not.i, label %Vec_IntFree.exit, label %98
 
 98:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %.pre) #21
-  br label %Vec_IntFree.exit.thread
+  br label %Vec_IntFree.exit
 
-Vec_IntFree.exit.thread:                          ; preds = %._crit_edge, %98
+Vec_IntFree.exit:                                 ; preds = %._crit_edge, %98
   call void @free(ptr noundef nonnull %calloc) #21
   br label %99
 
@@ -3891,7 +3891,7 @@ Vec_IntFree.exit:                                 ; preds = %6
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %100, label %99
 
-99:                                               ; preds = %Vec_IntFree.exit.thread, %Vec_IntFree.exit
+99:                                               ; preds = %Vec_IntFree.exit, %Vec_IntFree.exit
   call void @free(ptr noundef nonnull %17) #21
   br label %100
 

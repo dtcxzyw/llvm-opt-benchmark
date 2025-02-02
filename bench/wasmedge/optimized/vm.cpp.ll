@@ -23466,13 +23466,13 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr %43, ptr %38, align 8
   ret void
 
-44:                                               ; preds = %46
+44:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8WasmEdge3AST12FunctionTypeEESaISC_EE13_M_deallocateEPSC_m.exit38
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %51 unwind label %52
+          to label %52 unwind label %53
 
-46:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8WasmEdge3AST12FunctionTypeEESaISC_EE11_M_allocateEm.exit
+46:; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8WasmEdge3AST12FunctionTypeEESaISC_EE11_M_allocateEm.exit
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
@@ -23480,19 +23480,19 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %50 = mul nuw nsw i64 %17, 40
   tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %50) #27
   invoke void @__cxa_rethrow() #29
-          to label %55 unwind label %44
-
-51:                                               ; preds = %44
-  resume { ptr, i32 } %45
+          to label %56 unwind label %44
 
 52:                                               ; preds = %44
-  %53 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %45
+
+53:                                               ; preds = %44
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #28
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #28
   unreachable
 
-55:                                               ; preds = %46
+56:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8WasmEdge3AST12FunctionTypeEESaISC_EE13_M_deallocateEPSC_m.exit38
   unreachable
 }
 

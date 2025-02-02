@@ -208,18 +208,18 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %4
   %.0.lcssa = phi float [ 0.000000e+00, %4 ], [ %16, %.lr.ph.split.us ]
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %30, label %._crit_edge.thread
+  br i1 %.not, label %31, label %30
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split, %._crit_edge
+30:                                               ; preds = %.lr.ph.split, %._crit_edge
   %.0.lcssa33 = phi float [ %.0.lcssa, %._crit_edge ], [ %29, %.lr.ph.split ]
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  br label %30
+  br label %31
 
-30:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa34 = phi float [ %.0.lcssa33, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
-  %31 = sitofp i32 %1 to float
-  %32 = fdiv float %.0.lcssa34, %31
-  %33 = tail call noundef float @sqrtf(float noundef %32) #19
+31:                                               ; preds = %30, %._crit_edge
+  %32 = phi float [ %.0.lcssa33, %30 ], [ %.0.lcssa, %._crit_edge ]
+  %33 = sitofp i32 %1 to float
+  %34 = fdiv float %.0.lcssa34, %31
+  %33 = tail call noundef float @sqrtf(float noundef %34) #19
   ret float %33
 }
 

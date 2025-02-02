@@ -398,67 +398,67 @@ define void @lv_fragment_manager_push(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %3, %6
   %.not21.i = icmp eq ptr %1, null
-  br i1 %.not21.i, label %.preheader23.i, label %10
+  br i1 %.not21.i, label %.preheader23.i, label %11
 
 .preheader23.i:                                   ; preds = %9, %.preheader23.i
   br label %.preheader23.i
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !18
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %.preheader24.i
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %.preheader24.i
 
-.preheader24.i:                                   ; preds = %10, %.preheader24.i
+.preheader24.i:                                   ; preds = %11, %.preheader24.i
   br label %.preheader24.i
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %15) #3
-  tail call void @lv_memset(ptr noundef %16, i8 noundef zeroext 0, i64 noundef 40) #3
-  %17 = load ptr, ptr %1, align 8, !tbaa !13
-  store ptr %17, ptr %16, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %0, ptr %18, align 8, !tbaa !31
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %2, ptr %19, align 8, !tbaa !26
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %1, ptr %20, align 8, !tbaa !10
-  store ptr %16, ptr %11, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !32
-  %.not22.i = icmp eq ptr %22, null
-  br i1 %.not22.i, label %fragment_attach.exit, label %23
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %16) #3
+  tail call void @lv_memset(ptr noundef %17, i8 noundef zeroext 0, i64 noundef 40) #3
+  %18 = load ptr, ptr %1, align 8, !tbaa !13
+  store ptr %18, ptr %17, align 8, !tbaa !30
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %0, ptr %19, align 8, !tbaa !31
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %2, ptr %20, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %1, ptr %21, align 8, !tbaa !10
+  store ptr %17, ptr %12, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %.not22.i = icmp eq ptr %23, null
+  br i1 %.not22.i, label %fragment_attach.exit, label %24
 
-23:                                               ; preds = %14
+24:                                               ; preds = %15
   tail call void %22(ptr noundef nonnull %1) #3
   br label %fragment_attach.exit
 
-fragment_attach.exit:                             ; preds = %14, %23
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 34
-  store i8 1, ptr %24, align 2, !tbaa !21
-  %25 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %4) #3
-  tail call void @lv_memset(ptr noundef %25, i8 noundef zeroext 0, i64 noundef 8) #3
-  store ptr %16, ptr %25, align 8, !tbaa !24
-  %26 = load ptr, ptr %20, align 8, !tbaa !10
-  %.not.i12 = icmp eq ptr %26, null
-  br i1 %.not.i12, label %.preheader.i13, label %27
+fragment_attach.exit:                             ; preds = %15, %24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 34
+  store i8 1, ptr %25, align 2, !tbaa !21
+  %26 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %4) #3
+  tail call void @lv_memset(ptr noundef %26, i8 noundef zeroext 0, i64 noundef 8) #3
+  store ptr %17, ptr %26, align 8, !tbaa !24
+  %27 = load ptr, ptr %21, align 8, !tbaa !10
+  %.not.i12 = icmp eq ptr %27, null
+  br i1 %.not.i12, label %.preheader.i13, label %28
 
 .preheader.i13:                                   ; preds = %fragment_attach.exit, %.preheader.i13
   br label %.preheader.i13
 
-27:                                               ; preds = %fragment_attach.exit
-  %28 = load ptr, ptr %19, align 8, !tbaa !26
-  %.not5.i = icmp eq ptr %28, null
-  br i1 %.not5.i, label %item_create_obj.exit, label %29
+28:                                               ; preds = %fragment_attach.exit
+  %29 = load ptr, ptr %20, align 8, !tbaa !26
+  %.not5.i = icmp eq ptr %29, null
+  br i1 %.not5.i, label %item_create_obj.exit, label %30
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %28, align 8, !tbaa !27
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %29, align 8, !tbaa !27
   br label %item_create_obj.exit
 
-item_create_obj.exit:                             ; preds = %27, %29
-  %31 = phi ptr [ %30, %29 ], [ null, %27 ]
-  %32 = tail call ptr @lv_fragment_create_obj(ptr noundef nonnull %26, ptr noundef %31) #3
+item_create_obj.exit:                             ; preds = %28, %30
+  %32 = phi ptr [ %31, %30 ], [ null, %28 ]
+  %33 = tail call ptr @lv_fragment_create_obj(ptr noundef nonnull %27, ptr noundef %32) #3
   ret void
 }
 

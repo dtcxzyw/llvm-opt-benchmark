@@ -5727,15 +5727,15 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
           to label %invoke.cont119 unwind label %lpad118
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv66
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %for.body ], [ 0, %for.cond.preheader ]
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv58
   %70 = load i8, ptr %arrayidx.i, align 1, !tbaa !74
-  %71 = trunc nuw nsw i64 %indvars.iv66 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv58 to i32
   %mul109 = mul i32 %call, %71
   %idxprom.i = zext i32 %mul109 to i64
   %arrayidx.i835 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i
   store i8 %70, ptr %arrayidx.i835, align 1, !tbaa !74
-  %72 = or disjoint i64 %indvars.iv66, 1
+  %72 = or disjoint i64 %indvars.iv58, 1
   %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %37, i64 %72
   %73 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !74
   %74 = trunc nuw nsw i64 %72 to i32
@@ -5743,7 +5743,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idxprom.i.1 = zext i32 %mul109.1 to i64
   %arrayidx.i835.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i.1
   store i8 %73, ptr %arrayidx.i835.1, align 1, !tbaa !74
-  %75 = or disjoint i64 %indvars.iv66, 2
+  %75 = or disjoint i64 %indvars.iv58, 2
   %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %37, i64 %75
   %76 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !74
   %77 = trunc nuw nsw i64 %75 to i32
@@ -5751,7 +5751,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idxprom.i.2 = zext i32 %mul109.2 to i64
   %arrayidx.i835.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i.2
   store i8 %76, ptr %arrayidx.i835.2, align 1, !tbaa !74
-  %78 = or disjoint i64 %indvars.iv66, 3
+  %78 = or disjoint i64 %indvars.iv58, 3
   %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %37, i64 %78
   %79 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !74
   %80 = trunc nuw nsw i64 %78 to i32
@@ -5759,7 +5759,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %idxprom.i.3 = zext i32 %mul109.3 to i64
   %arrayidx.i835.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i.3
   store i8 %79, ptr %arrayidx.i835.3, align 1, !tbaa !74
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 4
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 4
   %cmp104.3 = icmp samesign ult i64 %78, 4095
   br i1 %cmp104.3, label %for.body, label %for.cond.cleanup, !llvm.loop !193
 
@@ -6034,16 +6034,16 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit897: ; pred
   br i1 %cmp173, label %if.then174, label %if.end231
 
 for.body156:                                      ; preds = %for.body156.preheader, %for.body156
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.body156 ], [ 0, %for.body156.preheader ]
-  %arrayidx.i898 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv72
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.body156 ], [ 0, %for.body156.preheader ]
+  %arrayidx.i898 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv64
   %124 = load i8, ptr %arrayidx.i898, align 1, !tbaa !74
-  %125 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv64 to i32
   %mul161 = mul i32 %call, %125
   %add = or disjoint i32 %mul161, 1
   %idxprom.i899 = zext i32 %add to i64
   %arrayidx.i900 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i899
   store i8 %124, ptr %arrayidx.i900, align 1, !tbaa !74
-  %126 = or disjoint i64 %indvars.iv72, 1
+  %126 = or disjoint i64 %indvars.iv64, 1
   %arrayidx.i898.1 = getelementptr inbounds nuw i8, ptr %89, i64 %126
   %127 = load i8, ptr %arrayidx.i898.1, align 1, !tbaa !74
   %128 = trunc nuw nsw i64 %126 to i32
@@ -6052,7 +6052,7 @@ for.body156:                                      ; preds = %for.body156.prehead
   %idxprom.i899.1 = zext i32 %add.1 to i64
   %arrayidx.i900.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i899.1
   store i8 %127, ptr %arrayidx.i900.1, align 1, !tbaa !74
-  %129 = or disjoint i64 %indvars.iv72, 2
+  %129 = or disjoint i64 %indvars.iv64, 2
   %arrayidx.i898.2 = getelementptr inbounds nuw i8, ptr %89, i64 %129
   %130 = load i8, ptr %arrayidx.i898.2, align 1, !tbaa !74
   %131 = trunc nuw nsw i64 %129 to i32
@@ -6061,7 +6061,7 @@ for.body156:                                      ; preds = %for.body156.prehead
   %idxprom.i899.2 = zext i32 %add.2 to i64
   %arrayidx.i900.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i899.2
   store i8 %130, ptr %arrayidx.i900.2, align 1, !tbaa !74
-  %132 = or disjoint i64 %indvars.iv72, 3
+  %132 = or disjoint i64 %indvars.iv64, 3
   %arrayidx.i898.3 = getelementptr inbounds nuw i8, ptr %89, i64 %132
   %133 = load i8, ptr %arrayidx.i898.3, align 1, !tbaa !74
   %134 = trunc nuw nsw i64 %132 to i32
@@ -6070,7 +6070,7 @@ for.body156:                                      ; preds = %for.body156.prehead
   %idxprom.i899.3 = zext i32 %add.3 to i64
   %arrayidx.i900.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i899.3
   store i8 %133, ptr %arrayidx.i900.3, align 1, !tbaa !74
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 4
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 4
   %cmp154.3 = icmp samesign ult i64 %132, 4095
   br i1 %cmp154.3, label %for.body156, label %for.cond.cleanup155, !llvm.loop !202
 
@@ -6348,16 +6348,16 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit962: ; pred
   br label %if.end231
 
 for.body214:                                      ; preds = %for.body214.preheader, %for.body214
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %for.body214 ], [ 0, %for.body214.preheader ]
-  %arrayidx.i963 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv78
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.body214 ], [ 0, %for.body214.preheader ]
+  %arrayidx.i963 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv70
   %178 = load i8, ptr %arrayidx.i963, align 1, !tbaa !74
-  %179 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %179 = trunc nuw nsw i64 %indvars.iv70 to i32
   %mul219 = mul i32 %call, %179
   %add220 = or disjoint i32 %mul219, 2
   %idxprom.i964 = zext i32 %add220 to i64
   %arrayidx.i965 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i964
   store i8 %178, ptr %arrayidx.i965, align 1, !tbaa !74
-  %180 = or disjoint i64 %indvars.iv78, 1
+  %180 = or disjoint i64 %indvars.iv70, 1
   %arrayidx.i963.1 = getelementptr inbounds nuw i8, ptr %143, i64 %180
   %181 = load i8, ptr %arrayidx.i963.1, align 1, !tbaa !74
   %182 = trunc nuw nsw i64 %180 to i32
@@ -6366,7 +6366,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   %idxprom.i964.1 = zext i32 %add220.1 to i64
   %arrayidx.i965.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i964.1
   store i8 %181, ptr %arrayidx.i965.1, align 1, !tbaa !74
-  %183 = or disjoint i64 %indvars.iv78, 2
+  %183 = or disjoint i64 %indvars.iv70, 2
   %arrayidx.i963.2 = getelementptr inbounds nuw i8, ptr %143, i64 %183
   %184 = load i8, ptr %arrayidx.i963.2, align 1, !tbaa !74
   %185 = trunc nuw nsw i64 %183 to i32
@@ -6375,7 +6375,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   %idxprom.i964.2 = zext i32 %add220.2 to i64
   %arrayidx.i965.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i964.2
   store i8 %184, ptr %arrayidx.i965.2, align 1, !tbaa !74
-  %186 = or disjoint i64 %indvars.iv78, 3
+  %186 = or disjoint i64 %indvars.iv70, 3
   %arrayidx.i963.3 = getelementptr inbounds nuw i8, ptr %143, i64 %186
   %187 = load i8, ptr %arrayidx.i963.3, align 1, !tbaa !74
   %188 = trunc nuw nsw i64 %186 to i32
@@ -6384,7 +6384,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   %idxprom.i964.3 = zext i32 %add220.3 to i64
   %arrayidx.i965.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i964.3
   store i8 %187, ptr %arrayidx.i965.3, align 1, !tbaa !74
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 4
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 4
   %cmp212.3 = icmp samesign ult i64 %186, 4095
   br i1 %cmp212.3, label %for.body214, label %for.cond.cleanup213, !llvm.loop !211
 
@@ -7806,8 +7806,8 @@ delete.notnull.i.i1246:                           ; preds = %lpad385, %lpad398, 
   br label %_ZN6BufferIhED2Ev.exit1247
 
 _ZN6BufferIhED2Ev.exit1247:                       ; preds = %delete.notnull.i.i1246, %ehcleanup644
-  %exn.slot.4458 = phi ptr [ %exn.slot.4457, %delete.notnull.i.i1246 ], [ %exn.slot.44, %ehcleanup644 ]
-  %ehselector.slot.4456 = phi i32 [ %ehselector.slot.4455, %delete.notnull.i.i1246 ], [ %ehselector.slot.44, %ehcleanup644 ]
+  %lpad.val = phi ptr [ %exn.slot.4457, %delete.notnull.i.i1246 ], [ %exn.slot.44, %ehcleanup644 ]
+  %lpad.val653 = phi i32 [ %ehselector.slot.4455, %delete.notnull.i.i1246 ], [ %ehselector.slot.44, %ehcleanup644 ]
   %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.4458, 0
   %lpad.val653 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.4456, 1
   resume { ptr, i32 } %lpad.val653

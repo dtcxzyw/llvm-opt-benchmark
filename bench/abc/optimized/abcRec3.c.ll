@@ -2606,16 +2606,16 @@ Vec_MemHashFree.exit:                             ; preds = %Vec_IntFreeP.exit50
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %132 = load ptr, ptr %131, align 8
   %.not16.i = icmp eq ptr %132, null
-  br i1 %.not16.i, label %134, label %133
+  br i1 %.not16.i, label %Vec_MemFree.exit, label %133
 
 133:                                              ; preds = %._crit_edge.i
   tail call void @free(ptr noundef nonnull %132) #25
-  br label %134
+  br label %Vec_MemFree.exit
 
-134:                                              ; preds = %._crit_edge.i, %133
+Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %133
   tail call void @free(ptr noundef nonnull %116) #25
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @Gia_ManStopP(ptr noundef nonnull %135) #25
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @Gia_ManStopP(ptr noundef nonnull %134) #25
   tail call void @free(ptr noundef %0) #25
   ret void
 }

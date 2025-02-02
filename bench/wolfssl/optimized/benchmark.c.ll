@@ -5753,7 +5753,7 @@ if.then18:                                        ; preds = %if.end7
   br i1 %cmp72.i, label %exit.i, label %if.end75.i
 
 if.end75.i:                                       ; preds = %if.then18
-  br i1 %tobool278.not.i, label %do.end299.sink.split.i, label %if.end80.i
+  br i1 %tobool278.not.i, label %if.then292.i, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.end75.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %message.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.129, i64 25, i1 false)
@@ -5809,7 +5809,7 @@ for.body94.i:                                     ; preds = %bench_async_handle.
 exit_rsa_verify.thread.i:                         ; preds = %for.body94.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %8, i32 noundef %count.0.i, double noundef %add.i.i.i, i32 noundef %call103.i)
-  br label %do.end299.sink.split.i.sink.split
+  br label %if.then279.i
 
 bench_async_handle.exit.i:                        ; preds = %for.body94.i
   %inc.i.i = add nuw nsw i32 %times.0299.i, 1
@@ -5929,7 +5929,7 @@ exit_rsa_pub.i:                                   ; preds = %bench_stats_check.e
   %arrayidx172.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %23 = load ptr, ptr %arrayidx172.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %23, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
-  br label %do.end299.sink.split.i.sink.split
+  br label %if.then279.i
 
 if.else.i:                                        ; preds = %if.end80.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i134.i)
@@ -5981,7 +5981,7 @@ exit_rsa_sign.thread.i:                           ; preds = %for.body188.i
   %arrayidx216269.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %30 = load ptr, ptr %arrayidx216269.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %30, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
-  br label %do.end299.sink.split.i.sink.split
+  br label %if.then279.i
 
 bench_async_handle.exit157.i:                     ; preds = %for.body188.i
   %inc.i156.i = add nuw nsw i32 %times.2301.i, 1
@@ -6102,21 +6102,21 @@ exit_rsa_verifyinline.i:                          ; preds = %bench_stats_check.e
   %arrayidx269.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %45 = load ptr, ptr %arrayidx269.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %45, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
-  br label %do.end299.sink.split.i.sink.split
+  br label %if.then279.i
 
 exit.i:                                           ; preds = %if.then18
-  br i1 %tobool278.not.i, label %bench_rsa_helper.exit, label %do.end299.sink.split.i
+  br i1 %tobool278.not.i, label %bench_rsa_helper.exit, label %if.then292.i
 
-do.end299.sink.split.i.sink.split:                ; preds = %exit_rsa_verify.thread.i, %exit_rsa_sign.thread.i, %exit_rsa_pub.i, %exit_rsa_verifyinline.i
+if.then279.i:                                     ; preds = %exit_rsa_verify.thread.i, %exit_rsa_sign.thread.i, %exit_rsa_pub.i, %exit_rsa_verifyinline.i
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #16
-  br label %do.end299.sink.split.i
+  br label %if.then292.i
 
-do.end299.sink.split.i:                           ; preds = %do.end299.sink.split.i.sink.split, %exit.i, %if.end75.i
-  %call.sink.i = phi ptr [ %call.i, %exit.i ], [ %call34.i, %if.end75.i ], [ %call34.i, %do.end299.sink.split.i.sink.split ]
+if.then292.i:                                     ; preds = %if.then279.i, %exit.i, %if.end75.i
+  %call.sink.i = phi ptr [ %call.i, %exit.i ], [ %call34.i, %if.end75.i ], [ %call34.i, %if.then279.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.sink.i) #16
   br label %bench_rsa_helper.exit
 
-bench_rsa_helper.exit:                            ; preds = %exit.i, %do.end299.sink.split.i
+bench_rsa_helper.exit:                            ; preds = %exit.i, %if.then292.i
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %message.i)
   br label %exit_bench_rsa
 

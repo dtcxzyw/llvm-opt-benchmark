@@ -5297,7 +5297,7 @@ invoke.cont209:                                   ; preds = %if.end.i.i.i.i.i.i.
 
 if.then214:                                       ; preds = %invoke.cont209
   invoke void @_ZNK7Imf_3_218DeepTiledInputFile12getTileOrderEPiS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull %dx_list.sroa.0.0, ptr noundef nonnull %dy_list.sroa.0.0, ptr noundef nonnull %lx_list.sroa.0.0, ptr noundef nonnull %ly_list.sroa.0.0)
-          to label %invoke.cont220 unwind label %ehcleanup312.thread
+          to label %invoke.cont220 unwind label %lpad219
 
 invoke.cont220:                                   ; preds = %if.then214
   %69 = load i32, ptr %dx_list.sroa.0.0, align 4
@@ -5338,7 +5338,7 @@ lpad208:                                          ; preds = %if.then.i.i.i.i.i12
           cleanup
   br label %ehcleanup313
 
-ehcleanup312.thread:                              ; preds = %if.then214
+lpad219:                                          ; preds = %if.then214
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i178
@@ -5370,15 +5370,15 @@ invoke.cont235:                                   ; preds = %if.end232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call5.i.i.i.i1.i.i, i8 0, i64 4096, i1 false)
   store ptr %add.ptr.i.i.i136, ptr %_M_finish.i.i.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp233) #23
-  %cmp237223.not = icmp eq i64 %call170, 0
-  br i1 %cmp237223.not, label %for.end, label %for.body.lr.ph
+  %cmp237219.not = icmp eq i64 %call170, 0
+  br i1 %cmp237219.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont235
   %sub = add i64 %call170, -1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0224 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0220 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %83 = load ptr, ptr %_data, align 8
   %nextTileToWrite240 = getelementptr inbounds nuw i8, ptr %83, i64 392
   %84 = load i32, ptr %nextTileToWrite240, align 8
@@ -5502,7 +5502,7 @@ invoke.cont261:                                   ; preds = %_ZNSt12_Vector_base
           to label %invoke.cont261.if.end264_crit_edge unwind label %lpad256.loopexit
 
 invoke.cont261.if.end264_crit_edge:               ; preds = %invoke.cont261
-  %.pre225 = load ptr, ptr %data, align 8
+  %.pre221 = load ptr, ptr %data, align 8
   br label %if.end264
 
 lpad256.loopexit:                                 ; preds = %for.body, %invoke.cont261, %if.end264, %if.else, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
@@ -5521,7 +5521,7 @@ lpad256:                                          ; preds = %lpad256.loopexit.sp
   br label %ehcleanup312
 
 if.end264:                                        ; preds = %invoke.cont261.if.end264_crit_edge, %invoke.cont257
-  %96 = phi ptr [ %.pre225, %invoke.cont261.if.end264_crit_edge ], [ %92, %invoke.cont257 ]
+  %96 = phi ptr [ %.pre221, %invoke.cont261.if.end264_crit_edge ], [ %92, %invoke.cont257 ]
   %add.ptr266 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %97 = load i64, ptr %add.ptr266, align 8
   %add.ptr268 = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -5546,11 +5546,11 @@ invoke.cont275:                                   ; preds = %if.end264
   br i1 %cmp278, label %if.then279, label %if.else
 
 if.then279:                                       ; preds = %invoke.cont275
-  %cmp280 = icmp ult i64 %i.0224, %sub
+  %cmp280 = icmp ult i64 %i.0220, %sub
   br i1 %cmp280, label %if.then281, label %for.inc
 
 if.then281:                                       ; preds = %if.then279
-  %add = add nuw i64 %i.0224, 1
+  %add = add nuw i64 %i.0220, 1
   %add.ptr.i160 = getelementptr inbounds i32, ptr %dx_list.sroa.0.0, i64 %add
   %107 = load i32, ptr %add.ptr.i160, align 4
   %nextTileToWrite284 = getelementptr inbounds nuw i8, ptr %105, i64 392
@@ -5591,7 +5591,7 @@ invoke.cont306:                                   ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont306, %if.then281, %if.then279
-  %inc = add nuw i64 %i.0224, 1
+  %inc = add nuw i64 %i.0220, 1
   %exitcond.not = icmp eq i64 %inc, %call170
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
@@ -5646,7 +5646,7 @@ ehcleanup312:                                     ; preds = %lpad256, %lpad.i.i
   %tobool.not.i.i.i177 = icmp eq ptr %ly_list.sroa.0.0, null
   br i1 %tobool.not.i.i.i177, label %ehcleanup313, label %if.then.i.i.i178
 
-if.then.i.i.i178:                                 ; preds = %ehcleanup312.thread, %ehcleanup312
+if.then.i.i.i178:                                 ; preds = %lpad219, %ehcleanup312
   %.pn43221 = phi { ptr, i32 } [ %81, %ehcleanup312.thread ], [ %.pn43, %ehcleanup312 ]
   call void @_ZdlPv(ptr noundef nonnull %ly_list.sroa.0.0) #25
   br label %ehcleanup313

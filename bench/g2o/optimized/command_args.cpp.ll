@@ -3706,32 +3706,32 @@ _ZNSt12_Vector_baseIN3g2o11CommandArgs15CommandArgumentESaIS2_EE13_M_deallocateE
           catch ptr null
   br label %54
 
-52:                                               ; preds = %54
-  %53 = landingpad { ptr, i32 }
+55:                                               ; preds = %57
+  %56 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %58 unwind label %59
+          to label %59 unwind label %60
 
-54:                                               ; preds = %50, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %51, %50 ], [ %27, %26 ]
-  %55 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+57:                                               ; preds = %50, %26
+  %58 = phi { ptr, i32 } [ %51, %50 ], [ %27, %26 ]
+  %55 = extractvalue { ptr, i32 } %58, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #21
   %57 = mul nuw nsw i64 %16, 88
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %57) #22
   invoke void @__cxa_rethrow() #23
-          to label %62 unwind label %52
+          to label %63 unwind label %55
 
-58:                                               ; preds = %52
-  resume { ptr, i32 } %53
+59:                                               ; preds = %55
+  resume { ptr, i32 } %56
 
-59:                                               ; preds = %52
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %55
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #24
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #24
   unreachable
 
-62:                                               ; preds = %54
+63:                                               ; preds = %57
   unreachable
 }
 

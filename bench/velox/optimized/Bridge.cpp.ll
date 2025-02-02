@@ -174916,9 +174916,9 @@ invoke.cont9:                                     ; preds = %cond.false4.i.i.i.i
   %cond.neg.i.i9 = select i1 %tobool.not.i.i8, i64 0, i64 -40
   %add.ptr.i.i10 = getelementptr inbounds i8, ptr %3, i64 %cond.neg.i.i9
   invoke void @_ZN8facebook5velox17SelectivityVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr.i.i10, i32 noundef %size, i1 noundef zeroext %newAscii)
-          to label %if.then3.i.i.i unwind label %lpad8
+          to label %if.else.i.i.i unwind label %lpad8
 
-if.then3.i.i.i:                                   ; preds = %invoke.cont9
+if.else.i.i.i:                                    ; preds = %invoke.cont9
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %if.end19 unwind label %terminate.lpad.i.i
 
@@ -174940,7 +174940,7 @@ lpad8:                                            ; preds = %invoke.cont9
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #39
   br label %ehcleanup
 
-if.end19:                                         ; preds = %if.then3.i.i.i
+if.end19:                                         ; preds = %if.else.i.i.i
   store i8 0, ptr %_M_owns.i.i.i, align 8
   %8 = load atomic i8, ptr %asciiInfo seq_cst, align 8
   %tobool.i.i.i = trunc i8 %8 to i1

@@ -1583,7 +1583,7 @@ lpad40.loopexit:                                  ; preds = %invoke.cont188, %if
           cleanup
   br label %ehcleanup
 
-ehcleanup.thread:                                 ; preds = %while.body.i.i
+lpad40.loopexit.split-lp.loopexit:                ; preds = %while.body.i.i
   %lpad.loopexit1581 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i1445
@@ -1967,8 +1967,8 @@ if.end.i.i:                                       ; preds = %invoke.cont158
 while.body.i.i:                                   ; preds = %.noexc797, %if.end.i.i
   %__parent.0.i.i = phi i64 [ %div1617.i.i, %if.end.i.i ], [ %dec.i.i, %.noexc797 ]
   %phi.call.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %candidates.sroa.0.0.lcssa, i64 %__parent.0.i.i
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_T2_(ptr nonnull %candidates.sroa.0.0.lcssa, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.cvc5::internal::theory::arith::linear::Cand") align 8 %phi.call.i.i, ptr %54, i8 %frombool.i)
-          to label %.noexc797 unwind label %ehcleanup.thread
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_T2_(ptr %candidates.sroa.0.0.lcssa, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.cvc5::internal::theory::arith::linear::Cand") align 8 %phi.call.i.i, ptr %54, i8 %frombool.i)
+          to label %.noexc797 unwind label %lpad40.loopexit.split-lp.loopexit
 
 .noexc797:                                        ; preds = %while.body.i.i
   %cmp9.i.i = icmp eq i64 %__parent.0.i.i, 0

@@ -11468,7 +11468,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$L
 15:                                               ; preds = %19, %17
   %.1.i = phi i64 [ %7, %17 ], [ %21, %19 ]
   %16 = icmp eq i64 %.1.i, %.8.val
-  br i1 %16, label %25, label %19
+  br i1 %16, label %26, label %19
 
 17:                                               ; preds = %5
   %18 = landingpad { ptr, i32 }
@@ -11495,8 +11495,8 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$L
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f5a36d45de145c2E.exit5": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4"
   ret void
 
-25:                                               ; preds = %15
-  %26 = mul nsw i64 %.8.val, 24
+26:                                               ; preds = %15
+  %27 = mul nsw i64 %.8.val, 24
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %26, i64 noundef 8) #43
   resume { ptr, i32 } %18
 }

@@ -5848,9 +5848,9 @@ invoke.cont6:                                     ; preds = %cond.false4.i.i.i.i
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %2, i64 %cond.neg.i.i3
   %3 = load i32, ptr %length_, align 8
   invoke void @_ZN8facebook5velox17SelectivityVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr.i.i4, i32 noundef %3, i1 noundef zeroext false)
-          to label %if.then3.i.i.i unwind label %lpad5
+          to label %if.else.i.i.i unwind label %lpad5
 
-if.then3.i.i.i:                                   ; preds = %invoke.cont6
+if.else.i.i.i:                                    ; preds = %invoke.cont6
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc1.i.i unwind label %terminate.lpad.i.i
 

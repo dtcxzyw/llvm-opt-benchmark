@@ -352,8 +352,8 @@ _ZN5eastl8optionalI15assignment_testED2Ev.exit836.thread: ; preds = %invoke.cont
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load i32, ptr @_ZN15assignment_test18num_objects_initedE, align 4
-  %dec.i.i.i.i8351107 = add nsw i32 %13, -1
-  store i32 %dec.i.i.i.i8351107, ptr @_ZN15assignment_test18num_objects_initedE, align 4
+  %dec.i.i.i.i8351110 = add nsw i32 %13, -1
+  store i32 %dec.i.i.i.i8351110, ptr @_ZN15assignment_test18num_objects_initedE, align 4
   br label %if.then.i.i839
 
 invoke.cont322:                                   ; preds = %invoke.cont316
@@ -460,8 +460,8 @@ if.then.i474:                                     ; preds = %invoke.cont443
   store i8 69, ptr %o605, align 8
   %ref.tmp606.sroa.4.0.o605.sroa_idx = getelementptr inbounds nuw i8, ptr %o605, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %ref.tmp606.sroa.4.0.o605.sroa_idx, ptr noundef nonnull align 1 dereferenceable(21) %ref.tmp606.sroa.4, i64 21, i1 false)
-  %ref.tmp606.sroa.41114.0.o605.sroa_idx = getelementptr inbounds nuw i8, ptr %o605, i64 22
-  store i8 0, ptr %ref.tmp606.sroa.41114.0.o605.sroa_idx, align 2
+  %ref.tmp606.sroa.41117.0.o605.sroa_idx = getelementptr inbounds nuw i8, ptr %o605, i64 22
+  store i8 0, ptr %ref.tmp606.sroa.41117.0.o605.sroa_idx, align 2
   %ref.tmp606.sroa.5.0.o605.sroa_idx = getelementptr inbounds nuw i8, ptr %o605, i64 23
   store i8 1, ptr %ref.tmp606.sroa.5.0.o605.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %ref.tmp606.sroa.4, ptr noundef nonnull align 1 dereferenceable(21) %temp.sroa.0.i.i.i.i.i.i.sroa.4, i64 21, i1 false)
@@ -611,7 +611,7 @@ _ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i546: ; preds = %if.then.i.i.i.i.i.
 _ZN5eastl10VectorBaseINS_8optionalIiEENS_9allocatorEED2Ev.exit.i534: ; preds = %invoke.cont643
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i881
+  br label %ehcleanup666
 
 for.body.i.i:                                     ; preds = %_ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i546, %for.inc.i.i
   %first2.addr.06.i.i = phi ptr [ %incdec.ptr1.i.i, %for.inc.i.i ], [ %call.i.i.i.i.i1.i530, %_ZN5eastl8optionalIiEC2ERKS1_.exit.i.i.i.i.i.i546 ]
@@ -681,8 +681,8 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit642: ; preds = %invoke.cont663,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %o731, ptr noundef nonnull align 8 dereferenceable(11) @.str.101, i64 11, i1 false)
   %ref.tmp732.sroa.2.0.o731.sroa_idx = getelementptr inbounds nuw i8, ptr %o731, i64 11
   store i8 0, ptr %ref.tmp732.sroa.2.0.o731.sroa_idx, align 1
-  %ref.tmp732.sroa.31111.0.o731.sroa_idx = getelementptr inbounds nuw i8, ptr %o731, i64 23
-  store i8 12, ptr %ref.tmp732.sroa.31111.0.o731.sroa_idx, align 1
+  %ref.tmp732.sroa.31114.0.o731.sroa_idx = getelementptr inbounds nuw i8, ptr %o731, i64 23
+  store i8 12, ptr %ref.tmp732.sroa.31114.0.o731.sroa_idx, align 1
   %engaged.i.i643 = getelementptr inbounds nuw i8, ptr %co, i64 24
   store i8 0, ptr %engaged.i.i643, align 8
   %call736 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(25) %co, ptr noundef nonnull align 8 dereferenceable(25) %o731)
@@ -915,7 +915,7 @@ _ZN5eastl8optionalI15destructor_testED2Ev.exit860: ; preds = %invoke.cont443, %c
 lpad638:                                          ; preds = %_ZN5eastl6vectorINS_8optionalIiEENS_9allocatorEEC2ESt16initializer_listIS2_ERKS3_.exit
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i881
+  br label %ehcleanup666
 
 lpad660:                                          ; preds = %invoke.cont661
   %71 = landingpad { ptr, i32 }
@@ -927,7 +927,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i877:  ; preds = %lpad660
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i530) #8
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i881
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i881:  ; preds = %_ZN5eastl10VectorBaseINS_8optionalIiEENS_9allocatorEED2Ev.exit.i534, %lpad638, %lpad660, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i877
+ehcleanup666:                                     ; preds = %_ZN5eastl10VectorBaseINS_8optionalIiEENS_9allocatorEED2Ev.exit.i534, %lpad638, %lpad660, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i877
   %.pn10 = phi { ptr, i32 } [ %70, %lpad638 ], [ %28, %_ZN5eastl10VectorBaseINS_8optionalIiEENS_9allocatorEED2Ev.exit.i534 ], [ %71, %lpad660 ], [ %71, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i877 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i) #8
   br label %common.resume

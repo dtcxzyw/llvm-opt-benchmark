@@ -5352,52 +5352,52 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 43:                                               ; preds = %42, %40
   %44 = load ptr, ptr %13, align 8
   store ptr %44, ptr %33, align 8
-  %.pre = load ptr, ptr %0, align 8
+  %.pr = load ptr, ptr %0, align 8
   br label %_ZN7mitsuba3refINS_6StructEEaSERKS2_.exit
 
 _ZN7mitsuba3refINS_6StructEEaSERKS2_.exit:        ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, %43
-  %45 = phi ptr [ %32, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit ], [ %.pre, %43 ]
+  %45 = phi ptr [ %32, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit ], [ %.pr, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 56
   invoke void @_ZN7mitsuba10PropertiesaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %46)
-          to label %48 unwind label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
+          to label %48 unwind label %59
 
 48:                                               ; preds = %_ZN7mitsuba3refINS_6StructEEaSERKS2_.exit
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load i8, ptr %49, align 8
   %51 = trunc i8 %50 to i1
   invoke void @_ZN7mitsuba6Bitmap14set_srgb_gammaEb(ptr noundef nonnull align 8 dereferenceable(64) %45, i1 noundef zeroext %51)
-          to label %52 unwind label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
+          to label %52 unwind label %59
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   invoke void @_ZN7mitsuba6Bitmap23set_premultiplied_alphaEb(ptr noundef nonnull align 8 dereferenceable(64) %45, i1 noundef zeroext %55)
-          to label %56 unwind label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
+          to label %56 unwind label %59
 
 56:                                               ; preds = %52
   invoke void @_ZNK7mitsuba6Bitmap8resampleEPS0_PKNS_20ReconstructionFilterIfNS_5ColorIfLm3EEEEERKNSt3__14pairINS_23FilterBoundaryConditionESA_EERKNS9_IffEES1_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %45, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef null)
-          to label %60 unwind label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
+          to label %62 unwind label %59
 
 57:                                               ; preds = %6
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #38
   call void @_ZdlPv(ptr noundef nonnull %8) #37
-  br label %61
+  br label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
 
-_ZN7mitsuba3refINS_6BitmapEED2Ev.exit:            ; preds = %56, %52, %48, %_ZN7mitsuba3refINS_6StructEEaSERKS2_.exit
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %56, %52, %48, %_ZN7mitsuba3refINS_6StructEEaSERKS2_.exit
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %45, i1 noundef zeroext true) #38
-  br label %61
+  br label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
 
-60:                                               ; preds = %56
+62:                                               ; preds = %56
   ret void
 
-61:                                               ; preds = %57, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit
-  %.pn11 = phi { ptr, i32 } [ %59, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit ], [ %58, %57 ]
+_ZN7mitsuba3refINS_6BitmapEED2Ev.exit:            ; preds = %57, %59
+  %.pn11 = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
   resume { ptr, i32 } %.pn11
 }
 
@@ -37091,16 +37091,16 @@ define linkonce_odr hidden void @_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__h
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.thread.i.i, label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEEEEEclB8ne190000EPSI_.exit.i
+  br i1 %6, label %7, label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEEEEEclB8ne190000EPSI_.exit.i
 
-.thread.i.i:                                      ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #38
-  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #38
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #38
+  tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #38
   br label %_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEEEEEclB8ne190000EPSI_.exit.i
 
-_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEEEEEclB8ne190000EPSI_.exit.i: ; preds = %.thread.i.i, %3
+_ZNSt3__122__hash_node_destructorINS_9allocatorINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEEEEEclB8ne190000EPSI_.exit.i: ; preds = %7, %3
   tail call void @_ZdlPv(ptr noundef nonnull %2) #37
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairIS8_PKN7mitsuba6Struct5FieldEEEEEPvEENS_22__hash_node_destructorINS6_ISI_EEEEE5resetB8ne190000EPSI_.exit
 

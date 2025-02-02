@@ -1497,13 +1497,13 @@ _ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS
           catch ptr null
   br label %116
 
-114:                                              ; preds = %116
-  %115 = landingpad { ptr, i32 }
+.body:                                            ; preds = %116
+  %eh.lpad-body = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %119 unwind label %120
 
-116:                                              ; preds = %112, %26
+118:                                              ; preds = %112, %26
   %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %27, %26 ]
   %117 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %118 = tail call ptr @__cxa_begin_catch(ptr %117) #17

@@ -553,7 +553,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call14 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %pad.sroa.0.0, i64 noundef %conv9)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit10
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %lpad12
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont
   %4 = load i64, ptr %fileLoc, align 8
@@ -563,7 +563,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
   br i1 %cmp19.not.not, label %if.end21, label %return
 
-_ZNSt6vectorIhSaIhEED2Ev.exit10:                  ; preds = %invoke.cont
+lpad12:                                           ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
@@ -621,7 +621,7 @@ if.then.i:                                        ; preds = %if.end5
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit10.i
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %lpad12.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i
   %7 = load i64, ptr %fileLoc.i, align 8
@@ -635,7 +635,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_cr
   %.pre = load i64, ptr %fileLoc.i, align 8
   br label %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit10.i:                ; preds = %if.then.i
+lpad12.i:                                         ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18
@@ -734,7 +734,7 @@ if.then.i:                                        ; preds = %if.end5
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit10.i
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %lpad12.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i
   %7 = load i64, ptr %fileLoc.i, align 8
@@ -744,7 +744,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18
   br i1 %cmp19.not.not.i, label %if.end8, label %return
 
-_ZNSt6vectorIhSaIhEED2Ev.exit10.i:                ; preds = %if.then.i
+lpad12.i:                                         ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18

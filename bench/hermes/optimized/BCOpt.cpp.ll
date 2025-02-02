@@ -231,8 +231,8 @@ if.end:                                           ; preds = %for.body9
   %18 = load ptr, ptr %RA_, align 8
   %call17 = call i32 @_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1952) %18, ptr noundef nonnull %add.ptr) #10
   %19 = load i8, ptr %add.ptr, align 8
-  %cmp.i.i.i.i.i.i.i.i.not = icmp eq i8 %19, 23
-  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %if.then20, label %if.end55
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %19, 23
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then20, label %if.end55
 
 if.then20:                                        ; preds = %if.end
   %call.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0807, i32 noundef 0) #10

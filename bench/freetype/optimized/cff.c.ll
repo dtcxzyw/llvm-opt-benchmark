@@ -1632,24 +1632,24 @@ cff_size_get_globals_funcs.exit:                  ; preds = %9
 
 .thread:                                          ; preds = %17, %20
   %.not44 = icmp eq ptr %18, null
-  br i1 %.not44, label %51, label %.thread.thread
+  br i1 %.not44, label %52, label %42
 
-.thread.thread:                                   ; preds = %31, %.thread
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 2864
-  %43 = load i32, ptr %42, align 8
-  %.not4557 = icmp eq i32 %43, 0
-  br i1 %.not4557, label %._crit_edge, label %.lr.ph
+42:                                               ; preds = %31, %.thread
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 2864
+  %44 = load i32, ptr %43, align 8
+  %.not4553 = icmp eq i32 %44, 0
+  br i1 %.not4553, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread.thread
-  %44 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %45 = zext i32 %43 to i64
-  br label %46
+.lr.ph:                                           ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %46 = zext i32 %44 to i64
+  br label %47
 
-46:                                               ; preds = %.lr.ph, %46
-  %indvars.iv60 = phi i64 [ %45, %.lr.ph ], [ %47, %46 ]
-  %47 = add nsw i64 %indvars.iv60, -1
-  %48 = getelementptr inbounds nuw [256 x ptr], ptr %44, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8
+47:                                               ; preds = %.lr.ph, %47
+  %indvars.iv56 = phi i64 [ %46, %.lr.ph ], [ %48, %47 ]
+  %48 = add nsw i64 %indvars.iv56, -1
+  %49 = getelementptr inbounds nuw [256 x ptr], ptr %45, i64 0, i64 %48
+  %50 = load ptr, ptr %49, align 8
   call void @ft_mem_free(ptr noundef %14, ptr noundef %49) #19
   store ptr null, ptr %48, align 8
   %.not45.wide = icmp eq i64 %47, 0
@@ -1659,17 +1659,17 @@ cff_size_get_globals_funcs.exit:                  ; preds = %9
   %50 = load ptr, ptr %18, align 8
   call void @ft_mem_free(ptr noundef %14, ptr noundef %50) #19
   store ptr null, ptr %18, align 8
-  br label %51
+  br label %52
 
-51:                                               ; preds = %.thread, %._crit_edge
+52:                                               ; preds = %.thread, %._crit_edge
   %.05256 = phi ptr [ null, %.thread ], [ %18, %._crit_edge ]
   call void @ft_mem_free(ptr noundef %14, ptr noundef %.05256) #19
   %.pre = load i32, ptr %2, align 4
   br label %cff_size_get_globals_funcs.exit.thread
 
-cff_size_get_globals_funcs.exit.thread:           ; preds = %38, %cff_size_get_globals_funcs.exit, %9, %1, %51
-  %52 = phi i32 [ %.pre, %51 ], [ 0, %1 ], [ 0, %9 ], [ 0, %cff_size_get_globals_funcs.exit ], [ 0, %38 ]
-  ret i32 %52
+cff_size_get_globals_funcs.exit.thread:           ; preds = %38, %cff_size_get_globals_funcs.exit, %9, %1, %52
+  %53 = phi i32 [ %.pre, %52 ], [ 0, %1 ], [ 0, %9 ], [ 0, %cff_size_get_globals_funcs.exit ], [ 0, %38 ]
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable

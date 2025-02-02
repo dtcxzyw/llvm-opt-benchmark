@@ -45996,7 +45996,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb16TupleDataSegmentESaIS1_EE11_M_allocateEm.exit
   invoke void @_ZN6duckdb16TupleDataSegmentC1ESt10shared_ptrINS_18TupleDataAllocatorEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull %agg.tmp.i.i)
-          to label %invoke.cont.i.i unwind label %invoke.cont19
+          to label %invoke.cont.i.i unwind label %if.then.i60
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
   %8 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !54
@@ -46096,12 +46096,12 @@ _ZNSt12_Vector_baseIN6duckdb16TupleDataSegmentESaIS1_EE13_M_deallocateEPS1_m.exi
   ret void
 
 lpad17:                                           ; preds = %invoke.cont19
-  %15 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont20 unwind label %terminate.lpad
 
-invoke.cont19:                                    ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
+if.then.i60:                                      ; preds = %_ZNSt10shared_ptrIN6duckdb18TupleDataAllocatorEEC2ERKS2_.exit.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt12__shared_ptrIN6duckdb18TupleDataAllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #29
@@ -46112,7 +46112,7 @@ invoke.cont19:                                    ; preds = %_ZNSt10shared_ptrIN
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %18
 
 terminate.lpad:                                   ; preds = %lpad17
   %19 = landingpad { ptr, i32 }

@@ -2941,13 +2941,13 @@ if.end10:                                         ; preds = %for.body
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   %inc = add nuw i64 %j.014, 1
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %if.then13, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
-if.then13:                                        ; preds = %if.end10, %if.end3.thread
+for.end:                                          ; preds = %if.end10, %if.end3.thread
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   br label %if.end14
 
-if.end14:                                         ; preds = %for.body.us, %if.end3, %if.then13
+if.end14:                                         ; preds = %for.body.us, %if.end3, %for.end
   ret void
 }
 

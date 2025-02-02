@@ -2379,28 +2379,28 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %32 unwind label %33
+          to label %36 unwind label %37
 
-28:                                               ; preds = %5
+34:                                               ; preds = %5
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #15
   tail call void @_ZdlPv(ptr noundef nonnull %14) #18
   invoke void @__cxa_rethrow() #22
-          to label %36 unwind label %26
+          to label %40 unwind label %26
 
-32:                                               ; preds = %26
+36:                                               ; preds = %26
   resume { ptr, i32 } %27
 
-33:                                               ; preds = %26
-  %34 = landingpad { ptr, i32 }
+37:                                               ; preds = %26
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #19
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #19
   unreachable
 
-36:                                               ; preds = %28
+40:                                               ; preds = %34
   unreachable
 }
 

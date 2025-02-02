@@ -475,23 +475,23 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %82, %84
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i104, %89, %ompi_coll_base_sendrecv.exit.us, %75, %opal_datatype_span.exit
   %.074 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.0.i115.us, %ompi_coll_base_sendrecv.exit.us ], [ 0, %75 ], [ 0, %89 ], [ %54, %.lr.ph.i104 ]
-  br i1 %46, label %92, label %ompi_datatype_copy_content_same_ddt.exit.thread147
+  br i1 %46, label %93, label %92
 
-ompi_datatype_copy_content_same_ddt.exit.thread147: ; preds = %ompi_coll_base_sendrecv.exit, %ompi_datatype_copy_content_same_ddt.exit
+92:                                               ; preds = %ompi_coll_base_sendrecv.exit, %ompi_datatype_copy_content_same_ddt.exit
   %.074149 = phi i32 [ %.074, %ompi_datatype_copy_content_same_ddt.exit ], [ %.0.i115, %ompi_coll_base_sendrecv.exit ]
   tail call void @free(ptr noundef nonnull %44) #5
-  br label %92
+  br label %93
 
-92:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread147, %ompi_datatype_copy_content_same_ddt.exit
+93:                                               ; preds = %92, %ompi_datatype_copy_content_same_ddt.exit
   %.074150 = phi i32 [ %.074149, %ompi_datatype_copy_content_same_ddt.exit.thread147 ], [ %.074, %ompi_datatype_copy_content_same_ddt.exit ]
   br i1 %47, label %.thread, label %93
 
-93:                                               ; preds = %92
+94:                                               ; preds = %93
   tail call void @free(ptr noundef nonnull %45) #5
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.i, %92, %93, %ompi_datatype_copy_content_same_ddt.exit.thread, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ %.074150, %93 ], [ %.074150, %92 ], [ %18, %.lr.ph.i ]
+.thread:                                          ; preds = %.lr.ph.i, %93, %94, %ompi_datatype_copy_content_same_ddt.exit.thread, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ %.074150, %94 ], [ %.074150, %93 ], [ %18, %.lr.ph.i ]
   ret i32 %.0
 }
 

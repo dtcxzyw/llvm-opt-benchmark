@@ -9146,28 +9146,28 @@ _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %48 unwind label %49
+          to label %49 unwind label %50
 
-44:                                               ; preds = %_ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE11_M_allocateEm.exit
+48:                                               ; preds = %_ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE11_M_allocateEm.exit
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #21
   tail call void @_ZdlPv(ptr noundef nonnull %22) #22
   invoke void @__cxa_rethrow() #23
-          to label %52 unwind label %42
-
-48:                                               ; preds = %42
-  resume { ptr, i32 } %43
+          to label %53 unwind label %42
 
 49:                                               ; preds = %42
-  %50 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %43
+
+50:                                               ; preds = %42
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #19
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #19
   unreachable
 
-52:                                               ; preds = %44
+53:                                               ; preds = %44
   unreachable
 }
 

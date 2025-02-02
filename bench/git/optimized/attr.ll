@@ -2474,7 +2474,7 @@ if.end72.i:                                       ; preds = %if.else56.i, %if.th
   %20 = load ptr, ptr %states.i, align 8
   %21 = load i8, ptr %20, align 1
   %tobool77.not80.i = icmp eq i8 %21, 0
-  br i1 %tobool77.not80.i, label %do.body, label %for.body78.lr.ph.i
+  br i1 %tobool77.not80.i, label %parse_attr_line.exit, label %for.body78.lr.ph.i
 
 for.body78.lr.ph.i:                               ; preds = %if.end72.i
   %state79.i = getelementptr inbounds nuw i8, ptr %call52.i, i64 40
@@ -2488,7 +2488,7 @@ for.body78.i:                                     ; preds = %for.body78.i, %for.
   %inc83.i = add i64 %i.081.i, 1
   %22 = load i8, ptr %call81.i, align 1
   %tobool77.not.i = icmp eq i8 %22, 0
-  br i1 %tobool77.not.i, label %do.body, label %for.body78.i, !llvm.loop !30
+  br i1 %tobool77.not.i, label %parse_attr_line.exit, label %for.body78.i, !llvm.loop !30
 
 fail_return.i:                                    ; preds = %for.body.i, %_.exit73.i, %report_invalid_attr.exit, %_.exit60.i
   %res.0.i = phi ptr [ null, %report_invalid_attr.exit ], [ %call52.i, %_.exit73.i ], [ null, %_.exit60.i ], [ null, %for.body.i ]
@@ -2501,7 +2501,7 @@ parse_attr_line.exit.thread:                      ; preds = %_.exit.i, %fail_ret
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pattern.i)
   br label %return
 
-do.body:                                          ; preds = %for.body78.i, %if.end72.i
+parse_attr_line.exit:                             ; preds = %for.body78.i, %if.end72.i
   call void @strbuf_release(ptr noundef nonnull %pattern.i) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %states.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pattern.i)
@@ -2539,12 +2539,12 @@ if.then10:                                        ; preds = %do.body6
   %mul.i = shl nuw nsw i64 %conv26, 3
   %call28 = call ptr @xrealloc(ptr noundef %26, i64 noundef %mul.i) #21
   store ptr %call28, ptr %attrs, align 8
-  %.pre31 = load i32, ptr %num_matches, align 8
-  %.pre32 = zext i32 %.pre31 to i64
+  %.pre33 = load i32, ptr %num_matches, align 8
+  %.pre34 = zext i32 %.pre33 to i64
   br label %do.end
 
 do.end:                                           ; preds = %do.body6.do.end_crit_edge, %if.then10
-  %idx.ext.pre-phi = phi i64 [ %conv2, %do.body6.do.end_crit_edge ], [ %.pre32, %if.then10 ]
+  %idx.ext.pre-phi = phi i64 [ %conv2, %do.body6.do.end_crit_edge ], [ %.pre34, %if.then10 ]
   %27 = phi ptr [ %.pre, %do.body6.do.end_crit_edge ], [ %call28, %if.then10 ]
   %attrs31 = getelementptr inbounds nuw i8, ptr %res, i64 32
   %add.ptr = getelementptr inbounds nuw ptr, ptr %27, i64 %idx.ext.pre-phi

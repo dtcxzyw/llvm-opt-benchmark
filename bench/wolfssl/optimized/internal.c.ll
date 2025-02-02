@@ -673,9 +673,9 @@ if.then4:                                         ; preds = %if.then
 if.end6:                                          ; preds = %entry
   %2 = load i32, ptr %isZero, align 4
   %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %return, label %if.then12
+  br i1 %tobool7.not, label %return, label %do.end
 
-if.then12:                                        ; preds = %if.end6
+do.end:                                           ; preds = %if.end6
   call void @SSL_CtxResourceFree(ptr noundef nonnull %ctx)
   call void @wolfSSL_RefFree(ptr noundef nonnull %ref) #26
   br label %return.sink.split
@@ -5119,14 +5119,14 @@ if.then4.i:                                       ; preds = %if.then.i
 if.end6.i:                                        ; preds = %if.then3
   %3 = load i32, ptr %isZero.i, align 4
   %tobool7.not.i = icmp eq i32 %3, 0
-  br i1 %tobool7.not.i, label %FreeSSL_Ctx.exit, label %if.then12.i
+  br i1 %tobool7.not.i, label %FreeSSL_Ctx.exit, label %do.end.i
 
-if.then12.i:                                      ; preds = %if.end6.i
+do.end.i:                                         ; preds = %if.end6.i
   call void @SSL_CtxResourceFree(ptr noundef nonnull %0)
   call void @wolfSSL_RefFree(ptr noundef nonnull %ref.i) #26
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.then12.i, %if.then4.i
+return.sink.split.i:                              ; preds = %do.end.i, %if.then4.i
   call void @wolfSSL_Free(ptr noundef nonnull %0) #26
   br label %FreeSSL_Ctx.exit
 

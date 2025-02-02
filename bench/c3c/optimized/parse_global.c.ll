@@ -2792,11 +2792,11 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   store ptr %45, ptr %51, align 8
   br label %54
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr @poisoned_decl, align 8
-  br label %54
+45:                                               ; preds = %47
+  %46 = load ptr, ptr @poisoned_decl, align 8
+  br label %48
 
-54:                                               ; preds = %41, %.critedge2, %9, %.critedge, %52, %39, %27, %24, %5
+48:                                               ; preds = %41, %.critedge2, %9, %.critedge, %52, %39, %27, %24, %5
   %.057 = phi ptr [ %8, %5 ], [ %25, %24 ], [ %53, %52 ], [ %40, %39 ], [ %30, %27 ], [ %14, %.critedge ], [ %14, %9 ], [ %36, %.critedge2 ], [ %36, %41 ]
   ret ptr %.057
 }

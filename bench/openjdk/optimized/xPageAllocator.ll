@@ -961,8 +961,8 @@ define hidden void @_ZN14XPageAllocator12destroy_pageEP5XPage(ptr noundef nonnul
 _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %10, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %13 = load i64, ptr %12, align 8
-  %.not.i.i.not = icmp eq i64 %13, 0
-  br i1 %.not.i.i.not, label %17, label %14
+  %.not.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -978,14 +978,14 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %10, %2
 
 _ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i: ; preds = %18, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not.i.i.not, label %20, label %_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit
+  br i1 %.not.i.i, label %21, label %_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit
 
-20:                                               ; preds = %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i
+21:                                               ; preds = %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i
   call void @_ZN5XPageD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %1) #14
   call void @_Z8FreeHeapPv(ptr noundef nonnull %1) #14
   br label %_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit
 
-_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit:         ; preds = %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i, %20
+_ZN15XSafeDeleteImplI5XPageEclEPS0_.exit:         ; preds = %_ZN15XSafeDeleteImplI5XPageE15deferred_deleteEPS0_.exit.i, %21
   ret void
 }
 

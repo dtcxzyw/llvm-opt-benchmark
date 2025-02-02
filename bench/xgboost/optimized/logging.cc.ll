@@ -1050,32 +1050,32 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           catch ptr null
   br label %47
 
-45:                                               ; preds = %47
-  %46 = landingpad { ptr, i32 }
+.body:                                            ; preds = %47
+  %eh.lpad-body = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %51 unwind label %52
+          to label %52 unwind label %53
 
-47:                                               ; preds = %43, %26
+_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit37: ; preds = %43, %26
   %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %27, %26 ]
   %48 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #21
   %50 = shl nuw nsw i64 %16, 6
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %50) #23
   invoke void @__cxa_rethrow() #26
-          to label %55 unwind label %45
-
-51:                                               ; preds = %45
-  resume { ptr, i32 } %46
+          to label %56 unwind label %45
 
 52:                                               ; preds = %45
-  %53 = landingpad { ptr, i32 }
+  resume { ptr, i32 } %46
+
+53:                                               ; preds = %45
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #22
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #22
   unreachable
 
-55:                                               ; preds = %47
+56:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit37
   unreachable
 }
 

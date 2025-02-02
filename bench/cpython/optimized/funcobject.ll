@@ -4859,8 +4859,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %func_get_annotation_dict.exit
 
 func_get_annotation_dict.exit:                    ; preds = %if.end.i, %if.end.i.i, %if.then1.i.i
-  %.pr = load ptr, ptr %func_annotations, align 8
-  %cmp.not.i.i = icmp eq ptr %.pr, null
+  %9 = load ptr, ptr %func_annotations, align 8
+  %cmp.not.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body.i, %func_get_annotation_dict.exit
