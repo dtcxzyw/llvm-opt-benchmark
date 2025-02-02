@@ -549,11 +549,11 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none)
 
 .loopexit.loopexit:                               ; preds = %90, %73, %50, %42, %46
   %.ph.ph = phi i32 [ -9, %90 ], [ %76, %73 ], [ -22, %50 ], [ -14, %42 ], [ -14, %46 ]
-  %.pre73 = trunc i64 %41 to i32
+  %.pre53 = trunc i64 %41 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %95
-  %.pre-phi = phi i32 [ %.pre73, %.loopexit.loopexit ], [ %60, %95 ]
+  %.pre-phi = phi i32 [ %.pre53, %.loopexit.loopexit ], [ %60, %95 ]
   %.ph = phi i32 [ %.ph.ph, %.loopexit.loopexit ], [ -9, %95 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
   br label %.loopexit35
@@ -1046,19 +1046,19 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %97
+  br i1 %10, label %11, label %95
 
 11:                                               ; preds = %4
   %12 = add i32 %2, -16385
   %13 = icmp ult i32 %12, -16384
-  br i1 %13, label %97, label %14
+  br i1 %13, label %95, label %14
 
 14:                                               ; preds = %11
   store ptr null, ptr %6, align 8, !annotation !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !20
   %15 = call fastcc i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef 1, ptr noundef %3, i32 noundef %2, ptr noundef nonnull %6) #14
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %97
+  br i1 %16, label %17, label %95
 
 17:                                               ; preds = %14
   %18 = shl nuw nsw i32 %2, 3
@@ -1076,9 +1076,9 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %28 = zext nneg i32 %2 to i64
   %29 = getelementptr i8, ptr %0, i64 4
-  br i1 %23, label %.critedge.us, label %.split
+  br i1 %23, label %.thread10.critedge.us, label %.split
 
-.critedge.us:                                     ; preds = %22, %45
+.thread10.critedge.us:                            ; preds = %22, %45
   %30 = phi i64 [ %46, %45 ], [ 0, %22 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %31 = and i64 %30, 511
@@ -1092,7 +1092,7 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %.thread
 
-40:                                               ; preds = %.critedge.us
+40:                                               ; preds = %.thread10.critedge.us
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr ptr, ptr %41, i64 %30
   %43 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %42, ptr noundef nonnull %5)
@@ -1105,15 +1105,15 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %48 = add i32 %47, 1
   store i32 %48, ptr %27, align 4
   %49 = icmp eq i64 %46, %28
-  br i1 %49, label %.thread, label %.critedge.us, !llvm.loop !35
+  br i1 %49, label %.thread, label %.thread10.critedge.us, !llvm.loop !35
 
 50:                                               ; preds = %17
   %51 = load ptr, ptr %6, align 8
   tail call fastcc void @io_rsrc_data_free(ptr noundef %51)
-  br label %97
+  br label %95
 
-.split:                                           ; preds = %22, %84
-  %52 = phi i64 [ %85, %84 ], [ 0, %22 ]
+.split:                                           ; preds = %22, %83
+  %52 = phi i64 [ %84, %83 ], [ 0, %22 ]
   %53 = trunc i64 %52 to i32
   %.val = load i16, ptr %29, align 4
   %54 = call fastcc i32 @io_copy_iov(i16 %.val, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %53)
@@ -1142,61 +1142,61 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %69 = extractvalue { i64, i1 } %68, 1
   br i1 %69, label %.thread, label %thread-pre-split
 
-70:                                               ; preds = %60
-  %71 = and i64 %52, 511
-  %72 = lshr i64 %52, 9
-  %73 = load ptr, ptr %26, align 8
-  %74 = and i64 %72, 8388607
-  %75 = getelementptr ptr, ptr %73, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr i64, ptr %76, i64 %71
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %thread-pre-split, label %.thread
+.thread10:                                        ; preds = %60
+  %70 = and i64 %52, 511
+  %71 = lshr i64 %52, 9
+  %72 = load ptr, ptr %26, align 8
+  %73 = and i64 %71, 8388607
+  %74 = getelementptr ptr, ptr %72, i64 %73
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr i64, ptr %75, i64 %70
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %thread-pre-split, label %.thread
 
-thread-pre-split:                                 ; preds = %65, %70
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr ptr, ptr %80, i64 %52
-  %82 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %81, ptr noundef nonnull %5)
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %.thread
+thread-pre-split:                                 ; preds = %65, %.thread10
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr ptr, ptr %79, i64 %52
+  %81 = call fastcc i32 @io_sqe_buffer_register(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %80, ptr noundef nonnull %5)
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %.thread
 
-84:                                               ; preds = %thread-pre-split
-  %85 = add nuw nsw i64 %52, 1
-  %86 = load i32, ptr %27, align 4
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %27, align 4
-  %88 = icmp eq i64 %85, %28
-  br i1 %88, label %.thread, label %.split, !llvm.loop !35
+83:                                               ; preds = %thread-pre-split
+  %84 = add nuw nsw i64 %52, 1
+  %85 = load i32, ptr %27, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %27, align 4
+  %87 = icmp eq i64 %84, %28
+  br i1 %87, label %.thread, label %.split, !llvm.loop !35
 
-.thread:                                          ; preds = %.split, %70, %thread-pre-split, %84, %60, %62, %65, %.critedge.us, %40, %45
-  %89 = phi i32 [ 0, %45 ], [ %43, %40 ], [ -22, %.critedge.us ], [ -14, %62 ], [ -14, %60 ], [ 0, %84 ], [ %82, %thread-pre-split ], [ -22, %70 ], [ %54, %.split ], [ -75, %65 ]
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %94, label %93, !prof !13
+.thread:                                          ; preds = %.split, %.thread10, %thread-pre-split, %83, %60, %62, %65, %.thread10.critedge.us, %40, %45
+  %.us-phi = phi i32 [ 0, %45 ], [ %43, %40 ], [ -22, %.thread10.critedge.us ], [ -14, %62 ], [ -14, %60 ], [ 0, %84 ], [ %81, %thread-pre-split ], [ -22, %.thread10 ], [ %54, %.split ], [ -75, %65 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %92, label %91, !prof !13
 
-93:                                               ; preds = %.thread
+91:                                               ; preds = %.thread
   call void asm sideeffect "987: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 987) #12, !srcloc !36
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1051, i32 2307, i64 12) #12, !srcloc !37
   call void asm sideeffect "988: nop\0A\09.pushsection .discard.instr_end\0A\09.long 988b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 988) #12, !srcloc !38
-  br label %94
+  br label %92
 
-94:                                               ; preds = %93, %.thread
-  store ptr %25, ptr %90, align 8
-  %95 = icmp eq i32 %89, 0
-  br i1 %95, label %97, label %96
+92:                                               ; preds = %91, %.thread
+  store ptr %25, ptr %88, align 8
+  %93 = icmp eq i32 %.us-phi, 0
+  br i1 %93, label %95, label %94
 
-96:                                               ; preds = %94
+94:                                               ; preds = %92
   call void @__io_sqe_buffers_unregister(ptr noundef %0)
-  br label %97
+  br label %95
 
-97:                                               ; preds = %96, %94, %50, %14, %11, %4
-  %98 = phi i32 [ -12, %50 ], [ -16, %4 ], [ -22, %11 ], [ %15, %14 ], [ %89, %96 ], [ 0, %94 ]
+95:                                               ; preds = %94, %92, %50, %14, %11, %4
+  %96 = phi i32 [ -12, %50 ], [ -16, %4 ], [ -22, %11 ], [ %15, %14 ], [ %.us-phi, %94 ], [ 0, %92 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  ret i32 %98
+  ret i32 %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
