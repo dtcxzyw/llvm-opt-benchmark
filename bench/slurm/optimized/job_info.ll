@@ -2981,14 +2981,10 @@ define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull 
   %72 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   call void @list_iterator_destroy(ptr noundef %20) #19
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph162.preheader, label %._crit_edge163
+  br i1 %73, label %.lr.ph162, label %._crit_edge163
 
-.lr.ph162.preheader:                              ; preds = %.outer._crit_edge
-  %wide.trip.count = and i64 %indvars.iv.next.lcssa.sink, 2147483647
-  br label %.lr.ph162
-
-.lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.thread
-  %indvars.iv202 = phi i64 [ 0, %.lr.ph162.preheader ], [ %indvars.iv.next203, %.thread ]
+.lr.ph162:                                        ; preds = %.outer._crit_edge, %.thread
+  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.thread ], [ 0, %.outer._crit_edge ]
   %74 = load ptr, ptr %10, align 8
   %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv202
   %76 = load i64, ptr %75, align 8
@@ -3011,7 +3007,7 @@ define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull 
 
 .thread:                                          ; preds = %.lr.ph162, %81, %77
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next203, %indvars.iv.next.lcssa.sink
   br i1 %exitcond.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !16
 
 ._crit_edge163:                                   ; preds = %.thread, %.outer._crit_edge.thread, %.outer._crit_edge
@@ -4516,14 +4512,10 @@ define noundef i32 @slurm_load_job_prio(ptr noundef captures(none) %0, i16 nound
   %95 = trunc nuw i64 %indvars.iv.next.lcssa.sink.i to i32
   call void @list_iterator_destroy(ptr noundef %38) #19
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph400.preheader.i, label %._crit_edge401.i
+  br i1 %96, label %.lr.ph400.i, label %._crit_edge401.i
 
-.lr.ph400.preheader.i:                            ; preds = %.outer._crit_edge.i
-  %wide.trip.count.i = and i64 %indvars.iv.next.lcssa.sink.i, 2147483647
-  br label %.lr.ph400.i
-
-.lr.ph400.i:                                      ; preds = %.thread.i, %.lr.ph400.preheader.i
-  %indvars.iv467.i = phi i64 [ 0, %.lr.ph400.preheader.i ], [ %indvars.iv.next468.i, %.thread.i ]
+.lr.ph400.i:                                      ; preds = %.outer._crit_edge.i, %.thread.i
+  %indvars.iv467.i = phi i64 [ %indvars.iv.next468.i, %.thread.i ], [ 0, %.outer._crit_edge.i ]
   %97 = load ptr, ptr %9, align 8
   %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv467.i
   %99 = load i64, ptr %98, align 8
@@ -4546,7 +4538,7 @@ define noundef i32 @slurm_load_job_prio(ptr noundef captures(none) %0, i16 nound
 
 .thread.i:                                        ; preds = %104, %100, %.lr.ph400.i
   %indvars.iv.next468.i = add nuw nsw i64 %indvars.iv467.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next468.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next468.i, %indvars.iv.next.lcssa.sink.i
   br i1 %exitcond.not.i, label %._crit_edge401.i, label %.lr.ph400.i, !llvm.loop !27
 
 ._crit_edge401.i:                                 ; preds = %.thread.i, %.outer._crit_edge.i, %.outer._crit_edge.thread.i

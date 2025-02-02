@@ -305,7 +305,6 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
   %159 = load i32, ptr %158, align 4
   %160 = lshr i32 %159, 27
   %161 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %wide.trip.count = and i64 %indvars.iv, 2147483647
   %.not.i.i94 = icmp ult i32 %159, 134217728
   %wide.trip.count.i.i = zext nneg i32 %160 to i64
   br label %162
@@ -371,7 +370,7 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
 
 Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexit.split.loop.exit13.i.i, %182, %.lr.ph.i93, %162, %168
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next154, %indvars.iv
   br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %148, %Mpm_CutIsContained.exit.thread

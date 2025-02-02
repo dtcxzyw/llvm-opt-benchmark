@@ -80,7 +80,7 @@ define dso_local void @parent_path(ptr noundef captures(none) %0) local_unnamed_
   br i1 %13, label %14, label %5, !llvm.loop !7
 
 14:                                               ; preds = %8
-  %15 = shl i64 %indvars.iv, 32
+  %15 = shl nuw nsw i64 %indvars.iv, 32
   %sext = add nsw i64 %15, -8589934592
   %16 = ashr exact i64 %sext, 32
   br label %.loopexit
@@ -131,7 +131,7 @@ define dso_local void @sema_analyse_pass_module_hierarchy(ptr noundef %0) local_
   br i1 %14, label %parent_path.exit, label %7, !llvm.loop !7
 
 parent_path.exit:                                 ; preds = %10
-  %15 = shl i64 %indvars.iv.i, 32
+  %15 = shl nuw nsw i64 %indvars.iv.i, 32
   %sext.i = add nsw i64 %15, -8589934592
   %16 = ashr exact i64 %sext.i, 32
   %.not = icmp eq i64 %sext.i, 0

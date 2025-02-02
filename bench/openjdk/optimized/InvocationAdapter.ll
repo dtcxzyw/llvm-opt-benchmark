@@ -492,16 +492,12 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %.123.i = phi ptr [ %.02234.i, %7 ], [ %13, %20 ], [ %13, %16 ]
   %23 = trunc nuw i64 %indvars.iv.i.lcssa.sink to i32
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %24, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %splitPathList.exit
-  %wide.trip.count = and i64 %indvars.iv.i.lcssa.sink, 2147483647
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %148
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %148 ]
-  %.022 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %148 ]
-  %.06021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.161, %148 ]
+.lr.ph:                                           ; preds = %splitPathList.exit, %148
+  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %splitPathList.exit ]
+  %.022 = phi ptr [ %.1, %148 ], [ null, %splitPathList.exit ]
+  %.06021 = phi i32 [ %.161, %148 ], [ 0, %splitPathList.exit ]
   %25 = getelementptr inbounds nuw ptr, ptr %.123.i, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @strdup(ptr noundef %26) #15
@@ -801,7 +797,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
   %.161 = phi i32 [ %.06021, %decodePath.exit.thread ], [ %.161.ph, %.sink.split ]
   %.1 = phi ptr [ %.022, %decodePath.exit.thread ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv.i.lcssa.sink
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %148
